@@ -46,6 +46,7 @@ jobs:
           TOOL: ${{ inputs.tool }}
           NOTE_EMAIL: ${{ secrets.NOTE_EMAIL }}
           NOTE_PASSWORD: ${{ secrets.NOTE_PASSWORD }}
+          NOTE_SESSION: ${{ secrets.NOTE_SESSION }}
         run: |
           case "$TOOL" in
             note-intro-draft)   python -m aiedit.cli note-post --file content/note/intro.md ;;

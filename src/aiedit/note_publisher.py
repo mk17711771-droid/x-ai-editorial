@@ -116,18 +116,26 @@ def publish(markdown_text: str, images: dict[str, bytes], hashtags: list[str], d
         page = browser.new_page(viewport={"width": 1280, "height": 900}, locale="ja-JP")
         dbg = _Debug(page)
         try:
-            page.goto(LOGIN_URL, wait_until="domcontentloaded")
-            dbg.snap("login_page")
-            _first(page, ["#email", 'input[name="login"]', 'input[type="email"]', 'input[autocomplete="username"]']).fill(env("NOTE_EMAIL"))
-            _first(page, ["#password", 'input[type="password"]']).fill(env("NOTE_PASSWORD"))
-            _click_text(page, ["ログイン"])
-            page.wait_for_timeout(5000)
-            dbg.snap("after_login")
-            if "login" in page.url:
-                raise NotePublishError("ログインできませんでした（メールアドレス・パスワード、または2段階認証を確認）")
+            session = env("NOTE_SESSION", required=False)
+            if session:
+                # サーバーからのログインはnoteのボット対策（reCAPTCHA）で拒否されるため、
+                # 普段のブラウザでログインしたときのセッションを使う
+                page.context.add_cookies([{"name": "_note_session_v5", "value": session.strip(),
+                                           "domain": ".note.com", "path": "/", "secure": True, "httpOnly": True}])
+            else:
+                page.goto(LOGIN_URL, wait_until="domcontentloaded")
+                _first(page, ["#email", 'input[name="login"]', 'input[type="email"]']).fill(env("NOTE_EMAIL"))
+                _first(page, ["#password", 'input[type="password"]']).fill(env("NOTE_PASSWORD"))
+                _click_text(page, ["ログイン"])
+                page.wait_for_timeout(5000)
+                # ログイン画面は入力内容が写るので画面写真は残さない
+                dbg.snap("after_login", shot=False)
 
             page.goto(NEW_URL, wait_until="domcontentloaded")
             page.wait_for_timeout(5000)
+            if "login" in page.url:
+                raise NotePublishError("noteにログインできていません（セッションの期限切れの可能性）。"
+                                       "ブラウザでnoteにログインし直し、NOTE_SESSION を更新してください")
             dbg.snap("editor_opened")
             _first(page, ['textarea[placeholder*="タイトル"]', 'textarea']).fill(title)
             editor = _first(page, [".ProseMirror"])
