@@ -238,6 +238,17 @@ def _close(draft: dict, status: str, **extra) -> None:
     store.save_draft(draft)
 
 
+STATUS_JA = {
+    "posted": "すでに投稿済みの",
+    "rejected": "却下済みの",
+    "superseded": "新しい投稿案に置き換えられた古い案の",
+    "expired": "承認期限が切れた",
+    "stale": "データが古くなった",
+    "failed": "投稿に失敗した",
+    "skipped": "投稿上限で見送られた",
+}
+
+
 def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
     draft = store.load_draft(draft_id)
     if not draft:
@@ -245,7 +256,8 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
     if draft["status"] != "pending":
         log.info("下書き %s は処理済みです（%s）", draft_id, draft["status"])
         if decided_by == "admin":
-            line.notify(f"この下書きは処理済みです（{draft['status']}）")
+            reason = STATUS_JA.get(draft["status"], draft["status"])
+            line.notify(f"この投稿案は{reason}ため、投稿しませんでした。最新の投稿案のボタンを押してください。")
         return draft["status"]
 
     store.record_decision({"id": draft_id, "action": action, "by": decided_by, "at": now_utc().isoformat(),
