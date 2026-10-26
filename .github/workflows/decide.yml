@@ -18,6 +18,9 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
+        with:
+          # 順番待ちのあいだに他の実行がデータを更新しているため、起動時点ではなく最新のmainを使う
+          ref: main
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -50,4 +53,8 @@ jobs:
           git config user.email "ai-editorial-bot@users.noreply.github.com"
           git add data
           git diff --cached --quiet || git commit -m "data: decide $(date -u +%FT%TZ)"
-          git pull --rebase origin main && git push origin HEAD:main
+          for i in 1 2 3; do
+            git pull --rebase -X theirs origin main && git push origin HEAD:main && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
