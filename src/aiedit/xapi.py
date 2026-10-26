@@ -70,6 +70,9 @@ def post(text: str, reply_to: str | None = None, media_ids: list[str] | None = N
     if r.status_code in (401, 403):
         if "duplicate" in r.text.lower():
             raise XPostError(f"重複投稿として拒否されました: {r.text[:300]}")
+        if r.status_code == 403 and "cashtag" in r.text.lower():
+            # 本文の問題（キャッシュタグの数）。認証の問題ではないので自動運用は止めない
+            raise XPostError(f"本文がXの制限にかかりました: {r.text[:300]}")
         raise XAuthError(f"{r.status_code}: {r.text[:300]}")
     if r.status_code == 429:
         raise XRateLimitError(r.text[:300])

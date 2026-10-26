@@ -306,9 +306,21 @@ def test_long_format_limits(monkeypatch):
     assert any("短すぎ" in e for e in checks.check_text("短い考察", "t", "long"))
 
 
-def test_cashtags_normalized_to_two():
+def test_cashtags_normalized_to_one():
+    # X APIはキャッシュタグが2つ以上の投稿を403で拒否する
     out = checks.normalize_cashtags("$SOXXと$MU、$SKHXの話。$SOXXはまた上昇。価格は$496.27")
-    assert out == "$SOXXとMU、SKHXの話。SOXXはまた上昇。価格は$496.27".replace("$SOXXとMU", "$SOXXと$MU")
+    assert out == "$SOXXとMU、SKHXの話。SOXXはまた上昇。価格は$496.27"
+    assert any("キャッシュタグ" in e for e in checks.check_text("BTCの資金調達率が上がってる。過熱っぽい $BTC $ETH", "t"))
+
+
+def test_cashtag_rejection_does_not_halt(monkeypatch):
+    class R:
+        status_code = 403
+        text = '{"detail":"Posts are limited to a maximum of one cashtag ($SYMBOL)."}'
+    monkeypatch.setattr(xapi.requests, "post", lambda *a, **k: R())
+    monkeypatch.setattr(xapi, "_auth", lambda: None)
+    with pytest.raises(xapi.XPostError):
+        xapi.post("$BTC $ETH")
 
 
 def test_render_fixes_double_dollar():

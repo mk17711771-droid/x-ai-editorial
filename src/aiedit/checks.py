@@ -81,8 +81,8 @@ def render(template: str, facts: dict[str, dict]) -> str:
     return text
 
 
-def normalize_cashtags(text: str, limit: int = 2) -> str:
-    """キャッシュタグ（$NVDA）は最初に出てきた銘柄から最大2種類・各1回だけ残し、それ以外は「$」を外す。"""
+def normalize_cashtags(text: str, limit: int = 1) -> str:
+    """キャッシュタグ（$NVDA）はX APIの制限で1投稿1つまで。最初に出てきた銘柄を1回だけ残し、それ以外は「$」を外す。"""
     kept: list[str] = []
 
     def sub(m: re.Match) -> str:
@@ -134,7 +134,7 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
         errors.append("@メンションが含まれている")
     if HASHTAG.search(text):
         errors.append("ハッシュタグは使わない")
-    if len(CASHTAG.findall(text)) > 2:
+    if len(CASHTAG.findall(text)) > 1:
         errors.append("キャッシュタグが多すぎる")
 
     sim, similar_to = max_similarity(text)
