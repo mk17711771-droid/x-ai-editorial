@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 import requests
 
-from . import checks, collect_hyperliquid, collect_stocks, learn, line, llm, research, store, traders, xapi
+from . import checks, collect_hyperliquid, collect_stocks, learn, line, llm, research, sources, store, traders, xapi
 from .common import JST, log, now_jst, now_utc, settings
 
 
@@ -101,6 +101,9 @@ def run_editor(slot: dict, facts: list[dict]) -> list[dict]:
     watch = research.watch_summary()
     if watch:
         user += f"\n\n# 直近24時間の定点観測（流れの把握用。投稿の数字には使わない）\n{watch}"
+    news = sources.news_digest()
+    if news:
+        user += f"\n\n# いま話題のニュース見出し（切り口の参考。見出しの数字・事実は投稿に使わない）\n{news}"
     out = llm.generate_json(with_playbook(llm.prompt("editor")), user)
     ids = {f["id"] for f in facts}
     cands = []
@@ -329,6 +332,9 @@ def _attach_chart(draft: dict) -> list[str] | None:
     """チャート画像を作ってアップロードする。失敗しても投稿は止めず、画像なしで投稿する。"""
     if not settings().get("images", {}).get("enabled", True):
         return None
+    from .improve import image_prefs
+    if not image_prefs().get(draft.get("format", "short"), True):
+        return None  # 改善会議で「この形式は画像なし」と決めたとき
     try:
         from . import charts
         png = charts.build_for_draft(draft, store.read_json(f"facts/{draft['slot_key']}.json", []))

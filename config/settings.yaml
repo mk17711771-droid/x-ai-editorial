@@ -96,3 +96,31 @@ llm:
     - gemini-3-flash
     - gemini-2.5-flash
   temperature: 0.7
+
+note:
+  urlname: charisma_hl
+  # これ以降に公開された記事を確認する（それより前の記事は対象外）
+  check_since: "2026-10-27T00:00:00+09:00"
+
+# 投稿していない時間の外部リサーチ（流れ・型の参考。投稿の数字には使わない）
+research:
+  news_queries:                  # Google ニュース（無料・毎日）
+    - Hyperliquid
+    - 仮想通貨 デリバティブ
+    - 米国株 半導体
+    - エヌビディア 決算
+    - FOMC 米国株
+  note_queries:                  # noteの人気記事（無料・毎日）
+    - Hyperliquid
+    - 米国株 分析
+    - 仮想通貨 トレード
+    - 半導体株
+  x:                             # Xの同ジャンルの伸びた投稿（有料: 1件約0.75円。毎週）
+    enabled: true
+    monthly_read_limit: 400      # 月の上限（約300円）
+    per_query: 30
+    queries:
+      - "(Hyperliquid OR ハイパーリキッド OR HIP-3) lang:ja -is:retweet -is:reply"
+      - "(米国株 OR 半導体株) (資金 OR 建玉 OR 決算) lang:ja -is:retweet -is:reply has:media"
+      - "(Hyperliquid OR HYPE) (whale OR funding OR \"open interest\") lang:en -is:retweet -is:reply has:media"
+    accounts: []                 # 参考にしたいアカウント（例: satoshikun_666 は自分なので入れない）

@@ -6,6 +6,9 @@
   python -m aiedit.cli notify --message "..."
   python -m aiedit.cli research                 # 市場の定点観測と、自分の投稿の反応の計測
   python -m aiedit.cli learn [--weekly-report]  # 成果を分析して運用ノートを更新
+  python -m aiedit.cli note-check              # 公開されたnote記事の確認（間違いがあればLINE）
+  python -m aiedit.cli sources [--daily] [--weekly]  # 外部リサーチ（ニュース・note・X）
+  python -m aiedit.cli improve                 # 改善会議（日曜は週次、月の最初の日曜は月次）
   python -m aiedit.cli preview --kind stock|hl   # 材料収集だけ試す（投稿しない）
 """
 from __future__ import annotations
@@ -15,7 +18,7 @@ import json
 import sys
 import traceback
 
-from . import learn, line, note, pipeline, research, store
+from . import improve, learn, line, note, note_check, pipeline, research, sources, store
 from .common import JST, now_utc, setup_logging
 
 
@@ -41,6 +44,12 @@ def main(argv: list[str] | None = None) -> int:
     na.add_argument("--urlname", default="charisma_hl")
     nart = sub.add_parser("note-article")
     nart.add_argument("--theme", default=None)
+    sub.add_parser("note-check")
+    sp = sub.add_parser("sources")
+    sp.add_argument("--daily", action="store_true")
+    sp.add_argument("--weekly", action="store_true")
+    ip = sub.add_parser("improve")
+    ip.add_argument("--kind", choices=["auto", "weekly", "monthly"], default="auto")
     p = sub.add_parser("preview")
     p.add_argument("--kind", choices=["stock", "hl"], default="hl")
     args = ap.parse_args(argv)
@@ -70,6 +79,19 @@ def main(argv: list[str] | None = None) -> int:
             from . import note_article
             meta = note_article.write(args.theme)
             print(json.dumps(meta, ensure_ascii=False, indent=2) if meta else "記事を作れませんでした")
+        elif args.cmd == "note-check":
+            res = note_check.run()
+            print(json.dumps(res, ensure_ascii=False, indent=2) if res else "新しく公開された記事はありません")
+        elif args.cmd == "sources":
+            print(sources.run(daily=args.daily, weekly=args.weekly))
+        elif args.cmd == "improve":
+            today = now_utc().astimezone(JST)
+            if args.kind == "auto" and today.weekday() != 6:
+                print("改善会議は日曜に行います")
+            else:
+                monthly = args.kind == "monthly" or (args.kind == "auto" and today.day <= 7)
+                rec = improve.run(monthly=monthly)
+                print(json.dumps({k: rec.get(k) for k in ("kind", "decisions", "actions")}, ensure_ascii=False, indent=2))
         elif args.cmd == "preview":
             for f in pipeline.collect(args.kind):
                 print(json.dumps({"id": f["id"], "category": f["category"], "summary": f["summary"]}, ensure_ascii=False))

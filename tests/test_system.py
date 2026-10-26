@@ -481,3 +481,89 @@ def test_hedged_shorts_are_not_counted_as_bearish():
     hype = next(c for c in agg["coins"] if c["coin"] == "HYPE")
     eth = next(c for c in agg["coins"] if c["coin"] == "ETH")
     assert hype["hedge_n"] == 1 and hype["short_n"] == 0 and eth["short_n"] == 1
+
+
+# ---------------------------------------------------------------- note公開後の確認・改善会議・外部リサーチ
+
+def _gen_article(article_id="20261027-0739"):
+    store.write_json(f"note_articles/{article_id}/meta.json", {
+        "id": article_id, "created_at": "2026-10-26T22:39:00+00:00", "title": "上位トレーダーはHYPEを売っている？",
+        "images": [{"file": "image1.png", "label": "上位トレーダーの保有"}], "status": "ready"})
+    store.write_text(f"note_articles/{article_id}/article.md",
+                     "# 上位トレーダーはHYPEを売っている？\n\n安定上位トレーダー29人のうち、売りは15人です。\n\n"
+                     "## いま何が起きているか\n資金調達率は+62.3%まで上がりました。" + "解説の文章です。" * 40 +
+                     "\n\n---\n\n※上位トレーダーの数字は、公開データから算出した過去の成績です。")
+
+
+def test_note_check_finds_paste_mistakes_and_notifies(monkeypatch, isolated):
+    from aiedit import note_check
+    _gen_article()
+    monkeypatch.setattr(llm, "generate_json", lambda s, u: {"issues": []})
+    monkeypatch.setattr(note_check, "published_list", lambda u: [
+        {"key": "nabc", "name": "上位トレーダーはHYPEを売っている？", "publishAt": "2026-10-27T08:00:00+09:00", "likeCount": 3},
+        {"key": "nold", "name": "昔の記事", "publishAt": "2024-05-01T08:00:00+09:00", "likeCount": 9},
+    ])
+    body = ("<p>安定上位トレーダー29人のうち、売りは16人です。</p><h2>いま何が起きているか</h2>"
+            "<p>資金調達率は+62.3%まで上がりました。" + "解説の文章です。" * 40 + "</p>"
+            "<p>**▼ここに画像1（上位トレーダーの保有）を挿入**</p>"
+            "<p>※上位トレーダーの数字は、公開データから算出した過去の成績です。"
+            "特定の銘柄の売買を勧めるものではありません。</p>")
+    monkeypatch.setattr(note_check, "fetch_body", lambda k: {"name": "上位トレーダーはHYPEを売っている？", "body": body})
+    res = note_check.run()
+    assert [r["key"] for r in res] == ["nabc"]  # 確認開始日より前の記事は対象外
+    issues = "\n".join(res[0]["issues"])
+    assert "▼ここに画像" in issues and "太字の記号" in issues
+    assert "画像が1枚の予定のところ0枚" in issues
+    assert "16" in issues and "15" in issues  # 数字の食い違い
+    assert isolated and "直したほうがよい点" in json.dumps(isolated, ensure_ascii=False)
+    assert store.read_json("note_articles/20261027-0739/meta.json")["status"] == "published"
+    # 2回目は同じ記事を確認しない
+    assert note_check.run() == []
+
+
+def test_note_check_silent_when_clean(monkeypatch, isolated):
+    from aiedit import note_check
+    _gen_article()
+    monkeypatch.setattr(llm, "generate_json", lambda s, u: {"issues": []})
+    monkeypatch.setattr(note_check, "published_list", lambda u: [
+        {"key": "nok", "name": "上位トレーダーはHYPEを売っている？", "publishAt": "2026-10-27T08:00:00+09:00"}])
+    body = ("<p>安定上位トレーダー29人のうち、売りは15人です。</p><h2>いま何が起きているか</h2>"
+            "<p>資金調達率は+62.3%まで上がりました。" + "解説の文章です。" * 40 + "</p><figure><img src='x'></figure>"
+            "<p>※上位トレーダーの数字は、公開データから算出した過去の成績です。特定の銘柄の売買を勧めるものではありません。</p>")
+    monkeypatch.setattr(note_check, "fetch_body", lambda k: {"body": body})
+    res = note_check.run()
+    assert res[0]["issues"] == [] and isolated == []
+
+
+def test_improve_meeting_updates_strategy_and_ledger(monkeypatch):
+    from aiedit import improve, learn
+    monkeypatch.setattr(llm, "generate_json", lambda s, u: {
+        "role_reviews": {"編集長": "…"}, "evaluations": [], "decisions": "…",
+        "actions": [{"owner": "投稿制作", "change": "長文の冒頭に一番大きな数字の異変を置く", "hypothesis": "…", "metric": "表示回数"},
+                    {"owner": "社長", "change": "担当外は捨てる"}],
+        "strategy": ["長文の冒頭1行目に異変を置く"], "note_strategy": ["見出しは問いかけにする"],
+        "image_prefs": {"short": False, "evil": True}, "dev_backlog": ["図に前週比の矢印を足す"]})
+    rec = improve.run(monthly=False)
+    ledger = store.read_json("improvements.json")
+    assert [a["id"] for a in ledger] == ["I001"] and ledger[0]["owner"] == "投稿制作"
+    assert "異変を置く" in learn.playbook_text()  # 編集・執筆AIが毎回読む
+    assert improve.image_prefs() == {"short": False, "long": True}
+    assert "前週比の矢印" in store.read_text("improve/backlog.md")
+    assert rec["kind"] == "weekly"
+    # 2回目の会議で評価され、台帳が更新される
+    monkeypatch.setattr(llm, "generate_json", lambda s, u: {
+        "evaluations": [{"id": "I001", "verdict": "定着", "reason": "表示回数が増えた"}], "actions": []})
+    improve.run(monthly=True)
+    assert store.read_json("improvements.json")[0]["status"] == "定着"
+
+
+def test_x_research_respects_monthly_budget(monkeypatch):
+    from aiedit import sources
+    calls = []
+    monkeypatch.setattr(xapi, "search_recent", lambda q, n: calls.append(n) or (
+        [{"id": "1", "text": "t", "author_id": "u", "public_metrics": {"like_count": 5}}] * n, {"u": {"username": "a"}}))
+    monkeypatch.setattr(sources, "_cfg", lambda: {"x": {"enabled": True, "monthly_read_limit": 50, "per_query": 30,
+                                                        "queries": ["a", "b", "c"], "accounts": []}})
+    sources.x_search()
+    assert calls == [30, 20]  # 上限50件を超えて読まない
+    assert sources.x_search() == []

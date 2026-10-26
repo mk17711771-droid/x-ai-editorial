@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 
 import markdown as md
 
-from . import charts, checks, collect_hyperliquid, collect_stocks, learn, line, llm, research, store, traders
+from . import charts, checks, improve, collect_hyperliquid, collect_stocks, learn, line, llm, research, store, traders
 from .common import JST, env, log, now_utc, settings
 
 CHART = re.compile(r"!\[([^\]]*)\]\((chart:[^)\s]+)\)")
@@ -159,7 +159,8 @@ def write(theme: str | None = None) -> dict | None:
 
 
 def pipeline_playbook(prompt: str) -> str:
-    notes = learn.playbook_text()
+    notes = learn.playbook_text() + "\n" + improve.note_strategy_text()
+    notes = notes.strip()
     return prompt + ("\n\n# 運用ノート（Xの反応から学んだこと。記事にも応用する）\n" + notes if notes else "")
 
 

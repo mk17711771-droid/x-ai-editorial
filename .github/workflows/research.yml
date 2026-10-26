@@ -2,7 +2,9 @@ name: research-and-learn
 
 # 投稿していない時間のリサーチと学習
 #   2時間ごと: 市場の定点観測 + 自分の投稿の反応（24時間後・7日後）とフォロワー数の計測
-#   毎朝5:23（日本時間）: 成果を分析して運用ノートを更新（日曜は週間レポートをLINEに送る）
+#   2時間ごと: noteに公開された記事の確認（間違いがあればLINE）
+#   毎朝5:23（日本時間）: 外部リサーチ（ニュース・note、日曜はXも）→ 運用ノートを更新
+#                        → 日曜は週次改善会議（月の最初の日曜は月次の大型会議）
 on:
   schedule:
     - cron: "37 */2 * * *"
@@ -50,8 +52,11 @@ jobs:
         run: |
           python -m aiedit.cli research
           if [ "${{ github.event.schedule }}" = "23 20 * * *" ] || [ "${{ inputs.learn }}" = "true" ]; then
+            python -m aiedit.cli sources --daily $( [ "$(TZ=Asia/Tokyo date +%u)" = "7" ] && echo --weekly ) || true
             python -m aiedit.cli learn
+            python -m aiedit.cli improve || true
           fi
+          python -m aiedit.cli note-check || true
       - name: Save data
         if: always()
         run: |

@@ -93,13 +93,10 @@ def _weekly_text(report: dict, out: dict) -> str:
         lines.append("\n🏆 よく読まれた投稿")
         for r in report["top5"][:3]:
             lines.append(f"・{r['impressions']}表示｜{r['text'][:40]}…")
-    if out.get("hypotheses"):
-        lines.append("\n💡 改善の仮説")
-        lines += [f"{i}. {h}" for i, h in enumerate(out["hypotheses"][:3], 1)]
-    if out.get("next_week"):
-        lines.append(f"\n🗓 来週の方針\n{out['next_week']}")
     return "\n".join(lines)
 
 
 def playbook_text() -> str:
-    return store.read_text("playbook.md", "")
+    """毎日の運用ノートと、改善会議で決めた今週の方針。"""
+    parts = [store.read_text("playbook.md", ""), store.read_text("strategy.md", "")]
+    return "\n".join(p for p in parts if p)

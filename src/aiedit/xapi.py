@@ -108,3 +108,18 @@ def me() -> dict:
     if r.status_code >= 400:
         raise XPostError(f"アカウント情報の取得 {r.status_code}: {r.text[:300]}")
     return r.json()["data"]
+
+
+def search_recent(query: str, max_results: int = 30) -> tuple[list[dict], dict]:
+    """直近7日の投稿を検索する（同ジャンルのリサーチ用。読んだ件数ぶん課金される）。"""
+    params = {
+        "query": query, "max_results": max(10, min(max_results, 100)), "sort_order": "relevancy",
+        "tweet.fields": "public_metrics,created_at,author_id,attachments",
+        "expansions": "author_id", "user.fields": "username,public_metrics",
+    }
+    r = requests.get(f"{API}/tweets/search/recent", params=params, auth=_auth(), timeout=30)
+    if r.status_code >= 400:
+        raise XPostError(f"検索 {r.status_code}: {r.text[:300]}")
+    body = r.json()
+    users = {u["id"]: u for u in body.get("includes", {}).get("users", [])}
+    return body.get("data", []), users
