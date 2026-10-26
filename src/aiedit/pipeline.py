@@ -46,6 +46,11 @@ def pick_slot(slot_id: str = "auto") -> dict | None:
     return best[1] if best else None
 
 
+def slot_format(slot: dict) -> str:
+    """長文は X Premium のときだけ。それ以外は短文にする。"""
+    return "long" if slot.get("format") == "long" and settings()["account"]["premium"] else "short"
+
+
 def slot_key(slot: dict) -> str:
     return f"{now_jst():%Y%m%d}-{slot['id']}"
 
@@ -79,7 +84,9 @@ def _facts_for_llm(facts: list[dict], with_fields: bool) -> str:
 
 def run_editor(slot: dict, facts: list[dict]) -> list[dict]:
     recent = [p.get("topic_key") for p in store.recent_posts(72)]
-    user = (f"# 今回の投稿枠\n{slot['time']} {slot['theme']}\n\n"
+    form = ("長文の考察投稿。複数の材料（目安3〜8個）を組み合わせて、背景と「歪み」を深く解説できる切り口を選ぶ。"
+            if slot_format(slot) == "long" else "短文の投稿。1つの異変を一言で伝えられる切り口を選ぶ。")
+    user = (f"# 今回の投稿枠\n{slot['time']} {slot['theme']}\n\n# 投稿の形式\n{form}\n\n"
             f"# 直近72時間の投稿トピック (recent_topics)\n{json.dumps(recent, ensure_ascii=False)}\n\n"
             f"# 材料 (facts)\n{_facts_for_llm(facts, with_fields=False)}")
     out = llm.generate_json(llm.prompt("editor"), user)
@@ -101,8 +108,10 @@ def run_editor(slot: dict, facts: list[dict]) -> list[dict]:
 
 def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | None:
     """原稿を3案作らせ、チェックを通過した中で最良の1案を返す。"""
-    min_chars, max_chars, _ = checks.length_limits()
-    system = llm.prompt("writer").replace("{min_chars}", str(min_chars)).replace("{max_chars}", str(max_chars))
+    fmt = slot_format(slot)
+    min_chars, max_chars, _ = checks.length_limits(fmt)
+    system = (llm.prompt("writer_long" if fmt == "long" else "writer")
+              .replace("{min_chars}", str(min_chars)).replace("{max_chars}", str(max_chars)))
     used = [facts_by_id[i] for i in cand["fact_ids"]]
     user = (f"# 投稿枠\n{slot['theme']}\n\n# 編集長の切り口\n{cand.get('angle', '')}\n\n"
             f"# 材料（この差し込み記号だけ使える）\n{_facts_for_llm(used, with_fields=True)}\n\n"
@@ -125,11 +134,12 @@ def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | N
             log.info("案%d（%s）を破棄: %s", idx, v.get("style"), errors)
             continue
         text = checks.render(tmpl, usable)
-        errors = checks.check_text(text, topic_key)
+        errors = checks.check_text(text, topic_key, fmt)
         if errors:
             log.info("案%d（%s）を破棄: %s", idx, v.get("style"), errors)
             continue
-        return {"template": tmpl, "text": text, "style": v.get("style", ""), "topic_key": topic_key, "facts": used}
+        return {"template": tmpl, "text": text, "style": v.get("style", ""), "topic_key": topic_key, "facts": used,
+                "format": fmt}
     return None
 
 
@@ -180,6 +190,7 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
             "text": w["text"],
             "template": w["template"],
             "style": w["style"],
+            "format": w["format"],
             "topic_key": w["topic_key"],
             "angle": cand.get("angle", ""),
             "scores": cand["scores"],
@@ -279,7 +290,7 @@ def refresh_draft(draft: dict) -> dict | None:
     if checks.check_template(draft["template"], by_id):
         return None
     text = checks.render(draft["template"], by_id)
-    if checks.check_text(text, draft["topic_key"]):
+    if checks.check_text(text, draft["topic_key"], draft.get("format", "short")):
         return None
     seq = 1
     while store.load_draft(f"{draft['slot_key']}-{seq}"):
@@ -297,6 +308,24 @@ def refresh_draft(draft: dict) -> dict | None:
     })
     store.save_draft(new)
     return new
+
+
+def _attach_chart(draft: dict) -> list[str] | None:
+    """チャート画像を作ってアップロードする。失敗しても投稿は止めず、画像なしで投稿する。"""
+    if not settings().get("images", {}).get("enabled", True):
+        return None
+    try:
+        from . import charts
+        png = charts.build_for_draft(draft, store.read_json(f"facts/{draft['slot_key']}.json", []))
+        if not png:
+            return None
+        media_id = xapi.upload_image(png)
+        draft["has_image"] = True
+        return [media_id]
+    except Exception as e:  # noqa: BLE001 画像は付加価値なので、どんな失敗でも本文の投稿を優先する
+        log.warning("チャート画像を付けられませんでした: %s", e)
+        draft["image_error"] = str(e)[:300]
+        return None
 
 
 def _close(draft: dict, status: str, **extra) -> None:
@@ -354,7 +383,7 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
         line.notify("同じ枠ですでに投稿済みのため、この下書きは投稿しませんでした。")
         return "superseded"
 
-    text_problems = checks.check_text(draft["text"], draft["topic_key"])
+    text_problems = checks.check_text(draft["text"], draft["topic_key"], draft.get("format", "short"))
     problems = text_problems + _recheck(draft)
     if problems:
         fresh = None if text_problems else refresh_draft(draft)
@@ -373,8 +402,9 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
                     + "\n\n値動きで投稿の切り口が成り立たなくなったため、作り直しも見送りました。")
         return "stale"
 
+    media_ids = _attach_chart(draft)
     try:
-        tweet_id = xapi.post(draft["text"])
+        tweet_id = xapi.post(draft["text"], media_ids=media_ids)
     except xapi.XAuthError as e:
         store.halt(f"X API認証・権限エラー: {e}")
         _close(draft, "failed", error=str(e))
@@ -398,6 +428,8 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
         "total": draft["total"],
         "kind": draft["facts"][0]["kind"],
         "length": len(draft["text"]),
+        "format": draft.get("format", "short"),
+        "has_image": bool(draft.get("has_image")),
         "decided_by": decided_by,
     })
     _close(draft, "posted", tweet_id=tweet_id, posted_at=posted_at.isoformat())

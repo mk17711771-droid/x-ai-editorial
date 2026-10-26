@@ -33,6 +33,10 @@ def notify(text: str) -> bool:
     return push([{"type": "text", "text": text[:4900]}])
 
 
+def _preview(text: str, limit: int = 900) -> str:
+    return text if len(text) <= limit else text[:limit] + "…（続きはXで）"
+
+
 def _bubble(draft: dict) -> dict:
     sc = draft["scores"]
     flags = []
@@ -59,7 +63,7 @@ def _bubble(draft: dict) -> dict:
             "spacing": "md",
             "contents": [
                 {"type": "text", "text": draft["slot_theme"], "size": "xs", "color": "#888888", "wrap": True},
-                {"type": "text", "text": draft["text"], "size": "sm", "wrap": True},
+                {"type": "text", "text": _preview(draft["text"]), "size": "sm", "wrap": True},
                 {"type": "separator"},
                 {"type": "text", "text": meta, "size": "xxs", "color": "#888888", "wrap": True},
                 {"type": "text", "text": f"出典: {sources}", "size": "xxs", "color": "#888888", "wrap": True},
@@ -113,7 +117,7 @@ def send_posted_notice(draft: dict, tweet_id: str) -> bool:
                 "spacing": "md",
                 "contents": [
                     {"type": "text", "text": f"✅ 自動で投稿しました（{draft['total']}点）", "size": "xs", "color": "#888888"},
-                    {"type": "text", "text": draft["text"], "size": "sm", "wrap": True},
+                    {"type": "text", "text": _preview(draft["text"]), "size": "sm", "wrap": True},
                 ],
             },
             "footer": {

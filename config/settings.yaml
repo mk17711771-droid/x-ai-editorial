@@ -3,8 +3,8 @@
 
 account:
   handle: satoshikun_666
-  # X Premium加入時は true（長文投稿が可能になる）
-  premium: false
+  # X Premium加入時は true（長文の考察投稿が有効になる）
+  premium: true
 
 # 運用モード
 #   approval: LINEで承認したものだけ投稿（初期2週間はこちら）
@@ -15,12 +15,13 @@ mode: approval
 # 投稿枠
 #   kind: stock = 米国株 / hl = Hyperliquid
 #   days: weekday = 平日のみ / weekend = 土日のみ / all = 毎日
+#   format: long = 長文の考察投稿（X Premiumのみ。指定なしは短文）
 slots:
   - { id: "0730", time: "07:30", kind: stock, days: weekday, theme: "米国市場の引け後まとめ・注目銘柄" }
   - { id: "1000", time: "10:00", kind: hl,    days: all,     theme: "Hyperliquidの24時間の異変（建玉・資金調達率・急変動）" }
   - { id: "1215", time: "12:15", kind: stock, days: weekday, theme: "市場の異変の解説" }
-  - { id: "2030", time: "20:30", kind: stock, days: weekday, theme: "深掘り・今夜〜翌日の注目点（決算予定など）" }
-  - { id: "2030w", time: "20:30", kind: hl,   days: weekend, theme: "Hyperliquidの週間まとめ・資金の流れ" }
+  - { id: "2030", time: "20:30", kind: stock, days: weekday, format: long, theme: "考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点" }
+  - { id: "2030w", time: "20:30", kind: hl,   days: weekend, format: long, theme: "週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント" }
   - { id: "2300", time: "23:00", kind: hl,    days: weekday, theme: "米国市場オープン前後のHyperliquid（株式先物・暗号資産）" }
 
 # GitHub Actionsの定時実行は遅延することがあるため、枠の時刻から何分後まで生成を許可するか
@@ -76,6 +77,10 @@ hyperliquid:
   big_move_pct: 8.0
   funding_extreme_annual_pct: 50.0
   include_hip3: true             # HIP-3（株式先物など）の市場も対象にする
+
+images:
+  # 実データから作ったチャート画像を投稿に付ける
+  enabled: true
 
 llm:
   # Google AI Studio で利用可能なモデル名。GitHubのリポジトリ変数 GEMINI_MODEL で上書き可能

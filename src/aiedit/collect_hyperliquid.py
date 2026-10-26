@@ -248,6 +248,14 @@ def collect() -> list[dict]:
     return facts
 
 
+def candles(coin: str, start: datetime, end: datetime, interval: str = "1h") -> list[dict]:
+    """チャート用のローソク足。"""
+    return _info({"type": "candleSnapshot", "req": {
+        "coin": coin, "interval": interval,
+        "startTime": int(start.timestamp() * 1000), "endTime": int(end.timestamp() * 1000),
+    }})
+
+
 def refresh_market(ref: dict) -> dict | None:
     """投稿直前の再確認用: 指定銘柄の最新の市場データを返す。"""
     body = {"type": "metaAndAssetCtxs"}

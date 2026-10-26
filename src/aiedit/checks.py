@@ -28,11 +28,12 @@ def weighted_length(text: str) -> int:
     return total
 
 
-def length_limits() -> tuple[int, int, int]:
+def length_limits(fmt: str = "short") -> tuple[int, int, int]:
     """(最小文字数, 目安の最大文字数, 重み付き上限)"""
-    if settings()["account"]["premium"]:
-        return 60, 220, 25000
-    # 無料アカウントは重み付き280まで = 日本語でおよそ140文字
+    if fmt == "long" and settings()["account"]["premium"]:
+        # X Premiumの長文投稿（上限25,000）。読み切れる長さに抑える
+        return 450, 1400, 25000
+    # 短文はタイムラインで全文が見える長さ（重み付き280 = 日本語でおよそ140文字）
     return 60, 135, 280
 
 
@@ -66,10 +67,10 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     return errors
 
 
-def check_text(text: str, topic_key: str) -> list[str]:
+def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     errors = []
     cfg = settings()["limits"]
-    min_chars, _, max_weighted = length_limits()
+    min_chars, _, max_weighted = length_limits(fmt)
 
     if len(text) < min_chars:
         errors.append(f"短すぎる（{len(text)}文字）")

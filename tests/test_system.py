@@ -105,9 +105,14 @@ def wired(monkeypatch):
     monkeypatch.setattr(collect_hyperliquid, "fetch_markets", lambda: [dict(m) for m in MARKETS])
     monkeypatch.setattr(llm, "generate_json", fake_llm)
     posted = []
-    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None: posted.append(text) or "999")
+    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None, media_ids=None: posted.append(text) or "999")
     monkeypatch.setattr(collect_hyperliquid, "refresh_change_pct", lambda ref: 4.3)
+    monkeypatch.setattr(collect_hyperliquid, "candles", lambda coin, start, end, interval="1h": FAKE_CANDLES)
+    monkeypatch.setattr(xapi, "upload_image", lambda png: "m1")
     return posted
+
+
+FAKE_CANDLES = [{"t": 1793000000000 + i * 3600_000, "c": str(100000 + i * 50), "v": "120"} for i in range(168)]
 
 
 def test_generate_creates_safe_draft_and_asks_approval(wired, isolated):
@@ -159,7 +164,7 @@ def test_kill_switch_and_auth_error_halt(wired, isolated, monkeypatch):
 
     def boom(text, reply_to=None):
         raise xapi.XAuthError("401 Unauthorized")
-    monkeypatch.setattr(xapi, "post", boom)
+    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None, media_ids=None: boom(text))
     with pytest.raises(xapi.XAuthError):
         pipeline.publish(d["id"], "approve")
     assert store.state()["halted"] is True
@@ -261,3 +266,40 @@ def test_auto_mode_notifies_and_delete_removes_post(wired, isolated, monkeypatch
     assert deleted == ["999"] and store.load_draft(d["id"])["status"] == "deleted"
     assert pipeline.publish(d["id"], "delete") == "deleted"  # 二重に押しても再削除しない
     assert deleted == ["999"]
+
+
+
+def test_post_includes_chart_image(wired, isolated, monkeypatch):
+    sent = {}
+    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None, media_ids=None: sent.update(media=media_ids) or "999")
+    uploads = []
+    monkeypatch.setattr(xapi, "upload_image", lambda png: uploads.append(png) or "m1")
+    d = pipeline.generate()[0]
+    assert pipeline.publish(d["id"], "approve") == "posted"
+    assert sent["media"] == ["m1"] and uploads[0][:8] == b"\x89PNG\r\n\x1a\n"
+    assert store.posts()[-1]["has_image"] is True
+
+
+def test_chart_failure_still_posts_text(wired, isolated, monkeypatch):
+    def broken(png):
+        raise xapi.XPostError("media 403")
+    monkeypatch.setattr(xapi, "upload_image", broken)
+    d = pipeline.generate()[0]
+    assert pipeline.publish(d["id"], "approve") == "posted"
+    assert store.state().get("halted") is not True  # 画像の失敗では止めない
+    assert store.posts()[-1]["has_image"] is False
+
+
+def test_stock_chart_renders():
+    from aiedit import charts
+    facts = [{"kind": "stock", "category": "quote", "fields": {"symbol": s, "asof": "米国10/26終値"},
+              "raw": {"change_pct": c}, "asof": "2026-10-26T21:00:00+00:00"}
+             for s, c in (("NVDA", 3.2), ("AMD", -1.4), ("TSM", 0.6))]
+    assert charts.stock_change_chart(facts, highlight={"NVDA"})[:4] == b"\x89PNG"
+
+
+def test_long_format_limits(monkeypatch):
+    text = "【何が起きてるか】" + "HyperliquidのHIP-3株式先物で資金調達率が大きく偏っている。" * 12
+    assert checks.check_text(text, "t", "long") == []
+    assert any("上限" in e for e in checks.check_text(text, "t", "short"))
+    assert any("短すぎ" in e for e in checks.check_text("短い考察", "t", "long"))

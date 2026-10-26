@@ -30,7 +30,23 @@ def _auth() -> OAuth1:
     )
 
 
-def post(text: str, reply_to: str | None = None) -> str:
+def upload_image(png: bytes) -> str:
+    """画像をアップロードして media_id を返す。"""
+    r = requests.post(
+        f"{API}/media/upload",
+        files={"media": ("chart.png", png, "image/png")},
+        data={"media_category": "tweet_image", "media_type": "image/png"},
+        auth=_auth(),
+        timeout=60,
+    )
+    if r.status_code >= 400:
+        # 画像の失敗では自動運用を止めない（本文だけで投稿する）
+        raise XPostError(f"画像アップロード {r.status_code}: {r.text[:300]}")
+    data = r.json().get("data", r.json())
+    return str(data.get("id") or data.get("media_id_string") or data["media_id"])
+
+
+def post(text: str, reply_to: str | None = None, media_ids: list[str] | None = None) -> str:
     """投稿してIDを返す。
 
     重複投稿を防ぐため、リクエスト送信後の失敗（タイムアウトなど）では再試行しない。
@@ -39,6 +55,8 @@ def post(text: str, reply_to: str | None = None) -> str:
     body: dict = {"text": text}
     if reply_to:
         body["reply"] = {"in_reply_to_tweet_id": reply_to}
+    if media_ids:
+        body["media"] = {"media_ids": media_ids}
     for attempt in range(2):
         try:
             r = requests.post(f"{API}/tweets", json=body, auth=_auth(), timeout=30)
