@@ -1,8 +1,10 @@
 {
-  "halted": false,
-  "halt_reason": "",
+  "halted": true,
+  "halt_reason": "X API認証・権限エラー: 403: {\"detail\":\"Posts are limited to a maximum of one cashtag ($SYMBOL). Please remove additional cashtags and try again.\",\"status\":403,\"title\":\"Authorization Error\",\"type\":\"https://api.x.com/2/problems/not-authorized-for-resource\"}",
   "generated_slots": [
     "20261027-1000",
-    "20261027-1000"
-  ]
+    "20261027-1000",
+    "20261027-0730"
+  ],
+  "halted_at": "2026-10-26T23:06:00.269259+00:00"
 }

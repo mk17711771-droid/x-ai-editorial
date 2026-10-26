@@ -1,0 +1,183 @@
+{
+  "id": "20261027-0730-1",
+  "slot_key": "20261027-0730",
+  "slot_theme": "07:42 米国市場の引け後まとめ・注目銘柄",
+  "status": "failed",
+  "created_at": "2026-10-26T23:05:57.626344+00:00",
+  "text": "半導体セクターの強さがオン・オフチェーン両方で出てるな。\n\n$SOXXが米国10/26終値で+2.85%と堅調だし、$ARMが+6.19%、INTCも+4.04%で買われてる。\n\nHyperliquidのHIP-3株式先物のSKHXも資金調達率+61.7%で、セクター全体への資金流入がかなり意識されてるっぽい👀",
+  "template": "半導体セクターの強さがオン・オフチェーン両方で出てるな。\n\n${{f3.symbol}}が{{f3.asof}}で{{f3.change_pct}}と堅調だし、${{f10.symbol}}が{{f10.change_pct}}、${{f11.symbol}}も{{f11.change_pct}}で買われてる。\n\nHyperliquidのHIP-3株式先物のSKHXも資金調達率{{f47.funding_annual}}で、セクター全体への資金流入がかなり意識されてるっぽい👀",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:SOXX:quote",
+  "angle": "米国株引け：SOXXが+2.85%と堅調、個別ではARM(+6.19%)やINTC(+4.04%)が大きく買われる展開。HyperliquidのHIP-3市場でもSKHXが資金調達率+61.7%と高水準を維持しており、半導体セクター全体の強い資金流入がオン・オフチェーン双方で意識されています。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f3",
+    "f10",
+    "f11",
+    "f47"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格491.83, 前日比+2.85%, 前日終値478.2, 高値496.93, 安値479.87",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$491.83",
+        "change_pct": "+2.85%",
+        "prev_close": "$478.20",
+        "high": "$496.93",
+        "low": "$479.87",
+        "asof": "米国10/26終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 491.83,
+        "change_pct": 2.85,
+        "prev_close": 478.2
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-10-26T23:03:45.880344+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格223.35, 前日比+6.19%, 前日終値210.33, 高値225.6699, 安値210.82",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$223.35",
+        "change_pct": "+6.19%",
+        "prev_close": "$210.33",
+        "high": "$225.67",
+        "low": "$210.82",
+        "asof": "米国10/26終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 223.35,
+        "change_pct": 6.19,
+        "prev_close": 210.33
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-10-26T23:03:46.936715+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "stock:INTC:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】INTC 価格90.47, 前日比+4.04%, 前日終値86.96, 高値92.0872, 安値86.46",
+      "fields": {
+        "symbol": "INTC",
+        "price": "$90.47",
+        "change_pct": "+4.04%",
+        "prev_close": "$86.96",
+        "high": "$92.09",
+        "low": "$86.46",
+        "asof": "米国10/26終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 90.47,
+        "change_pct": 4.036,
+        "prev_close": 86.96
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "INTC"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/INTC"
+      },
+      "asof": "2026-10-26T23:03:47.097662+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+2.79%, 価格991.1, 建玉320981380USD, 24時間出来高231116171USD, 資金調達率(年率)+61.7%",
+      "fields": {
+        "coin": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$991.10",
+        "change_pct": "+2.79%",
+        "oi": "約3.2億ドル",
+        "volume": "約2.3億ドル",
+        "funding_annual": "+61.7%",
+        "asof": "日本時間10/27(火) 08:03時点",
+        "asof_short": "08:03時点"
+      },
+      "raw": {
+        "mark": 991.1,
+        "change_pct": 2.788,
+        "oi_usd": 320981380,
+        "vol_usd": 231116171,
+        "funding_annual_pct": 61.68
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-10-26T23:03:52.495989+00:00",
+      "confidence": "confirmed",
+      "id": "f47"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/INTC"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "error": "403: {\"detail\":\"Posts are limited to a maximum of one cashtag ($SYMBOL). Please remove additional cashtags and try again.\",\"status\":403,\"title\":\"Authorization Error\",\"type\":\"https://api.x.com/2/problems/not-authorized-for-resource\"}"
+}

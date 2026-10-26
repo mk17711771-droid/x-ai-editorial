@@ -1,0 +1,40 @@
+[
+  {
+    "fact_ids": [
+      "f3",
+      "f10",
+      "f11",
+      "f47"
+    ],
+    "topic_key": "stock:SOXX:quote",
+    "angle": "米国株引け：SOXXが+2.85%と堅調、個別ではARM(+6.19%)やINTC(+4.04%)が大きく買われる展開。HyperliquidのHIP-3市場でもSKHXが資金調達率+61.7%と高水準を維持しており、半導体セクター全体の強い資金流入がオン・オフチェーン双方で意識されています。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "主要半導体セクターの上昇とHyperliquid上の関連先物の資金調達率を組み合わせ、市場の強気を多角的に示す優れた構成です。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f2",
+      "f45",
+      "f46"
+    ],
+    "topic_key": "stock:SPY:quote",
+    "angle": "米国市場引け：S&P500(+0.71%)・Nasdaq(+1.11%)ともに堅調に引けました。HyperliquidのHIP-3市場（SP500・XYZ100先物）でも小幅にプラス圏を維持しており、株価の現物と先物の足並みが揃った落ち着いた推移となっています。",
+    "scores": {
+      "novelty": 14,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 15
+    },
+    "total": 79,
+    "reason": "指数とHIP-3先物の連動性を簡潔にまとめており、朝の定点観測として実用的です。"
+  }
+]
