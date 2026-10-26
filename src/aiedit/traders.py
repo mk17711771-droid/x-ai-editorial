@@ -157,7 +157,8 @@ def facts(max_age_hours: float = 4) -> list[dict]:
                     "key": f"traders:{c['coin']}:bias",
                     "category": "smart_money",
                     "summary": (f"月間利益上位{n}人のうち、{c['coin']}を持っている{total}人の内訳: 買い{c['long_n']}人・売り{c['short_n']}人"
-                                f"（買い比率{long_ratio:.0f}%）、買い合計{c['long_usd']:.0f}USD・売り合計{c['short_usd']:.0f}USD、平均レバレッジ{c['avg_leverage']}倍"),
+                                f"（買い比率{long_ratio:.0f}%）、買い合計{c['long_usd']:.0f}USD・売り合計{c['short_usd']:.0f}USD、平均レバレッジ{c['avg_leverage']}倍"
+                                "。注意: 上位口座には現物保有のヘッジや裁定目的で売りを持つ口座も含まれうるため、売り越し＝弱気とは限らない"),
                     "fields": {"coin": c["coin"].split(":")[-1], "top_n": f"{n}人", "holders": f"{total}人",
                                "long_n": f"{c['long_n']}人", "short_n": f"{c['short_n']}人",
                                "long_ratio": f"{long_ratio:.0f}%", "long_usd": fmt.usd_amount_ja(c["long_usd"]),
