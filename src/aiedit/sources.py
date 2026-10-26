@@ -5,6 +5,7 @@
 """
 from __future__ import annotations
 
+import html
 import xml.etree.ElementTree as ET
 from datetime import timedelta
 from urllib.parse import quote
@@ -134,7 +135,7 @@ def x_search() -> list[dict]:
             followers = (u.get("public_metrics") or {}).get("followers_count") or 0
             out.append({
                 "query": q, "author": u.get("username"), "author_followers": followers,
-                "text": t.get("text", "")[:400], "created_at": t.get("created_at"),
+                "text": html.unescape(t.get("text", ""))[:400], "created_at": t.get("created_at"),
                 "has_media": bool((t.get("attachments") or {}).get("media_keys")),
                 "likes": m.get("like_count", 0), "reposts": m.get("retweet_count", 0) + m.get("quote_count", 0),
                 "bookmarks": m.get("bookmark_count", 0), "impressions": m.get("impression_count", 0),
