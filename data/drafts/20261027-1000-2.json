@@ -1,0 +1,107 @@
+{
+  "id": "20261027-1000-2",
+  "slot_key": "20261027-1000",
+  "slot_theme": "10:00 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "pending",
+  "created_at": "2026-10-26T16:46:44.027895+00:00",
+  "text": "株式先物（HIP-3）のUNITREEで資金調達率が-71.3%に達し、ショート過熱の歪みが確認されています（日本時間10/27(火) 01:40時点）。建玉は約2,522万ドル規模に拡大しており、価格動向への影響に注目が集まりそうです。",
+  "template": "{{f9.market}}の{{f9.coin}}で資金調達率が{{f9.funding_annual}}に達し、ショート過熱の歪みが確認されています（{{f9.asof}}）。建玉は{{f9.oi}}規模に拡大しており、価格動向への影響に注目が集まりそうです。",
+  "style": "速報型",
+  "topic_key": "hl:xyz:UNITREE:funding_extreme",
+  "angle": "HIP-3株式等先物におけるUNITREEやCXMTの資金調達率が異常値を示しており、ショート過熱の歪みを数字で解説する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 17,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f9",
+    "f10"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:UNITREE:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: UNITREE（HIP-3株式等先物） 24時間騰落率+1.28%, 価格96.732, 建玉25222755USD, 24時間出来高59562653USD, 資金調達率(年率)-71.3%",
+      "fields": {
+        "coin": "UNITREE",
+        "market": "株式先物（HIP-3）",
+        "price": "$96.73",
+        "change_pct": "+1.28%",
+        "oi": "約2,522万ドル",
+        "volume": "約5,956万ドル",
+        "funding_annual": "-71.3%",
+        "asof": "日本時間10/27(火) 01:40時点"
+      },
+      "raw": {
+        "mark": 96.732,
+        "change_pct": 1.281,
+        "oi_usd": 25222755,
+        "vol_usd": 59562653,
+        "funding_annual_pct": -71.25
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:UNITREE",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:UNITREE"
+      },
+      "asof": "2026-10-26T16:40:56.575291+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    },
+    {
+      "key": "hl:xyz:CXMT:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: CXMT（HIP-3株式等先物） 24時間騰落率-1.12%, 価格6.4952, 建玉35776945USD, 24時間出来高21181244USD, 資金調達率(年率)-50.2%",
+      "fields": {
+        "coin": "CXMT",
+        "market": "株式先物（HIP-3）",
+        "price": "$6.50",
+        "change_pct": "-1.12%",
+        "oi": "約3,578万ドル",
+        "volume": "約2,118万ドル",
+        "funding_annual": "-50.2%",
+        "asof": "日本時間10/27(火) 01:40時点"
+      },
+      "raw": {
+        "mark": 6.4952,
+        "change_pct": -1.122,
+        "oi_usd": 35776945,
+        "vol_usd": 21181244,
+        "funding_annual_pct": -50.17
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:CXMT",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:CXMT"
+      },
+      "asof": "2026-10-26T16:40:56.575314+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:UNITREE"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:CXMT"
+    }
+  ],
+  "needs_human": false
+}
