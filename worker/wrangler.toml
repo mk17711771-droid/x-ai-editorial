@@ -1,0 +1,13 @@
+name = "x-ai-editorial-line"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+[vars]
+# 例: "your-github-name/x-ai-editorial"
+GITHUB_REPO = ""
+
+# 以下は `npx wrangler secret put <名前>` で設定する（ここには書かない）
+# LINE_CHANNEL_SECRET
+# LINE_CHANNEL_ACCESS_TOKEN
+# LINE_ADMIN_USER_ID
+# GITHUB_TOKEN

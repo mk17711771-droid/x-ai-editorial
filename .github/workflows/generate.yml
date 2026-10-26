@@ -1,0 +1,72 @@
+name: generate-drafts
+
+# 投稿枠（日本時間）ごとに材料収集 → 編集 → 原稿作成 → LINEへ承認依頼
+# cronはUTC。GitHubの定時実行は数分〜数十分遅れることがある
+on:
+  schedule:
+    - cron: "30 22 * * *"   # 07:30 JST
+    - cron: "0 1 * * *"     # 10:00 JST
+    - cron: "15 3 * * *"    # 12:15 JST
+    - cron: "30 11 * * *"   # 20:30 JST
+    - cron: "0 14 * * *"    # 23:00 JST
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "枠ID（auto / 0730 / 1000 / 1215 / 2030 / 2030w / 2300）"
+        default: "auto"
+      force:
+        description: "生成済みの枠でも再生成する"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writer
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: vars.BOT_ENABLED != 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Generate
+        env:
+          PYTHONPATH: src
+          BOT_ENABLED: ${{ vars.BOT_ENABLED }}
+          APPROVAL_MODE: ${{ vars.APPROVAL_MODE }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          X_PREMIUM: ${{ vars.X_PREMIUM }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_ADMIN_USER_ID: ${{ secrets.LINE_ADMIN_USER_ID }}
+        run: python -m aiedit.cli generate --slot "${{ inputs.slot || 'auto' }}" ${{ inputs.force && '--force' || '' }}
+      - name: Save data
+        if: always()
+        run: |
+          git config user.name "ai-editorial-bot"
+          git config user.email "ai-editorial-bot@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || git commit -m "data: generate $(date -u +%FT%TZ)"
+          git pull --rebase origin main && git push origin HEAD:main
+      - name: Notify failure
+        if: failure()
+        env:
+          PYTHONPATH: src
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_ADMIN_USER_ID: ${{ secrets.LINE_ADMIN_USER_ID }}
+        run: |
+          python -m aiedit.cli notify --message "【異常】下書き生成が失敗しました。GitHub Actionsのログを確認してください: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

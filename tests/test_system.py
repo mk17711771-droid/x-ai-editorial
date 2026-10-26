@@ -1,0 +1,181 @@
+"""外部APIを使わずに、チェック機能と編集部の一連の流れを検証する。"""
+from __future__ import annotations
+
+import json
+
+import pytest
+
+from aiedit import checks, collect_hyperliquid, line, llm, pipeline, store, xapi
+from aiedit.common import settings
+
+
+@pytest.fixture(autouse=True)
+def isolated(tmp_path, monkeypatch):
+    monkeypatch.setattr(store, "DATA_DIR", tmp_path)
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-26T01:05:00+00:00")  # 10:05 JST（月曜）
+    monkeypatch.delenv("BOT_ENABLED", raising=False)
+    settings.cache_clear()
+    sent = []
+    monkeypatch.setattr(line, "push", lambda msgs: sent.append(msgs) or True)
+    return sent
+
+
+FACTS = {
+    "f1": {"id": "f1", "key": "hl:BTC:funding_extreme", "kind": "hl", "confidence": "confirmed",
+           "fields": {"coin": "BTC", "funding_annual": "+62.3%", "change_pct": "+4.10%", "oi": "約45.2億ドル",
+                      "asof": "日本時間10/26(月) 10:05時点"},
+           "raw": {"change_pct": 4.1}, "refresh": {"type": "hl_coin", "coin": "BTC", "dex": ""},
+           "source": {"name": "Hyperliquid公式API", "url": "x"}},
+}
+
+
+# ---------------------------------------------------------------- チェック機能
+
+def test_weighted_length_counts_japanese_as_two():
+    assert checks.weighted_length("abc") == 3
+    assert checks.weighted_length("株価") == 4
+
+
+def test_template_rejects_invented_numbers():
+    ok = "{{f1.coin}}の資金調達率は年率{{f1.funding_annual}}。24時間でロングが過熱しています。"
+    assert checks.check_template(ok, FACTS) == []
+    bad = "{{f1.coin}}の資金調達率は年率62%。"
+    assert any("数字" in e for e in checks.check_template(bad, FACTS))
+    fullwidth = "{{f1.coin}}が５％上昇。"
+    assert checks.check_template(fullwidth, FACTS)
+    kanji = "{{f1.coin}}の建玉は三割増えた。"
+    assert checks.check_template(kanji, FACTS)
+    missing = "{{f2.coin}}が{{f1.nope}}"
+    errs = checks.check_template(missing, FACTS)
+    assert any("f2" in e for e in errs) and any("nope" in e for e in errs)
+
+
+def test_text_checks_banned_url_mention_length():
+    base = "BTCの資金調達率が年率+62.3%まで上昇。ロングがショートに支払う状態が続いており、建玉も約45.2億ドルと高水準。過熱感が強まっている可能性があります。"
+    assert checks.check_text(base, "t") == []
+    assert any("禁止表現" in e for e in checks.check_text(base + "今すぐ買うべき", "t"))
+    assert any("URL" in e for e in checks.check_text(base + " https://example.com", "t"))
+    assert any("メンション" in e for e in checks.check_text(base + " @someone", "t"))
+    assert any("上限" in e for e in checks.check_text(base * 3, "t"))
+    assert any("短すぎ" in e for e in checks.check_text("BTC上昇", "t"))
+
+
+def test_similarity_and_topic_cooldown():
+    text = "BTCの資金調達率が年率+62.3%まで上昇。ロングがショートに支払う状態が続いており、建玉も約45.2億ドルと高水準。過熱感が強まっている可能性があります。"
+    store.record_post({"tweet_id": "1", "posted_at": "2026-10-26T00:00:00+00:00", "text": text, "topic_key": "hl:BTC:funding_extreme"})
+    # 数字だけ変えた同じ構文は類似と判定
+    errs = checks.check_text(text.replace("62.3", "70.1").replace("45.2", "48.0"), "other")
+    assert any("類似" in e for e in errs)
+    errs = checks.check_text("ETHの建玉が24時間で急増しています。一方で価格はほぼ横ばいで、新規のショートが積み上がっている可能性があります。今夜の米国市場の動きに注目です。", "hl:BTC:funding_extreme")
+    assert any("同じ話題" in e for e in errs)
+
+
+# ---------------------------------------------------------------- 一連の流れ
+
+MARKETS = [
+    {"coin": "BTC", "dex": "", "mark": 111000.0, "change_pct": 4.1, "oi_usd": 4.52e9, "vol_usd": 3.1e9, "funding_annual_pct": 62.3},
+    {"coin": "HYPE", "dex": "", "mark": 41.2, "change_pct": -9.5, "oi_usd": 1.2e9, "vol_usd": 8e8, "funding_annual_pct": -12.0},
+    {"coin": "xyz:NVDA", "dex": "xyz", "mark": 182.3, "change_pct": 2.2, "oi_usd": 6e7, "vol_usd": 9e7, "funding_annual_pct": 8.0},
+    {"coin": "TINY", "dex": "", "mark": 0.01, "change_pct": 80.0, "oi_usd": 1e5, "vol_usd": 1e5, "funding_annual_pct": 500.0},
+]
+
+
+def fake_llm(system: str, user: str) -> dict:
+    if "編集長AIです" in system:
+        facts = json.loads(user.split("# 材料 (facts)\n")[1])
+        fid = next(f["id"] for f in facts if f["key"] == "hl:BTC:funding_extreme")
+        return {"candidates": [
+            {"fact_ids": [fid], "topic_key": "hl:BTC:funding_extreme", "angle": "ロング過熱",
+             "scores": {"novelty": 18, "interest": 18, "evidence": 18, "utility": 16, "insight": 16}, "total": 99},
+            {"fact_ids": [fid], "topic_key": "low", "angle": "x",
+             "scores": {"novelty": 10, "interest": 10, "evidence": 10, "utility": 10, "insight": 10}, "total": 50},
+        ]}
+    fid = json.loads(user.split("# 材料（この差し込み記号だけ使える）\n")[1].split("\n\n# ")[0])[0]["id"]
+    return {"variants": [
+        {"style": "速報型", "template": f"{{{{{fid}.coin}}}}の資金調達率が年率62%に。"},  # 数字を捏造 → 破棄される
+        {"style": "数値分析型", "template": (
+            f"{{{{{fid}.coin}}}}の資金調達率が年率{{{{{fid}.funding_annual}}}}まで上昇（{{{{{fid}.asof}}}}）。"
+            f"ロングがショートに支払う状態で、建玉は{{{{{fid}.oi}}}}。価格は24時間で{{{{{fid}.change_pct}}}}。"
+            "買いの偏りが強く、急な巻き戻しが起きやすい水準の可能性があります。")},
+    ], "best": 0}
+
+
+@pytest.fixture
+def wired(monkeypatch):
+    monkeypatch.setattr(collect_hyperliquid, "fetch_markets", lambda: [dict(m) for m in MARKETS])
+    monkeypatch.setattr(llm, "generate_json", fake_llm)
+    posted = []
+    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None: posted.append(text) or "999")
+    monkeypatch.setattr(collect_hyperliquid, "refresh_change_pct", lambda ref: 4.3)
+    return posted
+
+
+def test_generate_creates_safe_draft_and_asks_approval(wired, isolated):
+    drafts = pipeline.generate()
+    assert len(drafts) == 1  # 50点の候補は除外
+    d = drafts[0]
+    assert d["id"] == "20261026-1000-1"
+    assert "+62.3%" in d["text"] and "約45.2億ドル" in d["text"]
+    assert d["style"] == "数値分析型"  # 数字を捏造した案は破棄された
+    assert len(isolated) == 1 and isolated[0][0]["type"] == "flex"
+    assert wired == []  # 承認制なので投稿はまだ
+    # 小型銘柄は材料にしない
+    facts = store.read_json("facts/20261026-1000.json")
+    assert not any("TINY" in f["key"] for f in facts)
+    # 同じ枠は二重に生成しない
+    assert pipeline.generate() == []
+
+
+def test_approve_posts_once(wired, isolated):
+    d = pipeline.generate()[0]
+    assert pipeline.publish(d["id"], "approve") == "posted"
+    assert len(wired) == 1
+    assert store.posts()[0]["tweet_id"] == "999"
+    assert pipeline.publish(d["id"], "approve") == "posted"  # 処理済みなので再投稿しない
+    assert len(wired) == 1
+    assert len(store.read_jsonl("decisions.jsonl")) == 1
+
+
+def test_recheck_blocks_stale_draft(wired, isolated, monkeypatch):
+    d = pipeline.generate()[0]
+    monkeypatch.setattr(collect_hyperliquid, "refresh_change_pct", lambda ref: -1.0)
+    assert pipeline.publish(d["id"], "approve") == "stale"
+    assert wired == []
+
+
+def test_expired_draft_not_posted(wired, isolated, monkeypatch):
+    d = pipeline.generate()[0]
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-26T05:00:00+00:00")
+    assert pipeline.publish(d["id"], "approve") == "expired"
+    assert wired == []
+
+
+def test_kill_switch_and_auth_error_halt(wired, isolated, monkeypatch):
+    monkeypatch.setenv("BOT_ENABLED", "false")
+    with pytest.raises(pipeline.Halted):
+        pipeline.generate()
+    monkeypatch.delenv("BOT_ENABLED")
+    d = pipeline.generate()[0]
+
+    def boom(text, reply_to=None):
+        raise xapi.XAuthError("401 Unauthorized")
+    monkeypatch.setattr(xapi, "post", boom)
+    with pytest.raises(xapi.XAuthError):
+        pipeline.publish(d["id"], "approve")
+    assert store.state()["halted"] is True
+    with pytest.raises(pipeline.Halted):
+        pipeline.generate("2300", force=True)
+
+
+def test_auto_mode_posts_without_approval(wired, isolated, monkeypatch):
+    monkeypatch.setenv("APPROVAL_MODE", "false")
+    settings.cache_clear()
+    pipeline.generate()
+    assert len(wired) == 1
+
+
+def test_reject_records_reason(wired, isolated):
+    d = pipeline.generate()[0]
+    assert pipeline.publish(d["id"], "reject_inaccurate") == "rejected"
+    assert store.read_jsonl("decisions.jsonl")[0]["action"] == "reject_inaccurate"
+    assert wired == []

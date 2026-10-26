@@ -1,0 +1,83 @@
+# X AI編集部 設定ファイル
+# 時刻はすべて日本時間（JST）
+
+account:
+  handle: satoshikun_666
+  # X Premium加入時は true（長文投稿が可能になる）
+  premium: false
+
+# 運用モード
+#   approval: LINEで承認したものだけ投稿（初期2週間はこちら）
+#   auto:     採点80点以上かつ全チェック通過で自動投稿
+# GitHubのリポジトリ変数 APPROVAL_MODE で上書き可能
+mode: approval
+
+# 投稿枠
+#   kind: stock = 米国株 / hl = Hyperliquid
+#   days: weekday = 平日のみ / weekend = 土日のみ / all = 毎日
+slots:
+  - { id: "0730", time: "07:30", kind: stock, days: weekday, theme: "米国市場の引け後まとめ・注目銘柄" }
+  - { id: "1000", time: "10:00", kind: hl,    days: all,     theme: "Hyperliquidの24時間の異変（建玉・資金調達率・急変動）" }
+  - { id: "1215", time: "12:15", kind: stock, days: weekday, theme: "市場の異変の解説" }
+  - { id: "2030", time: "20:30", kind: stock, days: weekday, theme: "深掘り・今夜〜翌日の注目点（決算予定など）" }
+  - { id: "2030w", time: "20:30", kind: hl,   days: weekend, theme: "Hyperliquidの週間まとめ・資金の流れ" }
+  - { id: "2300", time: "23:00", kind: hl,    days: weekday, theme: "米国市場オープン前後のHyperliquid（株式先物・暗号資産）" }
+
+# GitHub Actionsの定時実行は遅延することがあるため、枠の時刻から何分後まで生成を許可するか
+slot_grace_minutes: 120
+
+# 編集長AIの採点基準
+scoring:
+  auto_post_min: 80     # これ以上: 自動投稿候補
+  revise_min: 65        # 65〜79: 再編集（MVPでは不採用扱い）
+
+# 安全装置
+limits:
+  max_posts_per_day: 8
+  max_candidates_per_slot: 3   # LINEに送る候補数
+  draft_expiry_hours: 3        # これを過ぎた下書きは承認しても投稿しない
+  similarity_threshold: 0.45   # 過去投稿との類似度がこれ以上なら不採用
+  same_topic_cooldown_hours: 24
+  # 投稿直前の再確認で、騰落率がこれ以上変わっていたら投稿を中止（ポイント）
+  recheck_change_pct_tolerance: 1.5
+
+# 米国株の監視銘柄（Finnhub無料プランで取得）
+stocks:
+  watchlist:
+    - SPY
+    - QQQ
+    - SOXX
+    - NVDA
+    - AMD
+    - AVGO
+    - TSM
+    - ASML
+    - MU
+    - ARM
+    - INTC
+    - SMCI
+    - MSFT
+    - GOOGL
+    - META
+    - AMZN
+    - AAPL
+    - TSLA
+    - PLTR
+    - COIN
+    - HOOD
+  big_move_pct: 3.0       # これ以上の騰落率を「異変」として扱う
+  earnings_lookahead_days: 7
+  news_max: 15
+
+# Hyperliquid
+hyperliquid:
+  min_day_volume_usd: 5000000   # これ未満の銘柄は扱わない（小型銘柄の誤情報・相場操縦リスク回避）
+  top_n: 5
+  big_move_pct: 8.0
+  funding_extreme_annual_pct: 50.0
+  include_hip3: true             # HIP-3（株式先物など）の市場も対象にする
+
+llm:
+  # Google AI Studio で利用可能なモデル名。GitHubのリポジトリ変数 GEMINI_MODEL で上書き可能
+  model: gemini-flash-latest
+  temperature: 0.7
