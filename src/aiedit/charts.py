@@ -181,14 +181,15 @@ def smart_money_chart(snap: dict, highlight: set[str] | None = None) -> bytes:
     ax = fig.add_axes([0.1, 0.13, 0.84, 0.66], facecolor=BG)
     ax.barh(names, longs, color=UP, label="買い（ロング）")
     ax.barh(names, [-s for s in shorts], color=DOWN, label="売り（ショート）")
+    span = max(longs + shorts + [1]) * 1.25
     for i, (lo, sh) in enumerate(zip(longs, shorts)):
         total = lo + sh
-        ax.text(lo + 0.2, i, f"買い{lo}人", va="center", color=TEXT, fontsize=12)
-        ax.text(-sh - 0.2, i, f"売り{sh}人", va="center", ha="right", color=TEXT, fontsize=12)
-        ax.text(max(longs) * 1.32 if longs else 1, i, f"買い比率 {lo / total * 100:.0f}%", va="center", ha="right",
-                color=UP if lo >= sh else DOWN, fontsize=12, fontweight="bold")
-    span = max(longs + shorts + [1]) * 1.35
-    ax.set_xlim(-span, span)
+        ax.text(lo + span * 0.01, i, f"買い{lo}人", va="center", color=TEXT, fontsize=12)
+        ax.text(-sh - span * 0.01, i, f"売り{sh}人", va="center", ha="right", color=TEXT, fontsize=12)
+        # 買い比率は右端の列にそろえて表示する
+        ax.text(span * 1.55, i, f"買い比率 {lo / total * 100:.0f}%", va="center", ha="right",
+                color=UP if lo >= sh else DOWN, fontsize=13, fontweight="bold")
+    ax.set_xlim(-span, span * 1.6)
     ax.axvline(0, color=GRID, linewidth=1)
     ax.set_xticks([])
     ax.tick_params(colors=MUTED, labelsize=13)
@@ -198,7 +199,7 @@ def smart_money_chart(snap: dict, highlight: set[str] | None = None) -> bytes:
             t.set_fontweight("bold")
     for sp in ax.spines.values():
         sp.set_visible(False)
-    ax.legend(loc="lower right", frameon=False, labelcolor=TEXT, fontsize=12)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.35, -0.12), ncol=2, frameon=False, labelcolor=TEXT, fontsize=12)
     _footer(fig, "Hyperliquid公開ランキング（個人は特定していません）", datetime.fromisoformat(snap["at"]))
     return _to_png(fig)
 
