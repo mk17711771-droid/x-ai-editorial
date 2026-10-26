@@ -35,6 +35,12 @@ class _Debug:
             info["buttons"] = [b.strip() for b in self.page.locator("button").all_inner_texts() if b.strip()][:40]
         except Exception:  # noqa: BLE001
             pass
+        if getattr(self, "problems", None):
+            info["problems"] = self.problems[-15:]
+        try:
+            info["cookies"] = sorted(c["name"] for c in self.page.context.cookies())
+        except Exception:  # noqa: BLE001
+            pass
         if shot:
             path = f"note/debug/{len(self.steps):02d}_{name}.png"
             store.write_bytes(path, self.page.screenshot(full_page=False))
@@ -131,8 +137,22 @@ def publish(markdown_text: str, images: dict[str, bytes], hashtags: list[str], d
                 # ログイン画面は入力内容が写るので画面写真は残さない
                 dbg.snap("after_login", shot=False)
 
+            # 通信エラーやエディタのエラーを記録する（画面変更の調査用）
+            problems: list[str] = []
+            page.on("console", lambda m: problems.append(f"console.{m.type}: {m.text[:200]}") if m.type == "error" else None)
+            page.on("response", lambda r: problems.append(f"{r.status} {r.url[:150]}") if r.status >= 400 else None)
+            dbg.problems = problems
+
+            # 先にトップページを開き、セッション以外に必要なCookie（XSRF対策など）を受け取る
+            page.goto("https://note.com/", wait_until="domcontentloaded")
+            page.wait_for_timeout(3000)
+            dbg.snap("home")
             page.goto(NEW_URL, wait_until="domcontentloaded")
-            page.wait_for_timeout(5000)
+            try:
+                page.wait_for_selector('textarea, .ProseMirror', timeout=45000)
+            except Exception:  # noqa: BLE001
+                pass
+            page.wait_for_timeout(2000)
             if "login" in page.url:
                 raise NotePublishError("noteにログインできていません（セッションの期限切れの可能性）。"
                                        "ブラウザでnoteにログインし直し、NOTE_SESSION を更新してください")
