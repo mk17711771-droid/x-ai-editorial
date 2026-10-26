@@ -1,10 +1,13 @@
 """Hyperliquidの上位トレーダー分析（公開データのみ）。
 
-公開ランキングから月間成績の良いトレーダーを選び、今のポジションを集計する。
+「一番勝った人」ではなく「勝ち続けていて、真似できる人」を選ぶ。
+公開ランキングの候補を、60日以上の成績・最大下落・レバレッジ・売買頻度・稼働状況・大勝ちへの依存で審査し、
+合格した人（安定上位トレーダー）の今のポジションを集計する。
 投稿では個人（アドレス）を特定せず、「上位N人のうち何人が買い越しているか」のような集計だけを使う。
 """
 from __future__ import annotations
 
+import time
 from datetime import datetime, timedelta
 
 import requests
@@ -13,11 +16,24 @@ from . import fmt, store
 from .common import JST, fmt_jst, log, now_utc, settings
 
 LEADERBOARD = "https://stats-data.hyperliquid.xyz/Mainnet/leaderboard"
+COHORT_NAME = "安定上位トレーダー"
+COHORT_RULE = "60日以上プラス・最大下落5〜15%・レバレッジ3倍以下・売買が多すぎず最近も稼働"
 INFO = "https://api.hyperliquid.xyz/info"
 
 
 def _cfg() -> dict:
-    return {"top_n": 50, "min_account_usd": 100_000, "min_position_usd": 10_000, **settings().get("traders", {})}
+    return {
+        "top_n": 50, "candidates": 120, "min_account_usd": 100_000, "min_position_usd": 10_000,
+        # 「勝ち続けていて、真似できる人」の条件（運用者のトレーダー選定ルールにもとづく）
+        "min_days_positive": 60,       # 60日以上プラス
+        "max_leverage": 3.0,           # 建玉÷口座の資産
+        "max_fills_per_day": 15,       # 1日の約定数
+        "mdd_min_pct": 5.0, "mdd_max_pct": 15.0,  # 最大下落（月間）
+        "max_idle_days": 5,            # 直近の売買がない日数
+        "max_single_win_share": 0.5,   # 1回の大勝ちが利益に占める割合
+        "cohort_refresh_hours": 24,
+        **settings().get("traders", {}),
+    }
 
 
 def _window(row: dict, name: str) -> dict:
@@ -27,8 +43,8 @@ def _window(row: dict, name: str) -> dict:
     return {}
 
 
-def top_traders() -> list[dict]:
-    """月間の利益上位から、規模が一定以上で、月間・全期間ともにプラスのトレーダーを選ぶ。"""
+def candidates() -> list[dict]:
+    """ランキングから候補を選ぶ: 月間の利益上位で、規模が一定以上、月間・全期間ともにプラス。"""
     cfg = _cfg()
     rows = requests.get(LEADERBOARD, timeout=60).json().get("leaderboardRows", [])
     picked = []
@@ -41,14 +57,119 @@ def top_traders() -> list[dict]:
         picked.append({"address": r["ethAddress"], "account_value": float(r["accountValue"]),
                        "month_pnl": month["pnl"], "month_roi": month.get("roi", 0)})
     picked.sort(key=lambda t: t["month_pnl"], reverse=True)
-    return picked[: cfg["top_n"]]
+    return picked[: cfg["candidates"]]
+
+
+def _info(body: dict) -> object:
+    """公開APIの呼び出し。混雑（429）のときは少し待ってやり直す。"""
+    for attempt in range(4):
+        r = requests.post(INFO, json=body, timeout=30)
+        if r.status_code == 429:
+            time.sleep(5 * (attempt + 1))
+            continue
+        r.raise_for_status()
+        time.sleep(0.3)  # 公開APIに負担をかけない
+        return r.json()
+    raise requests.HTTPError("429 Too Many Requests")
+
+
+def _pnl_change(history: list, days: int) -> float | None:
+    """損益の推移から、直近N日の損益の増減を求める。"""
+    if not history:
+        return None
+    pts = [(int(t), float(v)) for t, v in history]
+    target = pts[-1][0] - days * 86_400_000
+    if pts[0][0] > target:
+        return None  # N日分の履歴がない
+    past = min(pts, key=lambda p: abs(p[0] - target))
+    return pts[-1][1] - past[1]
+
+
+def _max_drawdown_pct(pnl_history: list, account_value: float) -> float:
+    """損益の推移から最大下落率（%）を求める。入出金の影響を受けにくいよう、口座の資産ではなく損益で計算する。"""
+    pts = [float(v) for _, v in pnl_history]
+    if not pts:
+        return 0.0
+    base = max(account_value - pts[-1], 1.0)  # 期間の初めの資産の目安
+    peak, mdd = pts[0], 0.0
+    for v in pts:
+        peak = max(peak, v)
+        mdd = max(mdd, (peak - v) / (base + peak) * 100)
+    return mdd
+
+
+def vet(t: dict) -> tuple[dict | None, str]:
+    """1人のトレーダーを選定ルールで審査する。合格なら指標、不合格なら理由を返す。"""
+    cfg = _cfg()
+    now_ms = int(now_utc().timestamp() * 1000)
+    portfolio = dict(_info({"type": "portfolio", "user": t["address"]}))
+    all_time, month = portfolio.get("allTime", {}), portfolio.get("month", {})
+    pnl_60 = _pnl_change(all_time.get("pnlHistory", []), cfg["min_days_positive"])
+    if pnl_60 is None or pnl_60 <= 0:
+        return None, "60日以上プラスではない"
+    mdd = _max_drawdown_pct(month.get("pnlHistory", []), t["account_value"])
+    if not cfg["mdd_min_pct"] <= mdd <= cfg["mdd_max_pct"]:
+        return None, "最大下落が目安の範囲外"
+
+    state = _info({"type": "clearinghouseState", "user": t["address"]})
+    ms = state.get("marginSummary", {})
+    acct = float(ms.get("accountValue") or 0)
+    lev = float(ms.get("totalNtlPos") or 0) / acct if acct else 99
+    if lev > cfg["max_leverage"]:
+        return None, "レバレッジが高い"
+
+    fills = _info({"type": "userFillsByTime", "user": t["address"], "startTime": now_ms - 30 * 86_400_000})
+    if len(fills) >= 2000:
+        return None, "売買の回数が多すぎる"
+    recent = [f for f in fills if int(f["time"]) >= now_ms - 7 * 86_400_000]
+    per_day = len(recent) / 7
+    if per_day > cfg["max_fills_per_day"]:
+        return None, "売買の回数が多すぎる"
+    if not fills or now_ms - max(int(f["time"]) for f in fills) > cfg["max_idle_days"] * 86_400_000:
+        return None, "最近売買していない"
+    wins = [float(f.get("closedPnl") or 0) for f in fills if float(f.get("closedPnl") or 0) > 0]
+    if wins and max(wins) / sum(wins) > cfg["max_single_win_share"]:
+        return None, "1回の大勝ちに頼っている"
+    return {**t, "pnl_60d": pnl_60, "mdd_pct": round(mdd, 1), "leverage": round(lev, 2),
+            "fills_per_day": round(per_day, 1), "positions": _parse_positions(state)}, "合格"
+
+
+def select_cohort(force: bool = False) -> dict:
+    """候補を審査して「安定して勝っている上位トレーダー」を選ぶ。1日1回だけ更新する。"""
+    cfg = _cfg()
+    cohort = store.read_json("traders/cohort.json")
+    if cohort and not force and now_utc() - datetime.fromisoformat(cohort["at"]) < timedelta(hours=cfg["cohort_refresh_hours"]):
+        return cohort
+    members, reasons = [], {}
+    for t in candidates():
+        try:
+            m, why = vet(t)
+        except (requests.RequestException, ValueError, KeyError, TypeError) as e:
+            m, why = None, f"取得失敗: {type(e).__name__}"
+        reasons[why] = reasons.get(why, 0) + 1
+        if m:
+            members.append({k: v for k, v in m.items() if k != "positions"})
+        if len(members) >= cfg["top_n"]:
+            break
+    # 利益の大きさは最後に見る
+    members.sort(key=lambda m: m["pnl_60d"], reverse=True)
+    cohort = {"at": now_utc().isoformat(), "members": members, "reasons": reasons}
+    store.write_json("traders/cohort.json", cohort)
+    log.info("安定上位トレーダー %d人を選定（審査結果: %s）", len(members), reasons)
+    return cohort
+
+
+def top_traders() -> list[dict]:
+    return select_cohort()["members"]
 
 
 def positions(address: str) -> list[dict]:
-    r = requests.post(INFO, json={"type": "clearinghouseState", "user": address}, timeout=30)
-    r.raise_for_status()
+    return _parse_positions(_info({"type": "clearinghouseState", "user": address}))
+
+
+def _parse_positions(state: dict) -> list[dict]:
     out = []
-    for ap in r.json().get("assetPositions", []):
+    for ap in state.get("assetPositions", []):
         p = ap.get("position", {})
         try:
             size = float(p["szi"])
@@ -156,10 +277,11 @@ def facts(max_age_hours: float = 4) -> list[dict]:
         out.append({**base,
                     "key": f"traders:{c['coin']}:bias",
                     "category": "smart_money",
-                    "summary": (f"月間利益上位{n}人のうち、{c['coin']}を持っている{total}人の内訳: 買い{c['long_n']}人・売り{c['short_n']}人"
+                    "summary": (f"安定上位トレーダー{n}人（{COHORT_RULE}）のうち、{c['coin']}を持っている{total}人の内訳: 買い{c['long_n']}人・売り{c['short_n']}人"
                                 f"（買い比率{long_ratio:.0f}%）、買い合計{c['long_usd']:.0f}USD・売り合計{c['short_usd']:.0f}USD、平均レバレッジ{c['avg_leverage']}倍"
                                 "。注意: 上位口座には現物保有のヘッジや裁定目的で売りを持つ口座も含まれうるため、売り越し＝弱気とは限らない"),
-                    "fields": {"coin": c["coin"].split(":")[-1], "top_n": f"{n}人", "holders": f"{total}人",
+                    "fields": {"coin": c["coin"].split(":")[-1], "top_n": f"{n}人", "cohort": COHORT_NAME,
+                               "cohort_rule": COHORT_RULE, "holders": f"{total}人",
                                "long_n": f"{c['long_n']}人", "short_n": f"{c['short_n']}人",
                                "long_ratio": f"{long_ratio:.0f}%", "long_usd": fmt.usd_amount_ja(c["long_usd"]),
                                "short_usd": fmt.usd_amount_ja(c["short_usd"]),
@@ -175,7 +297,7 @@ def facts(max_age_hours: float = 4) -> list[dict]:
             out.append({**base,
                         "key": f"traders:{coin}:takeprofit",
                         "category": "smart_money_exit",
-                        "summary": f"月間利益上位{n}人のうち{o['n']}人が、約1日前に含み益で持っていた{coin}のポジションを閉じた（利確とみられる。前回時点の含み益合計{o['upnl']:.0f}USD）",
+                        "summary": f"安定上位トレーダー{n}人のうち{o['n']}人が、約1日前に含み益で持っていた{coin}のポジションを閉じた（利確とみられる。前回時点の含み益合計{o['upnl']:.0f}USD）",
                         "fields": {"coin": coin.split(":")[-1], "top_n": f"{n}人", "closed_n": f"{o['n']}人",
                                    "upnl": fmt.usd_amount_ja(o["upnl"]), "asof": f"日本時間{fmt_jst(asof)}時点",
                                    "venue": "Hyperliquid"},

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime
 
 import pytest
 
@@ -350,41 +351,72 @@ def test_watch_summary_feeds_editor(isolated):
     assert "SKHX +213.5%" in s and "EWZ -26.4%" in s
 
 
-def test_trader_aggregation_facts_and_chart(isolated, monkeypatch):
+def test_trader_vetting_aggregation_facts_and_chart(isolated, monkeypatch):
     from aiedit import charts, traders
+    monkeypatch.setattr(traders.time, "sleep", lambda s: None)
+    now_ms = 1793000000000  # 2026-10-26付近
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-26T01:20:00+00:00")
+    now_ms = int(datetime.fromisoformat("2026-10-26T01:20:00+00:00").timestamp() * 1000)
+    day = 86_400_000
     rows = [{"ethAddress": f"0x{i:040x}", "accountValue": "500000",
              "windowPerformances": [["month", {"pnl": str(100000 - i), "roi": "0.2"}], ["allTime", {"pnl": "1", "roi": "1"}]]}
-            for i in range(5)]
-    rows.append({"ethAddress": "0xloser", "accountValue": "900000",
-                 "windowPerformances": [["month", {"pnl": "-5"}], ["allTime", {"pnl": "1"}]]})
+            for i in range(7)]
 
     class R:
+        status_code = 200
         def __init__(self, data): self.data = data
         def json(self): return self.data
         def raise_for_status(self): pass
     monkeypatch.setattr(traders.requests, "get", lambda url, timeout: R({"leaderboardRows": rows}))
-    held = {0: [("BTC", "1", "200000", "5000")], 1: [("BTC", "2", "300000", "100")], 2: [("BTC", "-1", "50000", "-10")],
-            3: [("HYPE", "-10", "80000", "900"), ("BTC", "1", "40000", "1")], 4: []}
+
+    def steady_pnl(dip):  # 90日かけて増える損益。途中で dip だけ下がる
+        pts = [[now_ms - (90 - d) * day, str(d * 1000)] for d in range(91)]
+        pts[75][1] = str(75 * 1000 - dip)
+        return pts
+    # 0〜2: 合格 / 3: 高レバレッジ / 4: 超高頻度 / 5: 最近休んでいる / 6: 最大下落が0%に近い
+    lev = {3: 5.0}
+    fills_n = {4: 1500}
+    idle = {5: 9}
+    dip = {6: 0}
+    held = {0: [("BTC", "1", "200000", "5000")], 1: [("BTC", "2", "300000", "100")], 2: [("BTC", "-1", "50000", "-10")]}
+
     def post(url, json, timeout):
         i = int(json["user"], 16)
-        return R({"assetPositions": [{"position": {"coin": c, "szi": sz, "positionValue": v, "unrealizedPnl": u,
-                                                   "leverage": {"value": 5}}} for c, sz, v, u in held[i]]})
+        if json["type"] == "portfolio":
+            pnl = steady_pnl(dip.get(i, 60000))
+            return R([["allTime", {"pnlHistory": pnl}], ["month", {"pnlHistory": pnl[-31:]}]])
+        if json["type"] == "userFillsByTime":
+            n = fills_n.get(i, 20)
+            last = now_ms - idle.get(i, 1) * day
+            return R([{"time": last - k * 3600_000, "closedPnl": "100"} for k in range(n)])
+        return R({"marginSummary": {"accountValue": "500000", "totalNtlPos": str(500000 * lev.get(i, 1.0))},
+                  "assetPositions": [{"position": {"coin": c, "szi": sz, "positionValue": v, "unrealizedPnl": u,
+                                                   "leverage": {"value": 3}}} for c, sz, v, u in held.get(i, [])]})
     monkeypatch.setattr(traders.requests, "post", post)
+
+    cohort = traders.select_cohort(force=True)
+    assert len(cohort["members"]) == 3
+    assert cohort["reasons"] == {"合格": 3, "レバレッジが高い": 1, "売買の回数が多すぎる": 1,
+                                 "最近売買していない": 1, "最大下落が目安の範囲外": 1}
     snap = traders.snapshot()
     btc = next(c for c in snap["coins"] if c["coin"] == "BTC")
-    assert snap["traders"] == 5 and btc["long_n"] == 3 and btc["short_n"] == 1  # 月間マイナスの人は除外
+    assert snap["traders"] == 3 and btc["long_n"] == 2 and btc["short_n"] == 1
     f = traders.facts()
-    assert f[0]["category"] == "smart_money" and f[0]["fields"]["long_ratio"] == "75%"
+    assert f[0]["fields"]["cohort"] == "安定上位トレーダー" and "60日以上プラス" in f[0]["summary"]
     assert "0x" not in json.dumps([x["fields"] for x in f])  # 投稿の材料にアドレスを入れない
     assert charts.smart_money_chart(snap, {"BTC"})[:4] == b"\x89PNG"
     # 1日後に、含み益だった買いを閉じていたら「利確とみられる」材料になる
     store.write_json("traders/20261025-10.json", snap)
     held[0] = []
     held[1] = []
-    monkeypatch.setenv("AIEDIT_NOW", "2026-10-26T01:20:00+00:00")
     traders.snapshot()
     exits = [x for x in traders.facts() if x["category"] == "smart_money_exit"]
     assert exits and exits[0]["fields"]["closed_n"] == "2人"
+
+
+def test_banned_trader_phrases():
+    base = "HyperliquidのBTC無期限先物、資金調達率が年率+62.3%まで上がってる。ロングがショートに払い続けてる状態で、建玉も約45.2億ドルと高め。"
+    assert any("最強" in e for e in checks.check_text(base + "この人が最強", "t"))
 
 
 def test_note_article_generated_with_images_and_copy_link(wired, isolated, monkeypatch):

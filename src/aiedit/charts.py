@@ -176,8 +176,9 @@ def smart_money_chart(snap: dict, highlight: set[str] | None = None) -> bytes:
     shorts = [c["short_n"] for c in coins]
 
     fig = plt.figure(figsize=(16, 9), facecolor=BG)
-    fig.text(0.04, 0.9, "Hyperliquid  ・  上位トレーダーの保有", color=TEXT, fontsize=30, fontweight="bold")
-    fig.text(0.04, 0.852, f"月間利益上位{snap['traders']}人が今持っているポジション（人数）", color=MUTED, fontsize=16)
+    fig.text(0.04, 0.9, "Hyperliquid  ・  安定上位トレーダーの保有", color=TEXT, fontsize=30, fontweight="bold")
+    fig.text(0.04, 0.852, f"60日以上プラス・最大下落5〜15%・レバレッジ3倍以下などの条件を満たした{snap['traders']}人のポジション（人数）",
+             color=MUTED, fontsize=15)
     ax = fig.add_axes([0.1, 0.13, 0.84, 0.66], facecolor=BG)
     ax.barh(names, longs, color=UP, label="買い（ロング）")
     ax.barh(names, [-s for s in shorts], color=DOWN, label="売り（ショート）")
