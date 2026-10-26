@@ -21,6 +21,12 @@ def _cfg() -> dict:
     return settings().get("research", {})
 
 
+def _error(kind: str, query: str, e: object) -> None:
+    """取得に失敗した理由を残す（Actionsのログを見なくても原因がわかるように）。"""
+    store.append_jsonl("sources/errors.jsonl", {"at": now_utc().isoformat(), "kind": kind, "query": query,
+                                                "error": str(e)[:300]})
+
+
 # ---------- ニュース（Google ニュースのRSS。無料） ----------
 
 def news() -> list[dict]:
@@ -71,7 +77,10 @@ def note_trends() -> list[dict]:
             notes = (r.json().get("data", {}).get("notes") or {}).get("contents", [])
         except (requests.RequestException, ValueError) as e:
             log.warning("noteの検索に失敗 %s: %s", q, e)
+            _error("note", q, e)
             continue
+        if not notes:
+            _error("note", q, f"0件 keys={list(r.json().get('data', {}).keys())[:10]}")
         for n in notes:
             out.append({
                 "query": q, "title": n.get("name"),
@@ -114,6 +123,7 @@ def x_search() -> list[dict]:
             tweets, users = xapi.search_recent(q, size)
         except xapi.XPostError as e:
             log.warning("Xの検索に失敗 %s: %s", q, e)
+            _error("x", q, e)
             continue
         budget -= len(tweets)
         store.append_jsonl("sources/x_reads.jsonl", {"month": now_utc().astimezone(JST).strftime("%Y-%m"),
