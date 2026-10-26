@@ -1,16 +1,81 @@
 [
   {
+    "step": "home",
+    "url": "https://note.com/",
+    "at": "2026-10-26T20:09:34.430447+00:00",
+    "buttons": [
+      "くらし",
+      "社会・経済",
+      "テクノロジー",
+      "エンタメ",
+      "趣味・関心",
+      "創作",
+      "まなび",
+      "1,820",
+      "2,020",
+      "1,802",
+      "1,898",
+      "2,066",
+      "1,703",
+      "1,541",
+      "2,116",
+      "1,955",
+      "1,804"
+    ],
+    "problems": [
+      "404 https://note.com/api/v2/current_user/user_popup",
+      "console.error: Failed to load resource: the server responded with a status of 404 ()"
+    ],
+    "cookies": [
+      "_note_session_v5",
+      "_vid_v1",
+      "_vid_v2",
+      "fp",
+      "note_gql_auth_token",
+      "note_web_visitor_id"
+    ],
+    "screenshot": "note/debug/00_home.png"
+  },
+  {
     "step": "editor_opened",
     "url": "https://editor.note.com/new",
-    "at": "2026-10-26T20:07:39.933427+00:00",
+    "at": "2026-10-26T20:10:23.663813+00:00",
     "buttons": [],
-    "screenshot": "note/debug/00_editor_opened.png"
+    "problems": [
+      "404 https://note.com/api/v2/current_user/user_popup",
+      "console.error: Failed to load resource: the server responded with a status of 404 ()",
+      "console.error: Access to fetch at 'https://note.com/api/v1/text_notes' from origin 'https://editor.note.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Acce",
+      "console.error: Failed to load resource: net::ERR_FAILED"
+    ],
+    "cookies": [
+      "_note_session_v5",
+      "_vid_v1",
+      "_vid_v2",
+      "fp",
+      "note_gql_auth_token",
+      "note_web_visitor_id"
+    ],
+    "screenshot": "note/debug/01_editor_opened.png"
   },
   {
     "step": "error",
     "url": "https://editor.note.com/new",
-    "at": "2026-10-26T20:07:55.298876+00:00",
+    "at": "2026-10-26T20:10:38.961111+00:00",
     "buttons": [],
-    "screenshot": "note/debug/01_error.png"
+    "problems": [
+      "404 https://note.com/api/v2/current_user/user_popup",
+      "console.error: Failed to load resource: the server responded with a status of 404 ()",
+      "console.error: Access to fetch at 'https://note.com/api/v1/text_notes' from origin 'https://editor.note.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Acce",
+      "console.error: Failed to load resource: net::ERR_FAILED"
+    ],
+    "cookies": [
+      "_note_session_v5",
+      "_vid_v1",
+      "_vid_v2",
+      "fp",
+      "note_gql_auth_token",
+      "note_web_visitor_id"
+    ],
+    "screenshot": "note/debug/02_error.png"
   }
 ]
