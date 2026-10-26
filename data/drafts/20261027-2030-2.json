@@ -1,0 +1,149 @@
+{
+  "id": "20261027-2030-2",
+  "slot_key": "20261027-2030",
+  "slot_theme": "20:30 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "dry_run",
+  "created_at": "2026-10-26T18:13:30.891086+00:00",
+  "text": "$SOXXの大幅上昇の裏で、HIP-3の株式先物にある資金の歪みが出ている。これ、地味に今の市場の構造を突いてる気がする。\n\n【何が起きてるか】\n半導体セクター全体が強い動きを見せる中、オンチェーンの先物市場でも関連アセットへの資金流入が加速している。現物と先物でどのような温度差があるのか、数字で確認しておきたい。\n\n【数字で見る】（日本時間10/27(火) 03:11時点）\n・SOXX 価格: $$496.25（前日終値比 +3.77%）\n・SOXX 高値: $$496.93 / 安値: $$479.67\n・$SKHX 価格: $$992.73（24時間騰落率 +2.78%）\n・SKHX 建玉: 約3.2億ドル / 24時間出来高: 約2.2億ドル / 資金調達率: +87.3%\n・XYZ100 価格: $$29,368（24時間騰落率 +1.04%）\n・XYZ100 建玉: 約2.9億ドル / 24時間出来高: 約3.4億ドル / 資金調達率: +5.5%\n\n【なぜ「歪み」なのか】\n現物が+3.77%と強い動きを見せる一方で、HIP-3側のSKHXは資金調達率が+87.3%まで跳ね上がっている。建玉も約3.2億ドルの規模に達しており、先物側でかなりロングが偏っていると見ている。一方でXYZ100は比較的落ち着いた推移を見せており、セクター内でも資金の向かう先が明確に分かれている印象だ。現物の上げに対して先物がどこまで追随できるか、この乖離は個人的にかなり注目している。\n\n【次に見るポイント】\n①現物の高値付近での推移と出来高の維持\n②SKHXの資金調達率の過熱感がさらに高まるか、それとも調整するのか\n③セクター全体の連動性が保たれているか\n\n※情報共有であって、売買の推奨ではありません",
+  "template": "${{f3.symbol}}の大幅上昇の裏で、HIP-3の株式先物にある資金の歪みが出ている。これ、地味に今の市場の構造を突いてる気がする。\n\n【何が起きてるか】\n半導体セクター全体が強い動きを見せる中、オンチェーンの先物市場でも関連アセットへの資金流入が加速している。現物と先物でどのような温度差があるのか、数字で確認しておきたい。\n\n【数字で見る】（{{f3.asof}}）\n・${{f3.symbol}} 価格: ${{f3.price}}（{{f3.basis}} {{f3.change_pct}}）\n・${{f3.symbol}} 高値: ${{f3.high}} / 安値: ${{f3.low}}\n・${{f47.coin}} 価格: ${{f47.price}}（24時間騰落率 {{f47.change_pct}}）\n・${{f47.coin}} 建玉: {{f47.oi}} / 24時間出来高: {{f47.volume}} / 資金調達率: {{f47.funding_annual}}\n・${{f45.coin}} 価格: ${{f45.price}}（24時間騰落率 {{f45.change_pct}}）\n・${{f45.coin}} 建玉: {{f45.oi}} / 24時間出来高: {{f45.volume}} / 資金調達率: {{f45.funding_annual}}\n\n【なぜ「歪み」なのか】\n現物が{{f3.change_pct}}と強い動きを見せる一方で、HIP-3側の${{f47.coin}}は資金調達率が{{f47.funding_annual}}まで跳ね上がっている。建玉も{{f47.oi}}の規模に達しており、先物側でかなりロングが偏っていると見ている。一方で${{f45.coin}}は比較的落ち着いた推移を見せており、セクター内でも資金の向かう先が明確に分かれている印象だ。現物の上げに対して先物がどこまで追随できるか、この乖離は個人的にかなり注目している。\n\n【次に見るポイント】\n①現物の高値付近での推移と出来高の維持\n②${{f47.coin}}の資金調達率の過熱感がさらに高まるか、それとも調整するのか\n③セクター全体の連動性が保たれているか\n\n※情報共有であって、売買の推奨ではありません",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:SOXX:big_move",
+  "angle": "SOXXの大幅上昇（+3.77%）と連動するHIP-3の半導体・株式先物の動向を分析し、資金の流入経路を紐解く。",
+  "scores": {
+    "novelty": 16,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f3",
+    "f45",
+    "f47"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格496.25, 前日比+3.77%, 前日終値478.2, 高値496.93, 安値479.67",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$496.25",
+        "change_pct": "+3.77%",
+        "prev_close": "$478.20",
+        "high": "$496.93",
+        "low": "$479.67",
+        "asof": "日本時間10/27(火) 03:11時点",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 496.25,
+        "change_pct": 3.775,
+        "prev_close": 478.2
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-10-26T18:11:43.943280+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率+1.04%, 価格29368.0, 建玉294252382USD, 24時間出来高340930125USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$29,368",
+        "change_pct": "+1.04%",
+        "oi": "約2.9億ドル",
+        "volume": "約3.4億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/27(火) 03:11時点",
+        "asof_short": "03:11時点"
+      },
+      "raw": {
+        "mark": 29368.0,
+        "change_pct": 1.036,
+        "oi_usd": 294252382,
+        "vol_usd": 340930125,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-10-26T18:11:52.481770+00:00",
+      "confidence": "confirmed",
+      "id": "f45"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+2.78%, 価格992.73, 建玉319403406USD, 24時間出来高222315335USD, 資金調達率(年率)+87.3%",
+      "fields": {
+        "coin": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$992.73",
+        "change_pct": "+2.78%",
+        "oi": "約3.2億ドル",
+        "volume": "約2.2億ドル",
+        "funding_annual": "+87.3%",
+        "asof": "日本時間10/27(火) 03:11時点",
+        "asof_short": "03:11時点"
+      },
+      "raw": {
+        "mark": 992.73,
+        "change_pct": 2.783,
+        "oi_usd": 319403406,
+        "vol_usd": 222315335,
+        "funding_annual_pct": 87.26
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-10-26T18:11:52.481814+00:00",
+      "confidence": "confirmed",
+      "id": "f47"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false
+}
