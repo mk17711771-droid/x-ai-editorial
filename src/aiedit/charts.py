@@ -185,17 +185,19 @@ def smart_money_chart(snap: dict, highlight: set[str] | None = None) -> bytes:
     ax.barh(names, [-s for s in shorts], color=DOWN, label="売り（ショート）")
     ax.barh(names, [-h for h in hedges], left=[-s for s in shorts], color=ACCENT, alpha=0.75,
             label="ヘッジの売り（現物を保有）")
-    span = max(longs + [s + h for s, h in zip(shorts, hedges)] + [1]) * 1.25
+    # 左（売り）と右（買い）で必要な幅が違うので、それぞれの最大に合わせる（買い0人のとき右が空白にならない）
+    left = max([s + h for s, h in zip(shorts, hedges)] + [1])
+    right = max(longs + [left * 0.25])
     for i, (lo, sh, he) in enumerate(zip(longs, shorts, hedges)):
         total = lo + sh
-        ax.text(lo + span * 0.01, i, f"買い{lo}人", va="center", color=TEXT, fontsize=12)
+        ax.text(lo + left * 0.015, i, f"買い{lo}人", va="center", color=TEXT, fontsize=12)
         left_label = f"売り{sh}人" + (f"＋ヘッジ{he}人" if he else "")
-        ax.text(-sh - he - span * 0.01, i, left_label, va="center", ha="right", color=TEXT, fontsize=12)
+        ax.text(-sh - he - left * 0.015, i, left_label, va="center", ha="right", color=TEXT, fontsize=12)
         # 方向に賭けたポジションの買い比率を、右端の列にそろえて表示する（ヘッジは除く）
         ratio = f"買い比率 {lo / total * 100:.0f}%" if total else "ヘッジのみ"
-        ax.text(span * 1.55, i, ratio, va="center", ha="right",
+        ax.text(1.0, i, ratio, va="center", ha="right", transform=ax.get_yaxis_transform(),
                 color=MUTED if not total else (UP if lo >= sh else DOWN), fontsize=13, fontweight="bold")
-    ax.set_xlim(-span, span * 1.6)
+    ax.set_xlim(-left * 1.6, right * 1.3 + left * 0.45)
     ax.axvline(0, color=GRID, linewidth=1)
     ax.set_xticks([])
     ax.tick_params(colors=MUTED, labelsize=13)
