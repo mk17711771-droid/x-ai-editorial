@@ -199,3 +199,10 @@ def test_hip3_moves_checked_against_us_stock(monkeypatch):
     ]
     kept = [m["coin"] for m in collect_hyperliquid._verify_hip3_moves(markets)]
     assert kept == ["xyz:NVDA", "xyz:AAPL", "BTC"]
+
+
+def test_force_regenerate_keeps_old_drafts(wired, isolated):
+    first = pipeline.generate()[0]
+    assert pipeline.publish(first["id"], "approve") == "posted"
+    pipeline.generate(force=True)  # 同じ話題は投稿済みなので新しい下書きは作られない
+    assert store.load_draft(first["id"])["status"] == "posted"  # 投稿済みの記録は上書きされない

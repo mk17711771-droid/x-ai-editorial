@@ -154,6 +154,14 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
     cands = [c for c in run_editor(slot, facts) if c["total"] >= cfg["scoring"]["auto_post_min"]]
     log.info("80点以上の候補 %d 件", len(cands))
 
+    # 再生成時は、同じ枠の未承認の下書きを無効にし、IDが重ならないよう続き番号にする
+    seq = 1
+    while store.load_draft(f"{key}-{seq}"):
+        old_draft = store.load_draft(f"{key}-{seq}")
+        if old_draft["status"] == "pending":
+            _close(old_draft, "superseded")
+        seq += 1
+
     drafts = []
     for cand in cands:
         if len(drafts) >= cfg["limits"]["max_candidates_per_slot"]:
@@ -164,7 +172,7 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         if not w:
             continue
         draft = {
-            "id": f"{key}-{len(drafts) + 1}",
+            "id": f"{key}-{seq + len(drafts)}",
             "slot_key": key,
             "slot_theme": f"{slot['time']} {slot['theme']}",
             "status": "pending",
@@ -299,9 +307,10 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
     })
     _close(draft, "posted", tweet_id=tweet_id, posted_at=posted_at.isoformat())
     # 同じ枠の他の候補は投稿しない
-    for i in range(1, 11):
-        sib = store.load_draft(f"{draft['slot_key']}-{i}")
-        if sib and sib["id"] != draft_id and sib["status"] == "pending":
+    i = 1
+    while sib := store.load_draft(f"{draft['slot_key']}-{i}"):
+        if sib["id"] != draft_id and sib["status"] == "pending":
             _close(sib, "superseded")
+        i += 1
     log.info("投稿しました: https://x.com/i/status/%s", tweet_id)
     return "posted"

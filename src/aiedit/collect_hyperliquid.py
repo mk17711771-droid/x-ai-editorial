@@ -121,6 +121,11 @@ def _fact(m: dict, category: str, summary: str, extra_fields: dict | None = None
         "vol_usd": round(m["vol_usd"]),
         "funding_annual_pct": round(m["funding_annual_pct"], 2),
     }
+    if "us_change_pct" in m:
+        # 照合に使った米国株の前日比（検証の記録）
+        raw["us_change_pct"] = round(m["us_change_pct"], 3)
+        fields["us_change_pct"] = fmt.pct(m["us_change_pct"])
+        summary += f"（照合: 米国株の前日比{m['us_change_pct']:+.2f}%）"
     raw.update(extra_raw or {})
     return {
         "key": f"hl:{m['coin']}:{category}",
@@ -160,6 +165,7 @@ def _verify_hip3_moves(markets: list[dict]) -> list[dict]:
             if abs(float(q["dp"]) - m["change_pct"]) > big:
                 log.info("HIP-3 %s の騰落率%+.1f%%が米国株%+.1f%%と食い違うため除外", m["coin"], m["change_pct"], float(q["dp"]))
                 continue
+            m["us_change_pct"] = float(q["dp"])
         kept.append(m)
     return kept
 
