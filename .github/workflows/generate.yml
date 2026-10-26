@@ -30,7 +30,8 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    if: vars.BOT_ENABLED != 'false'
+    # 初期設定が終わり、リポジトリ変数 BOT_ENABLED を true にするまでは動かない
+    if: vars.BOT_ENABLED == 'true'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -120,7 +120,7 @@ npx wrangler deploy
 
 | 名前 | 値 | 意味 |
 |---|---|---|
-| `BOT_ENABLED` | `true` | `false` で停止（LINEの「停止」でも切り替わります） |
+| `BOT_ENABLED` | `true` | `true` にすると運用開始。`false` で停止（LINEの「停止」でも切り替わります） |
 | `APPROVAL_MODE` | `true` | `false` で全自動投稿（承認の精度を確認してから切り替えます） |
 | `X_PREMIUM` | `false` | X Premiumに加入したら `true` |
 | `GEMINI_MODEL` | （空欄） | AI Studioで使えるモデル名に変える場合のみ |
