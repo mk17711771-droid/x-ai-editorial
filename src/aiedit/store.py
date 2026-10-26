@@ -107,3 +107,7 @@ def read_text(rel: str, default: str = "") -> str:
 
 def write_text(rel: str, text: str) -> None:
     _path(rel).write_text(text, encoding="utf-8")
+
+
+def write_bytes(rel: str, data: bytes) -> None:
+    _path(rel).write_bytes(data)

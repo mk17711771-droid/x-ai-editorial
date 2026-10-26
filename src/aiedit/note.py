@@ -37,4 +37,10 @@ def fetch_profile(urlname: str) -> dict:
         "raw_keys": sorted(creator.keys()),
     }
     store.write_json(f"note/profile_{urlname}.json", out)
+    # アイコンとヘッダーも確認用に保存する
+    for name, url in (("icon.jpg", out["profile_image_url"]), ("header.png", out["header_image_url"])):
+        if url:
+            img = requests.get(url.split("?")[0] + "?width=1280", headers=HEADERS, timeout=30)
+            if img.ok:
+                store.write_bytes(f"note/{urlname}_{name}", img.content)
     return out
