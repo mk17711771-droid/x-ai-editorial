@@ -1,0 +1,67 @@
+{
+  "id": "20261027-1000-6",
+  "slot_key": "20261027-1000",
+  "slot_theme": "10:00 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "pending",
+  "created_at": "2026-10-26T16:56:17.208831+00:00",
+  "text": "株式先物（HIP-3）のUNITREEにて建玉約2,522万ドル、出来高約5,957万ドルを記録。資金調達率が年率-59.4%まで低下し、市場の偏りに注意が必要。",
+  "template": "{{f9.market}}の{{f9.coin}}にて建玉{{f9.oi}}、出来高{{f9.volume}}を記録。資金調達率が年率{{f9.funding_annual}}まで低下し、市場の偏りに注意が必要。",
+  "style": "数値分析型",
+  "topic_key": "hl:xyz:UNITREE:funding_extreme",
+  "angle": "HIP-3のUNITREEで観測された年率-59.4%という極端なショート過熱の資金調達率に警鐘を鳴らす。",
+  "scores": {
+    "novelty": 18,
+    "interest": 17,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f9"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:UNITREE:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: UNITREE（HIP-3株式等先物） 24時間騰落率+1.23%, 価格96.679, 建玉25215386USD, 24時間出来高59572791USD, 資金調達率(年率)-59.4%",
+      "fields": {
+        "coin": "UNITREE",
+        "market": "株式先物（HIP-3）",
+        "price": "$96.68",
+        "change_pct": "+1.23%",
+        "oi": "約2,522万ドル",
+        "volume": "約5,957万ドル",
+        "funding_annual": "-59.4%",
+        "asof": "日本時間10/27(火) 01:48時点"
+      },
+      "raw": {
+        "mark": 96.679,
+        "change_pct": 1.225,
+        "oi_usd": 25215386,
+        "vol_usd": 59572791,
+        "funding_annual_pct": -59.41
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:UNITREE",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:UNITREE"
+      },
+      "asof": "2026-10-26T16:48:35.833438+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:UNITREE"
+    }
+  ],
+  "needs_human": false
+}

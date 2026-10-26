@@ -1,0 +1,67 @@
+{
+  "id": "20261027-1000-5",
+  "slot_key": "20261027-1000",
+  "slot_theme": "10:00 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "pending",
+  "created_at": "2026-10-26T16:55:21.985681+00:00",
+  "text": "日本時間10/27(火) 01:48時点の市場でCHIPが+17.42%の急変動を記録。建玉が約1,504万ドルに膨らんでおり、資金流入が活発化しているとみられます。",
+  "template": "{{f7.asof}}の市場で{{f7.coin}}が{{f7.change_pct}}の急変動を記録。建玉が{{f7.oi}}に膨らんでおり、資金流入が活発化しているとみられます。",
+  "style": "解説型",
+  "topic_key": "hl:CHIP:big_move",
+  "angle": "半導体関連の無期限先物CHIPが+17.4%と急騰している背景の資金流入を追う。",
+  "scores": {
+    "novelty": 18,
+    "interest": 20,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f7"
+  ],
+  "facts": [
+    {
+      "key": "hl:CHIP:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: CHIP（無期限先物） 24時間騰落率+17.42%, 価格0.052099, 建玉15042353USD, 24時間出来高10293028USD, 資金調達率(年率)+11.0%",
+      "fields": {
+        "coin": "CHIP",
+        "market": "無期限先物",
+        "price": "$0.0521",
+        "change_pct": "+17.42%",
+        "oi": "約1,504万ドル",
+        "volume": "約1,029万ドル",
+        "funding_annual": "+11.0%",
+        "asof": "日本時間10/27(火) 01:48時点"
+      },
+      "raw": {
+        "mark": 0.052099,
+        "change_pct": 17.425,
+        "oi_usd": 15042353,
+        "vol_usd": 10293028,
+        "funding_annual_pct": 10.95
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "CHIP",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/CHIP"
+      },
+      "asof": "2026-10-26T16:48:35.833377+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/CHIP"
+    }
+  ],
+  "needs_human": false
+}

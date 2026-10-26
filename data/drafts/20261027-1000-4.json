@@ -1,0 +1,69 @@
+{
+  "id": "20261027-1000-4",
+  "slot_key": "20261027-1000",
+  "slot_theme": "10:00 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "pending",
+  "created_at": "2026-10-26T16:54:22.608767+00:00",
+  "text": "日本時間10/27(火) 01:48時点、株式先物（HIP-3）のEWZが-26.46%と歴史的な動きを見せました。米国株の-22.02%との値動きの差や、資金調達率+6.7%の推移に注目が集まっています。",
+  "template": "{{f6.asof}}、{{f6.market}}の{{f6.coin}}が{{f6.change_pct}}と歴史的な動きを見せました。米国株の{{f6.us_change_pct}}との値動きの差や、資金調達率{{f6.funding_annual}}の推移に注目が集まっています。",
+  "style": "解説型",
+  "topic_key": "hl:xyz:EWZ:big_move",
+  "angle": "HIP-3株式先物EWZの26%超える歴史的な急変動と米国株の実績値の乖離を解析する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f6"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:EWZ:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: EWZ（HIP-3株式等先物） 24時間騰落率-26.46%, 価格33.232, 建玉22958700USD, 24時間出来高116830277USD, 資金調達率(年率)+6.7%（照合: 米国株の前日比-22.02%）",
+      "fields": {
+        "coin": "EWZ",
+        "market": "株式先物（HIP-3）",
+        "price": "$33.23",
+        "change_pct": "-26.46%",
+        "oi": "約2,296万ドル",
+        "volume": "約1.2億ドル",
+        "funding_annual": "+6.7%",
+        "asof": "日本時間10/27(火) 01:48時点",
+        "us_change_pct": "-22.02%"
+      },
+      "raw": {
+        "mark": 33.232,
+        "change_pct": -26.458,
+        "oi_usd": 22958700,
+        "vol_usd": 116830277,
+        "funding_annual_pct": 6.69,
+        "us_change_pct": -22.024
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:EWZ",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:EWZ"
+      },
+      "asof": "2026-10-26T16:48:35.833345+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:EWZ"
+    }
+  ],
+  "needs_human": false
+}
