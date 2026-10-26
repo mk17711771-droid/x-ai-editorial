@@ -15,7 +15,7 @@ import json
 import sys
 import traceback
 
-from . import learn, line, pipeline, research, store
+from . import learn, line, note, pipeline, research, store
 from .common import JST, now_utc, setup_logging
 
 
@@ -35,6 +35,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("research")
     lp = sub.add_parser("learn")
     lp.add_argument("--weekly-report", action="store_true")
+    np_ = sub.add_parser("note-profile")
+    np_.add_argument("--urlname", default="charisma_hl")
     p = sub.add_parser("preview")
     p.add_argument("--kind", choices=["stock", "hl"], default="hl")
     args = ap.parse_args(argv)
@@ -56,6 +58,8 @@ def main(argv: list[str] | None = None) -> int:
         elif args.cmd == "learn":
             weekly = args.weekly_report or now_utc().astimezone(JST).weekday() == 6
             learn.run(send_weekly_report=weekly)
+        elif args.cmd == "note-profile":
+            print(json.dumps(note.fetch_profile(args.urlname), ensure_ascii=False, indent=2))
         elif args.cmd == "preview":
             for f in pipeline.collect(args.kind):
                 print(json.dumps({"id": f["id"], "category": f["category"], "summary": f["summary"]}, ensure_ascii=False))
