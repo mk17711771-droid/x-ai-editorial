@@ -416,3 +416,14 @@ def test_note_article_generated_with_images_and_copy_link(wired, isolated, monke
     assert (store.DATA_DIR / f"note_articles/{meta['id']}/image1.png").read_bytes()[:4] == b"\x89PNG"
     msg = isolated[-1][0]["text"]
     assert "noteの記事ができました" in msg and f"/note/{meta['id']}?k=Uabc" in msg
+
+
+def test_render_cleans_spacing_units_and_restatements():
+    facts = {"f1": {"fields": {"long_n": "4人", "short_n": "20人", "top_n": "50人", "f": "+11.0%", "coin": "BTC"}}}
+    assert checks.render("上位 {{f1.top_n}} のうち、買いは{{f1.long_n}} 人、資金調達率は{{f1.f}}%", facts) == \
+        "上位50人のうち、買いは4人、資金調達率は+11.0%"
+    assert checks.render("{{f1.coin}} の買いは", facts) == "BTC の買いは"  # 英字の後の空白は残す
+    errors = checks.check_text("売りが20人ではなく23人になっている。" * 3, "t", "long")
+    assert any("言い直し" in e for e in errors)
+    from aiedit import fmt
+    assert fmt.usd_amount_ja(2.0629e11) == "約2,063億ドル" and fmt.usd_amount_ja(3.39e9) == "約33.9億ドル"

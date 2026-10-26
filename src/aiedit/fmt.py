@@ -23,6 +23,8 @@ def usd_amount_ja(x: float) -> str:
     a = abs(x)
     if a >= 1e12:
         return f"{sign}約{a / 1e12:.2f}兆ドル"
+    if a >= 1e11:
+        return f"{sign}約{a / 1e8:,.0f}億ドル"
     if a >= 1e8:
         return f"{sign}約{a / 1e8:.1f}億ドル"
     if a >= 1e4:

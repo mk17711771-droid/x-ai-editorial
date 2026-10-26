@@ -13,6 +13,8 @@ KANJI_QUANTITY = re.compile(r"[一二三四五六七八九十百千万億兆]+(?
 URL = re.compile(r"https?://|www\.|\b[\w-]+\.(?:com|io|xyz|jp|net|org)\b", re.I)
 MENTION = re.compile(r"(?<![\w])@\w+")
 HASHTAG = re.compile(r"[#＃]\w+")
+# 「20人ではなく23人」「+6.19%ではなく+4.04%」のような、数字を言い直す不自然な文
+RESTATE = re.compile(r"[0-9][0-9.,]*\s*(?:人|倍|%|％|ドル|円)?\s*ではなく\s*[+\-$約]?[0-9]")
 CASHTAG = re.compile(r"\$[A-Za-z][A-Za-z0-9.]*")
 
 
@@ -37,10 +39,42 @@ def length_limits(fmt: str = "short") -> tuple[int, int, int]:
     return 60, 135, 280
 
 
+UNITS = ("時点", "終値", "人", "倍", "%", "％", "ドル", "円")
+TICKER = re.compile(r"^[A-Za-z][A-Za-z0-9.:\-]*$")
+SPACES = " \u3000"
+
+
+def _is_jp(ch: str) -> bool:
+    return bool(ch) and ord(ch) > 0x7F
+
+
 def render(template: str, facts: dict[str, dict]) -> str:
-    def sub(m: re.Match) -> str:
-        return facts[m.group(1)]["fields"][m.group(2)]
-    text = normalize_cashtags(PLACEHOLDER.sub(sub, template).strip())
+    out: list[str] = []
+    pos = 0
+    for m in PLACEHOLDER.finditer(template):
+        value = facts[m.group(1)]["fields"][m.group(2)]
+        before = template[pos:m.start()]
+        # 日本語の直後の空白（「上位 50人」）は消す。ティッカー（英字）の前後の空白は残す
+        stripped = before.rstrip(SPACES)
+        if stripped != before and _is_jp(stripped[-1:]) and not TICKER.match(value):
+            before = stripped
+        out.append(before)
+        out.append(value)
+        pos = m.end()
+        rest = template[pos:]
+        rest_l = rest.lstrip(SPACES)
+        # 値に含まれる単位をAIがもう一度書いた場合（「4人 人」「+11.0%%」）は、後ろの単位を消す
+        for unit in UNITS:
+            if value.endswith(unit) and rest_l.startswith(unit):
+                rest_l = rest_l[len(unit):]
+                pos += len(rest) - len(rest_l)
+                rest = rest_l
+                break
+        # 数字の値の直後の空白（「50人 のうち」）は、続きが日本語なら消す
+        if rest != rest_l and _is_jp(rest_l[:1]) and not TICKER.match(value):
+            pos += len(rest) - len(rest_l)
+    out.append(template[pos:])
+    text = normalize_cashtags("".join(out).strip())
     # 差し込みデータとAIの文章で語が重なったもの（例:「時点時点」）を整える
     for dup, fixed in (("時点時点", "時点"), ("終値終値", "終値"), ("約約", "約"), ("$$", "$")):
         text = text.replace(dup, fixed)
@@ -92,6 +126,8 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     for phrase in read_list("banned_phrases.txt"):
         if phrase in text:
             errors.append(f"禁止表現「{phrase}」")
+    if RESTATE.search(text):
+        errors.append("数字の言い直し（「〜ではなく〜」）がある")
     if URL.search(text):
         errors.append("URLが含まれている（リンクは本文に入れない）")
     if MENTION.search(text):
