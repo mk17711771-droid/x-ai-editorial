@@ -42,7 +42,7 @@ def render(template: str, facts: dict[str, dict]) -> str:
         return facts[m.group(1)]["fields"][m.group(2)]
     text = normalize_cashtags(PLACEHOLDER.sub(sub, template).strip())
     # 差し込みデータとAIの文章で語が重なったもの（例:「時点時点」）を整える
-    for dup, fixed in (("時点時点", "時点"), ("終値終値", "終値"), ("約約", "約")):
+    for dup, fixed in (("時点時点", "時点"), ("終値終値", "終値"), ("約約", "約"), ("$$", "$")):
         text = text.replace(dup, fixed)
     return text
 

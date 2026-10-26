@@ -308,3 +308,8 @@ def test_long_format_limits(monkeypatch):
 def test_cashtags_normalized_to_two():
     out = checks.normalize_cashtags("$SOXXと$MU、$SKHXの話。$SOXXはまた上昇。価格は$496.27")
     assert out == "$SOXXとMU、SKHXの話。SOXXはまた上昇。価格は$496.27".replace("$SOXXとMU", "$SOXXと$MU")
+
+
+def test_render_fixes_double_dollar():
+    facts = {"f1": {"fields": {"price": "$496.25", "symbol": "SOXX"}}}
+    assert checks.render("${{f1.symbol}} 価格: ${{f1.price}}", facts) == "$SOXX 価格: $496.25"
