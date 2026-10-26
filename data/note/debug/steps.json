@@ -1,29 +1,16 @@
 [
   {
-    "step": "login_page",
-    "url": "https://note.com/login",
-    "at": "2026-10-26T19:56:44.820983+00:00",
-    "buttons": [
-      "ログイン"
-    ],
-    "screenshot": "note/debug/00_login_page.png"
-  },
-  {
-    "step": "after_login",
-    "url": "https://note.com/login",
-    "at": "2026-10-26T19:56:51.975704+00:00",
-    "buttons": [
-      "ログイン"
-    ],
-    "screenshot": "note/debug/01_after_login.png"
+    "step": "editor_opened",
+    "url": "https://editor.note.com/new",
+    "at": "2026-10-26T20:07:39.933427+00:00",
+    "buttons": [],
+    "screenshot": "note/debug/00_editor_opened.png"
   },
   {
     "step": "error",
-    "url": "https://note.com/login",
-    "at": "2026-10-26T19:56:52.042094+00:00",
-    "buttons": [
-      "ログイン"
-    ],
-    "screenshot": "note/debug/02_error.png"
+    "url": "https://editor.note.com/new",
+    "at": "2026-10-26T20:07:55.298876+00:00",
+    "buttons": [],
+    "screenshot": "note/debug/01_error.png"
   }
 ]
