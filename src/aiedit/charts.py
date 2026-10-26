@@ -177,7 +177,7 @@ def smart_money_chart(snap: dict, highlight: set[str] | None = None) -> bytes:
 
     fig = plt.figure(figsize=(16, 9), facecolor=BG)
     fig.text(0.04, 0.9, "Hyperliquid  ・  安定上位トレーダーの保有", color=TEXT, fontsize=30, fontweight="bold")
-    fig.text(0.04, 0.852, f"60日以上プラス・最大下落5〜15%・レバレッジ3倍以下などの条件を満たした{snap['traders']}人のポジション（人数）",
+    fig.text(0.04, 0.852, f"60日以上プラス・売買が多すぎない・大勝ち1回に頼らない・直近1週間に売買あり の{snap['traders']}人のポジション（人数）",
              color=MUTED, fontsize=15)
     ax = fig.add_axes([0.1, 0.13, 0.84, 0.66], facecolor=BG)
     ax.barh(names, longs, color=UP, label="買い（ロング）")

@@ -401,12 +401,15 @@ def test_trader_vetting_aggregation_facts_and_chart(isolated, monkeypatch):
     monkeypatch.setattr(traders.requests, "post", post)
 
     cohort = traders.select_cohort(force=True)
-    assert len(cohort["members"]) == 3
-    assert cohort["reasons"] == {"合格": 3, "レバレッジが高い": 1, "売買の回数が多すぎる": 1,
-                                 "最近売買していない": 1, "最大下落が目安の範囲外": 1}
+    # 0〜2: すべて満たす（厳選）/ 3: 高レバレッジ・6: 最大下落0% は安定上位どまり / 4・5 は対象外
+    assert len(cohort["members"]) == 5 and cohort["strict_n"] == 3
+    assert cohort["reasons"] == {"厳選": 3, "安定": 2, "売買が多すぎないを満たさない": 1, "直近1週間に売買ありを満たさない": 1}
+    assert [f["n"] for f in cohort["funnel"]] == [7, 7, 6, 6, 5, 4, 3, 3]
     snap = traders.snapshot()
     btc = next(c for c in snap["coins"] if c["coin"] == "BTC")
-    assert snap["traders"] == 3 and btc["long_n"] == 2 and btc["short_n"] == 1
+    assert snap["traders"] == 5 and btc["long_n"] == 2 and btc["short_n"] == 1
+    funnel = next(x for x in traders.facts() if x["category"] == "trader_funnel")
+    assert funnel["fields"]["strict_n"] == "3人" and funnel["fields"]["candidates"] == "7人"
     f = traders.facts()
     assert f[0]["fields"]["cohort"] == "安定上位トレーダー" and "60日以上プラス" in f[0]["summary"]
     assert "0x" not in json.dumps([x["fields"] for x in f])  # 投稿の材料にアドレスを入れない

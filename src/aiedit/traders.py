@@ -17,20 +17,23 @@ from .common import JST, fmt_jst, log, now_utc, settings
 
 LEADERBOARD = "https://stats-data.hyperliquid.xyz/Mainnet/leaderboard"
 COHORT_NAME = "安定上位トレーダー"
-COHORT_RULE = "60日以上プラス・最大下落5〜15%・レバレッジ3倍以下・売買が多すぎず最近も稼働"
+COHORT_RULE = "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり"
+STRICT_NAME = "厳選トレーダー"
+STRICT_RULE = "安定上位トレーダーの条件に加え、レバレッジ3倍以下・最大下落5〜15%・5日以内に売買"
 INFO = "https://api.hyperliquid.xyz/info"
 
 
 def _cfg() -> dict:
     return {
-        "top_n": 50, "candidates": 150, "min_account_usd": 50_000, "max_account_usd": 20_000_000,
+        "top_n": 50, "candidates": 300, "min_account_usd": 50_000, "max_account_usd": 20_000_000,
         "max_monthly_turnover": 150, "min_position_usd": 5_000,
         # 「勝ち続けていて、真似できる人」の条件（運用者のトレーダー選定ルールにもとづく）
         "min_days_positive": 60,       # 60日以上プラス
         "max_leverage": 3.0,           # 建玉÷口座の資産
         "max_fills_per_day": 15,       # 1日の約定数
         "mdd_min_pct": 5.0, "mdd_max_pct": 15.0,  # 最大下落（月間）
-        "max_idle_days": 5,            # 直近の売買がない日数
+        "max_idle_days": 5,            # 直近の売買がない日数（厳選）
+        "cohort_max_idle_days": 7,     # 同（安定上位）
         "max_single_win_share": 0.5,   # 1回の大勝ちが利益に占める割合
         "cohort_refresh_hours": 24,
         **settings().get("traders", {}),
@@ -135,28 +138,30 @@ def measure(t: dict) -> dict:
     }
 
 
+CHECKS = [
+    ("60日以上プラス", "stable", lambda m, c: m["pnl_60d"] is not None and m["pnl_60d"] > 0),
+    ("売買が多すぎない", "stable", lambda m, c: m["fills_30d"] < 2000 and m["fills_per_day"] <= c["max_fills_per_day"]),
+    ("1回の大勝ちに頼らない", "stable", lambda m, c: m["max_win_share"] is None or m["max_win_share"] <= c["max_single_win_share"]),
+    ("直近1週間に売買あり", "stable", lambda m, c: m["idle_days"] is not None and m["idle_days"] <= c["cohort_max_idle_days"]),
+    ("レバレッジ3倍以下", "strict", lambda m, c: m["leverage"] is not None and m["leverage"] <= c["max_leverage"]),
+    ("最大下落5〜15%", "strict", lambda m, c: c["mdd_min_pct"] <= m["mdd_pct"] <= c["mdd_max_pct"]),
+    ("5日以内に売買", "strict", lambda m, c: m["idle_days"] is not None and m["idle_days"] <= c["max_idle_days"]),
+]
+
+
 def judge(m: dict) -> str:
-    """選定ルールで審査する。合格なら「合格」、不合格なら最初に引っかかった理由。"""
+    """選定ルールで審査する。「厳選」「安定」、または最初に引っかかった条件名＋「を満たさない」。"""
     cfg = _cfg()
-    if m["pnl_60d"] is None or m["pnl_60d"] <= 0:
-        return "60日以上プラスではない"
-    if not cfg["mdd_min_pct"] <= m["mdd_pct"] <= cfg["mdd_max_pct"]:
-        return "最大下落が目安の範囲外"
-    if m["leverage"] is None or m["leverage"] > cfg["max_leverage"]:
-        return "レバレッジが高い"
-    if m["fills_30d"] >= 2000 or m["fills_per_day"] > cfg["max_fills_per_day"]:
-        return "売買の回数が多すぎる"
-    if m["idle_days"] is None or m["idle_days"] > cfg["max_idle_days"]:
-        return "最近売買していない"
-    if m["max_win_share"] is not None and m["max_win_share"] > cfg["max_single_win_share"]:
-        return "1回の大勝ちに頼っている"
-    return "合格"
+    for name, tier, ok in CHECKS:
+        if not ok(m, cfg):
+            return "安定" if tier == "strict" else f"{name}を満たさない"
+    return "厳選"
 
 
 def vet(t: dict) -> tuple[dict | None, str]:
     m = measure(t)
     why = judge(m)
-    return (m if why == "合格" else None), why
+    return (m if why in ("安定", "厳選") else None), why
 
 
 def select_cohort(force: bool = False) -> dict:
@@ -177,13 +182,20 @@ def select_cohort(force: bool = False) -> dict:
         if m:
             row = {k: v for k, v in m.items() if k != "positions"}
             measured.append({**row, "result": why})
-            if why == "合格":
-                members.append(row)
-        if len(members) >= cfg["top_n"]:
-            break
+            if why in ("安定", "厳選"):
+                members.append({**row, "strict": why == "厳選"})
     # 利益の大きさは最後に見る
     members.sort(key=lambda m: m["pnl_60d"], reverse=True)
-    cohort = {"at": now_utc().isoformat(), "members": members, "reasons": reasons}
+    members = members[: cfg["top_n"]]
+    # 条件ごとに何人が残るか（「ランキング上位のうち、真似できる条件を満たすのは何人か」）
+    cfgv = _cfg()
+    funnel, remaining = [], [x for x in measured]
+    funnel.append({"step": "審査した候補", "n": len(remaining)})
+    for name, _, ok in CHECKS:
+        remaining = [x for x in remaining if ok(x, cfgv)]
+        funnel.append({"step": name, "n": len(remaining)})
+    cohort = {"at": now_utc().isoformat(), "members": members, "reasons": reasons, "funnel": funnel,
+              "strict_n": sum(1 for x in members if x["strict"])}
     # 条件の調整用に、候補全員の指標を残す（アドレスは非公開リポジトリにだけ保存）
     store.write_json("traders/candidates_measured.json", measured)
     store.write_json("traders/cohort.json", cohort)
@@ -321,6 +333,21 @@ def facts(max_age_hours: float = 4) -> list[dict]:
                                "asof": f"日本時間{fmt_jst(asof)}時点", "venue": "Hyperliquid"},
                     "raw": {"long_n": c["long_n"], "short_n": c["short_n"], "long_usd": round(c["long_usd"]),
                             "short_usd": round(c["short_usd"])}})
+    cohort = store.read_json("traders/cohort.json")
+    if cohort and cohort.get("funnel"):
+        f0, steps = cohort["funnel"][0]["n"], {f["step"]: f["n"] for f in cohort["funnel"]}
+        out.append({**base,
+                    "key": f"traders:funnel:{cohort['at'][:10]}",
+                    "category": "trader_funnel",
+                    "summary": ("Hyperliquidのランキングから選んだ候補" + f"{f0}人を、真似できるかの条件で絞り込んだ結果: "
+                                + "、".join(f"{f['step']}→残り{f['n']}人" for f in cohort["funnel"][1:])
+                                + "。すべての条件を満たした人はごくわずかで、ランキングの上位＝真似する価値がある人ではないことがわかる"),
+                    "fields": {"candidates": f"{f0}人", "positive_60d": f"{steps.get('60日以上プラス', 0)}人",
+                               "stable_n": f"{steps.get('直近1週間に売買あり', 0)}人",
+                               "low_leverage_n": f"{steps.get('レバレッジ3倍以下', 0)}人",
+                               "strict_n": f"{steps.get('5日以内に売買', 0)}人",
+                               "venue": "Hyperliquid"},
+                    "raw": {"funnel": cohort["funnel"]}})
     prev = _previous()
     if prev:
         for coin, o in sorted(closed_in_profit(prev, snap).items(), key=lambda kv: kv[1]["upnl"], reverse=True)[:3]:
