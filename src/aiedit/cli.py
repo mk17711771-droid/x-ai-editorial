@@ -39,6 +39,9 @@ def main(argv: list[str] | None = None) -> int:
     np_.add_argument("--urlname", default="charisma_hl")
     na = sub.add_parser("note-audit")
     na.add_argument("--urlname", default="charisma_hl")
+    npost = sub.add_parser("note-post")
+    npost.add_argument("--file", default="content/note/intro.md")
+    npost.add_argument("--publish", action="store_true", help="指定しなければ下書き保存まで")
     p = sub.add_parser("preview")
     p.add_argument("--kind", choices=["stock", "hl"], default="hl")
     args = ap.parse_args(argv)
@@ -64,6 +67,9 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(note.fetch_profile(args.urlname), ensure_ascii=False, indent=2))
         elif args.cmd == "note-audit":
             print(f"{len(note.audit_notes(args.urlname))}件を確認")
+        elif args.cmd == "note-post":
+            from . import note_publisher
+            print(note_publisher.publish_file(args.file, draft_only=not args.publish))
         elif args.cmd == "preview":
             for f in pipeline.collect(args.kind):
                 print(json.dumps({"id": f["id"], "category": f["category"], "summary": f["summary"]}, ensure_ascii=False))

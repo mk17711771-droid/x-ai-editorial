@@ -10,6 +10,8 @@ on:
         options:
           - note-profile
           - note-audit
+          - note-intro-draft
+          - note-intro-publish
         default: note-profile
 
 permissions:
@@ -22,7 +24,7 @@ concurrency:
 jobs:
   tool:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
         with:
@@ -32,11 +34,24 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Install browser and Japanese font (note)
+        if: startsWith(inputs.tool, 'note-intro')
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y -q fonts-noto-cjk >/dev/null
       - name: Run
         env:
           PYTHONPATH: src
           TOOL: ${{ inputs.tool }}
-        run: python -m aiedit.cli "$TOOL"
+          NOTE_EMAIL: ${{ secrets.NOTE_EMAIL }}
+          NOTE_PASSWORD: ${{ secrets.NOTE_PASSWORD }}
+        run: |
+          case "$TOOL" in
+            note-intro-draft)   python -m aiedit.cli note-post --file content/note/intro.md ;;
+            note-intro-publish) python -m aiedit.cli note-post --file content/note/intro.md --publish ;;
+            *)                  python -m aiedit.cli "$TOOL" ;;
+          esac
       - name: Save data
         if: always()
         run: |
