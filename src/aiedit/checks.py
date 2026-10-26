@@ -38,7 +38,11 @@ def length_limits() -> tuple[int, int, int]:
 def render(template: str, facts: dict[str, dict]) -> str:
     def sub(m: re.Match) -> str:
         return facts[m.group(1)]["fields"][m.group(2)]
-    return PLACEHOLDER.sub(sub, template).strip()
+    text = PLACEHOLDER.sub(sub, template).strip()
+    # 差し込みデータとAIの文章で語が重なったもの（例:「時点時点」）を整える
+    for dup, fixed in (("時点時点", "時点"), ("終値終値", "終値"), ("約約", "約")):
+        text = text.replace(dup, fixed)
+    return text
 
 
 def check_template(template: str, facts: dict[str, dict]) -> list[str]:

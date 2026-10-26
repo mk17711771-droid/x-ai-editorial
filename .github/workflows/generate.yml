@@ -29,7 +29,7 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     # 初期設定が終わり、リポジトリ変数 BOT_ENABLED を true にするまでは動かない
     if: vars.BOT_ENABLED == 'true'
     steps:

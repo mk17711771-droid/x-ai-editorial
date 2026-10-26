@@ -2,7 +2,7 @@
   "id": "20261027-1000-1",
   "slot_key": "20261027-1000",
   "slot_theme": "10:00 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
-  "status": "pending",
+  "status": "rejected",
   "created_at": "2026-10-26T16:34:31.876630+00:00",
   "text": "日本時間10/27(火) 01:24時点時点、株式先物（HIP-3）のEWZは-26.37%の急落となり$33.22に。出来高は約1.2億ドル、資金調達率は年率+5.5%です。",
   "template": "{{f6.asof}}時点、{{f6.market}}の{{f6.coin}}は{{f6.change_pct}}の急落となり{{f6.price}}に。出来高は{{f6.volume}}、資金調達率は年率{{f6.funding_annual}}です。",
@@ -94,5 +94,6 @@
       "url": "https://app.hyperliquid.xyz/trade"
     }
   ],
-  "needs_human": false
+  "needs_human": false,
+  "rejected_reason": "data_anomaly: HIP-3 EWZの騰落率が米国株と食い違う"
 }

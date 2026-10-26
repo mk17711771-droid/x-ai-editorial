@@ -179,3 +179,23 @@ def test_reject_records_reason(wired, isolated):
     assert pipeline.publish(d["id"], "reject_inaccurate") == "rejected"
     assert store.read_jsonl("decisions.jsonl")[0]["action"] == "reject_inaccurate"
     assert wired == []
+
+
+def test_render_removes_duplicated_words():
+    assert checks.render("{{f1.asof}}時点、{{f1.coin}}は", FACTS) == "日本時間10/26(月) 10:05時点、BTCは"
+
+
+def test_hip3_moves_checked_against_us_stock(monkeypatch):
+    from aiedit import collect_stocks
+    monkeypatch.setenv("FINNHUB_API_KEY", "x")
+    quotes = {"EWZ": {"dp": 0.4}, "NVDA": {"dp": -11.0}}
+    monkeypatch.setattr(collect_stocks, "quote", lambda sym: quotes.get(sym))
+    markets = [
+        {"coin": "xyz:EWZ", "dex": "xyz", "change_pct": -26.0},   # 米国株は+0.4% → データ異常として除外
+        {"coin": "xyz:NVDA", "dex": "xyz", "change_pct": -10.0},  # 米国株も-11% → 残す
+        {"coin": "xyz:FOO", "dex": "xyz", "change_pct": 12.0},    # 照合できない → 除外
+        {"coin": "xyz:AAPL", "dex": "xyz", "change_pct": 1.0},    # 小さな値動きは照合不要
+        {"coin": "BTC", "dex": "", "change_pct": -20.0},          # 暗号資産は対象外
+    ]
+    kept = [m["coin"] for m in collect_hyperliquid._verify_hip3_moves(markets)]
+    assert kept == ["xyz:NVDA", "xyz:AAPL", "BTC"]

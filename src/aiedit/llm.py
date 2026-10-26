@@ -29,7 +29,7 @@ def generate_json(system: str, user: str) -> dict:
     models = [cfg["model"]] + [m for m in cfg.get("fallback_models", []) if m != cfg["model"]]
     last_err: Exception | None = None
     for model in models:
-        for attempt in range(3):
+        for attempt in range(2):
             try:
                 r = requests.post(API.format(model=model), params={"key": env("GEMINI_API_KEY")}, json=body, timeout=120)
                 if r.status_code in (429, 500, 503):
@@ -46,5 +46,5 @@ def generate_json(system: str, user: str) -> dict:
                 log.warning("Gemini（%s）呼び出し失敗（%d回目）: %s", model, attempt + 1, str(e)[:200])
                 if "が見つかりません" in str(e):
                     break
-                time.sleep(15 * (attempt + 1))
+                time.sleep(10 * (attempt + 1))
     raise RuntimeError(f"Gemini APIの呼び出しに失敗しました: {last_err}")

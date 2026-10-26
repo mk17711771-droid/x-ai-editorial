@@ -1,6 +1,7 @@
 """Hyperliquid公式API（キー不要・無料）から市場データを収集し、投稿の材料（fact）を作る。"""
 from __future__ import annotations
 
+import os
 from datetime import datetime, timedelta
 
 import requests
@@ -47,12 +48,17 @@ def fetch_markets() -> list[dict]:
             try:
                 mark = float(ctx["markPx"])
                 prev = float(ctx["prevDayPx"])
+                oracle = float(ctx.get("oraclePx") or 0)
                 oi = float(ctx["openInterest"]) * mark
                 vol = float(ctx["dayNtlVlm"])
                 funding_h = float(ctx["funding"])
             except (KeyError, TypeError, ValueError):
                 continue
             if mark <= 0 or prev <= 0:
+                continue
+            # 取引価格が参照価格（オラクル）から大きく乖離している市場は、データ異常の可能性があるため除外
+            if oracle > 0 and abs(mark / oracle - 1) > 0.03:
+                log.info("価格乖離のため除外: %s mark=%s oracle=%s", asset["name"], mark, oracle)
                 continue
             markets.append({
                 "coin": asset["name"],
@@ -130,9 +136,37 @@ def _fact(m: dict, category: str, summary: str, extra_fields: dict | None = None
     }
 
 
+def _verify_hip3_moves(markets: list[dict]) -> list[dict]:
+    """HIP-3の株式先物で大きく動いた銘柄は、実際の米国株の値動きと照合する。
+
+    24時間の騰落率と米国株の前日比は計算期間が違うため完全には一致しないが、
+    大きく食い違う場合はデータ異常の可能性が高いので材料から外す。
+    """
+    if not os.environ.get("FINNHUB_API_KEY"):
+        return markets
+    from . import collect_stocks
+
+    big = settings()["hyperliquid"]["big_move_pct"]
+    kept = []
+    for m in markets:
+        if m["dex"] and abs(m["change_pct"]) >= big:
+            try:
+                q = collect_stocks.quote(display_name(m))
+            except requests.RequestException:
+                q = None
+            if q is None:
+                log.info("HIP-3 %s は米国株と照合できないため除外", m["coin"])
+                continue
+            if abs(float(q["dp"]) - m["change_pct"]) > big:
+                log.info("HIP-3 %s の騰落率%+.1f%%が米国株%+.1f%%と食い違うため除外", m["coin"], m["change_pct"], float(q["dp"]))
+                continue
+        kept.append(m)
+    return kept
+
+
 def collect() -> list[dict]:
     cfg = settings()["hyperliquid"]
-    markets = fetch_markets()
+    markets = _verify_hip3_moves(fetch_markets())
     prev_oi = _snapshot_oi(markets)
     liquid = [m for m in markets if m["vol_usd"] >= cfg["min_day_volume_usd"]]
     n = cfg["top_n"]
