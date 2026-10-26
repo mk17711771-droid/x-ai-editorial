@@ -39,6 +39,8 @@ def main(argv: list[str] | None = None) -> int:
     np_.add_argument("--urlname", default="charisma_hl")
     na = sub.add_parser("note-audit")
     na.add_argument("--urlname", default="charisma_hl")
+    nart = sub.add_parser("note-article")
+    nart.add_argument("--theme", default=None)
     p = sub.add_parser("preview")
     p.add_argument("--kind", choices=["stock", "hl"], default="hl")
     args = ap.parse_args(argv)
@@ -64,6 +66,10 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(note.fetch_profile(args.urlname), ensure_ascii=False, indent=2))
         elif args.cmd == "note-audit":
             print(f"{len(note.audit_notes(args.urlname))}件を確認")
+        elif args.cmd == "note-article":
+            from . import note_article
+            meta = note_article.write(args.theme)
+            print(json.dumps(meta, ensure_ascii=False, indent=2) if meta else "記事を作れませんでした")
         elif args.cmd == "preview":
             for f in pipeline.collect(args.kind):
                 print(json.dumps({"id": f["id"], "category": f["category"], "summary": f["summary"]}, ensure_ascii=False))
@@ -79,7 +85,7 @@ def main(argv: list[str] | None = None) -> int:
             "error": f"{type(e).__name__}: {e}",
             "traceback": traceback.format_exc()[-4000:],
         })
-        if args.cmd in ("generate", "decide"):
+        if args.cmd in ("generate", "decide", "note-article"):
             # リサーチ・学習の失敗は次の回で取り戻せるので、LINEの通数を使わない
             line.notify(f"【異常】{args.cmd} でエラーが発生しました\n{type(e).__name__}: {str(e)[:600]}")
         raise

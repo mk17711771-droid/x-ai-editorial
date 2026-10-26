@@ -6,6 +6,7 @@
 // - 「全自動」/「承認制」 → GitHubリポジトリ変数 APPROVAL_MODE を切り替え
 // - 「状態」 → 現在の稼働状態を返信
 // - 「ID」   → 送信者のLINEユーザーIDを返信（初期設定用）
+// - GET /note/<記事ID>?k=<管理者ID> → noteの記事をコピーしやすく表示（タイトル・本文・画像）
 //
 // 返信（Reply API）はLINEの無料通数にカウントされない。
 
@@ -13,6 +14,11 @@ const GH_API = "https://api.github.com";
 
 export default {
   async fetch(request, env) {
+    if (request.method === "GET") {
+      const url = new URL(request.url);
+      if (url.pathname.startsWith("/note/")) return notePage(url, env);
+      return new Response("ok");
+    }
     if (request.method !== "POST") return new Response("ok");
     const body = await request.text();
     if (!(await verifySignature(body, request.headers.get("x-line-signature"), env.LINE_CHANNEL_SECRET))) {
@@ -142,4 +148,77 @@ async function setVariable(env, name, value) {
     r = await gh(env, "/actions/variables", { method: "POST", body: JSON.stringify({ name, value }) });
   }
   if (!r.ok) throw new Error(`GitHub変数の更新失敗 ${r.status}`);
+}
+
+// ---------------------------------------------------------------- noteの記事のコピー用ページ
+
+async function ghRaw(env, path) {
+  const r = await fetch(`${GH_API}/repos/${env.GITHUB_REPO}/contents/${path}`, {
+    headers: {
+      Accept: "application/vnd.github.raw+json",
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "x-ai-editorial-worker",
+    },
+  });
+  return r.ok ? r : null;
+}
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+async function notePage(url, env) {
+  const m = url.pathname.match(/^\/note\/(\d{8}-\d{4})(?:\/(image\d+\.png))?$/);
+  const key = url.searchParams.get("k");
+  if (!m || !env.LINE_ADMIN_USER_ID || key !== env.LINE_ADMIN_USER_ID) {
+    return new Response("not found", { status: 404 });
+  }
+  const [, id, image] = m;
+  const dir = `data/note_articles/${id}`;
+  if (image) {
+    const r = await ghRaw(env, `${dir}/${image}`);
+    if (!r) return new Response("not found", { status: 404 });
+    return new Response(r.body, { headers: { "Content-Type": "image/png", "Cache-Control": "private, max-age=3600" } });
+  }
+  const [metaR, htmlR] = await Promise.all([ghRaw(env, `${dir}/meta.json`), ghRaw(env, `${dir}/article.html`)]);
+  if (!metaR || !htmlR) return new Response("記事が見つかりません", { status: 404 });
+  const meta = await metaR.json();
+  const body = await htmlR.text();
+  const q = `?k=${encodeURIComponent(key)}`;
+  const images = meta.images.map((im, i) => `
+    <figure><img src="/note/${id}/${im.file}${q}" alt="${esc(im.label)}">
+    <figcaption>画像${i + 1}：${esc(im.label)}（長押しまたは右クリックで保存）</figcaption></figure>`).join("");
+  const tags = meta.hashtags.map((t) => "#" + t).join(" ");
+  const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>${esc(meta.title)}</title>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--text:#e6edf3;--muted:#8b949e;--accent:#3fb950;--line:#30363d}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.8}
+main{max-width:760px;margin:0 auto;padding:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:16px 0}
+h1{font-size:1.25rem;margin:0 0 8px}
+button{background:var(--accent);color:#0d1117;border:0;border-radius:8px;padding:12px 16px;font-size:1rem;font-weight:700;width:100%;margin-top:8px}
+.muted{color:var(--muted);font-size:.9rem}
+#body{background:#fff;color:#111;border-radius:8px;padding:16px;max-height:60vh;overflow:auto}
+img{max-width:100%;border-radius:8px}
+ol{padding-left:1.2em}
+</style></head><body><main>
+<p class="muted">noteに貼り付けるための原稿です（${meta.chars}字・図${meta.images.length}枚）</p>
+<div class="card"><h1 id="title">${esc(meta.title)}</h1><button onclick="copyText('title',this)">① タイトルをコピー</button></div>
+<div class="card"><div id="body">${body}</div><button onclick="copyRich(this)">② 本文をコピー（見出し・太字つき）</button></div>
+<div class="card"><p>③ 本文中の「▼ここに画像」の場所に、次の画像を入れてください。</p>${images}</div>
+<div class="card"><p>④ 公開設定でハッシュタグを入れて公開</p><p id="tags">${esc(tags)}</p><button onclick="copyText('tags',this)">ハッシュタグをコピー</button></div>
+<div class="card muted"><ol><li>noteで「投稿」→「テキスト」を開く</li><li>タイトル欄にタイトル、本文欄に本文を貼り付け</li>
+<li>「▼ここに画像」の行を消して、そこに画像を挿入</li><li>内容をざっと確認して「公開に進む」→ハッシュタグ→「投稿する」</li></ol></div>
+</main><script>
+function done(b){const t=b.textContent;b.textContent="コピーしました ✓";setTimeout(()=>b.textContent=t,1500)}
+async function copyText(id,b){await navigator.clipboard.writeText(document.getElementById(id).innerText);done(b)}
+async function copyRich(b){const el=document.getElementById("body");
+ try{await navigator.clipboard.write([new ClipboardItem({"text/html":new Blob([el.innerHTML],{type:"text/html"}),"text/plain":new Blob([el.innerText],{type:"text/plain"})})])}
+ catch(e){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand("copy");s.removeAllRanges()}
+ done(b)}
+</script></body></html>`;
+  return new Response(html, { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "private, no-store" } });
 }

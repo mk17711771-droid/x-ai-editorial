@@ -79,6 +79,9 @@ hyperliquid:
   funding_extreme_annual_pct: 50.0
   include_hip3: true             # HIP-3（株式先物など）の市場も対象にする
 
+# LINEのボタンとnote記事のコピー用ページを受け持つCloudflare Worker
+worker_url: https://x-ai-editorial-line.mk17711771.workers.dev
+
 images:
   # 実データから作ったチャート画像を投稿に付ける
   enabled: true

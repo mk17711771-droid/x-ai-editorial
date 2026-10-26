@@ -385,3 +385,34 @@ def test_trader_aggregation_facts_and_chart(isolated, monkeypatch):
     traders.snapshot()
     exits = [x for x in traders.facts() if x["category"] == "smart_money_exit"]
     assert exits and exits[0]["fields"]["closed_n"] == "2人"
+
+
+def test_note_article_generated_with_images_and_copy_link(wired, isolated, monkeypatch):
+    from aiedit import note_article, traders
+    monkeypatch.setenv("LINE_ADMIN_USER_ID", "Uabc")
+    monkeypatch.delenv("FINNHUB_API_KEY", raising=False)
+    store.write_json("traders/latest.json", {"at": "2026-10-26T01:00:00+00:00", "traders": 50, "with_positions": 40,
+                                             "coins": [{"coin": "ETH", "long_n": 3, "short_n": 23, "long_usd": 1e7, "short_usd": 7e8,
+                                                        "avg_leverage": 17.0, "pos_n": 26, "net_usd": -6.9e8}], "positions": {}})
+    calls = []
+
+    def fake(system, user):
+        calls.append(user)
+        facts = json.loads(user.split("# 材料（この差し込み記号だけ使える）\n")[1].split("\n\n# ")[0])
+        eth = next(f["id"] for f in facts if f["category"] == "smart_money")
+        body = (f"今週のHyperliquidで目立ったのは、上位トレーダーの売りへの偏りです。\n\n## いま何が起きているか\n\n"
+                f"月間利益上位{{{{{eth}.top_n}}}}のうち、ETHを売っているのは{{{{{eth}.short_n}}}}です。\n\n"
+                "![上位トレーダーの保有](chart:smart_money)\n\n" + "ただし、ヘッジ目的の売りも含まれます。" * 200)
+        if len(calls) == 1:  # 1回目はわざと数字を書いて、直させる
+            body = "上位五十人のうち、売りは23人でした。" + body
+        return {"title": "上位トレーダーはなぜ売っているのか", "markdown": body, "hashtags": ["#Hyperliquid", "ETH"]}
+    monkeypatch.setattr(llm, "generate_json", fake)
+    meta = note_article.write("テスト")
+    assert len(calls) == 2 and "前回の原稿で直すべき点" in calls[1]
+    assert meta["title"] == "上位トレーダーはなぜ売っているのか" and meta["hashtags"] == ["Hyperliquid", "ETH"]
+    md_text = store.read_text(f"note_articles/{meta['id']}/article.md")
+    assert "▼ここに画像1（上位トレーダーの保有）を挿入" in md_text and "chart:" not in md_text
+    assert "50人のうち、ETHを売っているのは23人" in md_text and "売買を勧めるものではありません" in md_text
+    assert (store.DATA_DIR / f"note_articles/{meta['id']}/image1.png").read_bytes()[:4] == b"\x89PNG"
+    msg = isolated[-1][0]["text"]
+    assert "noteの記事ができました" in msg and f"/note/{meta['id']}?k=Uabc" in msg
