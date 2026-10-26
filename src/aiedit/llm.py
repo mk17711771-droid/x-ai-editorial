@@ -31,8 +31,10 @@ def generate_json(system: str, user: str) -> dict:
         try:
             r = requests.post(url, params={"key": env("GEMINI_API_KEY")}, json=body, timeout=120)
             if r.status_code in (429, 500, 503):
-                raise requests.HTTPError(f"{r.status_code}: {r.text[:200]}")
-            r.raise_for_status()
+                raise requests.HTTPError(f"{r.status_code}: {r.text[:300]}")
+            if r.status_code >= 400:
+                # キーやモデル名の誤りなど、再試行しても直らないエラー
+                raise RuntimeError(f"Gemini APIエラー {r.status_code}（モデル: {cfg['model']}）: {r.text[:500]}")
             text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
             return json.loads(text)
         except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as e:
