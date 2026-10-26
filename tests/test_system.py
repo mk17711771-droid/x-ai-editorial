@@ -359,8 +359,12 @@ def test_trader_vetting_aggregation_facts_and_chart(isolated, monkeypatch):
     now_ms = int(datetime.fromisoformat("2026-10-26T01:20:00+00:00").timestamp() * 1000)
     day = 86_400_000
     rows = [{"ethAddress": f"0x{i:040x}", "accountValue": "500000",
-             "windowPerformances": [["month", {"pnl": str(100000 - i), "roi": "0.2"}], ["allTime", {"pnl": "1", "roi": "1"}]]}
+             "windowPerformances": [["month", {"pnl": str(100000 - i), "roi": "0.2", "vlm": "1000000"}],
+                                    ["allTime", {"pnl": "1", "roi": "1"}]]}
             for i in range(7)]
+    # 高頻度の自動売買（月間の売買代金が口座の資産の1,000倍）は、ランキングの段階で外れる
+    rows.append({"ethAddress": "0xhft", "accountValue": "500000",
+                 "windowPerformances": [["month", {"pnl": "9e9", "roi": "9", "vlm": "5e8"}], ["allTime", {"pnl": "1"}]]})
 
     class R:
         status_code = 200
@@ -384,7 +388,9 @@ def test_trader_vetting_aggregation_facts_and_chart(isolated, monkeypatch):
         i = int(json["user"], 16)
         if json["type"] == "portfolio":
             pnl = steady_pnl(dip.get(i, 60000))
-            return R([["allTime", {"pnlHistory": pnl}], ["month", {"pnlHistory": pnl[-31:]}]])
+            acct = [[t, "500000"] for t, _ in pnl]
+            return R([["allTime", {"pnlHistory": pnl, "accountValueHistory": acct}],
+                      ["month", {"pnlHistory": pnl[-31:], "accountValueHistory": acct[-31:]}]])
         if json["type"] == "userFillsByTime":
             n = fills_n.get(i, 20)
             last = now_ms - idle.get(i, 1) * day

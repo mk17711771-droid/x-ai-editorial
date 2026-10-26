@@ -23,7 +23,8 @@ INFO = "https://api.hyperliquid.xyz/info"
 
 def _cfg() -> dict:
     return {
-        "top_n": 50, "candidates": 120, "min_account_usd": 100_000, "min_position_usd": 10_000,
+        "top_n": 50, "candidates": 150, "min_account_usd": 50_000, "max_account_usd": 20_000_000,
+        "max_monthly_turnover": 150, "min_position_usd": 5_000,
         # 「勝ち続けていて、真似できる人」の条件（運用者のトレーダー選定ルールにもとづく）
         "min_days_positive": 60,       # 60日以上プラス
         "max_leverage": 3.0,           # 建玉÷口座の資産
@@ -44,19 +45,27 @@ def _window(row: dict, name: str) -> dict:
 
 
 def candidates() -> list[dict]:
-    """ランキングから候補を選ぶ: 月間の利益上位で、規模が一定以上、月間・全期間ともにプラス。"""
+    """ランキングから審査する候補を選ぶ。
+
+    利益額の上位は大口や高頻度の自動売買が中心で「真似できる人」がほぼいないため、
+    ランキングの数字だけで高頻度・巨大口座を先に外し、月間の利益率の高い順に候補にする。
+    """
     cfg = _cfg()
     rows = requests.get(LEADERBOARD, timeout=60).json().get("leaderboardRows", [])
     picked = []
     for r in rows:
         month, all_time = _window(r, "month"), _window(r, "allTime")
-        if float(r.get("accountValue", 0)) < cfg["min_account_usd"]:
+        acct = float(r.get("accountValue", 0))
+        if not cfg["min_account_usd"] <= acct <= cfg["max_account_usd"]:
             continue
         if month.get("pnl", 0) <= 0 or all_time.get("pnl", 0) <= 0:
             continue
-        picked.append({"address": r["ethAddress"], "account_value": float(r["accountValue"]),
+        # 月間の売買代金が口座の資産の何倍か（回転が速すぎる人は高頻度の自動売買の可能性が高い）
+        if month.get("vlm", 0) / acct > cfg["max_monthly_turnover"]:
+            continue
+        picked.append({"address": r["ethAddress"], "account_value": acct,
                        "month_pnl": month["pnl"], "month_roi": month.get("roi", 0)})
-    picked.sort(key=lambda t: t["month_pnl"], reverse=True)
+    picked.sort(key=lambda t: t["month_roi"], reverse=True)
     return picked[: cfg["candidates"]]
 
 
@@ -85,16 +94,18 @@ def _pnl_change(history: list, days: int) -> float | None:
     return pts[-1][1] - past[1]
 
 
-def _max_drawdown_pct(pnl_history: list, account_value: float) -> float:
-    """損益の推移から最大下落率（%）を求める。入出金の影響を受けにくいよう、口座の資産ではなく損益で計算する。"""
-    pts = [float(v) for _, v in pnl_history]
-    if not pts:
+def _max_drawdown_pct(pnl_history: list, account_history: list) -> float:
+    """最大下落率（%）。入出金の影響を受けにくいよう損益の減り方で測り、そのときの口座の資産で割る。"""
+    pnl = [float(v) for _, v in pnl_history]
+    acct = [float(v) for _, v in account_history]
+    if not pnl or len(acct) != len(pnl):
         return 0.0
-    base = max(account_value - pts[-1], 1.0)  # 期間の初めの資産の目安
-    peak, mdd = pts[0], 0.0
-    for v in pts:
-        peak = max(peak, v)
-        mdd = max(mdd, (peak - v) / (base + peak) * 100)
+    peak_pnl, peak_acct, mdd = pnl[0], acct[0], 0.0
+    for p, a in zip(pnl, acct):
+        if p >= peak_pnl:
+            peak_pnl, peak_acct = p, a
+        if peak_acct > 0:
+            mdd = max(mdd, (peak_pnl - p) / peak_acct * 100)
     return mdd
 
 
@@ -114,7 +125,7 @@ def measure(t: dict) -> dict:
         **t,
         "pnl_60d": _pnl_change(hist, 60),
         "history_days": round((int(hist[-1][0]) - int(hist[0][0])) / 86_400_000) if len(hist) > 1 else 0,
-        "mdd_pct": round(_max_drawdown_pct(month.get("pnlHistory", []), t["account_value"]), 1),
+        "mdd_pct": round(_max_drawdown_pct(month.get("pnlHistory", []), month.get("accountValueHistory", [])), 1),
         "leverage": round(float(ms.get("totalNtlPos") or 0) / acct, 2) if acct else None,
         "fills_30d": len(fills),
         "fills_per_day": round(len(recent) / 7, 1),
