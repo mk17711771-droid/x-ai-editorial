@@ -109,7 +109,8 @@ def collect() -> list[dict]:
             }
             summary = f"決算予定: {e['symbol']} 米国時間{e['date']} {timing}"
             if e.get("epsEstimate") is not None:
-                fields["eps_estimate"] = f"${float(e['epsEstimate']):.2f}"
+                eps = float(e["epsEstimate"])
+                fields["eps_estimate"] = f"{'-' if eps < 0 else ''}${abs(eps):.2f}"
                 summary += f", 予想EPS {e['epsEstimate']}"
             if e.get("revenueEstimate"):
                 fields["revenue_estimate"] = fmt.usd_amount_ja(float(e["revenueEstimate"]))
