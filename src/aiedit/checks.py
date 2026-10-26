@@ -13,6 +13,7 @@ KANJI_QUANTITY = re.compile(r"[一二三四五六七八九十百千万億兆]+(?
 URL = re.compile(r"https?://|www\.|\b[\w-]+\.(?:com|io|xyz|jp|net|org)\b", re.I)
 MENTION = re.compile(r"(?<![\w])@\w+")
 HASHTAG = re.compile(r"[#＃]\w+")
+CASHTAG = re.compile(r"\$[A-Za-z][A-Za-z0-9.]*")
 
 
 def weighted_length(text: str) -> int:
@@ -81,8 +82,10 @@ def check_text(text: str, topic_key: str) -> list[str]:
         errors.append("URLが含まれている（リンクは本文に入れない）")
     if MENTION.search(text):
         errors.append("@メンションが含まれている")
-    if len(HASHTAG.findall(text)) > 1:
-        errors.append("ハッシュタグが多すぎる")
+    if HASHTAG.search(text):
+        errors.append("ハッシュタグは使わない")
+    if len(CASHTAG.findall(text)) > 2:
+        errors.append("キャッシュタグが多すぎる")
 
     sim, similar_to = max_similarity(text)
     if sim >= cfg["similarity_threshold"]:

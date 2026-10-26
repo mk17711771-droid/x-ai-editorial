@@ -26,7 +26,7 @@ def main(argv: list[str] | None = None) -> int:
     g.add_argument("--force", action="store_true")
     d = sub.add_parser("decide")
     d.add_argument("--id", required=True)
-    d.add_argument("--action", required=True, choices=["approve", "reject_quality", "reject_inaccurate"])
+    d.add_argument("--action", required=True, choices=["approve", "reject_quality", "reject_inaccurate", "delete"])
     sub.add_parser("resume")
     n = sub.add_parser("notify")
     n.add_argument("--message", required=True)

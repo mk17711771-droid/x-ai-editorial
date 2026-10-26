@@ -58,3 +58,11 @@ def post(text: str, reply_to: str | None = None) -> str:
     if r.status_code >= 400:
         raise XPostError(f"{r.status_code}: {r.text[:300]}")
     return r.json()["data"]["id"]
+
+
+def delete(tweet_id: str) -> None:
+    r = requests.delete(f"{API}/tweets/{tweet_id}", auth=_auth(), timeout=30)
+    if r.status_code in (401, 403):
+        raise XAuthError(f"{r.status_code}: {r.text[:300]}")
+    if r.status_code >= 400:
+        raise XPostError(f"{r.status_code}: {r.text[:300]}")

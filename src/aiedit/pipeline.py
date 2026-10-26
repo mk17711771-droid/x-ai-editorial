@@ -199,9 +199,10 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         log.info("基準を満たす投稿がないため、この枠は見送ります")
         return []
 
-    auto = cfg["mode"] == "auto"
-    if auto and not drafts[0]["needs_human"]:
-        publish(drafts[0]["id"], "approve", decided_by="auto")
+    # 全自動モードでは最高点の案を投稿する。未検証ニュースを含む案だけは人の承認に回す
+    auto_pick = next((d for d in drafts if not d["needs_human"]), None) if cfg["mode"] == "auto" else None
+    if auto_pick:
+        publish(auto_pick["id"], "approve", decided_by="auto")
     else:
         line.send_approval_request(drafts, cfg["limits"]["draft_expiry_hours"])
     return drafts
@@ -305,6 +306,7 @@ STATUS_JA = {
     "stale": "データが古くなった",
     "failed": "投稿に失敗した",
     "skipped": "投稿上限で見送られた",
+    "deleted": "すでに削除済みの",
 }
 
 
@@ -312,6 +314,8 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
     draft = store.load_draft(draft_id)
     if not draft:
         raise ValueError(f"下書き {draft_id} が見つかりません")
+    if action == "delete" and draft["status"] == "posted":
+        return delete_post(draft)
     if draft["status"] != "pending":
         log.info("下書き %s は処理済みです（%s）", draft_id, draft["status"])
         if decided_by == "admin":
@@ -397,4 +401,17 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
             _close(sib, "superseded")
         i += 1
     log.info("投稿しました: https://x.com/i/status/%s", tweet_id)
+    if decided_by == "auto":
+        line.send_posted_notice(draft, tweet_id)
     return "posted"
+
+
+def delete_post(draft: dict) -> str:
+    """投稿済みの下書きをXから削除する（LINEの「削除する」ボタン）。"""
+    xapi.delete(draft["tweet_id"])
+    _close(draft, "deleted", deleted_at=now_utc().isoformat())
+    store.record_decision({"id": draft["id"], "action": "delete", "by": "admin", "at": now_utc().isoformat(),
+                           "total": draft["total"], "scores": draft["scores"], "style": draft["style"],
+                           "topic_key": draft["topic_key"], "text": draft["text"]})
+    line.notify("🗑 投稿を削除しました。理由は今後の改善に使います。")
+    return "deleted"

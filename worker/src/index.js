@@ -3,6 +3,7 @@
 // - 承認/却下ボタン（postback） → GitHub repository_dispatch で decide-draft ワークフローを起動
 // - 「停止」 → GitHubリポジトリ変数 BOT_ENABLED=false（自動投稿・承認投稿をすべて止める）
 // - 「再開」 → BOT_ENABLED=true ＋ 異常停止状態を解除
+// - 「全自動」/「承認制」 → GitHubリポジトリ変数 APPROVAL_MODE を切り替え
 // - 「状態」 → 現在の稼働状態を返信
 // - 「ID」   → 送信者のLINEユーザーIDを返信（初期設定用）
 //
@@ -43,13 +44,15 @@ async function handle(ev, env) {
     const p = new URLSearchParams(ev.postback.data);
     const action = p.get("a");
     const id = p.get("id");
-    if (!["approve", "reject_quality", "reject_inaccurate"].includes(action) || !/^[\w-]+$/.test(id || "")) {
+    // 操作の中身はGitHub側（Python）で検証する。ここでは形式だけ確認して転送する
+    if (!/^[a-z_]+$/.test(action || "") || !/^[\w-]+$/.test(id || "")) {
       return reply(env, ev.replyToken, "不正な操作です");
     }
     await dispatch(env, "draft_decision", { id, action });
-    const msg = action === "approve"
-      ? "✅ 承認しました。投稿直前の最終確認をしてから投稿します（1〜2分）。"
-      : "却下しました。理由は今後の採点基準の改善に使います。";
+    const msg = {
+      approve: "✅ 承認しました。投稿直前の最終確認をしてから投稿します（1〜2分）。",
+      delete: "🗑 削除を受け付けました（1〜2分）。",
+    }[action] || "却下しました。理由は今後の採点基準の改善に使います。";
     return reply(env, ev.replyToken, msg);
   }
 
@@ -62,6 +65,14 @@ async function handle(ev, env) {
     await dispatch(env, "resume", {});
     return reply(env, ev.replyToken, "▶ 自動運用を再開します。");
   }
+  if (text === "全自動") {
+    await setVariable(env, "APPROVAL_MODE", "false");
+    return reply(env, ev.replyToken, "🤖 全自動モードにしました。80点以上の案を自動で投稿し、投稿後にLINEでお知らせします（削除ボタン付き）。\n承認制に戻すときは「承認制」と送ってください。");
+  }
+  if (text === "承認制") {
+    await setVariable(env, "APPROVAL_MODE", "true");
+    return reply(env, ev.replyToken, "✋ 承認制にしました。投稿前にLINEで承認をお願いします。");
+  }
   if (text === "状態") {
     const v = await getVariable(env, "BOT_ENABLED");
     const mode = await getVariable(env, "APPROVAL_MODE");
@@ -69,7 +80,7 @@ async function handle(ev, env) {
       `稼働: ${v === "false" ? "停止中" : "稼働中"}\nモード: ${mode === "false" ? "全自動" : "承認制"}`);
   }
   if (text) {
-    return reply(env, ev.replyToken, "使えるコマンド: 停止 / 再開 / 状態 / ID");
+    return reply(env, ev.replyToken, "使えるコマンド: 停止 / 再開 / 全自動 / 承認制 / 状態 / ID");
   }
 }
 

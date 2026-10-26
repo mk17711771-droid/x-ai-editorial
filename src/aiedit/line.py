@@ -98,3 +98,35 @@ def send_approval_request(drafts: list[dict], expiry_hours: int, note: str | Non
         "type": "text",
         "text": f"承認は{expiry_hours}時間以内にお願いします。1枠につき承認できるのは1件までです。「停止」と送ると自動運用を止められます。",
     }])
+
+
+def send_posted_notice(draft: dict, tweet_id: str) -> bool:
+    """全自動モードで投稿したことを知らせる。問題があればワンタップで削除できる。"""
+    return push([{
+        "type": "flex",
+        "altText": "自動で投稿しました",
+        "contents": {
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "md",
+                "contents": [
+                    {"type": "text", "text": f"✅ 自動で投稿しました（{draft['total']}点）", "size": "xs", "color": "#888888"},
+                    {"type": "text", "text": draft["text"], "size": "sm", "wrap": True},
+                ],
+            },
+            "footer": {
+                "type": "box",
+                "layout": "horizontal",
+                "spacing": "sm",
+                "contents": [
+                    {"type": "button", "style": "secondary", "height": "sm",
+                     "action": {"type": "uri", "label": "Xで見る", "uri": f"https://x.com/i/status/{tweet_id}"}},
+                    {"type": "button", "style": "secondary", "height": "sm",
+                     "action": {"type": "postback", "label": "削除する", "data": f"a=delete&id={draft['id']}",
+                                "displayText": f"削除: {draft['id']}"}},
+                ],
+            },
+        },
+    }])

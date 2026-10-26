@@ -239,3 +239,25 @@ def test_stale_draft_not_rebuilt_when_story_no_longer_holds(wired, isolated, mon
     assert pipeline.publish(d["id"], "approve") == "stale"
     assert "refreshed_to" not in store.load_draft(d["id"])
     assert wired == []
+
+
+def test_hashtags_rejected_cashtags_limited():
+    base = "HyperliquidのBTC無期限先物、資金調達率が年率+62.3%まで上がってる。ロングがショートに払い続けてる状態で、建玉も約45.2億ドルと高め。過熱っぽい👀"
+    assert checks.check_text(base + " $BTC", "t") == []
+    assert any("ハッシュタグ" in e for e in checks.check_text(base + " #BTC", "t"))
+    assert any("キャッシュタグ" in e for e in checks.check_text(base + " $BTC $ETH $SOL", "t"))
+
+
+def test_auto_mode_notifies_and_delete_removes_post(wired, isolated, monkeypatch):
+    monkeypatch.setenv("APPROVAL_MODE", "false")
+    settings.cache_clear()
+    d = pipeline.generate()[0]
+    assert len(wired) == 1
+    notice = isolated[-1][0]
+    assert notice["type"] == "flex" and "削除" in json.dumps(notice, ensure_ascii=False)
+    deleted = []
+    monkeypatch.setattr(xapi, "delete", lambda tid: deleted.append(tid))
+    assert pipeline.publish(d["id"], "delete") == "deleted"
+    assert deleted == ["999"] and store.load_draft(d["id"])["status"] == "deleted"
+    assert pipeline.publish(d["id"], "delete") == "deleted"  # 二重に押しても再削除しない
+    assert deleted == ["999"]

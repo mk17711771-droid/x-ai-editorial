@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 import requests
 
 from . import fmt, store
-from .common import fmt_jst, log, now_utc, settings
+from .common import JST, fmt_jst, log, now_utc, settings
 
 API = "https://api.hyperliquid.xyz/info"
 SOURCE_NAME = "Hyperliquid公式API"
@@ -119,6 +119,7 @@ def _fact(m: dict, category: str, summary: str, extra_fields: dict | None = None
         "volume": fmt.usd_amount_ja(m["vol_usd"]),
         "funding_annual": fmt.pct(m["funding_annual_pct"], 1),
         "asof": f"日本時間{fmt_jst(asof)}時点",
+        "asof_short": f"{asof.astimezone(JST):%H:%M}時点",
     }
     fields.update(extra_fields or {})
     raw = {
