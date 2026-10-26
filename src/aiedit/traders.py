@@ -98,40 +98,54 @@ def _max_drawdown_pct(pnl_history: list, account_value: float) -> float:
     return mdd
 
 
-def vet(t: dict) -> tuple[dict | None, str]:
-    """1人のトレーダーを選定ルールで審査する。合格なら指標、不合格なら理由を返す。"""
-    cfg = _cfg()
+def measure(t: dict) -> dict:
+    """1人のトレーダーの指標を、公開データから計算する。"""
     now_ms = int(now_utc().timestamp() * 1000)
     portfolio = dict(_info({"type": "portfolio", "user": t["address"]}))
     all_time, month = portfolio.get("allTime", {}), portfolio.get("month", {})
-    pnl_60 = _pnl_change(all_time.get("pnlHistory", []), cfg["min_days_positive"])
-    if pnl_60 is None or pnl_60 <= 0:
-        return None, "60日以上プラスではない"
-    mdd = _max_drawdown_pct(month.get("pnlHistory", []), t["account_value"])
-    if not cfg["mdd_min_pct"] <= mdd <= cfg["mdd_max_pct"]:
-        return None, "最大下落が目安の範囲外"
-
     state = _info({"type": "clearinghouseState", "user": t["address"]})
     ms = state.get("marginSummary", {})
     acct = float(ms.get("accountValue") or 0)
-    lev = float(ms.get("totalNtlPos") or 0) / acct if acct else 99
-    if lev > cfg["max_leverage"]:
-        return None, "レバレッジが高い"
-
     fills = _info({"type": "userFillsByTime", "user": t["address"], "startTime": now_ms - 30 * 86_400_000})
-    if len(fills) >= 2000:
-        return None, "売買の回数が多すぎる"
     recent = [f for f in fills if int(f["time"]) >= now_ms - 7 * 86_400_000]
-    per_day = len(recent) / 7
-    if per_day > cfg["max_fills_per_day"]:
-        return None, "売買の回数が多すぎる"
-    if not fills or now_ms - max(int(f["time"]) for f in fills) > cfg["max_idle_days"] * 86_400_000:
-        return None, "最近売買していない"
     wins = [float(f.get("closedPnl") or 0) for f in fills if float(f.get("closedPnl") or 0) > 0]
-    if wins and max(wins) / sum(wins) > cfg["max_single_win_share"]:
-        return None, "1回の大勝ちに頼っている"
-    return {**t, "pnl_60d": pnl_60, "mdd_pct": round(mdd, 1), "leverage": round(lev, 2),
-            "fills_per_day": round(per_day, 1), "positions": _parse_positions(state)}, "合格"
+    hist = all_time.get("pnlHistory", [])
+    return {
+        **t,
+        "pnl_60d": _pnl_change(hist, 60),
+        "history_days": round((int(hist[-1][0]) - int(hist[0][0])) / 86_400_000) if len(hist) > 1 else 0,
+        "mdd_pct": round(_max_drawdown_pct(month.get("pnlHistory", []), t["account_value"]), 1),
+        "leverage": round(float(ms.get("totalNtlPos") or 0) / acct, 2) if acct else None,
+        "fills_30d": len(fills),
+        "fills_per_day": round(len(recent) / 7, 1),
+        "idle_days": round((now_ms - max(int(f["time"]) for f in fills)) / 86_400_000, 1) if fills else None,
+        "max_win_share": round(max(wins) / sum(wins), 2) if wins else None,
+        "positions": _parse_positions(state),
+    }
+
+
+def judge(m: dict) -> str:
+    """選定ルールで審査する。合格なら「合格」、不合格なら最初に引っかかった理由。"""
+    cfg = _cfg()
+    if m["pnl_60d"] is None or m["pnl_60d"] <= 0:
+        return "60日以上プラスではない"
+    if not cfg["mdd_min_pct"] <= m["mdd_pct"] <= cfg["mdd_max_pct"]:
+        return "最大下落が目安の範囲外"
+    if m["leverage"] is None or m["leverage"] > cfg["max_leverage"]:
+        return "レバレッジが高い"
+    if m["fills_30d"] >= 2000 or m["fills_per_day"] > cfg["max_fills_per_day"]:
+        return "売買の回数が多すぎる"
+    if m["idle_days"] is None or m["idle_days"] > cfg["max_idle_days"]:
+        return "最近売買していない"
+    if m["max_win_share"] is not None and m["max_win_share"] > cfg["max_single_win_share"]:
+        return "1回の大勝ちに頼っている"
+    return "合格"
+
+
+def vet(t: dict) -> tuple[dict | None, str]:
+    m = measure(t)
+    why = judge(m)
+    return (m if why == "合格" else None), why
 
 
 def select_cohort(force: bool = False) -> dict:
@@ -140,20 +154,26 @@ def select_cohort(force: bool = False) -> dict:
     cohort = store.read_json("traders/cohort.json")
     if cohort and not force and now_utc() - datetime.fromisoformat(cohort["at"]) < timedelta(hours=cfg["cohort_refresh_hours"]):
         return cohort
-    members, reasons = [], {}
+    members, reasons, measured = [], {}, []
     for t in candidates():
         try:
-            m, why = vet(t)
+            m = measure(t)
+            why = judge(m)
         except (requests.RequestException, ValueError, KeyError, TypeError) as e:
             m, why = None, f"取得失敗: {type(e).__name__}"
         reasons[why] = reasons.get(why, 0) + 1
         if m:
-            members.append({k: v for k, v in m.items() if k != "positions"})
+            row = {k: v for k, v in m.items() if k != "positions"}
+            measured.append({**row, "result": why})
+            if why == "合格":
+                members.append(row)
         if len(members) >= cfg["top_n"]:
             break
     # 利益の大きさは最後に見る
     members.sort(key=lambda m: m["pnl_60d"], reverse=True)
     cohort = {"at": now_utc().isoformat(), "members": members, "reasons": reasons}
+    # 条件の調整用に、候補全員の指標を残す（アドレスは非公開リポジトリにだけ保存）
+    store.write_json("traders/candidates_measured.json", measured)
     store.write_json("traders/cohort.json", cohort)
     log.info("安定上位トレーダー %d人を選定（審査結果: %s）", len(members), reasons)
     return cohort
