@@ -192,6 +192,13 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         store.save_draft(draft)
         drafts.append(draft)
 
+    if os.environ.get("DRY_RUN"):
+        # 試し書き: 下書きを保存するだけで、投稿もLINE通知もしない
+        for d in drafts:
+            _close(d, "dry_run")
+        log.info("試し書きのため投稿しません（%d件）", len(drafts))
+        return drafts
+
     st["generated_slots"] = st.get("generated_slots", []) + [key]
     store.save_state(st)
 

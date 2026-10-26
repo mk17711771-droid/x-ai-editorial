@@ -18,6 +18,10 @@ on:
         description: "生成済みの枠でも再生成する"
         type: boolean
         default: false
+      dry_run:
+        description: "試し書き（投稿もLINE通知もしない）"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -42,6 +46,7 @@ jobs:
       - name: Generate
         env:
           PYTHONPATH: src
+          DRY_RUN: ${{ inputs.dry_run && '1' || '' }}
           BOT_ENABLED: ${{ vars.BOT_ENABLED }}
           APPROVAL_MODE: ${{ vars.APPROVAL_MODE }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
