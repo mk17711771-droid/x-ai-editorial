@@ -130,13 +130,14 @@ def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | N
         v = variants[idx]
         tmpl = v.get("template", "")
         errors = checks.check_template(tmpl, usable)
+        text = checks.render(tmpl, usable) if not errors else tmpl
+        errors = errors or checks.check_text(text, topic_key, fmt)
         if errors:
             log.info("案%d（%s）を破棄: %s", idx, v.get("style"), errors)
-            continue
-        text = checks.render(tmpl, usable)
-        errors = checks.check_text(text, topic_key, fmt)
-        if errors:
-            log.info("案%d（%s）を破棄: %s", idx, v.get("style"), errors)
+            # 破棄理由を残し、プロンプト改善に使う
+            store.append_jsonl("rejected_variants.jsonl", {
+                "at": now_utc().isoformat(), "slot": slot["id"], "format": fmt, "style": v.get("style"),
+                "errors": errors, "length": len(text), "text": text[:1500]})
             continue
         return {"template": tmpl, "text": text, "style": v.get("style", ""), "topic_key": topic_key, "facts": used,
                 "format": fmt}
@@ -161,8 +162,10 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
     log.info("材料 %d 件を収集", len(facts))
     facts_by_id = {f["id"]: f for f in facts}
 
-    cands = [c for c in run_editor(slot, facts) if c["total"] >= cfg["scoring"]["auto_post_min"]]
+    all_cands = run_editor(slot, facts)
+    cands = [c for c in all_cands if c["total"] >= cfg["scoring"]["auto_post_min"]]
     log.info("80点以上の候補 %d 件", len(cands))
+    store.write_json(f"editor/{key}.json", all_cands)
 
     # 再生成時は、同じ枠の未承認の下書きを無効にし、IDが重ならないよう続き番号にする
     seq = 1
