@@ -94,7 +94,7 @@ def write(theme: str | None = None) -> dict | None:
     theme = theme or THEMES.get(weekday) or THEMES[5]
     facts = collect_facts()
     by_id = {f["id"]: f for f in facts}
-    min_chars, max_chars = 2500, 5000
+    min_chars, max_chars = 2000, 4500
     system = pipeline_playbook(llm.prompt("note_article")
                                .replace("{min_chars}", str(min_chars)).replace("{max_chars}", str(max_chars)))
     rows = [{"id": f["id"], "category": f["category"], "summary": f["summary"], "fields": f["fields"],
@@ -112,8 +112,8 @@ def write(theme: str | None = None) -> dict | None:
             continue
         title = checks.render(title_t, by_id)
         body = checks.render(body_t, by_id)
-        if len(body) < min_chars * 0.8:
-            errors = [f"本文が短すぎる（{len(body)}字）。{min_chars}字以上にする"]
+        if len(body) < 1500:
+            errors = [f"本文が短すぎる（{len(body)}字）。各大見出しの下に400〜700字書き、全体で{min_chars}字以上にする"]
             continue
         bad = [p for p in checks.read_list("banned_phrases.txt") if p in title + body]
         if bad or checks.URL.search(body) or checks.HASHTAG.search(body):
