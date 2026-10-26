@@ -9,6 +9,7 @@ on:
         type: choice
         options:
           - note-profile
+          - note-audit
         default: note-profile
 
 permissions:

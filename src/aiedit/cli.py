@@ -37,6 +37,8 @@ def main(argv: list[str] | None = None) -> int:
     lp.add_argument("--weekly-report", action="store_true")
     np_ = sub.add_parser("note-profile")
     np_.add_argument("--urlname", default="charisma_hl")
+    na = sub.add_parser("note-audit")
+    na.add_argument("--urlname", default="charisma_hl")
     p = sub.add_parser("preview")
     p.add_argument("--kind", choices=["stock", "hl"], default="hl")
     args = ap.parse_args(argv)
@@ -60,6 +62,8 @@ def main(argv: list[str] | None = None) -> int:
             learn.run(send_weekly_report=weekly)
         elif args.cmd == "note-profile":
             print(json.dumps(note.fetch_profile(args.urlname), ensure_ascii=False, indent=2))
+        elif args.cmd == "note-audit":
+            print(f"{len(note.audit_notes(args.urlname))}件を確認")
         elif args.cmd == "preview":
             for f in pipeline.collect(args.kind):
                 print(json.dumps({"id": f["id"], "category": f["category"], "summary": f["summary"]}, ensure_ascii=False))

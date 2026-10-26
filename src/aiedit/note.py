@@ -44,3 +44,38 @@ def fetch_profile(urlname: str) -> dict:
             if img.ok:
                 store.write_bytes(f"note/{urlname}_{name}", img.content)
     return out
+
+
+def audit_notes(urlname: str) -> list[dict]:
+    """公開中の記事を全件取得し、本文中のリンク・紹介コード・勧誘表現を洗い出す（整理の判断用）。"""
+    import re
+
+    items, page = [], 1
+    while page < 20:
+        r = requests.get(f"{API}/v2/creators/{urlname}/contents", params={"kind": "note", "page": page},
+                         headers=HEADERS, timeout=30)
+        if not r.ok:
+            break
+        data = r.json().get("data", {})
+        items += data.get("contents", [])
+        if data.get("isLastPage", True):
+            break
+        page += 1
+    risky = re.compile(r"(紹介コード|招待コード|リファラル|referral|ref=|登録はこちら|今すぐ|買うべき|億り人|爆益|確定|稼げ|GET|購入)", re.I)
+    out = []
+    for n in items:
+        body = ""
+        d = requests.get(f"{API}/v3/notes/{n['key']}", headers=HEADERS, timeout=30)
+        if d.ok:
+            body = d.json().get("data", {}).get("body", "") or ""
+        text = re.sub(r"<[^>]+>", " ", body)
+        links = sorted(set(re.findall(r'href="([^"]+)"', body)))
+        out.append({
+            "key": n["key"], "title": n.get("name"), "publishAt": n.get("publishAt"),
+            "likes": n.get("likeCount"), "price": n.get("price"), "chars": len(text),
+            "external_links": [u for u in links if "note.com" not in u][:10],
+            "risky_words": sorted(set(m.group(0) for m in risky.finditer(text + " " + (n.get("name") or ""))))[:10],
+            "head": re.sub(r"\s+", " ", text)[:200],
+        })
+    store.write_json(f"note/audit_{urlname}.json", out)
+    return out
