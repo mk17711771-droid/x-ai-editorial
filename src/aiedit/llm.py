@@ -25,20 +25,26 @@ def generate_json(system: str, user: str) -> dict:
             "responseMimeType": "application/json",
         },
     }
-    url = API.format(model=cfg["model"])
+    # 混雑（429/503）時は待って再試行し、それでもだめなら予備のモデルに切り替える
+    models = [cfg["model"]] + [m for m in cfg.get("fallback_models", []) if m != cfg["model"]]
     last_err: Exception | None = None
-    for attempt in range(3):
-        try:
-            r = requests.post(url, params={"key": env("GEMINI_API_KEY")}, json=body, timeout=120)
-            if r.status_code in (429, 500, 503):
-                raise requests.HTTPError(f"{r.status_code}: {r.text[:300]}")
-            if r.status_code >= 400:
-                # キーやモデル名の誤りなど、再試行しても直らないエラー
-                raise RuntimeError(f"Gemini APIエラー {r.status_code}（モデル: {cfg['model']}）: {r.text[:500]}")
-            text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-            return json.loads(text)
-        except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as e:
-            last_err = e
-            log.warning("Gemini呼び出し失敗（%d回目）: %s", attempt + 1, e)
-            time.sleep(10 * (attempt + 1))
+    for model in models:
+        for attempt in range(3):
+            try:
+                r = requests.post(API.format(model=model), params={"key": env("GEMINI_API_KEY")}, json=body, timeout=120)
+                if r.status_code in (429, 500, 503):
+                    raise requests.HTTPError(f"{r.status_code}: {r.text[:300]}")
+                if r.status_code == 404:
+                    raise requests.HTTPError(f"モデル {model} が見つかりません")
+                if r.status_code >= 400:
+                    # キーの誤りなど、再試行しても直らないエラー
+                    raise RuntimeError(f"Gemini APIエラー {r.status_code}（モデル: {model}）: {r.text[:500]}")
+                text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+                return json.loads(text)
+            except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as e:
+                last_err = e
+                log.warning("Gemini（%s）呼び出し失敗（%d回目）: %s", model, attempt + 1, str(e)[:200])
+                if "が見つかりません" in str(e):
+                    break
+                time.sleep(15 * (attempt + 1))
     raise RuntimeError(f"Gemini APIの呼び出しに失敗しました: {last_err}")
