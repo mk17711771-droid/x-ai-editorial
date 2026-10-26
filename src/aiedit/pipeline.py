@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 import requests
 
-from . import checks, collect_hyperliquid, collect_stocks, learn, line, llm, research, store, xapi
+from . import checks, collect_hyperliquid, collect_stocks, learn, line, llm, research, store, traders, xapi
 from .common import JST, log, now_jst, now_utc, settings
 
 
@@ -58,7 +58,7 @@ def slot_key(slot: dict) -> str:
 # ---------------------------------------------------------------- 生成
 
 def collect(kind: str) -> list[dict]:
-    raw = collect_stocks.collect() if kind == "stock" else collect_hyperliquid.collect()
+    raw = collect_stocks.collect() if kind == "stock" else collect_hyperliquid.collect() + traders.facts()
     # 株の枠でもHIP-3の株式先物は材料にする（株とHyperliquidをつなぐ視点）
     if kind == "stock" and settings()["hyperliquid"].get("include_hip3"):
         try:

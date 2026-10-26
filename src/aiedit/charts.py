@@ -167,10 +167,50 @@ def stock_change_chart(facts: list[dict], highlight: set[str] | None = None) -> 
     return _to_png(fig)
 
 
+def smart_money_chart(snap: dict, highlight: set[str] | None = None) -> bytes:
+    """上位トレーダーの保有の偏り（銘柄ごとの買い・売りの人数）。"""
+    highlight = highlight or set()
+    coins = [c for c in snap["coins"] if c["long_n"] + c["short_n"] >= 2][:10][::-1]
+    names = [c["coin"].split(":")[-1] for c in coins]
+    longs = [c["long_n"] for c in coins]
+    shorts = [c["short_n"] for c in coins]
+
+    fig = plt.figure(figsize=(16, 9), facecolor=BG)
+    fig.text(0.04, 0.9, "Hyperliquid  ・  上位トレーダーの保有", color=TEXT, fontsize=30, fontweight="bold")
+    fig.text(0.04, 0.852, f"月間利益上位{snap['traders']}人が今持っているポジション（人数）", color=MUTED, fontsize=16)
+    ax = fig.add_axes([0.1, 0.13, 0.84, 0.66], facecolor=BG)
+    ax.barh(names, longs, color=UP, label="買い（ロング）")
+    ax.barh(names, [-s for s in shorts], color=DOWN, label="売り（ショート）")
+    for i, (lo, sh) in enumerate(zip(longs, shorts)):
+        total = lo + sh
+        ax.text(lo + 0.2, i, f"買い{lo}人", va="center", color=TEXT, fontsize=12)
+        ax.text(-sh - 0.2, i, f"売り{sh}人", va="center", ha="right", color=TEXT, fontsize=12)
+        ax.text(max(longs) * 1.32 if longs else 1, i, f"買い比率 {lo / total * 100:.0f}%", va="center", ha="right",
+                color=UP if lo >= sh else DOWN, fontsize=12, fontweight="bold")
+    span = max(longs + shorts + [1]) * 1.35
+    ax.set_xlim(-span, span)
+    ax.axvline(0, color=GRID, linewidth=1)
+    ax.set_xticks([])
+    ax.tick_params(colors=MUTED, labelsize=13)
+    for t in ax.get_yticklabels():
+        if t.get_text() in highlight:
+            t.set_color(TEXT)
+            t.set_fontweight("bold")
+    for sp in ax.spines.values():
+        sp.set_visible(False)
+    ax.legend(loc="lower right", frameon=False, labelcolor=TEXT, fontsize=12)
+    _footer(fig, "Hyperliquid公開ランキング（個人は特定していません）", datetime.fromisoformat(snap["at"]))
+    return _to_png(fig)
+
+
 def build_for_draft(draft: dict, all_facts: list[dict] | None = None) -> bytes | None:
     """下書きの主役の材料に合わせてチャートを作る。作れなければ None（画像なしで投稿する）。"""
-    from . import collect_hyperliquid
+    from . import collect_hyperliquid, store
 
+    smart = [f for f in draft["facts"] if f.get("category", "").startswith("smart_money")]
+    if smart:
+        snap = store.read_json("traders/latest.json")
+        return smart_money_chart(snap, {f["fields"]["coin"] for f in smart}) if snap else None
     main = next((f for f in draft["facts"] if f.get("refresh")), None)
     if not main:
         return None

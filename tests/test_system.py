@@ -348,3 +348,40 @@ def test_watch_summary_feeds_editor(isolated):
                                                 "hl_funding": [["SKHX", 213.5]], "hl_movers": [["EWZ", -26.4]]})
     s = research.watch_summary()
     assert "SKHX +213.5%" in s and "EWZ -26.4%" in s
+
+
+def test_trader_aggregation_facts_and_chart(isolated, monkeypatch):
+    from aiedit import charts, traders
+    rows = [{"ethAddress": f"0x{i:040x}", "accountValue": "500000",
+             "windowPerformances": [["month", {"pnl": str(100000 - i), "roi": "0.2"}], ["allTime", {"pnl": "1", "roi": "1"}]]}
+            for i in range(5)]
+    rows.append({"ethAddress": "0xloser", "accountValue": "900000",
+                 "windowPerformances": [["month", {"pnl": "-5"}], ["allTime", {"pnl": "1"}]]})
+
+    class R:
+        def __init__(self, data): self.data = data
+        def json(self): return self.data
+        def raise_for_status(self): pass
+    monkeypatch.setattr(traders.requests, "get", lambda url, timeout: R({"leaderboardRows": rows}))
+    held = {0: [("BTC", "1", "200000", "5000")], 1: [("BTC", "2", "300000", "100")], 2: [("BTC", "-1", "50000", "-10")],
+            3: [("HYPE", "-10", "80000", "900"), ("BTC", "1", "40000", "1")], 4: []}
+    def post(url, json, timeout):
+        i = int(json["user"], 16)
+        return R({"assetPositions": [{"position": {"coin": c, "szi": sz, "positionValue": v, "unrealizedPnl": u,
+                                                   "leverage": {"value": 5}}} for c, sz, v, u in held[i]]})
+    monkeypatch.setattr(traders.requests, "post", post)
+    snap = traders.snapshot()
+    btc = next(c for c in snap["coins"] if c["coin"] == "BTC")
+    assert snap["traders"] == 5 and btc["long_n"] == 3 and btc["short_n"] == 1  # 月間マイナスの人は除外
+    f = traders.facts()
+    assert f[0]["category"] == "smart_money" and f[0]["fields"]["long_ratio"] == "75%"
+    assert "0x" not in json.dumps([x["fields"] for x in f])  # 投稿の材料にアドレスを入れない
+    assert charts.smart_money_chart(snap, {"BTC"})[:4] == b"\x89PNG"
+    # 1日後に、含み益だった買いを閉じていたら「利確とみられる」材料になる
+    store.write_json("traders/20261025-10.json", snap)
+    held[0] = []
+    held[1] = []
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-26T01:20:00+00:00")
+    traders.snapshot()
+    exits = [x for x in traders.facts() if x["category"] == "smart_money_exit"]
+    assert exits and exits[0]["fields"]["closed_n"] == "2人"

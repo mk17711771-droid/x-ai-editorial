@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 import requests
 
-from . import collect_hyperliquid, collect_stocks, store, xapi
+from . import collect_hyperliquid, collect_stocks, store, traders, xapi
 from .common import JST, env, log, now_utc, settings
 
 
@@ -35,6 +35,11 @@ def watch() -> dict:
             if q:
                 moves.append((sym, round(float(q["dp"]), 2)))
         rec["stock_movers"] = sorted(moves, key=lambda t: abs(t[1]), reverse=True)[:6]
+    try:
+        snap = traders.snapshot()
+        rec["top_traders"] = [(c["coin"], c["long_n"], c["short_n"]) for c in snap["coins"][:5]]
+    except (requests.RequestException, ValueError, KeyError) as e:
+        log.warning("上位トレーダーの集計に失敗: %s", e)
     store.append_jsonl(f"watch/{now.astimezone(JST):%Y%m%d}.jsonl", rec)
     return rec
 
@@ -52,6 +57,8 @@ def watch_summary(hours: int = 24) -> str:
                 parts.append("HL資金調達率上位 " + ", ".join(f"{c} {v:+}%" for c, v in r["hl_funding"][:3]))
             if r.get("hl_movers"):
                 parts.append("HL変動上位 " + ", ".join(f"{c} {v:+}%" for c, v in r["hl_movers"][:3]))
+            if r.get("top_traders"):
+                parts.append("上位トレーダー保有 " + ", ".join(f"{c} 買{lo}/売{sh}" for c, lo, sh in r["top_traders"][:3]))
             if r.get("stock_movers"):
                 parts.append("米国株変動上位 " + ", ".join(f"{c} {v:+}%" for c, v in r["stock_movers"][:3]))
             lines.append(" / ".join(parts))
