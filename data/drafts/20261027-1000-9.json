@@ -1,0 +1,71 @@
+{
+  "id": "20261027-1000-9",
+  "slot_key": "20261027-1000",
+  "slot_theme": "10:00 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "dry_run",
+  "created_at": "2026-10-26T17:38:44.959736+00:00",
+  "text": "HyperliquidのHIP-3株式先物で$EWZが動いてる。\n\n02:34時点の24時間騰落率は-25.22%で、価格は$33.77。\n\n現物との乖離が気になるかも👀",
+  "template": "HyperliquidのHIP-3株式先物で${{f6.coin}}が動いてる。\n\n{{f6.asof_short}}の24時間騰落率は{{f6.change_pct}}で、価格は{{f6.price}}。\n\n現物との乖離が気になるかも👀",
+  "style": "気づき型",
+  "topic_key": "hl:xyz:EWZ:big_move",
+  "angle": "ブラジル株ETF（EWZ）のHIP-3先物で25%を超える異次元の急落と、現物との乖離・市場の動きを検証する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 16,
+    "evidence": 20,
+    "utility": 15,
+    "insight": 18
+  },
+  "total": 87,
+  "fact_ids": [
+    "f6"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:EWZ:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: EWZ（HIP-3株式等先物） 24時間騰落率-25.22%, 価格33.773, 建玉25269188USD, 24時間出来高121195907USD, 資金調達率(年率)+19.7%（照合: 米国株の前日比-20.69%）",
+      "fields": {
+        "coin": "EWZ",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$33.77",
+        "change_pct": "-25.22%",
+        "oi": "約2,527万ドル",
+        "volume": "約1.2億ドル",
+        "funding_annual": "+19.7%",
+        "asof": "日本時間10/27(火) 02:34時点",
+        "asof_short": "02:34時点",
+        "us_change_pct": "-20.69%"
+      },
+      "raw": {
+        "mark": 33.773,
+        "change_pct": -25.223,
+        "oi_usd": 25269188,
+        "vol_usd": 121195907,
+        "funding_annual_pct": 19.67,
+        "us_change_pct": -20.686
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:EWZ",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:EWZ"
+      },
+      "asof": "2026-10-26T17:34:09.858156+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:EWZ"
+    }
+  ],
+  "needs_human": false
+}
