@@ -232,6 +232,65 @@ def _recheck(draft: dict) -> list[str]:
     return problems
 
 
+def _still_valid(old: dict, new: dict) -> bool:
+    """最新データでも、元の投稿の切り口（上昇/下落、異変かどうか）が成り立つか。"""
+    o, n = old["raw"].get("change_pct"), new["raw"].get("change_pct")
+    if o is not None and n is not None and (o > 0) != (n > 0):
+        return False
+    cfg = settings()
+    if old["category"] == "big_move":
+        threshold = cfg["stocks" if old["kind"] == "stock" else "hyperliquid"]["big_move_pct"]
+        return n is not None and abs(n) >= threshold
+    if old["category"] == "funding_extreme":
+        of, nf = old["raw"]["funding_annual_pct"], new["raw"]["funding_annual_pct"]
+        return (of > 0) == (nf > 0) and abs(nf) >= cfg["hyperliquid"]["funding_extreme_annual_pct"]
+    return True
+
+
+MAX_REFRESH = 2
+
+
+def refresh_draft(draft: dict) -> dict | None:
+    """数字が古くなった下書きを、同じ文章の型のまま最新データで作り直す。作り直せなければ None。"""
+    if draft.get("refresh_count", 0) >= MAX_REFRESH:
+        return None
+    facts = []
+    for f in draft["facts"]:
+        if not f.get("refresh"):
+            facts.append(f)
+            continue
+        try:
+            nf = (collect_stocks if f["refresh"]["type"] == "stock" else collect_hyperliquid).refresh_fact(f)
+        except requests.RequestException as e:
+            log.warning("最新データでの作り直しに失敗: %s", e)
+            return None
+        if not nf or not _still_valid(f, nf):
+            return None
+        facts.append(nf)
+    by_id = {f["id"]: f for f in facts}
+    if checks.check_template(draft["template"], by_id):
+        return None
+    text = checks.render(draft["template"], by_id)
+    if checks.check_text(text, draft["topic_key"]):
+        return None
+    seq = 1
+    while store.load_draft(f"{draft['slot_key']}-{seq}"):
+        seq += 1
+    new = dict(draft)
+    new.update({
+        "id": f"{draft['slot_key']}-{seq}",
+        "status": "pending",
+        "created_at": now_utc().isoformat(),
+        "text": text,
+        "facts": facts,
+        "sources": [f["source"] for f in facts],
+        "refreshed_from": draft["id"],
+        "refresh_count": draft.get("refresh_count", 0) + 1,
+    })
+    store.save_draft(new)
+    return new
+
+
 def _close(draft: dict, status: str, **extra) -> None:
     draft["status"] = status
     draft.update(extra)
@@ -284,10 +343,23 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
         line.notify("同じ枠ですでに投稿済みのため、この下書きは投稿しませんでした。")
         return "superseded"
 
-    problems = checks.check_text(draft["text"], draft["topic_key"]) + _recheck(draft)
+    text_problems = checks.check_text(draft["text"], draft["topic_key"])
+    problems = text_problems + _recheck(draft)
     if problems:
+        fresh = None if text_problems else refresh_draft(draft)
+        if fresh:
+            _close(draft, "stale", problems=problems, refreshed_to=fresh["id"])
+            if decided_by == "auto":
+                return publish(fresh["id"], "approve", decided_by="auto")
+            line.send_approval_request(
+                [fresh], cfg["draft_expiry_hours"],
+                note="数字が動いていたため、最新のデータで作り直しました。内容を確認して、もう一度承認してください:\n- "
+                     + "\n- ".join(problems),
+            )
+            return "refreshed"
         _close(draft, "stale", problems=problems)
-        line.notify("投稿直前の確認で問題が見つかったため投稿を中止しました:\n- " + "\n- ".join(problems))
+        line.notify("投稿直前の確認で問題が見つかったため投稿を中止しました:\n- " + "\n- ".join(problems)
+                    + "\n\n値動きで投稿の切り口が成り立たなくなったため、作り直しも見送りました。")
         return "stale"
 
     try:

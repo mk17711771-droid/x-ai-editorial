@@ -19,6 +19,36 @@ def _info(body: dict) -> object:
     return r.json()
 
 
+def _to_market(asset: dict, ctx: dict, dex: str) -> dict | None:
+    if asset.get("isDelisted"):
+        return None
+    try:
+        mark = float(ctx["markPx"])
+        prev = float(ctx["prevDayPx"])
+        oracle = float(ctx.get("oraclePx") or 0)
+        oi = float(ctx["openInterest"]) * mark
+        vol = float(ctx["dayNtlVlm"])
+        funding_h = float(ctx["funding"])
+    except (KeyError, TypeError, ValueError):
+        return None
+    if mark <= 0 or prev <= 0:
+        return None
+    # 取引価格が参照価格（オラクル）から大きく乖離している市場は、データ異常の可能性があるため除外
+    if oracle > 0 and abs(mark / oracle - 1) > 0.03:
+        log.info("価格乖離のため除外: %s mark=%s oracle=%s", asset["name"], mark, oracle)
+        return None
+    return {
+        "coin": asset["name"],
+        "dex": dex,
+        "mark": mark,
+        "change_pct": (mark / prev - 1) * 100,
+        "oi_usd": oi,
+        "vol_usd": vol,
+        # 資金調達率は1時間ごと。年率換算 = 1時間レート × 24 × 365
+        "funding_annual_pct": funding_h * 24 * 365 * 100,
+    }
+
+
 def fetch_markets() -> list[dict]:
     """全無期限先物（標準 + HIP-3）の市場データを取得して数値に変換する。"""
     dexes = [""]
@@ -43,33 +73,9 @@ def fetch_markets() -> list[dict]:
             log.warning("HIP-3市場 %s の取得に失敗: %s", dex, e)
             continue
         for asset, ctx in zip(meta["universe"], ctxs):
-            if asset.get("isDelisted"):
-                continue
-            try:
-                mark = float(ctx["markPx"])
-                prev = float(ctx["prevDayPx"])
-                oracle = float(ctx.get("oraclePx") or 0)
-                oi = float(ctx["openInterest"]) * mark
-                vol = float(ctx["dayNtlVlm"])
-                funding_h = float(ctx["funding"])
-            except (KeyError, TypeError, ValueError):
-                continue
-            if mark <= 0 or prev <= 0:
-                continue
-            # 取引価格が参照価格（オラクル）から大きく乖離している市場は、データ異常の可能性があるため除外
-            if oracle > 0 and abs(mark / oracle - 1) > 0.03:
-                log.info("価格乖離のため除外: %s mark=%s oracle=%s", asset["name"], mark, oracle)
-                continue
-            markets.append({
-                "coin": asset["name"],
-                "dex": dex,
-                "mark": mark,
-                "change_pct": (mark / prev - 1) * 100,
-                "oi_usd": oi,
-                "vol_usd": vol,
-                # 資金調達率は1時間ごと。年率換算 = 1時間レート × 24 × 365
-                "funding_annual_pct": funding_h * 24 * 365 * 100,
-            })
+            m = _to_market(asset, ctx, dex)
+            if m:
+                markets.append(m)
     return markets
 
 
@@ -240,13 +246,33 @@ def collect() -> list[dict]:
     return facts
 
 
-def refresh_change_pct(ref: dict) -> float | None:
-    """投稿直前の再確認用: 指定銘柄の最新の24時間騰落率を返す。"""
+def refresh_market(ref: dict) -> dict | None:
+    """投稿直前の再確認用: 指定銘柄の最新の市場データを返す。"""
     body = {"type": "metaAndAssetCtxs"}
     if ref.get("dex"):
         body["dex"] = ref["dex"]
     meta, ctxs = _info(body)
     for asset, ctx in zip(meta["universe"], ctxs):
         if asset["name"] == ref["coin"]:
-            return (float(ctx["markPx"]) / float(ctx["prevDayPx"]) - 1) * 100
+            return _to_market(asset, ctx, ref.get("dex", ""))
     return None
+
+
+def refresh_change_pct(ref: dict) -> float | None:
+    m = refresh_market(ref)
+    return m["change_pct"] if m else None
+
+
+def refresh_fact(fact: dict) -> dict | None:
+    """材料を最新のデータで作り直す。作り直せない材料（建玉の24時間変化など）は None。"""
+    if fact["category"] in ("oi_change", "overview"):
+        return None
+    m = refresh_market(fact["refresh"])
+    if not m:
+        return None
+    if m["dex"] and "us_change_pct" in fact["raw"]:
+        if not _verify_hip3_moves([m]) or "us_change_pct" not in m:
+            return None
+    new = _fact(m, fact["category"], fact["summary"])
+    new["id"] = fact["id"]
+    return new

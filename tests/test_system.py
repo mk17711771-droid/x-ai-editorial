@@ -206,3 +206,36 @@ def test_force_regenerate_keeps_old_drafts(wired, isolated):
     assert pipeline.publish(first["id"], "approve") == "posted"
     pipeline.generate(force=True)  # 同じ話題は投稿済みなので新しい下書きは作られない
     assert store.load_draft(first["id"])["status"] == "posted"  # 投稿済みの記録は上書きされない
+
+
+def _moved_market(change_pct: float, funding: float = 62.3) -> dict:
+    return {"coin": "BTC", "dex": "", "mark": 112000.0, "change_pct": change_pct, "oi_usd": 4.6e9,
+            "vol_usd": 3.2e9, "funding_annual_pct": funding}
+
+
+def test_stale_draft_is_rebuilt_with_latest_numbers(wired, isolated, monkeypatch):
+    d = pipeline.generate()[0]
+    monkeypatch.setattr(collect_hyperliquid, "refresh_change_pct", lambda ref: 6.0)
+    monkeypatch.setattr(collect_hyperliquid, "refresh_market", lambda ref: _moved_market(6.0, 70.0))
+    assert pipeline.publish(d["id"], "approve") == "refreshed"
+    assert wired == []  # 作り直した案は、改めて承認されるまで投稿しない
+    old = store.load_draft(d["id"])
+    fresh = store.load_draft(old["refreshed_to"])
+    assert old["status"] == "stale" and fresh["status"] == "pending"
+    assert "+70.0%" in fresh["text"] and "+6.00%" in fresh["text"]
+    assert fresh["template"] == d["template"]  # 文章の型は同じ
+    assert isolated[-1][0]["type"] == "text" and isolated[-1][1]["type"] == "flex"
+    # 作り直した案を承認すると投稿される
+    monkeypatch.setattr(collect_hyperliquid, "refresh_change_pct", lambda ref: 6.1)
+    assert pipeline.publish(fresh["id"], "approve") == "posted"
+    assert len(wired) == 1 and "+70.0%" in wired[0]
+
+
+def test_stale_draft_not_rebuilt_when_story_no_longer_holds(wired, isolated, monkeypatch):
+    d = pipeline.generate()[0]
+    # 資金調達率の過熱（ロング過熱）が解消していたら、同じ切り口では書けない
+    monkeypatch.setattr(collect_hyperliquid, "refresh_change_pct", lambda ref: -1.0)
+    monkeypatch.setattr(collect_hyperliquid, "refresh_market", lambda ref: _moved_market(-1.0, 10.0))
+    assert pipeline.publish(d["id"], "approve") == "stale"
+    assert "refreshed_to" not in store.load_draft(d["id"])
+    assert wired == []

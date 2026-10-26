@@ -86,10 +86,11 @@ def _bubble(draft: dict) -> dict:
     }
 
 
-def send_approval_request(drafts: list[dict], expiry_hours: int) -> bool:
+def send_approval_request(drafts: list[dict], expiry_hours: int, note: str | None = None) -> bool:
     if not drafts:
         return False
-    return push([{
+    head = [{"type": "text", "text": note[:4900]}] if note else []
+    return push(head + [{
         "type": "flex",
         "altText": f"投稿の承認依頼が{len(drafts)}件あります",
         "contents": {"type": "carousel", "contents": [_bubble(d) for d in drafts[:10]]},

@@ -47,6 +47,36 @@ def _date_ja(d: str) -> str:
     return f"{dt.month}/{dt.day}({WEEKDAYS_JA[dt.weekday()]})"
 
 
+def _quote_fact(sym: str, q: dict) -> dict:
+    cfg = settings()["stocks"]
+    asof = now_utc()
+    dp = float(q["dp"])
+    big = abs(dp) >= cfg["big_move_pct"]
+    category = "big_move" if big else "quote"
+    return {
+        "key": f"stock:{sym}:{category}",
+        "kind": "stock",
+        "category": category,
+        "summary": (f"{'【大きな値動き】' if big else ''}{sym} 価格{q['c']}, 前日比{dp:+.2f}%, 前日終値{q['pc']}, "
+                    f"高値{q['h']}, 安値{q['l']}"),
+        "fields": {
+            "symbol": sym,
+            "price": fmt.usd_price(float(q["c"])),
+            "change_pct": fmt.pct(dp),
+            "prev_close": fmt.usd_price(float(q["pc"])),
+            "high": fmt.usd_price(float(q["h"])),
+            "low": fmt.usd_price(float(q["l"])),
+            "asof": _session_label(int(q["t"])),
+            "basis": "前日終値比",
+        },
+        "raw": {"price": q["c"], "change_pct": round(dp, 3), "prev_close": q["pc"]},
+        "refresh": {"type": "stock", "symbol": sym},
+        "source": {"name": SOURCE_NAME, "url": f"https://finance.yahoo.com/quote/{sym}"},
+        "asof": asof.isoformat(),
+        "confidence": "confirmed",
+    }
+
+
 def collect() -> list[dict]:
     cfg = settings()["stocks"]
     facts: list[dict] = []
@@ -60,31 +90,7 @@ def collect() -> list[dict]:
             continue
         if not q:
             continue
-        dp = float(q["dp"])
-        big = abs(dp) >= cfg["big_move_pct"]
-        category = "big_move" if big else "quote"
-        facts.append({
-            "key": f"stock:{sym}:{category}",
-            "kind": "stock",
-            "category": category,
-            "summary": (f"{'【大きな値動き】' if big else ''}{sym} 価格{q['c']}, 前日比{dp:+.2f}%, 前日終値{q['pc']}, "
-                        f"高値{q['h']}, 安値{q['l']}"),
-            "fields": {
-                "symbol": sym,
-                "price": fmt.usd_price(float(q["c"])),
-                "change_pct": fmt.pct(dp),
-                "prev_close": fmt.usd_price(float(q["pc"])),
-                "high": fmt.usd_price(float(q["h"])),
-                "low": fmt.usd_price(float(q["l"])),
-                "asof": _session_label(int(q["t"])),
-                "basis": "前日終値比",
-            },
-            "raw": {"price": q["c"], "change_pct": round(dp, 3), "prev_close": q["pc"]},
-            "refresh": {"type": "stock", "symbol": sym},
-            "source": {"name": SOURCE_NAME, "url": f"https://finance.yahoo.com/quote/{sym}"},
-            "asof": asof.isoformat(),
-            "confidence": "confirmed",
-        })
+        facts.append(_quote_fact(sym, q))
 
     # 決算予定（監視銘柄のみ）
     try:
@@ -151,3 +157,15 @@ def collect() -> list[dict]:
 def refresh_change_pct(ref: dict) -> float | None:
     q = quote(ref["symbol"])
     return float(q["dp"]) if q else None
+
+
+def refresh_fact(fact: dict) -> dict | None:
+    """材料を最新の株価で作り直す。"""
+    q = quote(fact["refresh"]["symbol"])
+    if not q:
+        return None
+    new = _quote_fact(fact["refresh"]["symbol"], q)
+    new["id"] = fact["id"]
+    new["category"] = fact["category"]
+    new["key"] = fact["key"]
+    return new
