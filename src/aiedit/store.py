@@ -98,3 +98,12 @@ def record_decision(entry: dict) -> None:
 
 def recent_texts(limit: int = 60) -> Iterable[str]:
     return [p["text"] for p in posts()[-limit:]]
+
+
+def read_text(rel: str, default: str = "") -> str:
+    p = _path(rel)
+    return p.read_text(encoding="utf-8") if p.exists() else default
+
+
+def write_text(rel: str, text: str) -> None:
+    _path(rel).write_text(text, encoding="utf-8")

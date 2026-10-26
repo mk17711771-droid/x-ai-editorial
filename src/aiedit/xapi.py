@@ -84,3 +84,27 @@ def delete(tweet_id: str) -> None:
         raise XAuthError(f"{r.status_code}: {r.text[:300]}")
     if r.status_code >= 400:
         raise XPostError(f"{r.status_code}: {r.text[:300]}")
+
+
+def get_tweets(ids: list[str]) -> list[dict]:
+    """自分の投稿の反応（表示回数・いいね・プロフィールクリックなど）を取得する。"""
+    out = []
+    for i in range(0, len(ids), 100):
+        params = {"ids": ",".join(ids[i:i + 100]),
+                  "tweet.fields": "public_metrics,non_public_metrics,created_at"}
+        r = requests.get(f"{API}/tweets", params=params, auth=_auth(), timeout=30)
+        if r.status_code in (400, 403):
+            # 非公開指標が取れない場合は公開指標だけで取り直す
+            params["tweet.fields"] = "public_metrics,created_at"
+            r = requests.get(f"{API}/tweets", params=params, auth=_auth(), timeout=30)
+        if r.status_code >= 400:
+            raise XPostError(f"投稿の取得 {r.status_code}: {r.text[:300]}")
+        out += r.json().get("data", [])
+    return out
+
+
+def me() -> dict:
+    r = requests.get(f"{API}/users/me", params={"user.fields": "public_metrics"}, auth=_auth(), timeout=30)
+    if r.status_code >= 400:
+        raise XPostError(f"アカウント情報の取得 {r.status_code}: {r.text[:300]}")
+    return r.json()["data"]

@@ -4,11 +4,11 @@ name: generate-drafts
 # cronはUTC。GitHubの定時実行は数分〜数十分遅れることがある
 on:
   schedule:
-    - cron: "30 22 * * *"   # 07:30 JST
-    - cron: "0 1 * * *"     # 10:00 JST
-    - cron: "15 3 * * *"    # 12:15 JST
-    - cron: "30 11 * * *"   # 20:30 JST
-    - cron: "0 14 * * *"    # 23:00 JST
+    - cron: "42 22 * * *"   # 07:42 JST
+    - cron: "17 1 * * *"    # 10:17 JST
+    - cron: "26 3 * * *"    # 12:26 JST
+    - cron: "47 11 * * *"   # 20:47 JST
+    - cron: "13 14 * * *"   # 23:13 JST
   workflow_dispatch:
     inputs:
       slot:
@@ -46,6 +46,12 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Install Japanese font for charts
+        run: sudo apt-get install -y -q fonts-noto-cjk >/dev/null || (sudo apt-get update -q >/dev/null && sudo apt-get install -y -q fonts-noto-cjk >/dev/null)
+      - name: Random delay
+        # 毎日同じ時刻にならないよう、定時実行のときだけ0〜4分待つ
+        if: github.event_name == 'schedule'
+        run: sleep $((RANDOM % 240))
       - name: Generate
         env:
           PYTHONPATH: src

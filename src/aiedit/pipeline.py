@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 import requests
 
-from . import checks, collect_hyperliquid, collect_stocks, line, llm, store, xapi
+from . import checks, collect_hyperliquid, collect_stocks, learn, line, llm, research, store, xapi
 from .common import JST, log, now_jst, now_utc, settings
 
 
@@ -82,6 +82,15 @@ def _facts_for_llm(facts: list[dict], with_fields: bool) -> str:
     return json.dumps(rows, ensure_ascii=False)
 
 
+def with_playbook(prompt: str) -> str:
+    """改善AIが成果データから作った運用ノートを、毎回プロンプトに添える。"""
+    notes = learn.playbook_text()
+    if not notes:
+        return prompt
+    return (prompt + "\n\n# 運用ノート（実際の投稿の反応から学んだこと。上のルールと矛盾する場合は上のルールを優先）\n"
+            + notes)
+
+
 def run_editor(slot: dict, facts: list[dict]) -> list[dict]:
     recent = [p.get("topic_key") for p in store.recent_posts(72)]
     form = ("長文の考察投稿。複数の材料（目安3〜8個）を組み合わせて、背景と「歪み」を深く解説できる切り口を選ぶ。"
@@ -89,7 +98,10 @@ def run_editor(slot: dict, facts: list[dict]) -> list[dict]:
     user = (f"# 今回の投稿枠\n{slot['time']} {slot['theme']}\n\n# 投稿の形式\n{form}\n\n"
             f"# 直近72時間の投稿トピック (recent_topics)\n{json.dumps(recent, ensure_ascii=False)}\n\n"
             f"# 材料 (facts)\n{_facts_for_llm(facts, with_fields=False)}")
-    out = llm.generate_json(llm.prompt("editor"), user)
+    watch = research.watch_summary()
+    if watch:
+        user += f"\n\n# 直近24時間の定点観測（流れの把握用。投稿の数字には使わない）\n{watch}"
+    out = llm.generate_json(with_playbook(llm.prompt("editor")), user)
     ids = {f["id"] for f in facts}
     cands = []
     for c in out.get("candidates", []):
@@ -110,8 +122,8 @@ def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | N
     """原稿を3案作らせ、チェックを通過した中で最良の1案を返す。"""
     fmt = slot_format(slot)
     min_chars, max_chars, _ = checks.length_limits(fmt)
-    system = (llm.prompt("writer_long" if fmt == "long" else "writer")
-              .replace("{min_chars}", str(min_chars)).replace("{max_chars}", str(max_chars)))
+    system = with_playbook(llm.prompt("writer_long" if fmt == "long" else "writer")
+                           .replace("{min_chars}", str(min_chars)).replace("{max_chars}", str(max_chars)))
     used = [facts_by_id[i] for i in cand["fact_ids"]]
     user = (f"# 投稿枠\n{slot['theme']}\n\n# 編集長の切り口\n{cand.get('angle', '')}\n\n"
             f"# 材料（この差し込み記号だけ使える）\n{_facts_for_llm(used, with_fields=True)}\n\n"

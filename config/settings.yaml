@@ -12,17 +12,18 @@ account:
 # GitHubのリポジトリ変数 APPROVAL_MODE で上書き可能
 mode: approval
 
-# 投稿枠
+# 投稿枠（ちょうどの時刻だと機械的に見えるので半端な時刻にしている。
+#   実際の投稿はGitHubの起動遅れと数分のランダムな待ちで、毎日さらに前後する）
 #   kind: stock = 米国株 / hl = Hyperliquid
 #   days: weekday = 平日のみ / weekend = 土日のみ / all = 毎日
 #   format: long = 長文の考察投稿（X Premiumのみ。指定なしは短文）
 slots:
-  - { id: "0730", time: "07:30", kind: stock, days: weekday, theme: "米国市場の引け後まとめ・注目銘柄" }
-  - { id: "1000", time: "10:00", kind: hl,    days: all,     theme: "Hyperliquidの24時間の異変（建玉・資金調達率・急変動）" }
-  - { id: "1215", time: "12:15", kind: stock, days: weekday, theme: "市場の異変の解説" }
-  - { id: "2030", time: "20:30", kind: stock, days: weekday, format: long, theme: "考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点" }
-  - { id: "2030w", time: "20:30", kind: hl,   days: weekend, format: long, theme: "週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント" }
-  - { id: "2300", time: "23:00", kind: hl,    days: weekday, theme: "米国市場オープン前後のHyperliquid（株式先物・暗号資産）" }
+  - { id: "0730", time: "07:42", kind: stock, days: weekday, theme: "米国市場の引け後まとめ・注目銘柄" }
+  - { id: "1000", time: "10:17", kind: hl,    days: all,     theme: "Hyperliquidの24時間の異変（建玉・資金調達率・急変動）" }
+  - { id: "1215", time: "12:26", kind: stock, days: weekday, theme: "市場の異変の解説" }
+  - { id: "2030", time: "20:47", kind: stock, days: weekday, format: long, theme: "考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点" }
+  - { id: "2030w", time: "20:47", kind: hl,   days: weekend, format: long, theme: "週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント" }
+  - { id: "2300", time: "23:13", kind: hl,    days: weekday, theme: "米国市場オープン前後のHyperliquid（株式先物・暗号資産）" }
 
 # GitHub Actionsの定時実行は遅延することがあるため、枠の時刻から何分後まで生成を許可するか
 slot_grace_minutes: 120

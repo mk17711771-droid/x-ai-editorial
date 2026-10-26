@@ -1,6 +1,6 @@
 """投稿に添付するチャート画像（実データのみから作る。AI生成画像は使わない）。
 
-文字は英語で統一する（日本語フォントに依存せず、どの環境でも同じ見た目になる）。
+日本の読者向けに日本語表記。フォントは Noto Sans CJK JP（GitHub Actionsで導入）。
 """
 from __future__ import annotations
 
@@ -13,7 +13,25 @@ matplotlib.use("Agg")
 import matplotlib.dates as mdates  # noqa: E402
 import matplotlib.pyplot as plt  # noqa: E402
 
-from .common import JST, settings  # noqa: E402
+from . import fmt  # noqa: E402
+from .common import JST, WEEKDAYS_JA, settings  # noqa: E402
+
+
+def _register_japanese_font() -> None:
+    """Noto Sans CJK（apt の fonts-noto-cjk）を明示的に登録する。見つからなければ英字フォントのまま。"""
+    import glob
+    import logging
+
+    from matplotlib import font_manager
+
+    logging.getLogger("matplotlib.font_manager").setLevel(logging.ERROR)
+    for path in sorted(glob.glob("/usr/share/fonts/**/NotoSansCJK-*.tt[cf]", recursive=True)):
+        font_manager.fontManager.addfont(path)
+    plt.rcParams["font.family"] = ["Noto Sans CJK JP", "DejaVu Sans"]
+    plt.rcParams["axes.unicode_minus"] = False
+
+
+_register_japanese_font()
 
 BG = "#0d1117"
 PANEL = "#161b22"
@@ -26,11 +44,7 @@ ACCENT = "#58a6ff"
 
 
 def _usd(x: float) -> str:
-    a = abs(x)
-    for unit, div in (("T", 1e12), ("B", 1e9), ("M", 1e6), ("K", 1e3)):
-        if a >= div:
-            return f"${x / div:,.2f}{unit}"
-    return f"${x:,.2f}"
+    return fmt.usd_amount_ja(x).replace("約", "")
 
 
 def _price(x: float) -> str:
@@ -44,7 +58,8 @@ def _price(x: float) -> str:
 def _footer(fig, source: str, asof: datetime) -> None:
     handle = settings()["account"]["handle"]
     fig.text(0.04, 0.035, f"@{handle}", color=TEXT, fontsize=15, fontweight="bold")
-    fig.text(0.96, 0.035, f"Data: {source}  ·  {asof.astimezone(JST):%Y-%m-%d %H:%M} JST",
+    d = asof.astimezone(JST)
+    fig.text(0.96, 0.035, f"データ: {source}  ・  {d:%Y/%m/%d}({WEEKDAYS_JA[d.weekday()]}) {d:%H:%M} 日本時間",
              color=MUTED, fontsize=12, ha="right")
 
 
@@ -68,10 +83,10 @@ def hl_price_chart(fact: dict, candles: list[dict]) -> bytes:
     vols = [float(c["v"]) * float(c["c"]) for c in candles]
 
     fig = plt.figure(figsize=(16, 9), facecolor=BG)
-    fig.text(0.04, 0.9, f"HYPERLIQUID  ·  {name}", color=TEXT, fontsize=30, fontweight="bold")
-    fig.text(0.04, 0.855, "HIP-3 equity perpetual" if hip3 else "Perpetual futures", color=MUTED, fontsize=15)
+    fig.text(0.04, 0.9, f"Hyperliquid  ・  {name}", color=TEXT, fontsize=30, fontweight="bold")
+    fig.text(0.04, 0.852, "HIP-3 株式先物（無期限）" if hip3 else "無期限先物", color=MUTED, fontsize=16)
     fig.text(0.96, 0.9, _price(raw["mark"]), color=TEXT, fontsize=30, fontweight="bold", ha="right")
-    fig.text(0.96, 0.855, f"{change:+.2f}%  (24h)", color=color, fontsize=17, fontweight="bold", ha="right")
+    fig.text(0.96, 0.852, f"24時間  {change:+.2f}%", color=color, fontsize=18, fontweight="bold", ha="right")
 
     ax = fig.add_axes([0.06, 0.34, 0.9, 0.47], facecolor=BG)
     ax.plot(times, closes, color=color, linewidth=2.4)
@@ -91,13 +106,13 @@ def hl_price_chart(fact: dict, candles: list[dict]) -> bytes:
     ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: _price(v)))
     vx.set_yticks([])
     vx.xaxis.set_major_formatter(mdates.DateFormatter("%m/%d", tz=JST))
-    fig.text(0.06, 0.815, "7D  ·  1H", color=MUTED, fontsize=12)
+    fig.text(0.06, 0.815, "直近7日間（1時間足）", color=MUTED, fontsize=12)
 
-    stats = [("Open interest", _usd(raw["oi_usd"])),
-             ("24h volume", _usd(raw["vol_usd"])),
-             ("Funding (annualized)", f"{raw['funding_annual_pct']:+.1f}%")]
+    stats = [("建玉（OI）", _usd(raw["oi_usd"])),
+             ("24時間出来高", _usd(raw["vol_usd"])),
+             ("資金調達率（年率）", f"{raw['funding_annual_pct']:+.1f}%")]
     if "us_change_pct" in raw:
-        stats.append(("US stock (vs prev close)", f"{raw['us_change_pct']:+.2f}%"))
+        stats.append(("米国株（前日比）", f"{raw['us_change_pct']:+.2f}%"))
     w = 0.9 / len(stats)
     for i, (label, value) in enumerate(stats):
         x = 0.06 + i * w
@@ -121,9 +136,9 @@ def stock_change_chart(facts: list[dict], highlight: set[str] | None = None) -> 
 
     fig = plt.figure(figsize=(16, 9), facecolor=BG)
     label = quotes[-1]["fields"]["asof"] if quotes else ""
-    session = label.replace("米国", "").replace("終値", " close") if "終値" in label else "intraday"
-    fig.text(0.04, 0.9, "US WATCHLIST  ·  DAILY MOVE", color=TEXT, fontsize=30, fontweight="bold")
-    fig.text(0.04, 0.855, f"Change vs previous close  ·  {session}", color=MUTED, fontsize=15)
+    session = label.replace("米国", "米国時間 ") if "終値" in label else "取引時間中"
+    fig.text(0.04, 0.9, "米国株ウォッチリスト  ・  前日比", color=TEXT, fontsize=30, fontweight="bold")
+    fig.text(0.04, 0.852, f"前日終値からの騰落率  ・  {session}", color=MUTED, fontsize=16)
 
     ax = fig.add_axes([0.1, 0.12, 0.84, 0.69], facecolor=BG)
     colors = [(UP if v >= 0 else DOWN) for v in vals]

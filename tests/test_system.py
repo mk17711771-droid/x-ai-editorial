@@ -12,7 +12,7 @@ from aiedit.common import settings
 @pytest.fixture(autouse=True)
 def isolated(tmp_path, monkeypatch):
     monkeypatch.setattr(store, "DATA_DIR", tmp_path)
-    monkeypatch.setenv("AIEDIT_NOW", "2026-10-26T01:05:00+00:00")  # 10:05 JST（月曜）
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-26T01:20:00+00:00")  # 10:20 JST（月曜）
     monkeypatch.delenv("BOT_ENABLED", raising=False)
     settings.cache_clear()
     sent = []
@@ -313,3 +313,38 @@ def test_cashtags_normalized_to_two():
 def test_render_fixes_double_dollar():
     facts = {"f1": {"fields": {"price": "$496.25", "symbol": "SOXX"}}}
     assert checks.render("${{f1.symbol}} 価格: ${{f1.price}}", facts) == "$SOXX 価格: $496.25"
+
+
+def test_research_measures_posts_and_learn_updates_playbook(wired, isolated, monkeypatch):
+    from aiedit import learn, research
+    d = pipeline.generate()[0]
+    pipeline.publish(d["id"], "approve")
+    # 25時間後に反応を計測する
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-27T02:30:00+00:00")
+    monkeypatch.setattr(xapi, "get_tweets", lambda ids: [{"id": i, "public_metrics": {
+        "impression_count": 1500, "like_count": 30, "retweet_count": 5, "quote_count": 1,
+        "reply_count": 2, "bookmark_count": 12}} for i in ids])
+    monkeypatch.setattr(xapi, "me", lambda: {"public_metrics": {"followers_count": 1250, "following_count": 347, "tweet_count": 903}})
+    assert research.measure() == 1
+    assert research.measure() == 0  # 計測済みは二重に取らない
+    assert store.read_jsonl("followers.jsonl")[0]["followers"] == 1250
+
+    seen = {}
+    def fake_learn(system, user):
+        seen["report"] = json.loads(user)
+        return {"playbook": ["冒頭で異変を一言で言い切る"], "hypotheses": ["a", "b", "c"], "next_week": "x"}
+    monkeypatch.setattr(llm, "generate_json", fake_learn)
+    learn.run(send_weekly_report=True)
+    assert seen["report"]["measured_posts"] == 1
+    assert "冒頭で異変を一言で言い切る" in learn.playbook_text()
+    assert "週間運用レポート" in isolated[-1][0]["text"]
+    # 運用ノートは次の編集・執筆のプロンプトに入る
+    assert "冒頭で異変を一言で言い切る" in pipeline.with_playbook("base")
+
+
+def test_watch_summary_feeds_editor(isolated):
+    from aiedit import research
+    store.append_jsonl("watch/20261026.jsonl", {"at": "2026-10-26T00:37:00+00:00", "at_jst": "10/26 09:37",
+                                                "hl_funding": [["SKHX", 213.5]], "hl_movers": [["EWZ", -26.4]]})
+    s = research.watch_summary()
+    assert "SKHX +213.5%" in s and "EWZ -26.4%" in s
