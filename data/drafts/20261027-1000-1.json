@@ -1,0 +1,98 @@
+{
+  "id": "20261027-1000-1",
+  "slot_key": "20261027-1000",
+  "slot_theme": "10:00 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "pending",
+  "created_at": "2026-10-26T16:34:31.876630+00:00",
+  "text": "日本時間10/27(火) 01:24時点時点、株式先物（HIP-3）のEWZは-26.37%の急落となり$33.22に。出来高は約1.2億ドル、資金調達率は年率+5.5%です。",
+  "template": "{{f6.asof}}時点、{{f6.market}}の{{f6.coin}}は{{f6.change_pct}}の急落となり{{f6.price}}に。出来高は{{f6.volume}}、資金調達率は年率{{f6.funding_annual}}です。",
+  "style": "数値分析型",
+  "topic_key": "hl:xyz:EWZ:big_move",
+  "angle": "HyperliquidのHIP-3株式先物市場におけるEWZ（ブラジル株ETF）の記録的な急落(-26.37%)と、市場全体の動向を数字で紐解く。",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f6",
+    "f18"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:EWZ:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: EWZ（HIP-3株式等先物） 24時間騰落率-26.37%, 価格33.221, 建玉24544655USD, 24時間出来高115189408USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "EWZ",
+        "market": "株式先物（HIP-3）",
+        "price": "$33.22",
+        "change_pct": "-26.37%",
+        "oi": "約2,454万ドル",
+        "volume": "約1.2億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/27(火) 01:24時点"
+      },
+      "raw": {
+        "mark": 33.221,
+        "change_pct": -26.369,
+        "oi_usd": 24544655,
+        "vol_usd": 115189408,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:EWZ",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:EWZ"
+      },
+      "asof": "2026-10-26T16:24:22.371203+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:market:overview",
+      "kind": "hl",
+      "category": "overview",
+      "summary": "Hyperliquid全体: 建玉合計15159830565USD, 24時間出来高合計7828635293USD, うちHIP-3市場2997677630USD, 上場銘柄数343",
+      "fields": {
+        "total_oi": "約151.6億ドル",
+        "total_volume": "約78.3億ドル",
+        "hip3_volume": "約30.0億ドル",
+        "hip3_share": "38.3%",
+        "asof": "日本時間10/27(火) 01:24時点"
+      },
+      "raw": {
+        "total_oi": 15159830565,
+        "total_vol": 7828635293,
+        "hip3_vol": 2997677630
+      },
+      "refresh": null,
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade"
+      },
+      "asof": "2026-10-26T16:24:22.371529+00:00",
+      "confidence": "confirmed",
+      "id": "f18"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:EWZ"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade"
+    }
+  ],
+  "needs_human": false
+}
