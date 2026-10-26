@@ -152,7 +152,8 @@ def select_cohort(force: bool = False) -> dict:
     """候補を審査して「安定して勝っている上位トレーダー」を選ぶ。1日1回だけ更新する。"""
     cfg = _cfg()
     cohort = store.read_json("traders/cohort.json")
-    if cohort and not force and now_utc() - datetime.fromisoformat(cohort["at"]) < timedelta(hours=cfg["cohort_refresh_hours"]):
+    if (cohort and cohort.get("members") and not force
+            and now_utc() - datetime.fromisoformat(cohort["at"]) < timedelta(hours=cfg["cohort_refresh_hours"])):
         return cohort
     members, reasons, measured = [], {}, []
     for t in candidates():
