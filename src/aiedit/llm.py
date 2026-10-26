@@ -25,17 +25,24 @@ def generate_json(system: str, user: str) -> dict:
             "responseMimeType": "application/json",
         },
     }
-    # 混雑（429/503）時は待って再試行し、それでもだめなら予備のモデルに切り替える
+    # 混雑（429/503）は一時的なことが多い。モデルを順に試し、全滅したら待ってからもう一巡する
     models = [cfg["model"]] + [m for m in cfg.get("fallback_models", []) if m != cfg["model"]]
+    missing: set[str] = set()
     last_err: Exception | None = None
-    for model in models:
-        for attempt in range(2):
+    for round_no, wait in enumerate((0, 30, 60, 120)):
+        if wait:
+            log.info("Geminiが混雑しているため%d秒待って再試行します（%d巡目）", wait, round_no + 1)
+            time.sleep(wait)
+        for model in models:
+            if model in missing:
+                continue
             try:
                 r = requests.post(API.format(model=model), params={"key": env("GEMINI_API_KEY")}, json=body, timeout=120)
+                if r.status_code == 404:
+                    missing.add(model)
+                    continue
                 if r.status_code in (429, 500, 503):
                     raise requests.HTTPError(f"{r.status_code}: {r.text[:300]}")
-                if r.status_code == 404:
-                    raise requests.HTTPError(f"モデル {model} が見つかりません")
                 if r.status_code >= 400:
                     # キーの誤りなど、再試行しても直らないエラー
                     raise RuntimeError(f"Gemini APIエラー {r.status_code}（モデル: {model}）: {r.text[:500]}")
@@ -43,8 +50,7 @@ def generate_json(system: str, user: str) -> dict:
                 return json.loads(text)
             except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as e:
                 last_err = e
-                log.warning("Gemini（%s）呼び出し失敗（%d回目）: %s", model, attempt + 1, str(e)[:200])
-                if "が見つかりません" in str(e):
-                    break
-                time.sleep(10 * (attempt + 1))
+                log.warning("Gemini（%s）呼び出し失敗: %s", model, str(e)[:200])
+        if len(missing) == len(models):
+            raise RuntimeError(f"利用できるGeminiモデルがありません: {', '.join(models)}")
     raise RuntimeError(f"Gemini APIの呼び出しに失敗しました: {last_err}")
