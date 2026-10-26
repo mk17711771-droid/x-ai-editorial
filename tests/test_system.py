@@ -303,3 +303,8 @@ def test_long_format_limits(monkeypatch):
     assert checks.check_text(text, "t", "long") == []
     assert any("上限" in e for e in checks.check_text(text, "t", "short"))
     assert any("短すぎ" in e for e in checks.check_text("短い考察", "t", "long"))
+
+
+def test_cashtags_normalized_to_two():
+    out = checks.normalize_cashtags("$SOXXと$MU、$SKHXの話。$SOXXはまた上昇。価格は$496.27")
+    assert out == "$SOXXとMU、SKHXの話。SOXXはまた上昇。価格は$496.27".replace("$SOXXとMU", "$SOXXと$MU")
