@@ -170,10 +170,11 @@ def stock_change_chart(facts: list[dict], highlight: set[str] | None = None) -> 
 def smart_money_chart(snap: dict, highlight: set[str] | None = None) -> bytes:
     """上位トレーダーの保有の偏り（銘柄ごとの買い・売りの人数）。"""
     highlight = highlight or set()
-    coins = [c for c in snap["coins"] if c["long_n"] + c["short_n"] >= 2][:10][::-1]
+    coins = [c for c in snap["coins"] if c["long_n"] + c["short_n"] + c.get("hedge_n", 0) >= 2][:10][::-1]
     names = [c["coin"].split(":")[-1] for c in coins]
     longs = [c["long_n"] for c in coins]
     shorts = [c["short_n"] for c in coins]
+    hedges = [c.get("hedge_n", 0) for c in coins]
 
     fig = plt.figure(figsize=(16, 9), facecolor=BG)
     fig.text(0.04, 0.9, "Hyperliquid  ・  安定上位トレーダーの保有", color=TEXT, fontsize=30, fontweight="bold")
@@ -182,14 +183,18 @@ def smart_money_chart(snap: dict, highlight: set[str] | None = None) -> bytes:
     ax = fig.add_axes([0.1, 0.13, 0.84, 0.66], facecolor=BG)
     ax.barh(names, longs, color=UP, label="買い（ロング）")
     ax.barh(names, [-s for s in shorts], color=DOWN, label="売り（ショート）")
-    span = max(longs + shorts + [1]) * 1.25
-    for i, (lo, sh) in enumerate(zip(longs, shorts)):
+    ax.barh(names, [-h for h in hedges], left=[-s for s in shorts], color=ACCENT, alpha=0.75,
+            label="ヘッジの売り（現物を保有）")
+    span = max(longs + [s + h for s, h in zip(shorts, hedges)] + [1]) * 1.25
+    for i, (lo, sh, he) in enumerate(zip(longs, shorts, hedges)):
         total = lo + sh
         ax.text(lo + span * 0.01, i, f"買い{lo}人", va="center", color=TEXT, fontsize=12)
-        ax.text(-sh - span * 0.01, i, f"売り{sh}人", va="center", ha="right", color=TEXT, fontsize=12)
-        # 買い比率は右端の列にそろえて表示する
-        ax.text(span * 1.55, i, f"買い比率 {lo / total * 100:.0f}%", va="center", ha="right",
-                color=UP if lo >= sh else DOWN, fontsize=13, fontweight="bold")
+        left_label = f"売り{sh}人" + (f"＋ヘッジ{he}人" if he else "")
+        ax.text(-sh - he - span * 0.01, i, left_label, va="center", ha="right", color=TEXT, fontsize=12)
+        # 方向に賭けたポジションの買い比率を、右端の列にそろえて表示する（ヘッジは除く）
+        ratio = f"買い比率 {lo / total * 100:.0f}%" if total else "ヘッジのみ"
+        ax.text(span * 1.55, i, ratio, va="center", ha="right",
+                color=MUTED if not total else (UP if lo >= sh else DOWN), fontsize=13, fontweight="bold")
     ax.set_xlim(-span, span * 1.6)
     ax.axvline(0, color=GRID, linewidth=1)
     ax.set_xticks([])
@@ -200,7 +205,7 @@ def smart_money_chart(snap: dict, highlight: set[str] | None = None) -> bytes:
             t.set_fontweight("bold")
     for sp in ax.spines.values():
         sp.set_visible(False)
-    ax.legend(loc="lower center", bbox_to_anchor=(0.35, -0.12), ncol=2, frameon=False, labelcolor=TEXT, fontsize=12)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.4, -0.12), ncol=3, frameon=False, labelcolor=TEXT, fontsize=12)
     _footer(fig, "Hyperliquid公開ランキング（個人は特定していません）", datetime.fromisoformat(snap["at"]))
     return _to_png(fig)
 

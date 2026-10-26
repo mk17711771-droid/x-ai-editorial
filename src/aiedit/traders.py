@@ -222,9 +222,30 @@ def _parse_positions(state: dict) -> list[dict]:
             continue
         if size == 0:
             continue
-        out.append({"coin": p["coin"], "side": "long" if size > 0 else "short", "value": value,
+        out.append({"coin": p["coin"], "side": "long" if size > 0 else "short", "value": value, "size": abs(size),
                     "upnl": float(p.get("unrealizedPnl") or 0), "leverage": float((p.get("leverage") or {}).get("value") or 0)})
     return out
+
+
+def spot_balances(address: str) -> dict[str, float]:
+    """現物の保有量。HyperliquidではBTCはUBTC、ETHはUETHのような名前になっている。"""
+    data = _info({"type": "spotClearinghouseState", "user": address})
+    out: dict[str, float] = {}
+    for b in data.get("balances", []):
+        coin, total = b.get("coin", ""), float(b.get("total") or 0)
+        for name in {coin, coin[1:] if coin.startswith(("U", "W")) and len(coin) > 2 else coin}:
+            out[name] = out.get(name, 0) + total
+    return out
+
+
+def mark_hedges(pos: list[dict], spot: dict[str, float]) -> list[dict]:
+    """現物を持ったうえでの売り（資金調達率を受け取るための裁定・ヘッジ）を見分ける。
+
+    売りの数量の半分以上の現物を持っていれば、値下がりに賭けた売りではなく、ヘッジとみなす。
+    """
+    for p in pos:
+        p["hedge"] = p["side"] == "short" and spot.get(p["coin"], 0) >= 0.5 * p["size"]
+    return pos
 
 
 def aggregate(traders: list[dict], pos_by_addr: dict[str, list[dict]]) -> dict:
@@ -235,8 +256,13 @@ def aggregate(traders: list[dict], pos_by_addr: dict[str, list[dict]]) -> dict:
         for p in pos_by_addr.get(t["address"], []):
             if p["value"] < min_pos:
                 continue
-            c = coins.setdefault(p["coin"], {"coin": p["coin"], "long_n": 0, "short_n": 0,
-                                             "long_usd": 0.0, "short_usd": 0.0, "lev_sum": 0.0, "pos_n": 0})
+            c = coins.setdefault(p["coin"], {"coin": p["coin"], "long_n": 0, "short_n": 0, "hedge_n": 0,
+                                             "long_usd": 0.0, "short_usd": 0.0, "hedge_usd": 0.0, "lev_sum": 0.0, "pos_n": 0})
+            if p.get("hedge"):
+                # 現物つきの売り（ヘッジ・裁定）は、方向の偏りには数えない
+                c["hedge_n"] += 1
+                c["hedge_usd"] += p["value"]
+                continue
             c[f"{p['side']}_n"] += 1
             c[f"{p['side']}_usd"] += p["value"]
             c["lev_sum"] += p["leverage"]
@@ -244,7 +270,8 @@ def aggregate(traders: list[dict], pos_by_addr: dict[str, list[dict]]) -> dict:
     for c in coins.values():
         c["avg_leverage"] = round(c.pop("lev_sum") / c["pos_n"], 1) if c["pos_n"] else 0
         c["net_usd"] = c["long_usd"] - c["short_usd"]
-    ranked = sorted(coins.values(), key=lambda c: (c["long_n"] + c["short_n"], c["long_usd"] + c["short_usd"]), reverse=True)
+    ranked = sorted(coins.values(), key=lambda c: (c["long_n"] + c["short_n"] + c["hedge_n"], c["long_usd"] + c["short_usd"]),
+                    reverse=True)
     return {"traders": len(traders), "with_positions": sum(1 for t in traders if pos_by_addr.get(t["address"])),
             "coins": ranked}
 
@@ -255,7 +282,10 @@ def snapshot() -> dict:
     pos_by_addr = {}
     for t in traders:
         try:
-            pos_by_addr[t["address"]] = positions(t["address"])
+            pos = positions(t["address"])
+            if any(p["side"] == "short" for p in pos):
+                pos = mark_hedges(pos, spot_balances(t["address"]))
+            pos_by_addr[t["address"]] = pos
         except requests.RequestException as e:
             log.warning("ポジション取得に失敗: %s", e)
     agg = aggregate(traders, pos_by_addr)
@@ -315,7 +345,20 @@ def facts(max_age_hours: float = 4) -> list[dict]:
     out = []
     for c in snap["coins"][:6]:
         total = c["long_n"] + c["short_n"]
-        if total < 3:
+        hedge = c.get("hedge_n", 0)
+        if total < 3 and hedge < 3:
+            continue
+        if total == 0:
+            out.append({**base,
+                        "key": f"traders:{c['coin']}:hedge",
+                        "category": "smart_money_hedge",
+                        "summary": (f"{COHORT_NAME}{n}人のうち{hedge}人が、{c['coin']}を現物で持ったまま先物で売る「ヘッジ（資金調達率を受け取る裁定）」をしている。"
+                                    f"方向に賭けた売買ではなく、値動きに左右されにくい形で稼いでいるとみられる（売りの合計{c.get('hedge_usd', 0):.0f}USD）"),
+                        "fields": {"coin": c["coin"].split(":")[-1], "top_n": f"{n}人", "cohort": COHORT_NAME,
+                                   "cohort_rule": COHORT_RULE, "hedge_n": f"{hedge}人",
+                                   "hedge_usd": fmt.usd_amount_ja(c.get("hedge_usd", 0)),
+                                   "asof": f"日本時間{fmt_jst(asof)}時点", "venue": "Hyperliquid"},
+                        "raw": {"hedge_n": hedge}})
             continue
         long_ratio = c["long_n"] / total * 100
         out.append({**base,
@@ -323,12 +366,12 @@ def facts(max_age_hours: float = 4) -> list[dict]:
                     "category": "smart_money",
                     "summary": (f"安定上位トレーダー{n}人（{COHORT_RULE}）のうち、{c['coin']}を持っている{total}人の内訳: 買い{c['long_n']}人・売り{c['short_n']}人"
                                 f"（買い比率{long_ratio:.0f}%）、買い合計{c['long_usd']:.0f}USD・売り合計{c['short_usd']:.0f}USD、平均レバレッジ{c['avg_leverage']}倍"
-                                "。注意: 上位口座には現物保有のヘッジや裁定目的で売りを持つ口座も含まれうるため、売り越し＝弱気とは限らない"),
+                                f"（このほか、現物つきの売り＝ヘッジ・裁定が{hedge}人。これは方向の偏りに数えていない）"),
                     "fields": {"coin": c["coin"].split(":")[-1], "top_n": f"{n}人", "cohort": COHORT_NAME,
                                "cohort_rule": COHORT_RULE, "holders": f"{total}人",
                                "long_n": f"{c['long_n']}人", "short_n": f"{c['short_n']}人",
                                "long_ratio": f"{long_ratio:.0f}%", "long_usd": fmt.usd_amount_ja(c["long_usd"]),
-                               "short_usd": fmt.usd_amount_ja(c["short_usd"]),
+                               "short_usd": fmt.usd_amount_ja(c["short_usd"]), "hedge_n": f"{hedge}人",
                                "avg_leverage": fmt.ratio_x(c["avg_leverage"]),
                                "asof": f"日本時間{fmt_jst(asof)}時点", "venue": "Hyperliquid"},
                     "raw": {"long_n": c["long_n"], "short_n": c["short_n"], "long_usd": round(c["long_usd"]),

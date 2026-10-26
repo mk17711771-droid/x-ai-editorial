@@ -468,3 +468,16 @@ def test_render_cleans_spacing_units_and_restatements():
     assert any("言い直し" in e for e in errors)
     from aiedit import fmt
     assert fmt.usd_amount_ja(2.0629e11) == "約2,063億ドル" and fmt.usd_amount_ja(3.39e9) == "約33.9億ドル"
+
+
+def test_hedged_shorts_are_not_counted_as_bearish():
+    from aiedit import traders
+    pos = [{"coin": "HYPE", "side": "short", "size": 1000, "value": 78000, "upnl": 0, "leverage": 5},
+           {"coin": "BTC", "side": "short", "size": 2, "value": 160000, "upnl": 0, "leverage": 5},
+           {"coin": "ETH", "side": "short", "size": 10, "value": 23000, "upnl": 0, "leverage": 5}]
+    traders.mark_hedges(pos, {"HYPE": 1200, "BTC": 2.0, "ETH": 1})  # BTCは現物UBTCを「BTC」として持つ
+    assert [p["hedge"] for p in pos] == [True, True, False]
+    agg = traders.aggregate([{"address": "a"}], {"a": pos})
+    hype = next(c for c in agg["coins"] if c["coin"] == "HYPE")
+    eth = next(c for c in agg["coins"] if c["coin"] == "ETH")
+    assert hype["hedge_n"] == 1 and hype["short_n"] == 0 and eth["short_n"] == 1
