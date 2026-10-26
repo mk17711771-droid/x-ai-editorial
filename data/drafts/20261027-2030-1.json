@@ -1,0 +1,106 @@
+{
+  "id": "20261027-2030-1",
+  "slot_key": "20261027-2030",
+  "slot_theme": "20:30 深掘り・今夜〜翌日の注目点（決算予定など）",
+  "status": "dry_run",
+  "created_at": "2026-10-26T17:45:23.043772+00:00",
+  "text": "$SOXXが前日終値比で+3.39%と動いてる影で、$SKHXの過熱感がけっこうヤバいことになってる😏\n\nHyperliquidの株式先物（HIP-3）で、資金調達率が年率+168.2%に到達。\n\n個人がかなり強気でポジション持ってるっぽいから、ここからの値動きは慎重に見たほうがよさそう。",
+  "template": "${{f3.symbol}}が{{f3.basis}}で{{f3.change_pct}}と動いてる影で、${{f47.coin}}の過熱感がけっこうヤバいことになってる😏\n\nHyperliquidの株式先物（HIP-3）で、資金調達率が年率{{f47.funding_annual}}に到達。\n\n個人がかなり強気でポジション持ってるっぽいから、ここからの値動きは慎重に見たほうがよさそう。",
+  "style": "気づき型",
+  "topic_key": "stock:SOXX:big_move",
+  "angle": "半導体指数SOXXの+3.39%の大幅上昇と、HyperliquidのHIP-3でSKハイニックス（SKHX）先物の資金調達率が年率+168.2%に達している過熱感をリンクさせて解説する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 19
+  },
+  "total": 89,
+  "fact_ids": [
+    "f3",
+    "f47"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格494.4, 前日比+3.39%, 前日終値478.2, 高値496.93, 安値479.67",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$494.40",
+        "change_pct": "+3.39%",
+        "prev_close": "$478.20",
+        "high": "$496.93",
+        "low": "$479.67",
+        "asof": "日本時間10/27(火) 02:43時点",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 494.4,
+        "change_pct": 3.388,
+        "prev_close": 478.2
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-10-26T17:43:40.510838+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+2.65%, 価格990.57, 建玉319050068USD, 24時間出来高218215476USD, 資金調達率(年率)+168.2%",
+      "fields": {
+        "coin": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$990.57",
+        "change_pct": "+2.65%",
+        "oi": "約3.2億ドル",
+        "volume": "約2.2億ドル",
+        "funding_annual": "+168.2%",
+        "asof": "日本時間10/27(火) 02:43時点",
+        "asof_short": "02:43時点"
+      },
+      "raw": {
+        "mark": 990.57,
+        "change_pct": 2.651,
+        "oi_usd": 319050068,
+        "vol_usd": 218215476,
+        "funding_annual_pct": 168.19
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-10-26T17:43:48.072884+00:00",
+      "confidence": "confirmed",
+      "id": "f47"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false
+}
