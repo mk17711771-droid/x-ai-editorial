@@ -10,6 +10,8 @@ on:
         options:
           - note-profile
           - note-audit
+          - sources
+          - note-check
         default: note-profile
 
 permissions:
@@ -36,7 +38,20 @@ jobs:
         env:
           PYTHONPATH: src
           TOOL: ${{ inputs.tool }}
-        run: python -m aiedit.cli "$TOOL"
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_ADMIN_USER_ID: ${{ secrets.LINE_ADMIN_USER_ID }}
+        run: |
+          if [ "$TOOL" = "sources" ]; then
+            python -m aiedit.cli sources --daily --weekly
+          else
+            python -m aiedit.cli "$TOOL"
+          fi
       - name: Save data
         if: always()
         run: |
