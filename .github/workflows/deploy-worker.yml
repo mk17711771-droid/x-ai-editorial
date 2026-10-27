@@ -1,0 +1,30 @@
+name: deploy-worker
+
+# worker/ を変更して main に保存すると、Cloudflare Worker（コード・Cron Triggers）へ自動で反映する。
+# 管理者がCloudflareの画面で作業する必要はない。
+# 必要なGitHub Secrets: CLOUDFLARE_API_TOKEN（「Workersを編集」の権限のAPIトークン）
+on:
+  push:
+    branches: [main]
+    paths: ["worker/**"]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      HAS_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Deploy to Cloudflare
+        if: env.HAS_TOKEN == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: worker
+          command: deploy

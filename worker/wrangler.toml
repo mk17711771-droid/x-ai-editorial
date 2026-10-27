@@ -1,15 +1,14 @@
 name = "x-ai-editorial-line"
 main = "src/index.js"
+account_id = "e4c582c8bfc9527bc3435d4b66495320"
 compatibility_date = "2025-09-01"
 
 # 投稿枠の時間帯に5分おきに起動し、Worker側で「その日の投稿時刻」に当たったときだけ投稿を始める（UTC）
 [triggers]
 crons = ["*/5 22,23 * * *", "*/5 0,1 * * *", "*/5 3 * * *", "*/5 11,12 * * *", "*/5 13,14 * * *"]
 
-[vars]
-GITHUB_REPO = "mk17711771-droid/x-ai-editorial"
-
-# 以下は `npx wrangler secret put <名前>` で設定する（ここには書かない）
+# 以下はCloudflareのシークレットとして登録済み（ここには書かない。デプロイしても消えない）
+# GITHUB_REPO
 # LINE_CHANNEL_SECRET
 # LINE_CHANNEL_ACCESS_TOKEN
 # LINE_ADMIN_USER_ID

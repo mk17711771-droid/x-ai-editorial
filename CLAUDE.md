@@ -31,6 +31,12 @@ X（@satoshikun_666「カリスマ」）と note（https://note.com/charisma_hl�
 - APIキー・トークンをチャットやコードに書かない（GitHub Secrets / Cloudflare に登録）。
 - 管理者の取引成績を作り上げない。
 
+## 作業の進め方（管理者の指示）
+- 設定・コードの変更は**自動で反映する**。管理者に画面操作（Cloudflare・GitHubの手作業）を頼まない。
+  - Cloudflare Worker: `worker/` を変更して main に push すると `deploy-worker.yml` がコードとCron Triggersを反映する。
+  - GitHubの変数・ワークフローも、APIやコミットで直接変更する。
+  - どうしても管理者にしかできない作業（新しいAPIキーの発行・支払い・ログインが必要な操作）だけ、理由を添えて頼む。
+
 ## 開発メモ
 - テスト: `PYTHONPATH=src python -m pytest -q tests`
 - コンテナから note.com / Hyperliquid / Gemini には届かない。実データでの確認は GitHub Actions（workflow_dispatch）で行う。
