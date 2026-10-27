@@ -16,6 +16,8 @@ HASHTAG = re.compile(r"[#＃]\w+")
 # 「20人ではなく23人」「+6.19%ではなく+4.04%」のような、数字を言い直す不自然な文
 RESTATE = re.compile(r"[0-9][0-9.,]*\s*(?:人|倍|%|％|ドル|円)?\s*ではなく\s*[+\-$約]?[0-9]")
 CASHTAG = re.compile(r"\$[A-Za-z][A-Za-z0-9.]*")
+# 「日以上プラス」のように、数字が抜けて単位だけ残った文（AIが数字を書けずに落としたもの）
+ORPHAN_UNIT = re.compile(r"(?:^|[\s、。，,（(「：:・])(?:日|時間|週間|か月|ヶ月|人|倍|件)(?:以上|以下|以内|未満|前|間|ぶり)")
 
 
 def weighted_length(text: str) -> int:
@@ -76,7 +78,7 @@ def render(template: str, facts: dict[str, dict]) -> str:
     out.append(template[pos:])
     text = normalize_cashtags("".join(out).strip())
     # 差し込みデータとAIの文章で語が重なったもの（例:「時点時点」）を整える
-    for dup, fixed in (("時点時点", "時点"), ("終値終値", "終値"), ("約約", "約"), ("$$", "$")):
+    for dup, fixed in (("時点の時点", "時点"), ("時点時点", "時点"), ("終値終値", "終値"), ("約約", "約"), ("$$", "$")):
         text = text.replace(dup, fixed)
     return text
 
@@ -134,6 +136,8 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
         errors.append("@メンションが含まれている")
     if HASHTAG.search(text):
         errors.append("ハッシュタグは使わない")
+    if ORPHAN_UNIT.search(text):
+        errors.append("数字が抜けて単位だけ残っている（例:「日以上」）。条件の名前は材料の rule・label の値を差し込む")
     if len(CASHTAG.findall(text)) > 1:
         errors.append("キャッシュタグが多すぎる")
 

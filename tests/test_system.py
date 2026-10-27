@@ -579,3 +579,11 @@ def test_x_research_respects_monthly_budget(monkeypatch):
     sources.x_search()
     assert calls == [30, 20]  # 上限50件を超えて読まない
     assert sources.x_search() == []
+
+
+def test_orphan_unit_and_duplicate_asof_fixed():
+    base = "Hyperliquidの上位300人を条件で絞ると見え方が変わるな👀\n\n"
+    assert any("単位だけ" in e for e in checks.check_text(base + "日以上プラスは185人、直近の売買ありは29人ってこと。", "t"))
+    assert not any("単位だけ" in e for e in checks.check_text(base + "60日以上プラスは185人、直近の売買ありは29人ってこと。", "t"))
+    facts = {"f1": {"fields": {"asof": "11:19時点"}}}
+    assert checks.render("建玉も膨らんでて{{f1.asof}}の時点でこの歪みは気になる", facts) == "建玉も膨らんでて11:19時点でこの歪みは気になる"

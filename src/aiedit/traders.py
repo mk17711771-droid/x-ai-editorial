@@ -386,6 +386,7 @@ def facts(max_age_hours: float = 4) -> list[dict]:
                                 + "、".join(f"{f['step']}→残り{f['n']}人" for f in cohort["funnel"][1:])
                                 + "。すべての条件を満たした人はごくわずかで、ランキングの上位＝真似する価値がある人ではないことがわかる"),
                     "fields": {"candidates": f"{f0}人", "positive_60d": f"{steps.get('60日以上プラス', 0)}人",
+                               "positive_60d_label": "60日以上プラス", "low_leverage_label": "レバレッジ3倍以下",
                                "stable_n": f"{steps.get('直近1週間に売買あり', 0)}人",
                                "low_leverage_n": f"{steps.get('レバレッジ3倍以下', 0)}人",
                                "strict_n": f"{steps.get('5日以内に売買', 0)}人",
