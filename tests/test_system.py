@@ -621,3 +621,12 @@ def test_health_finds_missed_slot_and_retries(monkeypatch):
     rec = health.run()
     assert [i["slot"] for i in rec["issues"] if i["type"] == "missed_slot"] == ["1000"]
     assert called and rec["actions"]
+
+
+def test_late_slot_after_midnight_belongs_to_previous_day(monkeypatch):
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-27T15:15:00+00:00")  # 10/28(水) 00:15 JST
+    settings.cache_clear()
+    slot = pipeline.pick_slot()
+    assert slot["id"] == "2300" and pipeline.slot_key(slot) == "20261027-2300"
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T14:00:00+00:00")  # 10/28(水) 23:00 JST は当日の枠
+    assert pipeline.slot_key(pipeline.pick_slot()) == "20261028-2300"

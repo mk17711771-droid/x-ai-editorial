@@ -27,15 +27,15 @@ def missed_slots(now: datetime | None = None) -> list[dict]:
     posted = {p.get("slot_key") for p in store.posts()}
     generated = set(store.state().get("generated_slots", []))
     out = []
+    from .pipeline import slot_base
     for s in cfg["slots"]:
-        if not _slot_applies(s, now):
+        base = slot_base(s, now)
+        if not _slot_applies(s, base):
             continue
-        h, m = map(int, s["time"].split(":"))
-        base = now.replace(hour=h, minute=m, second=0, microsecond=0)
         # 投稿時刻は枠の時刻の最大約30分後までばらつくので、それを過ぎてから判定する
         if now < base + timedelta(minutes=40):
             continue
-        key = f"{now:%Y%m%d}-{s['id']}"
+        key = f"{base:%Y%m%d}-{s['id']}"
         if key in posted:
             continue
         out.append({"slot": s["id"], "key": key, "generated": key in generated,
@@ -85,6 +85,17 @@ def run() -> dict:
         # 生成済みなのに投稿がない枠は、原稿が全部弾かれたなど。再起動しても同じなので点検に回す
         if m["within_grace"] and not m["generated"] and retry_slot():
             actions.append(f"枠{m['slot']}の投稿を再起動")
+
+    if issues:
+        # 投稿漏れがあるとき、Cloudflareからの起動が来ていたかも確かめる（来ていなければWorker側の問題）
+        try:
+            r = _gh("/actions/workflows/generate.yml/runs", params={"event": "repository_dispatch", "per_page": 1})
+            runs = r.json().get("workflow_runs", []) if r.ok else []
+            last = runs[0]["created_at"] if runs else None
+            if not last or now_utc() - datetime.fromisoformat(last.replace("Z", "+00:00")) > timedelta(hours=14):
+                issues.append({"type": "cloudflare_not_dispatching", "last_dispatch": last})
+        except (requests.RequestException, RuntimeError, ValueError) as e:
+            log.warning("Cloudflareからの起動を確認できません: %s", e)
 
     st = store.state()
     if st.get("halted"):

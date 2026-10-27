@@ -28,7 +28,6 @@ def ensure_running() -> None:
 def pick_slot(slot_id: str = "auto") -> dict | None:
     cfg = settings()
     now = now_jst()
-    weekend = now.weekday() >= 5
     if slot_id != "auto":
         for s in cfg["slots"]:
             if s["id"] == slot_id:
@@ -36,10 +35,10 @@ def pick_slot(slot_id: str = "auto") -> dict | None:
         raise ValueError(f"枠 {slot_id} が設定にありません")
     best = None
     for s in cfg["slots"]:
+        start = slot_base(s, now)
+        weekend = start.weekday() >= 5  # 日付をまたいだ深夜の枠は、前日の曜日で判定する
         if s["days"] == "weekday" and weekend or s["days"] == "weekend" and not weekend:
             continue
-        h, m = map(int, s["time"].split(":"))
-        start = now.replace(hour=h, minute=m, second=0, microsecond=0)
         if start - timedelta(minutes=cfg.get("slot_early_minutes", 10)) <= now <= start + timedelta(minutes=cfg["slot_grace_minutes"]):
             if best is None or start > best[0]:
                 best = (start, s)
@@ -51,8 +50,20 @@ def slot_format(slot: dict) -> str:
     return "long" if slot.get("format") == "long" and settings()["account"]["premium"] else "short"
 
 
+def slot_base(slot: dict, now: datetime | None = None) -> datetime:
+    """枠の時刻（日本時間）。0時を過ぎてから深夜の枠を処理するときは、前日の枠として扱う。"""
+    now = now or now_jst()
+    h, m = map(int, slot["time"].split(":"))
+    base = now.replace(hour=h, minute=m, second=0, microsecond=0)
+    cfg = settings()
+    if now < base - timedelta(minutes=cfg.get("slot_early_minutes", 10)) and \
+            now <= base - timedelta(days=1) + timedelta(minutes=cfg["slot_grace_minutes"]):
+        return base - timedelta(days=1)
+    return base
+
+
 def slot_key(slot: dict) -> str:
-    return f"{now_jst():%Y%m%d}-{slot['id']}"
+    return f"{slot_base(slot):%Y%m%d}-{slot['id']}"
 
 
 # ---------------------------------------------------------------- 生成
