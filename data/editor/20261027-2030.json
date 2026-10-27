@@ -2,19 +2,21 @@
   {
     "fact_ids": [
       "f3",
-      "f45",
-      "f47"
+      "f10",
+      "f11",
+      "f47",
+      "f51"
     ],
-    "topic_key": "stock:SOXX:big_move",
-    "angle": "SOXXの大幅上昇（+3.77%）と連動するHIP-3の半導体・株式先物の動向を分析し、資金の流入経路を紐解く。",
+    "topic_key": "stock:SOXX:quote",
+    "angle": "SOXXが+2.85%と堅調に推移し、ARM(+6.19%)やINTC(+4.04%)が強い値動きを見せる中、HyperliquidのHIP-3市場ではSKHXが+5.08%（年率FR+14.2%）、SNDKが年率FR+33.9%と半導体関連先物で強い買い意欲と資金の偏りが発生している背景を解説する。",
     "scores": {
-      "novelty": 16,
+      "novelty": 18,
       "interest": 19,
-      "evidence": 18,
-      "utility": 17,
-      "insight": 18
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
     },
-    "total": 88,
-    "reason": "半導体セクターの強い値動きとHIP-3の先物データを組み合わせ、市場の資金フローを深く考察できるため。"
+    "total": 94,
+    "reason": "半導体現物の強い値動きと、HyperliquidのHIP-3における関連先物の高い資金調達率や出来高を数字で結びつけ、市場の資金流入構造を深く読み解けるため。"
   }
 ]
