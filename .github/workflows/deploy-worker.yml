@@ -21,10 +21,18 @@ jobs:
       HAS_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
       - name: Deploy to Cloudflare
         if: env.HAS_TOKEN == 'true'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          workingDirectory: worker
-          command: deploy
+        working-directory: worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -o pipefail
+          if ! npx -y wrangler@4 deploy 2>&1 | tee deploy.log; then
+            # 失敗の理由を注釈に出す（ログをダウンロードしなくても原因がわかるように）
+            tail -n 25 deploy.log | sed 's/^/::error::/'
+            exit 1
+          fi
