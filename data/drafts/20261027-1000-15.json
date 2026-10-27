@@ -1,0 +1,70 @@
+{
+  "id": "20261027-1000-15",
+  "slot_key": "20261027-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-10-27T02:22:10.444778+00:00",
+  "text": "UNITREEの資金調達率、えぐいことになってるな\n\nHyperliquidの株式先物（HIP-3）でHyperliquidの$UNITREEが価格$96.02、年率-1718.8%のショート過熱。\n\n日本時間10/27(火) 11:22時点のデータだけど、ここまで偏るとどっかで踏み上げそう。",
+  "template": "UNITREEの資金調達率、えぐいことになってるな\n\nHyperliquidの株式先物（HIP-3）で{{f11.venue}}の${{f11.coin}}が価格{{f11.price}}、年率{{f11.funding_annual}}のショート過熱。\n\n{{f11.asof}}のデータだけど、ここまで偏るとどっかで踏み上げそう。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:UNITREE:funding_extreme",
+  "angle": "HIP-3株式等先物で起きているUNITREEの異常な資金調達率（年率-1718.8%）とショート過熱の歪みを指摘する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 16,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f11"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:UNITREE:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: UNITREE（HIP-3株式等先物） 24時間騰落率-0.08%, 価格96.015, 建玉28242847USD, 24時間出来高57619140USD, 資金調達率(年率)-1718.8%",
+      "fields": {
+        "coin": "UNITREE",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$96.02",
+        "change_pct": "-0.08%",
+        "oi": "約2,824万ドル",
+        "volume": "約5,762万ドル",
+        "funding_annual": "-1718.8%",
+        "asof": "日本時間10/27(火) 11:22時点",
+        "asof_short": "11:22時点"
+      },
+      "raw": {
+        "mark": 96.015,
+        "change_pct": -0.08,
+        "oi_usd": 28242847,
+        "vol_usd": 57619140,
+        "funding_annual_pct": -1718.79
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:UNITREE",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:UNITREE"
+      },
+      "asof": "2026-10-27T02:22:04.323081+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:UNITREE"
+    }
+  ],
+  "needs_human": false
+}

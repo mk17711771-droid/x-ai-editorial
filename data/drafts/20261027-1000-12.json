@@ -2,7 +2,7 @@
   "id": "20261027-1000-12",
   "slot_key": "20261027-1000",
   "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
-  "status": "pending",
+  "status": "superseded",
   "created_at": "2026-10-27T02:20:19.008203+00:00",
   "text": "HyperliquidのHIP-3株式先物で$CXMTのロングが異常に偏ってる。\n\n資金調達率は年率+218.4%で+4.92%の上昇。\n\n建玉も約3,732万ドルに膨らんでて11:19時点の時点でこの歪みはちょっと気になるな👀",
   "template": "HyperliquidのHIP-3株式先物で${{f11.coin}}のロングが異常に偏ってる。\n\n資金調達率は年率{{f11.funding_annual}}で{{f11.change_pct}}の上昇。\n\n建玉も{{f11.oi}}に膨らんでて{{f11.asof_short}}の時点でこの歪みはちょっと気になるな👀",

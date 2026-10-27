@@ -1,70 +1,50 @@
 [
   {
     "fact_ids": [
-      "f22"
+      "f23"
     ],
     "topic_key": "traders:funnel:2026-10-26",
-    "angle": "ランキング上位のトレーダー＝そのまま真似できるわけではない。条件を厳しく絞り込むと残る人数がどう変わるかのファネル分析。",
+    "angle": "Hyperliquidのランキング上位300人を「真似できる条件」で絞り込むと、実際に機能しているプロファイルがごく少数に浮き彫りになる構造を解説する。",
     "scores": {
       "novelty": 18,
       "interest": 19,
-      "evidence": 20,
+      "evidence": 18,
       "utility": 19,
       "insight": 19
     },
-    "total": 95,
-    "reason": "ランキングの表面的な数字に惑わされないための具体的な絞り込みプロセスが示されており、保存性が高く非常に実用的であるため。"
+    "total": 93,
+    "reason": "ランキング上位＝そのまま真似する価値があるわけではないという、保存性の高いファネル分析を具体的な数字で示しているため。"
   },
   {
     "fact_ids": [
-      "f11",
-      "f12"
+      "f11"
     ],
-    "topic_key": "hl:xyz:CXMT:funding_extreme",
-    "angle": "HIP-3株式関連先物における資金調達率（FR）の極端な偏り（ロング過熱）と市場の歪みを数字で追う。",
+    "topic_key": "hl:xyz:UNITREE:funding_extreme",
+    "angle": "HIP-3株式等先物で起きているUNITREEの異常な資金調達率（年率-1718.8%）とショート過熱の歪みを指摘する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "デリバティブ特有の極端なファンディングレートの歪みを具体的な数字で捉えており、市場の異常値を的確に伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f20"
+    ],
+    "topic_key": "traders:HYPE:bias",
+    "angle": "安定上位トレーダー29人のうちHYPEを持つ6人全員が売りポジション（平均レバレッジ9.5倍）に偏っている事実を冷静に読み解く。",
     "scores": {
       "novelty": 17,
       "interest": 18,
-      "evidence": 20,
-      "utility": 18,
-      "insight": 18
-    },
-    "total": 91,
-    "reason": "年率200%を超える異常な資金調達率は、デリバティブ特有の過熱感と歪みを端的に示す強力な数字の証拠となるため。"
-  },
-  {
-    "fact_ids": [
-      "f19",
-      "f20",
-      "f21"
-    ],
-    "topic_key": "traders:HYPE:bias",
-    "angle": "安定上位トレーダーのポジションの偏り。主要銘柄で売り側に大きく傾いている実態をデータで検証する。",
-    "scores": {
-      "novelty": 16,
-      "interest": 18,
-      "evidence": 20,
+      "evidence": 19,
       "utility": 17,
       "insight": 18
     },
     "total": 89,
-    "reason": "複数の主要銘柄における安定勝訴層の保有バイアスが明確に数字として集計されており、市場の裏側の資金構造を理解する上で価値が高いため。"
-  },
-  {
-    "fact_ids": [
-      "f8",
-      "f10"
-    ],
-    "topic_key": "hl:xyz:SOXL:big_move",
-    "angle": "米国株の動きとHyperliquid上のHIP-3株式先物の価格変動の連動性を確認する。",
-    "scores": {
-      "novelty": 15,
-      "interest": 17,
-      "evidence": 19,
-      "utility": 17,
-      "insight": 17
-    },
-    "total": 85,
-    "reason": "半導体関連の株式先物（SOXLなど）の急変動と米国株現物の実績値が的確に紐付けられており、市場間の資金のつながりを示す好材料のため。"
+    "reason": "看板企画である上位トレーダーの保有偏りを明確な人数と金額で集計し、単なる方向性ではなくヘッジ等を含めた背景を考察できるため。"
   }
 ]

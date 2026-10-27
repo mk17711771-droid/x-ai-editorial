@@ -1,0 +1,69 @@
+{
+  "id": "20261027-1000-16",
+  "slot_key": "20261027-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-10-27T02:22:12.382827+00:00",
+  "text": "Hyperliquidの$HYPE、安定上位トレーダー29人のうち持ってる6人が全員売りポジションに偏ってるな。\n\n約88万ドルのショートで平均レバレッジ9.5倍か。\n\n日本時間10/27(火) 08:57時点でのデータだけど、ここまで綺麗に揃うと逆に裏を警戒したくなるかも。",
+  "template": "Hyperliquidの${{f20.coin}}、安定上位トレーダー{{f20.top_n}}のうち持ってる{{f20.holders}}が全員売りポジションに偏ってるな。\n\n{{f20.short_usd}}のショートで平均レバレッジ{{f20.avg_leverage}}か。\n\n{{f20.asof}}時点でのデータだけど、ここまで綺麗に揃うと逆に裏を警戒したくなるかも。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "traders:HYPE:bias",
+  "angle": "安定上位トレーダー29人のうちHYPEを持つ6人全員が売りポジション（平均レバレッジ9.5倍）に偏っている事実を冷静に読み解く。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f20"
+  ],
+  "facts": [
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-26T23:57:18.242538+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:HYPE:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー29人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、HYPEを持っている6人の内訳: 買い0人・売り6人（買い比率0%）、買い合計0USD・売り合計879028USD、平均レバレッジ9.5倍（このほか、現物つきの売り＝ヘッジ・裁定が9人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "HYPE",
+        "top_n": "29人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "6人",
+        "long_n": "0人",
+        "short_n": "6人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約88万ドル",
+        "hedge_n": "9人",
+        "avg_leverage": "9.5倍",
+        "asof": "日本時間10/27(火) 08:57時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 6,
+        "long_usd": 0,
+        "short_usd": 879028
+      },
+      "id": "f20"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false
+}
