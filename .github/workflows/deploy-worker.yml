@@ -36,3 +36,10 @@ jobs:
             tail -n 25 deploy.log | sed 's/^/::error::/'
             exit 1
           fi
+      - name: Check the deployed worker
+        if: env.HAS_TOKEN == 'true'
+        run: |
+          sleep 10
+          out=$(curl -s -w ' HTTP%{http_code}' https://x-ai-editorial-line.mk17711771.workers.dev/health)
+          echo "::notice::worker health: $out"
+          echo "$out" | grep -q '"ok":true' || { echo "::error::Workerの稼働確認に失敗: $out"; exit 1; }

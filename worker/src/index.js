@@ -14,6 +14,8 @@
 // 返信（Reply API）はLINEの無料通数にカウントされない。
 
 const GH_API = "https://api.github.com";
+// 環境変数が消えても動くよう、リポジトリ名は既定値を持つ（秘密情報ではない）
+const repoOf = (env) => env.GITHUB_REPO || "mk17711771-droid/x-ai-editorial";
 
 export default {
   async scheduled(event, env, ctx) {
@@ -27,6 +29,7 @@ export default {
     if (request.method === "GET") {
       const url = new URL(request.url);
       if (url.pathname.startsWith("/note/")) return notePage(url, env);
+      if (url.pathname === "/health") return health(env);
       return new Response("ok");
     }
     if (request.method !== "POST") return new Response("ok");
@@ -126,7 +129,7 @@ async function reply(env, replyToken, text) {
 }
 
 function gh(env, path, init = {}) {
-  return fetch(`${GH_API}/repos/${env.GITHUB_REPO}${path}`, {
+  return fetch(`${GH_API}/repos/${repoOf(env)}${path}`, {
     ...init,
     headers: {
       Accept: "application/vnd.github+json",
@@ -165,6 +168,22 @@ function isPostingTick(t) {
   });
 }
 
+// 稼働確認（デプロイ後にGitHub Actionsから呼ぶ）。秘密の値そのものは返さない
+async function health(env) {
+  const gh = await fetch(`${GH_API}/repos/${repoOf(env)}`, {
+    headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, "User-Agent": "x-ai-editorial-line", Accept: "application/vnd.github+json" },
+  });
+  const body = {
+    github_token: gh.status,
+    line_secret: Boolean(env.LINE_CHANNEL_SECRET),
+    line_token: Boolean(env.LINE_CHANNEL_ACCESS_TOKEN),
+    admin_id: Boolean(env.LINE_ADMIN_USER_ID),
+    posting_tick_now: isPostingTick(new Date()),
+  };
+  const ok = gh.status === 200 && body.line_secret && body.line_token && body.admin_id;
+  return new Response(JSON.stringify({ ok, ...body }), { status: ok ? 200 : 500, headers: { "Content-Type": "application/json" } });
+}
+
 async function dispatch(env, eventType, payload) {
   const r = await gh(env, "/dispatches", {
     method: "POST",
@@ -190,7 +209,7 @@ async function setVariable(env, name, value) {
 // ---------------------------------------------------------------- noteの記事のコピー用ページ
 
 async function ghRaw(env, path) {
-  const r = await fetch(`${GH_API}/repos/${env.GITHUB_REPO}/contents/${path}`, {
+  const r = await fetch(`${GH_API}/repos/${repoOf(env)}/contents/${path}`, {
     headers: {
       Accept: "application/vnd.github.raw+json",
       Authorization: `Bearer ${env.GITHUB_TOKEN}`,
