@@ -83,7 +83,7 @@ MARKETS = [
 
 def fake_llm(system: str, user: str) -> dict:
     if "編集長AIです" in system:
-        facts = json.loads(user.split("# 材料 (facts)\n")[1])
+        facts = json.loads(user.split("# 材料 (facts)\n")[1].split("\n\n# ")[0])
         fid = next(f["id"] for f in facts if f["key"] == "hl:BTC:funding_extreme")
         return {"candidates": [
             {"fact_ids": [fid], "topic_key": "hl:BTC:funding_extreme", "angle": "ロング過熱",
