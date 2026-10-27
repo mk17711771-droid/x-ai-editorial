@@ -6,6 +6,7 @@
   python -m aiedit.cli notify --message "..."
   python -m aiedit.cli research                 # 市場の定点観測と、自分の投稿の反応の計測
   python -m aiedit.cli learn [--weekly-report]  # 成果を分析して運用ノートを更新
+  python -m aiedit.cli health                  # 見回り（投稿漏れ・停止・失敗の検出と、直せるものの対応）
   python -m aiedit.cli note-check              # 公開されたnote記事の確認（間違いがあればLINE）
   python -m aiedit.cli sources [--daily] [--weekly]  # 外部リサーチ（ニュース・note・X）
   python -m aiedit.cli improve                 # 改善会議（日曜は週次、月の最初の日曜は月次）
@@ -18,7 +19,7 @@ import json
 import sys
 import traceback
 
-from . import improve, learn, line, note, note_check, pipeline, research, sources, store
+from . import health, improve, learn, line, note, note_check, pipeline, research, sources, store
 from .common import JST, now_utc, setup_logging
 
 
@@ -45,6 +46,7 @@ def main(argv: list[str] | None = None) -> int:
     nart = sub.add_parser("note-article")
     nart.add_argument("--theme", default=None)
     sub.add_parser("note-check")
+    sub.add_parser("health")
     sp = sub.add_parser("sources")
     sp.add_argument("--daily", action="store_true")
     sp.add_argument("--weekly", action="store_true")
@@ -79,6 +81,8 @@ def main(argv: list[str] | None = None) -> int:
             from . import note_article
             meta = note_article.write(args.theme)
             print(json.dumps(meta, ensure_ascii=False, indent=2) if meta else "記事を作れませんでした")
+        elif args.cmd == "health":
+            print(json.dumps(health.run(), ensure_ascii=False, indent=2))
         elif args.cmd == "note-check":
             res = note_check.run()
             print(json.dumps(res, ensure_ascii=False, indent=2) if res else "新しく公開された記事はありません")

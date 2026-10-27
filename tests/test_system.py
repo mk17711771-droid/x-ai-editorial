@@ -604,3 +604,20 @@ def test_slot_accepts_early_random_start(monkeypatch):
     assert pipeline.pick_slot()["id"] == "0730"
     monkeypatch.setenv("AIEDIT_NOW", "2026-10-27T22:00:00+00:00")  # 07:00 JST は早すぎる
     assert pipeline.pick_slot() is None
+
+
+def test_health_finds_missed_slot_and_retries(monkeypatch):
+    from aiedit import health
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-27T01:30:00+00:00")  # 10:30 JST（火曜）
+    settings.cache_clear()
+    store.record_post({"tweet_id": "1", "slot_key": "20261027-0730", "posted_at": "2026-10-26T23:30:00+00:00",
+                       "posted_at_jst": "2026-10-27 08:30", "text": "t", "topic_key": "x"})
+    called = []
+    monkeypatch.setattr(health, "retry_slot", lambda: called.append(1) or True)
+    monkeypatch.setattr(health, "failed_runs", lambda hours=6: [])
+    rec = health.run()
+    assert [i["slot"] for i in rec["issues"] if i["type"] == "missed_slot"] == []  # 10:17枠はまだ判定しない
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-27T02:10:00+00:00")  # 11:10 JST
+    rec = health.run()
+    assert [i["slot"] for i in rec["issues"] if i["type"] == "missed_slot"] == ["1000"]
+    assert called and rec["actions"]

@@ -37,6 +37,12 @@ X（@satoshikun_666「カリスマ」）と note（https://note.com/charisma_hl�
   - GitHubの変数・ワークフローも、APIやコミットで直接変更する。
   - どうしても管理者にしかできない作業（新しいAPIキーの発行・支払い・ログインが必要な操作）だけ、理由を添えて頼む。
 
+## 障害対応（管理者の指示: 放置せず、反応して解決し、再発防止策を入れる）
+- 見回り（`health`、2時間ごと）が投稿漏れ・停止・失敗を `data/health.json` に記録し、間に合う投稿漏れは自動で再起動する。
+- 定期点検（Claude、1日3回）が health.json・失敗したワークフロー・破棄された原稿を確認し、
+  **原因を直す → テスト → push → 必要なら手動で出し直す → `data/improve/incidents.md` に原因と再発防止策を追記**する。
+- 管理者への連絡は、管理者の操作が必要なときだけ（LINEの通数を使いすぎない）。
+
 ## 開発メモ
 - テスト: `PYTHONPATH=src python -m pytest -q tests`
 - コンテナから note.com / Hyperliquid / Gemini には届かない。実データでの確認は GitHub Actions（workflow_dispatch）で行う。

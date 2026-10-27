@@ -18,6 +18,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: data-writer
@@ -49,6 +50,7 @@ jobs:
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_ADMIN_USER_ID: ${{ secrets.LINE_ADMIN_USER_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m aiedit.cli research
           if [ "${{ github.event.schedule }}" = "23 20 * * *" ] || [ "${{ inputs.learn }}" = "true" ]; then
@@ -57,6 +59,7 @@ jobs:
             python -m aiedit.cli improve || true
           fi
           python -m aiedit.cli note-check || true
+          python -m aiedit.cli health || true
       - name: Save data
         if: always()
         run: |
