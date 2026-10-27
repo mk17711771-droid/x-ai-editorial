@@ -1,0 +1,151 @@
+{
+  "id": "20261027-1000-13",
+  "slot_key": "20261027-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "pending",
+  "created_at": "2026-10-27T02:20:21.001124+00:00",
+  "text": "Hyperliquidの安定上位トレーダー29人の動向、$HYPEは売り6人で買いが0人になってる。\n\n平均レバレッジ9.5倍で日本時間10/27(火) 08:57時点のデータ。\n\nここまで偏ってると少しざわつくかも。",
+  "template": "Hyperliquidの安定上位トレーダー{{f19.top_n}}の動向、${{f19.coin}}は売り{{f19.short_n}}人で買いが{{f19.long_n}}人になってる。\n\n平均レバレッジ{{f19.avg_leverage}}で{{f19.asof}}のデータ。\n\nここまで偏ってると少しざわつくかも。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "traders:HYPE:bias",
+  "angle": "安定上位トレーダーのポジションの偏り。主要銘柄で売り側に大きく傾いている実態をデータで検証する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f19",
+    "f20",
+    "f21"
+  ],
+  "facts": [
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-26T23:57:18.242538+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:HYPE:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー29人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、HYPEを持っている6人の内訳: 買い0人・売り6人（買い比率0%）、買い合計0USD・売り合計879028USD、平均レバレッジ9.5倍（このほか、現物つきの売り＝ヘッジ・裁定が9人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "HYPE",
+        "top_n": "29人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "6人",
+        "long_n": "0人",
+        "short_n": "6人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約88万ドル",
+        "hedge_n": "9人",
+        "avg_leverage": "9.5倍",
+        "asof": "日本時間10/27(火) 08:57時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 6,
+        "long_usd": 0,
+        "short_usd": 879028
+      },
+      "id": "f19"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-26T23:57:18.242538+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:ETH:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー29人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、ETHを持っている5人の内訳: 買い0人・売り5人（買い比率0%）、買い合計0USD・売り合計6822865USD、平均レバレッジ21.0倍（このほか、現物つきの売り＝ヘッジ・裁定が0人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "ETH",
+        "top_n": "29人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "5人",
+        "long_n": "0人",
+        "short_n": "5人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約682万ドル",
+        "hedge_n": "0人",
+        "avg_leverage": "21.0倍",
+        "asof": "日本時間10/27(火) 08:57時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 5,
+        "long_usd": 0,
+        "short_usd": 6822865
+      },
+      "id": "f20"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-26T23:57:18.242538+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:BTC:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー29人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、BTCを持っている5人の内訳: 買い0人・売り5人（買い比率0%）、買い合計0USD・売り合計1499735USD、平均レバレッジ27.6倍（このほか、現物つきの売り＝ヘッジ・裁定が0人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "BTC",
+        "top_n": "29人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "5人",
+        "long_n": "0人",
+        "short_n": "5人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約150万ドル",
+        "hedge_n": "0人",
+        "avg_leverage": "27.6倍",
+        "asof": "日本時間10/27(火) 08:57時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 5,
+        "long_usd": 0,
+        "short_usd": 1499735
+      },
+      "id": "f21"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false
+}
