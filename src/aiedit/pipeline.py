@@ -131,18 +131,34 @@ def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | N
     user = (f"# 投稿枠\n{slot['theme']}\n\n# 編集長の切り口\n{cand.get('angle', '')}\n\n"
             f"# 材料（この差し込み記号だけ使える）\n{_facts_for_llm(used, with_fields=True)}\n\n"
             f"# 直近の投稿 (recent_posts)\n{json.dumps(list(store.recent_texts(10)), ensure_ascii=False)}")
+    topic_key = cand.get("topic_key") or used[0]["key"]
+    feedback: list[str] = []
+    for attempt in range(2):
+        prompt = user if not feedback else (user + "\n\n# 前回の案が破棄された理由（直して書き直す）\n- "
+                                            + "\n- ".join(sorted(set(feedback))[:6]))
+        w = _write_once(slot, system, prompt, used, facts_by_id, topic_key, fmt, feedback)
+        if w:
+            return w
+    return None
+
+
+def _write_once(slot: dict, system: str, user: str, used: list[dict], facts_by_id: dict[str, dict],
+                topic_key: str, fmt: str, feedback: list[str]) -> dict | None:
     out = llm.generate_json(system, user)
     variants = out.get("variants", [])
     best = out.get("best", 0)
     order = ([best] if isinstance(best, int) and 0 <= best < len(variants) else []) + list(range(len(variants)))
-    topic_key = cand.get("topic_key") or used[0]["key"]
-    usable = {f["id"]: f for f in used}
     tried = set()
     for idx in order:
         if idx in tried:
             continue
         tried.add(idx)
         v = variants[idx]
+        # 切り口の材料以外でも、同じ枠で集めた実データの材料なら使ってよい（数字の根拠は変わらない）
+        usable = {f["id"]: f for f in used}
+        for fid, _ in checks.PLACEHOLDER.findall(v.get("template", "")):
+            if fid in facts_by_id:
+                usable[fid] = facts_by_id[fid]
         tmpl = checks.relink(v.get("template", ""), usable)
         v["template"] = tmpl
         errors = checks.check_template(tmpl, usable)
@@ -154,9 +170,10 @@ def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | N
             store.append_jsonl("rejected_variants.jsonl", {
                 "at": now_utc().isoformat(), "slot": slot["id"], "format": fmt, "style": v.get("style"),
                 "errors": errors, "length": len(text), "text": text[:1500]})
+            feedback += errors
             continue
-        return {"template": tmpl, "text": text, "style": v.get("style", ""), "topic_key": topic_key, "facts": used,
-                "format": fmt}
+        return {"template": tmpl, "text": text, "style": v.get("style", ""), "topic_key": topic_key,
+                "facts": list(usable.values()), "format": fmt}
     return None
 
 
@@ -191,11 +208,16 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
             _close(old_draft, "superseded")
         seq += 1
 
+    cooldown = cfg["limits"]["same_topic_cooldown_hours"]
+    recent_topics = {p.get("topic_key") for p in store.recent_posts(cooldown)}
     drafts = []
     for cand in cands:
         if len(drafts) >= cfg["limits"]["max_candidates_per_slot"]:
             break
         if any(d["topic_key"] == cand.get("topic_key") for d in drafts):
+            continue
+        if cand.get("topic_key") in recent_topics:
+            log.info("候補 %s は直近に投稿済みの話題なので飛ばします", cand.get("topic_key"))
             continue
         w = run_writer(slot, cand, facts_by_id)
         if not w:
