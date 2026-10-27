@@ -40,7 +40,7 @@ def pick_slot(slot_id: str = "auto") -> dict | None:
             continue
         h, m = map(int, s["time"].split(":"))
         start = now.replace(hour=h, minute=m, second=0, microsecond=0)
-        if start - timedelta(minutes=10) <= now <= start + timedelta(minutes=cfg["slot_grace_minutes"]):
+        if start - timedelta(minutes=cfg.get("slot_early_minutes", 10)) <= now <= start + timedelta(minutes=cfg["slot_grace_minutes"]):
             if best is None or start > best[0]:
                 best = (start, s)
     return best[1] if best else None

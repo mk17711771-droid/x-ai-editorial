@@ -596,3 +596,11 @@ def test_relink_restores_copied_data_values_only():
     assert checks.check_template(t, facts) == []
     # 材料と一致しない数字は戻さない（捏造はチェックで弾く）
     assert checks.check_template(checks.relink("価格$500.00", facts), facts)
+
+
+def test_slot_accepts_early_random_start(monkeypatch):
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-27T22:20:00+00:00")  # 07:20 JST（水曜）: 07:42枠の22分前
+    settings.cache_clear()
+    assert pipeline.pick_slot()["id"] == "0730"
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-27T22:00:00+00:00")  # 07:00 JST は早すぎる
+    assert pipeline.pick_slot() is None

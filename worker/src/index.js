@@ -17,8 +17,10 @@ const GH_API = "https://api.github.com";
 
 export default {
   async scheduled(event, env, ctx) {
+    // 5分おきに呼ばれ、その日のその枠の「投稿する時刻」に当たったときだけGitHubを起動する。
     // 枠の判定（平日/週末・どの枠か）はGitHub側で現在時刻から行う
-    ctx.waitUntil(dispatch(env, "generate", { cron: event.cron }));
+    const t = new Date(event.scheduledTime);
+    if (isPostingTick(t)) ctx.waitUntil(dispatch(env, "generate", { at: t.toISOString() }));
   },
 
   async fetch(request, env) {
@@ -133,6 +135,33 @@ function gh(env, path, init = {}) {
       "User-Agent": "x-ai-editorial-worker",
       ...(init.body ? { "Content-Type": "application/json" } : {}),
     },
+  });
+}
+
+// 投稿枠ごとの「起動してよい時間帯」（UTC・分）。枠の時刻（日本時間）の約22分前から50分間。
+// その中のどの5分刻みで起動するかを、日付と枠から決まる乱数で毎日変える（毎日同じ時刻に投稿しない）
+const POST_WINDOWS = [
+  { start: 22 * 60 + 20, len: 50 }, // 07:42枠 → 07:20〜08:10
+  { start: 0 * 60 + 55, len: 50 },  // 10:17枠 → 09:55〜10:45
+  { start: 3 * 60 + 5, len: 50 },   // 12:26枠 → 12:05〜12:55
+  { start: 11 * 60 + 25, len: 50 }, // 20:47枠 → 20:25〜21:15
+  { start: 13 * 60 + 50, len: 50 }, // 23:13枠 → 22:50〜23:40
+];
+
+function dailyRandom(key) {
+  let h = 2166136261;
+  for (const c of key) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0;
+  return h;
+}
+
+function isPostingTick(t) {
+  const minute = t.getUTCHours() * 60 + t.getUTCMinutes();
+  const jstDate = new Date(t.getTime() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+  return POST_WINDOWS.some((w, i) => {
+    const off = (minute - w.start + 1440) % 1440;
+    if (off >= w.len) return false;
+    const target = dailyRandom(`${jstDate}-${i}`) % (w.len / 5);
+    return Math.floor(off / 5) === target;
   });
 }
 

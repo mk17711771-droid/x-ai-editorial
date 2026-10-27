@@ -4,7 +4,7 @@ X（@satoshikun_666「カリスマ」）と note（https://note.com/charisma_hl�
 目的: フォロワーの純増と、信頼される専門アカウントへの成長。noteは無料記事で集客し、将来の収益化につなげる。
 
 ## 運用の形
-- **X: 全自動**（承認なし）。米国株・半導体 6 : Hyperliquid（HIP-3含む） 4。1日5〜6投稿、時刻はぴったりにしない（07:42 / 10:17 / 12:26 / 20:47 長文 / 23:13）。
+- **X: 全自動**（承認なし）。米国株・半導体 6 : Hyperliquid（HIP-3含む） 4。1日5〜6投稿。時刻は毎日ランダムにずらす（朝7:20〜8:14・午前9:55〜10:49・昼12:05〜12:59・夜20:25〜21:19 長文・深夜22:50〜23:44）。
   - 口調はくだけた語り口。ハッシュタグは使わず、キャッシュタグ（$NVDA など）は1つだけ（X APIの制限: 2つ以上は投稿が拒否される）。
   - Premium+ のため夜は長文の考察投稿。日本語ラベルの図を付ける。
   - いいね・フォロー・リムーブは自動化しない。返信機能は保留中。
@@ -35,4 +35,4 @@ X（@satoshikun_666「カリスマ」）と note（https://note.com/charisma_hl�
 - テスト: `PYTHONPATH=src python -m pytest -q tests`
 - コンテナから note.com / Hyperliquid / Gemini には届かない。実データでの確認は GitHub Actions（workflow_dispatch）で行う。
 - データは `data/` をコミットして永続化（`concurrency: data-writer`）。
-- 投稿の起動は Cloudflare Worker の Cron Triggers → repository_dispatch(generate)。GitHubのscheduleは数時間遅れるので予備扱い。
+- 投稿の起動は Cloudflare Worker の Cron Triggers（枠の時間帯に5分おき）→ その日の乱数で決めた時刻に repository_dispatch(generate)。投稿時刻は毎日 枠の約22分前〜28分後でばらつく（BOT感を出さない）。GitHubのscheduleは予備。

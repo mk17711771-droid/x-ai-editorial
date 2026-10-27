@@ -27,6 +27,9 @@ slots:
 
 # GitHub Actionsの定時実行は遅延することがあるため、枠の時刻から何分後まで生成を許可するか
 slot_grace_minutes: 120
+# 投稿時刻は毎日ランダムにずらす（Cloudflare Workerが枠の時刻の約25分前〜25分後のどこかで起動する）。
+# そのため枠の時刻より前の起動も、この分数までは受け付ける
+slot_early_minutes: 25
 
 # 編集長AIの採点基準
 scoring:
