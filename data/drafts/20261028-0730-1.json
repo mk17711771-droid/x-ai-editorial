@@ -1,0 +1,184 @@
+{
+  "id": "20261028-0730-1",
+  "slot_key": "20261028-0730",
+  "slot_theme": "07:42 米国市場の引け後まとめ・注目銘柄",
+  "status": "posted",
+  "created_at": "2026-10-27T22:39:35.619445+00:00",
+  "text": "半導体株の全面高に引っ張られて、HyperliquidのHIP-3で$SKHX先物の資金調達率が年率+130.1%まで跳ね上がってる。\n\nロングがこれだけのコストを払い続けてる歪み、かなり気になるかも👀",
+  "template": "半導体株の全面高に引っ張られて、HyperliquidのHIP-3で$SKHX先物の資金調達率が年率{{f47.funding_annual}}まで跳ね上がってる。\n\nロングがこれだけのコストを払い続けてる歪み、かなり気になるかも👀",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:SOXX:big_move",
+  "angle": "半導体株（SOXX +3.91%、AMD +5.45%、AVGO +4.00%）の全面高と連動し、HyperliquidのHIP-3でSKHX先物が年率+130.1%の記録的な高資金調達率を維持している点に注目。",
+  "scores": {
+    "novelty": 16,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f3",
+    "f5",
+    "f6",
+    "f47"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格511.06, 前日比+3.91%, 前日終値491.83, 高値513.16, 安値498.35",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$511.06",
+        "change_pct": "+3.91%",
+        "prev_close": "$491.83",
+        "high": "$513.16",
+        "low": "$498.35",
+        "asof": "米国10/27終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 511.06,
+        "change_pct": 3.91,
+        "prev_close": 491.83
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-10-27T22:37:22.228216+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格560.26, 前日比+5.45%, 前日終値531.28, 高値563.915, 安値538.5",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$560.26",
+        "change_pct": "+5.45%",
+        "prev_close": "$531.28",
+        "high": "$563.91",
+        "low": "$538.50",
+        "asof": "米国10/27終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 560.26,
+        "change_pct": 5.455,
+        "prev_close": 531.28
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-10-27T22:37:22.504519+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    },
+    {
+      "key": "stock:AVGO:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AVGO 価格342.33, 前日比+4.00%, 前日終値329.17, 高値345.67, 安値336.87",
+      "fields": {
+        "symbol": "AVGO",
+        "price": "$342.33",
+        "change_pct": "+4.00%",
+        "prev_close": "$329.17",
+        "high": "$345.67",
+        "low": "$336.87",
+        "asof": "米国10/27終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 342.33,
+        "change_pct": 3.998,
+        "prev_close": 329.17
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AVGO"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AVGO"
+      },
+      "asof": "2026-10-27T22:37:22.633652+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+4.55%, 価格1037.5, 建玉315349717USD, 24時間出来高262787175USD, 資金調達率(年率)+130.1%",
+      "fields": {
+        "coin": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,038",
+        "change_pct": "+4.55%",
+        "oi": "約3.2億ドル",
+        "volume": "約2.6億ドル",
+        "funding_annual": "+130.1%",
+        "asof": "日本時間10/28(水) 07:37時点",
+        "asof_short": "07:37時点"
+      },
+      "raw": {
+        "mark": 1037.5,
+        "change_pct": 4.553,
+        "oi_usd": 315349717,
+        "vol_usd": 262787175,
+        "funding_annual_pct": 130.06
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-10-27T22:37:29.238804+00:00",
+      "confidence": "confirmed",
+      "id": "f47"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AVGO"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2115211848069071343",
+  "posted_at": "2026-10-27T22:39:38.172869+00:00"
+}
