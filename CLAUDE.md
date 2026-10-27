@@ -35,3 +35,4 @@ X（@satoshikun_666「カリスマ」）と note（https://note.com/charisma_hl�
 - テスト: `PYTHONPATH=src python -m pytest -q tests`
 - コンテナから note.com / Hyperliquid / Gemini には届かない。実データでの確認は GitHub Actions（workflow_dispatch）で行う。
 - データは `data/` をコミットして永続化（`concurrency: data-writer`）。
+- 投稿の起動は Cloudflare Worker の Cron Triggers → repository_dispatch(generate)。GitHubのscheduleは数時間遅れるので予備扱い。

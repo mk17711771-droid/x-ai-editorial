@@ -9,7 +9,8 @@ on:
     - cron: "26 3 * * *"    # 12:26 JST
     - cron: "47 11 * * *"   # 20:47 JST
     - cron: "13 14 * * *"   # 23:13 JST
-    # 予備（GitHubの定時実行は飛ばされることがある）。枠は1回しか生成しないので、二重投稿にはならない
+    # GitHubの定時実行は数時間遅れることがあるので、主はCloudflareのCron Triggers（repository_dispatch）。
+    # 以下は予備（GitHubの定時実行は飛ばされることがある）。枠は1回しか生成しないので、二重投稿にはならない
     - cron: "2,32 23 * * *"   # 08:02 / 08:32 JST
     - cron: "37 1 * * *"      # 10:37 JST
     - cron: "7 2 * * *"       # 11:07 JST
@@ -18,6 +19,9 @@ on:
     - cron: "7,37 12 * * *"   # 21:07 / 21:37 JST
     - cron: "33 14 * * *"     # 23:33 JST
     - cron: "3 15 * * *"      # 00:03 JST
+  # Cloudflare Worker の Cron Triggers から投稿枠の時刻ちょうどに起動される（主）
+  repository_dispatch:
+    types: [generate]
   workflow_dispatch:
     inputs:
       slot:
@@ -59,7 +63,7 @@ jobs:
         run: sudo apt-get install -y -q fonts-noto-cjk >/dev/null || (sudo apt-get update -q >/dev/null && sudo apt-get install -y -q fonts-noto-cjk >/dev/null)
       - name: Random delay
         # 毎日同じ時刻にならないよう、定時実行のときだけ0〜4分待つ
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || github.event_name == 'repository_dispatch'
         run: sleep $((RANDOM % 240))
       - name: Generate
         env:

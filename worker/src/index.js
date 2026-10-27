@@ -8,11 +8,19 @@
 // - 「ID」   → 送信者のLINEユーザーIDを返信（初期設定用）
 // - GET /note/<記事ID>?k=<管理者ID> → noteの記事をコピーしやすく表示（タイトル・本文・画像）
 //
+// - 定時（Cron Triggers）→ 投稿枠の時刻に GitHub の generate-drafts を起動
+//   （GitHubの定時実行は数時間遅れたり飛ばされたりするため、時刻はCloudflareが受け持つ）
+//
 // 返信（Reply API）はLINEの無料通数にカウントされない。
 
 const GH_API = "https://api.github.com";
 
 export default {
+  async scheduled(event, env, ctx) {
+    // 枠の判定（平日/週末・どの枠か）はGitHub側で現在時刻から行う
+    ctx.waitUntil(dispatch(env, "generate", { cron: event.cron }));
+  },
+
   async fetch(request, env) {
     if (request.method === "GET") {
       const url = new URL(request.url);
