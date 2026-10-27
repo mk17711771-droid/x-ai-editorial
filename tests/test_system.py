@@ -587,3 +587,12 @@ def test_orphan_unit_and_duplicate_asof_fixed():
     assert not any("単位だけ" in e for e in checks.check_text(base + "60日以上プラスは185人、直近の売買ありは29人ってこと。", "t"))
     facts = {"f1": {"fields": {"asof": "11:19時点"}}}
     assert checks.render("建玉も膨らんでて{{f1.asof}}の時点でこの歪みは気になる", facts) == "建玉も膨らんでて11:19時点でこの歪みは気になる"
+
+
+def test_relink_restores_copied_data_values_only():
+    facts = {"f1": {"fields": {"asof": "日本時間10/27(火) 21:45時点", "price": "$496.25", "n": "29人"}}}
+    t = checks.relink("【数字で見る】\n日本時間10/27(火) 21:45時点のデータ: 価格$496.25、{{f1.price}}", facts)
+    assert t == "【数字で見る】\n{{f1.asof}}のデータ: 価格{{f1.price}}、{{f1.price}}"
+    assert checks.check_template(t, facts) == []
+    # 材料と一致しない数字は戻さない（捏造はチェックで弾く）
+    assert checks.check_template(checks.relink("価格$500.00", facts), facts)

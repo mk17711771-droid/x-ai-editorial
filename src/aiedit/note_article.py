@@ -107,7 +107,7 @@ def write(theme: str | None = None) -> dict | None:
     for attempt in range(2):
         prompt = user if not errors else user + "\n\n# 前回の原稿で直すべき点\n- " + "\n- ".join(errors)
         out = llm.generate_json(system, prompt)
-        title_t, body_t = out.get("title", ""), out.get("markdown", "")
+        title_t, body_t = checks.relink(out.get("title", ""), by_id), checks.relink(out.get("markdown", ""), by_id)
         errors = checks.check_template(title_t + "\n" + body_t, by_id)
         if errors:
             continue

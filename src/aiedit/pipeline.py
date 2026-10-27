@@ -143,7 +143,8 @@ def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | N
             continue
         tried.add(idx)
         v = variants[idx]
-        tmpl = v.get("template", "")
+        tmpl = checks.relink(v.get("template", ""), usable)
+        v["template"] = tmpl
         errors = checks.check_template(tmpl, usable)
         text = checks.render(tmpl, usable) if not errors else tmpl
         errors = errors or checks.check_text(text, topic_key, fmt)
