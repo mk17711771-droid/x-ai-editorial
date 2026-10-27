@@ -1,22 +1,21 @@
 [
   {
     "fact_ids": [
-      "f3",
       "f10",
+      "f18",
       "f47",
-      "f51",
-      "f34"
+      "f51"
     ],
-    "topic_key": "stock:SOXX:quote",
-    "angle": "米国半導体株（SOXX +2.85%、ARM +6.19%）の堅調な動きと、HyperliquidのHIP-3市場（SKHX +5.63%・年率+28.3%、SNDK +1.62%・年率+35.4%）における高い資金調達率や出来高の連動性を分析し、今夜のビッグテック決算やマクロ環境に向けた資金の流れを読み解く。",
+    "topic_key": "hl:xyz:SKHX:hip3_top",
+    "angle": "ARMやTSLAなどの米国株の急騰に対し、HyperliquidのHIP-3市場でSKHX（SKハイニックス）やSNDK等の半導体関連先物が年率30%超の記録的な高水準の資金調達率（FR）をつけている歪みに着目し、オンチェーンと現物市場の資金流入構造を深掘りする。",
     "scores": {
-      "novelty": 16,
+      "novelty": 18,
       "interest": 19,
-      "evidence": 18,
-      "utility": 17,
-      "insight": 18
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
     },
-    "total": 88,
-    "reason": "現物市場の半導体株の上昇とHIP-3先物の高水準なファンディングレートを組み合わせ、デリバティブ特有の歪みと資金流入の構造を深く解説しているため。"
+    "total": 93,
+    "reason": "米国株の動きとHyperliquidのHIP-3株式先物（SKHX・SNDK）の過熱感（FR30%超）を対比させ、デリバティブ特有の資金の歪みを深く解説しているため。"
   }
 ]
