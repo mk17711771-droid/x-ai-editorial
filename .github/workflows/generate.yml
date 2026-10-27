@@ -60,6 +60,9 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Install Japanese font for charts
+        # aptが固まることがあるので時間を区切る。失敗しても投稿は続ける（図だけ付かない）
+        timeout-minutes: 4
+        continue-on-error: true
         run: sudo apt-get install -y -q fonts-noto-cjk >/dev/null || (sudo apt-get update -q >/dev/null && sudo apt-get install -y -q fonts-noto-cjk >/dev/null)
       - name: Random delay
         # 毎日同じ時刻にならないよう、定時実行のときだけ0〜4分待つ
