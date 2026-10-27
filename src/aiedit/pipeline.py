@@ -91,13 +91,16 @@ def with_playbook(prompt: str) -> str:
             + notes)
 
 
-def run_editor(slot: dict, facts: list[dict]) -> list[dict]:
+def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None) -> list[dict]:
     recent = [p.get("topic_key") for p in store.recent_posts(72)]
     form = ("長文の考察投稿。複数の材料（目安3〜8個）を組み合わせて、背景と「歪み」を深く解説できる切り口を選ぶ。"
             if slot_format(slot) == "long" else "短文の投稿。1つの異変を一言で伝えられる切り口を選ぶ。")
     user = (f"# 今回の投稿枠\n{slot['time']} {slot['theme']}\n\n# 投稿の形式\n{form}\n\n"
             f"# 直近72時間の投稿トピック (recent_topics)\n{json.dumps(recent, ensure_ascii=False)}\n\n"
             f"# 材料 (facts)\n{_facts_for_llm(facts, with_fields=False)}")
+    if exclude:
+        user += ("\n\n# 選んではいけない話題（24時間以内に投稿済み。別の材料を主役にした候補を出す）\n"
+                 + json.dumps(sorted(t for t in exclude if t), ensure_ascii=False))
     watch = research.watch_summary()
     if watch:
         user += f"\n\n# 直近24時間の定点観測（流れの把握用。投稿の数字には使わない）\n{watch}"
@@ -210,6 +213,11 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
 
     cooldown = cfg["limits"]["same_topic_cooldown_hours"]
     recent_topics = {p.get("topic_key") for p in store.recent_posts(cooldown)}
+    if cands and all(c.get("topic_key") in recent_topics for c in cands):
+        log.info("候補がすべて直近に投稿済みの話題なので、編集をやり直します")
+        all_cands = run_editor(slot, facts, exclude=recent_topics)
+        cands = [c for c in all_cands if c["total"] >= cfg["scoring"]["auto_post_min"]]
+        store.write_json(f"editor/{key}.json", all_cands)
     drafts = []
     for cand in cands:
         if len(drafts) >= cfg["limits"]["max_candidates_per_slot"]:
