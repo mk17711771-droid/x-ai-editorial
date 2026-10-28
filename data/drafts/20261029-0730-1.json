@@ -1,0 +1,147 @@
+{
+  "id": "20261029-0730-1",
+  "slot_key": "20261029-0730",
+  "slot_theme": "07:42 米国市場の引け後まとめ・注目銘柄",
+  "status": "posted",
+  "created_at": "2026-10-28T22:25:44.199052+00:00",
+  "text": "現物の半導体株が強い動きを見せる中で、HyperliquidのHIP-3株式先物でも資金の流入が加速してる。\n\n$MUは+3.81%の上昇を記録し、出来高は約2.8億ドルに到達。\n\n現物の勢いがそのままデリバティブ側に波及してるっぽいな👀",
+  "template": "現物の半導体株が強い動きを見せる中で、HyperliquidのHIP-3株式先物でも資金の流入が加速してる。\n\n${{f46.coin}}は{{f46.change_pct}}の上昇を記録し、出来高は{{f46.volume}}に到達。\n\n現物の勢いがそのままデリバティブ側に波及してるっぽいな👀",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:MU:big_move",
+  "angle": "$MUが+5.86%と大幅上昇を記録し、HyperliquidのHIP-3市場でも$MU先物が出来高上位にランクイン。現物とデリバティブ双方での資金流入の勢いを数字で追う。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f3",
+    "f9",
+    "f46"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格521.94, 前日比+2.13%, 前日終値511.06, 高値523.93, 安値511.66",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$521.94",
+        "change_pct": "+2.13%",
+        "prev_close": "$511.06",
+        "high": "$523.93",
+        "low": "$511.66",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 521.94,
+        "change_pct": 2.129,
+        "prev_close": 511.06
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-10-28T22:23:26.788741+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "key": "stock:MU:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MU 価格983.23, 前日比+5.86%, 前日終値928.76, 高値990, 安値959.34",
+      "fields": {
+        "symbol": "MU",
+        "price": "$983.23",
+        "change_pct": "+5.86%",
+        "prev_close": "$928.76",
+        "high": "$990.00",
+        "low": "$959.34",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 983.23,
+        "change_pct": 5.865,
+        "prev_close": 928.76
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MU"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-10-28T22:23:28.096116+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    },
+    {
+      "key": "hl:xyz:MU:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: MU（HIP-3株式等先物） 24時間騰落率+3.81%, 価格962.01, 建玉99919931USD, 24時間出来高281481864USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "MU",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$962.01",
+        "change_pct": "+3.81%",
+        "oi": "約9,992万ドル",
+        "volume": "約2.8億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/29(木) 07:23時点",
+        "asof_short": "07:23時点"
+      },
+      "raw": {
+        "mark": 962.01,
+        "change_pct": 3.809,
+        "oi_usd": 99919931,
+        "vol_usd": 281481864,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:MU",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:MU"
+      },
+      "asof": "2026-10-28T22:23:36.492694+00:00",
+      "confidence": "confirmed",
+      "id": "f46"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:MU"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2115570752451907976",
+  "posted_at": "2026-10-28T22:25:47.658433+00:00"
+}
