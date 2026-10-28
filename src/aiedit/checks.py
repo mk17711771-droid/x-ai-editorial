@@ -118,7 +118,7 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         if fid not in facts:
             errors.append(f"存在しないファクト {fid}")
         elif field not in facts[fid]["fields"]:
-            errors.append(f"存在しないフィールド {fid}.{field}")
+            errors.append(f"存在しないフィールド {fid}.{field}（{fid}で使えるのは: {', '.join(facts[fid]['fields'])}）")
     if "{{" in PLACEHOLDER.sub("", template) or "}}" in PLACEHOLDER.sub("", template):
         errors.append("差し込み記号の書式が不正")
     stripped = PLACEHOLDER.sub("", template)

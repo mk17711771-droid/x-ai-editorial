@@ -108,7 +108,7 @@ def write(theme: str | None = None) -> dict | None:
             f"# 材料（この差し込み記号だけ使える）\n{json.dumps(rows, ensure_ascii=False)}")
 
     errors: list[str] = []
-    for attempt in range(2):
+    for attempt in range(3):
         prompt = user if not errors else user + "\n\n# 前回の原稿で直すべき点\n- " + "\n- ".join(errors)
         out = llm.generate_json(system, prompt)
         title_t, body_t = checks.relink(out.get("title", ""), by_id), checks.relink(out.get("markdown", ""), by_id)
