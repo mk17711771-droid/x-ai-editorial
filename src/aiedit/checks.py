@@ -111,6 +111,34 @@ def relink(template: str, facts: dict[str, dict]) -> str:
     return "".join(parts)
 
 
+def repair_fields(template: str, facts: dict[str, dict]) -> tuple[str, list[str]]:
+    """存在しない項目名の差し込み記号を直す。似た名前があれば置き換え、なければその文ごと外す（note記事用）。"""
+    import difflib
+    dropped: list[str] = []
+
+    def fix(m: re.Match) -> str:
+        fid, field = m.group(1), m.group(2)
+        if fid not in facts or field in facts[fid]["fields"]:
+            return m.group(0)
+        near = difflib.get_close_matches(field, list(facts[fid]["fields"]), n=1, cutoff=0.8)
+        return f"{{{{{fid}.{near[0]}}}}}" if near else m.group(0)
+    template = PLACEHOLDER.sub(fix, template)
+
+    def bad(s: str) -> bool:
+        return any(fid not in facts or field not in facts[fid]["fields"] for fid, field in PLACEHOLDER.findall(s))
+    lines = []
+    for ln in template.split("\n"):
+        if bad(ln):
+            parts = re.split(r"(?<=[。！？])", ln)
+            kept = [p for p in parts if not bad(p)]
+            dropped += [p for p in parts if bad(p)]
+            ln = "".join(kept)
+            if not ln.strip() or ln.strip() in ("-", "・"):
+                continue
+        lines.append(ln)
+    return "\n".join(lines), dropped
+
+
 def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     """AIが数字を捏造していないか、存在しないデータを参照していないかを確認する。"""
     errors = []

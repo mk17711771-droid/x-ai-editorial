@@ -638,3 +638,10 @@ def test_same_symbol_not_featured_twice_in_a_row():
     text = "HIP-3で$SKHXの資金調達率が年率+130.1%まで跳ね上がってる。ロングがコストを払い続けてる歪み、かなり気になる👀"
     assert any("主役の銘柄" in e for e in checks.check_text(text, "b"))
     assert not any("主役の銘柄" in e for e in checks.check_text(text.replace("$SKHX", "$SNDK"), "b"))
+
+
+def test_repair_fields_fixes_or_drops_bad_references():
+    facts = {"f1": {"fields": {"total_oi": "約10億ドル", "hip3_share": "12%"}}}
+    t, dropped = checks.repair_fields("建玉は{{f1.total_oi_}}です。出来高は{{f1.venues}}です。比率は{{f1.hip3_share}}。\n- {{f1.nope}}", facts)
+    assert t == "建玉は{{f1.total_oi}}です。比率は{{f1.hip3_share}}。"
+    assert len(dropped) == 2 and checks.check_template(t, facts) == []

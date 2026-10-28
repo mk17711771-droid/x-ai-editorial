@@ -112,6 +112,10 @@ def write(theme: str | None = None) -> dict | None:
         prompt = user if not errors else user + "\n\n# 前回の原稿で直すべき点\n- " + "\n- ".join(errors)
         out = llm.generate_json(system, prompt)
         title_t, body_t = checks.relink(out.get("title", ""), by_id), checks.relink(out.get("markdown", ""), by_id)
+        # 記事は公開前に人が読むので、項目名の誤りだけで全体を捨てず、その文を外して使う
+        body_t, dropped = checks.repair_fields(body_t, by_id)
+        if dropped:
+            log.info("存在しない項目を使った文を外しました: %s", dropped)
         errors = checks.check_template(title_t + "\n" + body_t, by_id)
         if errors:
             continue
