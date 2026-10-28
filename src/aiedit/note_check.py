@@ -46,6 +46,7 @@ def _md_plain(md_text: str) -> str:
 
 def _nums(text: str) -> set[str]:
     out = set()
+    text = re.sub(r"https?://\S+|@\w+", "", text)  # URLやアカウント名の数字（satoshikun_666 など）は比べない
     for m in NUM.finditer(text):
         v = m.group(0).replace("−", "-").replace(",", "").lstrip("+$")
         if len(v.strip("-")) >= 2 or "." in v:  # 1桁の数字（①の代わりの1や「2つ」など）は比べない

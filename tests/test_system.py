@@ -645,3 +645,8 @@ def test_repair_fields_fixes_or_drops_bad_references():
     t, dropped = checks.repair_fields("建玉は{{f1.total_oi_}}です。出来高は{{f1.venues}}です。比率は{{f1.hip3_share}}。\n- {{f1.nope}}", facts)
     assert t == "建玉は{{f1.total_oi}}です。比率は{{f1.hip3_share}}。"
     assert len(dropped) == 2 and checks.check_template(t, facts) == []
+
+
+def test_note_numbers_ignore_urls():
+    from aiedit import note_check
+    assert note_check._nums("フォローはこちら https://x.com/satoshikun_666 売りは15人") == {"15"}
