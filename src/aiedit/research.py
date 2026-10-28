@@ -80,6 +80,16 @@ def _metrics_of(t: dict) -> dict:
     return m
 
 
+def snapshot(hours: int = 48) -> list[dict]:
+    """直近の投稿の、いま時点の反応を取得して data/metrics_now.json に残す（分析・報告用）。"""
+    posts = [p for p in store.posts() if now_utc() - datetime.fromisoformat(p["posted_at"]) < timedelta(hours=hours)]
+    got = {t["id"]: _metrics_of(t) for t in xapi.get_tweets([p["tweet_id"] for p in posts])} if posts else {}
+    rows = [{"posted_at_jst": p["posted_at_jst"], "slot": p["slot_key"], "has_image": p.get("has_image", False),
+             "format": p.get("format", "short"), "text": p["text"], **got.get(p["tweet_id"], {})} for p in posts]
+    store.write_json("metrics_now.json", {"at": now_utc().isoformat(), "posts": rows})
+    return rows
+
+
 def measure() -> int:
     """投稿の24時間後・7日後の反応と、1日1回フォロワー数を記録する。"""
     now = now_utc()

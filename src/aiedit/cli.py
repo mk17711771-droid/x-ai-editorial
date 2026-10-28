@@ -47,6 +47,7 @@ def main(argv: list[str] | None = None) -> int:
     nart.add_argument("--theme", default=None)
     sub.add_parser("note-check")
     sub.add_parser("health")
+    sub.add_parser("metrics-now")
     sp = sub.add_parser("sources")
     sp.add_argument("--daily", action="store_true")
     sp.add_argument("--weekly", action="store_true")
@@ -81,6 +82,8 @@ def main(argv: list[str] | None = None) -> int:
             from . import note_article
             meta = note_article.write(args.theme)
             print(json.dumps(meta, ensure_ascii=False, indent=2) if meta else "記事を作れませんでした")
+        elif args.cmd == "metrics-now":
+            print(json.dumps(research.snapshot(), ensure_ascii=False, indent=2))
         elif args.cmd == "health":
             print(json.dumps(health.run(), ensure_ascii=False, indent=2))
         elif args.cmd == "note-check":
