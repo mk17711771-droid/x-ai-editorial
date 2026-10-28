@@ -47,4 +47,4 @@ X（@satoshikun_666「カリスマ」）と note（https://note.com/charisma_hl�
 - テスト: `PYTHONPATH=src python -m pytest -q tests`
 - コンテナから note.com / Hyperliquid / Gemini には届かない。実データでの確認は GitHub Actions（workflow_dispatch）で行う。
 - データは `data/` をコミットして永続化（`concurrency: data-writer`）。
-- 投稿の起動は Cloudflare Worker の Cron Triggers（枠の時間帯に5分おき）→ その日の乱数で決めた時刻に repository_dispatch(generate)。投稿時刻は毎日 枠の約22分前〜28分後でばらつく（BOT感を出さない）。GitHubのscheduleは予備。
+- 起動はすべて Cloudflare Worker の Cron Triggers（5分おき）が担当: 投稿・リサーチ（2時間ごと）・note記事（水土7:40）。投稿は その日の乱数で決めた時刻に repository_dispatch(generate)。投稿時刻は毎日 枠の約22分前〜28分後でばらつく（BOT感を出さない）。GitHubのscheduleは予備。

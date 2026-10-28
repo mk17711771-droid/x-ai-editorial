@@ -6,6 +6,9 @@ name: research-and-learn
 #   毎朝5:23（日本時間）: 外部リサーチ（ニュース・note、日曜はXも）→ 運用ノートを更新
 #                        → 日曜は週次改善会議（月の最初の日曜は月次の大型会議）
 on:
+  # 主はCloudflare WorkerのCron Triggers（2時間ごと。05:35 JSTの回は学習・改善会議つき）。GitHubの定時実行は予備
+  repository_dispatch:
+    types: [research]
   schedule:
     - cron: "37 */2 * * *"
     - cron: "23 20 * * *"
@@ -53,7 +56,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python -m aiedit.cli research
-          if [ "${{ github.event.schedule }}" = "23 20 * * *" ] || [ "${{ inputs.learn }}" = "true" ]; then
+          if [ "${{ github.event.schedule }}" = "23 20 * * *" ] || [ "${{ inputs.learn }}" = "true" ] || [ "${{ github.event.client_payload.learn }}" = "true" ]; then
             python -m aiedit.cli sources --daily $( [ "$(TZ=Asia/Tokyo date +%u)" = "7" ] && echo --weekly ) || true
             python -m aiedit.cli learn
             python -m aiedit.cli improve || true
