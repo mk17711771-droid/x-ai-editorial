@@ -17,6 +17,7 @@ HASHTAG = re.compile(r"[#＃]\w+")
 # 「20人ではなく23人」「+6.19%ではなく+4.04%」のような、数字を言い直す不自然な文
 RESTATE = re.compile(r"[0-9][0-9.,]*\s*(?:人|倍|%|％|ドル|円)?\s*ではなく\s*[+\-$約]?[0-9]")
 CASHTAG = re.compile(r"\$[A-Za-z][A-Za-z0-9.]*")
+BOILERPLATE = re.compile(r"^[ \t]*[※＊*][^\n]*(推奨|自己責任|助言|勧誘|保証)[^\n]*$", re.M)
 # 「日以上プラス」のように、数字が抜けて単位だけ残った文（AIが数字を書けずに落としたもの）
 ORPHAN_UNIT = re.compile(r"(?:^|[\s、。，,（(「：:・])(?:日|時間|週間|か月|ヶ月|人|倍|件)(?:以上|以下|以内|未満|前|間|ぶり)")
 
@@ -81,7 +82,10 @@ def render(template: str, facts: dict[str, dict]) -> str:
     # 差し込みデータとAIの文章で語が重なったもの（例:「時点時点」）を整える
     for dup, fixed in (("時点の時点", "時点"), ("時点時点", "時点"), ("終値終値", "終値"), ("約約", "約"), ("$$", "$")):
         text = text.replace(dup, fixed)
-    return text
+    # 「※情報共有であって売買の推奨ではありません」のような定型の注意書きは、自動投稿っぽく見えるので外す
+    # （売買を勧める表現そのものは禁止表現のチェックで防ぐ。noteの注意書きは記事の末尾にシステムが付ける）
+    text = BOILERPLATE.sub("", text)
+    return re.sub(r"\n{3,}", "\n\n", text).strip()
 
 
 def normalize_cashtags(text: str, limit: int = 1) -> str:

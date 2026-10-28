@@ -683,3 +683,9 @@ def test_note_reminder_until_published(monkeypatch, isolated):
     store.write_json("note_articles/20261028-0917/meta.json", meta)
     monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T10:30:00+00:00")  # 19:30 JST: 公開済みなら送らない
     assert note_check.remind_unpublished() == []
+
+
+def test_boilerplate_disclaimer_removed_from_posts():
+    facts = {"f1": {"fields": {"funding_annual": "+62.0%"}}}
+    t = "資金調達率が{{f1.funding_annual}}まで跳ね上がってる👀\n\n※情報共有であって売買の推奨ではありません"
+    assert checks.render(t, facts) == "資金調達率が+62.0%まで跳ね上がってる👀"
