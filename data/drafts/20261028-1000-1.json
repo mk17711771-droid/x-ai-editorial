@@ -1,0 +1,109 @@
+{
+  "id": "20261028-1000-1",
+  "slot_key": "20261028-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "posted",
+  "created_at": "2026-10-28T01:19:13.534697+00:00",
+  "text": "ランキング上位だからってそのまま真似するのは危ないかも。\n\nHyperliquidの上位300人を条件で絞り込んでみたら、60日以上プラスの219人からレバレッジ3倍以下などの条件を重ねていくと、最終的に残るのは1人だけ。\n\n上位＝正解じゃないってことだな😏",
+  "template": "ランキング上位だからってそのまま真似するのは危ないかも。\n\nHyperliquidの上位{{f30.candidates}}を条件で絞り込んでみたら、{{f30.positive_60d_label}}の{{f30.positive_60d}}から{{f30.low_leverage_label}}などの条件を重ねていくと、最終的に残るのは{{f30.strict_n}}だけ。\n\n上位＝正解じゃないってことだな😏",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "traders:funnel:2026-10-28",
+  "angle": "Hyperliquidの上位ランキング300人から、真似できる条件（60日プラス・多すぎない売買・レバ3倍以下など）で絞り込むと残るのはわずか1人。ランキングの上位＝そのまま真似する価値があるわけではないという構造を数字で示す。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 19,
+    "insight": 19
+  },
+  "total": 95,
+  "fact_ids": [
+    "f30"
+  ],
+  "facts": [
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-28T00:02:09.115055+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:funnel:2026-10-28",
+      "category": "trader_funnel",
+      "summary": "Hyperliquidのランキングから選んだ候補300人を、真似できるかの条件で絞り込んだ結果: 60日以上プラス→残り219人、売買が多すぎない→残り121人、1回の大勝ちに頼らない→残り105人、直近1週間に売買あり→残り32人、レバレッジ3倍以下→残り2人、最大下落5〜15%→残り1人、5日以内に売買→残り1人。すべての条件を満たした人はごくわずかで、ランキングの上位＝真似する価値がある人ではないことがわかる",
+      "fields": {
+        "candidates": "300人",
+        "positive_60d": "219人",
+        "positive_60d_label": "60日以上プラス",
+        "low_leverage_label": "レバレッジ3倍以下",
+        "stable_n": "32人",
+        "low_leverage_n": "2人",
+        "strict_n": "1人",
+        "venue": "Hyperliquid",
+        "step1_label": "60日以上プラス",
+        "step2_label": "売買が多すぎない",
+        "step3_label": "1回の大勝ちに頼らない",
+        "step4_label": "直近1週間に売買あり",
+        "step5_label": "レバレッジ3倍以下",
+        "step6_label": "最大下落5〜15%",
+        "step7_label": "5日以内に売買",
+        "step1_n": "219人",
+        "step2_n": "121人",
+        "step3_n": "105人",
+        "step4_n": "32人",
+        "step5_n": "2人",
+        "step6_n": "1人",
+        "step7_n": "1人"
+      },
+      "raw": {
+        "funnel": [
+          {
+            "step": "審査した候補",
+            "n": 300
+          },
+          {
+            "step": "60日以上プラス",
+            "n": 219
+          },
+          {
+            "step": "売買が多すぎない",
+            "n": 121
+          },
+          {
+            "step": "1回の大勝ちに頼らない",
+            "n": 105
+          },
+          {
+            "step": "直近1週間に売買あり",
+            "n": 32
+          },
+          {
+            "step": "レバレッジ3倍以下",
+            "n": 2
+          },
+          {
+            "step": "最大下落5〜15%",
+            "n": 1
+          },
+          {
+            "step": "5日以内に売買",
+            "n": 1
+          }
+        ]
+      },
+      "id": "f30"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false,
+  "tweet_id": "2115252147843432835",
+  "posted_at": "2026-10-28T01:19:46.325358+00:00"
+}
