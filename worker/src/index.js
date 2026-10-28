@@ -23,6 +23,10 @@ export default {
     // 枠の判定（平日/週末・どの枠か）はGitHub側で現在時刻から行う
     const t = new Date(event.scheduledTime);
     if (isPostingTick(t)) ctx.waitUntil(dispatch(env, "generate", { at: t.toISOString() }));
+    // note記事: 水・土の日本時間7:40（UTCでは火・金の22:40）
+    if ([2, 5].includes(t.getUTCDay()) && t.getUTCHours() === 22 && t.getUTCMinutes() === 40) {
+      ctx.waitUntil(dispatch(env, "note_article", { at: t.toISOString() }));
+    }
   },
 
   async fetch(request, env) {

@@ -163,6 +163,11 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
         if p.get("topic_key") == topic_key:
             errors.append(f"同じ話題を{cfg['same_topic_cooldown_hours']}時間以内に投稿済み")
             break
+    # 主役（キャッシュタグの銘柄）が直近の投稿と同じなら、話題の名前が違っても続けて出さない
+    tags = set(CASHTAG.findall(text))
+    recent_tags = {t for p in store.recent_posts(cfg.get("same_symbol_cooldown_hours", 18)) for t in CASHTAG.findall(p["text"])}
+    if tags & recent_tags:
+        errors.append(f"主役の銘柄{'・'.join(sorted(tags & recent_tags))}を直近に投稿済み（別の銘柄を主役にする）")
     return errors
 
 

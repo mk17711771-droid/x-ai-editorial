@@ -43,6 +43,7 @@ limits:
   draft_expiry_hours: 3        # これを過ぎた下書きは承認しても投稿しない
   similarity_threshold: 0.45   # 過去投稿との類似度がこれ以上なら不採用
   same_topic_cooldown_hours: 24
+  same_symbol_cooldown_hours: 18   # 同じ銘柄を主役（キャッシュタグ）にした投稿を続けない
   # 投稿直前の再確認で、騰落率がこれ以上変わっていたら投稿を中止（ポイント）
   recheck_change_pct_tolerance: 1.5
 

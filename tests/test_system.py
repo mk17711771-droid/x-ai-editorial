@@ -630,3 +630,11 @@ def test_late_slot_after_midnight_belongs_to_previous_day(monkeypatch):
     assert slot["id"] == "2300" and pipeline.slot_key(slot) == "20261027-2300"
     monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T14:00:00+00:00")  # 10/28(水) 23:00 JST は当日の枠
     assert pipeline.slot_key(pipeline.pick_slot()) == "20261028-2300"
+
+
+def test_same_symbol_not_featured_twice_in_a_row():
+    store.record_post({"tweet_id": "9", "slot_key": "x", "posted_at": "2026-10-26T00:00:00+00:00",
+                       "posted_at_jst": "2026-10-26 09:00", "text": "$SKHX の資金調達率がすごい", "topic_key": "a"})
+    text = "HIP-3で$SKHXの資金調達率が年率+130.1%まで跳ね上がってる。ロングがコストを払い続けてる歪み、かなり気になる👀"
+    assert any("主役の銘柄" in e for e in checks.check_text(text, "b"))
+    assert not any("主役の銘柄" in e for e in checks.check_text(text.replace("$SKHX", "$SNDK"), "b"))

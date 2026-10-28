@@ -109,6 +109,11 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None) -
     user = (f"# 今回の投稿枠\n{slot['time']} {slot['theme']}\n\n# 投稿の形式\n{form}\n\n"
             f"# 直近72時間の投稿トピック (recent_topics)\n{json.dumps(recent, ensure_ascii=False)}\n\n"
             f"# 材料 (facts)\n{_facts_for_llm(facts, with_fields=False)}")
+    recent_tags = sorted({t for p in store.recent_posts(settings()["limits"].get("same_symbol_cooldown_hours", 18))
+                          for t in checks.CASHTAG.findall(p["text"])})
+    if recent_tags:
+        user += ("\n\n# 直近に主役にした銘柄（続けて同じ銘柄を主役にしない。別の銘柄・別の切り口を選ぶ）\n"
+                 + json.dumps(recent_tags, ensure_ascii=False))
     if exclude:
         user += ("\n\n# 選んではいけない話題（24時間以内に投稿済み。別の材料を主役にした候補を出す）\n"
                  + json.dumps(sorted(t for t in exclude if t), ensure_ascii=False))

@@ -91,7 +91,11 @@ def _render_charts(markdown_text: str, facts: list[dict]) -> dict[str, bytes]:
 
 
 def write(theme: str | None = None) -> dict | None:
-    weekday = now_utc().astimezone(JST).weekday()
+    today = now_utc().astimezone(JST)
+    if theme is None and list(store.DATA_DIR.glob(f"note_articles/{today:%Y%m%d}-*/meta.json")):
+        log.info("今日の記事は作成済みです（予備の起動）")
+        return None
+    weekday = today.weekday()
     theme = theme or THEMES.get(weekday) or THEMES[5]
     facts = collect_facts()
     by_id = {f["id"]: f for f in facts}

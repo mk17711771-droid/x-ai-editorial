@@ -2,8 +2,11 @@ name: note-article
 
 # noteの解説記事を作る（公開は手動）。水曜・土曜の朝7時台（日本時間）
 on:
+  # 主はCloudflare WorkerのCron Triggers（水・土の7:40）。GitHubの定時実行は予備
+  repository_dispatch:
+    types: [note_article]
   schedule:
-    - cron: "39 22 * * 2,5"
+    - cron: "9 0 * * 3,6"
   workflow_dispatch:
     inputs:
       theme:
