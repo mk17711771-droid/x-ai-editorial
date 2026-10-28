@@ -89,6 +89,7 @@ def main(argv: list[str] | None = None) -> int:
         elif args.cmd == "note-check":
             res = note_check.run()
             print(json.dumps(res, ensure_ascii=False, indent=2) if res else "新しく公開された記事はありません")
+            print("リマインド:", note_check.remind_unpublished())
         elif args.cmd == "sources":
             print(sources.run(daily=args.daily, weekly=args.weekly))
         elif args.cmd == "improve":

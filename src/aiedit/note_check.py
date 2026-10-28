@@ -196,3 +196,28 @@ def _record_stats(urlname: str) -> None:
         stats.setdefault(n["key"], {"title": n.get("name"), "published": n.get("publishAt"), "likes": {}})
         stats[n["key"]]["likes"][day] = n.get("likeCount")
     store.write_json("note/stats.json", stats)
+
+
+REMIND_AT_JST = (12, 19)  # この時刻を過ぎても未公開なら知らせる（1日最大2回）
+
+
+def remind_unpublished() -> list[str]:
+    """今日作った記事がまだnoteに公開されていなければ、LINEでもう一度知らせる。"""
+    from .note_article import viewer_url
+
+    now = now_utc().astimezone(JST)
+    sent = []
+    for p in sorted(store.DATA_DIR.glob(f"note_articles/{now:%Y%m%d}-*/meta.json")):
+        meta = json.loads(p.read_text())
+        if meta.get("status") == "published":
+            continue
+        reminded = meta.get("reminded", [])
+        due = [h for h in REMIND_AT_JST if now.hour >= h and h not in reminded]
+        if not due:
+            continue
+        line.notify(f"📝【リマインド】今日のnote記事がまだ公開されていません\n\n「{meta['title']}」\n\n"
+                    f"↓タイトルと本文のコピーはこちら\n{viewer_url(meta['id'])}")
+        meta["reminded"] = reminded + due
+        store.write_json(f"note_articles/{meta['id']}/meta.json", meta)
+        sent.append(meta["id"])
+    return sent

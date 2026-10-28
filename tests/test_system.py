@@ -657,3 +657,19 @@ def test_funnel_chart_renders():
     png = charts.funnel_chart([{"step": "審査した候補", "n": 300}, {"step": "60日以上プラス", "n": 219}],
                               datetime.fromisoformat("2026-10-28T00:00:00+00:00"))
     assert png[:4] == b"\x89PNG"
+
+
+def test_note_reminder_until_published(monkeypatch, isolated):
+    from aiedit import note_check
+    store.write_json("note_articles/20261028-0917/meta.json", {"id": "20261028-0917", "title": "T", "status": "ready",
+                                                               "created_at": "2026-10-28T00:17:00+00:00"})
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T02:00:00+00:00")  # 11:00 JST: まだ知らせない
+    assert note_check.remind_unpublished() == []
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T03:30:00+00:00")  # 12:30 JST
+    assert note_check.remind_unpublished() == ["20261028-0917"]
+    assert note_check.remind_unpublished() == []  # 同じ時間帯に2回送らない
+    meta = store.read_json("note_articles/20261028-0917/meta.json")
+    meta["status"] = "published"
+    store.write_json("note_articles/20261028-0917/meta.json", meta)
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T10:30:00+00:00")  # 19:30 JST: 公開済みなら送らない
+    assert note_check.remind_unpublished() == []
