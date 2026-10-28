@@ -227,8 +227,13 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
             _close(old_draft, "superseded")
         seq += 1
 
-    cooldown = cfg["limits"]["same_topic_cooldown_hours"]
-    recent_topics = {p.get("topic_key") for p in store.recent_posts(cooldown)}
+    longest = max([cfg["limits"]["same_topic_cooldown_hours"], *cfg["limits"].get("topic_cooldown_overrides", {}).values()])
+    recent_topics = set()
+    for p in store.recent_posts(longest):
+        t = p.get("topic_key") or ""
+        if now_utc() - datetime.fromisoformat(p["posted_at"]) < timedelta(hours=checks.topic_cooldown_hours(t)):
+            # 旧形式（traders:funnel:日付）も、定番企画の名前で除外する
+            recent_topics |= {t, t.rsplit(":", 1)[0] if t.startswith("traders:funnel:") else t}
     if cands and all(c.get("topic_key") in recent_topics for c in cands):
         log.info("候補がすべて直近に投稿済みの話題なので、編集をやり直します")
         all_cands = run_editor(slot, facts, exclude=recent_topics)

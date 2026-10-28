@@ -380,7 +380,7 @@ def facts(max_age_hours: float = 4) -> list[dict]:
     if cohort and cohort.get("funnel"):
         f0, steps = cohort["funnel"][0]["n"], {f["step"]: f["n"] for f in cohort["funnel"]}
         out.append({**base,
-                    "key": f"traders:funnel:{cohort['at'][:10]}",
+                    "key": "traders:funnel",
                     "category": "trader_funnel",
                     "summary": ("Hyperliquidのランキングから選んだ候補" + f"{f0}人を、真似できるかの条件で絞り込んだ結果: "
                                 + "、".join(f"{f['step']}→残り{f['n']}人" for f in cohort["funnel"][1:])

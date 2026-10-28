@@ -139,6 +139,15 @@ def repair_fields(template: str, facts: dict[str, dict]) -> tuple[str, list[str]
     return "\n".join(lines), dropped
 
 
+def topic_cooldown_hours(topic_key: str) -> int:
+    """話題ごとの再投稿までの間隔。定番企画（絞り込みなど）は長めに空ける。"""
+    cfg = settings()["limits"]
+    for prefix, hours in cfg.get("topic_cooldown_overrides", {}).items():
+        if str(topic_key).startswith(prefix):
+            return hours
+    return cfg["same_topic_cooldown_hours"]
+
+
 def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     """AIが数字を捏造していないか、存在しないデータを参照していないかを確認する。"""
     errors = []
@@ -187,9 +196,10 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     sim, similar_to = max_similarity(text)
     if sim >= cfg["similarity_threshold"]:
         errors.append(f"過去の投稿と類似（類似度{sim:.2f}）: {similar_to[:40]}")
-    for p in store.recent_posts(cfg["same_topic_cooldown_hours"]):
-        if p.get("topic_key") == topic_key:
-            errors.append(f"同じ話題を{cfg['same_topic_cooldown_hours']}時間以内に投稿済み")
+    hours = topic_cooldown_hours(topic_key)
+    for p in store.recent_posts(hours):
+        if p.get("topic_key") == topic_key or str(p.get("topic_key", "")).startswith(topic_key + ":"):
+            errors.append(f"同じ話題を{hours}時間以内に投稿済み")
             break
     # 主役（キャッシュタグの銘柄）が直近の投稿と同じなら、話題の名前が違っても続けて出さない
     tags = set(CASHTAG.findall(text))

@@ -650,3 +650,10 @@ def test_repair_fields_fixes_or_drops_bad_references():
 def test_note_numbers_ignore_urls():
     from aiedit import note_check
     assert note_check._nums("フォローはこちら https://x.com/satoshikun_666 売りは15人") == {"15"}
+
+
+def test_funnel_chart_renders():
+    from aiedit import charts
+    png = charts.funnel_chart([{"step": "審査した候補", "n": 300}, {"step": "60日以上プラス", "n": 219}],
+                              datetime.fromisoformat("2026-10-28T00:00:00+00:00"))
+    assert png[:4] == b"\x89PNG"

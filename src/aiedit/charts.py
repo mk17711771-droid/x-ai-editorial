@@ -212,10 +212,37 @@ def smart_money_chart(snap: dict, highlight: set[str] | None = None) -> bytes:
     return _to_png(fig)
 
 
+def funnel_chart(funnel: list[dict], asof: datetime) -> bytes:
+    """上位トレーダーの絞り込み（条件を重ねるごとに残る人数）。1色の横棒で、人数を棒の右に直接書く。"""
+    steps = funnel[::-1]
+    names = [f["step"] for f in steps]
+    ns = [f["n"] for f in steps]
+    fig = plt.figure(figsize=(16, 9), facecolor=BG)
+    fig.text(0.04, 0.9, "Hyperliquid ・ 上位トレーダーを「真似できるか」で絞り込むと", color=TEXT, fontsize=28, fontweight="bold")
+    fig.text(0.04, 0.852, "ランキング上位の候補から、条件を1つずつ重ねたときに残る人数（過去の成績です。今後も同じとは限りません）",
+             color=MUTED, fontsize=14)
+    ax = fig.add_axes([0.27, 0.13, 0.66, 0.68], facecolor=BG)
+    ax.barh(range(len(ns)), ns, color=ACCENT, height=0.62)
+    top = max(ns + [1])
+    for i, n in enumerate(ns):
+        ax.text(n + top * 0.01, i, f"{n}人", va="center", color=TEXT, fontsize=14, fontweight="bold")
+    ax.set_yticks(range(len(ns)), names)
+    ax.set_xlim(0, top * 1.12)
+    ax.set_xticks([])
+    ax.tick_params(colors=MUTED, labelsize=13, length=0)
+    for sp in ax.spines.values():
+        sp.set_visible(False)
+    _footer(fig, "Hyperliquid公開ランキング・ポジション（個人は特定していません）", asof)
+    return _to_png(fig)
+
+
 def build_for_draft(draft: dict, all_facts: list[dict] | None = None) -> bytes | None:
     """下書きの主役の材料に合わせてチャートを作る。作れなければ None（画像なしで投稿する）。"""
     from . import collect_hyperliquid, store
 
+    funnel = next((f for f in draft["facts"] if f.get("category") == "trader_funnel"), None)
+    if funnel and funnel.get("raw", {}).get("funnel"):
+        return funnel_chart(funnel["raw"]["funnel"], datetime.fromisoformat(funnel["asof"]))
     smart = [f for f in draft["facts"] if f.get("category", "").startswith("smart_money")]
     if smart:
         snap = store.read_json("traders/latest.json")
