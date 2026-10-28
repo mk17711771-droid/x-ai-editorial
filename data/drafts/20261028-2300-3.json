@@ -1,0 +1,73 @@
+{
+  "id": "20261028-2300-3",
+  "slot_key": "20261028-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "posted",
+  "created_at": "2026-10-28T14:29:26.499804+00:00",
+  "text": "HyperliquidのHIP-3株式先物で$SMSNのロング過熱がすごいことになってる。\n\n資金調達率が年率+62.0%まで跳ね上がってて、ロングがこれだけのコストを払ってる歪みは結構気になるところだな👀\n\n※情報共有であって売買の推奨ではありません",
+  "template": "HyperliquidのHIP-3株式先物で${{f13.coin}}のロング過熱がすごいことになってる。\n\n資金調達率が年率{{f13.funding_annual}}まで跳ね上がってて、ロングがこれだけのコストを払ってる歪みは結構気になるところだな👀\n\n※情報共有であって売買の推奨ではありません",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:SMSN:funding_extreme",
+  "angle": "HIP-3株式先物市場におけるSMSNの資金調達率が年率+62.0%に達し、ロング過熱の歪みが発生している点を指摘する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 84,
+  "fact_ids": [
+    "f13"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SMSN:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SMSN（HIP-3株式等先物） 24時間騰落率+6.60%, 価格181.46, 建玉49452392USD, 24時間出来高62388685USD, 資金調達率(年率)+62.0%",
+      "fields": {
+        "coin": "SMSN",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$181.46",
+        "change_pct": "+6.60%",
+        "oi": "約4,945万ドル",
+        "volume": "約6,239万ドル",
+        "funding_annual": "+62.0%",
+        "asof": "日本時間10/28(水) 23:28時点",
+        "asof_short": "23:28時点"
+      },
+      "raw": {
+        "mark": 181.46,
+        "change_pct": 6.603,
+        "oi_usd": 49452392,
+        "vol_usd": 62388685,
+        "funding_annual_pct": 61.98
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SMSN",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SMSN"
+      },
+      "asof": "2026-10-28T14:28:33.011736+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SMSN"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2115450884733771877",
+  "posted_at": "2026-10-28T14:29:29.026402+00:00"
+}
