@@ -390,7 +390,10 @@ def facts(max_age_hours: float = 4) -> list[dict]:
                                "stable_n": f"{steps.get('直近1週間に売買あり', 0)}人",
                                "low_leverage_n": f"{steps.get('レバレッジ3倍以下', 0)}人",
                                "strict_n": f"{steps.get('5日以内に売買', 0)}人",
-                               "venue": "Hyperliquid"},
+                               "venue": "Hyperliquid",
+                               # 絞り込みの全段階（条件名と残った人数）
+                               **{f"step{i}_label": f["step"] for i, f in enumerate(cohort["funnel"][1:], 1)},
+                               **{f"step{i}_n": f"{f['n']}人" for i, f in enumerate(cohort["funnel"][1:], 1)}},
                     "raw": {"funnel": cohort["funnel"]}})
     prev = _previous()
     if prev:
