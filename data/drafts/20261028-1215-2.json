@@ -1,0 +1,102 @@
+{
+  "id": "20261028-1215-2",
+  "slot_key": "20261028-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "superseded",
+  "created_at": "2026-10-28T03:36:06.396842+00:00",
+  "text": "半導体セクターの動きがかなり強いね。\n\n$SMCIが米国10/27終値で+7.34%、AMDも米国10/27終値で+5.45%としっかり買われてる。\n\n資金がどこに向かってるか、この流れは見ておいたほうがよさそう👀",
+  "template": "半導体セクターの動きがかなり強いね。\n\n${{f12.symbol}}が{{f12.asof}}で{{f12.change_pct}}、${{f5.symbol}}も{{f5.asof}}で{{f5.change_pct}}としっかり買われてる。\n\n資金がどこに向かってるか、この流れは見ておいたほうがよさそう👀",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:SMCI:big_move",
+  "angle": "半導体セクターでSMCI（+7.34%）やAMD（+5.45%）が力強い上昇を見せた背景と市場の資金流入を整理する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f12",
+    "f5"
+  ],
+  "facts": [
+    {
+      "key": "stock:SMCI:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SMCI 価格35.09, 前日比+7.34%, 前日終値32.69, 高値35.21, 安値33.23",
+      "fields": {
+        "symbol": "SMCI",
+        "price": "$35.09",
+        "change_pct": "+7.34%",
+        "prev_close": "$32.69",
+        "high": "$35.21",
+        "low": "$33.23",
+        "asof": "米国10/27終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 35.09,
+        "change_pct": 7.342,
+        "prev_close": 32.69
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SMCI"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SMCI"
+      },
+      "asof": "2026-10-28T03:35:16.449783+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    },
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格560.26, 前日比+5.45%, 前日終値531.28, 高値563.915, 安値538.5",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$560.26",
+        "change_pct": "+5.45%",
+        "prev_close": "$531.28",
+        "high": "$563.91",
+        "low": "$538.50",
+        "asof": "米国10/27終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 560.26,
+        "change_pct": 5.455,
+        "prev_close": 531.28
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-10-28T03:35:15.302769+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SMCI"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    }
+  ],
+  "needs_human": false
+}

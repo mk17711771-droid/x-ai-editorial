@@ -1,0 +1,75 @@
+{
+  "id": "20261028-1215-1",
+  "slot_key": "20261028-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-10-28T03:36:04.731719+00:00",
+  "text": "米国株の急伸を受けて、HyperliquidのHIP-3市場で$SOXL先物が+13.15%と強い動きを見せてる。\n\n現物の流れに引っ張られて、デリバティブ側でも買いが加速してるっぽいな👀",
+  "template": "米国株の急伸を受けて、HyperliquidのHIP-3市場で${{f51.coin}}先物が{{f51.change_pct}}と強い動きを見せてる。\n\n現物の流れに引っ張られて、デリバティブ側でも買いが加速してるっぽいな👀",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:SOXL:hip3_top",
+  "angle": "米国株の急伸を受け、HyperliquidのHIP-3市場でSOXL先物が+13.15%と強い動きを見せている点に注目。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 93,
+  "fact_ids": [
+    "f51"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SOXL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SOXL（HIP-3株式等先物） 24時間騰落率+13.15%, 価格103.16, 建玉29286028USD, 24時間出来高168524051USD, 資金調達率(年率)+5.5%（照合: 米国株の前日比+11.69%）",
+      "fields": {
+        "coin": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$103.16",
+        "change_pct": "+13.15%",
+        "oi": "約2,929万ドル",
+        "volume": "約1.7億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/28(水) 12:35時点",
+        "asof_short": "12:35時点",
+        "us_change_pct": "+11.69%"
+      },
+      "raw": {
+        "mark": 103.16,
+        "change_pct": 13.145,
+        "oi_usd": 29286028,
+        "vol_usd": 168524051,
+        "funding_annual_pct": 5.48,
+        "us_change_pct": 11.691
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-10-28T03:35:24.063478+00:00",
+      "confidence": "confirmed",
+      "id": "f51"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2115286466859556925",
+  "posted_at": "2026-10-28T03:36:08.692079+00:00"
+}
