@@ -57,10 +57,11 @@ jobs:
         run: |
           python -m aiedit.cli research
           if [ "${{ github.event.schedule }}" = "23 20 * * *" ] || [ "${{ inputs.learn }}" = "true" ] || [ "${{ github.event.client_payload.learn }}" = "true" ]; then
-            python -m aiedit.cli sources --daily $( [ "$(TZ=Asia/Tokyo date +%u)" = "7" ] && echo --weekly ) || true
+            python -m aiedit.cli sources --daily || true
             python -m aiedit.cli learn
             python -m aiedit.cli improve || true
           fi
+          python -m aiedit.cli sources --news-only || true
           python -m aiedit.cli note-check || true
           python -m aiedit.cli health || true
       - name: Save data

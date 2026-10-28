@@ -51,6 +51,7 @@ def main(argv: list[str] | None = None) -> int:
     sp = sub.add_parser("sources")
     sp.add_argument("--daily", action="store_true")
     sp.add_argument("--weekly", action="store_true")
+    sp.add_argument("--news-only", action="store_true")
     ip = sub.add_parser("improve")
     ip.add_argument("--kind", choices=["auto", "weekly", "monthly"], default="auto")
     p = sub.add_parser("preview")
@@ -91,7 +92,7 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(res, ensure_ascii=False, indent=2) if res else "新しく公開された記事はありません")
             print("リマインド:", note_check.remind_unpublished())
         elif args.cmd == "sources":
-            print(sources.run(daily=args.daily, weekly=args.weekly))
+            print(sources.run(daily=args.daily, weekly=args.weekly, news_only=args.news_only))
         elif args.cmd == "improve":
             today = now_utc().astimezone(JST)
             if args.kind == "auto" and today.weekday() != 6:

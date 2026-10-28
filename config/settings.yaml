@@ -116,13 +116,17 @@ research:
     - 米国株 半導体
     - エヌビディア 決算
     - FOMC 米国株
+    - Hyperliquid whale
+    - HIP-3 perps
+    - semiconductor stocks
   # noteの検索APIはプログラムからのアクセスを拒否（403）しているため使わない。
   # noteの反応は自分の記事のスキ数（note-check が毎日記録）で測る。
   note_queries: []
-  x:                             # Xの同ジャンルの伸びた投稿（有料: 1件約0.75円。毎週）
+  x:                             # Xの同ジャンルの伸びた投稿（有料: 1件約0.75円。毎日1つずつ順番に検索）
     enabled: true
     monthly_read_limit: 400      # 月の上限（約300円）
-    per_query: 30
+    per_query: 12
+    rotate: true
     queries:
       - "(Hyperliquid OR ハイパーリキッド OR HIP-3) lang:ja -is:retweet -is:reply"
       - "(米国株 OR 半導体株) (資金 OR 建玉 OR 決算) lang:ja -is:retweet -is:reply has:media"

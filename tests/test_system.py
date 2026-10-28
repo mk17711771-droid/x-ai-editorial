@@ -575,10 +575,20 @@ def test_x_research_respects_monthly_budget(monkeypatch):
     monkeypatch.setattr(xapi, "search_recent", lambda q, n: calls.append(n) or (
         [{"id": "1", "text": "t", "author_id": "u", "public_metrics": {"like_count": 5}}] * n, {"u": {"username": "a"}}))
     monkeypatch.setattr(sources, "_cfg", lambda: {"x": {"enabled": True, "monthly_read_limit": 50, "per_query": 30,
-                                                        "queries": ["a", "b", "c"], "accounts": []}})
+                                                        "queries": ["a", "b", "c"], "accounts": [], "rotate": False}})
     sources.x_search()
     assert calls == [30, 20]  # 上限50件を超えて読まない
     assert sources.x_search() == []
+
+
+def test_x_research_rotates_one_query_per_day(monkeypatch):
+    from aiedit import sources
+    seen = []
+    monkeypatch.setattr(xapi, "search_recent", lambda q, n: seen.append(q) or ([], {}))
+    monkeypatch.setattr(sources, "_cfg", lambda: {"x": {"enabled": True, "monthly_read_limit": 400, "per_query": 12,
+                                                        "queries": ["a", "b", "c"], "accounts": []}})
+    sources.x_search()
+    assert len(seen) == 1
 
 
 def test_orphan_unit_and_duplicate_asof_fixed():

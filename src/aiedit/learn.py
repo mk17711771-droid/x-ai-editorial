@@ -99,5 +99,5 @@ def _weekly_text(report: dict, out: dict) -> str:
 def playbook_text() -> str:
     """毎日の運用ノートと、改善会議で決めた今週の方針。"""
     parts = [store.read_text("playbook.md", ""), store.read_text("strategy.md", ""),
-             store.read_text("experiments.md", "")]
+             store.read_text("experiments.md", ""), store.read_text("trends.md", "")]
     return "\n".join(p for p in parts if p)
