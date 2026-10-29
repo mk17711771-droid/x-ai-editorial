@@ -35,6 +35,8 @@ def pick_slot(slot_id: str = "auto") -> dict | None:
         raise ValueError(f"枠 {slot_id} が設定にありません")
     best = None
     for s in cfg["slots"]:
+        if s["days"] == "manual":
+            continue  # 速報用の枠は手動で起動したときだけ
         start = slot_base(s, now)
         weekend = start.weekday() >= 5  # 日付をまたいだ深夜の枠は、前日の曜日で判定する
         if s["days"] == "weekday" and weekend or s["days"] == "weekend" and not weekend:
@@ -69,8 +71,20 @@ def slot_key(slot: dict) -> str:
 
 # ---------------------------------------------------------------- 生成
 
+def news_facts() -> list[dict]:
+    """確認済みの速報（公式発表・複数の報道で裏付けたもの）。data/news_facts.json に期限つきで置く。"""
+    now = now_utc()
+    out = []
+    for f in store.read_json("news_facts.json", []) or []:
+        if datetime.fromisoformat(f["expires_at"]) > now:
+            out.append({**f, "kind": f.get("kind", "news"), "category": "breaking_news", "refresh": None,
+                        "confidence": "confirmed"})
+    return out
+
+
 def collect(kind: str, weekly: bool = False) -> list[dict]:
     raw = collect_stocks.collect() if kind == "stock" else collect_hyperliquid.collect() + traders.facts()
+    raw = news_facts() + raw  # 確認済みの速報（あれば最優先の材料）
     if weekly:
         # 週の振り返り: 1週間の値動き（Hyperliquidの主要銘柄・HIP-3と、記録した米国株の終値）
         try:
@@ -145,6 +159,9 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None) -
     if recent_tags:
         user += ("\n\n# 直近に主役にした銘柄（続けて同じ銘柄を主役にしない。別の銘柄・別の切り口を選ぶ）\n"
                  + json.dumps(recent_tags, ensure_ascii=False))
+    if any(f.get("category") == "breaking_news" for f in facts):
+        user += ("\n\n# 確認済みの速報あり（category: breaking_news）。このアカウントのテーマ（Hyperliquid・xyz）に直結するなら最優先で検討し、"
+                 "速報の事実（何が起きたか）＋このアカウントの実データ（価格・建玉・資金調達率）を組み合わせる。未確定の部分（規制当局の承認待ちなど）は断定しない")
     recent_angles = [angle_family(p.get("topic_key", "")) for p in store.recent_posts(36)][-2:]
     if len(recent_angles) == 2 and recent_angles[0] == recent_angles[1]:
         user += (f"\n\n# 直近2件の切り口が同じ（{ANGLE_NAMES.get(recent_angles[0], recent_angles[0])}）。"

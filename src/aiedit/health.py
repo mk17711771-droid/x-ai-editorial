@@ -16,6 +16,8 @@ GH_API = "https://api.github.com"
 
 
 def _slot_applies(slot: dict, day: datetime) -> bool:
+    if slot["days"] == "manual":
+        return False
     weekend = day.weekday() >= 5
     return not (slot["days"] == "weekday" and weekend or slot["days"] == "weekend" and not weekend)
 
