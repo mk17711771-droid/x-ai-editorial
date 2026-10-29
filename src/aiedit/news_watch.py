@@ -81,7 +81,10 @@ def _corroborate(items: list[dict]) -> list[dict]:
 def triage(new: list[dict], context: list[dict], hype_1h: float | None) -> list[dict]:
     """AIで、重要なニュースかどうか・裏取りできているかを判定し、話題ごとにまとめる。"""
     from .common import CONFIG_DIR
-    payload = {"new_items": new, "related_items_last_24h": context[:60], "hype_1h_change_pct": hype_1h}
+    known = [{"story_key": f["key"].removeprefix("news:"), "headline": f["fields"].get("headline", f["summary"][:60])}
+             for f in store.read_json("news_facts.json", []) or []]
+    payload = {"new_items": new, "related_items_last_24h": context[:60], "hype_1h_change_pct": hype_1h,
+               "known_stories": known[-15:]}
     rubric = (CONFIG_DIR / "buzz_patterns.md").read_text(encoding="utf-8")
     out = llm.generate_json(llm.prompt("news_triage") + "\n\n" + rubric, json.dumps(payload, ensure_ascii=False))
     return out.get("stories", [])
@@ -168,7 +171,17 @@ def run(payload: dict | None = None) -> dict:
 
     stories = triage(new, _corroborate(new), hype)
     handled = store.read_json("news/stories.json", {})
+    known_keys = {f["key"].removeprefix("news:"): f for f in store.read_json("news_facts.json", []) or []}
     for s in stories:
+        # 既に扱った話題と同じ出来事なら、同じ story_key にそろえる（同じニュースを別の話題として二度投稿しない）
+        if s.get("story_key") not in known_keys:
+            from .checks import similarity
+            same = next((k for k, f in known_keys.items()
+                         if similarity(s.get("headline", ""), f["fields"].get("headline", "")) >= 0.3), None)
+            if same:
+                s["story_key"] = same.rsplit("-", 1)[0] if same.rsplit("-", 1)[-1].isdigit() else same
+                handled.setdefault(s["story_key"], {"at": now_utc().isoformat(), "posted_or_queued": True,
+                                                    "notified": True, "posts": 1, "last_post_at": now_utc().isoformat()})
         # 重要度が高い、またはバズる条件に4つ以上当てはまるなら速報にする（記録更新など、重要度3でも伸びるネタを逃さない）
         hot = s.get("importance", 0) >= _cfg().get("min_importance", 4) or s.get("buzz_fit", 0) >= 4
         if not s.get("story_key") or not hot:
