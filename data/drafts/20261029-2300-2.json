@@ -1,0 +1,114 @@
+{
+  "id": "20261029-2300-2",
+  "slot_key": "20261029-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-10-29T14:29:30.088787+00:00",
+  "text": "Hyperliquidの$HYPE、24時間で+14.57%と一気に買われてる。\n\n価格が$91.31まで上がって、建玉は約21.0億ドル、出来高は約11.0億ドル規模まで膨らんでる。\n\nここまでの規模で資金が集中してると、デリバティブ側での需給の偏りがどこまで続くか気になるところだな。",
+  "template": "Hyperliquidの${{f2.coin}}、24時間で{{f2.change_pct}}と一気に買われてる。\n\n価格が{{f2.price}}まで上がって、建玉は{{f2.oi}}、出来高は{{f2.volume}}規模まで膨らんでる。\n\nここまでの規模で資金が集中してると、デリバティブ側での需給の偏りがどこまで続くか気になるところだな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:HYPE:volume_top",
+  "angle": "HYPEが24時間で+14.57%の大幅上昇。出来高と建玉が急拡大する中で市場はどう動いているか。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 88,
+  "fact_ids": [
+    "f2",
+    "f7"
+  ],
+  "facts": [
+    {
+      "key": "hl:HYPE:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: HYPE（無期限先物） 24時間騰落率+14.57%, 価格91.306, 建玉2097160984USD, 24時間出来高1095894703USD, 資金調達率(年率)+11.0%",
+      "fields": {
+        "coin": "HYPE",
+        "symbol": "HYPE",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$91.31",
+        "change_pct": "+14.57%",
+        "oi": "約21.0億ドル",
+        "volume": "約11.0億ドル",
+        "funding_annual": "+11.0%",
+        "asof": "日本時間10/29(木) 23:23時点",
+        "asof_short": "23:23時点"
+      },
+      "raw": {
+        "mark": 91.306,
+        "change_pct": 14.574,
+        "oi_usd": 2097160984,
+        "vol_usd": 1095894703,
+        "funding_annual_pct": 10.95
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "HYPE",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/HYPE"
+      },
+      "asof": "2026-10-29T14:23:51.193933+00:00",
+      "confidence": "confirmed",
+      "id": "f2"
+    },
+    {
+      "key": "hl:HYPE:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: HYPE（無期限先物） 24時間騰落率+14.57%, 価格91.306, 建玉2097160984USD, 24時間出来高1095894703USD, 資金調達率(年率)+11.0%",
+      "fields": {
+        "coin": "HYPE",
+        "symbol": "HYPE",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$91.31",
+        "change_pct": "+14.57%",
+        "oi": "約21.0億ドル",
+        "volume": "約11.0億ドル",
+        "funding_annual": "+11.0%",
+        "asof": "日本時間10/29(木) 23:23時点",
+        "asof_short": "23:23時点"
+      },
+      "raw": {
+        "mark": 91.306,
+        "change_pct": 14.574,
+        "oi_usd": 2097160984,
+        "vol_usd": 1095894703,
+        "funding_annual_pct": 10.95
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "HYPE",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/HYPE"
+      },
+      "asof": "2026-10-29T14:23:51.194115+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/HYPE"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/HYPE"
+    }
+  ],
+  "needs_human": false
+}

@@ -1,0 +1,103 @@
+{
+  "id": "20261029-2300-1",
+  "slot_key": "20261029-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "posted",
+  "created_at": "2026-10-29T14:26:24.076094+00:00",
+  "text": "Hyperliquidの$HYPE、安定上位トレーダー33人のポジションは売り7人に対して買いはたった1人。\n\n圧倒的な売り優勢で推移する中で、一部では利確の動きも出始めているっぽい。\n\nこの偏りがどう解消されるか、個人的にはかなり気になるところ。",
+  "template": "Hyperliquidの${{f25.coin}}、安定上位トレーダー{{f25.top_n}}のポジションは売り{{f25.short_n}}人に対して買いはたった{{f25.long_n}}人。\n\n圧倒的な売り優勢で推移する中で、一部では利確の動きも出始めているっぽい。\n\nこの偏りがどう解消されるか、個人的にはかなり気になるところ。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "traders:HYPE:bias",
+  "angle": "安定上位トレーダー33人のHYPEポジション分析。大半が売り姿勢を示す中で、含み益の利確とみられる動きも出始める。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 92,
+  "fact_ids": [
+    "f25",
+    "f32"
+  ],
+  "facts": [
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-29T13:40:25.799081+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:HYPE:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー33人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、HYPEを持っている8人の内訳: 買い1人・売り7人（買い比率12%）、買い合計45261USD・売り合計1123978USD、平均レバレッジ8.8倍（このほか、現物つきの売り＝ヘッジ・裁定が3人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "HYPE",
+        "top_n": "33人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "8人",
+        "long_n": "1人",
+        "short_n": "7人",
+        "long_ratio": "12%",
+        "long_usd": "約5万ドル",
+        "short_usd": "約112万ドル",
+        "hedge_n": "3人",
+        "avg_leverage": "8.8倍",
+        "asof": "日本時間10/29(木) 22:40時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 1,
+        "short_n": 7,
+        "long_usd": 45261,
+        "short_usd": 1123978
+      },
+      "id": "f25"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-29T13:40:25.799081+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:HYPE:takeprofit",
+      "category": "smart_money_exit",
+      "summary": "安定上位トレーダー33人のうち3人が、約1日前に含み益で持っていたHYPEのポジションを閉じた（利確とみられる。前回時点の含み益合計10760USD）",
+      "fields": {
+        "coin": "HYPE",
+        "top_n": "33人",
+        "closed_n": "3人",
+        "upnl": "約1万ドル",
+        "asof": "日本時間10/29(木) 22:40時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "closed_n": 3,
+        "upnl": 10760
+      },
+      "id": "f32"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2115813285274480668",
+  "posted_at": "2026-10-29T14:29:32.031536+00:00"
+}
