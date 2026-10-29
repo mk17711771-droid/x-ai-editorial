@@ -748,5 +748,5 @@ def test_reply_ideas_drop_unsupported_numbers(monkeypatch, isolated):
         {"id": "1", "reply": "HIP-3でもSKHXの資金調達率が+118.9%まで来てて、先物側も過熱気味です"},
         {"id": "1", "reply": "これ+50%いくと思います"}]})
     picks = reply_ideas.run()
-    assert [p["reply"][:10] for p in picks] == ["HIP-3でもSKHX"]
+    assert [p["reply"][:11] for p in picks] == ["HIP-3でもSKHX"]
     assert "今日の返信候補" in json.dumps(isolated, ensure_ascii=False)
