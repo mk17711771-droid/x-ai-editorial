@@ -804,3 +804,18 @@ def test_news_slot_only_uses_pending_news():
 def test_name_fixes_applied():
     facts = {"f1": {"fields": {"x": "+1.0%"}}}
     assert checks.render("ドルッケンミラー氏がTrade[XYZ]に出資、{{f1.x}}", facts) == "ドラッケンミラー氏がtrade[XYZ]に出資、+1.0%"
+
+
+def test_health_retries_announced_but_unposted_news(monkeypatch):
+    from aiedit import health
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-29T19:00:00+00:00")
+    store.write_json("news/stories.json", {"druck": {"at": "x", "last_post_at": "2026-10-29T18:26:00+00:00"}})
+    store.write_json("news_facts.json", [{"key": "news:druck", "status": "posted", "expires_at": "2026-12-31T00:00:00+00:00",
+                                          "fields": {}, "summary": ""}])
+    sent = []
+    monkeypatch.setattr(health, "_dispatch_news", lambda: sent.append(1) or True)
+    actions = []
+    issues = health.announced_not_posted(actions)
+    assert issues[0]["type"] == "announced_not_posted" and sent and actions
+    assert store.read_json("news_facts.json")[0]["status"] == "pending"
+    assert health.announced_not_posted([]) and len(sent) == 1  # 出し直しは1回だけ

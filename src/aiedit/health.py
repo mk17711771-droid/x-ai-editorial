@@ -67,6 +67,42 @@ def failed_runs(hours: int = 6) -> list[dict]:
             if datetime.fromisoformat(w["created_at"].replace("Z", "+00:00")) >= since]
 
 
+def announced_not_posted(actions: list[str]) -> list[dict]:
+    """「速報の投稿を始めました」とLINEで知らせた話題が、実際に投稿されたかを確かめる。出ていなければ出し直す。"""
+    out = []
+    stories = store.read_json("news/stories.json", {}) or {}
+    posted_topics = {p.get("topic_key") for p in store.posts()}
+    facts = {f["key"]: f for f in store.read_json("news_facts.json", []) or []}
+    for key, st in stories.items():
+        if not st.get("last_post_at"):
+            continue
+        age = now_utc() - datetime.fromisoformat(st["last_post_at"])
+        news_keys = [k for k in facts if k == f"news:{key}" or k.startswith(f"news:{key}-")]
+        if not news_keys or any(k in posted_topics for k in news_keys) or age < timedelta(minutes=20):
+            continue
+        if age > timedelta(hours=12):
+            continue  # 古い話題は追わない
+        out.append({"type": "announced_not_posted", "story": key, "since": st["last_post_at"]})
+        if not st.get("retried"):
+            # まだ出ていない速報を、未投稿として戻して出し直す（1回だけ）
+            for k in news_keys:
+                facts[k]["status"] = "pending"
+            store.write_json("news_facts.json", list(facts.values()))
+            st["retried"] = now_utc().isoformat()
+            store.write_json("news/stories.json", stories)
+            if _dispatch_news():
+                actions.append(f"速報 {key} が投稿されていなかったため出し直し")
+    return out
+
+
+def _dispatch_news() -> bool:
+    try:
+        r = _gh("/dispatches", method="POST", json={"event_type": "generate", "client_payload": {"slot": "news"}})
+        return r.status_code < 300
+    except (requests.RequestException, RuntimeError):
+        return False
+
+
 def worker_checks() -> list[dict]:
     """Cloudflare Workerの見張りが実際に動いているか（設定ミスで一度も動かない、を早く見つける）。"""
     out: list[dict] = []
@@ -124,6 +160,7 @@ def run() -> dict:
             log.warning("Cloudflareからの起動を確認できません: %s", e)
 
     issues += worker_checks()
+    issues += announced_not_posted(actions)
 
     st = store.state()
     if st.get("halted"):

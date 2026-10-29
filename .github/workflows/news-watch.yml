@@ -41,7 +41,9 @@ jobs:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_ADMIN_USER_ID: ${{ secrets.LINE_ADMIN_USER_ID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python -m aiedit.cli news-watch
+        run: |
+          python -m aiedit.cli news-watch
+          python -m aiedit.cli health || true
       - name: Save data
         if: always()
         run: |
