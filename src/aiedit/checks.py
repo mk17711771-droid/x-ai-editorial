@@ -88,6 +88,8 @@ def render(template: str, facts: dict[str, dict]) -> str:
     # 「※情報共有であって売買の推奨ではありません」のような定型の注意書きは、自動投稿っぽく見えるので外す
     # （売買を勧める表現そのものは禁止表現のチェックで防ぐ。noteの注意書きは記事の末尾にシステムが付ける）
     text = BOILERPLATE.sub("", text)
+    # Markdownの記号（`コード`・**太字**）はXではそのまま表示されてしまうので外す
+    text = text.replace("`", "").replace("**", "")
     return re.sub(r"\n{3,}", "\n\n", text).strip()
 
 
@@ -229,6 +231,11 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
         errors.append("直近の投稿も絵文字で締めている。今回は絵文字なしで、別の締め方にする")
     elif end["tail"] and end["tail"] in [e["tail"] for e in recent_ends]:
         errors.append(f"締めの言い回し（〜{end['tail']}）が直近の投稿と同じ。別の締め方にする")
+    # 決まり文句（「地味だけど〜」など）を直近の投稿で使っていたら、言い回しを変えさせる
+    recent_texts = [p["text"] for p in store.recent_posts(24 * 7)][-12:]
+    for phrase in read_list("cliche_phrases.txt"):
+        if phrase in text and any(phrase in t for t in recent_texts):
+            errors.append(f"「{phrase}」は最近も使った言い回し。別の言葉で書く")
     # 主役（キャッシュタグの銘柄）が直近の投稿と同じなら、話題の名前が違っても続けて出さない
     tags = set(CASHTAG.findall(text))
     recent_tags = {t for p in store.recent_posts(cfg.get("same_symbol_cooldown_hours", 18)) for t in CASHTAG.findall(p["text"])}

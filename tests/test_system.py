@@ -708,3 +708,12 @@ def test_angle_family_and_week_change_from_closes():
     store.write_json("stock_closes.json", {"NVDA": {d: 100.0 + i * 2 for i, d in enumerate(days)}})
     f = collect_stocks.week_change_facts()[0]
     assert f["fields"]["week_change_pct"] == "+10.00%" and f["category"] == "week_change"
+
+
+def test_markdown_stripped_and_cliches_not_repeated():
+    facts = {"f1": {"fields": {"symbol": "SOXX", "change_pct": "+2.13%"}}}
+    assert checks.render("`${{f1.symbol}}`が{{f1.change_pct}}", facts) == "$SOXXが+2.13%"
+    store.record_post({"tweet_id": "9", "slot_key": "x", "posted_at": "2026-10-26T00:00:00+00:00",
+                       "posted_at_jst": "2026-10-26 09:00", "text": "この歪み、地味だけどかなり重要", "topic_key": "a"})
+    text = "Hyperliquidの$SOLの建玉が膨らんで、資金調達率もじわじわ上がってきてる。地味だけど面白い動き。"
+    assert any("地味だけど" in e for e in checks.check_text(text, "b"))
