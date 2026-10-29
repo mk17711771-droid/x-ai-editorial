@@ -136,3 +136,14 @@ def users(usernames: list[str]) -> list[dict]:
     if r.status_code >= 400:
         raise XPostError(f"ユーザー取得 {r.status_code}: {r.text[:300]}")
     return r.json().get("data", [])
+
+
+def user_tweets(user_id: str, since_id: str | None = None) -> list[dict]:
+    """アカウントの新しい投稿（返信・リポストを除く）。since_id より新しいものだけ（初回は最新5件）。"""
+    params = {"max_results": 5 if not since_id else 20, "exclude": "retweets,replies", "tweet.fields": "created_at"}
+    if since_id:
+        params["since_id"] = since_id
+    r = requests.get(f"{API}/users/{user_id}/tweets", params=params, auth=_auth(), timeout=30)
+    if r.status_code >= 400:
+        raise XPostError(f"投稿の取得 {r.status_code}: {r.text[:300]}")
+    return r.json().get("data", [])

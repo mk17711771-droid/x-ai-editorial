@@ -48,6 +48,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("note-check")
     sub.add_parser("health")
     sub.add_parser("metrics-now")
+    sub.add_parser("news-watch")
     xc = sub.add_parser("x-check")
     xc.add_argument("--users", default="")
     xc.add_argument("--query", default="")
@@ -98,6 +99,14 @@ def main(argv: list[str] | None = None) -> int:
                                  "text": t.get("text"), "metrics": t.get("public_metrics")} for t in tweets]
             store.write_json("x_check.json", out)
             print(json.dumps(out, ensure_ascii=False, indent=2))
+        elif args.cmd == "news-watch":
+            from . import news_watch
+            import os
+            payload = {}
+            event_path = os.environ.get("GITHUB_EVENT_PATH")
+            if event_path and os.path.exists(event_path):
+                payload = json.load(open(event_path, encoding="utf-8")).get("client_payload") or {}
+            print(json.dumps(news_watch.run(payload), ensure_ascii=False, indent=2))
         elif args.cmd == "metrics-now":
             print(json.dumps(research.snapshot(), ensure_ascii=False, indent=2))
         elif args.cmd == "health":
@@ -131,7 +140,7 @@ def main(argv: list[str] | None = None) -> int:
             "error": f"{type(e).__name__}: {e}",
             "traceback": traceback.format_exc()[-4000:],
         })
-        if args.cmd in ("generate", "decide", "note-article"):
+        if args.cmd in ("generate", "decide", "note-article", "news-watch"):
             # リサーチ・学習の失敗は次の回で取り戻せるので、LINEの通数を使わない
             line.notify(f"【異常】{args.cmd} でエラーが発生しました\n{type(e).__name__}: {str(e)[:600]}")
         raise

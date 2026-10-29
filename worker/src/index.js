@@ -27,6 +27,12 @@ export default {
     if (t.getUTCHours() % 2 === 0 && t.getUTCMinutes() === 35) {
       ctx.waitUntil(dispatch(env, "research", { at: t.toISOString(), learn: t.getUTCHours() === 20 }));
     }
+    // 速報の見張り: 10分おき（Hyperliquid・trade[XYZ]・HIP-3・株式Perpのニュースと、HYPEの急変）
+    if (t.getUTCMinutes() % 10 === 2) ctx.waitUntil(newsWatch(env, t));
+    // 深夜に見つけて保留した速報を朝に出す（06:50 JST）
+    if (t.getUTCHours() === 21 && t.getUTCMinutes() === 50) {
+      ctx.waitUntil(dispatch(env, "news_watch", { flush: true, at: t.toISOString() }));
+    }
     // note記事: 水・土の日本時間7:40（UTCでは火・金の22:40）
     if ([2, 5].includes(t.getUTCDay()) && t.getUTCHours() === 22 && t.getUTCMinutes() === 40) {
       ctx.waitUntil(dispatch(env, "note_article", { at: t.toISOString() }));
@@ -190,6 +196,63 @@ async function health(env) {
   };
   const ok = gh.status === 200 && body.line_secret && body.line_token && body.admin_id;
   return new Response(JSON.stringify({ ok, ...body }), { status: ok ? 200 : 500, headers: { "Content-Type": "application/json" } });
+}
+
+// ---- 速報の見張り（無料: Google ニュースのRSSとHyperliquidの公開API） ----
+// 見つけたときだけGitHubを起動する（GitHubの無料枠の時間を使いすぎないため）
+const NEWS_QUERIES = [
+  ["Hyperliquid", "en"], ["trade.xyz OR tradexyz OR \"trade[XYZ]\"", "en"], ["HIP-3 Hyperliquid", "en"],
+  ["\"stock perps\" OR \"equity perpetuals\" OR \"stock perpetual futures\"", "en"],
+  ["ハイパーリキッド OR Hyperliquid", "ja"], ["株式 無期限先物 OR 株式パーペチュアル OR トークン化株式", "ja"],
+];
+
+async function fetchNews(q, lang) {
+  const loc = lang === "ja" ? "hl=ja&gl=JP&ceid=JP:ja" : "hl=en-US&gl=US&ceid=US:en";
+  const r = await fetch(`https://news.google.com/rss/search?q=${encodeURIComponent(q + " when:1h")}&${loc}`,
+    { headers: { "User-Agent": "Mozilla/5.0 (compatible; x-ai-editorial/1.0)" } });
+  if (!r.ok) return [];
+  const xml = await r.text();
+  const items = [];
+  for (const m of xml.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
+    const pick = (tag) => (m[1].match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)</${tag}>`)) || [])[1] || "";
+    items.push({ title: pick("title").replace(/<!\[CDATA\[|\]\]>/g, ""), source: pick("source"), published: pick("pubDate"), query: q });
+  }
+  return items;
+}
+
+async function hypeMove() {
+  // HYPEの直近1時間の値動き（5分足）
+  const end = Date.now();
+  const r = await fetch("https://api.hyperliquid.xyz/info", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ type: "candleSnapshot", req: { coin: "HYPE", interval: "5m", startTime: end - 65 * 60000, endTime: end } }),
+  });
+  if (!r.ok) return null;
+  const cs = await r.json();
+  if (!Array.isArray(cs) || cs.length < 6) return null;
+  const first = Number(cs[0].o), last = Number(cs[cs.length - 1].c);
+  return first > 0 ? ((last / first) - 1) * 100 : null;
+}
+
+async function newsWatch(env, t) {
+  // 毎回3つの検索語を順番に見る（1回あたりの処理を軽くする）
+  const slot = Math.floor(t.getTime() / 600000) % 2;
+  const queries = NEWS_QUERIES.filter((_, i) => i % 2 === slot);
+  const fresh = [];
+  for (const [q, lang] of queries) {
+    try {
+      for (const it of await fetchNews(q, lang)) {
+        const age = t.getTime() - Date.parse(it.published);
+        if (age >= 0 && age < 25 * 60000) fresh.push(it);  // 直近25分に出た記事（10分おきに見るので重なりは GitHub 側で除く）
+      }
+    } catch (e) { /* 取得できない回は次の回で拾う */ }
+  }
+  let move = null;
+  try { move = await hypeMove(); } catch (e) { /* 次の回で */ }
+  const spike = move !== null && Math.abs(move) >= 5;
+  if (fresh.length || spike) {
+    await dispatch(env, "news_watch", { items: fresh.slice(0, 15), hype_1h: move, at: t.toISOString() });
+  }
 }
 
 async function dispatch(env, eventType, payload) {

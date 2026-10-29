@@ -66,6 +66,8 @@ def slot_base(slot: dict, now: datetime | None = None) -> datetime:
 
 
 def slot_key(slot: dict) -> str:
+    if slot["id"] == "news":
+        return f"{now_jst():%Y%m%d}-news{now_jst():%H%M}"  # 速報は1日に複数あり得る
     return f"{slot_base(slot):%Y%m%d}-{slot['id']}"
 
 
@@ -76,7 +78,7 @@ def news_facts() -> list[dict]:
     now = now_utc()
     out = []
     for f in store.read_json("news_facts.json", []) or []:
-        if datetime.fromisoformat(f["expires_at"]) > now:
+        if datetime.fromisoformat(f["expires_at"]) > now and f.get("status") != "posted":
             out.append({**f, "kind": f.get("kind", "news"), "category": "breaking_news", "refresh": None,
                         "confidence": "confirmed"})
     return out
@@ -473,6 +475,18 @@ def _attach_chart(draft: dict) -> list[str] | None:
         return None
 
 
+def _mark_news_posted(draft: dict) -> None:
+    """速報を投稿したら、同じ速報を二度使わないよう記録する。"""
+    keys = {f["key"] for f in draft["facts"] if f.get("category") == "breaking_news"}
+    if not keys:
+        return
+    facts = store.read_json("news_facts.json", []) or []
+    for f in facts:
+        if f["key"] in keys:
+            f["status"] = "posted"
+    store.write_json("news_facts.json", facts)
+
+
 def _close(draft: dict, status: str, **extra) -> None:
     draft["status"] = status
     draft.update(extra)
@@ -561,6 +575,7 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
         raise
 
     posted_at = now_utc()
+    _mark_news_posted(draft)
     store.record_post({
         "tweet_id": tweet_id,
         "draft_id": draft_id,

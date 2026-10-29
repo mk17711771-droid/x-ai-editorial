@@ -60,6 +60,24 @@ def news() -> list[dict]:
     return items
 
 
+def news_items(q: str, window: str = "when:1d", lang: str = "ja") -> list[dict]:
+    """Google ニュースの検索結果（見出し・媒体・日時）。速報の裏取りに使う。"""
+    loc = "hl=ja&gl=JP&ceid=JP:ja" if lang == "ja" else "hl=en-US&gl=US&ceid=US:en"
+    try:
+        r = requests.get(f"https://news.google.com/rss/search?q={quote(q)}+{quote(window)}&{loc}", headers=HEADERS, timeout=30)
+        r.raise_for_status()
+        root = ET.fromstring(r.content)
+    except (requests.RequestException, ET.ParseError) as e:
+        _error("news", q, e)
+        return []
+    out = []
+    for it in list(root.iter("item"))[:20]:
+        src = it.find("source")
+        out.append({"title": (it.findtext("title") or "").strip(), "source": src.text if src is not None else "",
+                    "published": it.findtext("pubDate") or "", "url": it.findtext("link") or ""})
+    return out
+
+
 def news_digest(n: int = 8) -> str:
     """編集長AIに渡す、直近のニュース見出し。"""
     today = now_utc().astimezone(JST)

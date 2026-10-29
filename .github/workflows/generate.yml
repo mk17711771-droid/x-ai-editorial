@@ -3,14 +3,6 @@ name: generate-drafts
 # 投稿枠（日本時間）ごとに材料収集 → 編集 → 原稿作成 → LINEへ承認依頼
 # cronはUTC。GitHubの定時実行は数分〜数十分遅れることがある
 on:
-  schedule:
-    # 主はCloudflare WorkerのCron Triggers（毎日ランダムな時刻に repository_dispatch で起動）。
-    # 以下はGitHubの定時実行による予備（遅れたり飛ばされたりする）。枠は1回しか生成しないので二重投稿にはならない
-    - cron: "52 23 * * *"     # 08:52 JST（朝の枠の予備）
-    - cron: "27 2 * * *"      # 11:27 JST
-    - cron: "36 4 * * *"      # 13:36 JST
-    - cron: "57 12 * * *"     # 21:57 JST
-    - cron: "23 15 * * *"     # 00:23 JST
   # Cloudflare Worker の Cron Triggers から、毎日ランダムな投稿時刻に起動される（主）
   repository_dispatch:
     types: [generate]
@@ -76,7 +68,7 @@ jobs:
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_ADMIN_USER_ID: ${{ secrets.LINE_ADMIN_USER_ID }}
-        run: python -m aiedit.cli generate --slot "${{ inputs.slot || 'auto' }}" ${{ inputs.force && '--force' || '' }}
+        run: python -m aiedit.cli generate --slot "${{ inputs.slot || github.event.client_payload.slot || 'auto' }}" ${{ inputs.force && '--force' || '' }}
       - name: Save data
         if: always()
         run: |

@@ -717,3 +717,22 @@ def test_markdown_stripped_and_cliches_not_repeated():
                        "posted_at_jst": "2026-10-26 09:00", "text": "この歪み、地味だけどかなり重要", "topic_key": "a"})
     text = "Hyperliquidの$SOLの建玉が膨らんで、資金調達率もじわじわ上がってきてる。地味だけど面白い動き。"
     assert any("地味だけど" in e for e in checks.check_text(text, "b"))
+
+
+def test_news_watch_verifies_and_queues(monkeypatch, isolated):
+    from aiedit import news_watch
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-29T17:00:00+00:00")  # 02:00 JST（深夜は保留）
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
+    monkeypatch.setattr(llm, "generate_json", lambda s, u: {"stories": [
+        {"story_key": "ice-tradexyz", "headline": "ICEがtrade[XYZ]に出資", "summary_ja": "…", "importance": 5,
+         "official": False, "sources": ["CoinDesk", "Bloomberg"], "fields": {"what": "提携と出資"}},
+        {"story_key": "minor", "headline": "解説記事", "importance": 2, "sources": ["X"]}]})
+    res = news_watch.run({"items": [{"title": "ICE teams up with trade.xyz", "source": "CoinDesk"}]})
+    assert [s["story_key"] for s in res["stories"]] == ["ice-tradexyz"]
+    assert "朝6:50" in res["actions"][0]
+    assert store.read_json("news_facts.json")[0]["key"] == "news:ice-tradexyz"
+    assert isolated and "速報をキャッチ" in json.dumps(isolated, ensure_ascii=False)
+    # 同じ見出しは二度処理しない
+    assert news_watch.run({"items": [{"title": "ICE teams up with trade.xyz", "source": "CoinDesk"}]})["new"] == 0
+    assert any(f["category"] == "breaking_news" for f in pipeline.news_facts())

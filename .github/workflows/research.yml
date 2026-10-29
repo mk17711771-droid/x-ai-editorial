@@ -9,9 +9,6 @@ on:
   # 主はCloudflare WorkerのCron Triggers（2時間ごと。05:35 JSTの回は学習・改善会議つき）。GitHubの定時実行は予備
   repository_dispatch:
     types: [research]
-  schedule:
-    - cron: "37 */2 * * *"
-    - cron: "23 20 * * *"
   workflow_dispatch:
     inputs:
       learn:
@@ -63,6 +60,7 @@ jobs:
           fi
           python -m aiedit.cli sources --news-only || true
           python -m aiedit.cli note-check || true
+          python -m aiedit.cli news-watch || true
           python -m aiedit.cli health || true
       - name: Save data
         if: always()
