@@ -304,6 +304,13 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         stock_led = slot["kind"] != "stock" or first.get("kind") == "stock"
         return (angle_family(c.get("topic_key", "")) == repeat, not stock_led, -c["total"])
     cands = sorted(cands, key=priority)
+    if slot["id"] == "news":
+        # 速報枠は速報の材料を使った候補だけ
+        cands = [c for c in cands if any(facts_by_id.get(i, {}).get("category") == "breaking_news"
+                                         for i in c.get("fact_ids", []))]
+        for c in cands:
+            news = next(facts_by_id[i] for i in c["fact_ids"] if facts_by_id.get(i, {}).get("category") == "breaking_news")
+            c["topic_key"] = news["key"]
     drafts = []
     for cand in cands:
         if len(drafts) >= cfg["limits"]["max_candidates_per_slot"]:

@@ -237,7 +237,7 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
         if phrase in text and any(phrase in t for t in recent_texts):
             errors.append(f"「{phrase}」は最近も使った言い回し。別の言葉で書く")
     # 主役（キャッシュタグの銘柄）が直近の投稿と同じなら、話題の名前が違っても続けて出さない
-    tags = set(CASHTAG.findall(text))
+    tags = set(CASHTAG.findall(text)) if not str(topic_key).startswith("news:") else set()  # 速報は同じ銘柄でも出す
     recent_tags = {t for p in store.recent_posts(cfg.get("same_symbol_cooldown_hours", 18)) for t in CASHTAG.findall(p["text"])}
     if tags & recent_tags:
         errors.append(f"主役の銘柄{'・'.join(sorted(tags & recent_tags))}を直近に投稿済み（別の銘柄を主役にする）")
