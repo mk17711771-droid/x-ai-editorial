@@ -73,6 +73,11 @@ def slot_key(slot: dict) -> str:
 
 # ---------------------------------------------------------------- 生成
 
+def recent_news_post(minutes: int) -> bool:
+    return any(str(p.get("slot_key", "")).split("-")[-1].startswith("news")
+               for p in store.recent_posts(minutes / 60))
+
+
 def news_facts(pending_only: bool = False) -> list[dict]:
     """確認済みの速報（公式発表・複数の報道で裏付けたもの）。data/news_facts.json に期限つきで置く。"""
     now = now_utc()
@@ -271,6 +276,10 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         log.info("枠 %s は生成済みです", key)
         return []
 
+    if slot["id"] == "news" and recent_news_post(minutes=120):
+        # 速報を短時間に連発しない（同じ出来事の言い換えが続いて単調になる）。速報は未投稿のまま残し、間隔をあけて出す
+        log.info("直近2時間以内に速報を出したため、今回は見送ります")
+        return []
     facts = collect(slot["kind"], weekly=bool(slot.get("weekly")), pending_news=slot["id"] == "news")
     store.write_json(f"facts/{key}.json", facts)
     log.info("材料 %d 件を収集", len(facts))

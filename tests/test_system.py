@@ -809,13 +809,17 @@ def test_health_retries_announced_but_unposted_news(monkeypatch):
     from aiedit import health
     monkeypatch.setenv("AIEDIT_NOW", "2026-10-29T19:00:00+00:00")
     store.write_json("news/stories.json", {"druck": {"at": "x", "last_post_at": "2026-10-29T18:26:00+00:00"}})
-    store.write_json("news_facts.json", [{"key": "news:druck", "status": "posted", "expires_at": "2026-12-31T00:00:00+00:00",
+    store.write_json("news_facts.json", [{"key": "news:druck", "status": "pending", "expires_at": "2026-12-31T00:00:00+00:00",
+                                          "fields": {}, "summary": ""},
+                                         {"key": "news:same-as-posted", "status": "posted", "expires_at": "2026-12-31T00:00:00+00:00",
                                           "fields": {}, "summary": ""}])
+    store.write_json("news/stories.json", {"druck": {"at": "x", "last_post_at": "2026-10-29T18:26:00+00:00"},
+                                           "same-as-posted": {"at": "x", "last_post_at": "2026-10-29T17:47:00+00:00"}})
     sent = []
     monkeypatch.setattr(health, "_dispatch_news", lambda: sent.append(1) or True)
     actions = []
     issues = health.announced_not_posted(actions)
-    assert issues[0]["type"] == "announced_not_posted" and sent and actions
+    assert [i["story"] for i in issues] == ["druck"] and sent and actions  # 投稿済みと記録された話題は出し直さない
     assert store.read_json("news_facts.json")[0]["status"] == "pending"
     assert health.announced_not_posted([]) and len(sent) == 1  # 出し直しは1回だけ
 

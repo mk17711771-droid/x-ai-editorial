@@ -203,8 +203,11 @@ def run(payload: dict | None = None) -> dict:
             if posts:
                 s["story_key"] = f"{s['story_key']}-{posts + 1}"  # 続報は別の材料として扱う
             add_fact(s)
+            from .pipeline import recent_news_post
             if _posts_today() >= _cfg().get("max_posts_per_day", 3):
                 action = "今日の速報投稿の上限に達したため、通常の投稿の材料に回します"
+            elif recent_news_post(minutes=120):
+                action = "直前に速報を出したばかりなので、2時間あけてから投稿します（自動で出し直します）"
             elif _dispatch_news_slot():
                 action = "続報の投稿を始めました（投稿できたら投稿のお知らせが届きます）" if posts else "速報の投稿を始めました（投稿できたら投稿のお知らせが届きます）"
             else:
