@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 
 import requests
 
-from . import fmt
+from . import fmt, store
 from .common import JST, NY, WEEKDAYS_JA, env, fmt_jst, log, now_utc, settings
 
 API = "https://finnhub.io/api/v1"
@@ -75,6 +75,36 @@ def _quote_fact(sym: str, q: dict) -> dict:
         "asof": asof.isoformat(),
         "confidence": "confirmed",
     }
+
+
+def record_close(sym: str, q: dict) -> None:
+    """日々の終値（取引日ごと）を記録する。週の振り返り（1週間の値動き）に使う。"""
+    day = datetime.fromtimestamp(int(q["t"]), timezone.utc).astimezone(NY).strftime("%Y-%m-%d")
+    closes = store.read_json("stock_closes.json", {})
+    closes.setdefault(sym, {})[day] = float(q["c"])
+    store.write_json("stock_closes.json", closes)
+
+
+def week_change_facts() -> list[dict]:
+    """記録した終値から、約1週間（5取引日）前との比較を作る。記録が足りない銘柄は出さない。"""
+    closes = store.read_json("stock_closes.json", {})
+    out = []
+    for sym, by_day in closes.items():
+        days = sorted(by_day)
+        if len(days) < 6:
+            continue
+        last, base = days[-1], days[-6]
+        ch = (by_day[last] / by_day[base] - 1) * 100
+        out.append({
+            "key": f"stock:{sym}:week_change", "kind": "stock", "category": "week_change",
+            "summary": f"{sym} 1週間（{base}→{last}の終値）の値動き{ch:+.2f}%",
+            "fields": {"symbol": sym, "week_change_pct": fmt.pct(ch), "price": fmt.usd_price(by_day[last]),
+                       "basis": "5取引日前の終値比", "asof": f"米国{_date_ja(last)}終値"},
+            "raw": {"week_change_pct": round(ch, 3)}, "refresh": None,
+            "source": {"name": SOURCE_NAME, "url": f"https://finance.yahoo.com/quote/{sym}"},
+            "asof": now_utc().isoformat(), "confidence": "confirmed",
+        })
+    return sorted(out, key=lambda f: abs(f["raw"]["week_change_pct"]), reverse=True)[:8]
 
 
 def collect() -> list[dict]:

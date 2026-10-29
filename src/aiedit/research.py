@@ -34,6 +34,7 @@ def watch() -> dict:
                 continue
             if q:
                 moves.append((sym, round(float(q["dp"]), 2)))
+                collect_stocks.record_close(sym, q)
         rec["stock_movers"] = sorted(moves, key=lambda t: abs(t[1]), reverse=True)[:6]
     try:
         snap = traders.snapshot()

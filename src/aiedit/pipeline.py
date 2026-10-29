@@ -69,8 +69,14 @@ def slot_key(slot: dict) -> str:
 
 # ---------------------------------------------------------------- 生成
 
-def collect(kind: str) -> list[dict]:
+def collect(kind: str, weekly: bool = False) -> list[dict]:
     raw = collect_stocks.collect() if kind == "stock" else collect_hyperliquid.collect() + traders.facts()
+    if weekly:
+        # 週の振り返り: 1週間の値動き（Hyperliquidの主要銘柄・HIP-3と、記録した米国株の終値）
+        try:
+            raw = collect_hyperliquid.week_changes() + collect_stocks.week_change_facts() + raw
+        except requests.RequestException as e:
+            log.warning("1週間の値動きを取得できません: %s", e)
     # 株の枠でもHIP-3の株式先物は材料にする（株とHyperliquidをつなぐ視点）
     if kind == "stock" and settings()["hyperliquid"].get("include_hip3"):
         try:
@@ -103,6 +109,27 @@ def with_playbook(prompt: str) -> str:
             + notes)
 
 
+ANGLE_NAMES = {"hl_flow": "Hyperliquid/HIP-3の資金調達率・建玉の偏り", "move": "急な値動き",
+               "traders": "上位トレーダーの集計", "stock": "米国株の値動き・決算", "summary": "まとめ・振り返り"}
+
+
+def angle_family(topic_key: str) -> str:
+    """投稿の切り口の系統。同じ系統が続くと単調になるので、続けて出さないために使う。"""
+    t = str(topic_key)
+    if t.startswith("traders"):
+        return "traders"
+    if t.startswith("stock:"):
+        return "stock"
+    last = t.rsplit(":", 1)[-1]
+    if last in ("funding_extreme", "hip3_top", "oi_change", "volume_top", "overview"):
+        return "hl_flow"
+    if last in ("big_move",):
+        return "move"
+    if last in ("week_change",):
+        return "summary"
+    return "other"
+
+
 def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None) -> list[dict]:
     recent = [p.get("topic_key") for p in store.recent_posts(72)]
     form = {
@@ -118,6 +145,12 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None) -
     if recent_tags:
         user += ("\n\n# 直近に主役にした銘柄（続けて同じ銘柄を主役にしない。別の銘柄・別の切り口を選ぶ）\n"
                  + json.dumps(recent_tags, ensure_ascii=False))
+    recent_angles = [angle_family(p.get("topic_key", "")) for p in store.recent_posts(36)][-2:]
+    if len(recent_angles) == 2 and recent_angles[0] == recent_angles[1]:
+        user += (f"\n\n# 直近2件の切り口が同じ（{ANGLE_NAMES.get(recent_angles[0], recent_angles[0])}）。"
+                 "今回は別の切り口の候補を上位にする")
+    if slot.get("kind") == "stock":
+        user += "\n\n# この枠の主役は米国株（材料の1つ目に米国株の材料を置く）。Hyperliquid/HIP-3の材料は添える程度"
     if exclude:
         user += ("\n\n# 選んではいけない話題（24時間以内に投稿済み。別の材料を主役にした候補を出す）\n"
                  + json.dumps(sorted(t for t in exclude if t), ensure_ascii=False))
@@ -215,7 +248,7 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         log.info("枠 %s は生成済みです", key)
         return []
 
-    facts = collect(slot["kind"])
+    facts = collect(slot["kind"], weekly=bool(slot.get("weekly")))
     store.write_json(f"facts/{key}.json", facts)
     log.info("材料 %d 件を収集", len(facts))
     facts_by_id = {f["id"]: f for f in facts}
@@ -245,6 +278,15 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         all_cands = run_editor(slot, facts, exclude=recent_topics)
         cands = [c for c in all_cands if c["total"] >= cfg["scoring"]["auto_post_min"]]
         store.write_json(f"editor/{key}.json", all_cands)
+    # 切り口が3回続かないように、直近2件と同じ系統の候補は後回しにする
+    recent_angles = [angle_family(p.get("topic_key", "")) for p in store.recent_posts(36)][-2:]
+    repeat = recent_angles[0] if len(recent_angles) == 2 and recent_angles[0] == recent_angles[1] else None
+    # 米国株の枠では、米国株の材料が主役の候補を先にする（Hyperliquidばかりにならないように）
+    def priority(c: dict) -> tuple:
+        first = facts_by_id.get((c.get("fact_ids") or [""])[0], {})
+        stock_led = slot["kind"] != "stock" or first.get("kind") == "stock"
+        return (angle_family(c.get("topic_key", "")) == repeat, not stock_led, -c["total"])
+    cands = sorted(cands, key=priority)
     drafts = []
     for cand in cands:
         if len(drafts) >= cfg["limits"]["max_candidates_per_slot"]:

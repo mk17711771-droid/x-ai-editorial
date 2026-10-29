@@ -698,3 +698,13 @@ def test_endings_vary():
     assert any("絵文字" in e for e in checks.check_text(base + "これは注目だ😏", "b"))
     assert any("締めの言い回し" in e for e in checks.check_text(base + "ちょっと過熱気味だな", "b"))
     assert not any("締め" in e or "絵文字" in e for e in checks.check_text(base + "明日の決算で答え合わせ。", "b"))
+
+
+def test_angle_family_and_week_change_from_closes():
+    assert pipeline.angle_family("hl:xyz:SKHX:funding_extreme") == pipeline.angle_family("hl:xyz:SMSN:hip3_top") == "hl_flow"
+    assert pipeline.angle_family("stock:SOXX:quote") == "stock"
+    from aiedit import collect_stocks
+    days = ["2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-26", "2026-10-27"]
+    store.write_json("stock_closes.json", {"NVDA": {d: 100.0 + i * 2 for i, d in enumerate(days)}})
+    f = collect_stocks.week_change_facts()[0]
+    assert f["fields"]["week_change_pct"] == "+10.00%" and f["category"] == "week_change"

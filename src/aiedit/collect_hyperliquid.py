@@ -286,3 +286,27 @@ def refresh_fact(fact: dict) -> dict | None:
     new = _fact(m, fact["category"], fact["summary"])
     new["id"] = fact["id"]
     return new
+
+
+def week_changes(n: int = 8) -> list[dict]:
+    """主要銘柄（建玉上位の暗号資産＋出来高上位のHIP-3株式先物）の1週間の値動き。週末の振り返り用。"""
+    cfg = settings()["hyperliquid"]
+    liquid = [m for m in fetch_markets() if m["vol_usd"] >= cfg["min_day_volume_usd"]]
+    crypto = sorted([m for m in liquid if not m["dex"]], key=lambda m: m["oi_usd"], reverse=True)[: n // 2]
+    hip3 = sorted([m for m in liquid if m["dex"]], key=lambda m: m["vol_usd"], reverse=True)[: n - len(crypto)]
+    end = now_utc()
+    out = []
+    for m in crypto + hip3:
+        try:
+            cs = candles(m["coin"], end - timedelta(days=8), end, interval="1d")
+        except requests.RequestException:
+            continue
+        if len(cs) < 7:
+            continue
+        base = float(cs[-8]["c"]) if len(cs) >= 8 else float(cs[0]["o"])
+        if base <= 0:
+            continue
+        ch = (m["mark"] / base - 1) * 100
+        out.append(_fact(m, "week_change", f"1週間の値動き{ch:+.2f}%: {display_name(m)}（{'HIP-3株式等先物' if m['dex'] else '無期限先物'}）",
+                         extra_fields={"week_change_pct": fmt.pct(ch)}, extra_raw={"week_change_pct": round(ch, 3)}))
+    return out
