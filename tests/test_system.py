@@ -731,7 +731,7 @@ def test_news_watch_verifies_and_queues(monkeypatch, isolated):
         {"story_key": "minor", "headline": "解説記事", "importance": 2, "sources": ["X"]}]})
     res = news_watch.run({"items": [{"title": "ICE teams up with trade.xyz", "source": "CoinDesk"}]})
     assert [s["story_key"] for s in res["stories"]] == ["ice-tradexyz"]
-    assert "今すぐ投稿" in res["actions"][0]
+    assert "投稿を始めました" in res["actions"][0]
     assert store.read_json("news_facts.json")[0]["key"] == "news:ice-tradexyz"
     assert isolated and "速報をキャッチ" in json.dumps(isolated, ensure_ascii=False)
     # 同じ見出しは二度処理しない
