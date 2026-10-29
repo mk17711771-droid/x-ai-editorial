@@ -33,6 +33,10 @@ export default {
     if (t.getUTCHours() === 21 && t.getUTCMinutes() === 50) {
       ctx.waitUntil(dispatch(env, "news_watch", { flush: true, at: t.toISOString() }));
     }
+    // 返信の候補: 毎日19:25（日本時間）にLINEへ
+    if (t.getUTCHours() === 10 && t.getUTCMinutes() === 25) {
+      ctx.waitUntil(dispatch(env, "reply_ideas", { at: t.toISOString() }));
+    }
     // note記事: 水・土の日本時間7:40（UTCでは火・金の22:40）
     if ([2, 5].includes(t.getUTCDay()) && t.getUTCHours() === 22 && t.getUTCMinutes() === 40) {
       ctx.waitUntil(dispatch(env, "note_article", { at: t.toISOString() }));

@@ -127,7 +127,7 @@ research:
   # noteの反応は自分の記事のスキ数（note-check が毎日記録）で測る。
   note_queries: []
   x:                             # Xの同ジャンルの伸びた投稿（有料: 1件約0.75円。毎日1つずつ順番に検索）
-    enabled: true
+    enabled: false               # 返信候補の検索（reply_ideas）で同ジャンルの投稿を毎日集めるので止める（費用の二重払いを避ける）
     monthly_read_limit: 400      # 月の上限（約300円）
     per_query: 12
     rotate: true
@@ -148,3 +148,14 @@ news_watch:
     - trade.xyz
     - stock perpetuals
     - 株式 無期限先物
+
+# 返信の候補（毎日19:25ごろLINEに送る。返信は管理者が手で行う）
+reply_ideas:
+  queries:                       # 毎日の検索（1件約0.75円。1日20件まで ≒ 月約450円）
+    - "(Hyperliquid OR ハイパーリキッド OR HYPE OR 株式パーペチュアル OR trade.xyz) lang:ja -is:retweet -is:reply"
+    - "(米国株 OR 半導体 OR エヌビディア OR NVDA OR 決算) lang:ja -is:retweet -is:reply has:media"
+  per_query: 10
+  min_followers: 2000            # 自分より大きく、届けたい読者がいるアカウント
+  max_followers: 500000
+  max_age_hours: 12              # 新しい投稿ほど返信が読まれる
+  max_ideas: 8

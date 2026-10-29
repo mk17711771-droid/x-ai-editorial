@@ -49,6 +49,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("health")
     sub.add_parser("metrics-now")
     sub.add_parser("news-watch")
+    sub.add_parser("reply-ideas")
     xc = sub.add_parser("x-check")
     xc.add_argument("--users", default="")
     xc.add_argument("--query", default="")
@@ -99,6 +100,9 @@ def main(argv: list[str] | None = None) -> int:
                                  "text": t.get("text"), "metrics": t.get("public_metrics")} for t in tweets]
             store.write_json("x_check.json", out)
             print(json.dumps(out, ensure_ascii=False, indent=2))
+        elif args.cmd == "reply-ideas":
+            from . import reply_ideas
+            print(json.dumps(reply_ideas.run(), ensure_ascii=False, indent=2))
         elif args.cmd == "news-watch":
             from . import news_watch
             import os

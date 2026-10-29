@@ -736,3 +736,17 @@ def test_news_watch_verifies_and_queues(monkeypatch, isolated):
     # 同じ見出しは二度処理しない
     assert news_watch.run({"items": [{"title": "ICE teams up with trade.xyz", "source": "CoinDesk"}]})["new"] == 0
     assert any(f["category"] == "breaking_news" for f in pipeline.news_facts())
+
+
+def test_reply_ideas_drop_unsupported_numbers(monkeypatch, isolated):
+    from aiedit import reply_ideas, research
+    monkeypatch.setattr(reply_ideas, "candidates", lambda: [
+        {"id": "1", "author": "big", "followers": 30000, "age_h": 2, "text": "NVDAが+3.2%、半導体強い", "likes": 50,
+         "replies": 5, "reposts": 3, "has_media": True}])
+    monkeypatch.setattr(research, "watch_summary", lambda h=12: "HL資金調達率上位 SKHX +118.9%")
+    monkeypatch.setattr(llm, "generate_json", lambda s, u: {"ideas": [
+        {"id": "1", "reply": "HIP-3でもSKHXの資金調達率が+118.9%まで来てて、先物側も過熱気味です"},
+        {"id": "1", "reply": "これ+50%いくと思います"}]})
+    picks = reply_ideas.run()
+    assert [p["reply"][:10] for p in picks] == ["HIP-3でもSKHX"]
+    assert "今日の返信候補" in json.dumps(isolated, ensure_ascii=False)
