@@ -1,0 +1,36 @@
+[
+  {
+    "fact_ids": [
+      "f1",
+      "f3"
+    ],
+    "topic_key": "news:ice-trade-xyz-hyperliquid-us-expansion-2",
+    "angle": "NYSE親会社によるHyperliquid基盤の米国向け無期限先物展開の発表と、それを受けたHYPEの価格・出来高の反応を伝える",
+    "scores": {
+      "novelty": 20,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 97,
+    "reason": "伝統金融とオンチェーンの大型接点となる歴史的な提携ニュースと、それに連動するHYPEの実データを組み合わせた極めて新規性と証拠性の高い材料。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f13"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体セクターの現物下落と連動し、HIP-3のSKHX先物でショートが過熱して資金調達率が極端なマイナスになっている構造を指摘する",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "半導体関連のHIP-3先物における異常な資金調達率の乖離に着目し、市場の歪みを数字で的確に捉えているため。"
+  }
+]
