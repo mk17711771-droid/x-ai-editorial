@@ -326,7 +326,8 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
             for c in cs:
                 news = [facts_by_id[i] for i in c.get("fact_ids", []) if facts_by_id.get(i, {}).get("category") == "breaking_news"]
                 if news:
-                    c["topic_key"] = news[0]["key"]
+                    # 解説の長文は速報とは別の話題として扱う（速報を出した直後でも「投稿済みの話題」で止めない）
+                    c["topic_key"] = news[0]["key"] + (":long" if slot["id"] == "newslong" else "")
                     out.append(c)
             return out
         picked = news_cands(cands)
