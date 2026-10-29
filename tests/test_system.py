@@ -259,8 +259,7 @@ def test_auto_mode_notifies_and_delete_removes_post(wired, isolated, monkeypatch
     settings.cache_clear()
     d = pipeline.generate()[0]
     assert len(wired) == 1
-    notice = isolated[-1][0]
-    assert notice["type"] == "flex" and "削除" in json.dumps(notice, ensure_ascii=False)
+    assert isolated == []  # 通常の投稿はLINEに個別に知らせない（夜のまとめで1日1通。無料枠の節約）
     deleted = []
     monkeypatch.setattr(xapi, "delete", lambda tid: deleted.append(tid))
     assert pipeline.publish(d["id"], "delete") == "deleted"
@@ -819,3 +818,23 @@ def test_health_retries_announced_but_unposted_news(monkeypatch):
     assert issues[0]["type"] == "announced_not_posted" and sent and actions
     assert store.read_json("news_facts.json")[0]["status"] == "pending"
     assert health.announced_not_posted([]) and len(sent) == 1  # 出し直しは1回だけ
+
+
+def test_nightly_digest(monkeypatch, isolated):
+    from aiedit import digest
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T12:35:00+00:00")
+    store.record_post({"tweet_id": "1", "slot_key": "20261028-0730", "posted_at": "2026-10-27T22:39:00+00:00",
+                       "posted_at_jst": "2026-10-28 07:39", "text": "今朝の米国株は…\n・SOXX", "topic_key": "a"})
+    store.record_post({"tweet_id": "2", "slot_key": "20261027-2030", "posted_at": "2026-10-27T12:05:00+00:00",
+                       "posted_at_jst": "2026-10-27 21:05", "text": "夜の長文", "topic_key": "b"})
+    store.write_json("metrics.json", {"2": {"24h": {"impressions": 69, "likes": 0, "bookmarks": 0}}})
+    text = digest.run()
+    assert "今日の投稿 1件" in text and "表示69" in text and len(isolated) == 1
+
+
+def test_system_audit_flags_stale_parts(monkeypatch):
+    from aiedit import health, line
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-31T01:00:00+00:00")  # 10:00 JST（土曜）
+    monkeypatch.setattr(line, "quota", lambda: {"used": 150, "limit": 200})
+    types = {i["type"] for i in health.system_audit()}
+    assert {"stale", "learn_missing", "note_article_missing", "line_quota", "followers_missing"} <= types

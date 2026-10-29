@@ -67,6 +67,59 @@ def failed_runs(hours: int = 6) -> list[dict]:
             if datetime.fromisoformat(w["created_at"].replace("Z", "+00:00")) >= since]
 
 
+def _age_h(rel: str) -> float | None:
+    p = store.DATA_DIR / rel
+    if not p.exists():
+        return None
+    return (now_utc().timestamp() - p.stat().st_mtime) / 3600
+
+
+def system_audit() -> list[dict]:
+    """仕組み全体の健康診断（投稿以外も含めて、止まっている・古いままの部分を見つける）。"""
+    out: list[dict] = []
+    now = now_jst()
+
+    def flag(kind: str, **kw) -> None:
+        out.append({"type": kind, **kw})
+
+    # 学習・リサーチが毎日更新されているか
+    for rel, hours in (("trends.md", 30), ("playbook.md", 30)):
+        a = _age_h(rel)
+        if a is None or a > hours:
+            flag("stale", file=rel, age_h=round(a, 1) if a else None)
+    if now.hour >= 7 and not (store.DATA_DIR / f"learn/{now:%Y%m%d}.json").exists():
+        flag("learn_missing", date=f"{now:%Y-%m-%d}")
+    if not (store.DATA_DIR / f"watch/{now:%Y%m%d}.jsonl").exists() and now.hour >= 3:
+        flag("watch_missing", date=f"{now:%Y-%m-%d}")
+    xs = sorted((store.DATA_DIR / "sources/x").glob("*.json")) if (store.DATA_DIR / "sources/x").exists() else []
+    if not xs or xs[-1].stem < (now - timedelta(days=2)).strftime("%Y%m%d"):
+        flag("x_research_stale", last=xs[-1].stem if xs else None)
+    # 反応の計測・フォロワー数
+    metrics = store.read_json("metrics.json", {}) or {}
+    late = [p["tweet_id"] for p in store.posts() if not str(p.get("slot_key", "")).startswith("test")
+            and timedelta(hours=27) < now_utc() - datetime.fromisoformat(p["posted_at"]) < timedelta(days=3)
+            and "24h" not in metrics.get(p["tweet_id"], {})]
+    if late:
+        flag("metrics_late", posts=late[:5])
+    f = store.read_jsonl("followers.jsonl")
+    if now.hour >= 6 and (not f or f[-1]["date"] != f"{now:%Y-%m-%d}"):
+        flag("followers_missing")
+    # note記事（水・土の9時までにできているか）
+    if now.weekday() in (2, 5) and now.hour >= 9 and not list(store.DATA_DIR.glob(f"note_articles/{now:%Y%m%d}-*/meta.json")):
+        flag("note_article_missing", date=f"{now:%Y-%m-%d}")
+    # 無料枠・費用
+    from . import line
+    q = line.quota()
+    if q and q.get("used") is not None and q.get("limit"):
+        if q["used"] >= 0.7 * q["limit"]:
+            flag("line_quota", used=q["used"], limit=q["limit"])
+    month = now.strftime("%Y-%m")
+    reads = sum(r["n"] for r in store.read_jsonl("sources/x_reads.jsonl") if r.get("month") == month)
+    if reads >= 0.9 * settings().get("research", {}).get("x", {}).get("monthly_read_limit", 250):
+        flag("x_budget", reads=reads)
+    return out
+
+
 def announced_not_posted(actions: list[str]) -> list[dict]:
     """「速報の投稿を始めました」とLINEで知らせた話題が、実際に投稿されたかを確かめる。出ていなければ出し直す。"""
     out = []
@@ -160,6 +213,7 @@ def run() -> dict:
             log.warning("Cloudflareからの起動を確認できません: %s", e)
 
     issues += worker_checks()
+    issues += system_audit()
     issues += announced_not_posted(actions)
 
     st = store.state()

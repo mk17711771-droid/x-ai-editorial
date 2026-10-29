@@ -620,7 +620,8 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
             _close(sib, "superseded")
         i += 1
     log.info("投稿しました: https://x.com/i/status/%s", tweet_id)
-    if decided_by == "auto":
+    if decided_by == "auto" and str(draft.get("slot_key", "")).split("-")[1].startswith("news"):
+        # 通常の投稿の通知は月200通の無料枠を圧迫するので、夜のまとめ（1日1通）に回す。速報だけはすぐ知らせる
         line.send_posted_notice(draft, tweet_id)
     return "posted"
 

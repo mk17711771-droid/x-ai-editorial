@@ -76,6 +76,10 @@ X（@satoshikun_666「カリスマ」）と note（https://note.com/charisma_hl�
   - テスト `test_worker_ticks_match_cron`: Workerの起動条件がCronの刻みで実際に当たるか（10/30の「見張りが一度も動かない」不具合を防ぐ）
   - 見回り `health.worker_checks`: Workerの /watch-debug（各部分が動くか）と、速報の見張りが12時間以上起動していないかを2時間ごとに確認
   - 方針の文書（CLAUDE.md）を書き換えたら、反映されたかを grep で確かめる（置き換え失敗に気づかなかった反省）
+- **全体を見る（管理者の指示: 一部のミスだけでなく、全体のミスを放置せず質を上げる）**: 見回りの `system_audit` が2時間ごとに
+  学習・リサーチの更新（trends/playbook 30時間以内・learn・watch・同ジャンル調査）／反応の計測の遅れ／フォロワー記録／note記事（水土9時）／
+  LINEの無料枠（70%で警告）／X APIの予算（90%で警告）を確かめる。点検では health.json の全項目を見て、止まっている部分をすべて直す。
+- LINEは月200通の無料枠。通常の投稿は個別に知らせず、夜21:35ごろの「今日のまとめ」1通にまとめる（速報・異常・note・会議以外の通知を増やさない）。
 - **ミスは放置せず、必ず次に活かす（管理者の指示: ミスを重ねてもよいが、拾って必ず活かす）**。ミスを見つけたら、記録だけで終わらせず、次のどれかで「仕組み」にする:
   ① テスト（同じ不具合が二度と通らない） ② 自動チェック（checks.py・health.py） ③ `data/lessons.md`（編集長・執筆AIが毎回読む教訓）
   ④ `config/name_fixes.txt`（表記の統一。投稿の直前に自動で直す） ⑤ `config/cliche_phrases.txt`（決まり文句） ⑥ `config/banned_phrases.txt`

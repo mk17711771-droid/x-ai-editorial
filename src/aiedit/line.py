@@ -26,7 +26,24 @@ def push(messages: list[dict]) -> bool:
     if r.status_code >= 400:
         log.error("LINE送信失敗: %s %s", r.status_code, r.text[:300])
         return False
+    from . import store
+    from .common import now_utc
+    store.append_jsonl("line_pushes.jsonl", {"at": now_utc().isoformat(), "n": 1})  # 月200通の無料枠の使用量を見張る
     return True
+
+
+def quota() -> dict | None:
+    """今月の送信数と上限（LINEのAPI。無料で確認できる）。"""
+    token = env("LINE_CHANNEL_ACCESS_TOKEN", required=False)
+    if not token:
+        return None
+    h = {"Authorization": f"Bearer {token}"}
+    try:
+        used = requests.get("https://api.line.me/v2/bot/message/quota/consumption", headers=h, timeout=20).json()
+        limit = requests.get("https://api.line.me/v2/bot/message/quota", headers=h, timeout=20).json()
+        return {"used": used.get("totalUsage"), "limit": limit.get("value"), "type": limit.get("type")}
+    except (requests.RequestException, ValueError):
+        return None
 
 
 def notify(text: str) -> bool:

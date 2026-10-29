@@ -50,6 +50,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("metrics-now")
     sub.add_parser("news-watch")
     sub.add_parser("records")
+    sub.add_parser("digest")
     sub.add_parser("reply-ideas")
     xc = sub.add_parser("x-check")
     xc.add_argument("--users", default="")
@@ -104,6 +105,9 @@ def main(argv: list[str] | None = None) -> int:
         elif args.cmd == "reply-ideas":
             from . import reply_ideas
             print(json.dumps(reply_ideas.run(), ensure_ascii=False, indent=2))
+        elif args.cmd == "digest":
+            from . import digest
+            print(digest.run())
         elif args.cmd == "records":
             from . import records
             print(json.dumps(records.rebuild(), ensure_ascii=False))
