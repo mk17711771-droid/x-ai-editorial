@@ -62,6 +62,8 @@ jobs:
           python -m aiedit.cli note-check || true
           python -m aiedit.cli news-watch || true
           python -m aiedit.cli records || true
+          # 夜のまとめ（21:35ごろの回だけ。LINEは1日1通）
+          if [ "$(TZ=Asia/Tokyo date +%H)" = "21" ]; then python -m aiedit.cli digest || true; fi
           python -m aiedit.cli health || true
       - name: Save data
         if: always()
