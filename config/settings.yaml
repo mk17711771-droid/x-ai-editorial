@@ -25,6 +25,7 @@ slots:
   - { id: "2030", time: "20:47", kind: stock, days: weekday, format: long, theme: "考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点" }
   - { id: "2030w", time: "20:47", kind: hl,   days: weekend, format: long, theme: "週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント" }
   - { id: "news", time: "00:00", kind: hl,    days: manual,  theme: "速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応" }
+  - { id: "newslong", time: "00:00", kind: hl, days: manual, format: long, theme: "話題のニュースの解説（長文）: 初めての人にもわかるように、何が起きたか・何が変わるか・実データで見る市場の反応・次に見るところ" }
   - { id: "2300", time: "23:13", kind: hl,    days: weekday, theme: "米国市場オープン前後のHyperliquid（株式先物・暗号資産）" }
 
 # GitHub Actionsの定時実行は遅延することがあるため、枠の時刻から何分後まで生成を許可するか

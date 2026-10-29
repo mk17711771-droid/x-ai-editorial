@@ -66,8 +66,8 @@ def slot_base(slot: dict, now: datetime | None = None) -> datetime:
 
 
 def slot_key(slot: dict) -> str:
-    if slot["id"] == "news":
-        return f"{now_jst():%Y%m%d}-news{now_jst():%H%M}"  # 速報は1日に複数あり得る
+    if slot["id"] in ("news", "newslong"):
+        return f"{now_jst():%Y%m%d}-{slot['id']}{now_jst():%H%M}"  # 速報は1日に複数あり得る
     return f"{slot_base(slot):%Y%m%d}-{slot['id']}"
 
 
@@ -78,7 +78,7 @@ def news_facts() -> list[dict]:
     now = now_utc()
     out = []
     for f in store.read_json("news_facts.json", []) or []:
-        if datetime.fromisoformat(f["expires_at"]) > now and f.get("status") != "posted":
+        if datetime.fromisoformat(f["expires_at"]) > now:
             out.append({**f, "kind": f.get("kind", "news"), "category": "breaking_news", "refresh": None,
                         "confidence": "confirmed"})
     return out
@@ -306,7 +306,7 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         stock_led = slot["kind"] != "stock" or first.get("kind") == "stock"
         return (angle_family(c.get("topic_key", "")) == repeat, not stock_led, -c["total"])
     cands = sorted(cands, key=priority)
-    if slot["id"] == "news":
+    if slot["id"] in ("news", "newslong"):
         # 速報枠は速報の材料を使った候補だけ
         cands = [c for c in cands if any(facts_by_id.get(i, {}).get("category") == "breaking_news"
                                          for i in c.get("fact_ids", []))]
@@ -478,7 +478,8 @@ def _attach_chart(draft: dict) -> list[str] | None:
 def _mark_news_posted(draft: dict) -> None:
     """速報を投稿したら、同じ速報を二度使わないよう記録する。"""
     keys = {f["key"] for f in draft["facts"] if f.get("category") == "breaking_news"}
-    if not keys:
+    if not keys or draft.get("format") == "long":  # 解説の長文は速報の後に出すので、速報の材料を使い切らない
+        return
         return
     facts = store.read_json("news_facts.json", []) or []
     for f in facts:
