@@ -111,6 +111,7 @@ def _fact(m: dict, category: str, summary: str, extra_fields: dict | None = None
     asof = now_utc()
     fields = {
         "coin": display_name(m),
+        "symbol": display_name(m),  # 米国株の材料と同じ名前でも書けるように（AIの書き間違いを減らす）
         "venue": "Hyperliquid",
         "market": "株式先物（HIP-3）" if m["dex"] else "無期限先物",
         "price": fmt.usd_price(m["mark"]),
