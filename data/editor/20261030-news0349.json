@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f12",
+      "f22"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体現物の下落とHIP-3先物で起きている極端なショート過熱の乖離を指摘する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "SKハイニックスのHIP-3先物で年率-218.4%という歴史的な資金調達率の歪みが起きており、市場の需給の偏りを鋭く突いているため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f15"
+    ],
+    "topic_key": "hl:xyz:NOW:big_move",
+    "angle": "急落した米国株とHyperliquidのHIP-3におけるロング過熱の対比を検証する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "米国株の前日比-27.34%の急落に連動しつつ、HIP-3先物側で年率+108.8%のロング過熱が生じている歪みを正確に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f23"
+    ],
+    "topic_key": "hl:xyz:GOOGL:hip3_top",
+    "angle": "主要テック株の急落局面におけるHIP-3市場での出来高集中と値動きの整合性を追う。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "GOOGLのHIP-3先物が現物市場の暴落（-13.05%）とほぼ同水準の急落を記録し、オンチェーンでの価格連動性が可視化されているため。"
+  }
+]
