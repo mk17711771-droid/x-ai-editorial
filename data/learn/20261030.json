@@ -1,0 +1,344 @@
+{
+  "at": "2026-10-29T20:36:12.241965+00:00",
+  "measured_posts": 9,
+  "stats": {
+    "format": {
+      "short": {
+        "n": 7,
+        "median_impressions": 58,
+        "median_engagement_rate": 0.0
+      },
+      "long": {
+        "n": 2,
+        "median_impressions": 122.0,
+        "median_engagement_rate": 0.0
+      }
+    },
+    "kind": {
+      "stock": {
+        "n": 4,
+        "median_impressions": 65.0,
+        "median_engagement_rate": 0.0
+      },
+      "hl": {
+        "n": 5,
+        "median_impressions": 46,
+        "median_engagement_rate": 0.0
+      }
+    },
+    "style": {
+      "数字ドン型": {
+        "n": 1,
+        "median_impressions": 58,
+        "median_engagement_rate": 0.0
+      },
+      "気づき型": {
+        "n": 6,
+        "median_impressions": 53.0,
+        "median_engagement_rate": 0.0
+      },
+      "考察型": {
+        "n": 1,
+        "median_impressions": 174,
+        "median_engagement_rate": 0.0
+      },
+      "比較型": {
+        "n": 1,
+        "median_impressions": 70,
+        "median_engagement_rate": 0.0
+      }
+    },
+    "has_image": {
+      "True": {
+        "n": 7,
+        "median_impressions": 70,
+        "median_engagement_rate": 0.0
+      },
+      "False": {
+        "n": 2,
+        "median_impressions": 24.5,
+        "median_engagement_rate": 0.0
+      }
+    },
+    "hour": {
+      "8": {
+        "n": 1,
+        "median_impressions": 58,
+        "median_engagement_rate": 0.0
+      },
+      "11": {
+        "n": 1,
+        "median_impressions": 26,
+        "median_engagement_rate": 0.0
+      },
+      "22": {
+        "n": 1,
+        "median_impressions": 174,
+        "median_engagement_rate": 0.0
+      },
+      "0": {
+        "n": 1,
+        "median_impressions": 82,
+        "median_engagement_rate": 0.0
+      },
+      "7": {
+        "n": 1,
+        "median_impressions": 60,
+        "median_engagement_rate": 0.0
+      },
+      "10": {
+        "n": 1,
+        "median_impressions": 23,
+        "median_engagement_rate": 0.0
+      },
+      "12": {
+        "n": 1,
+        "median_impressions": 142,
+        "median_engagement_rate": 0.0
+      },
+      "21": {
+        "n": 1,
+        "median_impressions": 70,
+        "median_engagement_rate": 0.0
+      },
+      "23": {
+        "n": 1,
+        "median_impressions": 46,
+        "median_engagement_rate": 0.0
+      }
+    }
+  },
+  "top5": [
+    {
+      "text": "米国株の現物市場が強い動きを見せる裏で、HyperliquidのHIP-3先物では資金調達率が異常な高水準に張り付いてる。この現物とデリバティブの歪みは、地味だけどかなり重要だと思っている。\n\n【何が起きてるか】\n$ARMが+6.19%、TSLAが+5.21%と米国株主力が値を上げる一方、オンチェーンのHIP-3市場では半導体関連の買いが加熱し、デリバティブ特有の需給の偏りが表面化している。\n\n【数字で見る】（日本時間10/27(火) 21:57時点）\n・SKHX 価格$1,036、24時間騰落率+5.69%、資金調達率+30.3%、建玉約3.2億ドル、24時間出来高約2.4億ドル\n・SNDK 価格$1,284、24時間騰落率+1.57%、資金調達率+34.9%、建玉約1.4億ドル、24時間出来高約1.8億ドル\n\n【なぜ「歪み」なのか】\n現物株の堅調さに引っ張られる形で、HIP-3の先物にレバレッジをかけたロングが集中しているとみている。特に年率換算でこれだけの資金調達率がついている状態は、ロング側がショート側に相当なコストを支払いながらポジションを維持している証拠だ。需給が完全に買いに傾いている一方で、これだけ偏ると、ちょっとした現物の調整や値動きの揺り戻しでロングの清算連鎖が起きやすい。個人的には、このコストの重さがそのまま次のボラティリティの種になると見ている。\n\n【次に見るポイント】\n①資金調達率の高止まりがさらに続くか、それとも低下に転じるか\n②未決済建玉の増減と価格の相関関係\n③現物市場の出来高とデリバティブ側のフローの乖離\n\n※情報共有であって、売買の推奨ではありません",
+      "impressions": 174,
+      "engagement_rate": 0.0,
+      "style": "考察型",
+      "format": "long",
+      "hour": 22
+    },
+    {
+      "text": "米国株の急伸を受けて、HyperliquidのHIP-3市場で$SOXL先物が+13.15%と強い動きを見せてる。\n\n現物の流れに引っ張られて、デリバティブ側でも買いが加速してるっぽいな👀",
+      "impressions": 142,
+      "engagement_rate": 0.0,
+      "style": "気づき型",
+      "format": "short",
+      "hour": 12
+    },
+    {
+      "text": "HyperliquidのHIP-3先物、半導体関連のロング過熱がえぐいことになってる。\n\n$SKHXは資金調達率が+198.6%まで跳ね上がってて、現物先回りでの買い圧力がすごい。\n\nロングがこれだけのコストを払ってる歪み、地味だけど見逃せないな👀",
+      "impressions": 82,
+      "engagement_rate": 0.0,
+      "style": "気づき型",
+      "format": "short",
+      "hour": 0
+    },
+    {
+      "text": "現物の半導体株が軒並み上昇する中で、HyperliquidのHIP-3先物市場ではデリバティブ特有の資金の偏りが表面化している。この値動きの差分には、市場の大きな歪みが隠れている。\n\n【何が起きてるか】\n$SOXXが+3.91%を記録し、個別でもAMD（+5.45%）、AVGO（+4.00%）、SMCI（+7.34%）と強い買いが入る一方、HIP-3の特定銘柄には巨額の出来高と建玉が集中している。\n\n【数字で見る】（日本時間10/28(水) 20:59時点）\n・SNDK 価格$1,366、24時間騰落率+6.94%、資金調達率+19.9%、建玉約1.4億ドル、24時間出来高約1.6億ドル\n\n【なぜ「歪み」なのか】\n現物の上げに対して、先物側では+19.9%という高い資金調達率を支払いながらロングを握る形になっている。このコストの重さは、市場参加者の期待が片方に大きく偏っているリトマス試験紙のようなものだ。個人的には、需給がこれだけタイトになっている局面では、ちょっとしたポジションの傾きが価格の急変動につながりやすいと推測している。\n\n【次に見るポイント】\n①資金調達率の変動とロング・ショートのバランス\n②建玉規模の増減と出来高の持続性\n③現物セクター全体のトレンド変化\n\n※情報共有であって、売買の推奨ではありません",
+      "impressions": 70,
+      "engagement_rate": 0.0,
+      "style": "比較型",
+      "format": "long",
+      "hour": 21
+    },
+    {
+      "text": "半導体株の全面高に引っ張られて、HyperliquidのHIP-3で$SKHX先物の資金調達率が年率+130.1%まで跳ね上がってる。\n\nロングがこれだけのコストを払い続けてる歪み、かなり気になるかも👀",
+      "impressions": 60,
+      "engagement_rate": 0.0,
+      "style": "気づき型",
+      "format": "short",
+      "hour": 7
+    }
+  ],
+  "bottom5": [
+    {
+      "text": "半導体株の全面高に引っ張られて、HyperliquidのHIP-3で$SKHX先物の資金調達率が年率+130.1%まで跳ね上がってる。\n\nロングがこれだけのコストを払い続けてる歪み、かなり気になるかも👀",
+      "impressions": 60,
+      "engagement_rate": 0.0,
+      "style": "気づき型",
+      "format": "short",
+      "hour": 7
+    },
+    {
+      "text": "半導体市場がSOXX 米国10/26終値で+2.85%と強い動きを見せる中、Hyperliquidの$SKHX先物は資金調達率が年率+167.1%まで跳ね上がってる。",
+      "impressions": 58,
+      "engagement_rate": 0.0,
+      "style": "数字ドン型",
+      "format": "short",
+      "hour": 8
+    },
+    {
+      "text": "HyperliquidのHIP-3株式先物で$SMSNのロング過熱がすごいことになってる。\n\n資金調達率が年率+62.0%まで跳ね上がってて、ロングがこれだけのコストを払ってる歪みは結構気になるところだな👀\n\n※情報共有であって売買の推奨ではありません",
+      "impressions": 46,
+      "engagement_rate": 0.0,
+      "style": "気づき型",
+      "format": "short",
+      "hour": 23
+    },
+    {
+      "text": "ランキング上位だからって安易に真似するのは危険かも。\nHyperliquidの上位300人を精査したら、60日以上プラスなのは185人だったのが、レバレッジ3倍以下などの条件を重ねると0人にまで絞られる現実。",
+      "impressions": 26,
+      "engagement_rate": 0.0,
+      "style": "気づき型",
+      "format": "short",
+      "hour": 11
+    },
+    {
+      "text": "ランキング上位だからってそのまま真似するのは危ないかも。\n\nHyperliquidの上位300人を条件で絞り込んでみたら、60日以上プラスの219人からレバレッジ3倍以下などの条件を重ねていくと、最終的に残るのは1人だけ。\n\n上位＝正解じゃないってことだな😏",
+      "impressions": 23,
+      "engagement_rate": 0.0,
+      "style": "気づき型",
+      "format": "short",
+      "hour": 10
+    }
+  ],
+  "followers": [
+    {
+      "date": "2026-10-27",
+      "followers": 1230,
+      "following": 347,
+      "posts": 901
+    },
+    {
+      "date": "2026-10-28",
+      "followers": 1235,
+      "following": 347,
+      "posts": 905
+    },
+    {
+      "date": "2026-10-29",
+      "followers": 1235,
+      "following": 347,
+      "posts": 909
+    },
+    {
+      "date": "2026-10-30",
+      "followers": 1237,
+      "following": 347,
+      "posts": 914
+    }
+  ],
+  "rejected_by_admin": [
+    {
+      "action": "delete",
+      "text": "【速報】NYSE親会社ICEによるHyperliquid基盤の無期限先物展開の発表を受け、$HYPEの建玉が+26.7%急増。\n\n価格は+16.78%を記録し、日本時間10/30(金) 04:06時点で建玉は約21.1億ドルに到達した。\n\n伝統金融の巨大インフラがオンチェーンの領域に本格参入してきた流れ、影響力の大きさが桁違いだな。"
+    }
+  ],
+  "rejected_by_checks": [
+    {
+      "errors": [
+        "過去の投稿と類似（類似度0.64）: 半導体株の全面高に引っ張られて、HyperliquidのHIP-3で$SKHX先"
+      ],
+      "style": "気づき型"
+    },
+    {
+      "errors": [
+        "過去の投稿と類似（類似度0.46）: 米国株の現物市場が強い動きを見せる裏で、HyperliquidのHIP-3先物で"
+      ],
+      "style": "考察型"
+    },
+    {
+      "errors": [
+        "主役の銘柄$SOXXを直近に投稿済み（別の銘柄を主役にする）"
+      ],
+      "style": "気づき型"
+    },
+    {
+      "errors": [
+        "主役の銘柄$SOXXを直近に投稿済み（別の銘柄を主役にする）"
+      ],
+      "style": "数字ドン型"
+    },
+    {
+      "errors": [
+        "主役の銘柄$SOXXを直近に投稿済み（別の銘柄を主役にする）"
+      ],
+      "style": "つぶやき解説型"
+    },
+    {
+      "errors": [
+        "存在しないフィールド f5.symbol（f5で使えるのは: coin, venue, market, price, change_pct, oi, volume, funding_annual, asof, asof_short, week_change_pct）",
+        "存在しないフィールド f6.symbol（f6で使えるのは: coin, venue, market, price, change_pct, oi, volume, funding_annual, asof, asof_short, week_change_pct）"
+      ],
+      "style": "気づき型"
+    },
+    {
+      "errors": [
+        "存在しないフィールド f5.symbol（f5で使えるのは: coin, venue, market, price, change_pct, oi, volume, funding_annual, asof, asof_short, week_change_pct）",
+        "存在しないフィールド f6.symbol（f6で使えるのは: coin, venue, market, price, change_pct, oi, volume, funding_annual, asof, asof_short, week_change_pct）"
+      ],
+      "style": "数字ドン型"
+    },
+    {
+      "errors": [
+        "存在しないフィールド f5.symbol（f5で使えるのは: coin, venue, market, price, change_pct, oi, volume, funding_annual, asof, asof_short, week_change_pct）",
+        "存在しないフィールド f6.symbol（f6で使えるのは: coin, venue, market, price, change_pct, oi, volume, funding_annual, asof, asof_short, week_change_pct）"
+      ],
+      "style": "つぶやき解説型"
+    },
+    {
+      "errors": [
+        "主役の銘柄$HYPEを直近に投稿済み（別の銘柄を主役にする）"
+      ],
+      "style": "気づき型"
+    },
+    {
+      "errors": [
+        "主役の銘柄$HYPEを直近に投稿済み（別の銘柄を主役にする）"
+      ],
+      "style": "数字ドン型"
+    },
+    {
+      "errors": [
+        "主役の銘柄$HYPEを直近に投稿済み（別の銘柄を主役にする）"
+      ],
+      "style": "つぶやき解説型"
+    },
+    {
+      "errors": [
+        "主役の銘柄$HYPEを直近に投稿済み（別の銘柄を主役にする）"
+      ],
+      "style": "問いかけ型"
+    },
+    {
+      "errors": [
+        "「すごいことになってる」は最近も使った言い回し。別の言葉で書く",
+        "主役の銘柄$HYPEを直近に投稿済み（別の銘柄を主役にする）"
+      ],
+      "style": "数字ドン型"
+    },
+    {
+      "errors": [
+        "文字数上限超過（重み付き281/280）",
+        "「地味だけど」は最近も使った言い回し。別の言葉で書く",
+        "主役の銘柄$HYPEを直近に投稿済み（別の銘柄を主役にする）"
+      ],
+      "style": "気づき型"
+    },
+    {
+      "errors": [
+        "「えぐいことになってる」は最近も使った言い回し。別の言葉で書く"
+      ],
+      "style": "気づき型"
+    }
+  ],
+  "ai": {
+    "playbook": [
+      "長文の考察型フォーマットはインプレッションが伸びやすいため、市場の歪みを深掘りする際は詳細な数字と構造を整理した長文で構成する",
+      "画像付きの投稿は画像なしと比較してインプレッションの中央値が高いため、可能な限りチャートやデータ整理の画像を添付する",
+      "同じ主役銘柄や類似の表現（「えぐい」「すごい」「地味だけど」など）の連続使用は自動チェックで弾かれるため、常に新しい切り口や表現を用意する",
+      "自動チェックのフィールドエラーを防ぐため、利用可能なテンプレート変数を正確に把握し存在しないフィールドを指定しない",
+      "短文の気づき型は手軽に読まれる反面インプレッションが低めになりがちなため、冒頭の1行で強い好奇心を惹きつけるフックを入れる"
+    ],
+    "hypotheses": [
+      "市場の歪みや資金調達率の異常値を構造的に解説した「考察型」の長文投稿は、フォロワーのエンゲージメントやインプレッションを引き上げやすい",
+      "直近で扱った銘柄の連続投稿は自動チェックで破棄されるため、ローテーションを意識して異なる半導体銘柄や別セクターを主題に選ぶ必要がある",
+      "定型句のマンネリ化が自動チェックエラーの主因となっているため、感情を煽る表現を避け、客観的なデータに基づいた知的で冷静なトーンを維持する"
+    ],
+    "next_week": "来週は同一銘柄の連続投稿を避け、半導体以外のHIP-3先物や別アセットクラスの資金流入データに目を向けた多様な銘柄選定を行います。また、自動チェックの構文エラーや重複表現を徹底排除し、構成を練った長文考察と画像添付の組み合わせでインプレッションの底上げを狙います。",
+    "experiments": [
+      "伝統金融のオンチェーン参入やマクロ経済の動向がHyperliquidの資金循環に与える影響を比較する新企画",
+      "特定の人気トレーダーのランキングデータやポジション傾向を定期検証するデータサイエンス風の切り口"
+    ]
+  }
+}
