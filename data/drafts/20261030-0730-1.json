@@ -1,0 +1,289 @@
+{
+  "id": "20261030-0730-1",
+  "slot_key": "20261030-0730",
+  "slot_theme": "07:42 朝の米国株まとめ（指数・明暗の分かれた銘柄・今日の決算予定）",
+  "status": "posted",
+  "created_at": "2026-10-29T22:26:38.534637+00:00",
+  "text": "今朝の米国株は主要指数がそろって反落、GOOGLの急落や半導体セクターの軟調さが目立つ展開となった。\n\n・SPY $769.36（-0.38%）\n・QQQ $715.34（-1.42%）\n・SOXX $513.86（-1.55%）\n・GOOGL $283.82（-12.64%）\n・MU $934.27（-4.98%）\n・SKHX $1,087（-3.77%）\n・今日の予定: AMD 11/3(火) 米国市場の取引終了後に決算発表予定\n\n主要株の下落とHIP-3のSKHXの軟調さを見るに、主力テックの決算を前にした調整の動きが強まっているように感じる。次のアマゾンやAMDの決算発表が、流れを変えるかどうかの分岐点になりそう。",
+  "template": "今朝の米国株は主要指数がそろって反落、GOOGLの急落や半導体セクターの軟調さが目立つ展開となった。\n\n・SPY {{f5.price}}（{{f5.change_pct}}）\n・QQQ {{f6.price}}（{{f6.change_pct}}）\n・SOXX {{f7.price}}（{{f7.change_pct}}）\n・GOOGL {{f18.price}}（{{f18.change_pct}}）\n・MU {{f13.price}}（{{f13.change_pct}}）\n・SKHX {{f46.price}}（{{f46.change_pct}}）\n・今日の予定: AMD {{f27.date}} {{f27.timing}}に決算発表予定\n\n主要株の下落とHIP-3のSKHXの軟調さを見るに、主力テックの決算を前にした調整の動きが強まっているように感じる。次のアマゾンやAMDの決算発表が、流れを変えるかどうかの分岐点になりそう。",
+  "style": "つぶやき解説型",
+  "format": "summary",
+  "topic_key": "stock:QQQ:quote",
+  "angle": "米国株は主要指数がそろって反落し、中でもGOOGLの急落や半導体セクターの軟調さが目立つ展開となりました。HyperliquidのHIP-3株式先物ではSKHXが軟調に推移し、次回のアマゾンやAMD等の決算を控えた投資家の動向に注目が集まっています。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 86,
+  "fact_ids": [
+    "f5",
+    "f6",
+    "f7",
+    "f18",
+    "f13",
+    "f27",
+    "f46"
+  ],
+  "facts": [
+    {
+      "key": "stock:SPY:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SPY 価格769.36, 前日比-0.38%, 前日終値772.31, 高値770.76, 安値766.62",
+      "fields": {
+        "symbol": "SPY",
+        "price": "$769.36",
+        "change_pct": "-0.38%",
+        "prev_close": "$772.31",
+        "high": "$770.76",
+        "low": "$766.62",
+        "asof": "米国10/29終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 769.36,
+        "change_pct": -0.382,
+        "prev_close": 772.31
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SPY"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SPY"
+      },
+      "asof": "2026-10-29T22:24:25.905614+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    },
+    {
+      "key": "stock:QQQ:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "QQQ 価格715.34, 前日比-1.42%, 前日終値725.61, 高値718.07, 安値711.62",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$715.34",
+        "change_pct": "-1.42%",
+        "prev_close": "$725.61",
+        "high": "$718.07",
+        "low": "$711.62",
+        "asof": "米国10/29終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 715.34,
+        "change_pct": -1.415,
+        "prev_close": 725.61
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-10-29T22:24:26.022833+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格513.86, 前日比-1.55%, 前日終値521.94, 高値518.74, 安値506.59",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$513.86",
+        "change_pct": "-1.55%",
+        "prev_close": "$521.94",
+        "high": "$518.74",
+        "low": "$506.59",
+        "asof": "米国10/29終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 513.86,
+        "change_pct": -1.548,
+        "prev_close": 521.94
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-10-29T22:24:26.136005+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    },
+    {
+      "key": "stock:GOOGL:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】GOOGL 価格283.82, 前日比-12.64%, 前日終値324.89, 高値288.33, 安値280.36",
+      "fields": {
+        "symbol": "GOOGL",
+        "price": "$283.82",
+        "change_pct": "-12.64%",
+        "prev_close": "$324.89",
+        "high": "$288.33",
+        "low": "$280.36",
+        "asof": "米国10/29終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 283.82,
+        "change_pct": -12.641,
+        "prev_close": 324.89
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "GOOGL"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/GOOGL"
+      },
+      "asof": "2026-10-29T22:24:27.518890+00:00",
+      "confidence": "confirmed",
+      "id": "f18"
+    },
+    {
+      "key": "stock:MU:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MU 価格934.27, 前日比-4.98%, 前日終値983.23, 高値971.01, 安値927.24",
+      "fields": {
+        "symbol": "MU",
+        "price": "$934.27",
+        "change_pct": "-4.98%",
+        "prev_close": "$983.23",
+        "high": "$971.01",
+        "low": "$927.24",
+        "asof": "米国10/29終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 934.27,
+        "change_pct": -4.979,
+        "prev_close": 983.23
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MU"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-10-29T22:24:26.875397+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    },
+    {
+      "key": "stock:AMD:earnings:2026-11-03",
+      "kind": "stock",
+      "category": "earnings_upcoming",
+      "summary": "決算予定: AMD 米国時間2026-11-03 米国市場の取引終了後, 予想EPS 1.9666, 予想売上高 13215462917USD",
+      "fields": {
+        "symbol": "AMD",
+        "date": "11/3(火)",
+        "timing": "米国市場の取引終了後",
+        "eps_estimate": "$1.97",
+        "revenue_estimate": "約132.2億ドル"
+      },
+      "raw": {
+        "date": "2026-11-03",
+        "eps_estimate": 1.9666
+      },
+      "refresh": null,
+      "source": {
+        "name": "Finnhub決算カレンダー",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-10-29T22:24:25.744517+00:00",
+      "confidence": "estimate",
+      "id": "f27"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率-3.77%, 価格1086.6, 建玉266164456USD, 24時間出来高652966584USD, 資金調達率(年率)-223.6%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,087",
+        "change_pct": "-3.77%",
+        "oi": "約2.7億ドル",
+        "volume": "約6.5億ドル",
+        "funding_annual": "-223.6%",
+        "asof": "日本時間10/30(金) 07:24時点",
+        "asof_short": "07:24時点"
+      },
+      "raw": {
+        "mark": 1086.6,
+        "change_pct": -3.773,
+        "oi_usd": 266164456,
+        "vol_usd": 652966584,
+        "funding_annual_pct": -223.59
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-10-29T22:24:34.149559+00:00",
+      "confidence": "confirmed",
+      "id": "f46"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SPY"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/GOOGL"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    },
+    {
+      "name": "Finnhub決算カレンダー",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2115933366067618031",
+  "posted_at": "2026-10-29T22:26:41.506490+00:00"
+}
