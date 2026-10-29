@@ -1,0 +1,121 @@
+{
+  "id": "20261029-1000-1",
+  "slot_key": "20261029-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "posted",
+  "created_at": "2026-10-29T01:44:19.431839+00:00",
+  "text": "米国株の上昇に引っ張られて、HyperliquidのHIP-3株式先物で$LITEの買いが急ピッチで進んでる。\n\n建玉が+53.3%も増えてて、デリバティブ側での資金流入の勢いがすごいな👀",
+  "template": "米国株の上昇に引っ張られて、HyperliquidのHIP-3株式先物で${{f8.coin}}の買いが急ピッチで進んでる。\n\n建玉が{{f15.oi_change_pct}}も増えてて、デリバティブ側での資金流入の勢いがすごいな👀",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:LITE:big_move",
+  "angle": "米国株の上昇と連動してLITEのHIP-3先物が急ピッチで買われ、建玉が50%超増加",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f8",
+    "f15"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:LITE:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: LITE（HIP-3株式等先物） 24時間騰落率+8.87%, 価格954.19, 建玉9705357USD, 24時間出来高24590805USD, 資金調達率(年率)+5.5%（照合: 米国株の前日比+5.51%）",
+      "fields": {
+        "coin": "LITE",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$954.19",
+        "change_pct": "+8.87%",
+        "oi": "約971万ドル",
+        "volume": "約2,459万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/29(木) 10:44時点",
+        "asof_short": "10:44時点",
+        "us_change_pct": "+5.51%"
+      },
+      "raw": {
+        "mark": 954.19,
+        "change_pct": 8.871,
+        "oi_usd": 9705357,
+        "vol_usd": 24590805,
+        "funding_annual_pct": 5.48,
+        "us_change_pct": 5.515
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:LITE",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:LITE"
+      },
+      "asof": "2026-10-29T01:44:05.393674+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "hl:xyz:LITE:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+53.3%: LITE（HIP-3株式等先物） 24時間騰落率+8.87%, 価格954.19, 建玉9705357USD, 24時間出来高24590805USD, 資金調達率(年率)+5.5%（照合: 米国株の前日比+5.51%）",
+      "fields": {
+        "coin": "LITE",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$954.19",
+        "change_pct": "+8.87%",
+        "oi": "約971万ドル",
+        "volume": "約2,459万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/29(木) 10:44時点",
+        "asof_short": "10:44時点",
+        "oi_change_pct": "+53.3%",
+        "us_change_pct": "+5.51%"
+      },
+      "raw": {
+        "mark": 954.19,
+        "change_pct": 8.871,
+        "oi_usd": 9705357,
+        "vol_usd": 24590805,
+        "funding_annual_pct": 5.48,
+        "us_change_pct": 5.515,
+        "oi_change_pct": 53.33
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:LITE",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:LITE"
+      },
+      "asof": "2026-10-29T01:44:05.393836+00:00",
+      "confidence": "confirmed",
+      "id": "f15"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:LITE"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:LITE"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2115620723913863387",
+  "posted_at": "2026-10-29T01:44:21.805092+00:00"
+}
