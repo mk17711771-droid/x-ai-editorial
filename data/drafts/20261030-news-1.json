@@ -1,0 +1,120 @@
+{
+  "id": "20261030-news-1",
+  "slot_key": "20261030-news",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "dry_run",
+  "created_at": "2026-10-29T16:47:51.597542+00:00",
+  "text": "米国株で$GOOGLが-12.19%と大きく下げた裏で、HyperliquidのHIP-3先物では建玉が+127.8%も急増してる。\n\n現物の下落とデリバティブでのポジション構築が同時に起きてて、この逆行はかなり歪みを感じる。",
+  "template": "米国株で${{f6.symbol}}が{{f6.us_change_pct}}と大きく下げた裏で、HyperliquidのHIP-3先物では建玉が{{f18.oi_change_pct}}も急増してる。\n\n現物の下落とデリバティブでのポジション構築が同時に起きてて、この逆行はかなり歪みを感じる。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:GOOGL:hip3_top",
+  "angle": "米国株市場で急落した$GOOGL（-12.19%）に対し、HyperliquidのHIP-3先物では建玉が24時間で+127.8%と急増。現物の下落とデリバティブでのポジション急ピッチの構築が同時に起きており、市場の歪みと関心の集中が可視化されている。",
+  "scores": {
+    "novelty": 18,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 95,
+  "fact_ids": [
+    "f6",
+    "f18"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:GOOGL:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: GOOGL（HIP-3株式等先物） 24時間騰落率-11.76%, 価格285.48, 建玉310756663USD, 24時間出来高543831745USD, 資金調達率(年率)+48.4%（照合: 米国株の前日比-12.19%）",
+      "fields": {
+        "coin": "GOOGL",
+        "symbol": "GOOGL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$285.48",
+        "change_pct": "-11.76%",
+        "oi": "約3.1億ドル",
+        "volume": "約5.4億ドル",
+        "funding_annual": "+48.4%",
+        "asof": "日本時間10/30(金) 01:42時点",
+        "asof_short": "01:42時点",
+        "us_change_pct": "-12.19%"
+      },
+      "raw": {
+        "mark": 285.48,
+        "change_pct": -11.755,
+        "oi_usd": 310756663,
+        "vol_usd": 543831745,
+        "funding_annual_pct": 48.35,
+        "us_change_pct": -12.192
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:GOOGL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:GOOGL"
+      },
+      "asof": "2026-10-29T16:42:04.575241+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:GOOGL:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+127.8%: GOOGL（HIP-3株式等先物） 24時間騰落率-11.76%, 価格285.48, 建玉310756663USD, 24時間出来高543831745USD, 資金調達率(年率)+48.4%（照合: 米国株の前日比-12.19%）",
+      "fields": {
+        "coin": "GOOGL",
+        "symbol": "GOOGL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$285.48",
+        "change_pct": "-11.76%",
+        "oi": "約3.1億ドル",
+        "volume": "約5.4億ドル",
+        "funding_annual": "+48.4%",
+        "asof": "日本時間10/30(金) 01:42時点",
+        "asof_short": "01:42時点",
+        "oi_change_pct": "+127.8%",
+        "us_change_pct": "-12.19%"
+      },
+      "raw": {
+        "mark": 285.48,
+        "change_pct": -11.755,
+        "oi_usd": 310756663,
+        "vol_usd": 543831745,
+        "funding_annual_pct": 48.35,
+        "us_change_pct": -12.192,
+        "oi_change_pct": 127.77
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:GOOGL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:GOOGL"
+      },
+      "asof": "2026-10-29T16:42:04.575680+00:00",
+      "confidence": "confirmed",
+      "id": "f18"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:GOOGL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:GOOGL"
+    }
+  ],
+  "needs_human": false
+}
