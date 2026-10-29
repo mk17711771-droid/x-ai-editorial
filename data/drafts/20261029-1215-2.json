@@ -1,0 +1,139 @@
+{
+  "id": "20261029-1215-2",
+  "slot_key": "20261029-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "superseded",
+  "created_at": "2026-10-29T03:22:49.729584+00:00",
+  "text": "半導体セクターの中で、資金がじわっとシフトしてるっぽい。\n\n$ARMが+4.10%としっかり上げる一方で、NVDAは-1.17%と軟調。\n\n全体が同じように動くわけじゃないから、こういう細かな強弱の差分は見ておきたいな。",
+  "template": "半導体セクターの中で、資金がじわっとシフトしてるっぽい。\n\n${{f10.symbol}}が{{f10.change_pct}}としっかり上げる一方で、${{f4.symbol}}は{{f4.change_pct}}と軟調。\n\n全体が同じように動くわけじゃないから、こういう細かな強弱の差分は見ておきたいな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:ARM:big_move",
+  "angle": "ARM（+4.10%）やAMD（+3.24%）が急騰する一方、NVDA（-1.17%）が軟調となる半導体設計・IP銘柄への資金シフトの兆候を提示する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 16
+  },
+  "total": 84,
+  "fact_ids": [
+    "f10",
+    "f5",
+    "f4"
+  ],
+  "facts": [
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格235.9, 前日比+4.10%, 前日終値226.6, 高値237.88, 安値228.1",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$235.90",
+        "change_pct": "+4.10%",
+        "prev_close": "$226.60",
+        "high": "$237.88",
+        "low": "$228.10",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 235.9,
+        "change_pct": 4.104,
+        "prev_close": 226.6
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-10-29T03:18:46.488881+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格578.44, 前日比+3.24%, 前日終値560.26, 高値579.18, 安値560.52",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$578.44",
+        "change_pct": "+3.24%",
+        "prev_close": "$560.26",
+        "high": "$579.18",
+        "low": "$560.52",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 578.44,
+        "change_pct": 3.245,
+        "prev_close": 560.26
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-10-29T03:18:45.477955+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    },
+    {
+      "key": "stock:NVDA:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "NVDA 価格215.38, 前日比-1.17%, 前日終値217.94, 高値219.99, 安値214.47",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$215.38",
+        "change_pct": "-1.17%",
+        "prev_close": "$217.94",
+        "high": "$219.99",
+        "low": "$214.47",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 215.38,
+        "change_pct": -1.175,
+        "prev_close": 217.94
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-10-29T03:18:45.254775+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    }
+  ],
+  "needs_human": false
+}

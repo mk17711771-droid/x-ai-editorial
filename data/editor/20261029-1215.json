@@ -1,0 +1,57 @@
+[
+  {
+    "fact_ids": [
+      "f4",
+      "f5",
+      "f10",
+      "f3"
+    ],
+    "topic_key": "stock:NVDA:quote",
+    "angle": "半導体株指数（SOXX +2.13%）がARM（+4.10%）やAMD（+3.24%）主導で急伸する中、絶対的主力であるNVDAだけが-1.17%と逆行安となった資金移動の歪みを突く。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "半導体全面高の局面でNVDAのみが取り残される鮮明な二極化は、読者の関心が高く短文で端的に異変を伝えられるため。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f5",
+      "f4"
+    ],
+    "topic_key": "stock:ARM:big_move",
+    "angle": "ARM（+4.10%）やAMD（+3.24%）が急騰する一方、NVDA（-1.17%）が軟調となる半導体設計・IP銘柄への資金シフトの兆候を提示する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 84,
+    "reason": "大幅上昇したARMを主軸に半導体セクター内の明暗を数値で示し、投資家の物色対象の変化を可視化できるため。"
+  },
+  {
+    "fact_ids": [
+      "f11",
+      "f28",
+      "f3"
+    ],
+    "topic_key": "stock:INTC:earnings:2026-10-29",
+    "angle": "本日取引終了後に決算発表を控えるINTCが+1.91%と半導体ラリー（SOXX +2.13%）の中で買われており、イベント直前の需給動向を整理する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 15
+    },
+    "total": 81,
+    "reason": "本日の注目決算イベントと株価の先行した動きをタイムリーに押さえ、次に確認すべきポイントを提示できるため。"
+  }
+]

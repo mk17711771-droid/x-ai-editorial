@@ -1,0 +1,132 @@
+{
+  "id": "20261029-1215-3",
+  "slot_key": "20261029-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "superseded",
+  "created_at": "2026-10-29T03:22:51.850498+00:00",
+  "text": "決算を目前に控えて、$INTCの動きがちょっと気になってる。\n\n半導体ラリーのSOXXが+2.13%となる中で、INTCも米国10/28終値に+1.91%を記録してしっかり買われてるんだよね。\n\n市場予想の$0.40を見据えて、どんな需給で決算を迎えるのか注目してる。",
+  "template": "決算を目前に控えて、${{f11.symbol}}の動きがちょっと気になってる。\n\n半導体ラリーの${{f3.symbol}}が{{f3.change_pct}}となる中で、{{f11.symbol}}も{{f11.asof}}に{{f11.change_pct}}を記録してしっかり買われてるんだよね。\n\n市場予想の{{f28.eps_estimate}}を見据えて、どんな需給で決算を迎えるのか注目してる。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:INTC:earnings:2026-10-29",
+  "angle": "本日取引終了後に決算発表を控えるINTCが+1.91%と半導体ラリー（SOXX +2.13%）の中で買われており、イベント直前の需給動向を整理する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 16,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 15
+  },
+  "total": 81,
+  "fact_ids": [
+    "f11",
+    "f28",
+    "f3"
+  ],
+  "facts": [
+    {
+      "key": "stock:INTC:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "INTC 価格95.53, 前日比+1.91%, 前日終値93.74, 高値95.68, 安値93",
+      "fields": {
+        "symbol": "INTC",
+        "price": "$95.53",
+        "change_pct": "+1.91%",
+        "prev_close": "$93.74",
+        "high": "$95.68",
+        "low": "$93.00",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 95.53,
+        "change_pct": 1.909,
+        "prev_close": 93.74
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "INTC"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/INTC"
+      },
+      "asof": "2026-10-29T03:18:46.739235+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "stock:INTC:earnings:2026-10-29",
+      "kind": "stock",
+      "category": "earnings_upcoming",
+      "summary": "決算予定: INTC 米国時間2026-10-29 米国市場の取引終了後, 予想EPS 0.3996, 予想売上高 16781909631USD",
+      "fields": {
+        "symbol": "INTC",
+        "date": "10/29(木)",
+        "timing": "米国市場の取引終了後",
+        "eps_estimate": "$0.40",
+        "revenue_estimate": "約167.8億ドル"
+      },
+      "raw": {
+        "date": "2026-10-29",
+        "eps_estimate": 0.3996
+      },
+      "refresh": null,
+      "source": {
+        "name": "Finnhub決算カレンダー",
+        "url": "https://finance.yahoo.com/quote/INTC"
+      },
+      "asof": "2026-10-29T03:18:44.583956+00:00",
+      "confidence": "estimate",
+      "id": "f28"
+    },
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格521.94, 前日比+2.13%, 前日終値511.06, 高値523.93, 安値511.66",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$521.94",
+        "change_pct": "+2.13%",
+        "prev_close": "$511.06",
+        "high": "$523.93",
+        "low": "$511.66",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 521.94,
+        "change_pct": 2.129,
+        "prev_close": 511.06
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-10-29T03:18:45.035564+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/INTC"
+    },
+    {
+      "name": "Finnhub決算カレンダー",
+      "url": "https://finance.yahoo.com/quote/INTC"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    }
+  ],
+  "needs_human": false
+}

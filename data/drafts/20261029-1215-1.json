@@ -1,0 +1,179 @@
+{
+  "id": "20261029-1215-1",
+  "slot_key": "20261029-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-10-29T03:22:16.974897+00:00",
+  "text": "半導体株のお祭り騒ぎで、なぜ$NVDAだけ下がってるのか。\n\n米国10/28終値でARMが+4.10%、AMDが+3.24%と急伸する裏で、NVDAは前日終値比で-1.17%。\n\n本尊を利確して他へ資金を回す動きに見える。",
+  "template": "半導体株のお祭り騒ぎで、なぜ${{f4.symbol}}だけ下がってるのか。\n\n{{f3.asof}}で{{f10.symbol}}が{{f10.change_pct}}、{{f5.symbol}}が{{f5.change_pct}}と急伸する裏で、{{f4.symbol}}は{{f4.basis}}で{{f4.change_pct}}。\n\n本尊を利確して他へ資金を回す動きに見える。",
+  "style": "問いかけ型",
+  "format": "short",
+  "topic_key": "stock:NVDA:quote",
+  "angle": "半導体株指数（SOXX +2.13%）がARM（+4.10%）やAMD（+3.24%）主導で急伸する中、絶対的主力であるNVDAだけが-1.17%と逆行安となった資金移動の歪みを突く。",
+  "scores": {
+    "novelty": 17,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 89,
+  "fact_ids": [
+    "f4",
+    "f5",
+    "f10",
+    "f3"
+  ],
+  "facts": [
+    {
+      "key": "stock:NVDA:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "NVDA 価格215.38, 前日比-1.17%, 前日終値217.94, 高値219.99, 安値214.47",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$215.38",
+        "change_pct": "-1.17%",
+        "prev_close": "$217.94",
+        "high": "$219.99",
+        "low": "$214.47",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 215.38,
+        "change_pct": -1.175,
+        "prev_close": 217.94
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-10-29T03:18:45.254775+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格578.44, 前日比+3.24%, 前日終値560.26, 高値579.18, 安値560.52",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$578.44",
+        "change_pct": "+3.24%",
+        "prev_close": "$560.26",
+        "high": "$579.18",
+        "low": "$560.52",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 578.44,
+        "change_pct": 3.245,
+        "prev_close": 560.26
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-10-29T03:18:45.477955+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    },
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格235.9, 前日比+4.10%, 前日終値226.6, 高値237.88, 安値228.1",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$235.90",
+        "change_pct": "+4.10%",
+        "prev_close": "$226.60",
+        "high": "$237.88",
+        "low": "$228.10",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 235.9,
+        "change_pct": 4.104,
+        "prev_close": 226.6
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-10-29T03:18:46.488881+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格521.94, 前日比+2.13%, 前日終値511.06, 高値523.93, 安値511.66",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$521.94",
+        "change_pct": "+2.13%",
+        "prev_close": "$511.06",
+        "high": "$523.93",
+        "low": "$511.66",
+        "asof": "米国10/28終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 521.94,
+        "change_pct": 2.129,
+        "prev_close": 511.06
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-10-29T03:18:45.035564+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2115645521943757085",
+  "posted_at": "2026-10-29T03:22:54.090137+00:00"
+}
