@@ -142,14 +142,14 @@ news_watch:
   min_importance: 4              # 1〜5。4以上を速報として扱う
   max_posts_per_day: 3
   official_accounts: [HyperliquidX, tradexyz]   # 公式の新しい投稿を2時間ごとに確認（有料・月の上限つき）
-  official_monthly_read_limit: 300               # 約225円
+  official_monthly_read_limit: 150               # 約110円（費用を抑える）
   verify_queries:                # 裏取り用（直近24時間の報道を集める）
     - Hyperliquid
     - trade.xyz
     - stock perpetuals
     - 株式 無期限先物
 
-# 返信の候補（毎日19:25ごろLINEに送る。返信は管理者が手で行う）
+# 返信の候補（停止中: 費用に対して候補の質が低く、コピペの手間もかかるため管理者の判断で中止 10/30）
 reply_ideas:
   queries:                       # 毎日の検索（1件約0.75円。1日20件まで ≒ 月約450円）
     - "(Hyperliquid OR ハイパーリキッド OR HYPE OR 株式パーペチュアル OR trade.xyz) lang:ja -is:retweet -is:reply"
