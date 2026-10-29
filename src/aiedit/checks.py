@@ -146,6 +146,20 @@ def repair_fields(template: str, facts: dict[str, dict]) -> tuple[str, list[str]
     return "\n".join(lines), dropped
 
 
+EMOJI = re.compile(r"[\U0001F300-\U0001FAFF\u2600-\u27BF\uFE0F]")
+
+
+def _ending(text: str) -> dict:
+    """最後の行の締め（末尾の絵文字の有無と、語尾の2文字）。"""
+    last = [ln for ln in text.strip().splitlines() if ln.strip()][-1:] or [""]
+    tail = last[0].rstrip()
+    emoji = bool(EMOJI.search(tail[-3:]))
+    core = EMOJI.sub("", tail).rstrip("。！？!? 　")
+    # 比べるのは口語の語尾（〜だな／〜かも／〜っぽい など）だけ。普通の言い切りは続いても不自然ではない
+    casual = next((t for t in ("だな", "かも", "っぽい", "ってこと", "じゃん", "よね", "な") if core.endswith(t)), "")
+    return {"emoji": emoji, "tail": casual}
+
+
 def topic_cooldown_hours(topic_key: str) -> int:
     """話題ごとの再投稿までの間隔。定番企画（絞り込みなど）は長めに空ける。"""
     cfg = settings()["limits"]
@@ -208,6 +222,13 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
         if p.get("topic_key") == topic_key or str(p.get("topic_key", "")).startswith(topic_key + ":"):
             errors.append(f"同じ話題を{hours}時間以内に投稿済み")
             break
+    # 締めの「語尾＋絵文字」（〜な👀 など）が直近の投稿と続くと、自動投稿っぽく単調になる
+    end = _ending(text)
+    recent_ends = [_ending(p["text"]) for p in store.recent_posts(48)[-3:]]
+    if end["emoji"] and any(e["emoji"] for e in recent_ends):
+        errors.append("直近の投稿も絵文字で締めている。今回は絵文字なしで、別の締め方にする")
+    elif end["tail"] and end["tail"] in [e["tail"] for e in recent_ends]:
+        errors.append(f"締めの言い回し（〜{end['tail']}）が直近の投稿と同じ。別の締め方にする")
     # 主役（キャッシュタグの銘柄）が直近の投稿と同じなら、話題の名前が違っても続けて出さない
     tags = set(CASHTAG.findall(text))
     recent_tags = {t for p in store.recent_posts(cfg.get("same_symbol_cooldown_hours", 18)) for t in CASHTAG.findall(p["text"])}

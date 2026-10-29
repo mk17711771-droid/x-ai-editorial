@@ -689,3 +689,12 @@ def test_boilerplate_disclaimer_removed_from_posts():
     facts = {"f1": {"fields": {"funding_annual": "+62.0%"}}}
     t = "資金調達率が{{f1.funding_annual}}まで跳ね上がってる👀\n\n※情報共有であって売買の推奨ではありません"
     assert checks.render(t, facts) == "資金調達率が+62.0%まで跳ね上がってる👀"
+
+
+def test_endings_vary():
+    store.record_post({"tweet_id": "9", "slot_key": "x", "posted_at": "2026-10-26T00:00:00+00:00",
+                       "posted_at_jst": "2026-10-26 09:00", "text": "資金調達率がすごいことになってる。\n\n気になるところだな👀", "topic_key": "a"})
+    base = "Hyperliquidの$SOLの建玉が膨らんで、資金調達率もじわじわ上がってきてる。\n\n"
+    assert any("絵文字" in e for e in checks.check_text(base + "これは注目だ😏", "b"))
+    assert any("締めの言い回し" in e for e in checks.check_text(base + "ちょっと過熱気味だな", "b"))
+    assert not any("締め" in e or "絵文字" in e for e in checks.check_text(base + "明日の決算で答え合わせ。", "b"))
