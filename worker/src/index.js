@@ -281,6 +281,23 @@ async function newListings(env) {
   return added.length ? { added, universe: now } : null;
 }
 
+// 記録（過去最高値）: GitHubに保存した過去最高値と現在値を比べる。更新した瞬間が一番伸びるネタ
+async function newRecords(env) {
+  const r = await ghRaw(env, "data/records.json");
+  if (!r) return [];
+  const rec = await r.json();
+  const res = await fetch("https://api.hyperliquid.xyz/info", { method: "POST", headers: { "Content-Type": "application/json" },
+                                                              body: JSON.stringify({ type: "allMids" }) });
+  if (!res.ok) return [];
+  const mids = await res.json();
+  const out = [];
+  for (const [coin, v] of Object.entries(rec)) {
+    const price = Number(mids[coin]);
+    if (price > 0 && v.ath > 0 && price > v.ath) out.push({ coin, price, prev: v.ath });
+  }
+  return out;
+}
+
 async function newsWatch(env, t) {
   // 毎回3つの検索語を順番に見る（1回あたりの処理を軽くする）
   const slot = Math.floor(t.getTime() / 600000) % 2;
@@ -301,7 +318,13 @@ async function newsWatch(env, t) {
   try { official = await officialPosts(env, t); } catch (e) { /* 次の回で */ }
   let listing = null;
   try { listing = await newListings(env); } catch (e) { /* 次の回で */ }
+  let recs = [];
+  try { recs = await newRecords(env); } catch (e) { /* 次の回で */ }
   const items = [...official, ...fresh].slice(0, 20);
+  for (const r of recs) {
+    items.unshift({ title: `【過去最高値】${r.coin}が$${r.price}で過去最高値を更新（これまでの最高は$${r.prev}）。Hyperliquidのオンチェーン価格で確認`,
+                    source: "Hyperliquid（オンチェーン）", official: true, published: t.toUTCString() });
+  }
   if (listing && listing.added) {
     for (const n of listing.added.slice(0, 5)) {
       items.unshift({ title: `Hyperliquid上で新しい市場「${n}」が取引できるようになった（オンチェーンで確認）`,
@@ -309,7 +332,7 @@ async function newsWatch(env, t) {
     }
   }
   if (items.length || spike || (listing && listing.init)) {
-    await dispatch(env, "news_watch", { items, hype_1h: move, universe: listing && (listing.universe || listing.init),
+    await dispatch(env, "news_watch", { items, hype_1h: move, records: recs.map((r) => ({ coin: r.coin, price: r.price })), universe: listing && (listing.universe || listing.init),
                                         universe_init: Boolean(listing && listing.init), at: t.toISOString() });
   }
 }

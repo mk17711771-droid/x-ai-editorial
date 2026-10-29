@@ -80,8 +80,10 @@ def _corroborate(items: list[dict]) -> list[dict]:
 
 def triage(new: list[dict], context: list[dict], hype_1h: float | None) -> list[dict]:
     """AIで、重要なニュースかどうか・裏取りできているかを判定し、話題ごとにまとめる。"""
+    from .common import CONFIG_DIR
     payload = {"new_items": new, "related_items_last_24h": context[:60], "hype_1h_change_pct": hype_1h}
-    out = llm.generate_json(llm.prompt("news_triage"), json.dumps(payload, ensure_ascii=False))
+    rubric = (CONFIG_DIR / "buzz_patterns.md").read_text(encoding="utf-8")
+    out = llm.generate_json(llm.prompt("news_triage") + "\n\n" + rubric, json.dumps(payload, ensure_ascii=False))
     return out.get("stories", [])
 
 
@@ -147,6 +149,9 @@ def run(payload: dict | None = None) -> dict:
         if payload.get("universe_init") and not payload.get("items"):
             store.write_json("news/last_run.json", result)
             return result
+    for r in payload.get("records") or []:
+        from . import records
+        records.update(r["coin"], float(r["price"]))  # 基準を引き上げて、同じ記録で何度も速報しない
     items = list(payload.get("items") or []) + official_posts()
     new = [i for i in items if _id(i["title"]) not in seen]
     for i in new:
@@ -164,7 +169,9 @@ def run(payload: dict | None = None) -> dict:
     stories = triage(new, _corroborate(new), hype)
     handled = store.read_json("news/stories.json", {})
     for s in stories:
-        if not s.get("story_key") or s.get("importance", 0) < _cfg().get("min_importance", 4):
+        # 重要度が高い、またはバズる条件に4つ以上当てはまるなら速報にする（記録更新など、重要度3でも伸びるネタを逃さない）
+        hot = s.get("importance", 0) >= _cfg().get("min_importance", 4) or s.get("buzz_fit", 0) >= 4
+        if not s.get("story_key") or not hot:
             continue
         prev = handled.get(s["story_key"], {})
         verified = _verified(s)
@@ -176,7 +183,8 @@ def run(payload: dict | None = None) -> dict:
                 continue
         elif prev.get("notified") and not verified:
             continue
-        result["stories"].append({k: s.get(k) for k in ("story_key", "headline", "importance", "sources", "official")})
+        result["stories"].append({k: s.get(k) for k in ("story_key", "headline", "importance", "buzz_fit",
+                                                         "buzz_reasons", "sources", "official")})
         if verified:
             if posts:
                 s["story_key"] = f"{s['story_key']}-{posts + 1}"  # 続報は別の材料として扱う

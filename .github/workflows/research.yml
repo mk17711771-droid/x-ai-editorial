@@ -61,6 +61,7 @@ jobs:
           python -m aiedit.cli sources --news-only || true
           python -m aiedit.cli note-check || true
           python -m aiedit.cli news-watch || true
+          python -m aiedit.cli records || true
           python -m aiedit.cli health || true
       - name: Save data
         if: always()
