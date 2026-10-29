@@ -28,7 +28,7 @@ export default {
       ctx.waitUntil(dispatch(env, "research", { at: t.toISOString(), learn: t.getUTCHours() === 20 }));
     }
     // 速報の見張り: 10分おき（Hyperliquid・trade[XYZ]・HIP-3・株式Perpのニュースと、HYPEの急変）
-    if (t.getUTCMinutes() % 10 === 2) ctx.waitUntil(newsWatch(env, t));
+    if (t.getUTCMinutes() % 10 === 5) ctx.waitUntil(newsWatch(env, t));  // Cronは5分刻み（0,5,10…）なので5,15,25…分に動かす
     // 深夜に見つけて保留した速報を朝に出す（06:50 JST）
     if (t.getUTCHours() === 21 && t.getUTCMinutes() === 50) {
       ctx.waitUntil(dispatch(env, "news_watch", { flush: true, at: t.toISOString() }));
