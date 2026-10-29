@@ -1,0 +1,37 @@
+[
+  {
+    "fact_ids": [
+      "f1",
+      "f2",
+      "f4"
+    ],
+    "topic_key": "news:ice-tradexyz",
+    "angle": "NYSE親会社ICEによるHyperliquid基盤のtrade[XYZ]出資と米国内無期限先物展開の速報、およびそれを受けたHYPEの価格・出来高の急拡大を伝える。",
+    "scores": {
+      "novelty": 20,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 97,
+    "reason": "伝統的巨大金融インフラ（ICE）とDEX基盤の融合という歴史的な大ニュースであり、HYPEの急騰データと完全に連動しているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f13"
+    ],
+    "topic_key": "hl:xyz:SKHX:hip3_top",
+    "angle": "半導体・メモリ関連のHIP-3先物（SKHX）で資金調達率が年率-178.6%まで歴史的なショート過熱に陥っている歪みを指摘する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "現物市場の動きに対してHIP-3のデリバティブ市場で極端な需給の歪み（ショートの支払い過剰）が起きており、数字の根拠が明確であるため。"
+  }
+]
