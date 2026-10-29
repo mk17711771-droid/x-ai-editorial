@@ -1,0 +1,37 @@
+[
+  {
+    "fact_ids": [
+      "f1",
+      "f3",
+      "f19"
+    ],
+    "topic_key": "news:ice-trade-xyz-hyperliquid-us-expansion",
+    "angle": "NYSE親会社のICEとtrade[XYZ]提携による米国市場進出を背景とした、HYPEの急騰と建玉拡大の連動を伝える。",
+    "scores": {
+      "novelty": 20,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 97,
+    "reason": "伝統金融インフラのDEX基盤参入という歴史的ニュースと、価格+16.78%・建玉+26.7%のオンチェーン実データを組み合わせており新規性と証拠が極めて高い。"
+  },
+  {
+    "fact_ids": [
+      "f26",
+      "f33"
+    ],
+    "topic_key": "traders:HYPE:bias",
+    "angle": "HYPE急騰の裏で、安定上位トレーダーの多くが利確を急ぎ売りポジションに傾いている構図を解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "上位33人中の保有偏り（買い1・売り7）と利確の動きという実データを突き合わせ、市場の過熱感に対するプロの冷めた視点を提示しているため。"
+  }
+]
