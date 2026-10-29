@@ -48,6 +48,9 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("note-check")
     sub.add_parser("health")
     sub.add_parser("metrics-now")
+    xc = sub.add_parser("x-check")
+    xc.add_argument("--users", default="")
+    xc.add_argument("--query", default="")
     sp = sub.add_parser("sources")
     sp.add_argument("--daily", action="store_true")
     sp.add_argument("--weekly", action="store_true")
@@ -83,6 +86,18 @@ def main(argv: list[str] | None = None) -> int:
             from . import note_article
             meta = note_article.write(args.theme)
             print(json.dumps(meta, ensure_ascii=False, indent=2) if meta else "記事を作れませんでした")
+        elif args.cmd == "x-check":
+            # ニュースの裏取り用: アカウントの公開情報と、検索結果を data/x_check.json に残す
+            from . import xapi
+            out = {"at": now_utc().isoformat(), "users": [], "posts": []}
+            if args.users:
+                out["users"] = xapi.users([u.strip().lstrip("@") for u in args.users.split(",") if u.strip()])
+            if args.query:
+                tweets, us = xapi.search_recent(args.query, 10)
+                out["posts"] = [{"author": us.get(t.get("author_id"), {}).get("username"), "created_at": t.get("created_at"),
+                                 "text": t.get("text"), "metrics": t.get("public_metrics")} for t in tweets]
+            store.write_json("x_check.json", out)
+            print(json.dumps(out, ensure_ascii=False, indent=2))
         elif args.cmd == "metrics-now":
             print(json.dumps(research.snapshot(), ensure_ascii=False, indent=2))
         elif args.cmd == "health":

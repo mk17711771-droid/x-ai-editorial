@@ -126,3 +126,13 @@ def search_recent(query: str, max_results: int = 30) -> tuple[list[dict], dict]:
     body = r.json()
     users = {u["id"]: u for u in body.get("includes", {}).get("users", [])}
     return body.get("data", []), users
+
+
+def users(usernames: list[str]) -> list[dict]:
+    """アカウントの公開情報（認証バッジの種類・作成日・フォロワー数）を調べる。本人確認の参考にする。"""
+    r = requests.get(f"{API}/users/by", params={"usernames": ",".join(usernames),
+                     "user.fields": "verified,verified_type,created_at,public_metrics,description,affiliation"},
+                     auth=_auth(), timeout=30)
+    if r.status_code >= 400:
+        raise XPostError(f"ユーザー取得 {r.status_code}: {r.text[:300]}")
+    return r.json().get("data", [])

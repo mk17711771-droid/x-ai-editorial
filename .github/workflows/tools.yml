@@ -13,7 +13,14 @@ on:
           - sources
           - note-check
           - metrics-now
+          - x-check
         default: note-profile
+      args_users:
+        description: "x-check: 調べるアカウント（カンマ区切り）"
+        default: ""
+      args_query:
+        description: "x-check: 検索語"
+        default: ""
 
 permissions:
   contents: write
@@ -39,6 +46,8 @@ jobs:
         env:
           PYTHONPATH: src
           TOOL: ${{ inputs.tool }}
+          XC_USERS: ${{ inputs.args_users }}
+          XC_QUERY: ${{ inputs.args_query }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           X_API_KEY: ${{ secrets.X_API_KEY }}
@@ -48,7 +57,9 @@ jobs:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_ADMIN_USER_ID: ${{ secrets.LINE_ADMIN_USER_ID }}
         run: |
-          if [ "$TOOL" = "sources" ]; then
+          if [ "$TOOL" = "x-check" ]; then
+            python -m aiedit.cli x-check --users "$XC_USERS" --query "$XC_QUERY"
+          elif [ "$TOOL" = "sources" ]; then
             python -m aiedit.cli sources --daily --weekly
           else
             python -m aiedit.cli "$TOOL"
