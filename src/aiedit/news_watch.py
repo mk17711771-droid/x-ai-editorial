@@ -193,7 +193,9 @@ def run(payload: dict | None = None) -> dict:
         if posts:
             # 続報: 同じ話題に新しい報道・公式発表が続いている（＝まだ熱い）なら、時間をあけて別の角度で出す
             last = datetime.fromisoformat(prev.get("last_post_at", prev["at"]))
-            if posts >= MAX_POSTS_PER_STORY or now_utc() - last < timedelta(hours=FOLLOWUP_GAP_HOURS) or not verified:
+            # 続報は「新しい事実」があるときだけ（報道が続いているだけの焼き直しは出さない。10/30に同じ話題を4回出した反省）
+            if (posts >= MAX_POSTS_PER_STORY or now_utc() - last < timedelta(hours=FOLLOWUP_GAP_HOURS) or not verified
+                    or not s.get("new_development")):
                 continue
         elif prev.get("notified") and not verified:
             continue

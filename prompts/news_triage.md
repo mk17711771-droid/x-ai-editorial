@@ -7,6 +7,7 @@
 
 new_items を話題（story）ごとにまとめ、各話題について判定してください。
 known_stories は既に扱った話題です。同じ出来事（続報を含む）なら、必ず同じ story_key を使ってください。新しい事実が加わっていない焼き直しの報道は importance を2以下にします。
+new_development: 既に扱った話題について、**新しい事実**（新しい当事者・金額・日付・正式発表・承認・数値の記録更新など）が加わったときだけ true。報道が続いているだけ・言い換えなら false。
 
 importance（1〜5）:
 - 5: 業界の構図が変わる出来事（大手取引所・金融機関の参入や出資、規制当局の承認・禁止、大規模なハッキング、上場廃止）
@@ -32,6 +33,7 @@ official: 公式アカウント・公式発表が含まれていれば true
   "summary_ja": "何が起きたかを日本語で3〜4文",
   "importance": 1-5,
   "in_scope": true/false,
+  "new_development": true/false,
   "buzz_fit": 0-8,
   "buzz_reasons": ["…"],
   "official": true/false,

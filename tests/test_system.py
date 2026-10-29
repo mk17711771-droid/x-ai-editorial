@@ -742,7 +742,7 @@ def test_news_watch_verifies_and_queues(monkeypatch, isolated):
     assert news_watch.run({"items": [{"title": "Druckenmiller backs trade.xyz", "source": "Bloomberg"}]})["stories"] == []
     monkeypatch.setenv("AIEDIT_NOW", "2026-10-29T20:30:00+00:00")
     res = news_watch.run({"items": [{"title": "HYPE hits record open interest", "source": "CoinDesk"}]})
-    assert "続報" in res["actions"][0]
+    assert res["stories"] == []  # 新しい事実がない続報は出さない
 
 
 def test_reply_ideas_drop_unsupported_numbers(monkeypatch, isolated):
