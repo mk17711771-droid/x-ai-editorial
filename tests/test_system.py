@@ -757,3 +757,10 @@ def test_reply_ideas_drop_unsupported_numbers(monkeypatch, isolated):
     picks = reply_ideas.run()
     assert [p["reply"][:11] for p in picks] == ["HIP-3でもSKHX"]
     assert "今日の返信候補" in json.dumps(isolated, ensure_ascii=False)
+
+
+def test_news_watch_saves_universe_baseline(monkeypatch):
+    from aiedit import news_watch
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    res = news_watch.run({"universe": ["xyz:NVDA", "BTC"], "universe_init": True, "items": []})
+    assert store.read_json("hl_universe.json") == ["BTC", "xyz:NVDA"] and res["new"] == 0

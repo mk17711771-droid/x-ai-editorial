@@ -142,7 +142,7 @@ research:
 news_watch:
   min_importance: 4              # 1〜5。4以上を速報として扱う
   max_posts_per_day: 5            # 熱い話題の速報・続報（通常の投稿とは別枠）
-  official_accounts: [HyperliquidX, tradexyz]   # 公式の新しい投稿を2時間ごとに確認（有料・月の上限つき）
+  official_accounts: []          # 公式アカウントは Cloudflare Worker が10分おきに確認する（直近11分の投稿だけ読むので、新しい投稿がなければ無料）
   official_monthly_read_limit: 150               # 約110円（費用を抑える）
   verify_queries:                # 裏取り用（直近24時間の報道を集める）
     - Hyperliquid

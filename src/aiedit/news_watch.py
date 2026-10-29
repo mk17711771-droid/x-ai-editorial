@@ -141,6 +141,12 @@ def run(payload: dict | None = None) -> dict:
         store.write_json("news/last_run.json", result)
         return result
 
+    if payload.get("universe"):
+        # Hyperliquidの上場銘柄の一覧（Workerが新規上場を見つけるための基準）を更新する
+        store.write_json("hl_universe.json", sorted(payload["universe"]))
+        if payload.get("universe_init") and not payload.get("items"):
+            store.write_json("news/last_run.json", result)
+            return result
     items = list(payload.get("items") or []) + official_posts()
     new = [i for i in items if _id(i["title"]) not in seen]
     for i in new:

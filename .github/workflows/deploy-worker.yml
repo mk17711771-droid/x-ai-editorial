@@ -29,8 +29,17 @@ jobs:
         working-directory: worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
         run: |
           set -o pipefail
+          # 公式アカウントの見張り用に、X APIの読み取り専用トークン（アプリ認証）をWorkerに登録する
+          bearer=$(curl -s -u "$X_API_KEY:$X_API_SECRET" -d grant_type=client_credentials https://api.x.com/oauth2/token | python3 -c "import sys,json; print(json.load(sys.stdin).get('access_token',''))")
+          if [ -n "$bearer" ]; then
+            echo "$bearer" | npx -y wrangler@4 secret put X_BEARER >/dev/null 2>&1 && echo "::notice::X_BEARER registered" || echo "::warning::X_BEARER の登録に失敗"
+          else
+            echo "::warning::X APIのアプリ認証トークンを取得できませんでした"
+          fi
           if ! npx -y wrangler@4 deploy 2>&1 | tee deploy.log; then
             # 失敗の理由を注釈に出す（ログをダウンロードしなくても原因がわかるように）
             tail -n 25 deploy.log | sed 's/^/::error::/'

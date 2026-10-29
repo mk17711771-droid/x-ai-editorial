@@ -192,6 +192,7 @@ async function health(env) {
     line_secret: Boolean(env.LINE_CHANNEL_SECRET),
     line_token: Boolean(env.LINE_CHANNEL_ACCESS_TOKEN),
     admin_id: Boolean(env.LINE_ADMIN_USER_ID),
+    x_bearer: Boolean(env.X_BEARER),
     posting_tick_now: isPostingTick(new Date()),
   };
   const ok = gh.status === 200 && body.line_secret && body.line_token && body.admin_id;
@@ -234,6 +235,52 @@ async function hypeMove() {
   return first > 0 ? ((last / first) - 1) * 100 : null;
 }
 
+// 公式アカウント（X）: 直近11分の投稿だけを読む（start_time指定。新しい投稿がなければ費用はかからない）
+const OFFICIAL_ACCOUNTS = { HyperliquidX: "1527020295059648513", tradexyz: "1764725210761031681" };
+
+async function officialPosts(env, t) {
+  if (!env.X_BEARER) return [];
+  const start = new Date(t.getTime() - 11 * 60000).toISOString().replace(/\.\d+Z$/, "Z");
+  const out = [];
+  for (const [name, id] of Object.entries(OFFICIAL_ACCOUNTS)) {
+    const r = await fetch(`https://api.x.com/2/users/${id}/tweets?start_time=${start}&exclude=retweets,replies&tweet.fields=created_at`,
+      { headers: { Authorization: `Bearer ${env.X_BEARER}` } });
+    if (!r.ok) continue;
+    const body = await r.json();
+    for (const tw of body.data || []) {
+      out.push({ title: tw.text.slice(0, 400), source: `@${name}（公式）`, official: true,
+                 published: tw.created_at, url: `https://x.com/${name}/status/${tw.id}` });
+    }
+  }
+  return out;
+}
+
+// Hyperliquidの新規上場（オンチェーン）: 株式Perpなどの市場が増えた瞬間に気づく（告知・報道より早いことが多い）
+async function hlUniverse() {
+  const post = async (body) => {
+    const r = await fetch("https://api.hyperliquid.xyz/info", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    return r.ok ? r.json() : null;
+  };
+  const dexes = (await post({ type: "perpDexs" })) || [];
+  const names = [];
+  for (const d of dexes) {
+    if (!d || !d.name) continue;
+    const meta = await post({ type: "meta", dex: d.name });
+    for (const a of (meta && meta.universe) || []) if (!a.isDelisted) names.push(a.name.includes(":") ? a.name : `${d.name}:${a.name}`);
+  }
+  return names;
+}
+
+async function newListings(env) {
+  const now = await hlUniverse();
+  if (now.length < 5) return null;  // 取得に失敗した回は比べない
+  const r = await ghRaw(env, "data/hl_universe.json");
+  if (!r) return { init: now };
+  const known = new Set(await r.json());
+  const added = now.filter((n) => !known.has(n));
+  return added.length ? { added, universe: now } : null;
+}
+
 async function newsWatch(env, t) {
   // 毎回3つの検索語を順番に見る（1回あたりの処理を軽くする）
   const slot = Math.floor(t.getTime() / 600000) % 2;
@@ -250,8 +297,20 @@ async function newsWatch(env, t) {
   let move = null;
   try { move = await hypeMove(); } catch (e) { /* 次の回で */ }
   const spike = move !== null && Math.abs(move) >= 5;
-  if (fresh.length || spike) {
-    await dispatch(env, "news_watch", { items: fresh.slice(0, 15), hype_1h: move, at: t.toISOString() });
+  let official = [];
+  try { official = await officialPosts(env, t); } catch (e) { /* 次の回で */ }
+  let listing = null;
+  try { listing = await newListings(env); } catch (e) { /* 次の回で */ }
+  const items = [...official, ...fresh].slice(0, 20);
+  if (listing && listing.added) {
+    for (const n of listing.added.slice(0, 5)) {
+      items.unshift({ title: `Hyperliquid上で新しい市場「${n}」が取引できるようになった（オンチェーンで確認）`,
+                      source: "Hyperliquid（オンチェーン）", official: true, published: t.toUTCString() });
+    }
+  }
+  if (items.length || spike || (listing && listing.init)) {
+    await dispatch(env, "news_watch", { items, hype_1h: move, universe: listing && (listing.universe || listing.init),
+                                        universe_init: Boolean(listing && listing.init), at: t.toISOString() });
   }
 }
 
