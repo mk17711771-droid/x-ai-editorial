@@ -70,6 +70,10 @@ X（@satoshikun_666「カリスマ」）と note（https://note.com/charisma_hl�
 - 定期点検（Claude、1日3回）が health.json・失敗したワークフロー・破棄された原稿を確認し、
   **原因を直す → テスト → push → 必要なら手動で出し直す → `data/improve/incidents.md` に原因と再発防止策を追記**する。
 - 管理者への連絡は、管理者の操作が必要なときだけ（LINEの通数を使いすぎない）。
+- **ミスを出さない仕組み（管理者の指示）**: 作ったものは「動いた」ことを必ず実データで確かめてから報告する。
+  - テスト `test_worker_ticks_match_cron`: Workerの起動条件がCronの刻みで実際に当たるか（10/30の「見張りが一度も動かない」不具合を防ぐ）
+  - 見回り `health.worker_checks`: Workerの /watch-debug（各部分が動くか）と、速報の見張りが12時間以上起動していないかを2時間ごとに確認
+  - 方針の文書（CLAUDE.md）を書き換えたら、反映されたかを grep で確かめる（置き換え失敗に気づかなかった反省）
 
 ## 開発メモ
 - テスト: `PYTHONPATH=src python -m pytest -q tests`

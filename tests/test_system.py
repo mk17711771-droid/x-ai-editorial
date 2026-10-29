@@ -764,3 +764,30 @@ def test_news_watch_saves_universe_baseline(monkeypatch):
     monkeypatch.setattr(news_watch, "official_posts", lambda: [])
     res = news_watch.run({"universe": ["xyz:NVDA", "BTC"], "universe_init": True, "items": []})
     assert store.read_json("hl_universe.json") == ["BTC", "xyz:NVDA"] and res["new"] == 0
+
+
+def test_worker_ticks_match_cron():
+    """Workerの起動条件が、Cron（wrangler.toml）の刻みで実際に当たるか（当たらない条件は一度も動かない）。"""
+    import re
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    js = (root / "worker/src/index.js").read_text(encoding="utf-8")
+    toml = (root / "worker/wrangler.toml").read_text(encoding="utf-8")
+    step = int(re.search(r'"\*/(\d+) \* \* \* \*"', toml).group(1))
+    for mod, val in re.findall(r"getUTCMinutes\(\) % (\d+) === (\d+)", js):
+        assert any(m % int(mod) == int(val) for m in range(0, 60, step)), f"% {mod} === {val} は一度も当たらない"
+    for val in re.findall(r"getUTCMinutes\(\) === (\d+)", js):
+        assert int(val) % step == 0, f"=== {val} は {step}分刻みでは当たらない"
+
+
+def test_health_flags_silent_news_watch(monkeypatch):
+    from aiedit import health
+
+    class R:
+        ok = True
+        def __init__(self, body): self._b = body
+        def json(self): return self._b
+    monkeypatch.setattr(health.requests, "get", lambda *a, **k: R({"news_en": {"ok": True}, "official": {"ok": False, "error": "401"}}))
+    monkeypatch.setattr(health, "_gh", lambda *a, **k: R({"workflow_runs": [{"created_at": "2026-10-25T00:00:00Z"}]}))
+    types = {i["type"] for i in health.worker_checks()}
+    assert types == {"worker_watch_broken", "news_watch_silent"}

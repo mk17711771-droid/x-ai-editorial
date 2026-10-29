@@ -67,6 +67,30 @@ def failed_runs(hours: int = 6) -> list[dict]:
             if datetime.fromisoformat(w["created_at"].replace("Z", "+00:00")) >= since]
 
 
+def worker_checks() -> list[dict]:
+    """Cloudflare Workerの見張りが実際に動いているか（設定ミスで一度も動かない、を早く見つける）。"""
+    out: list[dict] = []
+    base = settings().get("worker_url", "").rstrip("/")
+    try:
+        r = requests.get(f"{base}/watch-debug", timeout=60)
+        dbg = r.json()
+        broken = {k: v.get("error", "") for k, v in dbg.items() if not v.get("ok")}
+        if broken:
+            out.append({"type": "worker_watch_broken", "parts": broken})
+    except (requests.RequestException, ValueError) as e:
+        out.append({"type": "worker_unreachable", "error": str(e)[:200]})
+    # 速報の見張りは、関連ニュースが出るたびに起動する。12時間まったく起動していなければ止まっている疑い
+    try:
+        r = _gh("/actions/workflows/news-watch.yml/runs", params={"event": "repository_dispatch", "per_page": 1})
+        runs = r.json().get("workflow_runs", []) if r.ok else []
+        last = runs[0]["created_at"] if runs else None
+        if not last or now_utc() - datetime.fromisoformat(last.replace("Z", "+00:00")) > timedelta(hours=12):
+            out.append({"type": "news_watch_silent", "last": last})
+    except (requests.RequestException, RuntimeError, ValueError) as e:
+        log.warning("速報の見張りの起動を確認できません: %s", e)
+    return out
+
+
 def retry_slot() -> bool:
     """投稿漏れの枠がまだ間に合うなら、投稿をもう一度起動する（枠の判定は起動先で行う）。"""
     try:
@@ -98,6 +122,8 @@ def run() -> dict:
                 issues.append({"type": "cloudflare_not_dispatching", "last_dispatch": last})
         except (requests.RequestException, RuntimeError, ValueError) as e:
             log.warning("Cloudflareからの起動を確認できません: %s", e)
+
+    issues += worker_checks()
 
     st = store.state()
     if st.get("halted"):
