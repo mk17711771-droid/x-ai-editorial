@@ -184,7 +184,8 @@ def run(payload: dict | None = None) -> dict:
                                                     "notified": True, "posts": 1, "last_post_at": now_utc().isoformat()})
         # 重要度が高い、またはバズる条件に4つ以上当てはまるなら速報にする（記録更新など、重要度3でも伸びるネタを逃さない）
         hot = s.get("importance", 0) >= _cfg().get("min_importance", 4) or s.get("buzz_fit", 0) >= 4
-        if not s.get("story_key") or not hot:
+        # アカウントの属性からぶれない: 範囲外の話題はどれだけ熱くても出さない
+        if not s.get("story_key") or not hot or s.get("in_scope") is False:
             continue
         prev = handled.get(s["story_key"], {})
         verified = _verified(s)
