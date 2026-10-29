@@ -206,7 +206,7 @@ def run(payload: dict | None = None) -> dict:
             if _posts_today() >= _cfg().get("max_posts_per_day", 3):
                 action = "今日の速報投稿の上限に達したため、通常の投稿の材料に回します"
             elif _dispatch_news_slot():
-                action = "続報として投稿します" if posts else "速報として今すぐ投稿します"
+                action = "続報の投稿を始めました（投稿できたら投稿のお知らせが届きます）" if posts else "速報の投稿を始めました（投稿できたら投稿のお知らせが届きます）"
             else:
                 action = "投稿の起動に失敗。次の見回りで再試行します"
             key = s["story_key"].rsplit("-", 1)[0] if posts else s["story_key"]

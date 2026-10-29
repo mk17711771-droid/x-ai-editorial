@@ -73,20 +73,22 @@ def slot_key(slot: dict) -> str:
 
 # ---------------------------------------------------------------- 生成
 
-def news_facts() -> list[dict]:
+def news_facts(pending_only: bool = False) -> list[dict]:
     """確認済みの速報（公式発表・複数の報道で裏付けたもの）。data/news_facts.json に期限つきで置く。"""
     now = now_utc()
     out = []
     for f in store.read_json("news_facts.json", []) or []:
+        if pending_only and f.get("status") == "posted":
+            continue  # 速報枠では、まだ投稿していない速報だけを主役にする
         if datetime.fromisoformat(f["expires_at"]) > now:
             out.append({**f, "kind": f.get("kind", "news"), "category": "breaking_news", "refresh": None,
                         "confidence": "confirmed"})
     return out
 
 
-def collect(kind: str, weekly: bool = False) -> list[dict]:
+def collect(kind: str, weekly: bool = False, pending_news: bool = False) -> list[dict]:
     raw = collect_stocks.collect() if kind == "stock" else collect_hyperliquid.collect() + traders.facts()
-    raw = news_facts() + raw  # 確認済みの速報（あれば最優先の材料）
+    raw = news_facts(pending_only=pending_news) + raw  # 確認済みの速報（あれば最優先の材料）
     if weekly:
         # 週の振り返り: 1週間の値動き（Hyperliquidの主要銘柄・HIP-3と、記録した米国株の終値）
         try:
@@ -146,7 +148,7 @@ def angle_family(topic_key: str) -> str:
     return "other"
 
 
-def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None) -> list[dict]:
+def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None, must: str = "") -> list[dict]:
     recent = [p.get("topic_key") for p in store.recent_posts(72)]
     form = {
         "long": "長文の考察投稿。複数の材料（目安3〜8個）を組み合わせて、背景と「歪み」を深く解説できる切り口を選ぶ。",
@@ -161,6 +163,8 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None) -
     if recent_tags:
         user += ("\n\n# 直近に主役にした銘柄（続けて同じ銘柄を主役にしない。別の銘柄・別の切り口を選ぶ）\n"
                  + json.dumps(recent_tags, ensure_ascii=False))
+    if must:
+        user += f"\n\n# 必ず守ること\n{must}"
     if any(f.get("category") == "breaking_news" for f in facts):
         user += ("\n\n# 確認済みの速報あり（category: breaking_news）。このアカウントのテーマ（Hyperliquid・xyz）に直結するなら最優先で検討し、"
                  "速報の事実（何が起きたか）＋このアカウントの実データ（価格・建玉・資金調達率）を組み合わせる。未確定の部分（規制当局の承認待ちなど）は断定しない")
@@ -267,7 +271,7 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         log.info("枠 %s は生成済みです", key)
         return []
 
-    facts = collect(slot["kind"], weekly=bool(slot.get("weekly")))
+    facts = collect(slot["kind"], weekly=bool(slot.get("weekly")), pending_news=slot["id"] == "news")
     store.write_json(f"facts/{key}.json", facts)
     log.info("材料 %d 件を収集", len(facts))
     facts_by_id = {f["id"]: f for f in facts}
@@ -307,12 +311,24 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         return (angle_family(c.get("topic_key", "")) == repeat, not stock_led, -c["total"])
     cands = sorted(cands, key=priority)
     if slot["id"] in ("news", "newslong"):
-        # 速報枠は速報の材料を使った候補だけ
-        cands = [c for c in cands if any(facts_by_id.get(i, {}).get("category") == "breaking_news"
-                                         for i in c.get("fact_ids", []))]
-        for c in cands:
-            news = next(facts_by_id[i] for i in c["fact_ids"] if facts_by_id.get(i, {}).get("category") == "breaking_news")
-            c["topic_key"] = news["key"]
+        # 速報枠は、まだ出していない速報を主役にした候補だけ。編集長が別の話題を選んだら、速報を主役にするよう編集をやり直す
+        def news_cands(cs: list[dict]) -> list[dict]:
+            out = []
+            for c in cs:
+                news = [facts_by_id[i] for i in c.get("fact_ids", []) if facts_by_id.get(i, {}).get("category") == "breaking_news"]
+                if news:
+                    c["topic_key"] = news[0]["key"]
+                    out.append(c)
+            return out
+        picked = news_cands(cands)
+        if not picked:
+            target = next((f for f in facts if f.get("category") == "breaking_news"), None)
+            if target:
+                log.info("速報を主役にした候補がないため、編集をやり直します")
+                again = run_editor(slot, facts, must=(f"速報「{target['fields'].get('headline', target['summary'][:60])}」"
+                                                     f"（{target['id']}）を主役にした候補だけを出す。fact_ids の最初に {target['id']} を入れる"))
+                picked = news_cands([c for c in again if c["total"] >= cfg["scoring"]["auto_post_min"] - 10])
+        cands = picked
     drafts = []
     for cand in cands:
         if len(drafts) >= cfg["limits"]["max_candidates_per_slot"]:
@@ -359,6 +375,9 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
 
     if not drafts:
         log.info("基準を満たす投稿がないため、この枠は見送ります")
+        if slot["id"] in ("news", "newslong"):
+            # 速報を「投稿します」と知らせたあとに出せなかったときは、正直に知らせる
+            line.notify("⚠️ 速報の投稿を見送りました（基準を満たす原稿ができませんでした）。原因を調べて出し直します。")
         return []
 
     # 全自動モードでは最高点の案を投稿する。未検証ニュースを含む案だけは人の承認に回す

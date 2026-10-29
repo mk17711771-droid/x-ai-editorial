@@ -791,3 +791,11 @@ def test_health_flags_silent_news_watch(monkeypatch):
     monkeypatch.setattr(health, "_gh", lambda *a, **k: R({"workflow_runs": [{"created_at": "2026-10-25T00:00:00Z"}]}))
     types = {i["type"] for i in health.worker_checks()}
     assert types == {"worker_watch_broken", "news_watch_silent"}
+
+
+def test_news_slot_only_uses_pending_news():
+    store.write_json("news_facts.json", [
+        {"key": "news:a", "status": "posted", "expires_at": "2026-12-31T00:00:00+00:00", "fields": {"headline": "A"}, "summary": "A"},
+        {"key": "news:b", "status": "pending", "expires_at": "2026-12-31T00:00:00+00:00", "fields": {"headline": "B"}, "summary": "B"}])
+    assert [f["key"] for f in pipeline.news_facts(pending_only=True)] == ["news:b"]
+    assert len(pipeline.news_facts()) == 2
