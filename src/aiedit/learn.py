@@ -101,5 +101,6 @@ def playbook_text() -> str:
     from .common import CONFIG_DIR
     buzz = (CONFIG_DIR / "buzz_patterns.md").read_text(encoding="utf-8") if (CONFIG_DIR / "buzz_patterns.md").exists() else ""
     parts = [buzz, store.read_text("playbook.md", ""), store.read_text("strategy.md", ""),
-             store.read_text("experiments.md", ""), store.read_text("trends.md", "")]
+             store.read_text("experiments.md", ""), store.read_text("trends.md", ""),
+             store.read_text("lessons.md", "")]
     return "\n".join(p for p in parts if p)

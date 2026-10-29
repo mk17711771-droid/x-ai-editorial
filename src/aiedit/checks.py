@@ -88,6 +88,11 @@ def render(template: str, facts: dict[str, dict]) -> str:
     # 「※情報共有であって売買の推奨ではありません」のような定型の注意書きは、自動投稿っぽく見えるので外す
     # （売買を勧める表現そのものは禁止表現のチェックで防ぐ。noteの注意書きは記事の末尾にシステムが付ける）
     text = BOILERPLATE.sub("", text)
+    # 表記の統一（過去の表記ミスを config/name_fixes.txt に貯めて、投稿の直前に直す）
+    for ln in read_list("name_fixes.txt"):
+        wrong, _, right = ln.partition("\t")
+        if wrong and right:
+            text = text.replace(wrong, right)
     # Markdownの記号（`コード`・**太字**）はXではそのまま表示されてしまうので外す
     text = text.replace("`", "").replace("**", "")
     return re.sub(r"\n{3,}", "\n\n", text).strip()

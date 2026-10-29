@@ -799,3 +799,8 @@ def test_news_slot_only_uses_pending_news():
         {"key": "news:b", "status": "pending", "expires_at": "2026-12-31T00:00:00+00:00", "fields": {"headline": "B"}, "summary": "B"}])
     assert [f["key"] for f in pipeline.news_facts(pending_only=True)] == ["news:b"]
     assert len(pipeline.news_facts()) == 2
+
+
+def test_name_fixes_applied():
+    facts = {"f1": {"fields": {"x": "+1.0%"}}}
+    assert checks.render("ドルッケンミラー氏がTrade[XYZ]に出資、{{f1.x}}", facts) == "ドラッケンミラー氏がtrade[XYZ]に出資、+1.0%"
