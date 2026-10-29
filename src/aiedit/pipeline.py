@@ -46,8 +46,9 @@ def pick_slot(slot_id: str = "auto") -> dict | None:
 
 
 def slot_format(slot: dict) -> str:
-    """長文は X Premium のときだけ。それ以外は短文にする。"""
-    return "long" if slot.get("format") == "long" and settings()["account"]["premium"] else "short"
+    """長文・まとめは X Premium のときだけ。それ以外は短文にする。"""
+    fmt = slot.get("format", "short")
+    return fmt if fmt in ("long", "summary") and settings()["account"]["premium"] else "short"
 
 
 def slot_base(slot: dict, now: datetime | None = None) -> datetime:
@@ -104,8 +105,11 @@ def with_playbook(prompt: str) -> str:
 
 def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None) -> list[dict]:
     recent = [p.get("topic_key") for p in store.recent_posts(72)]
-    form = ("長文の考察投稿。複数の材料（目安3〜8個）を組み合わせて、背景と「歪み」を深く解説できる切り口を選ぶ。"
-            if slot_format(slot) == "long" else "短文の投稿。1つの異変を一言で伝えられる切り口を選ぶ。")
+    form = {
+        "long": "長文の考察投稿。複数の材料（目安3〜8個）を組み合わせて、背景と「歪み」を深く解説できる切り口を選ぶ。",
+        "summary": ("朝のまとめ投稿。米国株の指数（SPY・QQQ・SOXX）→ 目立って上げた銘柄・下げた銘柄（明暗）→ 今日の決算予定を、"
+                    "材料4〜8個で一覧にする。最後にHyperliquidの材料を1つだけ添えてよい。fact_ids に使う材料をすべて入れる。"),
+    }.get(slot_format(slot), "短文の投稿。1つの異変を一言で伝えられる切り口を選ぶ。")
     user = (f"# 今回の投稿枠\n{slot['time']} {slot['theme']}\n\n# 投稿の形式\n{form}\n\n"
             f"# 直近72時間の投稿トピック (recent_topics)\n{json.dumps(recent, ensure_ascii=False)}\n\n"
             f"# 材料 (facts)\n{_facts_for_llm(facts, with_fields=False)}")
@@ -147,7 +151,9 @@ def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | N
     system = with_playbook(llm.prompt("writer_long" if fmt == "long" else "writer")
                            .replace("{min_chars}", str(min_chars)).replace("{max_chars}", str(max_chars)))
     used = [facts_by_id[i] for i in cand["fact_ids"]]
-    user = (f"# 投稿枠\n{slot['theme']}\n\n# 編集長の切り口\n{cand.get('angle', '')}\n\n"
+    shape = ("\n\n# 形式（朝のまとめ）\n1行目に「今朝の米国株」の一言要約。続けて「・」の箇条書きで指数→上げた銘柄→下げた銘柄（明暗）→今日の予定を並べ、"
+             "最後に1〜2行で自分の見立て。箇条書きの行は短く（銘柄名と数字だけでよい）。" if fmt == "summary" else "")
+    user = (f"# 投稿枠\n{slot['theme']}{shape}\n\n# 編集長の切り口\n{cand.get('angle', '')}\n\n"
             f"# 材料（この差し込み記号だけ使える）\n{_facts_for_llm(used, with_fields=True)}\n\n"
             f"# 直近の投稿 (recent_posts)\n{json.dumps(list(store.recent_texts(10)), ensure_ascii=False)}")
     topic_key = cand.get("topic_key") or used[0]["key"]

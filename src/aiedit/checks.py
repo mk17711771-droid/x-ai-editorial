@@ -39,6 +39,9 @@ def length_limits(fmt: str = "short") -> tuple[int, int, int]:
     if fmt == "long" and settings()["account"]["premium"]:
         # X Premiumの長文投稿（上限25,000）。読み切れる長さに抑える
         return 450, 1400, 25000
+    if fmt == "summary" and settings()["account"]["premium"]:
+        # 朝のまとめ（箇条書きの一覧）。タイムラインで「さらに表示」1回で読み切れる長さ
+        return 100, 320, 25000
     # 短文はタイムラインで全文が見える長さ（重み付き280 = 日本語でおよそ140文字）
     return 60, 135, 280
 

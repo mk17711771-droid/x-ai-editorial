@@ -18,7 +18,7 @@ mode: approval
 #   days: weekday = 平日のみ / weekend = 土日のみ / all = 毎日
 #   format: long = 長文の考察投稿（X Premiumのみ。指定なしは短文）
 slots:
-  - { id: "0730", time: "07:42", kind: stock, days: weekday, theme: "米国市場の引け後まとめ・注目銘柄" }
+  - { id: "0730", time: "07:42", kind: stock, days: weekday, format: summary, theme: "朝の米国株まとめ（指数・明暗の分かれた銘柄・今日の決算予定）" }
   - { id: "1000", time: "10:17", kind: hl,    days: all,     theme: "Hyperliquidの24時間の異変（建玉・資金調達率・急変動）" }
   - { id: "1215", time: "12:26", kind: stock, days: weekday, theme: "市場の異変の解説" }
   - { id: "2030", time: "20:47", kind: stock, days: weekday, format: long, theme: "考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点" }
