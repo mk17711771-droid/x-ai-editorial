@@ -721,7 +721,8 @@ def test_markdown_stripped_and_cliches_not_repeated():
 
 def test_news_watch_verifies_and_queues(monkeypatch, isolated):
     from aiedit import news_watch
-    monkeypatch.setenv("AIEDIT_NOW", "2026-10-29T17:00:00+00:00")  # 02:00 JST（深夜は保留）
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-29T17:00:00+00:00")  # 02:00 JST でも熱いうちに出す
+    monkeypatch.setattr(news_watch, "_dispatch_news_slot", lambda: True)
     monkeypatch.setattr(news_watch, "official_posts", lambda: [])
     monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
     monkeypatch.setattr(llm, "generate_json", lambda s, u: {"stories": [
@@ -730,12 +731,18 @@ def test_news_watch_verifies_and_queues(monkeypatch, isolated):
         {"story_key": "minor", "headline": "解説記事", "importance": 2, "sources": ["X"]}]})
     res = news_watch.run({"items": [{"title": "ICE teams up with trade.xyz", "source": "CoinDesk"}]})
     assert [s["story_key"] for s in res["stories"]] == ["ice-tradexyz"]
-    assert "朝6:50" in res["actions"][0]
+    assert "今すぐ投稿" in res["actions"][0]
     assert store.read_json("news_facts.json")[0]["key"] == "news:ice-tradexyz"
     assert isolated and "速報をキャッチ" in json.dumps(isolated, ensure_ascii=False)
     # 同じ見出しは二度処理しない
     assert news_watch.run({"items": [{"title": "ICE teams up with trade.xyz", "source": "CoinDesk"}]})["new"] == 0
     assert any(f["category"] == "breaking_news" for f in pipeline.news_facts())
+    # 3時間以内の同じ話題は出さない。3時間後も報道が続いていれば続報を出す
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-29T18:00:00+00:00")
+    assert news_watch.run({"items": [{"title": "Druckenmiller backs trade.xyz", "source": "Bloomberg"}]})["stories"] == []
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-29T20:30:00+00:00")
+    res = news_watch.run({"items": [{"title": "HYPE hits record open interest", "source": "CoinDesk"}]})
+    assert "続報" in res["actions"][0]
 
 
 def test_reply_ideas_drop_unsupported_numbers(monkeypatch, isolated):

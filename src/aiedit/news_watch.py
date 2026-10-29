@@ -15,7 +15,9 @@ from datetime import datetime, timedelta
 from . import line, llm, sources, store
 from .common import JST, env, log, now_utc, settings
 
-QUIET_HOURS = (1, 6)  # 日本時間 1:00〜6:59 は投稿を保留（通知は送る）
+# 管理者の指示: 話題が熱いうちに出す。時間帯で保留しない（深夜でもXは動いている）
+FOLLOWUP_GAP_HOURS = 3   # 同じ話題が盛り上がり続けていれば、3時間あけて続報を出す
+MAX_POSTS_PER_STORY = 3
 
 
 def _cfg() -> dict:
@@ -93,11 +95,6 @@ def _notify(story: dict, action: str) -> None:
                 f"{story.get('summary_ja', '')[:400]}\n\n出典: {'・'.join(story.get('sources', [])[:4])}\n→ {action}")
 
 
-def _post_now() -> bool:
-    h = now_utc().astimezone(JST).hour
-    return not (QUIET_HOURS[0] <= h <= QUIET_HOURS[1])
-
-
 def _dispatch_news_slot() -> bool:
     import requests
     token, repo = env("GITHUB_TOKEN", required=False), env("GITHUB_REPOSITORY", required=False)
@@ -165,18 +162,28 @@ def run(payload: dict | None = None) -> dict:
             continue
         prev = handled.get(s["story_key"], {})
         verified = _verified(s)
-        if prev.get("posted_or_queued") or (prev.get("notified") and not verified):
+        posts = prev.get("posts", 1 if prev.get("posted_or_queued") else 0)
+        if posts:
+            # 続報: 同じ話題に新しい報道・公式発表が続いている（＝まだ熱い）なら、時間をあけて別の角度で出す
+            last = datetime.fromisoformat(prev.get("last_post_at", prev["at"]))
+            if posts >= MAX_POSTS_PER_STORY or now_utc() - last < timedelta(hours=FOLLOWUP_GAP_HOURS) or not verified:
+                continue
+        elif prev.get("notified") and not verified:
             continue
         result["stories"].append({k: s.get(k) for k in ("story_key", "headline", "importance", "sources", "official")})
         if verified:
+            if posts:
+                s["story_key"] = f"{s['story_key']}-{posts + 1}"  # 続報は別の材料として扱う
             add_fact(s)
             if _posts_today() >= _cfg().get("max_posts_per_day", 3):
                 action = "今日の速報投稿の上限に達したため、通常の投稿の材料に回します"
-            elif _post_now() and _dispatch_news_slot():
-                action = "速報として投稿します"
+            elif _dispatch_news_slot():
+                action = "続報として投稿します" if posts else "速報として今すぐ投稿します"
             else:
-                action = "深夜のため、朝6:50ごろに投稿します"
-            handled[s["story_key"]] = {"at": now_utc().isoformat(), "posted_or_queued": True, "notified": True}
+                action = "投稿の起動に失敗。次の見回りで再試行します"
+            key = s["story_key"].rsplit("-", 1)[0] if posts else s["story_key"]
+            handled[key] = {"at": prev.get("at", now_utc().isoformat()), "posted_or_queued": True, "notified": True,
+                            "posts": posts + 1, "last_post_at": now_utc().isoformat()}
         else:
             action = "まだ1社の報道だけなので、裏取りできしだい投稿します"
             handled[s["story_key"]] = {"at": now_utc().isoformat(), "notified": True}

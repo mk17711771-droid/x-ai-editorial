@@ -141,7 +141,7 @@ research:
 # 速報の見張り（Hyperliquid・trade[XYZ]・HIP-3・株式Perpを扱うサービス）
 news_watch:
   min_importance: 4              # 1〜5。4以上を速報として扱う
-  max_posts_per_day: 3
+  max_posts_per_day: 5            # 熱い話題の速報・続報（通常の投稿とは別枠）
   official_accounts: [HyperliquidX, tradexyz]   # 公式の新しい投稿を2時間ごとに確認（有料・月の上限つき）
   official_monthly_read_limit: 150               # 約110円（費用を抑える）
   verify_queries:                # 裏取り用（直近24時間の報道を集める）
