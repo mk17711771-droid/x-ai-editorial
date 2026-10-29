@@ -52,3 +52,5 @@ jobs:
           out=$(curl -s -w ' HTTP%{http_code}' https://x-ai-editorial-line.mk17711771.workers.dev/health)
           echo "::notice::worker health: $out"
           echo "$out" | grep -q '"ok":true' || { echo "::error::Workerの稼働確認に失敗: $out"; exit 1; }
+          dbg=$(curl -s -m 60 https://x-ai-editorial-line.mk17711771.workers.dev/watch-debug)
+          echo "::notice::watch debug: $dbg"

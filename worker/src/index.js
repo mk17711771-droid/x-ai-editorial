@@ -44,6 +44,7 @@ export default {
       const url = new URL(request.url);
       if (url.pathname.startsWith("/note/")) return notePage(url, env);
       if (url.pathname === "/health") return health(env);
+      if (url.pathname === "/watch-debug") return watchDebug(env);
       return new Response("ok");
     }
     if (request.method !== "POST") return new Response("ok");
@@ -296,6 +297,24 @@ async function newRecords(env) {
     if (price > 0 && v.ath > 0 && price > v.ath) out.push({ coin, price, prev: v.ath });
   }
   return out;
+}
+
+// 見張りの各部分が動くかを確かめる（件数とエラーだけ返す。秘密の値は返さない）
+async function watchDebug(env) {
+  const t = new Date();
+  const out = {};
+  const step = async (name, fn) => {
+    const s = Date.now();
+    try { const v = await fn(); out[name] = { ok: true, ms: Date.now() - s, n: Array.isArray(v) ? v.length : v }; }
+    catch (e) { out[name] = { ok: false, ms: Date.now() - s, error: String(e).slice(0, 200) }; }
+  };
+  await step("news_en", () => fetchNews("Hyperliquid", "en"));
+  await step("hype_1h", () => hypeMove());
+  await step("official", () => officialPosts(env, new Date(t.getTime() - 24 * 3600000 + 11 * 60000)));
+  await step("universe", () => hlUniverse());
+  await step("listings", async () => JSON.stringify(await newListings(env)).slice(0, 120));
+  await step("records", () => newRecords(env));
+  return new Response(JSON.stringify(out), { headers: { "Content-Type": "application/json" } });
 }
 
 async function newsWatch(env, t) {
