@@ -264,6 +264,7 @@ def test_auto_mode_notifies_and_delete_removes_post(wired, isolated, monkeypatch
     monkeypatch.setattr(xapi, "delete", lambda tid: deleted.append(tid))
     assert pipeline.publish(d["id"], "delete") == "deleted"
     assert deleted == ["999"] and store.load_draft(d["id"])["status"] == "deleted"
+    assert store.posts() == [] and len(store.posts(include_deleted=True)) == 1  # 削除した投稿は分析・まとめの対象外
     assert pipeline.publish(d["id"], "delete") == "deleted"  # 二重に押しても再削除しない
     assert deleted == ["999"]
 

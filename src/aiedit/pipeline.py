@@ -638,6 +638,7 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
 def delete_post(draft: dict) -> str:
     """投稿済みの下書きをXから削除する（LINEの「削除する」ボタン）。"""
     xapi.delete(draft["tweet_id"])
+    store.mark_post_deleted(draft["tweet_id"])
     _close(draft, "deleted", deleted_at=now_utc().isoformat())
     store.record_decision({"id": draft["id"], "action": "delete", "by": "admin", "at": now_utc().isoformat(),
                            "total": draft["total"], "scores": draft["scores"], "style": draft["style"],

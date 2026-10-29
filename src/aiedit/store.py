@@ -78,8 +78,18 @@ def load_draft(draft_id: str) -> dict | None:
 
 # ---- 投稿履歴 ----
 
-def posts() -> list[dict]:
-    return read_jsonl("posts.jsonl")
+def posts(include_deleted: bool = False) -> list[dict]:
+    """投稿の記録。削除した投稿は、分析・まとめ・重複判定の対象から外す。"""
+    rows = read_jsonl("posts.jsonl")
+    return rows if include_deleted else [p for p in rows if not p.get("deleted")]
+
+
+def mark_post_deleted(tweet_id: str) -> None:
+    rows = read_jsonl("posts.jsonl")
+    for p in rows:
+        if p["tweet_id"] == tweet_id:
+            p["deleted"] = now_utc().isoformat()
+    _path("posts.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
 
 
 def recent_posts(hours: float) -> list[dict]:
