@@ -871,3 +871,27 @@ def test_news_slot_not_blocked_by_daily_limit(wired, isolated):
     news = {**d, "id": "20261026-news1200-1", "slot_key": "20261026-news1200", "status": "pending"}
     store.save_draft(news)
     assert pipeline.publish(news["id"], "approve") == "posted"
+
+
+def test_worker_watches_market_shocks():
+    # ハッキングや大きな発表は報道より先に値動きに出る。BTC等の急変も見張る
+    from pathlib import Path
+    src = Path(__file__).resolve().parents[1].joinpath("worker/src/index.js").read_text(encoding="utf-8")
+    assert "const SHOCKS" in src and "BTC" in src.split("const SHOCKS")[1].split(";")[0]
+    assert "急変" in Path(__file__).resolve().parents[1].joinpath("prompts/news_triage.md").read_text(encoding="utf-8")
+
+
+def test_hot_searches_parsed(isolated, monkeypatch):
+    from aiedit import sources
+    xml = b"""<?xml version="1.0"?><rss xmlns:ht="https://trends.google.com/trending/rss"><channel>
+    <item><title>\xe3\x83\x90\xe3\x82\xa4\xe3\x83\x8a\xe3\x83\xb3\xe3\x82\xb9</title><ht:approx_traffic>50000+</ht:approx_traffic>
+    <ht:news_item><ht:news_item_title>Binance pauses withdrawals</ht:news_item_title></ht:news_item></item>
+    </channel></rss>"""
+
+    class R:
+        content = xml
+        def raise_for_status(self): pass
+    monkeypatch.setattr(sources.requests, "get", lambda *a, **k: R())
+    rows = sources.hot_searches()
+    assert rows[0]["traffic"] == "50000+" and rows[0]["news"] == ["Binance pauses withdrawals"]
+    assert "バイナンス（50000+）: Binance pauses withdrawals" in sources.hot_digest()

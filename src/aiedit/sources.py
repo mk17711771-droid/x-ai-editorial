@@ -78,6 +78,37 @@ def news_items(q: str, window: str = "when:1d", lang: str = "ja") -> list[dict]:
     return out
 
 
+def hot_searches() -> list[dict]:
+    """日本でいま検索が急増している言葉（Googleトレンド。無料）。旬の話題をつかむ参考にする。"""
+    try:
+        r = requests.get("https://trends.google.com/trending/rss?geo=JP", headers=HEADERS, timeout=30)
+        r.raise_for_status()
+        root = ET.fromstring(r.content)
+    except (requests.RequestException, ET.ParseError) as e:
+        _error("trends", "geo=JP", e)
+        return []
+    ns = {"ht": "https://trends.google.com/trending/rss"}
+    out = []
+    for it in list(root.iter("item"))[:20]:
+        news = [n.findtext("ht:news_item_title", "", ns) for n in it.findall("ht:news_item", ns)]
+        out.append({"term": (it.findtext("title") or "").strip(), "traffic": it.findtext("ht:approx_traffic", "", ns),
+                    "news": [x for x in news if x][:2]})
+    if out:
+        store.write_json(f"sources/hot/{now_utc().astimezone(JST):%Y%m%d%H}.json", out)
+    return out
+
+
+def hot_digest(n: int = 12) -> str:
+    """編集長AIに渡す、直近の検索トレンド（範囲内の話題があれば旬として使う）。"""
+    d = store.DATA_DIR / "sources/hot"
+    files = sorted(d.glob("*.json")) if d.exists() else []
+    if not files:
+        return ""
+    rows = store.read_json(f"sources/hot/{files[-1].name}", []) or []
+    return "\n".join(f"- {r['term']}（{r.get('traffic', '')}）" + (f": {r['news'][0]}" if r.get("news") else "")
+                     for r in rows[:n])
+
+
 def news_digest(n: int = 8) -> str:
     """編集長AIに渡す、直近のニュース見出し。"""
     today = now_utc().astimezone(JST)
@@ -206,7 +237,7 @@ def trend_digest() -> str:
 
 
 def run(daily: bool, weekly: bool, news_only: bool = False) -> dict:
-    res = {"news": len(news())}
+    res = {"news": len(news()), "hot": len(hot_searches())}
     if news_only:
         return res
     if daily or weekly:

@@ -209,7 +209,12 @@ const NEWS_QUERIES = [
   // 大手取引所の重大事件（ハッキング・出金停止）。CEXとオンチェーンの対比として範囲内（10/30 バイナンスの件を見逃した反省）
   ["(Binance OR Coinbase OR Bybit OR OKX) (hack OR exploit OR \"withdrawals\" OR \"security incident\")", "en"],
   ["(バイナンス OR コインベース OR 取引所) (ハッキング OR 出金停止 OR 不正流出)", "ja"],
+  ["(crypto OR DeFi OR exchange) (hack OR exploit OR \"withdrawals paused\" OR \"drained\")", "en"],
+  ["(暗号資産 OR 仮想通貨 OR ビットコイン) (急落 OR 急騰 OR ハッキング)", "ja"],
 ];
+
+// 相場の急変（ハッキング・大きな発表は、報道より先に値動きに出る）。1時間でこの幅を超えたら原因を探しにいく
+const SHOCKS = { BTC: 3, ETH: 4, SOL: 5 };
 
 async function fetchNews(q, lang) {
   const loc = lang === "ja" ? "hl=ja&gl=JP&ceid=JP:ja" : "hl=en-US&gl=US&ceid=US:en";
@@ -225,12 +230,12 @@ async function fetchNews(q, lang) {
   return items;
 }
 
-async function hypeMove() {
-  // HYPEの直近1時間の値動き（5分足）
+async function hypeMove(coin = "HYPE") {
+  // 直近1時間の値動き（5分足）
   const end = Date.now();
   const r = await fetch("https://api.hyperliquid.xyz/info", {
     method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ type: "candleSnapshot", req: { coin: "HYPE", interval: "5m", startTime: end - 65 * 60000, endTime: end } }),
+    body: JSON.stringify({ type: "candleSnapshot", req: { coin, interval: "5m", startTime: end - 65 * 60000, endTime: end } }),
   });
   if (!r.ok) return null;
   const cs = await r.json();
@@ -343,6 +348,16 @@ async function newsWatch(env, t) {
   let recs = [];
   try { recs = await newRecords(env); } catch (e) { /* 次の回で */ }
   const items = [...official, ...fresh].slice(0, 20);
+  const hourJst = new Date(t.getTime() + 9 * 3600000).toISOString().slice(5, 13).replace("-", "/").replace("T", " ");
+  for (const [coin, th] of Object.entries(SHOCKS)) {
+    let m = null;
+    try { m = await hypeMove(coin); } catch (e) { /* 次の回で */ }
+    if (m === null || Math.abs(m) < th) continue;
+    // 見出しは「銘柄・向き・時間帯」で固定（同じ急変を10分おきに何度も扱わない）
+    items.unshift({ title: `【急変】${coin}が直近1時間で${m > 0 ? "急騰" : "急落"}（${hourJst}時台・日本時間）`,
+                    detail: `1時間の値動き ${m > 0 ? "+" : ""}${m.toFixed(2)}%（Hyperliquidのオンチェーン価格）。原因の報道・公式発表を探して裏取りする`,
+                    source: "Hyperliquid（オンチェーン）", official: true, published: t.toUTCString() });
+  }
   for (const r of recs) {
     items.unshift({ title: `【過去最高値】${r.coin}が$${r.price}で過去最高値を更新（これまでの最高は$${r.prev}）。Hyperliquidのオンチェーン価格で確認`,
                     source: "Hyperliquid（オンチェーン）", official: true, published: t.toUTCString() });
