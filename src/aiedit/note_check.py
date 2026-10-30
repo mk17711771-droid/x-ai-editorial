@@ -33,7 +33,7 @@ LEFTOVER = [
 
 
 def _plain(body_html: str) -> str:
-    t = re.sub(r"<br\s*/?>|</p>|</h\d>|</li>", "\n", body_html)
+    t = re.sub(r"<br\s*/?>|</p>|</h\d>|</li>|</figcaption>|</figure>", "\n", body_html)  # 画像の説明文が次の段落とつながらないように
     t = html.unescape(re.sub(r"<[^>]+>", "", t))
     return re.sub(r"\n{2,}", "\n", t).strip()
 
@@ -108,7 +108,8 @@ def review(title: str, text: str, n_images: int, published_at: datetime | None, 
     if not gen:
         return issues
 
-    src = _md_plain(gen["md"].split("\n---\n")[0])
+    # タイトル（# の行）は本文と別の欄に貼るので、本文の比較から外す（10/31 タイトルの数字を「本文にない」と誤って知らせた）
+    src = _md_plain(re.sub(r"\A#\s[^\n]*\n", "", gen["md"].split("\n---\n")[0]))
     if len(text) < len(src) * 0.8:
         issues.append(f"本文が原稿より短くなっています（原稿{len(src)}字→公開{len(text)}字）。貼り付けの途中で切れていないか確認してください")
     want = len(gen.get("images", []))

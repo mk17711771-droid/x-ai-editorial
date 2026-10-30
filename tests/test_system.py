@@ -990,3 +990,15 @@ def test_breaking_means_first_on_the_net(isolated, monkeypatch):
     monkeypatch.setattr(news_watch.line, "notify", lambda m: None)
     assert news_watch.run({"items": [{"title": "遅れて見つけた記事", "source": "X"}]})["stories"] == []
     assert any("速報" in e for e in checks.check_text("【速報】バイナンスでハッキング、出金を一時停止している。中央の取引所の弱さが出た形。", "hl:BNB:oi"))
+
+
+def test_note_check_ignores_title_numbers_and_captions():
+    # 10/31 タイトルの数字・画像の説明文で、正しく貼られた記事に誤った指摘を送った
+    from datetime import datetime
+    from aiedit import note_check
+    gen = {"md": "# 【歪み】HYPEは$89.27\n\n本文の数字は12.5%です。\n\n![HYPEの値動き](chart:hl:HYPE)\n\nこれまでの流れ。\n\n---\n免責",
+           "images": ["a"], "created_at": "2026-10-31T07:44:00+09:00", "title": "【歪み】HYPEは$89.27"}
+    text = note_check._plain("<p>本文の数字は12.5%です。</p><figure><img src='x'><figcaption>HYPEの値動き</figcaption></figure><p>これまでの流れ。</p>")
+    assert "値動き\nこれまで" in text
+    issues = note_check.review("【歪み】HYPEは$89.27", text + "\n売買を勧めるものではありません", 1, None, gen)
+    assert not any("89.27" in i for i in issues)
