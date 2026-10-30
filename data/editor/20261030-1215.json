@@ -1,0 +1,36 @@
+[
+  {
+    "fact_ids": [
+      "f19",
+      "f49"
+    ],
+    "topic_key": "stock:GOOGL:big_move",
+    "angle": "米国株市場で$GOOGLが前日比-12.64%と急落する一方、HyperliquidのHIP-3株式先物では出来高が3.6億ドルを超え、資金調達率が年率+24.8%とプラス圏を維持している資金の歪みを指摘する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "メガキャップであるGOOGLの二桁急落という市場最大の異変を取り上げつつ、HIP-3先物での出来高急増と資金調達率の乖離という具体的な歪みを検証済み数値で解説できるため。"
+  },
+  {
+    "fact_ids": [
+      "f21",
+      "f7"
+    ],
+    "topic_key": "stock:AMZN:big_move",
+    "angle": "QQQが-1.42%下落する中、$AMZNが前日比-4.25%と売り込まれているハイテク大手の崩落と指数の軟調を数字で整理する。",
+    "scores": {
+      "novelty": 15,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 14
+    },
+    "total": 78,
+    "reason": "AMZNの明確な下落数値を提示できるが、GOOGLほどの特筆すべき乖離やオンチェーンデリバティブの連動データがないため次点。"
+  }
+]

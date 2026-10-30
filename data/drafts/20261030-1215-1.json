@@ -1,0 +1,111 @@
+{
+  "id": "20261030-1215-1",
+  "slot_key": "20261030-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-10-30T03:48:59.149183+00:00",
+  "text": "現物が-12.64%急落した$GOOGL、なぜオンチェーンではロングが強気なのか。\n\nHyperliquidの株式先物だと出来高約3.7億ドルの中で資金調達率は+24.8%のまま。\nパニック売りの裏で、先物側にはリバ狙いの資金がかなり溜まってそう。",
+  "template": "現物が{{f19.change_pct}}急落した${{f19.symbol}}、なぜオンチェーンではロングが強気なのか。\n\n{{f49.venue}}の株式先物だと出来高{{f49.volume}}の中で資金調達率は{{f49.funding_annual}}のまま。\nパニック売りの裏で、先物側にはリバ狙いの資金がかなり溜まってそう。",
+  "style": "問いかけ型",
+  "format": "short",
+  "topic_key": "stock:GOOGL:big_move",
+  "angle": "米国株市場で$GOOGLが前日比-12.64%と急落する一方、HyperliquidのHIP-3株式先物では出来高が3.6億ドルを超え、資金調達率が年率+24.8%とプラス圏を維持している資金の歪みを指摘する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f19",
+    "f49"
+  ],
+  "facts": [
+    {
+      "key": "stock:GOOGL:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】GOOGL 価格283.82, 前日比-12.64%, 前日終値324.89, 高値288.33, 安値280.36",
+      "fields": {
+        "symbol": "GOOGL",
+        "price": "$283.82",
+        "change_pct": "-12.64%",
+        "prev_close": "$324.89",
+        "high": "$288.33",
+        "low": "$280.36",
+        "asof": "米国10/29終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 283.82,
+        "change_pct": -12.641,
+        "prev_close": 324.89
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "GOOGL"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/GOOGL"
+      },
+      "asof": "2026-10-30T03:46:34.379068+00:00",
+      "confidence": "confirmed",
+      "id": "f19"
+    },
+    {
+      "key": "hl:xyz:GOOGL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: GOOGL（HIP-3株式等先物） 24時間騰落率-3.93%, 価格281.51, 建玉279929380USD, 24時間出来高366724417USD, 資金調達率(年率)+24.8%",
+      "fields": {
+        "coin": "GOOGL",
+        "symbol": "GOOGL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$281.51",
+        "change_pct": "-3.93%",
+        "oi": "約2.8億ドル",
+        "volume": "約3.7億ドル",
+        "funding_annual": "+24.8%",
+        "asof": "日本時間10/30(金) 12:46時点",
+        "asof_short": "12:46時点"
+      },
+      "raw": {
+        "mark": 281.51,
+        "change_pct": -3.928,
+        "oi_usd": 279929380,
+        "vol_usd": 366724417,
+        "funding_annual_pct": 24.82
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:GOOGL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:GOOGL"
+      },
+      "asof": "2026-10-30T03:46:48.810334+00:00",
+      "confidence": "confirmed",
+      "id": "f49"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/GOOGL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:GOOGL"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2116014483827028187",
+  "posted_at": "2026-10-30T03:49:01.487488+00:00"
+}
