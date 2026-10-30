@@ -208,7 +208,8 @@ def run(payload: dict | None = None) -> dict:
         # 重要度が高い、またはバズる条件に4つ以上当てはまるなら速報にする（記録更新など、重要度3でも伸びるネタを逃さない）
         hot = s.get("importance", 0) >= _cfg().get("min_importance", 4) or s.get("buzz_fit", 0) >= 4
         # アカウントの属性からぶれない: 範囲外の話題はどれだけ熱くても出さない
-        if not s.get("story_key") or not hot or s.get("in_scope") is False:
+        # 出来事そのものが古い（昨日・一昨日の話の再報道）なら速報にしない（10/31 2:05 ICEの件を「速報をキャッチ」と知らせた反省）
+        if not s.get("story_key") or not hot or s.get("in_scope") is False or s.get("fresh") is False:
             continue
         prev = handled.get(s["story_key"], {})
         verified = _verified(s)

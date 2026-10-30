@@ -948,3 +948,29 @@ def test_stale_story_not_posted_as_breaking(isolated):
     assert [f["key"] for f in pipeline.news_facts(pending_only=True)] == ["news:new"]
     from aiedit import news_watch
     assert news_watch.MAX_POSTS_PER_STORY == 1
+
+
+def test_skipped_news_not_retried(isolated, monkeypatch):
+    # 見送りにした話題（古いICEの件）を、見回りが「投稿されていない」として出し直さない
+    from datetime import timedelta
+    from aiedit import health
+    from aiedit.common import now_utc
+    t = (now_utc() - timedelta(minutes=40)).isoformat()
+    store.write_json("news/stories.json", {"ice": {"at": t, "last_post_at": t, "posts": 1}})
+    store.write_json("news_facts.json", [{"key": "news:ice-3", "status": "skipped", "fields": {}}])
+    called = []
+    monkeypatch.setattr(health, "_dispatch_news", lambda: called.append(1) or True)
+    assert health.announced_not_posted([]) == [] and called == []
+
+
+def test_old_event_not_announced(isolated, monkeypatch):
+    from aiedit import news_watch
+    monkeypatch.setattr(news_watch, "triage", lambda *a: [{"story_key": "ice-again", "headline": "古い話", "importance": 5,
+                                                            "buzz_fit": 6, "in_scope": True, "fresh": False,
+                                                            "sources": ["A", "B"]}])
+    monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    sent = []
+    monkeypatch.setattr(news_watch.line, "notify", lambda m: sent.append(m))
+    r = news_watch.run({"items": [{"title": "ICEの件の再報道", "source": "X"}]})
+    assert r["stories"] == [] and sent == []

@@ -134,7 +134,7 @@ def announced_not_posted(actions: list[str]) -> list[dict]:
         if not news_keys or any(k in posted_topics for k in news_keys) or age < timedelta(minutes=20):
             continue
         # 「投稿済み」と記録された速報（別の話題として既に出したものを含む）は出し直さない。出し直すのは未投稿のままのものだけ
-        if any(facts[k].get("status") == "posted" for k in news_keys):
+        if any(facts[k].get("status") in ("posted", "skipped") for k in news_keys):  # 見送りにした話題も出し直さない
             continue
         from .pipeline import recent_news_post
         if recent_news_post(minutes=120):
