@@ -578,7 +578,10 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
         _close(draft, "expired")
         line.notify(f"承認期限（{cfg['draft_expiry_hours']}時間）を過ぎたため投稿しませんでした。")
         return "expired"
-    if len(store.recent_posts(24)) >= cfg["max_posts_per_day"]:
+    # 速報は別枠（news_watch.max_posts_per_day で管理）。通常の上限で止めると熱い話題を逃す（10/30 バイナンスの件）
+    is_news = str(draft.get("slot_key", "")).split("-")[-1].startswith("news")
+    recent = [p for p in store.recent_posts(24) if not str(p.get("slot_key", "")).split("-")[-1].startswith("news")]
+    if not is_news and len(recent) >= cfg["max_posts_per_day"]:
         _close(draft, "skipped", skip_reason="1日の投稿上限")
         line.notify("1日の投稿上限に達したため投稿しませんでした。")
         return "skipped"

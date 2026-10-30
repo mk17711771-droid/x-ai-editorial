@@ -858,3 +858,16 @@ def test_worker_watches_exchange_incidents():
     src = Path(__file__).resolve().parents[1].joinpath("worker/src/index.js").read_text(encoding="utf-8")
     block = src.split("const NEWS_QUERIES")[1].split("];")[0]
     assert "Binance" in block and "出金停止" in block
+
+
+def test_news_slot_not_blocked_by_daily_limit(wired, isolated):
+    # 10/30 バイナンスの速報が「1日の投稿上限（通常の8件）」で止まった反省: 速報は別枠で数える
+    from aiedit.common import now_utc
+    d = pipeline.generate()[0]
+    for i in range(8):
+        store.record_post({"tweet_id": f"t{i}", "slot_key": f"20261026-x{i}", "topic_key": f"x:{i}",
+                           "posted_at": now_utc().isoformat(), "text": "x"})
+    assert pipeline.publish(d["id"], "approve") == "skipped"
+    news = {**d, "id": "20261026-news1200-1", "slot_key": "20261026-news1200", "status": "pending"}
+    store.save_draft(news)
+    assert pipeline.publish(news["id"], "approve") == "posted"
