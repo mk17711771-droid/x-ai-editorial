@@ -121,29 +121,60 @@ def news_digest(n: int = 8) -> str:
 
 # ---------- noteの人気記事（公開の検索。無料） ----------
 
+NOTE_ENDPOINTS = [
+    # 検索API（v3）は Actions から 403 になることがある。ハッシュタグの一覧も順に試し、取れたものを使う
+    ("https://note.com/api/v3/searches", lambda q: {"context": "note", "q": q, "size": 20, "start": 0, "sort": "popular"}),
+    ("https://note.com/api/v3/hashtags/{tag}/notes", lambda q: {"order": "popular", "page": 1}),
+    ("https://note.com/api/v2/hashtags/{tag}/notes", lambda q: {"order": "popular", "page": 1}),
+]
+
+
+def _find_notes(obj) -> list[dict]:
+    """APIの形が変わっても拾えるよう、「タイトル＋スキ数」を持つ要素を探す。"""
+    if isinstance(obj, list):
+        if obj and all(isinstance(x, dict) and "name" in x and ("like_count" in x or "likeCount" in x) for x in obj):
+            return obj
+        for x in obj:
+            if (found := _find_notes(x)):
+                return found
+    elif isinstance(obj, dict):
+        for v in obj.values():
+            if (found := _find_notes(v)):
+                return found
+    return []
+
+
 def note_trends() -> list[dict]:
+    """同ジャンルのnoteの人気記事（タイトル・スキ数・価格・書き手）。noteの戦略づくりに使う。"""
     out: list[dict] = []
+    probe = {}
     for q in _cfg().get("note_queries", []):
-        try:
-            r = requests.get("https://note.com/api/v3/searches",
-                             params={"context": "note", "q": q, "size": 20, "start": 0, "sort": "popular"},
-                             headers=HEADERS, timeout=30)
-            r.raise_for_status()
-            notes = (r.json().get("data", {}).get("notes") or {}).get("contents", [])
-        except (requests.RequestException, ValueError) as e:
-            log.warning("noteの検索に失敗 %s: %s", q, e)
-            _error("note", q, e)
-            continue
+        notes = []
+        for url, params in NOTE_ENDPOINTS:
+            u = url.format(tag=quote(q.lstrip("#")))
+            try:
+                r = requests.get(u, params=params(q), headers=HEADERS, timeout=30)
+                r.raise_for_status()
+                notes = _find_notes(r.json())
+                probe[f"{url}|{q}"] = f"ok {len(notes)}"
+            except (requests.RequestException, ValueError) as e:
+                probe[f"{url}|{q}"] = str(e)[:120]
+                continue
+            if notes:
+                break
         if not notes:
-            _error("note", q, f"0件 keys={list(r.json().get('data', {}).keys())[:10]}")
+            _error("note", q, "どの取得方法でも0件")
         for n in notes:
             out.append({
                 "query": q, "title": n.get("name"),
                 "likes": n.get("like_count", n.get("likeCount")),
                 "price": n.get("price"),
                 "creator": (n.get("user") or {}).get("urlname"),
+                "creator_followers": (n.get("user") or {}).get("follower_count", (n.get("user") or {}).get("followerCount")),
                 "published": n.get("publish_at", n.get("publishAt")),
+                "hashtags": [h.get("hashtag", {}).get("name") if isinstance(h, dict) else h for h in (n.get("hashtags") or [])][:8],
             })
+    store.write_json("sources/note_probe.json", probe)
     if out:
         store.write_json(f"sources/note/{now_utc().astimezone(JST):%Y%m%d}.json", out)
     return out

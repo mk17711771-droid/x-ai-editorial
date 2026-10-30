@@ -126,7 +126,12 @@ research:
     - semiconductor stocks
   # noteの検索APIはプログラムからのアクセスを拒否（403）しているため使わない。
   # noteの反応は自分の記事のスキ数（note-check が毎日記録）で測る。
-  note_queries: []
+  note_queries:                  # noteの人気記事（ハッシュタグ名としても使う。無料）
+    - 米国株
+    - 仮想通貨
+    - 暗号資産
+    - 半導体
+    - Hyperliquid
   x:                             # Xの同ジャンルの伸びた投稿（有料: 1件約0.75円。毎日1つずつ順番に検索）
     enabled: true                # 同ジャンルの伸びた投稿の分析に必要（止めると分析の材料がなくなる）。費用を抑えて毎日1テーマ×8件
     monthly_read_limit: 250      # 月の上限（約190円）
