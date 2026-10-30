@@ -1,0 +1,73 @@
+{
+  "id": "20261030-1000-3",
+  "slot_key": "20261030-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-10-30T01:44:36.043658+00:00",
+  "text": "HyperliquidのHIP-3市場で$MSFTのポジション縮小が起きてる。\n\n・価格: $523.39（-4.69%）\n・建玉変化: -36.8%\n・建玉残高: 約2,355万ドル\n\n株価の調整に連動してデリバティブ側の清算が進んだとみられる。",
+  "template": "HyperliquidのHIP-3市場で${{f23.symbol}}のポジション縮小が起きてる。\n\n・価格: {{f23.price}}（{{f23.change_pct}}）\n・建玉変化: {{f23.oi_change_pct}}\n・建玉残高: {{f23.oi}}\n\n株価の調整に連動してデリバティブ側の清算が進んだとみられる。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:MSFT:oi_change",
+  "angle": "HIP-3市場でMSFT先物の建玉が24時間で-36.8%急減し、株価下落（-4.69%）に伴いポジション解消が一気に進んだ事実を伝える。",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 16,
+    "insight": 16
+  },
+  "total": 87,
+  "fact_ids": [
+    "f23"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:MSFT:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化-36.8%: MSFT（HIP-3株式等先物） 24時間騰落率-4.69%, 価格523.39, 建玉23549301USD, 24時間出来高70142604USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "MSFT",
+        "symbol": "MSFT",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$523.39",
+        "change_pct": "-4.69%",
+        "oi": "約2,355万ドル",
+        "volume": "約7,014万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/30(金) 10:42時点",
+        "asof_short": "10:42時点",
+        "oi_change_pct": "-36.8%"
+      },
+      "raw": {
+        "mark": 523.39,
+        "change_pct": -4.686,
+        "oi_usd": 23549301,
+        "vol_usd": 70142604,
+        "funding_annual_pct": 5.48,
+        "oi_change_pct": -36.77
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:MSFT",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:MSFT"
+      },
+      "asof": "2026-10-30T01:42:58.723662+00:00",
+      "confidence": "confirmed",
+      "id": "f23"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:MSFT"
+    }
+  ],
+  "needs_human": false
+}

@@ -1,0 +1,73 @@
+{
+  "id": "20261030-1000-2",
+  "slot_key": "20261030-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-10-30T01:44:34.132982+00:00",
+  "text": "価格が下落している局面で、_$BNBの建玉だけが急ピッチで積み上がってる。\n\n24時間で+68.9%も増えている一方で、資金調達率は年率-34.8%まで低下してる。\n\n価格の逆行とポジションの偏り、このねじれがどう解消されるかかなり気になる。",
+  "template": "価格が下落している局面で、_${{f21.coin}}の建玉だけが急ピッチで積み上がってる。\n\n24時間で{{f21.oi_change_pct}}も増えている一方で、資金調達率は年率{{f21.funding_annual}}まで低下してる。\n\n価格の逆行とポジションの偏り、このねじれがどう解消されるかかなり気になる。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:BNB:oi_change",
+  "angle": "BNBで価格が-6.86%下落する局面において、建玉が24時間で+68.9%急増しているポジション積み増しの異変を整理する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 17,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 88,
+  "fact_ids": [
+    "f21"
+  ],
+  "facts": [
+    {
+      "key": "hl:BNB:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+68.9%: BNB（無期限先物） 24時間騰落率-6.86%, 価格699.982, 建玉78156888USD, 24時間出来高293245707USD, 資金調達率(年率)-34.8%",
+      "fields": {
+        "coin": "BNB",
+        "symbol": "BNB",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$699.98",
+        "change_pct": "-6.86%",
+        "oi": "約7,816万ドル",
+        "volume": "約2.9億ドル",
+        "funding_annual": "-34.8%",
+        "asof": "日本時間10/30(金) 10:42時点",
+        "asof_short": "10:42時点",
+        "oi_change_pct": "+68.9%"
+      },
+      "raw": {
+        "mark": 699.982,
+        "change_pct": -6.859,
+        "oi_usd": 78156888,
+        "vol_usd": 293245707,
+        "funding_annual_pct": -34.78,
+        "oi_change_pct": 68.89
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BNB",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BNB"
+      },
+      "asof": "2026-10-30T01:42:58.723600+00:00",
+      "confidence": "confirmed",
+      "id": "f21"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BNB"
+    }
+  ],
+  "needs_human": false
+}

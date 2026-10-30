@@ -1,0 +1,68 @@
+[
+  {
+    "fact_ids": [
+      "f16",
+      "f22"
+    ],
+    "topic_key": "hl:TRX:funding_extreme",
+    "angle": "TRXで価格+8.27%の上昇に対し建玉が+65.6%急増し、資金調達率は年率-382.7%と猛烈なショート過熱（踏み上げ）が起きている市場の歪みを提示する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "資金調達率-382.7%と建玉+65.6%という極端な数字が揃っており、枠のテーマである急変動と資金調達率の異変に最も合致するため。"
+  },
+  {
+    "fact_ids": [
+      "f21"
+    ],
+    "topic_key": "hl:BNB:oi_change",
+    "angle": "BNBで価格が-6.86%下落する局面において、建玉が24時間で+68.9%急増しているポジション積み増しの異変を整理する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "下落局面での建玉+68.9%急増という需給の偏りが明確で、短文で一言で伝わるインパクトがあるため。"
+  },
+  {
+    "fact_ids": [
+      "f23"
+    ],
+    "topic_key": "hl:xyz:MSFT:oi_change",
+    "angle": "HIP-3市場でMSFT先物の建玉が24時間で-36.8%急減し、株価下落（-4.69%）に伴いポジション解消が一気に進んだ事実を伝える。",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 87,
+    "reason": "米国株とオンチェーン先物をつなぐ建玉の急変データであり、アカウントの軸に合致しているため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f33"
+    ],
+    "topic_key": "traders:ETH:bias",
+    "angle": "安定上位トレーダー7人中7人全員が売り（買い比率0%）に偏り、先物市場全体の資金調達率も年率-54.0%まで弱気に沈んでいる歪みを解説する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 16
+    },
+    "total": 86,
+    "reason": "上位勢の100%売り越しという明確な集計結果と資金調達率のマイナス転落が連動しており読者の関心が高いため。"
+  }
+]

@@ -1,0 +1,119 @@
+{
+  "id": "20261030-1000-1",
+  "slot_key": "20261030-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "posted",
+  "created_at": "2026-10-30T01:44:32.106107+00:00",
+  "text": "年率-382.7%。\nHyperliquidの$TRX無期限先物、ショートが完全に捕まってる。\n価格が+8.27%上がってるのに建玉が+65.6%激増してて、無理やり売り向かった勢が丸焦げになってる構図。どこで燃料が切れるか。",
+  "template": "年率{{f16.funding_annual}}。\n{{f16.venue}}の${{f16.symbol}}無期限先物、ショートが完全に捕まってる。\n価格が{{f16.change_pct}}上がってるのに建玉が{{f22.oi_change_pct}}激増してて、無理やり売り向かった勢が丸焦げになってる構図。どこで燃料が切れるか。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:TRX:funding_extreme",
+  "angle": "TRXで価格+8.27%の上昇に対し建玉が+65.6%急増し、資金調達率は年率-382.7%と猛烈なショート過熱（踏み上げ）が起きている市場の歪みを提示する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 93,
+  "fact_ids": [
+    "f16",
+    "f22"
+  ],
+  "facts": [
+    {
+      "key": "hl:TRX:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: TRX（無期限先物） 24時間騰落率+8.27%, 価格0.35679, 建玉19096834USD, 24時間出来高43164103USD, 資金調達率(年率)-382.7%",
+      "fields": {
+        "coin": "TRX",
+        "symbol": "TRX",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$0.3568",
+        "change_pct": "+8.27%",
+        "oi": "約1,910万ドル",
+        "volume": "約4,316万ドル",
+        "funding_annual": "-382.7%",
+        "asof": "日本時間10/30(金) 10:42時点",
+        "asof_short": "10:42時点"
+      },
+      "raw": {
+        "mark": 0.35679,
+        "change_pct": 8.269,
+        "oi_usd": 19096834,
+        "vol_usd": 43164103,
+        "funding_annual_pct": -382.71
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "TRX",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/TRX"
+      },
+      "asof": "2026-10-30T01:42:58.723368+00:00",
+      "confidence": "confirmed",
+      "id": "f16"
+    },
+    {
+      "key": "hl:TRX:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+65.6%: TRX（無期限先物） 24時間騰落率+8.27%, 価格0.35679, 建玉19096834USD, 24時間出来高43164103USD, 資金調達率(年率)-382.7%",
+      "fields": {
+        "coin": "TRX",
+        "symbol": "TRX",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$0.3568",
+        "change_pct": "+8.27%",
+        "oi": "約1,910万ドル",
+        "volume": "約4,316万ドル",
+        "funding_annual": "-382.7%",
+        "asof": "日本時間10/30(金) 10:42時点",
+        "asof_short": "10:42時点",
+        "oi_change_pct": "+65.6%"
+      },
+      "raw": {
+        "mark": 0.35679,
+        "change_pct": 8.269,
+        "oi_usd": 19096834,
+        "vol_usd": 43164103,
+        "funding_annual_pct": -382.71,
+        "oi_change_pct": 65.61
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "TRX",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/TRX"
+      },
+      "asof": "2026-10-30T01:42:58.723633+00:00",
+      "confidence": "confirmed",
+      "id": "f22"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/TRX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/TRX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2115983186052145589",
+  "posted_at": "2026-10-30T01:44:39.505333+00:00"
+}
