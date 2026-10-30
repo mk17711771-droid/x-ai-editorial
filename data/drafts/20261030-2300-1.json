@@ -1,0 +1,168 @@
+{
+  "id": "20261030-2300-1",
+  "slot_key": "20261030-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "posted",
+  "created_at": "2026-10-30T14:13:13.206717+00:00",
+  "text": "現物が-28.71%急落した$INTC、Hyperliquidの先物ではなぜ建玉が急増しているのか。\n\n価格が$65.66まで下がる一方で、資金調達率は+110.6%と強気のコストが残ったまま。\n\nパニック売りの裏で、リバ狙いのポジションがかなり溜まってそう。",
+  "template": "現物が{{f15.us_change_pct}}急落した${{f15.symbol}}、Hyperliquidの先物ではなぜ建玉が急増しているのか。\n\n価格が{{f15.price}}まで下がる一方で、資金調達率は{{f15.funding_annual}}と強気のコストが残ったまま。\n\nパニック売りの裏で、リバ狙いのポジションがかなり溜まってそう。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:INTC:big_move",
+  "angle": "米国市場オープン前の半導体セクターで、INTCのHIP-3先物が現物株の急落（-28.71%）に追随し、建玉が+79.4%急増している異変を指摘する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f15",
+    "f26",
+    "f31"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:INTC:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: INTC（HIP-3株式等先物） 24時間騰落率-29.17%, 価格65.662, 建玉128088712USD, 24時間出来高402069901USD, 資金調達率(年率)+110.6%（照合: 米国株の前日比-28.71%）",
+      "fields": {
+        "coin": "INTC",
+        "symbol": "INTC",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$65.66",
+        "change_pct": "-29.17%",
+        "oi": "約1.3億ドル",
+        "volume": "約4.0億ドル",
+        "funding_annual": "+110.6%",
+        "asof": "日本時間10/30(金) 23:12時点",
+        "asof_short": "23:12時点",
+        "us_change_pct": "-28.71%"
+      },
+      "raw": {
+        "mark": 65.662,
+        "change_pct": -29.172,
+        "oi_usd": 128088712,
+        "vol_usd": 402069901,
+        "funding_annual_pct": 110.59,
+        "us_change_pct": -28.706
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:INTC",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+      },
+      "asof": "2026-10-30T14:12:56.568588+00:00",
+      "confidence": "confirmed",
+      "id": "f15"
+    },
+    {
+      "key": "hl:xyz:INTC:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+79.4%: INTC（HIP-3株式等先物） 24時間騰落率-29.17%, 価格65.662, 建玉128088712USD, 24時間出来高402069901USD, 資金調達率(年率)+110.6%（照合: 米国株の前日比-28.71%）",
+      "fields": {
+        "coin": "INTC",
+        "symbol": "INTC",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$65.66",
+        "change_pct": "-29.17%",
+        "oi": "約1.3億ドル",
+        "volume": "約4.0億ドル",
+        "funding_annual": "+110.6%",
+        "asof": "日本時間10/30(金) 23:12時点",
+        "asof_short": "23:12時点",
+        "oi_change_pct": "+79.4%",
+        "us_change_pct": "-28.71%"
+      },
+      "raw": {
+        "mark": 65.662,
+        "change_pct": -29.172,
+        "oi_usd": 128088712,
+        "vol_usd": 402069901,
+        "funding_annual_pct": 110.59,
+        "us_change_pct": -28.706,
+        "oi_change_pct": 79.35
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:INTC",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+      },
+      "asof": "2026-10-30T14:12:56.568811+00:00",
+      "confidence": "confirmed",
+      "id": "f26"
+    },
+    {
+      "key": "hl:xyz:INTC:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: INTC（HIP-3株式等先物） 24時間騰落率-29.17%, 価格65.662, 建玉128088712USD, 24時間出来高402069901USD, 資金調達率(年率)+110.6%（照合: 米国株の前日比-28.71%）",
+      "fields": {
+        "coin": "INTC",
+        "symbol": "INTC",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$65.66",
+        "change_pct": "-29.17%",
+        "oi": "約1.3億ドル",
+        "volume": "約4.0億ドル",
+        "funding_annual": "+110.6%",
+        "asof": "日本時間10/30(金) 23:12時点",
+        "asof_short": "23:12時点",
+        "us_change_pct": "-28.71%"
+      },
+      "raw": {
+        "mark": 65.662,
+        "change_pct": -29.172,
+        "oi_usd": 128088712,
+        "vol_usd": 402069901,
+        "funding_annual_pct": 110.59,
+        "us_change_pct": -28.706
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:INTC",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+      },
+      "asof": "2026-10-30T14:12:56.568886+00:00",
+      "confidence": "confirmed",
+      "id": "f31"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2116172138247819647",
+  "posted_at": "2026-10-30T14:15:29.238962+00:00"
+}

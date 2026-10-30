@@ -1,0 +1,90 @@
+[
+  {
+    "fact_ids": [
+      "f15",
+      "f26",
+      "f31"
+    ],
+    "topic_key": "hl:xyz:INTC:big_move",
+    "angle": "米国市場オープン前の半導体セクターで、INTCのHIP-3先物が現物株の急落（-28.71%）に追随し、建玉が+79.4%急増している異変を指摘する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "現物の大幅下落とHIP-3先物の建玉急増・高資金調達率のデータを紐付け、市場オープン前の緊迫した需給の歪みを明確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f3",
+      "f5"
+    ],
+    "topic_key": "news:ice-tradexyz",
+    "angle": "NYSE親会社ICEによるtrade[XYZ]への出資とHyperliquid基盤の米国展開について、オンチェーン先物の新展開を構造的に解説する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 20,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 19
+    },
+    "total": 91,
+    "reason": "伝統金融インフラとDEX基盤の融合という市場構造の大きな変化を、確度の高い複数の確認済み事実をベースに捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f17",
+      "f30"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "半導体レバレッジ型のSOXL先物が-20.55%と急落し、市場参加者のポジション調整が進む様子を伝える。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "半導体関連のHIP-3先物における価格変動と出来高のデータを正確に反映し、オープン前の投資家心理を読み解く材料になっているため。"
+  },
+  {
+    "fact_ids": [
+      "f36",
+      "f37",
+      "f39"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "安定上位トレーダーの間でBTCやETHのショート偏重が継続している現状を数字で浮き彫りにする。",
+    "scores": {
+      "novelty": 15,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "上位勢のポジション偏在という看板企画のデータであり、市場の方向感に対する玄人の見方を冷静に伝えることができるため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f7"
+    ],
+    "topic_key": "news:binance-historic-hack",
+    "angle": "大規模インシデントを受けたCEXのリスクと、オンチェーン取引への資金シフトというマクロな構図を整理する。",
+    "scores": {
+      "novelty": 14,
+      "interest": 19,
+      "evidence": 17,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 85,
+    "reason": "中央集権型取引所のリスクとオンチェーンの対比という重要な文脈を、確認済みの事実に基づいて冷静に提示しているため。"
+  }
+]

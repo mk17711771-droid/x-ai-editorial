@@ -1,0 +1,151 @@
+{
+  "id": "20261030-2300-3",
+  "slot_key": "20261030-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-10-30T14:15:26.721347+00:00",
+  "text": "日本時間10/30(金) 21:36時点、HyperliquidのETHの安定上位トレーダー28人のポジションは買い0人・売り7人。\n\n買い比率は0%で、売り側の合計は約303万ドルに到達。\n\nこれだけのショート偏重がこの先どう動くか注目。",
+  "template": "{{f37.asof}}時点、Hyperliquidの{{f37.coin}}の安定上位トレーダー{{f37.top_n}}のポジションは買い{{f37.long_n}}人・売り{{f37.short_n}}人。\n\n買い比率は{{f37.long_ratio}}で、売り側の合計は{{f37.short_usd}}に到達。\n\nこれだけのショート偏重がこの先どう動くか注目。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "traders:BTC:bias",
+  "angle": "安定上位トレーダーの間でBTCやETHのショート偏重が継続している現状を数字で浮き彫りにする。",
+  "scores": {
+    "novelty": 15,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 17
+  },
+  "total": 87,
+  "fact_ids": [
+    "f36",
+    "f37",
+    "f39"
+  ],
+  "facts": [
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-30T12:36:01.934299+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:BTC:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー28人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、BTCを持っている7人の内訳: 買い1人・売り6人（買い比率14%）、買い合計10283USD・売り合計4252983USD、平均レバレッジ26.9倍（このほか、現物つきの売り＝ヘッジ・裁定が0人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "BTC",
+        "top_n": "28人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "7人",
+        "long_n": "1人",
+        "short_n": "6人",
+        "long_ratio": "14%",
+        "long_usd": "約1万ドル",
+        "short_usd": "約425万ドル",
+        "hedge_n": "0人",
+        "avg_leverage": "26.9倍",
+        "asof": "日本時間10/30(金) 21:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 1,
+        "short_n": 6,
+        "long_usd": 10283,
+        "short_usd": 4252983
+      },
+      "id": "f36"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-30T12:36:01.934299+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:ETH:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー28人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、ETHを持っている7人の内訳: 買い0人・売り7人（買い比率0%）、買い合計0USD・売り合計3030943USD、平均レバレッジ20.7倍（このほか、現物つきの売り＝ヘッジ・裁定が0人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "ETH",
+        "top_n": "28人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "7人",
+        "long_n": "0人",
+        "short_n": "7人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約303万ドル",
+        "hedge_n": "0人",
+        "avg_leverage": "20.7倍",
+        "asof": "日本時間10/30(金) 21:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 7,
+        "long_usd": 0,
+        "short_usd": 3030943
+      },
+      "id": "f37"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-30T12:36:01.934299+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:SOL:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー28人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、SOLを持っている4人の内訳: 買い0人・売り4人（買い比率0%）、買い合計0USD・売り合計387488USD、平均レバレッジ20.0倍（このほか、現物つきの売り＝ヘッジ・裁定が0人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "SOL",
+        "top_n": "28人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "4人",
+        "long_n": "0人",
+        "short_n": "4人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約39万ドル",
+        "hedge_n": "0人",
+        "avg_leverage": "20.0倍",
+        "asof": "日本時間10/30(金) 21:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 4,
+        "long_usd": 0,
+        "short_usd": 387488
+      },
+      "id": "f39"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false
+}
