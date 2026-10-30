@@ -1,0 +1,70 @@
+[
+  {
+    "fact_ids": [
+      "f2",
+      "f20"
+    ],
+    "topic_key": "news:binance-security-incident-withdrawals",
+    "angle": "バイナンスの出金一時停止発表の速報を受け、Hyperliquid上のBNB先物で建玉が+50.6%急増し年率-35.6%のショート過熱が発生している市場の歪みを伝える。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "確認済み速報とHyperliquidの実データ（建玉急増・資金調達率のマイナス転換）が直結しており、CEXの異変に対するオンチェーン市場の反応を即座に数字で示せるため。"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f29",
+      "f4"
+    ],
+    "topic_key": "traders:ETH:bias",
+    "angle": "市場の混乱局面において、Hyperliquidの安定上位勢がETH保有者7人全員ショート（0対7・売建304万ドル）に偏り、資金調達率も-16.5%に沈んでいる実態を解説する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "相場の急変時に安定して利益を出している上位トレーダーが明確に片側に偏っている検証済みデータであり、読者の関心と実用性が極めて高いため。"
+  },
+  {
+    "fact_ids": [
+      "f13",
+      "f28"
+    ],
+    "topic_key": "hl:xyz:UNITREE:funding_extreme",
+    "angle": "HIP-3市場のUNITREE先物で年率-393.7%という異常なショート過熱が発生している点に着目し、株式・トークン化資産市場における極端なポジションの歪みを可視化する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 83,
+    "reason": "年率-393.7%という突出した数値を提示でき、HIP-3独自の歪みを追うアカウントの軸に合致しているため。"
+  },
+  {
+    "fact_ids": [
+      "f35"
+    ],
+    "topic_key": "traders:funnel",
+    "angle": "Hyperliquidの上位300人を「真似できる条件」で絞り込むと残るのはわずか2人だけというファネル分析から、ランキング上位の幻影とリスク管理の現実を伝える。",
+    "scores": {
+      "novelty": 14,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 15
+    },
+    "total": 82,
+    "reason": "保存されやすい定番の教育的データだが、直近数日以内に類似のファネル投稿履歴があるため新規性をやや割り引いた。"
+  }
+]

@@ -1,0 +1,104 @@
+{
+  "id": "20261030-news1558-1",
+  "slot_key": "20261030-news1558",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "skipped",
+  "created_at": "2026-10-30T07:00:23.481275+00:00",
+  "text": "バイナンスの出金停止を受けて、オンチェーン先物の売りが急激に積まれてる。\n\nHyperliquidの$BNBは建玉が+50.6%急増して、資金調達率は年率-35.6%まで急降下。\n\nパニック売りとヘッジが重なってる構図だな。",
+  "template": "バイナンスの出金停止を受けて、オンチェーン先物の売りが急激に積まれてる。\n\n{{f20.venue}}の${{f20.coin}}は建玉が{{f20.oi_change_pct}}急増して、資金調達率は年率{{f20.funding_annual}}まで急降下。\n\nパニック売りとヘッジが重なってる構図だな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "news:binance-security-incident-withdrawals",
+  "angle": "バイナンスの出金一時停止発表の速報を受け、Hyperliquid上のBNB先物で建玉が+50.6%急増し年率-35.6%のショート過熱が発生している市場の歪みを伝える。",
+  "scores": {
+    "novelty": 19,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 93,
+  "fact_ids": [
+    "f2",
+    "f20"
+  ],
+  "facts": [
+    {
+      "key": "news:binance-security-incident-withdrawals",
+      "kind": "hl",
+      "asof": "2026-10-30T06:57:55.611661+00:00",
+      "expires_at": "2026-10-31T06:57:55.611661+00:00",
+      "status": "pending",
+      "summary": "世界最大の暗号資産取引所バイナンスがセキュリティ事件を受け、複数のネットワークで出金を一時停止。バイナンスは影響額を約63億ドルと見積もり、うち約30億ドルは凍結済みと説明。利用者の損失はSAFU基金と自社資金で補償するとしている。初期調査では開発運用担当者のPCの侵害が原因の可能性。被害の全容は確認中。",
+      "fields": {
+        "headline": "バイナンスでセキュリティ事件、複数ネットワークで出金を一時停止",
+        "impact": "約63億ドル",
+        "frozen": "約30億ドル",
+        "status": "複数のネットワークで出金を一時停止中（再開時期は未発表）",
+        "compensation": "利用者の損失はSAFU基金と自社資金で補償すると表明",
+        "cause": "初期調査では開発運用担当者のPCが侵害された可能性（全容は確認中）"
+      },
+      "raw": {},
+      "source": {
+        "name": "TechCrunch・Fox Business・AP",
+        "url": "https://techcrunch.com/2026/10/29/binance-pauses-withdrawals-as-hackers-suspected-of-stealing-billions-in-crypto/"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f2"
+    },
+    {
+      "key": "hl:BNB:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+50.6%: BNB（無期限先物） 24時間騰落率-4.94%, 価格715.17, 建玉70053383USD, 24時間出来高313405874USD, 資金調達率(年率)-35.6%",
+      "fields": {
+        "coin": "BNB",
+        "symbol": "BNB",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$715.17",
+        "change_pct": "-4.94%",
+        "oi": "約7,005万ドル",
+        "volume": "約3.1億ドル",
+        "funding_annual": "-35.6%",
+        "asof": "日本時間10/30(金) 15:58時点",
+        "asof_short": "15:58時点",
+        "oi_change_pct": "+50.6%"
+      },
+      "raw": {
+        "mark": 715.17,
+        "change_pct": -4.938,
+        "oi_usd": 70053383,
+        "vol_usd": 313405874,
+        "funding_annual_pct": -35.62,
+        "oi_change_pct": 50.57
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BNB",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BNB"
+      },
+      "asof": "2026-10-30T06:58:26.825274+00:00",
+      "confidence": "confirmed",
+      "id": "f20"
+    }
+  ],
+  "sources": [
+    {
+      "name": "TechCrunch・Fox Business・AP",
+      "url": "https://techcrunch.com/2026/10/29/binance-pauses-withdrawals-as-hackers-suspected-of-stealing-billions-in-crypto/"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BNB"
+    }
+  ],
+  "needs_human": false,
+  "skip_reason": "1日の投稿上限"
+}
