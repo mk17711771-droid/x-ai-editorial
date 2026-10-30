@@ -25,8 +25,8 @@ FOOTER = (
 )
 
 THEMES = {
-    2: "週央レポート: Hyperliquidの上位トレーダーがいま何を持っているか、資金調達率・建玉の偏りとあわせて読み解く",
-    5: "週末考察: 今週の資金の流れ（上位トレーダー・HIP-3株式先物・米国株）と、来週見ておきたいポイント",
+    2: "週央レポート: 今週ここまででいちばん話題になった出来事（速報・決算・急変）の裏側で、Hyperliquidの上位トレーダー・資金調達率・建玉にどんな歪みが出ているか",
+    5: "週末考察: 今週いちばん話題になった出来事を、資金の流れ（上位トレーダー・HIP-3株式先物・米国株）の数字で振り返り、来週見ておきたいポイントにつなげる",
 }
 
 
@@ -58,8 +58,18 @@ def _week_change_facts() -> list[dict]:
     return out
 
 
+def _week_news_facts() -> list[dict]:
+    """直近1週間の速報（裏取り済み）。noteはその週いちばん話題になった出来事を主役にする（人気記事はその週の出来事が題材）。"""
+    out = []
+    for f in store.read_json("news_facts.json", []) or []:
+        if f.get("status") == "skipped" or now_utc() - datetime.fromisoformat(f["asof"]) > timedelta(days=7):
+            continue
+        out.append({**f, "category": "news", "fields": {k: v for k, v in f["fields"].items() if isinstance(v, str)}})
+    return out[-6:]
+
+
 def collect_facts() -> list[dict]:
-    raw = collect_hyperliquid.collect() + traders.facts(max_age_hours=6) + _week_change_facts()
+    raw = _week_news_facts() + collect_hyperliquid.collect() + traders.facts(max_age_hours=6) + _week_change_facts()
     if env("FINNHUB_API_KEY", required=False):
         raw += [f for f in collect_stocks.collect() if f["category"] in ("quote", "big_move", "earnings_upcoming")]
     for i, f in enumerate(raw, 1):

@@ -895,3 +895,16 @@ def test_hot_searches_parsed(isolated, monkeypatch):
     rows = sources.hot_searches()
     assert rows[0]["traffic"] == "50000+" and rows[0]["news"] == ["Binance pauses withdrawals"]
     assert "バイナンス（50000+）: Binance pauses withdrawals" in sources.hot_digest()
+
+
+def test_note_article_uses_week_news(isolated):
+    # noteはその週いちばん話題になった出来事を主役にする（10/30 noteの分析）
+    from datetime import timedelta
+    from aiedit import note_article
+    from aiedit.common import now_utc
+    store.write_json("news_facts.json", [
+        {"key": "news:a", "asof": now_utc().isoformat(), "status": "posted", "fields": {"headline": "新しい話題"}, "summary": "s"},
+        {"key": "news:old", "asof": (now_utc() - timedelta(days=9)).isoformat(), "status": "posted", "fields": {"headline": "古い"}, "summary": "s"},
+    ])
+    got = note_article._week_news_facts()
+    assert [f["key"] for f in got] == ["news:a"] and got[0]["category"] == "news"
