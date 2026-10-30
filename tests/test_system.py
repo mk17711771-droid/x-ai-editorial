@@ -850,3 +850,11 @@ def test_quote_official_post_for_news():
     assert pipeline._quote_target(d) == "2115802211305365564"
     d["facts"][0]["source"]["url"] = "https://x.com/someone/status/1"
     assert pipeline._quote_target(d) is None
+
+
+def test_worker_watches_exchange_incidents():
+    # 10/30 バイナンスのハッキング・出金停止を見逃した反省: 大手取引所の重大事件も見張る
+    from pathlib import Path
+    src = Path(__file__).resolve().parents[1].joinpath("worker/src/index.js").read_text(encoding="utf-8")
+    block = src.split("const NEWS_QUERIES")[1].split("];")[0]
+    assert "Binance" in block and "出金停止" in block

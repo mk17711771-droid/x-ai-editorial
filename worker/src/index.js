@@ -206,6 +206,9 @@ const NEWS_QUERIES = [
   ["Hyperliquid", "en"], ["trade.xyz OR tradexyz OR \"trade[XYZ]\"", "en"], ["HIP-3 Hyperliquid", "en"],
   ["\"stock perps\" OR \"equity perpetuals\" OR \"stock perpetual futures\"", "en"],
   ["ハイパーリキッド OR Hyperliquid", "ja"], ["株式 無期限先物 OR 株式パーペチュアル OR トークン化株式", "ja"],
+  // 大手取引所の重大事件（ハッキング・出金停止）。CEXとオンチェーンの対比として範囲内（10/30 バイナンスの件を見逃した反省）
+  ["(Binance OR Coinbase OR Bybit OR OKX) (hack OR exploit OR \"withdrawals\" OR \"security incident\")", "en"],
+  ["(バイナンス OR コインベース OR 取引所) (ハッキング OR 出金停止 OR 不正流出)", "ja"],
 ];
 
 async function fetchNews(q, lang) {
