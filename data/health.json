@@ -1,21 +1,8 @@
 {
-  "at": "2026-10-30T17:37:58.603051+00:00",
-  "at_jst": "10/31 02:37",
+  "at": "2026-10-30T18:08:11.449314+00:00",
+  "at_jst": "10/31 03:07",
   "ok": false,
   "issues": [
-    {
-      "type": "error",
-      "command": "news-watch",
-      "error": "AttributeError: 'list' object has no attribute 'get'",
-      "at": "2026-10-30T11:46:40.517952+00:00"
-    },
-    {
-      "type": "workflow_failed",
-      "name": "news-watch",
-      "event": "repository_dispatch",
-      "at": "2026-10-30T11:45:22Z",
-      "id": 41050354833
-    },
     {
       "type": "many_rejections",
       "n": 12,
