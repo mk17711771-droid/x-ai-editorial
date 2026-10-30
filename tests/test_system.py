@@ -974,3 +974,19 @@ def test_old_event_not_announced(isolated, monkeypatch):
     monkeypatch.setattr(news_watch.line, "notify", lambda m: sent.append(m))
     r = news_watch.run({"items": [{"title": "ICEの件の再報道", "source": "X"}]})
     assert r["stories"] == [] and sent == []
+
+
+def test_breaking_means_first_on_the_net(isolated, monkeypatch):
+    # 管理者の定義: 速報＝ネット上でいち早くキャッチした情報。ネットに出てから時間がたったものは速報にしない
+    from datetime import timedelta
+    from aiedit import checks, news_watch
+    from aiedit.common import now_utc
+    old = (now_utc() - timedelta(hours=7)).isoformat()
+    monkeypatch.setattr(news_watch, "triage", lambda *a: [{"story_key": "late", "headline": "遅い話", "importance": 5, "buzz_fit": 6,
+                                                            "in_scope": True, "fresh": True, "first_reported_at": old,
+                                                            "sources": ["A", "B"]}])
+    monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    monkeypatch.setattr(news_watch.line, "notify", lambda m: None)
+    assert news_watch.run({"items": [{"title": "遅れて見つけた記事", "source": "X"}]})["stories"] == []
+    assert any("速報" in e for e in checks.check_text("【速報】バイナンスでハッキング、出金を一時停止している。中央の取引所の弱さが出た形。", "hl:BNB:oi"))

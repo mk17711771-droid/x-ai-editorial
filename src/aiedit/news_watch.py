@@ -110,6 +110,23 @@ def same_event(a: str, b: str) -> bool:
     return len(_tokens(a) & _tokens(b)) >= 2
 
 
+def _hours_since(iso: str | None) -> float:
+    """日時（ISO8601 か RSS の形式）から何時間たったか。読めなければ0（ほかの判定に任せる）。"""
+    if not iso:
+        return 0.0
+    from email.utils import parsedate_to_datetime
+    try:
+        t = datetime.fromisoformat(str(iso).replace("Z", "+00:00"))
+    except ValueError:
+        try:
+            t = parsedate_to_datetime(str(iso))
+        except (TypeError, ValueError):
+            return 0.0
+    if t.tzinfo is None:
+        return 0.0
+    return (now_utc() - t).total_seconds() / 3600
+
+
 def _verified(story: dict) -> bool:
     outlets = {s.strip() for s in story.get("sources", []) if s and s.strip()}
     return bool(story.get("official")) or len(outlets) >= 2
@@ -146,6 +163,7 @@ def add_fact(story: dict) -> None:
     facts.append({
         "key": key, "kind": "hl", "asof": now_utc().isoformat(),
         "expires_at": (now_utc() + timedelta(hours=36)).isoformat(), "status": "pending",
+        "first_reported_at": story.get("first_reported_at") or now_utc().isoformat(),
         "summary": story.get("summary_ja", story["headline"]), "fields": fields, "raw": {},
         "source": {"name": "・".join(story.get("sources", [])[:4]), "url": story.get("url", "")},
     })
@@ -208,6 +226,9 @@ def run(payload: dict | None = None) -> dict:
         # 重要度が高い、またはバズる条件に4つ以上当てはまるなら速報にする（記録更新など、重要度3でも伸びるネタを逃さない）
         hot = s.get("importance", 0) >= _cfg().get("min_importance", 4) or s.get("buzz_fit", 0) >= 4
         # アカウントの属性からぶれない: 範囲外の話題はどれだけ熱くても出さない
+        # 速報＝ネット上でいち早くキャッチした情報。ネットに最初に出てから3時間を過ぎていたら、もう速報ではない（管理者の定義）
+        if _hours_since(s.get("first_reported_at")) > STORY_FRESH_HOURS:
+            continue
         # 出来事そのものが古い（昨日・一昨日の話の再報道）なら速報にしない（10/31 2:05 ICEの件を「速報をキャッチ」と知らせた反省）
         if not s.get("story_key") or not hot or s.get("in_scope") is False or s.get("fresh") is False:
             continue

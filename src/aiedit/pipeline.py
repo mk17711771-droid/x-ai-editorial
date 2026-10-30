@@ -85,8 +85,17 @@ NEWS_FRESH_HOURS = 3
 def _story_first_seen(key: str) -> datetime:
     """同じ話題（news:xxx, news:xxx-2 …）のうち、最初に材料にした時刻。"""
     base = re.sub(r"-\d+$", "", key)
-    times = [datetime.fromisoformat(f["asof"]) for f in store.read_json("news_facts.json", []) or []
-             if re.sub(r"-\d+$", "", f["key"]) == base and f.get("asof")]
+    times = []
+    for f in store.read_json("news_facts.json", []) or []:
+        if re.sub(r"-\d+$", "", f["key"]) != base:
+            continue
+        for k in ("asof", "first_reported_at"):  # ネットに最初に出た時刻があればそれを使う（速報＝いち早くキャッチした情報）
+            try:
+                t = datetime.fromisoformat(str(f.get(k, "")).replace("Z", "+00:00"))
+                if t.tzinfo:
+                    times.append(t)
+            except ValueError:
+                pass
     stories = store.read_json("news/stories.json", {}) or {}
     st = stories.get(base.removeprefix("news:"))
     if st and st.get("at"):

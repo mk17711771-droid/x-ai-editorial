@@ -211,6 +211,8 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     for phrase in read_list("banned_phrases.txt"):
         if phrase in text:
             errors.append(f"禁止表現「{phrase}」")
+    if "速報" in text and not topic_key.startswith("news:"):
+        errors.append("通常の投稿に「速報」と書いている（速報はネットでいち早くキャッチした話題の速報枠だけ）")
     m = NEAR_DUP.search(text)
     if m:  # 「バイナンスで…バイナンスが」のような同じ語のすぐの繰り返し（10/30 21:11の速報）
         errors.append(f"同じ語「{m.group(1)}」が近くで繰り返されている（文を組み直す）")
