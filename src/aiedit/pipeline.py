@@ -504,6 +504,21 @@ def _attach_chart(draft: dict) -> list[str] | None:
         return None
 
 
+OFFICIAL_ACCOUNTS = ("HyperliquidX", "tradexyz")
+
+
+def _quote_target(draft: dict) -> str | None:
+    """速報の元が公式アカウントの投稿なら、その投稿を引用して出す（公式の投稿を見ている人に届く。10/30の分析）。"""
+    import re
+    for f in draft["facts"]:
+        if f.get("category") != "breaking_news":
+            continue
+        m = re.search(r"(?:x|twitter)\.com/(\w+)/status/(\d+)", (f.get("source") or {}).get("url", ""))
+        if m and m.group(1) in OFFICIAL_ACCOUNTS:
+            return m.group(2)
+    return None
+
+
 def _mark_news_posted(draft: dict) -> None:
     """速報を投稿したら、同じ速報を二度使わないよう記録する。"""
     keys = {f["key"] for f in draft["facts"] if f.get("category") == "breaking_news"}
@@ -593,7 +608,7 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
 
     media_ids = _attach_chart(draft)
     try:
-        tweet_id = xapi.post(draft["text"], media_ids=media_ids)
+        tweet_id = xapi.post(draft["text"], media_ids=media_ids, quote_id=_quote_target(draft))
     except xapi.XAuthError as e:
         store.halt(f"X API認証・権限エラー: {e}")
         _close(draft, "failed", error=str(e))

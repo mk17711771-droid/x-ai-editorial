@@ -46,7 +46,7 @@ def upload_image(png: bytes) -> str:
     return str(data.get("id") or data.get("media_id_string") or data["media_id"])
 
 
-def post(text: str, reply_to: str | None = None, media_ids: list[str] | None = None) -> str:
+def post(text: str, reply_to: str | None = None, media_ids: list[str] | None = None, quote_id: str | None = None) -> str:
     """投稿してIDを返す。
 
     重複投稿を防ぐため、リクエスト送信後の失敗（タイムアウトなど）では再試行しない。
@@ -55,7 +55,9 @@ def post(text: str, reply_to: str | None = None, media_ids: list[str] | None = N
     body: dict = {"text": text}
     if reply_to:
         body["reply"] = {"in_reply_to_tweet_id": reply_to}
-    if media_ids:
+    if quote_id:
+        body["quote_tweet_id"] = quote_id  # 引用投稿（公式の発表を引用すると、その投稿を見ている人にも届く）
+    elif media_ids:
         body["media"] = {"media_ids": media_ids}
     for attempt in range(2):
         try:

@@ -106,7 +106,7 @@ def wired(monkeypatch):
     monkeypatch.setattr(collect_hyperliquid, "fetch_markets", lambda: [dict(m) for m in MARKETS])
     monkeypatch.setattr(llm, "generate_json", fake_llm)
     posted = []
-    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None, media_ids=None: posted.append(text) or "999")
+    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None, media_ids=None, quote_id=None: posted.append(text) or "999")
     monkeypatch.setattr(collect_hyperliquid, "refresh_change_pct", lambda ref: 4.3)
     monkeypatch.setattr(collect_hyperliquid, "candles", lambda coin, start, end, interval="1h": FAKE_CANDLES)
     monkeypatch.setattr(xapi, "upload_image", lambda png: "m1")
@@ -165,7 +165,7 @@ def test_kill_switch_and_auth_error_halt(wired, isolated, monkeypatch):
 
     def boom(text, reply_to=None):
         raise xapi.XAuthError("401 Unauthorized")
-    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None, media_ids=None: boom(text))
+    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None, media_ids=None, quote_id=None: boom(text))
     with pytest.raises(xapi.XAuthError):
         pipeline.publish(d["id"], "approve")
     assert store.state()["halted"] is True
@@ -272,7 +272,7 @@ def test_auto_mode_notifies_and_delete_removes_post(wired, isolated, monkeypatch
 
 def test_post_includes_chart_image(wired, isolated, monkeypatch):
     sent = {}
-    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None, media_ids=None: sent.update(media=media_ids) or "999")
+    monkeypatch.setattr(xapi, "post", lambda text, reply_to=None, media_ids=None, quote_id=None: sent.update(media=media_ids) or "999")
     uploads = []
     monkeypatch.setattr(xapi, "upload_image", lambda png: uploads.append(png) or "m1")
     d = pipeline.generate()[0]
@@ -843,3 +843,10 @@ def test_system_audit_flags_stale_parts(monkeypatch):
     monkeypatch.setattr(line, "quota", lambda: {"used": 150, "limit": 200})
     types = {i["type"] for i in health.system_audit()}
     assert {"stale", "learn_missing", "note_article_missing", "line_quota", "followers_missing"} <= types
+
+
+def test_quote_official_post_for_news():
+    d = {"facts": [{"category": "breaking_news", "source": {"url": "https://x.com/tradexyz/status/2115802211305365564"}}]}
+    assert pipeline._quote_target(d) == "2115802211305365564"
+    d["facts"][0]["source"]["url"] = "https://x.com/someone/status/1"
+    assert pipeline._quote_target(d) is None
