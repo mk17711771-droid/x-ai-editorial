@@ -927,3 +927,9 @@ def test_news_slot_ignores_skipped_facts(isolated):
     store.write_json("news_facts.json", [{"key": "news:a", "status": "skipped", "expires_at": exp, "fields": {}},
                                          {"key": "news:b", "status": "pending", "expires_at": exp, "fields": {}}])
     assert [f["key"] for f in pipeline.news_facts(pending_only=True)] == ["news:b"]
+
+
+def test_near_duplicate_word_rejected():
+    from aiedit import checks
+    errs = checks.check_text("【速報】バイナンスで史上最大規模となるバイナンスがハッキングを受け、資金が流出した。中央の取引所のリスクが改めて意識される。", "news:x")
+    assert any("近くで繰り返されている" in e for e in errs)
