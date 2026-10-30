@@ -83,7 +83,7 @@ def news_facts(pending_only: bool = False) -> list[dict]:
     now = now_utc()
     out = []
     for f in store.read_json("news_facts.json", []) or []:
-        if pending_only and f.get("status") == "posted":
+        if pending_only and f.get("status", "pending") != "pending":  # 投稿済み・見送り（skipped）は使わない（10/30 見送りにしたICEの材料で投稿した反省）
             continue  # 速報枠では、まだ投稿していない速報だけを主役にする
         if datetime.fromisoformat(f["expires_at"]) > now:
             out.append({**f, "kind": f.get("kind", "news"), "category": "breaking_news", "refresh": None,

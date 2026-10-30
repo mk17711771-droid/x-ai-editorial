@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from datetime import datetime, timedelta
 
 from . import line, llm, sources, store
@@ -18,6 +19,7 @@ from .common import JST, env, log, now_utc, settings
 # 管理者の指示: 話題が熱いうちに出す。時間帯で保留しない（深夜でもXは動いている）
 FOLLOWUP_GAP_HOURS = 3   # 同じ話題が盛り上がり続けていれば、3時間あけて続報を出す
 MAX_POSTS_PER_STORY = 3
+STORY_FRESH_HOURS = 24
 
 
 def _cfg() -> dict:
@@ -87,7 +89,24 @@ def triage(new: list[dict], context: list[dict], hype_1h: float | None) -> list[
                "known_stories": known[-15:]}
     rubric = (CONFIG_DIR / "buzz_patterns.md").read_text(encoding="utf-8")
     out = llm.generate_json(llm.prompt("news_triage") + "\n\n" + rubric, json.dumps(payload, ensure_ascii=False))
-    return out.get("stories", [])
+    if isinstance(out, list):  # AIが {"stories": [...]} ではなく配列だけを返すことがある（10/30 20:46に停止）
+        return [s for s in out if isinstance(s, dict)]
+    return [s for s in out.get("stories", []) if isinstance(s, dict)]
+
+
+# どの話題にも出てくる語（同じ出来事かの判定には使わない）
+COMMON_TOKENS = {"hyperliquid", "hype", "hip-3", "trade[xyz]", "tradexyz", "trade.xyz", "ハイパーリキッド", "無期限先物",
+                 "暗号資産", "仮想通貨", "ビットコイン", "btc", "eth", "速報", "発表", "市場", "米国", "取引所"}
+TOKEN = re.compile(r"[A-Za-z][A-Za-z0-9.\[\]\-]{1,}|[ァ-ヶー]{3,}|\d[\d,.]*億|[一-龥]{2,}氏")
+
+
+def _tokens(text: str) -> set[str]:
+    return {t.lower() for t in TOKEN.findall(text or "")} - COMMON_TOKENS
+
+
+def same_event(a: str, b: str) -> bool:
+    """同じ出来事か（社名・人名・金額などの固有の語が2つ以上重なる）。AIの判定が外れても重複投稿しないための機械の判定。"""
+    return len(_tokens(a) & _tokens(b)) >= 2
 
 
 def _verified(story: dict) -> bool:
@@ -176,8 +195,11 @@ def run(payload: dict | None = None) -> dict:
         # 既に扱った話題と同じ出来事なら、同じ story_key にそろえる（同じニュースを別の話題として二度投稿しない）
         if s.get("story_key") not in known_keys:
             from .checks import similarity
+            text = f"{s.get('headline', '')} {s.get('summary_ja', '')}"
             same = next((k for k, f in known_keys.items()
-                         if similarity(s.get("headline", ""), f["fields"].get("headline", "")) >= 0.3), None)
+                         if similarity(s.get("headline", ""), f["fields"].get("headline", "")) >= 0.3
+                         or (now_utc() - datetime.fromisoformat(f["asof"]) < timedelta(hours=48)
+                             and same_event(text, f"{f['fields'].get('headline', '')} {f.get('summary', '')}"))), None)
             if same:
                 s["story_key"] = same.rsplit("-", 1)[0] if same.rsplit("-", 1)[-1].isdigit() else same
                 handled.setdefault(s["story_key"], {"at": now_utc().isoformat(), "posted_or_queued": True,
@@ -194,8 +216,10 @@ def run(payload: dict | None = None) -> dict:
             # 続報: 同じ話題に新しい報道・公式発表が続いている（＝まだ熱い）なら、時間をあけて別の角度で出す
             last = datetime.fromisoformat(prev.get("last_post_at", prev["at"]))
             # 続報は「新しい事実」があるときだけ（報道が続いているだけの焼き直しは出さない。10/30に同じ話題を4回出した反省）
+            # 最初の報道から24時間を過ぎた話題は続報にしない（10/30 ICEの件を18時間後に焼き直した反省）
+            stale = now_utc() - datetime.fromisoformat(prev["at"]) > timedelta(hours=STORY_FRESH_HOURS)
             if (posts >= MAX_POSTS_PER_STORY or now_utc() - last < timedelta(hours=FOLLOWUP_GAP_HOURS) or not verified
-                    or not s.get("new_development")):
+                    or not s.get("new_development") or stale):
                 continue
         elif prev.get("notified") and not verified:
             continue

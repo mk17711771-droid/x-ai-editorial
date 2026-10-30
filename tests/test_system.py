@@ -908,3 +908,22 @@ def test_note_article_uses_week_news(isolated):
     ])
     got = note_article._week_news_facts()
     assert [f["key"] for f in got] == ["news:a"] and got[0]["category"] == "news"
+
+
+def test_news_same_event_and_list_triage(isolated, monkeypatch):
+    # 10/30: 同じバイナンスの件を別の話題として扱った／AIが配列で返して見張りが止まった／見送りの材料で投稿した
+    from aiedit import news_watch
+    assert news_watch.same_event("バイナンスで出金を一時停止 影響額は約63億ドル", "バイナンスで史上最大規模の63億ドルハッキング")
+    assert not news_watch.same_event("Hyperliquidで新しい市場が上場", "Hyperliquidの建玉が過去最高 HYPE")
+    monkeypatch.setattr(news_watch.llm, "generate_json", lambda *a, **k: [{"story_key": "x"}, "bad"])
+    monkeypatch.setattr(news_watch.store, "read_json", lambda *a, **k: [])
+    assert news_watch.triage([], [], None) == [{"story_key": "x"}]
+
+
+def test_news_slot_ignores_skipped_facts(isolated):
+    from datetime import timedelta
+    from aiedit.common import now_utc
+    exp = (now_utc() + timedelta(hours=5)).isoformat()
+    store.write_json("news_facts.json", [{"key": "news:a", "status": "skipped", "expires_at": exp, "fields": {}},
+                                         {"key": "news:b", "status": "pending", "expires_at": exp, "fields": {}}])
+    assert [f["key"] for f in pipeline.news_facts(pending_only=True)] == ["news:b"]
