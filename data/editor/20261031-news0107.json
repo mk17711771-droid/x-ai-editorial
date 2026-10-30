@@ -1,0 +1,86 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:binance-historic-hack-3",
+    "angle": "バイナンスの史上最大級のハッキングによる市場全体の動揺と、中央集権リスクに対するオンチェーン市場の反応を伝える。",
+    "scores": {
+      "novelty": 20,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 97,
+    "reason": "史上最大級のハッキング被害という巨大な速報であり、市場への影響とオンチェーンの重要性を示す高い新規性と関心を持つ。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f19"
+    ],
+    "topic_key": "hl:xyz:INTC:big_move",
+    "angle": "インテルの歴史的暴落とHIP-3先物市場での建玉急増の連動から、半導体セクターの歪みを暴く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 20
+    },
+    "total": 96,
+    "reason": "株式の歴史的暴落とHIP-3先物の建玉急増が完全に一致しており、実データに基づく非常に高いインサイトを提供する。"
+  },
+  {
+    "fact_ids": [
+      "f12",
+      "f23"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体セクターの急落局面における、SKHXの異常なマイナス資金調達率（ショート過熱）の歪みに着目する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "-349%という極端な資金調達率の数字から、デリバティブ市場におけるショートの偏りと構造的な歪みを明確に示している。"
+  },
+  {
+    "fact_ids": [
+      "f28",
+      "f29"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "安定上位トレーダーのポジション偏在（BTC・ETHの記録的な売り偏重）から、プロの目線を読み解く。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 92,
+    "reason": "上位トレーダーの具体的な人数と売り比率のデータが揃っており、市場の逆張り指標として実用性が高い。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f18"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "半導体ブル3倍ETFの先物における記録的な急落と建玉増加の相関関係を数字で追う。",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "SOXLの急落と建玉の急増という具体的なデータを組み合わせ、セクターの資金流出入の構造を正確に捉えている。"
+  }
+]

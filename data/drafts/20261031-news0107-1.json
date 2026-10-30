@@ -1,0 +1,58 @@
+{
+  "id": "20261031-news0107-1",
+  "slot_key": "20261031-news0107",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "posted",
+  "created_at": "2026-10-30T16:11:32.075563+00:00",
+  "text": "【速報】バイナンスで63億ドルのハッキング発生\n\n市場全体に下落圧力がかかり、中央集権リスクに対する警戒感が急ピッチで高まっている。\n\nCEXの安全性が揺らぐ中で、オンチェーンやDEXの動きがどう変わるか見ておきたい。",
+  "template": "【速報】{{f1.headline}}\n\n市場全体に下落圧力がかかり、中央集権リスクに対する警戒感が急ピッチで高まっている。\n\nCEXの安全性が揺らぐ中で、オンチェーンやDEXの動きがどう変わるか見ておきたい。",
+  "style": "速報型",
+  "format": "short",
+  "topic_key": "news:binance-historic-hack-3",
+  "angle": "バイナンスの史上最大級のハッキングによる市場全体の動揺と、中央集権リスクに対するオンチェーン市場の反応を伝える。",
+  "scores": {
+    "novelty": 20,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 97,
+  "fact_ids": [
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "news:binance-historic-hack-3",
+      "kind": "hl",
+      "asof": "2026-10-30T16:05:48.139676+00:00",
+      "expires_at": "2026-11-01T04:05:48.139688+00:00",
+      "status": "pending",
+      "summary": "暗号資産取引所バイナンス（Binance）で63億ドル規模の史上最大級のハッキング被害が発生したことが複数の大手メディアにより報じられた。短時間で巨額の資産が流出し、ビットコイン（BTC）などの市場全体に下落圧力がかかるとともに、主要な暗号資産関連株にも売りが波及している。CEXのセキュリティリスクが改めて浮き彫りになる中、オンチェーンおよびDEXの動向に注目が集まっている。",
+      "fields": {
+        "headline": "バイナンスで63億ドルのハッキング発生",
+        "what": "バイナンスで63億ドル規模のハッキング被害が発生し、市場に影響を与えている",
+        "status": "確認済み",
+        "who": "Binance"
+      },
+      "raw": {},
+      "source": {
+        "name": "Bloomberg.com・BBC・Kitco・조선일보",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Bloomberg.com・BBC・Kitco・조선일보",
+      "url": ""
+    }
+  ],
+  "needs_human": false,
+  "tweet_id": "2116201348383260838",
+  "posted_at": "2026-10-30T16:11:33.375491+00:00"
+}
