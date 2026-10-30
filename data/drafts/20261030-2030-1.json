@@ -1,0 +1,232 @@
+{
+  "id": "20261030-2030-1",
+  "slot_key": "20261030-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "posted",
+  "created_at": "2026-10-30T12:07:39.563956+00:00",
+  "text": "半導体セクターが軟調に沈む中で、なぜHIP-3先物市場の個別銘柄にはまだ強気のコストが残っているのか。現物の売りとデリバティブの温度差に、市場の隠れた歪みを感じている。\n\n【いま起きてること】\nSOXXが-1.55%と冴えない値動きを見せ、個別でもMUが-4.98%と大きく値を下げる中、HyperliquidのHIP-3市場では主力銘柄の調整が進みつつも、デリバティブ側では依然として異なる需給のバランスが意識されている。\n\n【数字で見る】（日本時間10/30(金) 21:03時点）\n・SOXX 価格$513.86、前日比-1.55%、高値$518.74、安値$506.59\n・MU 価格$934.27、前日比-4.98%、高値$971.01、安値$927.24\n・SKHX 価格$1,044、24時間騰落率-8.08%、建玉約2.6億ドル、資金調達率+18.5%\n・SNDK 価格$1,216、24時間騰落率-11.00%、建玉約1.3億ドル、資金調達率+35.7%\n\n【なぜ「歪み」なのか】\n現物株が下押し圧力を受けている局面で、HIP-3の先物側では依然としてプラスの資金調達率が維持されている。価格が下がりながらもロングのコスト負担が継続しているこの状況は、押し目買いを急ぐ参加者と現物側の調整圧力との間にギャップが生じている証拠だとみている。個人的には、この需給のねじれが解消される過程でポジションの清算を巻き込み、値動きが一段と荒くなる可能性があると推測している。\n\n【次に見るポイント】\n①現物指数の下落トレンドと先物側の資金調達率の連動性\n②主要なHIP-3銘柄の未決済建玉の増減バランス\n③セクター全体の軟調さがデリバティブのポジショニングに与える影響",
+  "template": "半導体セクターが軟調に沈む中で、なぜHIP-3先物市場の個別銘柄にはまだ強気のコストが残っているのか。現物の売りとデリバティブの温度差に、市場の隠れた歪みを感じている。\n\n【いま起きてること】\nSOXXが{{f11.change_pct}}と冴えない値動きを見せ、個別でもMUが{{f17.change_pct}}と大きく値を下げる中、HyperliquidのHIP-3市場では主力銘柄の調整が進みつつも、デリバティブ側では依然として異なる需給のバランスが意識されている。\n\n【数字で見る】（{{f47.asof}}）\n・`SOXX` 価格{{f11.price}}、前日比{{f11.change_pct}}、高値{{f11.high}}、安値{{f11.low}}\n・`MU` 価格{{f17.price}}、前日比{{f17.change_pct}}、高値{{f17.high}}、安値{{f17.low}}\n・`SKHX` 価格{{f47.price}}、24時間騰落率{{f47.change_pct}}、建玉{{f47.oi}}、資金調達率{{f47.funding_annual}}\n・`SNDK` 価格{{f51.price}}、24時間騰落率{{f51.change_pct}}、建玉{{f51.oi}}、資金調達率{{f51.funding_annual}}\n\n【なぜ「歪み」なのか】\n現物株が下押し圧力を受けている局面で、HIP-3の先物側では依然としてプラスの資金調達率が維持されている。価格が下がりながらもロングのコスト負担が継続しているこの状況は、押し目買いを急ぐ参加者と現物側の調整圧力との間にギャップが生じている証拠だとみている。個人的には、この需給のねじれが解消される過程でポジションの清算を巻き込み、値動きが一段と荒くなる可能性があると推測している。\n\n【次に見るポイント】\n①現物指数の下落トレンドと先物側の資金調達率の連動性\n②主要なHIP-3銘柄の未決済建玉の増減バランス\n③セクター全体の軟調さがデリバティブのポジショニングに与える影響",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:SOXX:quote",
+  "angle": "半導体セクター（SOXX）が1.55%安と軟調な中、HIP-3先物市場でのSKHXやSNDKの資金調達率や価格変動に見る現物とデリバティブの歪みと今後の注目点。",
+  "scores": {
+    "novelty": 16,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f11",
+    "f47",
+    "f51",
+    "f12",
+    "f17"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格513.86, 前日比-1.55%, 前日終値521.94, 高値518.74, 安値506.59",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$513.86",
+        "change_pct": "-1.55%",
+        "prev_close": "$521.94",
+        "high": "$518.74",
+        "low": "$506.59",
+        "asof": "米国10/29終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 513.86,
+        "change_pct": -1.548,
+        "prev_close": 521.94
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-10-30T12:03:23.702076+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率-8.08%, 価格1043.6, 建玉259095196USD, 24時間出来高456885666USD, 資金調達率(年率)+18.5%（照合: 米国株の前日比-3.03%）",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,044",
+        "change_pct": "-8.08%",
+        "oi": "約2.6億ドル",
+        "volume": "約4.6億ドル",
+        "funding_annual": "+18.5%",
+        "asof": "日本時間10/30(金) 21:03時点",
+        "asof_short": "21:03時点",
+        "us_change_pct": "-3.03%"
+      },
+      "raw": {
+        "mark": 1043.6,
+        "change_pct": -8.077,
+        "oi_usd": 259095196,
+        "vol_usd": 456885666,
+        "funding_annual_pct": 18.52,
+        "us_change_pct": -3.03
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-10-30T12:03:30.485863+00:00",
+      "confidence": "confirmed",
+      "id": "f47"
+    },
+    {
+      "key": "hl:xyz:SNDK:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SNDK（HIP-3株式等先物） 24時間騰落率-11.00%, 価格1216.4, 建玉134869355USD, 24時間出来高321973223USD, 資金調達率(年率)+35.7%（照合: 米国株の前日比-5.32%）",
+      "fields": {
+        "coin": "SNDK",
+        "symbol": "SNDK",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,216",
+        "change_pct": "-11.00%",
+        "oi": "約1.3億ドル",
+        "volume": "約3.2億ドル",
+        "funding_annual": "+35.7%",
+        "asof": "日本時間10/30(金) 21:03時点",
+        "asof_short": "21:03時点",
+        "us_change_pct": "-5.32%"
+      },
+      "raw": {
+        "mark": 1216.4,
+        "change_pct": -10.997,
+        "oi_usd": 134869355,
+        "vol_usd": 321973223,
+        "funding_annual_pct": 35.66,
+        "us_change_pct": -5.319
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNDK",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+      },
+      "asof": "2026-10-30T12:03:30.486027+00:00",
+      "confidence": "confirmed",
+      "id": "f51"
+    },
+    {
+      "key": "stock:NVDA:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "NVDA 価格213.66, 前日比-0.80%, 前日終値215.38, 高値215.33, 安値212.08",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$213.66",
+        "change_pct": "-0.80%",
+        "prev_close": "$215.38",
+        "high": "$215.33",
+        "low": "$212.08",
+        "asof": "米国10/29終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 213.66,
+        "change_pct": -0.799,
+        "prev_close": 215.38
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-10-30T12:03:23.797886+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    },
+    {
+      "key": "stock:MU:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MU 価格934.27, 前日比-4.98%, 前日終値983.23, 高値971.01, 安値927.24",
+      "fields": {
+        "symbol": "MU",
+        "price": "$934.27",
+        "change_pct": "-4.98%",
+        "prev_close": "$983.23",
+        "high": "$971.01",
+        "low": "$927.24",
+        "asof": "米国10/29終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 934.27,
+        "change_pct": -4.979,
+        "prev_close": 983.23
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MU"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-10-30T12:03:24.283534+00:00",
+      "confidence": "confirmed",
+      "id": "f17"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2116139980993233237",
+  "posted_at": "2026-10-30T12:07:42.322238+00:00"
+}
