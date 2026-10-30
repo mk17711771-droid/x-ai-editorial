@@ -1,0 +1,85 @@
+[
+  {
+    "fact_ids": [
+      "f2",
+      "f20"
+    ],
+    "topic_key": "news:binance-security-incident-withdrawals",
+    "angle": "バイナンスの出金一時停止（影響見積もり約63億ドル）の速報を受け、Hyperliquid上のBNB先物で建玉が+50.5%急増し資金調達率が年率-49.9%へ急落した市場の初動を突く。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 95,
+    "reason": "重大速報とHyperliquidの実データ（BNB建玉+50.5%、FR-49.9%）が直結しており、0:00速報枠の条件に完全に合致するため。"
+  },
+  {
+    "fact_ids": [
+      "f13"
+    ],
+    "topic_key": "hl:xyz:UNITREE:funding_extreme",
+    "angle": "価格は-0.24%とほぼ横ばいにもかかわらず、HIP-3のUNITREE先物で資金調達率が年率-517.4%という極端なショート過熱に沈んでいる歪みを数字で提示する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 16,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "年率-517%超という突出した数値の歪みがあり、短文で1つの異変を端的に伝えるのに適しているため。"
+  },
+  {
+    "fact_ids": [
+      "f29",
+      "f4"
+    ],
+    "topic_key": "traders:ETH:bias",
+    "angle": "相場全体が軟調となる中、Hyperliquidの安定上位勢7人全員がETHを売り建て（買い0人/売り7人、304万ドル）にし、先物FRも年率-13.9%に沈む弱気バイアスを可視化する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 16
+    },
+    "total": 85,
+    "reason": "看板企画である上位トレーダーの偏りが買い比率0%と極端に出ており、先物FRのマイナス転落と整合的な根拠があるため。"
+  },
+  {
+    "fact_ids": [
+      "f15",
+      "f17"
+    ],
+    "topic_key": "hl:xyz:CXMT:funding_extreme",
+    "angle": "株価先物が下落する中でCXMTの資金調達率が年率+309.6%、SMSNが+85.4%とロング過熱が続く、半導体HIP-3市場特有の逆行バイアスを指摘する。",
+    "scores": {
+      "novelty": 15,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 83,
+    "reason": "直近でSMSNの投稿があったため新規性はやや控えめだが、下落局面でのロング過熱という明確な歪みを示せるため。"
+  },
+  {
+    "fact_ids": [
+      "f35"
+    ],
+    "topic_key": "traders:funnel",
+    "angle": "HLランキング上位300人を「真似できる条件」で絞り込むと残るのはわずか2人。見かけの利益ランキングを鵜呑みにできない構造をデータで解説する。",
+    "scores": {
+      "novelty": 13,
+      "interest": 16,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 15
+    },
+    "total": 81,
+    "reason": "保存性の高い良質な分析データだが、直近72時間以内に同種の集計を投稿済みのため新規性を減点。"
+  }
+]
