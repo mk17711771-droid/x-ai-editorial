@@ -139,8 +139,8 @@ def announced_not_posted(actions: list[str]) -> list[dict]:
         from .pipeline import recent_news_post
         if recent_news_post(minutes=120):
             continue  # 速報の間隔をあけているだけ（出し直しは間隔が過ぎてから）
-        if age > timedelta(hours=12):
-            continue  # 古い話題は追わない
+        if age > timedelta(hours=2):
+            continue  # 古い話題は追わない（速報は最初の報道から3時間以内だけ。遅れた速報は場違い）
         out.append({"type": "announced_not_posted", "story": key, "since": st["last_post_at"]})
         if not st.get("retried"):
             # まだ出ていない速報を、未投稿として戻して出し直す（1回だけ）

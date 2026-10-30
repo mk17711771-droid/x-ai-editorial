@@ -933,3 +933,18 @@ def test_near_duplicate_word_rejected():
     from aiedit import checks
     errs = checks.check_text("【速報】バイナンスで史上最大規模となるバイナンスがハッキングを受け、資金が流出した。中央の取引所のリスクが改めて意識される。", "news:x")
     assert any("近くで繰り返されている" in e for e in errs)
+
+
+def test_stale_story_not_posted_as_breaking(isolated):
+    # 10/31 1:11 前日のバイナンスの件を【速報】で出した反省: 最初の報道から3時間を過ぎた話題は速報枠で使わない
+    from datetime import timedelta
+    from aiedit.common import now_utc
+    exp = (now_utc() + timedelta(hours=10)).isoformat()
+    store.write_json("news_facts.json", [
+        {"key": "news:old", "asof": (now_utc() - timedelta(hours=9)).isoformat(), "status": "posted", "expires_at": exp, "fields": {}},
+        {"key": "news:old-3", "asof": now_utc().isoformat(), "status": "pending", "expires_at": exp, "fields": {}},
+        {"key": "news:new", "asof": now_utc().isoformat(), "status": "pending", "expires_at": exp, "fields": {}},
+    ])
+    assert [f["key"] for f in pipeline.news_facts(pending_only=True)] == ["news:new"]
+    from aiedit import news_watch
+    assert news_watch.MAX_POSTS_PER_STORY == 1

@@ -18,8 +18,9 @@ from .common import JST, env, log, now_utc, settings
 
 # 管理者の指示: 話題が熱いうちに出す。時間帯で保留しない（深夜でもXは動いている）
 FOLLOWUP_GAP_HOURS = 3   # 同じ話題が盛り上がり続けていれば、3時間あけて続報を出す
-MAX_POSTS_PER_STORY = 3
-STORY_FRESH_HOURS = 24
+# 自動の続報は出さない（10/30 AIが「新しい事実あり」と誤判定し、ICE・バイナンスの焼き直しを3回出した。管理者の指示: 遅い速報は場違い）
+MAX_POSTS_PER_STORY = 1
+STORY_FRESH_HOURS = 3
 
 
 def _cfg() -> dict:

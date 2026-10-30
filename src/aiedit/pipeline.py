@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import os
 from datetime import datetime, timedelta
 
@@ -78,6 +79,21 @@ def recent_news_post(minutes: int) -> bool:
                for p in store.recent_posts(minutes / 60))
 
 
+NEWS_FRESH_HOURS = 3
+
+
+def _story_first_seen(key: str) -> datetime:
+    """同じ話題（news:xxx, news:xxx-2 …）のうち、最初に材料にした時刻。"""
+    base = re.sub(r"-\d+$", "", key)
+    times = [datetime.fromisoformat(f["asof"]) for f in store.read_json("news_facts.json", []) or []
+             if re.sub(r"-\d+$", "", f["key"]) == base and f.get("asof")]
+    stories = store.read_json("news/stories.json", {}) or {}
+    st = stories.get(base.removeprefix("news:"))
+    if st and st.get("at"):
+        times.append(datetime.fromisoformat(st["at"]))
+    return min(times) if times else now_utc()
+
+
 def news_facts(pending_only: bool = False) -> list[dict]:
     """確認済みの速報（公式発表・複数の報道で裏付けたもの）。data/news_facts.json に期限つきで置く。"""
     now = now_utc()
@@ -85,6 +101,8 @@ def news_facts(pending_only: bool = False) -> list[dict]:
     for f in store.read_json("news_facts.json", []) or []:
         if pending_only and f.get("status", "pending") != "pending":  # 投稿済み・見送り（skipped）は使わない（10/30 見送りにしたICEの材料で投稿した反省）
             continue  # 速報枠では、まだ投稿していない速報だけを主役にする
+        if pending_only and now - _story_first_seen(f["key"]) > timedelta(hours=NEWS_FRESH_HOURS):
+            continue  # 最初の報道から時間がたった話題は「速報」として出さない（10/31 1:11 前日のバイナンスの件を【速報】で出した反省）
         if datetime.fromisoformat(f["expires_at"]) > now:
             out.append({**f, "kind": f.get("kind", "news"), "category": "breaking_news", "refresh": None,
                         "confidence": "confirmed"})
