@@ -1,6 +1,6 @@
 {
-  "at": "2026-10-30T14:36:35.018795+00:00",
-  "at_jst": "10/30 23:36",
+  "at": "2026-10-30T15:58:01.811537+00:00",
+  "at_jst": "10/31 00:57",
   "ok": false,
   "issues": [
     {
@@ -18,16 +18,16 @@
     },
     {
       "type": "many_rejections",
-      "n": 15,
+      "n": 12,
       "reasons": [
         "「すごいことになってる」は最近も使った言い回し。別の言葉で書く",
         "「気になるところ」は最近も使った言い回し。別の言葉で書く",
         "データ以外の数字が含まれている: ['2', '8', '6', '1']",
         "データ以外の数字が含まれている: ['2', '8', '7', '1', '6']",
         "データ以外の数字が含まれている: ['7']",
-        "存在しないフィールド f1.basis（f1で使えるのは: headline, plan, products, status, investor, xyz_volume, date, reaction, listing）",
         "存在しないフィールド f1.coin（f1で使えるのは: headline, what, status, who）",
-        "存在しないフィールド f26.oi_change（f26で使えるのは: coin, symbol, venue, market, price, change_pct, oi, volume, funding_annual, asof, asof_short, oi_change_pct, us_change_pct）"
+        "存在しないフィールド f26.oi_change（f26で使えるのは: coin, symbol, venue, market, price, change_pct, oi, volume, funding_annual, asof, asof_short, oi_change_pct, us_change_pct）",
+        "文字数上限超過（重み付き311/280）"
       ]
     }
   ],
