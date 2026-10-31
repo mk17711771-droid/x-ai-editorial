@@ -1,0 +1,301 @@
+{
+  "id": "20261031-1000w-1",
+  "slot_key": "20261031-1000w",
+  "slot_theme": "10:17 今週の振り返り（Hyperliquidの主要銘柄・HIP-3株式先物と米国株の1週間の値動き。上げた・下げたの明暗）",
+  "status": "posted",
+  "created_at": "2026-10-31T01:27:22.980114+00:00",
+  "text": "今週の米国株は主要指数が軟調に推移し、半導体関連の調整が目立つ1週間となった。\n\n・SP500 -0.56%（10:27時点）\n・XYZ100 -1.73%（10:27時点）\n・INTC -25.62%（10:27時点）\n・SNDK -6.32%（10:27時点）\n・HYPE $89.16（+16.41%）\n\n指数や個別株が大きく値を下げる一方で、$HYPEはしっかりプラスを維持して強さを見せた。伝統金融との連携期待が支えになっているのか、デリバティブ側の足取りは意外と軽いように見える。",
+  "template": "今週の米国株は主要指数が軟調に推移し、半導体関連の調整が目立つ1週間となった。\n\n・{{f5.coin}} {{f5.week_change_pct}}（{{f5.asof_short}}）\n・{{f7.coin}} {{f7.week_change_pct}}（{{f7.asof_short}}）\n・INTC {{f6.week_change_pct}}（{{f6.asof_short}}）\n・SNDK {{f8.week_change_pct}}（{{f8.asof_short}}）\n・HYPE ${{f3.price}}（{{f3.week_change_pct}}）\n\n指数や個別株が大きく値を下げる一方で、${{f3.symbol}}はしっかりプラスを維持して強さを見せた。伝統金融との連携期待が支えになっているのか、デリバティブ側の足取りは意外と軽いように見える。",
+  "style": "つぶやき解説型",
+  "format": "summary",
+  "topic_key": "hl:xyz:SP500:week_change",
+  "angle": "主要な株価指数と半導体関連の記録的な下落幅に対し、HYPE先物が堅調を維持した1週間の市場全体の値動きを整理する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f5",
+    "f7",
+    "f6",
+    "f8",
+    "f42",
+    "f3"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SP500:week_change",
+      "kind": "hl",
+      "category": "week_change",
+      "summary": "1週間の値動き-0.56%: SP500（HIP-3株式等先物）",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,588",
+        "change_pct": "-0.70%",
+        "oi": "約3.6億ドル",
+        "volume": "約3.7億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/31(土) 10:27時点",
+        "asof_short": "10:27時点",
+        "week_change_pct": "-0.56%"
+      },
+      "raw": {
+        "mark": 7588.0,
+        "change_pct": -0.698,
+        "oi_usd": 362393137,
+        "vol_usd": 374220615,
+        "funding_annual_pct": 5.48,
+        "week_change_pct": -0.561
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-10-31T01:27:14.634960+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    },
+    {
+      "key": "hl:xyz:XYZ100:week_change",
+      "kind": "hl",
+      "category": "week_change",
+      "summary": "1週間の値動き-1.73%: XYZ100（HIP-3株式等先物）",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$28,468",
+        "change_pct": "-0.95%",
+        "oi": "約2.6億ドル",
+        "volume": "約3.1億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/31(土) 10:27時点",
+        "asof_short": "10:27時点",
+        "week_change_pct": "-1.73%"
+      },
+      "raw": {
+        "mark": 28468.0,
+        "change_pct": -0.95,
+        "oi_usd": 263385395,
+        "vol_usd": 307239226,
+        "funding_annual_pct": 5.48,
+        "week_change_pct": -1.729
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-10-31T01:27:14.921653+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    },
+    {
+      "key": "hl:xyz:INTC:week_change",
+      "kind": "hl",
+      "category": "week_change",
+      "summary": "1週間の値動き-25.62%: INTC（HIP-3株式等先物）",
+      "fields": {
+        "coin": "INTC",
+        "symbol": "INTC",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$64.74",
+        "change_pct": "-8.24%",
+        "oi": "約1.2億ドル",
+        "volume": "約3.1億ドル",
+        "funding_annual": "-27.2%",
+        "asof": "日本時間10/31(土) 10:27時点",
+        "asof_short": "10:27時点",
+        "week_change_pct": "-25.62%"
+      },
+      "raw": {
+        "mark": 64.739,
+        "change_pct": -8.239,
+        "oi_usd": 119090745,
+        "vol_usd": 308033560,
+        "funding_annual_pct": -27.16,
+        "week_change_pct": -25.618
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:INTC",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+      },
+      "asof": "2026-10-31T01:27:14.778284+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:SNDK:week_change",
+      "kind": "hl",
+      "category": "week_change",
+      "summary": "1週間の値動き-6.32%: SNDK（HIP-3株式等先物）",
+      "fields": {
+        "coin": "SNDK",
+        "symbol": "SNDK",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,158",
+        "change_pct": "-8.95%",
+        "oi": "約1.3億ドル",
+        "volume": "約2.9億ドル",
+        "funding_annual": "+4.3%",
+        "asof": "日本時間10/31(土) 10:27時点",
+        "asof_short": "10:27時点",
+        "week_change_pct": "-6.32%"
+      },
+      "raw": {
+        "mark": 1158.0,
+        "change_pct": -8.948,
+        "oi_usd": 130163241,
+        "vol_usd": 287862783,
+        "funding_annual_pct": 4.25,
+        "week_change_pct": -6.318
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNDK",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+      },
+      "asof": "2026-10-31T01:27:15.066238+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "hl:xyz:SNDK:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SNDK（HIP-3株式等先物） 24時間騰落率-8.95%, 価格1158.0, 建玉130163241USD, 24時間出来高287862783USD, 資金調達率(年率)+4.4%（照合: 米国株の前日比-13.47%）",
+      "fields": {
+        "coin": "SNDK",
+        "symbol": "SNDK",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,158",
+        "change_pct": "-8.95%",
+        "oi": "約1.3億ドル",
+        "volume": "約2.9億ドル",
+        "funding_annual": "+4.4%",
+        "asof": "日本時間10/31(土) 10:27時点",
+        "asof_short": "10:27時点",
+        "us_change_pct": "-13.47%"
+      },
+      "raw": {
+        "mark": 1158.0,
+        "change_pct": -8.948,
+        "oi_usd": 130163241,
+        "vol_usd": 287862783,
+        "funding_annual_pct": 4.45,
+        "us_change_pct": -13.47
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNDK",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+      },
+      "asof": "2026-10-31T01:27:11.147015+00:00",
+      "confidence": "confirmed",
+      "id": "f42"
+    },
+    {
+      "key": "hl:HYPE:week_change",
+      "kind": "hl",
+      "category": "week_change",
+      "summary": "1週間の値動き+16.41%: HYPE（無期限先物）",
+      "fields": {
+        "coin": "HYPE",
+        "symbol": "HYPE",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$89.16",
+        "change_pct": "-0.64%",
+        "oi": "約19.8億ドル",
+        "volume": "約9.0億ドル",
+        "funding_annual": "+52.5%",
+        "asof": "日本時間10/31(土) 10:27時点",
+        "asof_short": "10:27時点",
+        "week_change_pct": "+16.41%"
+      },
+      "raw": {
+        "mark": 89.163,
+        "change_pct": -0.64,
+        "oi_usd": 1975392359,
+        "vol_usd": 899941756,
+        "funding_annual_pct": 52.45,
+        "week_change_pct": 16.41
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "HYPE",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/HYPE"
+      },
+      "asof": "2026-10-31T01:27:14.344307+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/HYPE"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2116341243638886768",
+  "posted_at": "2026-10-31T01:27:27.104394+00:00"
+}
