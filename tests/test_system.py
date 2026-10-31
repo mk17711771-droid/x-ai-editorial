@@ -1002,3 +1002,10 @@ def test_note_check_ignores_title_numbers_and_captions():
     assert "値動き\nこれまで" in text
     issues = note_check.review("【歪み】HYPEは$89.27", text + "\n売買を勧めるものではありません", 1, None, gen)
     assert not any("89.27" in i for i in issues)
+
+
+def test_repeated_asof_stamp_collapsed():
+    from aiedit import checks
+    by_id = {"f1": {"fields": {"a": "-0.56%", "s": "10:27時点"}}, "f2": {"fields": {"a": "-1.73%", "s": "10:27時点"}}}
+    out = checks.render("・SP500 {{f1.a}}（{{f1.s}}）\n・XYZ100 {{f2.a}}（{{f2.s}}）", by_id)
+    assert out.count("10:27時点") == 1

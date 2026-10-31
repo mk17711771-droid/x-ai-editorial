@@ -85,6 +85,10 @@ def render(template: str, facts: dict[str, dict]) -> str:
     # 差し込みデータとAIの文章で語が重なったもの（例:「時点時点」）を整える
     for dup, fixed in (("時点の時点", "時点"), ("時点時点", "時点"), ("終値終値", "終値"), ("約約", "約"), ("$$", "$")):
         text = text.replace(dup, fixed)
+    # 同じ「（10:27時点）」が行ごとに並ぶと読みにくい（10/31 週の振り返り）。2つ目以降は消す
+    for stamp in set(ASOF_PAREN.findall(text)):
+        first = text.find(stamp) + len(stamp)
+        text = text[:first] + text[first:].replace(stamp, "")
     # 「※情報共有であって売買の推奨ではありません」のような定型の注意書きは、自動投稿っぽく見えるので外す
     # （売買を勧める表現そのものは禁止表現のチェックで防ぐ。noteの注意書きは記事の末尾にシステムが付ける）
     text = BOILERPLATE.sub("", text)
@@ -196,6 +200,7 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     return errors
 
 
+ASOF_PAREN = re.compile(r"[（(][^（）()\n]{0,20}時点[）)]")
 NEAR_DUP = re.compile(r"([ァ-ヶー]{4,}|[A-Za-z]{4,})[^。\n]{0,10}?\1")
 
 
