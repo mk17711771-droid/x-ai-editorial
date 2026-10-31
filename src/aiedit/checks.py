@@ -200,6 +200,9 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     return errors
 
 
+JUNK_LATIN = re.compile(r"(?<=[ぁ-んァ-ヶ一-龥])([a-z]{5,})(?=[ぁ-んァ-ヶ一-龥])")
+CASHTAG_ANY = re.compile(r"\$([A-Za-z][A-Za-z0-9:.]*)")
+TICKER_OK = re.compile(r"^(xyz:)?[A-Z][A-Z0-9.]*$")
 ASOF_PAREN = re.compile(r"[（(][^（）()\n]{0,20}時点[）)]")
 NEAR_DUP = re.compile(r"([ァ-ヶー]{4,}|[A-Za-z]{4,})[^。\n]{0,10}?\1")
 
@@ -218,6 +221,12 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
             errors.append(f"禁止表現「{phrase}」")
     if "速報" in text and not topic_key.startswith("news:"):
         errors.append("通常の投稿に「速報」と書いている（速報はネットでいち早くキャッチした話題の速報枠だけ）")
+    junk = JUNK_LATIN.search(text)
+    if junk:  # AIの出力に紛れた意味不明な英字（10/31「リスクがあるacylglycerと推測」）
+        errors.append(f"文中に意味不明な英字「{junk.group(1)}」が混ざっている")
+    bad_tags = [c for c in CASHTAG_ANY.findall(text) if not TICKER_OK.match(c)]
+    if bad_tags:  # 「$Intercontinental Exchange (ICE)」のように銘柄記号でない語に $ が付いた（10/31）
+        errors.append(f"$ の後が銘柄記号ではない: {bad_tags[:3]}")
     m = NEAR_DUP.search(text)
     if m:  # 「バイナンスで…バイナンスが」のような同じ語のすぐの繰り返し（10/30 21:11の速報）
         errors.append(f"同じ語「{m.group(1)}」が近くで繰り返されている（文を組み直す）")

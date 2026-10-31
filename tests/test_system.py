@@ -1009,3 +1009,12 @@ def test_repeated_asof_stamp_collapsed():
     by_id = {"f1": {"fields": {"a": "-0.56%", "s": "10:27時点"}}, "f2": {"fields": {"a": "-1.73%", "s": "10:27時点"}}}
     out = checks.render("・SP500 {{f1.a}}（{{f1.s}}）\n・XYZ100 {{f2.a}}（{{f2.s}}）", by_id)
     assert out.count("10:27時点") == 1
+
+
+def test_junk_latin_and_bad_cashtag_rejected():
+    from aiedit import checks
+    e1 = checks.check_text("値動きが一気に急変するリスクがあるacylglycerと推測している。上位の偏りは残ったまま。", "hl:x")
+    assert any("意味不明な英字" in e for e in e1)
+    e2 = checks.check_text("関連する$Intercontinental Exchange (ICE)の動きとともにHYPEへの注目が集まっている。", "news:x")
+    assert any("銘柄記号ではない" in e for e in e2)
+    assert not any("銘柄記号" in e for e in checks.check_text("$NVDAが下げる中、$xyz:NVDA の先物は強い。建玉も増えている。", "hl:x"))
