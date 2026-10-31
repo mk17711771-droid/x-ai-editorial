@@ -41,3 +41,8 @@
   "image_prefs": {"short": true, "long": true},
   "dev_backlog": ["コードの変更が必要な改善（なければ空）"]
 }
+
+
+# 守ること
+- アカウントの範囲（account_scope_set_by_admin）は管理者が決めたもの。会議で範囲を狭めたり、特定の話題を「扱わない」と決めたりしない。
+- 投稿の削除や障害は incidents_and_deletion_reasons の理由を読んで判断する（削除＝話題がだめ、とは限らない。多くは重複・遅れ・表記の不具合）。

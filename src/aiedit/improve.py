@@ -75,6 +75,10 @@ def materials(monthly: bool) -> dict:
         "followers": store.read_jsonl("followers.jsonl")[-(40 if monthly else 10):],
         "rejected_by_checks": [r["errors"] for r in store.read_jsonl("rejected_variants.jsonl")[-20:]],
         "improvements_in_progress": _evaluate(active, rows),
+        # 削除・障害の本当の理由（投稿の削除を「話題がだめだった」と誤解しないため。11/1 会議でバイナンスの件を「ノイズ」と誤解した）
+        "incidents_and_deletion_reasons": store.read_text("improve/incidents.md", "").strip().splitlines()[-15:],
+        # アカウントの範囲は管理者が決めたもの。会議で狭めない
+        "account_scope_set_by_admin": _scope_text(),
         "current_strategy": store.read_text("strategy.md", ""),
         "current_note_strategy": store.read_text("note_strategy.md", ""),
         "image_prefs": image_prefs(),
@@ -93,6 +97,14 @@ def materials(monthly: bool) -> dict:
         ]
         mat["all_improvements"] = _evaluate(ledger[-30:], rows)
     return mat
+
+
+def _scope_text() -> str:
+    from .common import CONFIG_DIR
+    text = (CONFIG_DIR / "buzz_patterns.md").read_text(encoding="utf-8")
+    start = text.find("## 前提")
+    end = text.find("## ", start + 3)
+    return text[start:end].strip() if start >= 0 else ""
 
 
 def image_prefs() -> dict:

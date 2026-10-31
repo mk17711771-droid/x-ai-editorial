@@ -1024,3 +1024,12 @@ def test_name_fix_xyz100():
     from aiedit import checks
     out = checks.render("・XYZ100（HIP-3） 価格{{f1.a}}\n・XYZ100 {{f1.a}}\n②SP500やXYZ100の価格", {"f1": {"fields": {"a": "$1"}}})
     assert "XYZ100" not in out and "ナスダック100 $1" in out
+
+
+def test_meeting_gets_scope_and_deletion_reasons(isolated):
+    # 11/1 月次会議が「管理者が削除したバイナンス関連はノイズ」と誤解して範囲を狭めた反省
+    from aiedit import improve
+    store.write_text("improve/incidents.md", "- 削除の理由: 重複と遅れた速報\n")
+    mat = improve.materials(monthly=False)
+    assert "重複" in "".join(mat["incidents_and_deletion_reasons"])
+    assert "前提" in mat["account_scope_set_by_admin"]
