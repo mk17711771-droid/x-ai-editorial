@@ -2,21 +2,44 @@
   {
     "fact_ids": [
       "f1",
-      "f25",
-      "f26",
+      "f10",
+      "f23",
       "f27",
-      "f30"
+      "f28",
+      "f29",
+      "f32"
     ],
     "topic_key": "news:ice-trade-xyz-hyperliquid-us-expansion-3",
-    "angle": "伝統金融の巨大参入とバイナンス事件が重なる中で、Hyperliquid上の上位勢のポジションと来週見るべき市場の歪みを整理する",
+    "angle": "伝統金融の巨人ICEによるTrade[XYZ]提携と、Hyperliquid全体（建玉148億ドル）の急拡大が交差する週末。上位トレーダーの圧倒的な売りバイアス（BTC 11%、ETH 0%）の背景と来週見るべき市場の歪みを整理する。",
     "scores": {
       "novelty": 19,
       "interest": 20,
-      "evidence": 19,
+      "evidence": 20,
       "utility": 19,
       "insight": 20
     },
-    "total": 97,
-    "reason": "ICEの出資計画やバイナンスのハッキングという歴史的トピックを背景に、オンチェーン市場全体の建玉データと上位トレーダーの偏りを組み合わせた極めて示唆に富む長文考察。"
+    "total": 98,
+    "reason": "ICEの出資という歴史的な伝統金融とオンチェーンの接続点を取り上げつつ、Hyperliquidの全体建玉データや上位勢のポジションの偏りを組み合わせた、週末考察にふさわしい最上位の構成。"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f27",
+      "f28",
+      "f29",
+      "f30",
+      "f32"
+    ],
+    "topic_key": "news:binance-historic-hack",
+    "angle": "バイナンスの歴史的流出事件（63億ドル）がもたらすCEXからオンチェーンへの資金シフトと、Hyperliquid全体で148億ドルを超える建玉規模の現状を紐解く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "中央集権型取引所のセキュリティリスクとDEX・オンチェーンへの資金移動という構造的変化を、具体的な建玉データとともに深く解説しているため。"
   }
 ]

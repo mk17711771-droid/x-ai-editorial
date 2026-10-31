@@ -1,0 +1,337 @@
+{
+  "id": "20261031-2030w-2",
+  "slot_key": "20261031-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "posted",
+  "created_at": "2026-10-31T12:13:55.041786+00:00",
+  "text": "伝統金融の巨人がオンチェーンに踏み込んだ週末、Hyperliquid全体では何が起きているのか。\n\n【いま起きてる市場の動き】\nニューヨーク証券取引所（NYSE）の親会社であるインターコンチネンタル取引所（ICE）がtrade[XYZ]への出資と提携を発表し、Hyperliquidを基盤とした無期限先物市場を米国市場へ展開する計画が明らかになった。さらに著名投資家スタンレー・ドラッケンミラー氏も間接的な投資と支持を表明し、エコシステム全体に大きなインパクトを与えている。\n\n【数字で見る】（日本時間10/31(土) 21:11時点）\n・Hyperliquid全体 建玉合計約148.7億ドル、24時間出来高合計約74.9億ドル、うちHIP-3市場約24.9億ドル（シェア33.2%）\n・SP500（HIP-3） 価格$7,580、24時間騰落率-0.70%、建玉約3.7億ドル、資金調達率+5.5%\n・XYZ100（HIP-3） 価格$28,460、24時間騰落率-0.62%、建玉約2.7億ドル、資金調達率+5.5%\n・安定上位トレーダーのBTC保有者9人の内訳: 買い1人・売り8人（買い比率11%）、平均レバレッジ26.1倍\n・安定上位トレーダーのETH保有者9人の内訳: 買い0人・売り9人（買い比率0%）、平均レバレッジ20.0倍\n\n【なぜ「歪み」なのか】\n伝統金融の巨大インフラがオンチェーン市場を取りに来るという歴史的な材料が出ている一方で、デリバティブ市場の上位トレーダーは主要アセットに対して歴史的なレベルで圧倒的な売りバイアスをかけている。BTCの買い比率は11%、ETHに至っては0%と、実質的にほぼ全ての安定上位トレーダーがショートポジションを構築している構図だ。エコシステム全体の建玉が約148.7億ドルまで膨らむ中で、マクロの期待感とプロのデリバティブ上のポジションには巨大なねじれが生じているとみている。個人的には、この強烈なショートの偏りが踏み上げられるか、あるいは現物側の調整に引きずられるかで来週の値動きが大きく荒れる可能性があると推測している。\n\n【次に見るポイント】\n①HIP-3市場全体の出来高シェア33.2%がさらに拡大するかどうか\n②主要指数のSP500やXYZ100の価格推移と資金調達率のバランス\n③上位トレーダーのショートポジションが維持されるか、あるいは手仕舞いに動くタイミング",
+  "template": "伝統金融の巨人がオンチェーンに踏み込んだ週末、Hyperliquid全体では何が起きているのか。\n\n【いま起きてる市場の動き】\nニューヨーク証券取引所（NYSE）の親会社であるインターコンチネンタル取引所（ICE）がTrade[XYZ]への出資と提携を発表し、Hyperliquidを基盤とした無期限先物市場を米国市場へ展開する計画が明らかになった。さらに著名投資家スタンレー・ドルッケンミラー氏も間接的な投資と支持を表明し、エコシステム全体に大きなインパクトを与えている。\n\n【数字で見る】（{{f10.asof}}）\n・Hyperliquid全体 建玉合計{{f27.total_oi}}、24時間出来高合計{{f27.total_volume}}、うちHIP-3市場{{f27.hip3_volume}}（シェア{{f27.hip3_share}}）\n・{{f10.coin}}（HIP-3） 価格{{f10.price}}、24時間騰落率{{f10.change_pct}}、建玉{{f10.oi}}、資金調達率{{f10.funding_annual}}\n・{{f23.coin}}（HIP-3） 価格{{f23.price}}、24時間騰落率{{f23.change_pct}}、建玉{{f23.oi}}、資金調達率{{f23.funding_annual}}\n・安定上位トレーダーのBTC保有者{{f28.holders}}の内訳: 買い{{f28.long_n}}・売り{{f28.short_n}}（買い比率{{f28.long_ratio}}）、平均レバレッジ{{f28.avg_leverage}}\n・安定上位トレーダーのETH保有者{{f29.holders}}の内訳: 買い{{f29.long_n}}・売り{{f29.short_n}}（買い比率{{f29.long_ratio}}）、平均レバレッジ{{f29.avg_leverage}}\n\n【なぜ「歪み」なのか】\n伝統金融の巨大インフラがオンチェーン市場を取りに来るという歴史的な材料が出ている一方で、デリバティブ市場の上位トレーダーは主要アセットに対して歴史的なレベルで圧倒的な売りバイアスをかけている。BTCの買い比率は{{f28.long_ratio}}、ETHに至っては{{f29.long_ratio}}と、実質的にほぼ全ての安定上位トレーダーがショートポジションを構築している構図だ。エコシステム全体の建玉が{{f27.total_oi}}まで膨らむ中で、マクロの期待感とプロのデリバティブ上のポジションには巨大なねじれが生じているとみている。個人的には、この強烈なショートの偏りが踏み上げられるか、あるいは現物側の調整に引きずられるかで来週の値動きが大きく荒れる可能性があると推測している。\n\n【次に見るポイント】\n①HIP-3市場全体の出来高シェア{{f27.hip3_share}}がさらに拡大するかどうか\n②主要指数の{{f10.coin}}や{{f23.coin}}の価格推移と資金調達率のバランス\n③上位トレーダーのショートポジションが維持されるか、あるいは手仕舞いに動くタイミング",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "news:ice-trade-xyz-hyperliquid-us-expansion-3",
+  "angle": "伝統金融の巨人ICEによるTrade[XYZ]提携と、Hyperliquid全体（建玉148億ドル）の急拡大が交差する週末。上位トレーダーの圧倒的な売りバイアス（BTC 11%、ETH 0%）の背景と来週見るべき市場の歪みを整理する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 19,
+    "insight": 20
+  },
+  "total": 98,
+  "fact_ids": [
+    "f1",
+    "f10",
+    "f23",
+    "f27",
+    "f28",
+    "f29",
+    "f32"
+  ],
+  "facts": [
+    {
+      "key": "news:ice-trade-xyz-hyperliquid-us-expansion-3",
+      "kind": "hl",
+      "asof": "2026-10-30T01:05:46.315165+00:00",
+      "expires_at": "2026-10-31T13:05:46.315171+00:00",
+      "status": "posted",
+      "summary": "ニューヨーク証券取引所（NYSE）の親会社であるインターコンチネンタル取引所（ICE）が、Trade[XYZ]への出資および提携を発表した。これにより、Hyperliquidを基盤とした無期限先物市場を米国市場へ24/7で展開する計画。さらに著名投資家スタンレー・ドルッケンミラー氏もTrade[XYZ]を通じて間接的に2,300万ドルの投資を行い、自身のXアカウントで初めてこのベンチャーへの支持を表明した。この一連の発表を受け、HYPEトークンは一時15%〜20%急騰し、関連銘柄も大きく上昇している。",
+      "fields": {
+        "headline": "NYSE親会社ICEとドルッケンミラー氏がHyperliquid基盤の無期限先物を米国へ展開",
+        "what": "NYSE親会社ICEおよび著名投資家ドルッケンミラー氏がTrade[XYZ]に出資し、Hyperliquid基盤の無期限先物を米国市場へ導入する計画を発表した。",
+        "status": "計画段階",
+        "who": "Intercontinental Exchange (ICE), Trade[XYZ], Stanley Druckenmiller"
+      },
+      "raw": {},
+      "source": {
+        "name": "CoinDesk・Bloomberg.com・CNBC・The Block",
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZk9TT0NkQVQwcEgwa3AtRlQ1a19teFhoWmZtb21rVVJldWRTRVg1NzVSQmdhYTd5Y3JmOEMwNklfU0ZFS2N3SjNTc09aZktEbXZmdHhDOXFyaUo4aGVwYko2UlFyQVJmOGZLUi1zekRiWjJnQWlHZDFqQmxDb2l2MU5BX3RCa3BIOGRWTFQyN1ZEUkpVa1locWVHSjdwaEFJU19Td0VFNGdHbnNUSDFaZzB3?oc=5"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:xyz:SP500:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: SP500（HIP-3株式等先物） 24時間騰落率-0.70%, 価格7579.5, 建玉365640219USD, 24時間出来高303675479USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,580",
+        "change_pct": "-0.70%",
+        "oi": "約3.7億ドル",
+        "volume": "約3.0億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/31(土) 21:11時点",
+        "asof_short": "21:11時点"
+      },
+      "raw": {
+        "mark": 7579.5,
+        "change_pct": -0.7,
+        "oi_usd": 365640219,
+        "vol_usd": 303675479,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-10-31T12:11:47.630486+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-0.62%, 価格28460.0, 建玉270581970USD, 24時間出来高232589008USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$28,460",
+        "change_pct": "-0.62%",
+        "oi": "約2.7億ドル",
+        "volume": "約2.3億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間10/31(土) 21:11時点",
+        "asof_short": "21:11時点"
+      },
+      "raw": {
+        "mark": 28460.0,
+        "change_pct": -0.618,
+        "oi_usd": 270581970,
+        "vol_usd": 232589008,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-10-31T12:11:47.630937+00:00",
+      "confidence": "confirmed",
+      "id": "f23"
+    },
+    {
+      "key": "hl:market:overview",
+      "kind": "hl",
+      "category": "overview",
+      "summary": "Hyperliquid全体: 建玉合計14865508318USD, 24時間出来高合計7492082758USD, うちHIP-3市場2487518791USD, 上場銘柄数341",
+      "fields": {
+        "total_oi": "約148.7億ドル",
+        "total_volume": "約74.9億ドル",
+        "hip3_volume": "約24.9億ドル",
+        "hip3_share": "33.2%",
+        "asof": "日本時間10/31(土) 21:11時点"
+      },
+      "raw": {
+        "total_oi": 14865508318,
+        "total_vol": 7492082758,
+        "hip3_vol": 2487518791
+      },
+      "refresh": null,
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade"
+      },
+      "asof": "2026-10-31T12:11:47.631115+00:00",
+      "confidence": "confirmed",
+      "id": "f27"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-31T10:36:03.903909+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:BTC:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー33人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、BTCを持っている9人の内訳: 買い1人・売り8人（買い比率11%）、買い合計76423USD・売り合計7625191USD、平均レバレッジ26.1倍（このほか、現物つきの売り＝ヘッジ・裁定が1人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "BTC",
+        "top_n": "33人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "9人",
+        "long_n": "1人",
+        "short_n": "8人",
+        "long_ratio": "11%",
+        "long_usd": "約8万ドル",
+        "short_usd": "約763万ドル",
+        "hedge_n": "1人",
+        "avg_leverage": "26.1倍",
+        "asof": "日本時間10/31(土) 19:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 1,
+        "short_n": 8,
+        "long_usd": 76423,
+        "short_usd": 7625191
+      },
+      "id": "f28"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-31T10:36:03.903909+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:ETH:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー33人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、ETHを持っている9人の内訳: 買い0人・売り9人（買い比率0%）、買い合計0USD・売り合計5491563USD、平均レバレッジ20.0倍（このほか、現物つきの売り＝ヘッジ・裁定が0人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "ETH",
+        "top_n": "33人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "9人",
+        "long_n": "0人",
+        "short_n": "9人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約549万ドル",
+        "hedge_n": "0人",
+        "avg_leverage": "20.0倍",
+        "asof": "日本時間10/31(土) 19:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 9,
+        "long_usd": 0,
+        "short_usd": 5491563
+      },
+      "id": "f29"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-10-31T10:36:03.903909+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:funnel",
+      "category": "trader_funnel",
+      "summary": "Hyperliquidのランキングから選んだ候補300人を、真似できるかの条件で絞り込んだ結果: 60日以上プラス→残り222人、売買が多すぎない→残り118人、1回の大勝ちに頼らない→残り104人、直近1週間に売買あり→残り33人、レバレッジ3倍以下→残り0人、最大下落5〜15%→残り0人、5日以内に売買→残り0人。すべての条件を満たした人はごくわずかで、ランキングの上位＝真似する価値がある人ではないことがわかる",
+      "fields": {
+        "candidates": "300人",
+        "positive_60d": "222人",
+        "positive_60d_label": "60日以上プラス",
+        "low_leverage_label": "レバレッジ3倍以下",
+        "stable_n": "33人",
+        "low_leverage_n": "0人",
+        "strict_n": "0人",
+        "venue": "Hyperliquid",
+        "step1_label": "60日以上プラス",
+        "step2_label": "売買が多すぎない",
+        "step3_label": "1回の大勝ちに頼らない",
+        "step4_label": "直近1週間に売買あり",
+        "step5_label": "レバレッジ3倍以下",
+        "step6_label": "最大下落5〜15%",
+        "step7_label": "5日以内に売買",
+        "step1_n": "222人",
+        "step2_n": "118人",
+        "step3_n": "104人",
+        "step4_n": "33人",
+        "step5_n": "0人",
+        "step6_n": "0人",
+        "step7_n": "0人"
+      },
+      "raw": {
+        "funnel": [
+          {
+            "step": "審査した候補",
+            "n": 300
+          },
+          {
+            "step": "60日以上プラス",
+            "n": 222
+          },
+          {
+            "step": "売買が多すぎない",
+            "n": 118
+          },
+          {
+            "step": "1回の大勝ちに頼らない",
+            "n": 104
+          },
+          {
+            "step": "直近1週間に売買あり",
+            "n": 33
+          },
+          {
+            "step": "レバレッジ3倍以下",
+            "n": 0
+          },
+          {
+            "step": "最大下落5〜15%",
+            "n": 0
+          },
+          {
+            "step": "5日以内に売買",
+            "n": 0
+          }
+        ]
+      },
+      "id": "f32"
+    }
+  ],
+  "sources": [
+    {
+      "name": "CoinDesk・Bloomberg.com・CNBC・The Block",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZk9TT0NkQVQwcEgwa3AtRlQ1a19teFhoWmZtb21rVVJldWRTRVg1NzVSQmdhYTd5Y3JmOEMwNklfU0ZFS2N3SjNTc09aZktEbXZmdHhDOXFyaUo4aGVwYko2UlFyQVJmOGZLUi1zekRiWjJnQWlHZDFqQmxDb2l2MU5BX3RCa3BIOGRWTFQyN1ZEUkpVa1locWVHSjdwaEFJU19Td0VFNGdHbnNUSDFaZzB3?oc=5"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2116503987016912961",
+  "posted_at": "2026-10-31T12:14:08.165372+00:00"
+}
