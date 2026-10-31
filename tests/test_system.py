@@ -1018,3 +1018,9 @@ def test_junk_latin_and_bad_cashtag_rejected():
     e2 = checks.check_text("関連する$Intercontinental Exchange (ICE)の動きとともにHYPEへの注目が集まっている。", "news:x")
     assert any("銘柄記号ではない" in e for e in e2)
     assert not any("銘柄記号" in e for e in checks.check_text("$NVDAが下げる中、$xyz:NVDA の先物は強い。建玉も増えている。", "hl:x"))
+
+
+def test_name_fix_xyz100():
+    from aiedit import checks
+    out = checks.render("・XYZ100（HIP-3） 価格{{f1.a}}\n・XYZ100 {{f1.a}}\n②SP500やXYZ100の価格", {"f1": {"fields": {"a": "$1"}}})
+    assert "XYZ100" not in out and "ナスダック100 $1" in out
