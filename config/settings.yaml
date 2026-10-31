@@ -18,7 +18,7 @@ mode: approval
 #   days: weekday = 平日のみ / weekend = 土日のみ / all = 毎日
 #   format: long = 長文の考察投稿（X Premiumのみ。指定なしは短文）
 slots:
-  - { id: "0730", time: "07:42", kind: stock, days: weekday, format: summary, theme: "朝の米国株まとめ（指数・明暗の分かれた銘柄・今日の決算予定）" }
+  - { id: "0730", time: "07:42", kind: stock, days: weekday, format: long, theme: "朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い" }
   - { id: "1000", time: "10:17", kind: hl,    days: weekday, theme: "Hyperliquidの24時間の異変（建玉・資金調達率・急変動）" }
   - { id: "1000w", time: "10:17", kind: hl,   days: weekend, format: summary, weekly: true, theme: "今週の振り返り（Hyperliquidの主要銘柄・HIP-3株式先物と米国株の1週間の値動き。上げた・下げたの明暗）" }
   - { id: "1215", time: "12:26", kind: stock, days: weekday, theme: "市場の異変の解説" }
