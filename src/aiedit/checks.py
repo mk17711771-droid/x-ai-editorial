@@ -92,6 +92,8 @@ def render(template: str, facts: dict[str, dict]) -> str:
     # 「※情報共有であって売買の推奨ではありません」のような定型の注意書きは、自動投稿っぽく見えるので外す
     # （売買を勧める表現そのものは禁止表現のチェックで防ぐ。noteの注意書きは記事の末尾にシステムが付ける）
     text = BOILERPLATE.sub("", text)
+    # trade[XYZ]の銘柄名は読者に通じないので一般の呼び名にする（$XYZ100・xyz:XYZ100 は銘柄記号なのでそのまま）
+    text = re.sub(r"(?<![$:A-Za-z])XYZ100(?![A-Za-z0-9])", "ナスダック100", text)
     # 表記の統一（過去の表記ミスを config/name_fixes.txt に貯めて、投稿の直前に直す）
     for ln in read_list("name_fixes.txt"):
         wrong, _, right = ln.partition("\t")

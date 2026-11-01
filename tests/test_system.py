@@ -1022,7 +1022,7 @@ def test_junk_latin_and_bad_cashtag_rejected():
 
 def test_name_fix_xyz100():
     from aiedit import checks
-    out = checks.render("・XYZ100（HIP-3） 価格{{f1.a}}\n・XYZ100 {{f1.a}}\n②SP500やXYZ100の価格", {"f1": {"fields": {"a": "$1"}}})
+    out = checks.render("・XYZ100（HIP-3） 価格{{f1.a}}\n・XYZ100 {{f1.a}}\n②主要指数であるXYZ100とSP500の価格", {"f1": {"fields": {"a": "$1"}}})
     assert "XYZ100" not in out and "ナスダック100 $1" in out
 
 
