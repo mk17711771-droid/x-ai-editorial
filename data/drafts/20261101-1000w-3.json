@@ -1,0 +1,204 @@
+{
+  "id": "20261101-1000w-3",
+  "slot_key": "20261101-1000w",
+  "slot_theme": "10:17 今週の振り返り（長文）: 1週間でいちばんの“違和感”（大きく上げた・下げた銘柄、明暗）を「なぜ〜？」の問いで主役にし、HIP-3株式先物と米国株の数字で読み解く",
+  "status": "superseded",
+  "created_at": "2026-11-01T01:20:58.654592+00:00",
+  "text": "エヌビディアが週間-3.92%と調整する裏で、なぜ半導体関連先物のSKハイニックスで資金調達率が年率+66.2%まで異常急騰しているのか？\n\n【いま起きてること】\n半導体セクター全体の先行きに警戒感が広がり、現物市場を中心に利益確定や調整の売りが優勢になっている。しかし、HyperliquidのHIP-3株式先物市場では、特定の銘柄に対して強気の買い手がコストを払ってでもポジションを維持する動きが観測されている。\n\n【数字で見る】（日本時間11/1(日) 10:18時点）\n・$NVDA 1週間の値動き-3.92%、価格$204.05、建玉約9,695万ドル、24時間変化+28.4%、資金調達率+5.5%\n・SKHX 価格$1,043、24時間騰落率-0.29%、建玉約2.6億ドル、24時間出来高約1,361万ドル、資金調達率+66.2%\n・NVDA 24時間出来高約2,311万ドル、市場株式先物（HIP-3）\n\n【なぜ「歪み」なのか】\n代表的な半導体銘柄が調整局面にあるにもかかわらず、特定のHIP-3先物ではロング側が重い資金調達率を支払い続ける異常な過熱状態にある。現物の軟調さとデリバティブ側の強気なコスト負担が同時に起きているこのねじれは、短期的なリバウンドや上昇を信じる買い手が過度に集中しているサインだとみている。個人的には、この歪みが解消される過程でポジションの清算を巻き込み、値動きが一段と荒くなる可能性があると推測している。\n\n【次に見るポイント】\n①半導体関連先物の資金調達率が高水準のまま維持されるか\n②主要な銘柄の未決済建玉の増減バランス\n③現物の下落トレンドとデリバティブのポジションの連動性",
+  "template": "エヌビディアが週間{{f8.week_change_pct}}と調整する裏で、なぜ半導体関連先物のSKハイニックスで資金調達率が年率{{f21.funding_annual}}まで異常急騰しているのか？\n\n【いま起きてること】\n半導体セクター全体の先行きに警戒感が広がり、現物市場を中心に利益確定や調整の売りが優勢になっている。しかし、HyperliquidのHIP-3株式先物市場では、特定の銘柄に対して強気の買い手がコストを払ってでもポジションを維持する動きが観測されている。\n\n【数字で見る】（{{f21.asof}}）\n・${{f8.symbol}} 1週間の値動き{{f8.week_change_pct}}、価格{{f8.price}}、建玉{{f23.oi}}、24時間変化{{f23.oi_change_pct}}、資金調達率{{f8.funding_annual}}\n・${{f21.symbol}} 価格{{f21.price}}、24時間騰落率{{f21.change_pct}}、建玉{{f21.oi}}、24時間出来高{{f21.volume}}、資金調達率{{f21.funding_annual}}\n・${{f29.symbol}} 24時間出来高{{f29.volume}}、市場{{f29.market}}\n\n【なぜ「歪み」なのか】\n代表的な半導体銘柄が調整局面にあるにもかかわらず、特定のHIP-3先物ではロング側が重い資金調達率を支払い続ける異常な過熱状態にある。現物の軟調さとデリバティブ側の強気なコスト負担が同時に起きているこのねじれは、短期的なリバウンドや上昇を信じる買い手が過度に集中しているサインだとみている。個人的には、この歪みが解消される過程でポジションの清算を巻き込み、値動きが一段と荒くなる可能性があると推測している。\n\n【次に見るポイント】\n①半導体関連先物の資金調達率が高水準のまま維持されるか\n②主要な銘柄の未決済建玉の増減バランス\n③現物の下落トレンドとデリバティブのポジションの連動性",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:SKHX:funding_extreme",
+  "angle": "エヌビディアが週間-3.92%と調整する裏で、なぜ半導体関連先物のSKハイニックスで資金調達率が年率+66.2%まで異常急騰しているのか？半導体Perp市場で局所的に起きている強気ポジションの歪みを追う。",
+  "scores": {
+    "novelty": 17,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 85,
+  "fact_ids": [
+    "f8",
+    "f21",
+    "f23",
+    "f29"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:NVDA:week_change",
+      "kind": "hl",
+      "category": "week_change",
+      "summary": "1週間の値動き-3.92%: NVDA（HIP-3株式等先物）",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$204.05",
+        "change_pct": "-0.51%",
+        "oi": "約9,695万ドル",
+        "volume": "約2,311万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/1(日) 10:18時点",
+        "asof_short": "10:18時点",
+        "week_change_pct": "-3.92%"
+      },
+      "raw": {
+        "mark": 204.05,
+        "change_pct": -0.507,
+        "oi_usd": 96953804,
+        "vol_usd": 23105572,
+        "funding_annual_pct": 5.48,
+        "week_change_pct": -3.922
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-01T01:18:55.013497+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "hl:xyz:SKHX:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SKHX（HIP-3株式等先物） 24時間騰落率-0.29%, 価格1042.8, 建玉262163870USD, 24時間出来高13605294USD, 資金調達率(年率)+66.2%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,043",
+        "change_pct": "-0.29%",
+        "oi": "約2.6億ドル",
+        "volume": "約1,361万ドル",
+        "funding_annual": "+66.2%",
+        "asof": "日本時間11/1(日) 10:18時点",
+        "asof_short": "10:18時点"
+      },
+      "raw": {
+        "mark": 1042.8,
+        "change_pct": -0.287,
+        "oi_usd": 262163870,
+        "vol_usd": 13605294,
+        "funding_annual_pct": 66.24
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-01T01:18:50.048190+00:00",
+      "confidence": "confirmed",
+      "id": "f21"
+    },
+    {
+      "key": "hl:xyz:NVDA:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+28.4%: NVDA（HIP-3株式等先物） 24時間騰落率-0.51%, 価格204.05, 建玉96953804USD, 24時間出来高23105572USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$204.05",
+        "change_pct": "-0.51%",
+        "oi": "約9,695万ドル",
+        "volume": "約2,311万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/1(日) 10:18時点",
+        "asof_short": "10:18時点",
+        "oi_change_pct": "+28.4%"
+      },
+      "raw": {
+        "mark": 204.05,
+        "change_pct": -0.507,
+        "oi_usd": 96953804,
+        "vol_usd": 23105572,
+        "funding_annual_pct": 5.48,
+        "oi_change_pct": 28.42
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-01T01:18:50.048245+00:00",
+      "confidence": "confirmed",
+      "id": "f23"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-0.51%, 価格204.05, 建玉96953804USD, 24時間出来高23105572USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$204.05",
+        "change_pct": "-0.51%",
+        "oi": "約9,695万ドル",
+        "volume": "約2,311万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/1(日) 10:18時点",
+        "asof_short": "10:18時点"
+      },
+      "raw": {
+        "mark": 204.05,
+        "change_pct": -0.507,
+        "oi_usd": 96953804,
+        "vol_usd": 23105572,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-01T01:18:50.048356+00:00",
+      "confidence": "confirmed",
+      "id": "f29"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false
+}
