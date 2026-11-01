@@ -127,6 +127,19 @@ def _hours_since(iso: str | None) -> float:
     return (now_utc() - t).total_seconds() / 3600
 
 
+def _reported_earlier(story: dict) -> bool:
+    """同じ出来事を報じた記事が、直近30日のうち3時間より前に出ていれば True。"""
+    text = f"{story.get('headline', '')} {story.get('summary_ja', '')}"
+    words = [w for w in _tokens(text) if not re.match(r"^\d", w)][:3]
+    if len(words) < 2:
+        return False
+    for lang in ("en", "ja"):
+        for it in sources.news_items(" ".join(words), "when:30d", lang=lang):
+            if _hours_since(it.get("published")) > STORY_FRESH_HOURS and same_event(text, it.get("title", "")):
+                return True
+    return False
+
+
 def _verified(story: dict) -> bool:
     outlets = {s.strip() for s in story.get("sources", []) if s and s.strip()}
     return bool(story.get("official")) or len(outlets) >= 2
@@ -219,6 +232,10 @@ def run(payload: dict | None = None) -> dict:
                          if similarity(s.get("headline", ""), f["fields"].get("headline", "")) >= 0.3
                          or (now_utc() - datetime.fromisoformat(f["asof"]) < timedelta(hours=48)
                              and same_event(text, f"{f['fields'].get('headline', '')} {f.get('summary', '')}"))), None)
+            if not same:  # まだ裏取り前（確認中）で知らせた話題とも比べる（11/1 同じKrakenの件を別の名前で2回知らせた）
+                same = next((k for k, h in handled.items() if h.get("headline")
+                             and now_utc() - datetime.fromisoformat(h["at"]) < timedelta(hours=48)
+                             and same_event(text, h["headline"])), None)
             if same:
                 s["story_key"] = same.rsplit("-", 1)[0] if same.rsplit("-", 1)[-1].isdigit() else same
                 handled.setdefault(s["story_key"], {"at": now_utc().isoformat(), "posted_or_queued": True,
@@ -228,6 +245,9 @@ def run(payload: dict | None = None) -> dict:
         # アカウントの属性からぶれない: 範囲外の話題はどれだけ熱くても出さない
         # 速報＝ネット上でいち早くキャッチした情報。ネットに最初に出てから3時間を過ぎていたら、もう速報ではない（管理者の定義）
         if _hours_since(s.get("first_reported_at")) > STORY_FRESH_HOURS:
+            continue
+        # 機械の確認: 同じ出来事の報道が3時間より前にすでにあれば、もう速報ではない（11/1 9月発表のKrakenの件を速報扱いした）
+        if _reported_earlier(s):
             continue
         # 出来事そのものが古い（昨日・一昨日の話の再報道）なら速報にしない（10/31 2:05 ICEの件を「速報をキャッチ」と知らせた反省）
         if not s.get("story_key") or not hot or s.get("in_scope") is False or s.get("fresh") is False:
@@ -263,10 +283,11 @@ def run(payload: dict | None = None) -> dict:
                 action = "投稿の起動に失敗。次の見回りで再試行します"
             key = s["story_key"].rsplit("-", 1)[0] if posts else s["story_key"]
             handled[key] = {"at": prev.get("at", now_utc().isoformat()), "posted_or_queued": True, "notified": True,
+                            "headline": s.get("headline", ""),
                             "posts": posts + 1, "last_post_at": now_utc().isoformat()}
         else:
             action = "まだ1社の報道だけなので、裏取りできしだい投稿します"
-            handled[s["story_key"]] = {"at": now_utc().isoformat(), "notified": True}
+            handled[s["story_key"]] = {"at": now_utc().isoformat(), "notified": True, "headline": s.get("headline", "")}
         _notify(s, action)
         result["actions"].append(f"{s['story_key']}: {action}")
     store.write_json("news/stories.json", handled)

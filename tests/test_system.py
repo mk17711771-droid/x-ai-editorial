@@ -1033,3 +1033,17 @@ def test_meeting_gets_scope_and_deletion_reasons(isolated):
     mat = improve.materials(monthly=False)
     assert "重複" in "".join(mat["incidents_and_deletion_reasons"])
     assert "前提" in mat["account_scope_set_by_admin"]
+
+
+def test_old_event_detected_by_earlier_reports(isolated, monkeypatch):
+    # 11/1 9月に発表済みのKraken(Payward)の件を、韓国の新しい記事1本から「速報をキャッチ」と2回知らせた
+    from datetime import timedelta
+    from aiedit import news_watch
+    from aiedit.common import now_utc
+    old = (now_utc() - timedelta(days=5)).strftime("%a, %d %b %Y %H:%M:%S GMT")
+    monkeypatch.setattr(news_watch.sources, "news_items", lambda q, w, lang="ja": [
+        {"title": "Kraken parent Payward plans regulated US perpetual futures on Hyperliquid", "published": old}])
+    story = {"headline": "【速報】Kraken親会社Payward、Hyperliquidインフラで米国向け無期限先物へ参入", "summary_ja": ""}
+    assert news_watch._reported_earlier(story)
+    monkeypatch.setattr(news_watch.sources, "news_items", lambda q, w, lang="ja": [])
+    assert not news_watch._reported_earlier(story)
