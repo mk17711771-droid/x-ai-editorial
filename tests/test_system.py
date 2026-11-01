@@ -1047,3 +1047,13 @@ def test_old_event_detected_by_earlier_reports(isolated, monkeypatch):
     assert news_watch._reported_earlier(story)
     monkeypatch.setattr(news_watch.sources, "news_items", lambda q, w, lang="ja": [])
     assert not news_watch._reported_earlier(story)
+
+
+def test_x_search_runs_with_small_per_query(isolated, monkeypatch):
+    # 10/30〜11/1 per_query=8（APIの最低10件未満）で毎回止まり、同ジャンルの調査が3日止まった
+    from aiedit import sources, xapi
+    calls = []
+    monkeypatch.setattr(xapi, "search_recent", lambda q, n: calls.append(n) or ([], {}))
+    monkeypatch.setattr(sources, "_cfg", lambda: {"x": {"enabled": True, "per_query": 8, "monthly_read_limit": 250, "queries": ["a"]}})
+    sources.x_search()
+    assert calls == [10]

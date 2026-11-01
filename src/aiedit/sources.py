@@ -204,7 +204,8 @@ def x_search() -> list[dict]:
         queries.append("(" + " OR ".join(f"from:{a.lstrip('@')}" for a in accounts) + ") -is:retweet -is:reply")
     out: list[dict] = []
     for q in queries:
-        size = min(cfg.get("per_query", 30), budget)
+        # X APIの検索は1回10件から（10/30に8件にしたら毎回ここで止まり、3日間調べられていなかった）
+        size = min(max(cfg.get("per_query", 30), 10), budget)
         if size < 10:
             log.info("Xリサーチは今月の上限に達しました")
             break

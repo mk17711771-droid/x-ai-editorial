@@ -133,9 +133,9 @@ research:
     - 半導体
     - Hyperliquid
   x:                             # Xの同ジャンルの伸びた投稿（有料: 1件約0.75円。毎日1つずつ順番に検索）
-    enabled: true                # 同ジャンルの伸びた投稿の分析に必要（止めると分析の材料がなくなる）。費用を抑えて毎日1テーマ×8件
+    enabled: true                # 同ジャンルの伸びた投稿の分析に必要（止めると分析の材料がなくなる）。費用を抑えて毎日1テーマ×10件（約7.5円/日）
     monthly_read_limit: 250      # 月の上限（約190円）
-    per_query: 8
+    per_query: 10                 # X APIの最低件数は10
     rotate: true
     queries:
       - "(Hyperliquid OR ハイパーリキッド OR HIP-3) lang:ja -is:retweet -is:reply"
