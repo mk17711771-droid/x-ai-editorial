@@ -1,0 +1,228 @@
+{
+  "id": "20261102-0730-1",
+  "slot_key": "20261102-0730",
+  "slot_theme": "07:42 朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い",
+  "status": "posted",
+  "created_at": "2026-11-01T22:55:53.474362+00:00",
+  "text": "$AMDが-10.88%と急落する中で、なぜオンチェーンの半導体先物ではショートが強烈なマイナスコストを支払い続けているのか。\n\n【いま起きていること】\n現物の半導体株がセクター全体で崩れる中、HyperliquidのHIP-3株式等先物市場では、価格が小幅に反発しながらも資金調達率が極端なマイナス圏に沈んでいる。現物のパニック的な下げに対して、先物側では下落を見越した売りポジションが過密状態に達している。\n\n【数字で見る】（日本時間11/2(月) 07:52時点）\n・AMD 現物価格$504.80（前日終値比-10.88%、安値$492.21）\n・SOXX 現物価格$471.51（前日終値比-8.24%）\n・ARM 現物価格$205.97（前日終値比-9.97%）\n・SNDK 先物価格$1,161（24時間+0.87%、建玉約1.3億ドル、資金調達率年率-92.5%）\n・SKHX 先物価格$1,054（24時間+1.36%、建玉約2.7億ドル、資金調達率年率-56.3%）\n\n【なぜ「歪み」なのか】\n現物セクターが-8.24%規模で下落した恐怖から、先物市場にはさらなる続落を見込んだ追随ショートが殺到していると見ている。しかしSNDKの資金調達率は年率-92.5%、SKHXも年率-56.3%という異常値に達しており、ショート側が莫大な維持コストを負担させられている状態だ。先物価格自体はプラス圏へ浮上し始めており、売り建て勢のコスト負担が限界を迎えた場合、強烈な巻き戻しが走る可能性があると推測している。\n\n【次に見るポイント】\n①過熱したマイナスの資金調達率が平常値へ戻る過程\n②現物市場寄り付き後の半導体指数の反発力\n③SNDKの建玉維持とショートカバーの発生有無",
+  "template": "${{f5.symbol}}が{{f5.change_pct}}と急落する中で、なぜオンチェーンの半導体先物ではショートが強烈なマイナスコストを支払い続けているのか。\n\n【いま起きていること】\n現物の半導体株がセクター全体で崩れる中、HyperliquidのHIP-3株式等先物市場では、価格が小幅に反発しながらも資金調達率が極端なマイナス圏に沈んでいる。現物のパニック的な下げに対して、先物側では下落を見越した売りポジションが過密状態に達している。\n\n【数字で見る】（{{f41.asof}}）\n・${{f5.symbol}} 現物価格{{f5.price}}（{{f5.basis}}{{f5.change_pct}}、安値{{f5.low}}）\n・SOXX 現物価格{{f3.price}}（{{f3.basis}}{{f3.change_pct}}）\n・ARM 現物価格{{f10.price}}（{{f10.basis}}{{f10.change_pct}}）\n・${{f42.symbol}} 先物価格{{f42.price}}（24時間{{f42.change_pct}}、建玉{{f42.oi}}、資金調達率年率{{f42.funding_annual}}）\n・SKHX 先物価格{{f41.price}}（24時間{{f41.change_pct}}、建玉{{f41.oi}}、資金調達率年率{{f41.funding_annual}}）\n\n【なぜ「歪み」なのか】\n現物セクターが{{f3.change_pct}}規模で下落した恐怖から、先物市場にはさらなる続落を見込んだ追随ショートが殺到していると見ている。しかし{{f42.symbol}}の資金調達率は年率{{f42.funding_annual}}、SKHXも年率{{f41.funding_annual}}という異常値に達しており、ショート側が莫大な維持コストを負担させられている状態だ。先物価格自体はプラス圏へ浮上し始めており、売り建て勢のコスト負担が限界を迎えた場合、強烈な巻き戻しが走る可能性があると推測している。\n\n【次に見るポイント】\n①過熱したマイナスの資金調達率が平常値へ戻る過程\n②現物市場寄り付き後の半導体指数の反発力\n③{{f42.symbol}}の建玉維持とショートカバーの発生有無",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:SOXX:big_move",
+  "angle": "半導体株が歴史的な急落を見せる中、Hyperliquid上の関連先物でどのような資金調達率の歪みが生じているかを構造的に解説する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f3",
+    "f5",
+    "f10",
+    "f41",
+    "f42"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格471.51, 前日比-8.24%, 前日終値513.86, 高値483.39, 安値460.1",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$471.51",
+        "change_pct": "-8.24%",
+        "prev_close": "$513.86",
+        "high": "$483.39",
+        "low": "$460.10",
+        "asof": "米国10/30終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 471.51,
+        "change_pct": -8.242,
+        "prev_close": 513.86
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-01T22:52:36.451408+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格504.8, 前日比-10.88%, 前日終値566.42, 高値520.3956, 安値492.21",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$504.80",
+        "change_pct": "-10.88%",
+        "prev_close": "$566.42",
+        "high": "$520.40",
+        "low": "$492.21",
+        "asof": "米国10/30終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 504.8,
+        "change_pct": -10.879,
+        "prev_close": 566.42
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-01T22:52:36.688870+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    },
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格205.97, 前日比-9.97%, 前日終値228.77, 高値209, 安値198.77",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$205.97",
+        "change_pct": "-9.97%",
+        "prev_close": "$228.77",
+        "high": "$209.00",
+        "low": "$198.77",
+        "asof": "米国10/30終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 205.97,
+        "change_pct": -9.966,
+        "prev_close": 228.77
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-11-01T22:52:37.249457+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+1.36%, 価格1053.6, 建玉273625626USD, 24時間出来高21368299USD, 資金調達率(年率)-56.3%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,054",
+        "change_pct": "+1.36%",
+        "oi": "約2.7億ドル",
+        "volume": "約2,137万ドル",
+        "funding_annual": "-56.3%",
+        "asof": "日本時間11/2(月) 07:52時点",
+        "asof_short": "07:52時点"
+      },
+      "raw": {
+        "mark": 1053.6,
+        "change_pct": 1.356,
+        "oi_usd": 273625626,
+        "vol_usd": 21368299,
+        "funding_annual_pct": -56.32
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-01T22:52:41.996154+00:00",
+      "confidence": "confirmed",
+      "id": "f41"
+    },
+    {
+      "key": "hl:xyz:SNDK:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SNDK（HIP-3株式等先物） 24時間騰落率+0.87%, 価格1160.9, 建玉131521463USD, 24時間出来高19658818USD, 資金調達率(年率)-92.5%",
+      "fields": {
+        "coin": "SNDK",
+        "symbol": "SNDK",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,161",
+        "change_pct": "+0.87%",
+        "oi": "約1.3億ドル",
+        "volume": "約1,966万ドル",
+        "funding_annual": "-92.5%",
+        "asof": "日本時間11/2(月) 07:52時点",
+        "asof_short": "07:52時点"
+      },
+      "raw": {
+        "mark": 1160.9,
+        "change_pct": 0.869,
+        "oi_usd": 131521463,
+        "vol_usd": 19658818,
+        "funding_annual_pct": -92.49
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNDK",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+      },
+      "asof": "2026-11-01T22:52:41.996179+00:00",
+      "confidence": "confirmed",
+      "id": "f42"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2117027889719706036",
+  "posted_at": "2026-11-01T22:55:56.434638+00:00"
+}
