@@ -1,0 +1,274 @@
+{
+  "id": "20261101-2030w-2",
+  "slot_key": "20261101-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "superseded",
+  "created_at": "2026-11-01T12:06:22.441225+00:00",
+  "text": "株価指数が落ち着きを見せる裏で、原油や半導体関連の資金調達率がなぜここまで沈んでいるのか。\n\n【いま起きてること】\nHyperliquid全体の建玉が約149.4億ドル、うちHIP-3市場が約3.5億ドル（シェア15.2%）に達する中、主要な株価指数先物は安定した推移を見せている。しかし、コモディティや特定の半導体関連先物ではデリバティブ上のコストに極端な偏りが生じている。\n\n【数字で見る】（日本時間11/1(日) 20:59時点）\n・$SP500 価格$7,594、24時間騰落率+0.18%、建玉約3.7億ドル、資金調達率(年率)+5.5%\n・ナスダック100 価格$28,539、24時間騰落率+0.27%、建玉約2.7億ドル、資金調達率(年率)+5.5%\n・CL 価格$102.57、24時間騰落率-0.36%、建玉約2.0億ドル、資金調達率(年率)-25.9%\n・BRENTOIL 価格$111.91、24時間騰落率-0.43%、建玉約2.1億ドル、資金調達率(年率)-15.0%\n・SNDK 価格$1,169、24時間騰落率+1.40%、建玉約1.3億ドル、資金調達率(年率)-33.8%\n\n【なぜ「歪み」なのか】\n株価指数がプラス圏で安定している一方で、原油や半導体関連の資金調達率がマイナスに大きく沈んでいる。来週の主要テック企業の決算発表を前に、セクターごとのポジションが極端に分断されている構図があるとみている。個人的には、このコストの偏りがどちらの方向に解消されるかによって、決算前後のボラティリティが一層高まる可能性があると推測している。\n\n【次に見るポイント】\n①主要テック企業の決算を前にしたHIP-3市場全体の出来高と建玉の増減\n②原油や半導体関連先物におけるマイナスの資金調達率がさらに拡大するかどうか\n③株価指数先物と個別セクターの需給ギャップが収束するタイミング",
+  "template": "株価指数が落ち着きを見せる裏で、原油や半導体関連の資金調達率がなぜここまで沈んでいるのか。\n\n【いま起きてること】\nHyperliquid全体の建玉が{{f17.total_oi}}、うちHIP-3市場が{{f17.hip3_volume}}（シェア{{f17.hip3_share}}）に達する中、主要な株価指数先物は安定した推移を見せている。しかし、コモディティや特定の半導体関連先物ではデリバティブ上のコストに極端な偏りが生じている。\n\n【数字で見る】（{{f17.asof}}）\n・${{f14.symbol}} 価格{{f14.price}}、24時間騰落率{{f14.change_pct}}、建玉{{f14.oi}}、資金調達率(年率){{f14.funding_annual}}\n・${{f12.symbol}} 価格{{f12.price}}、24時間騰落率{{f12.change_pct}}、建玉{{f12.oi}}、資金調達率(年率){{f12.funding_annual}}\n・${{f13.symbol}} 価格{{f13.price}}、24時間騰落率{{f13.change_pct}}、建玉{{f13.oi}}、資金調達率(年率){{f13.funding_annual}}\n・${{f15.symbol}} 価格{{f15.price}}、24時間騰落率{{f15.change_pct}}、建玉{{f15.oi}}、資金調達率(年率){{f15.funding_annual}}\n・${{f16.symbol}} 価格{{f16.price}}、24時間騰落率{{f16.change_pct}}、建玉{{f16.oi}}、資金調達率(年率){{f16.funding_annual}}\n\n【なぜ「歪み」なのか】\n株価指数がプラス圏で安定している一方で、原油や半導体関連の資金調達率がマイナスに大きく沈んでいる。来週の主要テック企業の決算発表を前に、セクターごとのポジションが極端に分断されている構図があるとみている。個人的には、このコストの偏りがどちらの方向に解消されるかによって、決算前後のボラティリティが一層高まる可能性があると推測している。\n\n【次に見るポイント】\n①主要テック企業の決算を前にしたHIP-3市場全体の出来高と建玉の増減\n②原油や半導体関連先物におけるマイナスの資金調達率がさらに拡大するかどうか\n③株価指数先物と個別セクターの需給ギャップが収束するタイミング",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:CL:hip3_top",
+  "angle": "HyperliquidのHIP-3市場（建玉3.5億ドル）で、株価指数が安定する一方で原油（-25.9%）や半導体関連（SNDK -33.8%）の資金調達率が極端なマイナスに沈む歪み。来週の主要テック決算を前にしたオンチェーンのポジション偏向を分析する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f17",
+    "f12",
+    "f14",
+    "f13",
+    "f15",
+    "f16"
+  ],
+  "facts": [
+    {
+      "key": "hl:market:overview",
+      "kind": "hl",
+      "category": "overview",
+      "summary": "Hyperliquid全体: 建玉合計14939022876USD, 24時間出来高合計2305515285USD, うちHIP-3市場351153502USD, 上場銘柄数344",
+      "fields": {
+        "total_oi": "約149.4億ドル",
+        "total_volume": "約23.1億ドル",
+        "hip3_volume": "約3.5億ドル",
+        "hip3_share": "15.2%",
+        "asof": "日本時間11/1(日) 20:59時点"
+      },
+      "raw": {
+        "total_oi": 14939022876,
+        "total_vol": 2305515285,
+        "hip3_vol": 351153502
+      },
+      "refresh": null,
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade"
+      },
+      "asof": "2026-11-01T11:59:22.962049+00:00",
+      "confidence": "confirmed",
+      "id": "f17"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率+0.27%, 価格28539.0, 建玉273770283USD, 24時間出来高50752043USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$28,539",
+        "change_pct": "+0.27%",
+        "oi": "約2.7億ドル",
+        "volume": "約5,075万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/1(日) 20:59時点",
+        "asof_short": "20:59時点"
+      },
+      "raw": {
+        "mark": 28539.0,
+        "change_pct": 0.274,
+        "oi_usd": 273770283,
+        "vol_usd": 50752043,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-01T11:59:22.961956+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率+0.18%, 価格7594.4, 建玉373476127USD, 24時間出来高29919740USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,594",
+        "change_pct": "+0.18%",
+        "oi": "約3.7億ドル",
+        "volume": "約2,992万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/1(日) 20:59時点",
+        "asof_short": "20:59時点"
+      },
+      "raw": {
+        "mark": 7594.4,
+        "change_pct": 0.181,
+        "oi_usd": 373476127,
+        "vol_usd": 29919740,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-01T11:59:22.961984+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    },
+    {
+      "key": "hl:xyz:CL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: CL（HIP-3株式等先物） 24時間騰落率-0.36%, 価格102.57, 建玉202051826USD, 24時間出来高39081758USD, 資金調達率(年率)-25.9%",
+      "fields": {
+        "coin": "CL",
+        "symbol": "CL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$102.57",
+        "change_pct": "-0.36%",
+        "oi": "約2.0億ドル",
+        "volume": "約3,908万ドル",
+        "funding_annual": "-25.9%",
+        "asof": "日本時間11/1(日) 20:59時点",
+        "asof_short": "20:59時点"
+      },
+      "raw": {
+        "mark": 102.57,
+        "change_pct": -0.359,
+        "oi_usd": 202051826,
+        "vol_usd": 39081758,
+        "funding_annual_pct": -25.9
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:CL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:CL"
+      },
+      "asof": "2026-11-01T11:59:22.961970+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    },
+    {
+      "key": "hl:xyz:BRENTOIL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: BRENTOIL（HIP-3株式等先物） 24時間騰落率-0.43%, 価格111.91, 建玉210426508USD, 24時間出来高19189557USD, 資金調達率(年率)-15.0%",
+      "fields": {
+        "coin": "BRENTOIL",
+        "symbol": "BRENTOIL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$111.91",
+        "change_pct": "-0.43%",
+        "oi": "約2.1億ドル",
+        "volume": "約1,919万ドル",
+        "funding_annual": "-15.0%",
+        "asof": "日本時間11/1(日) 20:59時点",
+        "asof_short": "20:59時点"
+      },
+      "raw": {
+        "mark": 111.91,
+        "change_pct": -0.427,
+        "oi_usd": 210426508,
+        "vol_usd": 19189557,
+        "funding_annual_pct": -15.0
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:BRENTOIL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:BRENTOIL"
+      },
+      "asof": "2026-11-01T11:59:22.961997+00:00",
+      "confidence": "confirmed",
+      "id": "f15"
+    },
+    {
+      "key": "hl:xyz:SNDK:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SNDK（HIP-3株式等先物） 24時間騰落率+1.40%, 価格1169.4, 建玉133961284USD, 24時間出来高17148057USD, 資金調達率(年率)-33.8%",
+      "fields": {
+        "coin": "SNDK",
+        "symbol": "SNDK",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,169",
+        "change_pct": "+1.40%",
+        "oi": "約1.3億ドル",
+        "volume": "約1,715万ドル",
+        "funding_annual": "-33.8%",
+        "asof": "日本時間11/1(日) 20:59時点",
+        "asof_short": "20:59時点"
+      },
+      "raw": {
+        "mark": 1169.4,
+        "change_pct": 1.405,
+        "oi_usd": 133961284,
+        "vol_usd": 17148057,
+        "funding_annual_pct": -33.79
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNDK",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+      },
+      "asof": "2026-11-01T11:59:22.962009+00:00",
+      "confidence": "confirmed",
+      "id": "f16"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:CL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:BRENTOIL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+    }
+  ],
+  "needs_human": false
+}

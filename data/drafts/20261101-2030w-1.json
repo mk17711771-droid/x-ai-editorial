@@ -1,0 +1,264 @@
+{
+  "id": "20261101-2030w-1",
+  "slot_key": "20261101-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "posted",
+  "created_at": "2026-11-01T12:04:13.872460+00:00",
+  "text": "週末の主要暗号資産で、なぜ生き残り組のトレーダーはここまで徹底して売り一色に傾いているのか。\n\n【いま起きていること】\nHyperliquidのランキング上位から厳しい条件で絞り込んだ安定上位トレーダーの間で、主要銘柄への下落警戒が極端なレベルまで高まっている。$BTCだけでなく、ETHやSOLに至っては買い手が完全に姿を消し、売り一辺倒のポジションが構築されている。\n\n【数字で見る】（日本時間11/1(日) 19:36時点）\n・全体の生き残り: 候補300人のうち60日以上プラスを満たした216人から、直近1週間に売買ありまで満たした安定上位トレーダーは35人\n・BTC保有者10人: 買い2人に対し売り8人（買い比率20%）、売り総額約401万ドル、平均レバレッジ27.5倍\n・ETH保有者7人: 買い0人に対し売り7人（買い比率0%）、売り総額約221万ドル、平均レバレッジ20.7倍\n・SOL保有者5人: 買い0人に対し売り5人（買い比率0%）、売り総額約132万ドル、平均レバレッジ20.0倍\n・全体の規模: 建玉合計約149.4億ドル、24時間出来高合計約23.1億ドル\n\n【なぜ「歪み」なのか】\n候補300人のうち、60日以上プラスや売買が多すぎない、1回の大勝ちに頼らないを経て生き残った安定上位トレーダーはわずか35人しかいない。その歴戦のトレーダーたちが、ETHとSOLで買い0人という異常な偏りを見せている。BTCでも現物付きのヘッジ3人を除いた方向性のあるポジションは、売り約401万ドルに対して買いはわずか約15万ドルにとどまる。レバレッジも27.5倍前後と高めで、単なる様子見ではなく明確な下方向への圧力を狙った建て玉だと見ている。市場全体では期待感が漂う場面でも、リスク管理を徹底してきた層が揃って上値を警戒している点は見逃せない。個人的には、週明けに現物主導の強い反発が入らない限り、このショートの圧力が市場の重石として機能する可能性があると推測している。\n\n【次に見るポイント】\n①週明けの現物主導の買いによってショートカバーが誘発されるかどうか\n②安定上位トレーダーの売り持ち高が手仕舞われるタイミング\n③建玉全体の推移と資金調達率の変化",
+  "template": "週末の主要暗号資産で、なぜ生き残り組のトレーダーはここまで徹底して売り一色に傾いているのか。\n\n【いま起きていること】\n{{f18.venue}}のランキング上位から厳しい条件で絞り込んだ{{f18.cohort}}の間で、主要銘柄への下落警戒が極端なレベルまで高まっている。${{f18.coin}}だけでなく、${{f20.coin}}や{{f21.coin}}に至っては買い手が完全に姿を消し、売り一辺倒のポジションが構築されている。\n\n【数字で見る】（{{f18.asof}}）\n・全体の生き残り: 候補{{f22.candidates}}のうち{{f22.step1_label}}を満たした{{f22.step1_n}}から、{{f22.step4_label}}まで満たした{{f18.cohort}}は{{f22.stable_n}}\n・{{f18.coin}}保有者{{f18.holders}}: 買い{{f18.long_n}}に対し売り{{f18.short_n}}（買い比率{{f18.long_ratio}}）、売り総額{{f18.short_usd}}、平均レバレッジ{{f18.avg_leverage}}\n・{{f20.coin}}保有者{{f20.holders}}: 買い{{f20.long_n}}に対し売り{{f20.short_n}}（買い比率{{f20.long_ratio}}）、売り総額{{f20.short_usd}}、平均レバレッジ{{f20.avg_leverage}}\n・{{f21.coin}}保有者{{f21.holders}}: 買い{{f21.long_n}}に対し売り{{f21.short_n}}（買い比率{{f21.long_ratio}}）、売り総額{{f21.short_usd}}、平均レバレッジ{{f21.avg_leverage}}\n・全体の規模: 建玉合計{{f17.total_oi}}、24時間出来高合計{{f17.total_volume}}\n\n【なぜ「歪み」なのか】\n候補{{f22.candidates}}のうち、{{f22.step1_label}}や{{f22.step2_label}}、{{f22.step3_label}}を経て生き残った{{f18.cohort}}はわずか{{f22.stable_n}}しかいない。その歴戦のトレーダーたちが、{{f20.coin}}と{{f21.coin}}で買い{{f20.long_n}}という異常な偏りを見せている。{{f18.coin}}でも現物付きのヘッジ{{f18.hedge_n}}を除いた方向性のあるポジションは、売り{{f18.short_usd}}に対して買いはわずか{{f18.long_usd}}にとどまる。レバレッジも{{f18.avg_leverage}}前後と高めで、単なる様子見ではなく明確な下方向への圧力を狙った建て玉だと見ている。市場全体では期待感が漂う場面でも、リスク管理を徹底してきた層が揃って上値を警戒している点は見逃せない。個人的には、週明けに現物主導の強い反発が入らない限り、このショートの圧力が市場の重石として機能する可能性があると推測している。\n\n【次に見るポイント】\n①週明けの現物主導の買いによってショートカバーが誘発されるかどうか\n②{{f18.cohort}}の売り持ち高が手仕舞われるタイミング\n③建玉全体の推移と資金調達率の変化",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "traders:BTC:bias",
+  "angle": "週末時点でHyperliquidの安定上位勢がBTC・ETH・SOLで徹底した売り偏重（ETH・SOLは買い0人）に傾いている異変。ファンネル分析による生存者の実態とヘッジ構造から、来週の市場に対する警戒シグナルを読み解く。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 93,
+  "fact_ids": [
+    "f18",
+    "f20",
+    "f21",
+    "f17",
+    "f22"
+  ],
+  "facts": [
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-01T10:36:12.928215+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:BTC:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー35人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、BTCを持っている10人の内訳: 買い2人・売り8人（買い比率20%）、買い合計151204USD・売り合計4008679USD、平均レバレッジ27.5倍（このほか、現物つきの売り＝ヘッジ・裁定が3人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "BTC",
+        "top_n": "35人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "10人",
+        "long_n": "2人",
+        "short_n": "8人",
+        "long_ratio": "20%",
+        "long_usd": "約15万ドル",
+        "short_usd": "約401万ドル",
+        "hedge_n": "3人",
+        "avg_leverage": "27.5倍",
+        "asof": "日本時間11/1(日) 19:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 2,
+        "short_n": 8,
+        "long_usd": 151204,
+        "short_usd": 4008679
+      },
+      "id": "f18"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-01T10:36:12.928215+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:ETH:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー35人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、ETHを持っている7人の内訳: 買い0人・売り7人（買い比率0%）、買い合計0USD・売り合計2213587USD、平均レバレッジ20.7倍（このほか、現物つきの売り＝ヘッジ・裁定が0人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "ETH",
+        "top_n": "35人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "7人",
+        "long_n": "0人",
+        "short_n": "7人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約221万ドル",
+        "hedge_n": "0人",
+        "avg_leverage": "20.7倍",
+        "asof": "日本時間11/1(日) 19:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 7,
+        "long_usd": 0,
+        "short_usd": 2213587
+      },
+      "id": "f20"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-01T10:36:12.928215+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:SOL:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー35人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、SOLを持っている5人の内訳: 買い0人・売り5人（買い比率0%）、買い合計0USD・売り合計1320893USD、平均レバレッジ20.0倍（このほか、現物つきの売り＝ヘッジ・裁定が0人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "SOL",
+        "top_n": "35人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "5人",
+        "long_n": "0人",
+        "short_n": "5人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約132万ドル",
+        "hedge_n": "0人",
+        "avg_leverage": "20.0倍",
+        "asof": "日本時間11/1(日) 19:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 5,
+        "long_usd": 0,
+        "short_usd": 1320893
+      },
+      "id": "f21"
+    },
+    {
+      "key": "hl:market:overview",
+      "kind": "hl",
+      "category": "overview",
+      "summary": "Hyperliquid全体: 建玉合計14939022876USD, 24時間出来高合計2305515285USD, うちHIP-3市場351153502USD, 上場銘柄数344",
+      "fields": {
+        "total_oi": "約149.4億ドル",
+        "total_volume": "約23.1億ドル",
+        "hip3_volume": "約3.5億ドル",
+        "hip3_share": "15.2%",
+        "asof": "日本時間11/1(日) 20:59時点"
+      },
+      "raw": {
+        "total_oi": 14939022876,
+        "total_vol": 2305515285,
+        "hip3_vol": 351153502
+      },
+      "refresh": null,
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade"
+      },
+      "asof": "2026-11-01T11:59:22.962049+00:00",
+      "confidence": "confirmed",
+      "id": "f17"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-01T10:36:12.928215+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:funnel",
+      "category": "trader_funnel",
+      "summary": "Hyperliquidのランキングから選んだ候補300人を、真似できるかの条件で絞り込んだ結果: 60日以上プラス→残り216人、売買が多すぎない→残り118人、1回の大勝ちに頼らない→残り103人、直近1週間に売買あり→残り35人、レバレッジ3倍以下→残り2人、最大下落5〜15%→残り0人、5日以内に売買→残り0人。すべての条件を満たした人はごくわずかで、ランキングの上位＝真似する価値がある人ではないことがわかる",
+      "fields": {
+        "candidates": "300人",
+        "positive_60d": "216人",
+        "positive_60d_label": "60日以上プラス",
+        "low_leverage_label": "レバレッジ3倍以下",
+        "stable_n": "35人",
+        "low_leverage_n": "2人",
+        "strict_n": "0人",
+        "venue": "Hyperliquid",
+        "step1_label": "60日以上プラス",
+        "step2_label": "売買が多すぎない",
+        "step3_label": "1回の大勝ちに頼らない",
+        "step4_label": "直近1週間に売買あり",
+        "step5_label": "レバレッジ3倍以下",
+        "step6_label": "最大下落5〜15%",
+        "step7_label": "5日以内に売買",
+        "step1_n": "216人",
+        "step2_n": "118人",
+        "step3_n": "103人",
+        "step4_n": "35人",
+        "step5_n": "2人",
+        "step6_n": "0人",
+        "step7_n": "0人"
+      },
+      "raw": {
+        "funnel": [
+          {
+            "step": "審査した候補",
+            "n": 300
+          },
+          {
+            "step": "60日以上プラス",
+            "n": 216
+          },
+          {
+            "step": "売買が多すぎない",
+            "n": 118
+          },
+          {
+            "step": "1回の大勝ちに頼らない",
+            "n": 103
+          },
+          {
+            "step": "直近1週間に売買あり",
+            "n": 35
+          },
+          {
+            "step": "レバレッジ3倍以下",
+            "n": 2
+          },
+          {
+            "step": "最大下落5〜15%",
+            "n": 0
+          },
+          {
+            "step": "5日以内に売買",
+            "n": 0
+          }
+        ]
+      },
+      "id": "f22"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2116864428331413766",
+  "posted_at": "2026-11-01T12:06:24.046054+00:00"
+}
