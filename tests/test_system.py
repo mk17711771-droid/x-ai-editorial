@@ -1057,3 +1057,25 @@ def test_x_search_runs_with_small_per_query(isolated, monkeypatch):
     monkeypatch.setattr(sources, "_cfg", lambda: {"x": {"enabled": True, "per_query": 8, "monthly_read_limit": 250, "queries": ["a"]}})
     sources.x_search()
     assert calls == [10]
+
+
+def test_followup_candidates_surface_to_inspection(isolated, monkeypatch):
+    # 11/1 扱い済みのバイナンスの件の新しい動き（出金再開・FBI）を、自動の続報を止めた結果、黙って捨てていた
+    from datetime import timedelta
+    from aiedit import health, news_watch
+    from aiedit.common import now_utc
+    t = (now_utc() - timedelta(hours=10)).isoformat()
+    store.write_json("news_facts.json", [{"key": "news:binance", "asof": t, "status": "posted", "summary": "",
+                                          "fields": {"headline": "バイナンスで出金停止"}}])
+    store.write_json("news/stories.json", {"binance": {"at": t, "posts": 1, "posted_or_queued": True, "last_post_at": t}})
+    monkeypatch.setattr(news_watch, "triage", lambda *a: [{"story_key": "binance", "headline": "バイナンスが出金を再開",
+                        "importance": 5, "buzz_fit": 5, "in_scope": True, "fresh": True, "new_development": True,
+                        "sources": ["CoinDesk"]}])
+    monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    monkeypatch.setattr(news_watch, "_reported_earlier", lambda s: False)
+    news_watch.run({"items": [{"title": "Binance resumes withdrawals", "source": "CoinDesk"}]})
+    assert store.read_jsonl("news/followups.jsonl")[-1]["headline"] == "バイナンスが出金を再開"
+    from aiedit import line
+    monkeypatch.setattr(line, "quota", lambda: None)
+    assert any(i["type"] == "followup_candidates" for i in health.system_audit())

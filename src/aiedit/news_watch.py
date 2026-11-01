@@ -263,6 +263,11 @@ def run(payload: dict | None = None) -> dict:
             stale = now_utc() - datetime.fromisoformat(prev["at"]) > timedelta(hours=STORY_FRESH_HOURS)
             if (posts >= MAX_POSTS_PER_STORY or now_utc() - last < timedelta(hours=FOLLOWUP_GAP_HOURS) or not verified
                     or not s.get("new_development") or stale):
+                if s.get("new_development"):
+                    # 自動の続報は出さないが、黙って捨てない。定期点検が裏取りして判断する（11/1 バイナンスの出金再開・FBIの発表を拾えなかった）
+                    store.append_jsonl("news/followups.jsonl", {
+                        "at": now_utc().isoformat(), "story_key": s["story_key"], "headline": s.get("headline", ""),
+                        "summary": s.get("summary_ja", "")[:300], "sources": s.get("sources", []), "verified": verified})
                 continue
         elif prev.get("notified") and not verified:
             continue

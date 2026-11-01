@@ -107,6 +107,11 @@ def system_audit() -> list[dict]:
     # note記事（水・土の9時までにできているか）
     if now.weekday() in (2, 5) and now.hour >= 9 and not list(store.DATA_DIR.glob(f"note_articles/{now:%Y%m%d}-*/meta.json")):
         flag("note_article_missing", date=f"{now:%Y-%m-%d}")
+    # 扱い済みの話題の新しい動き（自動の続報は出さないので、点検で裏取りして判断する）
+    fu = [r for r in store.read_jsonl("news/followups.jsonl")
+          if now_utc() - datetime.fromisoformat(r["at"]) < timedelta(hours=24)]
+    if fu:
+        flag("followup_candidates", items=[{"headline": r["headline"], "sources": r["sources"][:3]} for r in fu[-5:]])
     # 無料枠・費用
     from . import line
     q = line.quota()

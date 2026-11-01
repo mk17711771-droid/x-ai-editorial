@@ -207,8 +207,8 @@ const NEWS_QUERIES = [
   ["\"stock perps\" OR \"equity perpetuals\" OR \"stock perpetual futures\"", "en"],
   ["ハイパーリキッド OR Hyperliquid", "ja"], ["株式 無期限先物 OR 株式パーペチュアル OR トークン化株式", "ja"],
   // 大手取引所の重大事件（ハッキング・出金停止）。CEXとオンチェーンの対比として範囲内（10/30 バイナンスの件を見逃した反省）
-  ["(Binance OR Coinbase OR Bybit OR OKX) (hack OR exploit OR \"withdrawals\" OR \"security incident\")", "en"],
-  ["(バイナンス OR コインベース OR 取引所) (ハッキング OR 出金停止 OR 不正流出)", "ja"],
+  ["(Binance OR Coinbase OR Bybit OR OKX) (hack OR exploit OR \"withdrawals\" OR \"security incident\" OR resumes OR FBI)", "en"],
+  ["(バイナンス OR コインベース OR 取引所) (ハッキング OR 出金停止 OR 不正流出 OR 出金再開 OR 出金を再開)", "ja"],
   ["(crypto OR DeFi OR exchange) (hack OR exploit OR \"withdrawals paused\" OR \"drained\")", "en"],
   ["(暗号資産 OR 仮想通貨 OR ビットコイン) (急落 OR 急騰 OR ハッキング)", "ja"],
 ];
