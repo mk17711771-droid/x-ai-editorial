@@ -26,7 +26,7 @@ def missed_slots(now: datetime | None = None) -> list[dict]:
     """今日の枠のうち、投稿時間帯が過ぎたのに投稿されていないもの。"""
     now = now or now_jst()
     cfg = settings()
-    posted = {p.get("slot_key") for p in store.posts()}
+    posted = {p.get("slot_key") for p in store.posts(include_deleted=True)}  # 点検で削除した枠は投稿漏れではない
     generated = set(store.state().get("generated_slots", []))
     out = []
     from .pipeline import slot_base

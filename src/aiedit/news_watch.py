@@ -21,6 +21,8 @@ FOLLOWUP_GAP_HOURS = 3   # 同じ話題が盛り上がり続けていれば、3�
 # 自動の続報は出さない（10/30 AIが「新しい事実あり」と誤判定し、ICE・バイナンスの焼き直しを3回出した。管理者の指示: 遅い速報は場違い）
 MAX_POSTS_PER_STORY = 1
 STORY_FRESH_HOURS = 3
+# 大きな出来事の余波は何日も報道が続く。同じ出来事かは7日さかのぼって比べる（11/2 3日前のバイナンスの件の余波を新しい速報として出した）
+SAME_EVENT_DAYS = 7
 
 
 def _cfg() -> dict:
@@ -230,11 +232,11 @@ def run(payload: dict | None = None) -> dict:
             text = f"{s.get('headline', '')} {s.get('summary_ja', '')}"
             same = next((k for k, f in known_keys.items()
                          if similarity(s.get("headline", ""), f["fields"].get("headline", "")) >= 0.3
-                         or (now_utc() - datetime.fromisoformat(f["asof"]) < timedelta(hours=48)
+                         or (now_utc() - datetime.fromisoformat(f["asof"]) < timedelta(days=SAME_EVENT_DAYS)
                              and same_event(text, f"{f['fields'].get('headline', '')} {f.get('summary', '')}"))), None)
             if not same:  # まだ裏取り前（確認中）で知らせた話題とも比べる（11/1 同じKrakenの件を別の名前で2回知らせた）
                 same = next((k for k, h in handled.items() if h.get("headline")
-                             and now_utc() - datetime.fromisoformat(h["at"]) < timedelta(hours=48)
+                             and now_utc() - datetime.fromisoformat(h["at"]) < timedelta(days=SAME_EVENT_DAYS)
                              and same_event(text, h["headline"])), None)
             if same:
                 s["story_key"] = same.rsplit("-", 1)[0] if same.rsplit("-", 1)[-1].isdigit() else same

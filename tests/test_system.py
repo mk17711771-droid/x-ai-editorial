@@ -1079,3 +1079,10 @@ def test_followup_candidates_surface_to_inspection(isolated, monkeypatch):
     from aiedit import line
     monkeypatch.setattr(line, "quota", lambda: None)
     assert any(i["type"] == "followup_candidates" for i in health.system_audit())
+
+
+def test_repeated_phrase_rejected():
+    from aiedit import checks
+    errs = checks.check_text("米上場企業が保有するビットコインの売却や担保設定を決議したを決議したってマジか。連鎖が不気味。", "news:x")
+    assert any("2回続いている" in e for e in errs)
+    assert not any("2回続いている" in e for e in checks.check_text("建玉が増えた。資金調達率も上がった。偏りが強い。", "hl:x"))

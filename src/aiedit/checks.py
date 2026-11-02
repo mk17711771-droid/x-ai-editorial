@@ -202,6 +202,8 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     return errors
 
 
+# 「を決議したを決議した」のような、同じ語句がそのまま2回続く崩れ（11/2 15:51）
+REPEAT_PHRASE = re.compile(r"([ぁ-んァ-ヶ一-龥ー]{4,12})\1")
 JUNK_LATIN = re.compile(r"(?<=[ぁ-んァ-ヶ一-龥])([a-z]{5,})(?=[ぁ-んァ-ヶ一-龥])")
 CASHTAG_ANY = re.compile(r"\$([A-Za-z][A-Za-z0-9:.]*)")
 TICKER_OK = re.compile(r"^(xyz:)?[A-Z][A-Z0-9.]*$")
@@ -223,6 +225,9 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
             errors.append(f"禁止表現「{phrase}」")
     if "速報" in text and not topic_key.startswith("news:"):
         errors.append("通常の投稿に「速報」と書いている（速報はネットでいち早くキャッチした話題の速報枠だけ）")
+    rep = REPEAT_PHRASE.search(text)
+    if rep:
+        errors.append(f"同じ語句「{rep.group(1)}」がそのまま2回続いている（文が崩れている）")
     junk = JUNK_LATIN.search(text)
     if junk:  # AIの出力に紛れた意味不明な英字（10/31「リスクがあるacylglycerと推測」）
         errors.append(f"文中に意味不明な英字「{junk.group(1)}」が混ざっている")
