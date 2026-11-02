@@ -1,0 +1,59 @@
+{
+  "id": "20261102-news2118-1",
+  "slot_key": "20261102-news2118",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "posted",
+  "created_at": "2026-11-02T12:22:51.724011+00:00",
+  "text": "Hyperliquidのトップトレーダーが動いた。Hyperliquidの利益上位トレーダー2名が約1.06億ドル相当のショートポジションを構築というデータが出ている。\n\n大口の逆張りベットとして、オンチェーンの建玉にかなり強い偏りが出てそう。",
+  "template": "Hyperliquidのトップトレーダーが動いた。{{f1.what}}というデータが出ている。\n\n大口の逆張りベットとして、オンチェーンの建玉にかなり強い偏りが出てそう。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "news:hyperliquid-top-traders-billion-shorts",
+  "angle": "Hyperliquidの収益上位トレーダーが約10億ドルの大規模な空売りポジションを構築したという動きに着目し、大口の逆張りベットとしてのオンチェーン上の建玉の偏りを伝える",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 16,
+    "utility": 15,
+    "insight": 18
+  },
+  "total": 86,
+  "fact_ids": [
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "news:hyperliquid-top-traders-billion-shorts",
+      "kind": "hl",
+      "asof": "2026-11-02T12:16:20.324053+00:00",
+      "expires_at": "2026-11-04T00:16:20.324069+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-02T09:39:50Z",
+      "summary": "Hyperliquidの収益上位トレーダー2名が、約10億ドル（約1.4兆ウォン）規模の暗号資産の空売りポジションを構築していることが報じられた。市場の動向に対する大口の逆張りベットとして、オンチェーン上の建玉データから大きな注目を集めている。",
+      "fields": {
+        "headline": "Hyperliquidのトップトレーダー2名、10億ドル超の空売りを構築",
+        "what": "Hyperliquidの利益上位トレーダー2名が約1.06億ドル相当のショートポジションを構築",
+        "status": "確定",
+        "who": "Hyperliquid Top Traders"
+      },
+      "raw": {},
+      "source": {
+        "name": "bloomingbit・BigGo Finance",
+        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBMbzVqOWx5NHlpS1JrRTBzVVp4M05FQjdvcHVJWmpxd3F0UjA0eFBzNmlTenhOenhiVTFvakRSUUZOVktUVUc4UVVmd01hRzd3MF9Kcw"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "bloomingbit・BigGo Finance",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBMbzVqOWx5NHlpS1JrRTBzVVp4M05FQjdvcHVJWmpxd3F0UjA0eFBzNmlTenhOenhiVTFvakRSUUZOVktUVUc4UVVmd01hRzd3MF9Kcw"
+    }
+  ],
+  "needs_human": false,
+  "tweet_id": "2117230964245999742",
+  "posted_at": "2026-11-02T12:22:52.943883+00:00"
+}
