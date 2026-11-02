@@ -1,0 +1,67 @@
+[
+  {
+    "fact_ids": [
+      "f7"
+    ],
+    "topic_key": "hl:xyz:LITE:big_move",
+    "angle": "半導体関連のLITE先物で起きた急落と現物市場の連動、資金調達率の歪みを簡潔に伝える",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "LITEのHIP-3先物における急変動と現物との価格連動、さらに資金調達率の歪みを端的に捉えた実用的な短文候補。"
+  },
+  {
+    "fact_ids": [
+      "f8"
+    ],
+    "topic_key": "hl:xyz:SMSN:funding_extreme",
+    "angle": "SMSNのHIP-3先物で発生している極端なショート過熱と資金調達率の異常値を指摘する",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "SMSN先物における年率-267.3%という極端な資金調達率の歪みに着目した、市場のコスト構造を示す良質な材料。"
+  },
+  {
+    "fact_ids": [
+      "f10"
+    ],
+    "topic_key": "hl:xyz:CXMT:funding_extreme",
+    "angle": "CXMTのHIP-3先物におけるショート過熱と資金調達率の歪みを浮き彫りにする",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "CXMT先物における資金調達率の偏りと価格の動きを組み合わせ、市場の需給バランスの歪みを解説できる。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f9"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "SKHXのHIP-3先物で見られるショート過熱と資金調達率の異常値を捉える",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 85,
+    "reason": "半導体関連のSKHX先物におけるショート過熱（資金調達率年率-210.7%）の数字をベースに、ポジションの偏りを端的に伝える。"
+  }
+]
