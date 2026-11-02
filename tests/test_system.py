@@ -1101,3 +1101,14 @@ def test_note_promoted_on_x_once(isolated, monkeypatch):
     note_check.promote(store.read_json("note_articles/20261031-0744/meta.json"), "https://note.com/charisma_hl/n/abc")
     assert len(posted) == 1 and "https://note.com/charisma_hl/n/abc" in posted[0] and "【歪み】ICEの参入" in posted[0]
     assert store.posts()[-1]["topic_key"] == "note:20261031-0744"
+
+
+def test_stale_close_contrast_rejected(monkeypatch):
+    # 11/2 12:28・20:46 10/30の$INTCの終値と、今の24時間のナスダック100を対比する誤りを2回出した
+    from datetime import datetime
+    from aiedit import checks, common
+    monkeypatch.setattr(common, "now_jst", lambda: datetime(2026, 11, 2, 20, 46, tzinfo=common.JST))
+    bad = "$INTCが前日終値比-28.58%（米国10/30終値）と急落したのに、ナスダック100は24時間騰落率+0.45%と崩れていない。温度差が大きい。"
+    assert any("対比" in e for e in checks.check_text(bad, "stock:INTC:big_move", "long"))
+    ok = "$AMDが前日終値比-10.88%（米国11/1終値）と急落する一方、先物の24時間の資金調達率はマイナス。"
+    assert not any("対比" in e for e in checks.check_text(ok, "stock:AMD:big_move", "long"))

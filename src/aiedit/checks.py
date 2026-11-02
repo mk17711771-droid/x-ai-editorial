@@ -202,6 +202,28 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     return errors
 
 
+CLOSE_DATE = re.compile(r"(\d{1,2})/(\d{1,2})(?:\([月火水木金土日]\))?終値")
+CONTRAST = ("のに", "一方", "対し", "コントラスト", "温度差", "乖離", "崩れてない", "崩れていない", "平気")
+
+
+def _stale_close_contrast(text: str) -> str:
+    """2日以上前の米国の終値の動きと、今の24時間の動きを並べて対比していないか。"""
+    from .common import now_jst
+    if "24時間" not in text or not any(w in text for w in CONTRAST):
+        return ""
+    today = now_jst().date()
+    for m, d in CLOSE_DATE.findall(text):
+        try:
+            close = today.replace(month=int(m), day=int(d))
+        except ValueError:
+            continue
+        if close > today:
+            close = close.replace(year=close.year - 1)
+        if (today - close).days >= 2:
+            return f"{m}/{d}の終値の動きと今の24時間の動きを対比している（期間が違う数字どうしの対比は誤解を招く）"
+    return ""
+
+
 # 「を決議したを決議した」のような、同じ語句がそのまま2回続く崩れ（11/2 15:51）
 REPEAT_PHRASE = re.compile(r"([ぁ-んァ-ヶ一-龥ー]{4,12})\1")
 JUNK_LATIN = re.compile(r"(?<=[ぁ-んァ-ヶ一-龥])([a-z]{5,})(?=[ぁ-んァ-ヶ一-龥])")
@@ -225,6 +247,9 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
             errors.append(f"禁止表現「{phrase}」")
     if "速報" in text and not topic_key.startswith("news:"):
         errors.append("通常の投稿に「速報」と書いている（速報はネットでいち早くキャッチした話題の速報枠だけ）")
+    stale = _stale_close_contrast(text)
+    if stale:  # 何日も前の終値と今の24時間の動きを対比した（11/2 12:28と20:46に同じ誤り）
+        errors.append(stale)
     rep = REPEAT_PHRASE.search(text)
     if rep:
         errors.append(f"同じ語句「{rep.group(1)}」がそのまま2回続いている（文が崩れている）")
