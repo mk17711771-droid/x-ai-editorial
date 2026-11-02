@@ -1121,3 +1121,17 @@ def test_aggregators_and_individual_traders_not_breaking():
     import re
     s = {"headline": "Hyperliquidのトップトレーダー2名、10億ドル超の空売りを構築", "summary_ja": ""}
     assert re.search(r"(トレーダー|クジラ|大口|whale|アドレス)[^。]{0,6}[0-9０-９一二三]\s*(名|人|人の|つ)", s["headline"])
+
+
+def test_quote_forbidden_does_not_halt(monkeypatch):
+    # 11/2 公式の投稿を引用しようとして403（他人の投稿は引用できない）→認証エラー扱いで自動運用が止まった
+    import pytest
+    from aiedit import xapi
+
+    class R:
+        status_code = 403
+        text = '{"detail":"You can only reply to or quote posts where you are mentioned or are the author."}'
+    monkeypatch.setattr(xapi, "_auth", lambda: None)
+    monkeypatch.setattr(xapi.requests, "post", lambda *a, **k: R())
+    with pytest.raises(xapi.XPostError):
+        xapi.post("本文", quote_id="123")

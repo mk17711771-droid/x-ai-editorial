@@ -642,7 +642,8 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
 
     media_ids = _attach_chart(draft)
     try:
-        tweet_id = xapi.post(draft["text"], media_ids=media_ids, quote_id=_quote_target(draft))
+        # 公式の投稿の引用は、このAPIでは許可されていない（11/2 403で自動運用が止まった）ので使わない
+        tweet_id = xapi.post(draft["text"], media_ids=media_ids)
     except xapi.XAuthError as e:
         store.halt(f"X API認証・権限エラー: {e}")
         _close(draft, "failed", error=str(e))
