@@ -167,14 +167,54 @@ def run() -> list[dict]:
         checked[key] = {"title": title, "at": res["checked_at"], "ok": not (issues or typos)}
         if gen:
             meta = store.read_json(f"note_articles/{gen['id']}/meta.json")
-            meta.update(status="published", note_key=key, published_at=pub)
+            meta.update(status="published", note_key=key, published_at=pub, check_ok=not (issues or typos))
             store.write_json(f"note_articles/{gen['id']}/meta.json", meta)
         if issues or typos:
             _notify(res, urlname)
         results.append(res)
     store.write_json("note/checked.json", checked)
+    # 公開から3日以内で、確認に問題がなく、まだXで紹介していない記事を紹介する（指摘があった記事は直ってから）
+    for g in generated:
+        meta = store.read_json(f"note_articles/{g['id']}/meta.json") or {}
+        if (meta.get("status") == "published" and meta.get("check_ok") and not meta.get("promoted") and meta.get("published_at")
+                and now_utc() - datetime.fromisoformat(meta["published_at"]) < timedelta(days=3)):
+            promote(meta, f"https://note.com/{urlname}/n/{meta['note_key']}")
     _record_stats(urlname)
     return results
+
+
+def promote_text(meta: dict, url: str) -> str:
+    """公開したnote記事をXで知らせる文（数字はタイトル・リード文＝実データから作った原稿のものだけ）。"""
+    md_path = store.DATA_DIR / f"note_articles/{meta['id']}/article.md"
+    body = md_path.read_text(encoding="utf-8") if md_path.exists() else ""
+    lead = next((ln.strip() for ln in body.splitlines()[1:] if ln.strip() and not ln.startswith("#")), "")
+    lead = re.sub(r"\*\*", "", lead).split("。")[0] + "。"
+    fallback = "Xでは書ききれない数字と図を、記事にまとめました。"
+    for body_line in (lead, fallback, ""):
+        text = f"noteで深掘りしました。\n\n「{meta['title']}」\n\n" + (f"{body_line}\n\n" if body_line else "") + url
+        if checks.weighted_length(text) <= 280:  # 文の途中で切らず、収まらなければ定型の一文にする
+            return text
+    return text
+
+
+def promote(meta: dict, url: str) -> None:
+    """noteの記事をXで1回だけ紹介する（Xのフォロワーをnoteへ。11/2 Xからnoteへの導線がなく、記事の表示が27〜61どまり）。"""
+    from . import xapi
+    if meta.get("promoted"):
+        return
+    text = promote_text(meta, url)
+    try:
+        tweet_id = xapi.post(text)
+    except Exception as e:  # noqa: BLE001 紹介の失敗で確認を止めない
+        log.warning("noteの紹介投稿に失敗: %s", e)
+        return
+    now = now_utc()
+    store.record_post({"tweet_id": tweet_id, "slot_key": f"{now.astimezone(JST):%Y%m%d}-note{now.astimezone(JST):%H%M}",
+                       "topic_key": f"note:{meta['id']}", "posted_at": now.isoformat(),
+                       "posted_at_jst": f"{now.astimezone(JST):%Y-%m-%d %H:%M}", "text": text, "format": "note",
+                       "kind": "note", "has_image": False, "decided_by": "auto"})
+    meta["promoted"] = now.isoformat()
+    store.write_json(f"note_articles/{meta['id']}/meta.json", meta)
 
 
 def _notify(res: dict, urlname: str) -> None:

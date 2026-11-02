@@ -1086,3 +1086,18 @@ def test_repeated_phrase_rejected():
     errs = checks.check_text("米上場企業が保有するビットコインの売却や担保設定を決議したを決議したってマジか。連鎖が不気味。", "news:x")
     assert any("2回続いている" in e for e in errs)
     assert not any("2回続いている" in e for e in checks.check_text("建玉が増えた。資金調達率も上がった。偏りが強い。", "hl:x"))
+
+
+def test_note_promoted_on_x_once(isolated, monkeypatch):
+    # 11/2 noteの記事の表示が27〜61どまり。Xのフォロワーをnoteへつなぐ導線がなかった
+    from aiedit import note_check, xapi
+    store.write_json("note_articles/20261031-0744/meta.json", {"id": "20261031-0744", "title": "【歪み】ICEの参入", "status": "published",
+                     "check_ok": True, "note_key": "abc", "published_at": "2026-10-31T07:56:14+09:00", "created_at": "2026-10-31T07:44:00+09:00"})
+    store.write_text("note_articles/20261031-0744/article.md", "# 【歪み】ICEの参入\n\n今週は伝統金融が動いた歴史的な1週間でした。\n\n## 見出し\n本文")
+    posted = []
+    monkeypatch.setattr(xapi, "post", lambda text, **k: posted.append(text) or "t1")
+    meta = store.read_json("note_articles/20261031-0744/meta.json")
+    note_check.promote(meta, "https://note.com/charisma_hl/n/abc")
+    note_check.promote(store.read_json("note_articles/20261031-0744/meta.json"), "https://note.com/charisma_hl/n/abc")
+    assert len(posted) == 1 and "https://note.com/charisma_hl/n/abc" in posted[0] and "【歪み】ICEの参入" in posted[0]
+    assert store.posts()[-1]["topic_key"] == "note:20261031-0744"
