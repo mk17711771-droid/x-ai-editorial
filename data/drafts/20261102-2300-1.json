@@ -1,0 +1,76 @@
+{
+  "id": "20261102-2300-1",
+  "slot_key": "20261102-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "posted",
+  "created_at": "2026-11-02T14:02:57.710233+00:00",
+  "text": "なぜ$LITEは価格が-6.16%と下落しているのに、建玉は+82.4%も急増しているのか。\n\nHyperliquidの株式先物（HIP-3）で、23:00時点に価格$797.50に対して建玉約1,643万ドルまで膨らんでいる。\n\n下がっている局面でポジションがこれだけ積まれるのは、押し目を狙う動きとヘッジが交錯してそう。",
+  "template": "なぜ`${{f11.symbol}}`は価格が{{f11.change_pct}}と下落しているのに、建玉は{{f11.oi_change_pct}}も急増しているのか。\n\nHyperliquidの{{f11.market}}で、{{f11.asof_short}}に価格{{f11.price}}に対して建玉{{f11.oi}}まで膨らんでいる。\n\n下がっている局面でポジションがこれだけ積まれるのは、押し目を狙う動きとヘッジが交錯してそう。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:LITE:oi_change",
+  "angle": "LITEの建玉が24時間で+82.4%急増し、価格が-6.16%下落している局面に着目する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f11"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:LITE:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+82.4%: LITE（HIP-3株式等先物） 24時間騰落率-6.16%, 価格797.5, 建玉16425511USD, 24時間出来高35525373USD, 資金調達率(年率)+2.4%",
+      "fields": {
+        "coin": "LITE",
+        "symbol": "LITE",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$797.50",
+        "change_pct": "-6.16%",
+        "oi": "約1,643万ドル",
+        "volume": "約3,553万ドル",
+        "funding_annual": "+2.4%",
+        "asof": "日本時間11/2(月) 23:00時点",
+        "asof_short": "23:00時点",
+        "oi_change_pct": "+82.4%"
+      },
+      "raw": {
+        "mark": 797.5,
+        "change_pct": -6.158,
+        "oi_usd": 16425511,
+        "vol_usd": 35525373,
+        "funding_annual_pct": 2.4,
+        "oi_change_pct": 82.43
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:LITE",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:LITE"
+      },
+      "asof": "2026-11-02T14:00:50.850610+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:LITE"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2117256442407207335",
+  "posted_at": "2026-11-02T14:04:07.532050+00:00"
+}

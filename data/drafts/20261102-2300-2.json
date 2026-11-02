@@ -1,0 +1,71 @@
+{
+  "id": "20261102-2300-2",
+  "slot_key": "20261102-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-11-02T14:04:04.883536+00:00",
+  "text": "$ZHIPUの先物、資金調達率が年率+149.5%まで吹っ飛んでるの結構えぐいな。\n\n価格自体は-0.90%とマイナスで推移していて、建玉約1,648万ドルの規模に対してロングの偏りが強すぎないか。\n\nコストを支払いながら買い下がってるポジションがどう清算されるか見ておきたい。",
+  "template": "${{f9.symbol}}の先物、資金調達率が年率{{f9.funding_annual}}まで吹っ飛んでるの結構えぐいな。\n\n価格自体は{{f9.change_pct}}とマイナスで推移していて、建玉 {{f9.oi}}の規模に対してロングの偏りが強すぎないか。\n\nコストを支払いながら買い下がってるポジションがどう清算されるか見ておきたい。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "hl:xyz:ZHIPU:funding_extreme",
+  "angle": "ZHIPUの資金調達率が年率+149.5%まで高騰し、ロングが極端に過熱している歪みを指摘する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f9"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:ZHIPU:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: ZHIPU（HIP-3株式等先物） 24時間騰落率-0.90%, 価格61.685, 建玉16478556USD, 24時間出来高6892085USD, 資金調達率(年率)+149.5%",
+      "fields": {
+        "coin": "ZHIPU",
+        "symbol": "ZHIPU",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$61.69",
+        "change_pct": "-0.90%",
+        "oi": "約1,648万ドル",
+        "volume": "約689万ドル",
+        "funding_annual": "+149.5%",
+        "asof": "日本時間11/2(月) 23:00時点",
+        "asof_short": "23:00時点"
+      },
+      "raw": {
+        "mark": 61.685,
+        "change_pct": -0.901,
+        "oi_usd": 16478556,
+        "vol_usd": 6892085,
+        "funding_annual_pct": 149.55
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:ZHIPU",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:ZHIPU"
+      },
+      "asof": "2026-11-02T14:00:50.850513+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:ZHIPU"
+    }
+  ],
+  "needs_human": false
+}
