@@ -142,8 +142,14 @@ def _reported_earlier(story: dict) -> bool:
     return False
 
 
+# 他社の記事を集めて載せるだけのサイト（独立した報道として裏取りに数えない。11/2 まとめサイト2つだけの話題を確認済みとして2回投稿した）
+AGGREGATORS = ("biggo", "jinacoin", "mexc", "binance square", "coingecko", "tradingview", "coinmarketcap", "kucoin",
+               "investing.com", "yahoo", "msn", "smartnews", "gunosy", "livedoor", "goo")
+
+
 def _verified(story: dict) -> bool:
-    outlets = {s.strip() for s in story.get("sources", []) if s and s.strip()}
+    outlets = {s.strip() for s in story.get("sources", []) if s and s.strip()
+               and not any(a in s.lower() for a in AGGREGATORS)}
     return bool(story.get("official")) or len(outlets) >= 2
 
 
@@ -252,7 +258,9 @@ def run(payload: dict | None = None) -> dict:
         if _reported_earlier(s):
             continue
         # 出来事そのものが古い（昨日・一昨日の話の再報道）なら速報にしない（10/31 2:05 ICEの件を「速報をキャッチ」と知らせた反省）
-        if not s.get("story_key") or not hot or s.get("in_scope") is False or s.get("fresh") is False:
+        # 特定のトレーダー・アドレスの売買を主役にした話題は扱わない（上位トレーダーは集計だけ。11/2「利益上位トレーダー2名が…」）
+        individual = re.search(r"(トレーダー|クジラ|大口|whale|アドレス)[^。]{0,6}[0-9０-９一二三]\s*(名|人|人の|つ)", s.get("headline", "") + s.get("summary_ja", ""))
+        if not s.get("story_key") or not hot or s.get("in_scope") is False or s.get("fresh") is False or individual:
             continue
         prev = handled.get(s["story_key"], {})
         verified = _verified(s)

@@ -1112,3 +1112,12 @@ def test_stale_close_contrast_rejected(monkeypatch):
     assert any("対比" in e for e in checks.check_text(bad, "stock:INTC:big_move", "long"))
     ok = "$AMDが前日終値比-10.88%（米国11/1終値）と急落する一方、先物の24時間の資金調達率はマイナス。"
     assert not any("対比" in e for e in checks.check_text(ok, "stock:AMD:big_move", "long"))
+
+
+def test_aggregators_and_individual_traders_not_breaking():
+    from aiedit import news_watch
+    assert not news_watch._verified({"sources": ["BigGo ファイナンス", "JinaCoin"]})
+    assert news_watch._verified({"sources": ["CoinDesk", "The Block"]})
+    import re
+    s = {"headline": "Hyperliquidのトップトレーダー2名、10億ドル超の空売りを構築", "summary_ja": ""}
+    assert re.search(r"(トレーダー|クジラ|大口|whale|アドレス)[^。]{0,6}[0-9０-９一二三]\s*(名|人|人の|つ)", s["headline"])
