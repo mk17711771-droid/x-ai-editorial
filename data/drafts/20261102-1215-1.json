@@ -1,0 +1,111 @@
+{
+  "id": "20261102-1215-1",
+  "slot_key": "20261102-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-02T03:28:47.129632+00:00",
+  "text": "$INTCが米国10/30終値で-28.58%と暴落したのに、指数側はまったく崩れてない。\n\nHyperliquidの株式先物（HIP-3）ではS&P500が+0.28%と平気な顔をしていて、建玉も約3.7億ドルを維持。\n個別のパニックを指数が完全に吸収してるの、面白い歪みだな。",
+  "template": "${{f11.symbol}}が{{f11.asof}}で{{f11.change_pct}}と暴落したのに、指数側はまったく崩れてない。\n\n{{f41.venue}}の{{f41.market}}ではS&P500が{{f41.change_pct}}と平気な顔をしていて、建玉も{{f41.oi}}を維持。\n個別のパニックを指数が完全に吸収してるの、面白い歪みだな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:INTC:big_move",
+  "angle": "前日比-28.58%と記録的な急落となったインテル（INTC）の衝撃と、それに伴う市場全体の資金動向の歪みを解説する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f11",
+    "f41"
+  ],
+  "facts": [
+    {
+      "key": "stock:INTC:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】INTC 価格65.76, 前日比-28.58%, 前日終値92.07, 高値68.77, 安値63.2001",
+      "fields": {
+        "symbol": "INTC",
+        "price": "$65.76",
+        "change_pct": "-28.58%",
+        "prev_close": "$92.07",
+        "high": "$68.77",
+        "low": "$63.20",
+        "asof": "米国10/30終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 65.76,
+        "change_pct": -28.576,
+        "prev_close": 92.07
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "INTC"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/INTC"
+      },
+      "asof": "2026-11-02T03:28:13.771143+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率+0.28%, 価格7615.7, 建玉373744179USD, 24時間出来高82435085USD, 資金調達率(年率)+4.3%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,616",
+        "change_pct": "+0.28%",
+        "oi": "約3.7億ドル",
+        "volume": "約8,244万ドル",
+        "funding_annual": "+4.3%",
+        "asof": "日本時間11/2(月) 12:28時点",
+        "asof_short": "12:28時点"
+      },
+      "raw": {
+        "mark": 7615.7,
+        "change_pct": 0.283,
+        "oi_usd": 373744179,
+        "vol_usd": 82435085,
+        "funding_annual_pct": 4.27
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-02T03:28:17.082929+00:00",
+      "confidence": "confirmed",
+      "id": "f41"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/INTC"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2117096564288049595",
+  "posted_at": "2026-11-02T03:28:49.582529+00:00"
+}
