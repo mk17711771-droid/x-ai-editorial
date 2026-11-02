@@ -1,0 +1,58 @@
+{
+  "id": "20261103-news0010-1",
+  "slot_key": "20261103-news0010",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "failed",
+  "created_at": "2026-11-02T15:13:13.176541+00:00",
+  "text": "trade[XYZ]のGitBookで不正活動が確認された件、すでに完全に復旧済みとのこと。\n\n復旧済み（調査中）で対応が進んでいるみたいだけど、運営側が注意を呼びかけている通り調査完了までは慎重にいきたいところだな。",
+  "template": "trade[XYZ]のGitBookで不正活動が確認された件、すでに完全に復旧済みとのこと。\n\n{{f1.status}}で対応が進んでいるみたいだけど、運営側が注意を呼びかけている通り調査完了までは慎重にいきたいところだな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "news:tradexyz-gitbook-unauthorized-activity",
+  "angle": "trade[XYZ]の公式発表に基づくGitBookの不正活動と復旧状況の速報",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 16,
+    "utility": 17,
+    "insight": 15
+  },
+  "total": 85,
+  "fact_ids": [
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "news:tradexyz-gitbook-unauthorized-activity",
+      "kind": "hl",
+      "asof": "2026-11-02T15:08:42.649241+00:00",
+      "expires_at": "2026-11-04T03:08:42.649255+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-02T14:58:49.000Z",
+      "summary": "trade[XYZ]の公式アカウントより、GitBookで管理するドキュメントに対して不正な活動が確認されたと発表された。問題のあったドキュメントは同日午前9時15分（米東部時間）までに完全に復旧されている。運営側は安全確保のため、調査が完了するまでドキュメント内のリンクをクリックしないようユーザーに注意を促している。",
+      "fields": {
+        "headline": "trade[XYZ]のGitBookで不正活動、現在は復旧済み",
+        "what": "GitBookドキュメントへの不正活動の検知と復旧、およびリンクへの注意喚起",
+        "status": "復旧済み（調査中）",
+        "who": "trade[XYZ]"
+      },
+      "raw": {},
+      "source": {
+        "name": "@tradexyz（公式）",
+        "url": "https://x.com/tradexyz/status/2117270210449183031"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "@tradexyz（公式）",
+      "url": "https://x.com/tradexyz/status/2117270210449183031"
+    }
+  ],
+  "needs_human": false,
+  "error": "403: {\"detail\":\"You can only reply to or quote posts where you are mentioned or are the author.\",\"status\":403,\"title\":\"Authorization Error\",\"type\":\"https://api.x.com/2/problems/not-authorized-for-resource\"}"
+}

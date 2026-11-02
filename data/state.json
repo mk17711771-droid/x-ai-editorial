@@ -1,6 +1,6 @@
 {
-  "halted": false,
-  "halt_reason": "",
+  "halted": true,
+  "halt_reason": "X API認証・権限エラー: 403: {\"detail\":\"You can only reply to or quote posts where you are mentioned or are the author.\",\"status\":403,\"title\":\"Authorization Error\",\"type\":\"https://api.x.com/2/problems/not-authorized-for-resource\"}",
   "generated_slots": [
     "20261027-1000",
     "20261027-1000",
@@ -54,6 +54,8 @@
     "20261102-2030",
     "20261102-news2118",
     "20261102-2030",
-    "20261102-2300"
-  ]
+    "20261102-2300",
+    "20261103-news0010"
+  ],
+  "halted_at": "2026-11-02T15:13:15.358690+00:00"
 }
