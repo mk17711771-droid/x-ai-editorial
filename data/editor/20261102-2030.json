@@ -1,0 +1,36 @@
+[
+  {
+    "fact_ids": [
+      "f4",
+      "f40"
+    ],
+    "topic_key": "stock:SOXX:big_move",
+    "angle": "SOXXが-8.24%と急落する中、HIP-3のSKHX（SKハイニックス）は24時間騰落率+4.40%と逆行高を見せており、半導体セクター内の強弱の分断と資金調達率の歪みを検証する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "半導体セクター全体の大きな下落に対して、個別銘柄のHIP-3先物が逆行する構造的な歪みを明確な数字で捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f12",
+      "f41"
+    ],
+    "topic_key": "stock:INTC:big_move",
+    "angle": "前日比-28.58%と歴史的な急落を見せたINTCと、底堅く推移するXYZ100のコントラストから、個別株ショックと指数先物市場の需給の温度差を読み解く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "個別株の記録的な暴落と指数先物の動きを対比させ、市場全体の冷静さと特定の痛みの乖離を描写しているため。"
+  }
+]
