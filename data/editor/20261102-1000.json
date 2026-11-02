@@ -1,0 +1,86 @@
+[
+  {
+    "fact_ids": [
+      "f8",
+      "f12"
+    ],
+    "topic_key": "hl:xyz:EWY:funding_extreme",
+    "angle": "米国市場が休場する週末に、HIP-3の韓国ETF（$EWY）で建玉が+44.9%急増し資金調達率が年率+120.3%に到達。伝統金融の裏でオンチェーン株式先物に極端なロング偏重が起きている歪みを突く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "株式Perp特有の建玉急増とFR年率100%超えという強烈な数字があり、現物休場中の資金移動というアカウントの軸に完璧に合致する。"
+  },
+  {
+    "fact_ids": [
+      "f9"
+    ],
+    "topic_key": "hl:xyz:SOXL:funding_extreme",
+    "angle": "米ハイテク株安や半導体調整の警戒感が漂う中、Hyperliquidの$SOXL先物では資金調達率が年率+73.6%とロング過熱。市場の弱気論調とオンチェーン投機筋のコスト支払いのねじれを提示する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "読者関心が非常に高い半導体ブル3倍ETF（SOXL）におけるFR過熱という明確な需給の歪みを示せる。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f11"
+    ],
+    "topic_key": "hl:xyz:DRAM:funding_extreme",
+    "angle": "DRAM先物（FR年率+54.1%）とSKHY先物（FR年率+53.6%）が揃って高水準に跳ね上がる現象に着目。メモリ半導体関連のPerpでロングが一方的にコストを負担させられているポジションの力関係を可視化する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 85,
+    "reason": "複数銘柄（DRAMとSKハイニックス）で同時にメモリ半導体セクターへの投機熱が生じている事実を数字で裏付けられる。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "topic_key": "hl:HYPE:volume_top",
+    "angle": "BTCやETHの資金調達率が年率8〜11%前後と過熱感のない水準にとどまる一方、$HYPEだけは建玉19億ドル台の高水準でFR年率+49.1%と突出。主要銘柄との温度差と過熱リスクの歪みを炙り出す。",
+    "scores": {
+      "novelty": 15,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "主要暗号資産とのコントラストによってHYPE単体の投機的偏りを数字でクリアに対比できる。"
+  },
+  {
+    "fact_ids": [
+      "f25"
+    ],
+    "topic_key": "traders:funnel",
+    "angle": "ランキング上位300人を「真似できる条件」で絞り込むと最終生存者が0人になるファネル集計。表面的な数字と実態のギャップから、安易なミラートレードの危険性という構造の歪みを突く。",
+    "scores": {
+      "novelty": 16,
+      "interest": 16,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 15
+    },
+    "total": 84,
+    "reason": "保存性の高い独自検証データだが、今回の「24時間の異変（建玉・FR・変動）」枠に対しては市況データ候補を優先した。"
+  }
+]

@@ -1,0 +1,119 @@
+{
+  "id": "20261102-1000-1",
+  "slot_key": "20261102-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "posted",
+  "created_at": "2026-11-02T01:23:28.843826+00:00",
+  "text": "米国市場が休場の週末に、$EWYの先物で何が起きてるのか。\n\nHyperliquidの株式先物（HIP-3）で、価格が+3.29%と動く中で建玉が+44.9%も急増し、資金調達率は年率+120.3%まで跳ね上がっている。\n\n伝統金融が閉まっている間に、オンチェーンでは極端なロング偏重が生まれてるっぽい。",
+  "template": "米国市場が休場の週末に、$EWYの先物で何が起きてるのか。\n\nHyperliquidの{{f8.market}}で、価格が{{f8.change_pct}}と動く中で建玉が{{f12.oi_change_pct}}も急増し、資金調達率は年率{{f8.funding_annual}}まで跳ね上がっている。\n\n伝統金融が閉まっている間に、オンチェーンでは極端なロング偏重が生まれてるっぽい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:EWY:funding_extreme",
+  "angle": "米国市場が休場する週末に、HIP-3の韓国ETF（$EWY）で建玉が+44.9%急増し資金調達率が年率+120.3%に到達。伝統金融の裏でオンチェーン株式先物に極端なロング偏重が起きている歪みを突く。",
+  "scores": {
+    "novelty": 18,
+    "interest": 17,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f8",
+    "f12"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:EWY:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: EWY（HIP-3株式等先物） 24時間騰落率+3.29%, 価格157.96, 建玉18743087USD, 24時間出来高32642648USD, 資金調達率(年率)+120.3%",
+      "fields": {
+        "coin": "EWY",
+        "symbol": "EWY",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$157.96",
+        "change_pct": "+3.29%",
+        "oi": "約1,874万ドル",
+        "volume": "約3,264万ドル",
+        "funding_annual": "+120.3%",
+        "asof": "日本時間11/2(月) 10:22時点",
+        "asof_short": "10:22時点"
+      },
+      "raw": {
+        "mark": 157.96,
+        "change_pct": 3.289,
+        "oi_usd": 18743087,
+        "vol_usd": 32642648,
+        "funding_annual_pct": 120.35
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:EWY",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:EWY"
+      },
+      "asof": "2026-11-02T01:22:08.329799+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "hl:xyz:EWY:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+44.9%: EWY（HIP-3株式等先物） 24時間騰落率+3.29%, 価格157.96, 建玉18743087USD, 24時間出来高32642648USD, 資金調達率(年率)+120.3%",
+      "fields": {
+        "coin": "EWY",
+        "symbol": "EWY",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$157.96",
+        "change_pct": "+3.29%",
+        "oi": "約1,874万ドル",
+        "volume": "約3,264万ドル",
+        "funding_annual": "+120.3%",
+        "asof": "日本時間11/2(月) 10:22時点",
+        "asof_short": "10:22時点",
+        "oi_change_pct": "+44.9%"
+      },
+      "raw": {
+        "mark": 157.96,
+        "change_pct": 3.289,
+        "oi_usd": 18743087,
+        "vol_usd": 32642648,
+        "funding_annual_pct": 120.35,
+        "oi_change_pct": 44.85
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:EWY",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:EWY"
+      },
+      "asof": "2026-11-02T01:22:08.329956+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:EWY"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:EWY"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2117065289275941176",
+  "posted_at": "2026-11-02T01:24:33.020551+00:00"
+}

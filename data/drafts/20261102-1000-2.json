@@ -1,0 +1,71 @@
+{
+  "id": "20261102-1000-2",
+  "slot_key": "20261102-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-02T01:24:22.232619+00:00",
+  "text": "半導体の警戒感が強いのに、オンチェーンでは強気に積まれてる。\n\nHyperliquidの$SOXL先物、資金調達率が年率+73.6%まで跳ね上がっててロングが完全に前のめり。\n現物市場の弱気ムードと投機筋のコスト負担、ねじれがえぐいな。",
+  "template": "半導体の警戒感が強いのに、オンチェーンでは強気に積まれてる。\n\n{{f9.venue}}の${{f9.symbol}}先物、資金調達率が年率{{f9.funding_annual}}まで跳ね上がっててロングが完全に前のめり。\n現物市場の弱気ムードと投機筋のコスト負担、ねじれがえぐいな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:SOXL:funding_extreme",
+  "angle": "米ハイテク株安や半導体調整の警戒感が漂う中、Hyperliquidの$SOXL先物では資金調達率が年率+73.6%とロング過熱。市場の弱気論調とオンチェーン投機筋のコスト支払いのねじれを提示する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 18,
+    "insight": 17
+  },
+  "total": 88,
+  "fact_ids": [
+    "f9"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SOXL:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SOXL（HIP-3株式等先物） 24時間騰落率+5.64%, 価格81.884, 建玉27916973USD, 24時間出来高34394294USD, 資金調達率(年率)+73.6%",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$81.88",
+        "change_pct": "+5.64%",
+        "oi": "約2,792万ドル",
+        "volume": "約3,439万ドル",
+        "funding_annual": "+73.6%",
+        "asof": "日本時間11/2(月) 10:22時点",
+        "asof_short": "10:22時点"
+      },
+      "raw": {
+        "mark": 81.884,
+        "change_pct": 5.639,
+        "oi_usd": 27916973,
+        "vol_usd": 34394294,
+        "funding_annual_pct": 73.57
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-02T01:22:08.329824+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    }
+  ],
+  "needs_human": false
+}

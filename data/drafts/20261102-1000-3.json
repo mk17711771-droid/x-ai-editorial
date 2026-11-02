@@ -1,0 +1,114 @@
+{
+  "id": "20261102-1000-3",
+  "slot_key": "20261102-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-02T01:24:30.374251+00:00",
+  "text": "メモリ半導体関連のPerpで、ロングの負担が急激に高まってる。\n\n$DRAMは+2.41%で建玉が約8,004万ドル、SKHYも+3.85%で建玉が約1.2億ドルに到達し、資金調達率はそれぞれ+54.1%と+53.6%。\n\n買い手がコストを払い続けるこの歪みが、次の値動きの引き金になりそう。",
+  "template": "メモリ半導体関連のPerpで、ロングの負担が急激に高まってる。\n\n${{f10.symbol}}は{{f10.change_pct}}で建玉が{{f10.oi}}、$SKHYも{{f11.change_pct}}で建玉が{{f11.oi}}に到達し、資金調達率はそれぞれ{{f10.funding_annual}}と{{f11.funding_annual}}。\n\n買い手がコストを払い続けるこの歪みが、次の値動きの引き金になりそう。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "hl:xyz:DRAM:funding_extreme",
+  "angle": "DRAM先物（FR年率+54.1%）とSKHY先物（FR年率+53.6%）が揃って高水準に跳ね上がる現象に着目。メモリ半導体関連のPerpでロングが一方的にコストを負担させられているポジションの力関係を可視化する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 85,
+  "fact_ids": [
+    "f10",
+    "f11"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:DRAM:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: DRAM（HIP-3株式等先物） 24時間騰落率+2.41%, 価格49.638, 建玉80043648USD, 24時間出来高27414393USD, 資金調達率(年率)+54.1%",
+      "fields": {
+        "coin": "DRAM",
+        "symbol": "DRAM",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$49.64",
+        "change_pct": "+2.41%",
+        "oi": "約8,004万ドル",
+        "volume": "約2,741万ドル",
+        "funding_annual": "+54.1%",
+        "asof": "日本時間11/2(月) 10:22時点",
+        "asof_short": "10:22時点"
+      },
+      "raw": {
+        "mark": 49.638,
+        "change_pct": 2.412,
+        "oi_usd": 80043648,
+        "vol_usd": 27414393,
+        "funding_annual_pct": 54.12
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:DRAM",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:DRAM"
+      },
+      "asof": "2026-11-02T01:22:08.329849+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "hl:xyz:SKHY:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SKHY（HIP-3株式等先物） 24時間騰落率+3.85%, 価格155.76, 建玉123527801USD, 24時間出来高33067405USD, 資金調達率(年率)+53.6%",
+      "fields": {
+        "coin": "SKHY",
+        "symbol": "SKHY",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$155.76",
+        "change_pct": "+3.85%",
+        "oi": "約1.2億ドル",
+        "volume": "約3,307万ドル",
+        "funding_annual": "+53.6%",
+        "asof": "日本時間11/2(月) 10:22時点",
+        "asof_short": "10:22時点"
+      },
+      "raw": {
+        "mark": 155.76,
+        "change_pct": 3.854,
+        "oi_usd": 123527801,
+        "vol_usd": 33067405,
+        "funding_annual_pct": 53.62
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHY",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHY"
+      },
+      "asof": "2026-11-02T01:22:08.329871+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:DRAM"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHY"
+    }
+  ],
+  "needs_human": false
+}
