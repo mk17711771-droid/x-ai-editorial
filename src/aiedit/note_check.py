@@ -203,8 +203,16 @@ def promote(meta: dict, url: str) -> None:
     if meta.get("promoted"):
         return
     text = promote_text(meta, url)
+    media = None
+    img = store.DATA_DIR / f"note_articles/{meta['id']}/image1.png"
+    if img.exists():
+        # リンクだけの投稿は表示が伸びにくい（11/2 紹介投稿は28表示）。記事の図を付けて目に留まりやすくする
+        try:
+            media = [xapi.upload_image(img.read_bytes())]
+        except Exception as e:  # noqa: BLE001 図の失敗では紹介を止めない
+            log.warning("紹介投稿の図のアップロードに失敗: %s", e)
     try:
-        tweet_id = xapi.post(text)
+        tweet_id = xapi.post(text, media_ids=media)
     except Exception as e:  # noqa: BLE001 紹介の失敗で確認を止めない
         log.warning("noteの紹介投稿に失敗: %s", e)
         return
@@ -212,7 +220,7 @@ def promote(meta: dict, url: str) -> None:
     store.record_post({"tweet_id": tweet_id, "slot_key": f"{now.astimezone(JST):%Y%m%d}-note{now.astimezone(JST):%H%M}",
                        "topic_key": f"note:{meta['id']}", "posted_at": now.isoformat(),
                        "posted_at_jst": f"{now.astimezone(JST):%Y-%m-%d %H:%M}", "text": text, "format": "note",
-                       "kind": "note", "has_image": False, "decided_by": "auto"})
+                       "kind": "note", "has_image": bool(media), "decided_by": "auto"})
     meta["promoted"] = now.isoformat()
     store.write_json(f"note_articles/{meta['id']}/meta.json", meta)
 

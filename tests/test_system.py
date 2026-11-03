@@ -1096,11 +1096,13 @@ def test_note_promoted_on_x_once(isolated, monkeypatch):
     store.write_text("note_articles/20261031-0744/article.md", "# 【歪み】ICEの参入\n\n今週は伝統金融が動いた歴史的な1週間でした。\n\n## 見出し\n本文")
     posted = []
     monkeypatch.setattr(xapi, "post", lambda text, **k: posted.append(text) or "t1")
+    monkeypatch.setattr(xapi, "upload_image", lambda png: "m1")
+    store.write_bytes("note_articles/20261031-0744/image1.png", b"png")
     meta = store.read_json("note_articles/20261031-0744/meta.json")
     note_check.promote(meta, "https://note.com/charisma_hl/n/abc")
     note_check.promote(store.read_json("note_articles/20261031-0744/meta.json"), "https://note.com/charisma_hl/n/abc")
     assert len(posted) == 1 and "https://note.com/charisma_hl/n/abc" in posted[0] and "【歪み】ICEの参入" in posted[0]
-    assert store.posts()[-1]["topic_key"] == "note:20261031-0744"
+    assert store.posts()[-1]["topic_key"] == "note:20261031-0744" and store.posts()[-1]["has_image"]
 
 
 def test_stale_close_contrast_rejected(monkeypatch):
