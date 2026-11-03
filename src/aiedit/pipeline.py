@@ -204,6 +204,9 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None, m
     if len(recent_angles) == 2 and recent_angles[0] == recent_angles[1]:
         user += (f"\n\n# 直近2件の切り口が同じ（{ANGLE_NAMES.get(recent_angles[0], recent_angles[0])}）。"
                  "今回は別の切り口の候補を上位にする")
+    big = [n for n in checks.read_list("big_names.txt")]
+    user += ("\n\n# 主役に優先する「大きな名前」（読者に通じる銘柄・指数。材料にあればこの中から主役を選ぶ。"
+             "馴染みの薄い銘柄は、変化が極端なときだけ主役にする）\n" + "・".join(big))
     if slot.get("kind") == "stock":
         user += "\n\n# この枠の主役は米国株（材料の1つ目に米国株の材料を置く）。Hyperliquid/HIP-3の材料は添える程度"
     if exclude:
