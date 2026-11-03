@@ -1163,3 +1163,15 @@ def test_fit_length_trims_tail_paragraph():
     assert checks.weighted_length(t) > 280
     out = checks.fit_length(t)
     assert checks.weighted_length(out) <= 280 and out.startswith("$SKHXの資金調達率")
+
+
+def test_news_items_retried_when_ai_fails(isolated, monkeypatch):
+    # 11/4 Geminiの503で判定に失敗した記事が「既読」のまま残り、二度と判定されなかった
+    import pytest
+    from aiedit import news_watch
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
+    monkeypatch.setattr(news_watch, "triage", lambda *a: (_ for _ in ()).throw(RuntimeError("503")))
+    with pytest.raises(RuntimeError):
+        news_watch.run({"items": [{"title": "新しい記事", "source": "A"}]})
+    assert news_watch._id("新しい記事") not in store.read_json("news/seen.json", {})

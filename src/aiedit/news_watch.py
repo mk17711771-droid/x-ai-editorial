@@ -231,7 +231,14 @@ def run(payload: dict | None = None) -> dict:
         store.write_json("news/last_run.json", result)
         return result
 
-    stories = triage(new, _corroborate(new), hype)
+    try:
+        stories = triage(new, _corroborate(new), hype)
+    except Exception:
+        # AIが一時的に使えないとき（11/4 Geminiの503）は、既読を取り消して次の見張りで判定し直す（ネタを取りこぼさない）
+        for i in new:
+            seen.pop(_id(i["title"]), None)
+        store.write_json("news/seen.json", seen)
+        raise
     handled = store.read_json("news/stories.json", {})
     known_keys = {f["key"].removeprefix("news:"): f for f in store.read_json("news_facts.json", []) or []}
     for s in stories:
