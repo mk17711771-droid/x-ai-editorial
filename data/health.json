@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-02T23:56:04.080477+00:00",
-  "at_jst": "11/03 08:55",
+  "at": "2026-11-03T00:28:46.507227+00:00",
+  "at_jst": "11/03 09:28",
   "ok": false,
   "issues": [
     {
@@ -31,16 +31,16 @@
     },
     {
       "type": "many_rejections",
-      "n": 18,
+      "n": 14,
       "reasons": [
-        "データ以外の数字が含まれている: ['1', '0']",
         "データ以外の数字が含まれている: ['9', '1', '5']",
         "存在しないフィールド f1.asof（f1で使えるのは: headline, what, status, who）",
         "存在しないフィールド f1.change_pct（f1で使えるのは: headline, what, status, who）",
         "存在しないフィールド f1.funding_annual（f1で使えるのは: headline, what, status, who）",
         "存在しないフィールド f1.oi_change_pct（f1で使えるのは: headline, what, status, who）",
         "存在しないフィールド f1.oi（f1で使えるのは: headline, what, status, who）",
-        "存在しないフィールド f1.price（f1で使えるのは: headline, what, status, who）"
+        "存在しないフィールド f1.price（f1で使えるのは: headline, what, status, who）",
+        "存在しないフィールド f1.symbol（f1で使えるのは: headline, what, status, who）"
       ]
     }
   ],
