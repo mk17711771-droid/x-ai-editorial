@@ -46,6 +46,20 @@ def length_limits(fmt: str = "short") -> tuple[int, int, int]:
     return 60, 135, 280
 
 
+def fit_length(text: str, fmt: str = "short") -> str:
+    """重み付きの上限を少し超えた短文を、末尾の段落・文から落として収める（数字を含む最初の段落は残す）。"""
+    min_chars, _, max_weighted = length_limits(fmt)
+    if weighted_length(text) <= max_weighted:
+        return text
+    paras = [p for p in text.split("\n\n") if p.strip()]
+    while len(paras) > 1 and weighted_length("\n\n".join(paras)) > max_weighted:
+        paras.pop()
+    out = "\n\n".join(paras)
+    while weighted_length(out) > max_weighted and "。" in out.rstrip("。"):
+        out = out.rstrip("。").rsplit("。", 1)[0] + "。"
+    return out if len(out) >= min_chars and weighted_length(out) <= max_weighted else text
+
+
 UNITS = ("時点", "終値", "人", "倍", "%", "％", "ドル", "円")
 TICKER = re.compile(r"^[A-Za-z][A-Za-z0-9.:\-]*$")
 SPACES = " \u3000"

@@ -239,6 +239,15 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None, m
     return sorted(cands, key=lambda c: c["total"], reverse=True)
 
 
+def _cand_symbol(cand: dict, facts_by_id: dict[str, dict]) -> str:
+    """候補の主役の銘柄（1つ目の材料の銘柄）。"""
+    for fid in cand.get("fact_ids", [])[:1]:
+        f = facts_by_id.get(fid) or {}
+        sym = (f.get("fields") or {}).get("symbol") or (f.get("fields") or {}).get("coin") or ""
+        return str(sym).split(":")[-1].lstrip("$")
+    return ""
+
+
 def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | None:
     """原稿を3案作らせ、チェックを通過した中で最良の1案を返す。"""
     fmt = slot_format(slot)
@@ -283,6 +292,8 @@ def _write_once(slot: dict, system: str, user: str, used: list[dict], facts_by_i
         v["template"] = tmpl
         errors = checks.check_template(tmpl, usable)
         text = checks.render(tmpl, usable) if not errors else tmpl
+        if not errors:
+            text = checks.fit_length(text, fmt)  # 少しだけ長い短文は、最後の段落・文を落として収める（11/3 文字数超過で枠を落とした）
         errors = errors or checks.check_text(text, topic_key, fmt)
         if errors:
             log.info("案%d（%s）を破棄: %s", idx, v.get("style"), errors)
@@ -339,9 +350,13 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         if now_utc() - datetime.fromisoformat(p["posted_at"]) < timedelta(hours=checks.topic_cooldown_hours(t)):
             # 旧形式（traders:funnel:日付）も、定番企画の名前で除外する
             recent_topics |= {t, t.rsplit(":", 1)[0] if t.startswith("traders:funnel:") else t}
-    if cands and all(c.get("topic_key") in recent_topics for c in cands):
-        log.info("候補がすべて直近に投稿済みの話題なので、編集をやり直します")
-        all_cands = run_editor(slot, facts, exclude=recent_topics)
+    recent_syms = {s.lstrip("$") for p in store.recent_posts(cfg["limits"].get("same_symbol_cooldown_hours", 18))
+                   for s in checks.CASHTAG.findall(p["text"])}
+    stale = lambda c: c.get("topic_key") in recent_topics or (slot["id"] != "news" and _cand_symbol(c, facts_by_id) in recent_syms)  # noqa: E731
+    if cands and all(stale(c) for c in cands):
+        log.info("候補がすべて直近に投稿済みの話題・銘柄なので、編集をやり直します")
+        all_cands = run_editor(slot, facts, exclude=recent_topics,
+                               must=f"次の銘柄は主役にしない（直近に投稿済み）: {'・'.join(sorted(recent_syms))}。主役の違う候補を3件以上出す")
         cands = [c for c in all_cands if c["total"] >= cfg["scoring"]["auto_post_min"]]
         store.write_json(f"editor/{key}.json", all_cands)
     # 切り口が3回続かないように、直近2件と同じ系統の候補は後回しにする
@@ -381,6 +396,10 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
             continue
         if cand.get("topic_key") in recent_topics:
             log.info("候補 %s は直近に投稿済みの話題なので飛ばします", cand.get("topic_key"))
+            continue
+        if slot["id"] != "news" and _cand_symbol(cand, facts_by_id) in recent_syms:
+            # 主役の銘柄を直近に出している候補は、書かせる前に飛ばす（11/3 23時 $SKHXの案を何度も書かせて枠を落とした）
+            log.info("候補 %s は主役の銘柄を直近に投稿済みなので飛ばします", cand.get("topic_key"))
             continue
         w = run_writer(slot, cand, facts_by_id)
         if not w:

@@ -1153,3 +1153,13 @@ def test_label_field_mismatch_rejected():
     facts = {"f1": {"fields": {"price": "$681.09", "high": "$699.43", "low": "$680.33"}}}
     assert any("安値" in e for e in checks.check_template("価格{{f1.price}}、安値{{f1.high}}", facts))
     assert not any("安値" in e for e in checks.check_template("価格{{f1.price}}、安値{{f1.low}}、高値{{f1.high}}", facts))
+
+
+def test_fit_length_trims_tail_paragraph():
+    from aiedit import checks
+    t = ("$SKHXの資金調達率が年率+48.5%まで上がっている。価格は-5.08%と下げているのに、ロングがコストを払って粘っている構図。\n\n"
+         "建玉は約2.6億ドルで、ここ数日の中でもかなり大きい水準。先物側だけが強気を保っているのは珍しい。\n\n"
+         "現物の下げが続くなら、この偏りがどこかで一気にほどける可能性もありそうで、明日の寄り付きまでの動きが気になるところ。")
+    assert checks.weighted_length(t) > 280
+    out = checks.fit_length(t)
+    assert checks.weighted_length(out) <= 280 and out.startswith("$SKHXの資金調達率")
