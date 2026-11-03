@@ -291,7 +291,8 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     elif end["tail"] and end["tail"] in [e["tail"] for e in recent_ends]:
         errors.append(f"締めの言い回し（〜{end['tail']}）が直近の投稿と同じ。別の締め方にする")
     # 決まり文句（「地味だけど〜」など）を直近の投稿で使っていたら、言い回しを変えさせる
-    recent_texts = [p["text"] for p in store.recent_posts(24 * 7)][-12:]
+    # 1週間に1回まで（以前は直近12投稿だけ見ていて、2日で同じ決まり文句が戻ってきた。11/3「えぐいことになってる」）
+    recent_texts = [p["text"] for p in store.recent_posts(24 * 7)]
     for phrase in read_list("cliche_phrases.txt"):
         if phrase in text and any(phrase in t for t in recent_texts):
             errors.append(f"「{phrase}」は最近も使った言い回し。別の言葉で書く")
