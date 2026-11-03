@@ -182,9 +182,18 @@ def topic_cooldown_hours(topic_key: str) -> int:
     return cfg["same_topic_cooldown_hours"]
 
 
+# ラベルと差し込む値の取り違え（11/3 「安値」の後に高値を差し込んだ）。ラベルの直後の差し込みは、このフィールドでなければならない
+# 取り違えると意味が逆になるラベル（安値に高値を入れる、など）。ラベルの直後の差し込みが反対の値ならはじく
+LABEL_WRONG = {"安値": "high", "高値": "low"}
+LABELED = re.compile(r"(安値|高値)(?:は|が|も|の)?[\s:：]?\{\{(f\d+)\.(\w+)\}\}")
+
+
 def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     """AIが数字を捏造していないか、存在しないデータを参照していないかを確認する。"""
     errors = []
+    for label, fid, field in LABELED.findall(template):
+        if LABEL_WRONG[label] in field:
+            errors.append(f"「{label}」のあとに別の値（{fid}.{field}）を差し込んでいる")
     for fid, field in PLACEHOLDER.findall(template):
         if fid not in facts:
             errors.append(f"存在しないファクト {fid}")

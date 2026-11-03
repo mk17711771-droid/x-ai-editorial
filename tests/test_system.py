@@ -1145,3 +1145,11 @@ def test_official_flag_not_trusted_from_ai():
     assert not news_watch._verified({"official": True, "sources": ["bloomingbit"]})
     assert news_watch._verified({"sources": ["@tradexyz（公式）"]})
     assert news_watch._verified({"sources": ["Hyperliquid（オンチェーン）"]})
+
+
+def test_label_field_mismatch_rejected():
+    # 11/3 20:32「QQQ … 安値$699.43」（安値の欄に高値を差し込んだ）
+    from aiedit import checks
+    facts = {"f1": {"fields": {"price": "$681.09", "high": "$699.43", "low": "$680.33"}}}
+    assert any("安値" in e for e in checks.check_template("価格{{f1.price}}、安値{{f1.high}}", facts))
+    assert not any("安値" in e for e in checks.check_template("価格{{f1.price}}、安値{{f1.low}}、高値{{f1.high}}", facts))
