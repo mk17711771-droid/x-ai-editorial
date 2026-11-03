@@ -1,0 +1,76 @@
+{
+  "id": "20261103-2300-1",
+  "slot_key": "20261103-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "posted",
+  "created_at": "2026-11-03T15:11:12.756691+00:00",
+  "text": "$PLTRが米国株の現物で-4.63%と大きく売られる中で、なぜHyperliquidのHIP-3株式先物では価格が$170.05で推移し、資金調達率が+5.5%までプラスを維持しているのか。",
+  "template": "$PLTRが米国株の現物で{{f13.us_change_pct}}と大きく売られる中で、なぜHyperliquidのHIP-3株式先物では価格が{{f13.price}}で推移し、資金調達率が{{f13.funding_annual}}までプラスを維持しているのか。\n\n現物の急落幅とデリバティブ側のコスト負担にギャップがあるのは、下値を拾うロングの買い手とヘッジが複雑に交錯しているからかもしれない。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:PLTR:big_move",
+  "angle": "PLTRのHIP-3先物における急変動と現物市場の動きのギャップを解説する",
+  "scores": {
+    "novelty": 16,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 16
+  },
+  "total": 83,
+  "fact_ids": [
+    "f13"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:PLTR:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: PLTR（HIP-3株式等先物） 24時間騰落率-8.34%, 価格170.05, 建玉7439804USD, 24時間出来高54405735USD, 資金調達率(年率)+5.5%（照合: 米国株の前日比-4.63%）",
+      "fields": {
+        "coin": "PLTR",
+        "symbol": "PLTR",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$170.05",
+        "change_pct": "-8.34%",
+        "oi": "約744万ドル",
+        "volume": "約5,441万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/4(水) 00:10時点",
+        "asof_short": "00:10時点",
+        "us_change_pct": "-4.63%"
+      },
+      "raw": {
+        "mark": 170.05,
+        "change_pct": -8.344,
+        "oi_usd": 7439804,
+        "vol_usd": 54405735,
+        "funding_annual_pct": 5.48,
+        "us_change_pct": -4.626
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:PLTR",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:PLTR"
+      },
+      "asof": "2026-11-03T15:10:15.235411+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:PLTR"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2117635991150166322",
+  "posted_at": "2026-11-03T15:12:18.966727+00:00"
+}

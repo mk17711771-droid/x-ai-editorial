@@ -1,36 +1,68 @@
 [
   {
     "fact_ids": [
-      "f16",
-      "f11"
+      "f15",
+      "f26"
     ],
     "topic_key": "hl:xyz:SKHX:funding_extreme",
-    "angle": "半導体セクターの調整局面で、SKハイニックスのHIP-3先物にどのような資金の偏りが起きているかを指摘する",
+    "angle": "SKHXのHIP-3先物で続くショート過熱と、市場の需給の歪みに焦点を当てる",
     "scores": {
       "novelty": 16,
       "interest": 18,
-      "evidence": 17,
+      "evidence": 19,
       "utility": 16,
       "insight": 17
     },
-    "total": 84,
-    "reason": "半導体の需給の歪みとHIP-3先物のファンディングレートの極端な数値を結びつけているため"
+    "total": 86,
+    "reason": "半導体関連のHIP-3先物における極端な資金調達率の歪みを具体的な数字で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f13"
+    ],
+    "topic_key": "hl:xyz:PLTR:big_move",
+    "angle": "PLTRのHIP-3先物における急変動と現物市場の動きのギャップを解説する",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 83,
+    "reason": "主要な米国株銘柄のデリバティブと現物の連動性における価格差を捉えているため。"
   },
   {
     "fact_ids": [
       "f28",
-      "f5"
+      "f30"
     ],
     "topic_key": "traders:BTC:bias",
-    "angle": "安定上位トレーダーのポジションの偏りと、実際のBTC市場の動きのギャップを読み解く",
+    "angle": "安定上位トレーダーの主要暗号資産における売りポジションへの極端な偏りを検証する",
     "scores": {
       "novelty": 15,
       "interest": 17,
       "evidence": 18,
       "utility": 15,
+      "insight": 17
+    },
+    "total": 82,
+    "reason": "看板企画である上位トレーダーの偏り集計を活用し、市場心理の偏りを明確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f19"
+    ],
+    "topic_key": "hl:xyz:BRENTOIL:oi_change",
+    "angle": "BRENTOILのHIP-3先物における急激な建玉増加の背景を読み解く",
+    "scores": {
+      "novelty": 15,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 15,
       "insight": 16
     },
-    "total": 81,
-    "reason": "上位トレーダーの偏りと実際の価格動向を対比させているため"
+    "total": 80,
+    "reason": "コモディティ系HIP-3先物の建玉急増という具体的な数値を伴う変化を捉えているため。"
   }
 ]
