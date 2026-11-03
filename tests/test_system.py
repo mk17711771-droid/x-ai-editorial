@@ -1137,3 +1137,11 @@ def test_quote_forbidden_does_not_halt(monkeypatch):
     monkeypatch.setattr(xapi.requests, "post", lambda *a, **k: R())
     with pytest.raises(xapi.XPostError):
         xapi.post("本文", quote_id="123")
+
+
+def test_official_flag_not_trusted_from_ai():
+    # 11/3 AIが報道1社の話題を official=true にして、未確認の発言を投稿した
+    from aiedit import news_watch
+    assert not news_watch._verified({"official": True, "sources": ["bloomingbit"]})
+    assert news_watch._verified({"sources": ["@tradexyz（公式）"]})
+    assert news_watch._verified({"sources": ["Hyperliquid（オンチェーン）"]})

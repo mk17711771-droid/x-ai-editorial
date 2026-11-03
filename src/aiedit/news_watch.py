@@ -150,7 +150,10 @@ AGGREGATORS = ("biggo", "jinacoin", "mexc", "binance square", "coingecko", "trad
 def _verified(story: dict) -> bool:
     outlets = {s.strip() for s in story.get("sources", []) if s and s.strip()
                and not any(a in s.lower() for a in AGGREGATORS)}
-    return bool(story.get("official")) or len(outlets) >= 2
+    # 「公式」はAIの判断ではなく、出典が公式アカウント・オンチェーン（こちらが直接取った一次情報）のときだけ認める
+    # （11/3 AIが報道1社の話題を official=true とし、創業者の発言を未確認のまま投稿した）
+    official = any(("（公式）" in s or "（オンチェーン）" in s) for s in story.get("sources", []) if s)
+    return official or len(outlets) >= 2
 
 
 def _notify(story: dict, action: str) -> None:
