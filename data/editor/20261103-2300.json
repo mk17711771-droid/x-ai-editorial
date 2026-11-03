@@ -1,0 +1,36 @@
+[
+  {
+    "fact_ids": [
+      "f16",
+      "f11"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体セクターの調整局面で、SKハイニックスのHIP-3先物にどのような資金の偏りが起きているかを指摘する",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 17,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "半導体の需給の歪みとHIP-3先物のファンディングレートの極端な数値を結びつけているため"
+  },
+  {
+    "fact_ids": [
+      "f28",
+      "f5"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "安定上位トレーダーのポジションの偏りと、実際のBTC市場の動きのギャップを読み解く",
+    "scores": {
+      "novelty": 15,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 81,
+    "reason": "上位トレーダーの偏りと実際の価格動向を対比させているため"
+  }
+]
