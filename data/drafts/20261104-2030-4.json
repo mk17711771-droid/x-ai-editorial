@@ -1,0 +1,137 @@
+{
+  "id": "20261104-2030-4",
+  "slot_key": "20261104-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "superseded",
+  "created_at": "2026-11-04T12:18:49.581202+00:00",
+  "text": "QQQが着実に戻りを見せる一方で、なぜ$SOXLのHIP-3先物には強気なコストが集中しているのか。\n\n【いま起きていること】\n前夜の米国株市場では主要指数に買い戻しが入り、QQQが前日比+0.62%の$685.28まで値を戻すなど堅調な地合いとなった。一方でHyperliquidのHIP-3株式先物市場では、米国の伝統金融大手によるプラットフォーム活用に向けた動きや規制遵守への方針表明が進む中、個別セクターのレバレッジ商品に強烈な資金が流れ込んでいる。\n\n【数字で見る】（日本時間11/4(水) 21:14時点）\n・QQQ 現物価格$685.28（前日終値比+0.62%、高値$688.69、安値$683.18）\n・SOXL HIP-3先物 価格$72.39、24時間騰落率+0.40%、建玉約3,808万ドル、24時間出来高約3.2億ドル、資金調達率+49.2%\n\n【なぜ「歪み」なのか】\n現物指数が緩やかな戻りを見せる中で、HIP-3のSOXL先物では年率+49.2%という高水準の資金調達率が維持され、ロング側のコスト負担が膨らんでいる。個別事業者のコンプライアンス遵守による米国展開の現実味が増すにつれて、オンチェーンのデリバティブ側で先行してリスクを取る投機資金が厚みを増している構図があるとみている。個人的には、この現物の落ち着いた回復基調と先物側の前のめりなコストの乖離が、ポジションの偏りを生む要因になると推測している。\n\n【次に見るポイント】\n①現物市場の寄付き後に主要指数が上値を追う展開になるか\n②HIP-3のSOXLにおける資金調達率+49.2%の推移\n③建玉約3,808万ドルの増減とロング側の偏りの変化",
+  "template": "QQQが着実に戻りを見せる一方で、なぜ`${{f43.symbol}}`のHIP-3先物には強気なコストが集中しているのか。\n\n【いま起きていること】\n前夜の米国株市場では主要指数に買い戻しが入り、QQQが前日比{{f3.change_pct}}の{{f3.price}}まで値を戻すなど堅調な地合いとなった。一方でHyperliquidのHIP-3株式先物市場では、米国の伝統金融大手によるプラットフォーム活用に向けた動きや規制遵守への方針表明が進む中、個別セクターのレバレッジ商品に強烈な資金が流れ込んでいる。\n\n【数字で見る】（{{f43.asof}}）\n・QQQ 現物価格{{f3.price}}（前日終値比{{f3.change_pct}}、高値{{f3.high}}、安値{{f3.low}}）\n・${{f43.symbol}} HIP-3先物 価格{{f43.price}}、24時間騰落率{{f43.change_pct}}、建玉{{f43.oi}}、24時間出来高{{f43.volume}}、資金調達率{{f43.funding_annual}}\n\n【なぜ「歪み」なのか】\n現物指数が緩やかな戻りを見せる中で、HIP-3の${{f43.symbol}}先物では年率{{f43.funding_annual}}という高水準の資金調達率が維持され、ロング側のコスト負担が膨らんでいる。個別事業者のコンプライアンス遵守による米国展開の現実味が増すにつれて、オンチェーンのデリバティブ側で先行してリスクを取る投機資金が厚みを増している構図があるとみている。個人的には、この現物の落ち着いた回復基調と先物側の前のめりなコストの乖離が、ポジションの偏りを生む要因になると推測している。\n\n【次に見るポイント】\n①現物市場の寄付き後に主要指数が上値を追う展開になるか\n②HIP-3の${{f43.symbol}}における資金調達率{{f43.funding_annual}}の推移\n③建玉{{f43.oi}}の増減とロング側の偏りの変化",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "news:hyperliquid-jeff-yan-us-expansion",
+  "angle": "Hyperliquidの米国展開を見据えた自律的コンプライアンス方針の言及と、主要指数QQQが+0.62%と戻りを見せる中でHIP-3のSOXL先物に資金が集中している現状を重ね、伝統金融とオンチェーンの接続がもたらす需給の変化を考察する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 17,
+    "evidence": 17,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f1",
+    "f3",
+    "f43"
+  ],
+  "facts": [
+    {
+      "key": "news:hyperliquid-jeff-yan-us-expansion",
+      "kind": "hl",
+      "asof": "2026-11-03T06:16:22.135828+00:00",
+      "expires_at": "2026-11-04T18:16:22.135839+00:00",
+      "status": "deleted",
+      "first_reported_at": "2026-11-03T05:46:35Z",
+      "summary": "Hyperliquidの創業者であるJeff Yan氏が米国進出についての見解を示し、取引所自体の認可ではなく個別のプラットフォーム事業者による規制遵守が重要になると述べました。これはICEなどの伝統的金融大手がHyperliquid基盤のサービスを展開する動きと連動する発言となっています。プラットフォームの自律的な仕組みと各事業者のコンプライアンスの組み合わせによって米国の規制に対応する方針です。",
+      "fields": {
+        "headline": "Hyperliquid創業者「米国進出、取引所認可ではなく個別事業者の規制遵守で」",
+        "what": "米国進出の鍵は取引所の認可ではなく個別事業者の規制遵守にあると創業者が言及",
+        "status": "確定",
+        "who": "Jeff Yan（Hyperliquid創業者）"
+      },
+      "raw": {},
+      "source": {
+        "name": "BigGo ファイナンス・bloomingbit",
+        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1yN0d1WVJBdVZJZnVNT082U1NQNW5NR0ZkVC04RWNWQjV2NTY5TE04YVdURXZCUTNMYWhPOGl2UkVnMHdUaEM4RTh2YUxjSVh0LWpxbA"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "stock:QQQ:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "QQQ 価格685.28, 前日比+0.62%, 前日終値681.09, 高値688.69, 安値683.18",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$685.28",
+        "change_pct": "+0.62%",
+        "prev_close": "$681.09",
+        "high": "$688.69",
+        "low": "$683.18",
+        "asof": "米国11/3終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 685.28,
+        "change_pct": 0.615,
+        "prev_close": 681.09
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-04T12:14:00.424190+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "key": "hl:xyz:SOXL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SOXL（HIP-3株式等先物） 24時間騰落率+0.40%, 価格72.388, 建玉38081710USD, 24時間出来高319861422USD, 資金調達率(年率)+49.2%",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$72.39",
+        "change_pct": "+0.40%",
+        "oi": "約3,808万ドル",
+        "volume": "約3.2億ドル",
+        "funding_annual": "+49.2%",
+        "asof": "日本時間11/4(水) 21:14時点",
+        "asof_short": "21:14時点"
+      },
+      "raw": {
+        "mark": 72.388,
+        "change_pct": 0.399,
+        "oi_usd": 38081710,
+        "vol_usd": 319861422,
+        "funding_annual_pct": 49.24
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-04T12:14:06.262193+00:00",
+      "confidence": "confirmed",
+      "id": "f43"
+    }
+  ],
+  "sources": [
+    {
+      "name": "BigGo ファイナンス・bloomingbit",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1yN0d1WVJBdVZJZnVNT082U1NQNW5NR0ZkVC04RWNWQjV2NTY5TE04YVdURXZCUTNMYWhPOGl2UkVnMHdUaEM4RTh2YUxjSVh0LWpxbA"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    }
+  ],
+  "needs_human": false
+}

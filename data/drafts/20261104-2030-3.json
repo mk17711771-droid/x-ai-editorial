@@ -1,0 +1,148 @@
+{
+  "id": "20261104-2030-3",
+  "slot_key": "20261104-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "posted",
+  "created_at": "2026-11-04T12:16:34.997720+00:00",
+  "text": "主要指数が堅調に推移する一方で、なぜHIP-3のS&P500先物市場ではマイナス金利と巨額の建玉が同時に維持されているのか。\n\n【いま起きていること】\n米国株の現物市場では主要指数が底堅さを見せ、$QQQの現物価格は$685.28まで値を戻す展開となっている。個別株でもAMDが+3.65%としっかり買い戻されるなど、リスクオンの雰囲気が漂っている。しかしHyperliquidのHIP-3株式先物市場では、オンチェーンならではの特異な需給の偏りが生じている。\n\n【数字で見る】（日本時間11/4(水) 21:14時点）\n・QQQ 現物価格$685.28（前日終値比+0.62%、高値$688.69、安値$683.18）\n・AMD 現物価格$483.90（前日終値比+3.65%、高値$497.40、安値$473.54）\n・SP500（HIP-3株式等先物） 価格$7,628、24時間騰落率+1.32%、建玉約3.9億ドル、24時間出来高約6.9億ドル、資金調達率（年率）-3.0%\n\n【なぜ「歪み」なのか】\n現物市場が堅調に買われている一方で、HIP-3のSP500先物では-3.0%というマイナス金利が続きながら約3.9億ドルもの建玉が維持されている。現物の地合いが良い中で先物側がこれほどのコストを払ってショートを維持している構図は、上昇トレンドに対する警戒感やヘッジの売りがデリバティブ側に集中している表れとみている。個人的には、この現物の強さと先物側の慎重なポジションのギャップが、踏み上げを誘発する引き金になる可能性があると推測している。\n\n【次に見るポイント】\n①現物市場の寄付き後に主要指数がさらに上値を試す展開になるか\n②HIP-3のSP500先物における-3.0%のマイナス幅が縮小するかどうか\n③建玉約3.9億ドルの増減と売り手の傾きの変化",
+  "template": "主要指数が堅調に推移する一方で、なぜHIP-3のS&P500先物市場ではマイナス金利と巨額の建玉が同時に維持されているのか。\n\n【いま起きていること】\n米国株の現物市場では主要指数が底堅さを見せ、${{f3.symbol}}の現物価格は{{f3.price}}まで値を戻す展開となっている。個別株でも${{f6.symbol}}が{{f6.change_pct}}としっかり買い戻されるなど、リスクオンの雰囲気が漂っている。しかしHyperliquidのHIP-3株式先物市場では、オンチェーンならではの特異な需給の偏りが生じている。\n\n【数字で見る】（{{f39.asof}}）\n・${{f3.symbol}} 現物価格{{f3.price}}（{{f3.basis}}{{f3.change_pct}}、高値{{f3.high}}、安値{{f3.low}}）\n・${{f6.symbol}} 現物価格{{f6.price}}（{{f6.basis}}{{f6.change_pct}}、高値{{f6.high}}、安値{{f6.low}}）\n・{{f39.coin}}（HIP-3株式等先物） 価格{{f39.price}}、24時間騰落率{{f39.change_pct}}、建玉{{f39.oi}}、24時間出来高{{f39.volume}}、資金調達率（年率）{{f39.funding_annual}}\n\n【なぜ「歪み」なのか】\n現物市場が堅調に買われている一方で、HIP-3の{{f39.coin}}先物では{{f39.funding_annual}}というマイナス金利が続きながら{{f39.oi}}もの建玉が維持されている。現物の地合いが良い中で先物側がこれほどのコストを払ってショートを維持している構図は、上昇トレンドに対する警戒感やヘッジの売りがデリバティブ側に集中している表れとみている。個人的には、この現物の強さと先物側の慎重なポジションのギャップが、踏み上げを誘発する引き金になる可能性があると推測している。\n\n【次に見るポイント】\n①現物市場の寄付き後に主要指数がさらに上値を試す展開になるか\n②HIP-3の{{f39.coin}}先物における{{f39.funding_annual}}のマイナス幅が縮小するかどうか\n③建玉{{f39.oi}}の増減と売り手の傾きの変化",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:SP500:hip3_top",
+  "angle": "ナスダック100やS&P500といった主要指数が堅調に推移する背景で、HIP-3のS&P500先物では年率-3.0%のマイナス金利と約3.9億ドルの建玉が維持されている点に着目し、現物とオンチェーンデリバティブの間のポジションの偏りを読み解く。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f3",
+    "f6",
+    "f39"
+  ],
+  "facts": [
+    {
+      "key": "stock:QQQ:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "QQQ 価格685.28, 前日比+0.62%, 前日終値681.09, 高値688.69, 安値683.18",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$685.28",
+        "change_pct": "+0.62%",
+        "prev_close": "$681.09",
+        "high": "$688.69",
+        "low": "$683.18",
+        "asof": "米国11/3終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 685.28,
+        "change_pct": 0.615,
+        "prev_close": 681.09
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-04T12:14:00.424190+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格483.9, 前日比+3.65%, 前日終値466.84, 高値497.4, 安値473.5401",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$483.90",
+        "change_pct": "+3.65%",
+        "prev_close": "$466.84",
+        "high": "$497.40",
+        "low": "$473.54",
+        "asof": "米国11/3終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 483.9,
+        "change_pct": 3.654,
+        "prev_close": 466.84
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-04T12:14:00.671865+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率+1.32%, 価格7627.6, 建玉393968850USD, 24時間出来高690239333USD, 資金調達率(年率)-3.0%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,628",
+        "change_pct": "+1.32%",
+        "oi": "約3.9億ドル",
+        "volume": "約6.9億ドル",
+        "funding_annual": "-3.0%",
+        "asof": "日本時間11/4(水) 21:14時点",
+        "asof_short": "21:14時点"
+      },
+      "raw": {
+        "mark": 7627.6,
+        "change_pct": 1.322,
+        "oi_usd": 393968850,
+        "vol_usd": 690239333,
+        "funding_annual_pct": -3.0
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-04T12:14:06.262096+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2117954730097832400",
+  "posted_at": "2026-11-04T12:18:52.289065+00:00"
+}
