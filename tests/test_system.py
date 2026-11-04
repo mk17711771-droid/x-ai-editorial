@@ -1192,3 +1192,11 @@ def test_stray_dollar_before_non_price_removed():
     facts = {"f1": {"fields": {"change_pct": "+5.53%", "asof": "米国11/3終値", "price": "$145.45", "symbol": "COIN"}}}
     out = checks.render("前日比${{f1.change_pct}}、QQQ（${{f1.asof}}）、価格{{f1.price}}、${{f1.symbol}}", facts)
     assert out == "前日比+5.53%、QQQ（米国11/3終値）、価格$145.45、$COIN"
+
+
+def test_leveraged_etf_vs_underlying_rejected():
+    from aiedit import checks
+    bad = "SOXXが前日終値比+2.50%と上昇する一方で、HIP-3のSOXL先物は+6.26%とさらに大きく値を飛ばし、強気の歪みが出ている。"
+    assert any("レバレッジ型" in e for e in checks.check_text(bad, "hl:xyz:SOXL:x", "long"))
+    ok = "$SOXLの資金調達率が年率-304.1%まで沈み込んでいる。ショート側がロングへ莫大なコストを支払い続ける状態。"
+    assert not any("レバレッジ型" in e for e in checks.check_text(ok, "hl:xyz:SOXL:x"))

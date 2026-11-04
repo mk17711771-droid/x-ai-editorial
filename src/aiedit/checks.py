@@ -246,6 +246,20 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     return errors
 
 
+# レバレッジ型ETFと元の指数（3倍・逆3倍などは値動きの差が当然。差を「歪み」と言わない）
+LEVERAGED = {"SOXL": "SOXX", "SOXS": "SOXX", "TQQQ": "QQQ", "SQQQ": "QQQ", "UPRO": "SPY", "SPXL": "SPY", "SPXU": "SPY",
+             "NVDL": "NVDA", "TSLL": "TSLA", "FNGU": "QQQ"}
+
+
+def _leveraged_vs_underlying(text: str) -> str:
+    if not any(w in text for w in CONTRAST + ("歪み", "さらに大きく", "上回る")):
+        return ""
+    for lev, base in LEVERAGED.items():
+        if lev in text and re.search(rf"(?<![A-Z]){base}(?![A-Z])", text):
+            return f"レバレッジ型の{lev}と元の{base}の値動きの差を比べている（倍率の差で当然。歪みではない）"
+    return ""
+
+
 CLOSE_DATE = re.compile(r"(\d{1,2})/(\d{1,2})(?:\([月火水木金土日]\))?終値")
 CONTRAST = ("のに", "一方", "対し", "コントラスト", "温度差", "乖離", "崩れてない", "崩れていない", "平気")
 
@@ -291,6 +305,9 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
             errors.append(f"禁止表現「{phrase}」")
     if "速報" in text and not topic_key.startswith("news:"):
         errors.append("通常の投稿に「速報」と書いている（速報はネットでいち早くキャッチした話題の速報枠だけ）")
+    lev = _leveraged_vs_underlying(text)
+    if lev:  # 11/4 SOXL(3倍)とSOXX(1倍)の値動きの差を「歪み」と書いた
+        errors.append(lev)
     stale = _stale_close_contrast(text)
     if stale:  # 何日も前の終値と今の24時間の動きを対比した（11/2 12:28と20:46に同じ誤り）
         errors.append(stale)
