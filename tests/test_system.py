@@ -689,7 +689,7 @@ def test_note_reminder_until_published(monkeypatch, isolated):
 def test_boilerplate_disclaimer_removed_from_posts():
     facts = {"f1": {"fields": {"funding_annual": "+62.0%"}}}
     t = "資金調達率が{{f1.funding_annual}}まで跳ね上がってる👀\n\n※情報共有であって売買の推奨ではありません"
-    assert checks.render(t, facts) == "資金調達率が+62.0%まで跳ね上がってる👀"
+    assert checks.render(t, facts) == "資金調達率が年率+62.0%まで跳ね上がってる👀"
 
 
 def test_endings_vary():
@@ -1200,3 +1200,10 @@ def test_leveraged_etf_vs_underlying_rejected():
     assert any("レバレッジ型" in e for e in checks.check_text(bad, "hl:xyz:SOXL:x", "long"))
     ok = "$SOXLの資金調達率が年率-304.1%まで沈み込んでいる。ショート側がロングへ莫大なコストを支払い続ける状態。"
     assert not any("レバレッジ型" in e for e in checks.check_text(ok, "hl:xyz:SOXL:x"))
+
+
+def test_funding_annual_labeled():
+    from aiedit import checks
+    f = {"f1": {"fields": {"funding_annual": "-246.5%"}}}
+    assert checks.render("資金調達率が{{f1.funding_annual}}まで急低下", f) == "資金調達率が年率-246.5%まで急低下"
+    assert checks.render("資金調達率は年率{{f1.funding_annual}}", f) == "資金調達率は年率-246.5%"

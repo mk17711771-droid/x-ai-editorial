@@ -79,6 +79,9 @@ def render(template: str, facts: dict[str, dict]) -> str:
         stripped = before.rstrip(SPACES)
         if stripped != before and _is_jp(stripped[-1:]) and not TICKER.match(value):
             before = stripped
+        if m.group(2) == "funding_annual" and "年率" not in before[-8:] and not value.startswith("年率"):
+            # 年率の資金調達率に「年率」が付いていないと、1回分の率に見える（11/4「資金調達率が-246.5%」）
+            before += "年率"
         if before.endswith("$") and not TICKER.match(value) and not re.match(r"^\$?\d", value):
             # 「$」は銘柄記号と価格の前だけ。騰落率や「米国11/3終値」の前の「$」は消す（11/4「前日比$+5.53%」）
             before = before[:-1]
