@@ -712,6 +712,14 @@ def delete_post(draft: dict) -> str:
     """投稿済みの下書きをXから削除する（LINEの「削除する」ボタン）。"""
     xapi.delete(draft["tweet_id"])
     store.mark_post_deleted(draft["tweet_id"])
+    if str(draft.get("topic_key", "")).startswith("news:"):
+        # 削除した速報の材料は、noteなど他の場所でも使わない（11/4 Xで削除した未確認の話題がnote記事に入った）
+        facts = store.read_json("news_facts.json", []) or []
+        still_live = any(p.get("topic_key") == draft["topic_key"] for p in store.posts())  # 同じ材料の投稿が他に残っていれば消さない
+        for f in facts:
+            if f["key"] == draft["topic_key"] and not still_live:
+                f["status"] = "deleted"
+        store.write_json("news_facts.json", facts)
     _close(draft, "deleted", deleted_at=now_utc().isoformat())
     store.record_decision({"id": draft["id"], "action": "delete", "by": "admin", "at": now_utc().isoformat(),
                            "total": draft["total"], "scores": draft["scores"], "style": draft["style"],

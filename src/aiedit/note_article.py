@@ -62,7 +62,7 @@ def _week_news_facts() -> list[dict]:
     """直近1週間の速報（裏取り済み）。noteはその週いちばん話題になった出来事を主役にする（人気記事はその週の出来事が題材）。"""
     out = []
     for f in store.read_json("news_facts.json", []) or []:
-        if f.get("status") == "skipped" or now_utc() - datetime.fromisoformat(f["asof"]) > timedelta(days=7):
+        if f.get("status") in ("skipped", "deleted") or now_utc() - datetime.fromisoformat(f["asof"]) > timedelta(days=7):
             continue
         out.append({**f, "category": "news", "fields": {k: v for k, v in f["fields"].items() if isinstance(v, str)}})
     return out[-6:]
@@ -137,6 +137,10 @@ def write(theme: str | None = None) -> dict | None:
             continue
         title = checks.render(title_t, by_id)
         body = checks.render(body_t, by_id)
+        dup = checks.REPEAT_PHRASE.search(title) or checks.NEAR_DUP.search(title)
+        if dup:  # 11/4「バイナンスでバイナンスで」（差し込む値と地の文で語が重なった）
+            errors = [f"タイトルで同じ語句「{dup.group(1)}」が重なっている。差し込む値の中身を見て、重ならないように書く"]
+            continue
         if len(body) < 1500:
             errors = [f"本文が短すぎる（{len(body)}字）。各大見出しの下に400〜700字書き、全体で{min_chars}字以上にする"]
             continue
