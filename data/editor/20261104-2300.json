@@ -1,0 +1,51 @@
+[
+  {
+    "fact_ids": [
+      "f10"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体セクターの現物反発局面におけるSKHX先物のショート過熱（資金調達率年率-246.5%）の極端な歪みに焦点を当てる",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "半導体株が反発する一方で、Hyperliquid上のSKHX先物では資金調達率が年率-246.5%まで沈み込む極端なショート過熱が起きており、数字のインパクトが大きいため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f5"
+    ],
+    "topic_key": "news:hyperliquid-jeff-yan-us-expansion",
+    "angle": "創業者による米国展開方針と言語化されたコンプライアンス戦略、およびS&P500先物（+1.30%）の堅調な推移を対比させる",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 16,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 90,
+    "reason": "伝統金融の参入と連動する米国内の規制対応方針という確度の高いニュースと、オンチェーン上の株価指数先物の動きを関連付けているため。"
+  },
+  {
+    "fact_ids": [
+      "f15"
+    ],
+    "topic_key": "hl:xyz:MRVL:oi_change",
+    "angle": "MRVLのHIP-3先物における建玉の急増（+121.8%）と価格の下落（-7.24%）のギャップを追う",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "建玉が一日で2倍以上に急増しながらも価格が下落している明確な数量的異変を捉えており、実用的な関心を引きやすいため。"
+  }
+]

@@ -1,0 +1,73 @@
+{
+  "id": "20261104-2300-3",
+  "slot_key": "20261104-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-11-04T13:55:42.536659+00:00",
+  "text": "現物価格が下がる一方で、なぜ$MRVLのHIP-3先物にはこれほどの買いが集まっているのか。\n\nHyperliquidの株式先物でMRVLは日本時間11/4(水) 22:53時点に価格$165.39（-7.24%）と売られている。一方で建玉は+121.8%増えて約2,378万ドルに膨らみ、資金調達率は+56.9%まで跳ね上がっている。",
+  "template": "現物価格が下がる一方で、なぜ$MRVLのHIP-3先物にはこれほどの買いが集まっているのか。\n\nHyperliquidの株式先物で${{f15.coin}}は{{f15.asof}}に価格{{f15.price}}（{{f15.change_pct}}）と売られている。一方で建玉は{{f15.oi_change_pct}}増えて{{f15.oi}}に膨らみ、資金調達率は{{f15.funding_annual}}まで跳ね上がっている。\n\n下落局面なのにポジションが急増してロングがコストを払い続けているこの構図、個人的にはかなり強烈な偏りを感じる。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:MRVL:oi_change",
+  "angle": "MRVLのHIP-3先物における建玉の急増（+121.8%）と価格の下落（-7.24%）のギャップを追う",
+  "scores": {
+    "novelty": 18,
+    "interest": 17,
+    "evidence": 20,
+    "utility": 16,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f15"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:MRVL:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+121.8%: MRVL（HIP-3株式等先物） 24時間騰落率-7.24%, 価格165.39, 建玉23783409USD, 24時間出来高33452669USD, 資金調達率(年率)+56.9%",
+      "fields": {
+        "coin": "MRVL",
+        "symbol": "MRVL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$165.39",
+        "change_pct": "-7.24%",
+        "oi": "約2,378万ドル",
+        "volume": "約3,345万ドル",
+        "funding_annual": "+56.9%",
+        "asof": "日本時間11/4(水) 22:53時点",
+        "asof_short": "22:53時点",
+        "oi_change_pct": "+121.8%"
+      },
+      "raw": {
+        "mark": 165.39,
+        "change_pct": -7.241,
+        "oi_usd": 23783409,
+        "vol_usd": 33452669,
+        "funding_annual_pct": 56.91,
+        "oi_change_pct": 121.83
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:MRVL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:MRVL"
+      },
+      "asof": "2026-11-04T13:53:44.932473+00:00",
+      "confidence": "confirmed",
+      "id": "f15"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:MRVL"
+    }
+  ],
+  "needs_human": false
+}

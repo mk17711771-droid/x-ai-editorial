@@ -1,0 +1,100 @@
+{
+  "id": "20261104-2300-2",
+  "slot_key": "20261104-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-11-04T13:55:26.228680+00:00",
+  "text": "Hyperliquid創業者Jeff Yanが語った米国展開の方針、取引所全体の認可ではなく個別事業者のコンプライアンス遵守を軸にする設計。\n\n伝統金融大手の参入とどう噛み合うか。",
+  "template": "Hyperliquid創業者Jeff Yanが語った米国展開の方針、取引所全体の認可ではなく個別事業者のコンプライアンス遵守を軸にする設計。\n\n伝統金融大手の参入とどう噛み合うか。\n\nHyperliquidの{{f5.market}}の${{f5.coin}}が{{f5.asof_short}}で価格{{f5.price}}（{{f5.change_pct}}）と堅調な中で、オンチェーンと規制の接続に注目が集まっている。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "news:hyperliquid-jeff-yan-us-expansion",
+  "angle": "創業者による米国展開方針と言語化されたコンプライアンス戦略、およびS&P500先物（+1.30%）の堅調な推移を対比させる",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 16,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 90,
+  "fact_ids": [
+    "f1",
+    "f5"
+  ],
+  "facts": [
+    {
+      "key": "news:hyperliquid-jeff-yan-us-expansion",
+      "kind": "hl",
+      "asof": "2026-11-03T06:16:22.135828+00:00",
+      "expires_at": "2026-11-04T18:16:22.135839+00:00",
+      "status": "deleted",
+      "first_reported_at": "2026-11-03T05:46:35Z",
+      "summary": "Hyperliquidの創業者であるJeff Yan氏が米国進出についての見解を示し、取引所自体の認可ではなく個別のプラットフォーム事業者による規制遵守が重要になると述べました。これはICEなどの伝統的金融大手がHyperliquid基盤のサービスを展開する動きと連動する発言となっています。プラットフォームの自律的な仕組みと各事業者のコンプライアンスの組み合わせによって米国の規制に対応する方針です。",
+      "fields": {
+        "headline": "Hyperliquid創業者「米国進出、取引所認可ではなく個別事業者の規制遵守で」",
+        "what": "米国進出の鍵は取引所の認可ではなく個別事業者の規制遵守にあると創業者が言及",
+        "status": "確定",
+        "who": "Jeff Yan（Hyperliquid創業者）"
+      },
+      "raw": {},
+      "source": {
+        "name": "BigGo ファイナンス・bloomingbit",
+        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1yN0d1WVJBdVZJZnVNT082U1NQNW5NR0ZkVC04RWNWQjV2NTY5TE04YVdURXZCUTNMYWhPOGl2UkVnMHdUaEM4RTh2YUxjSVh0LWpxbA"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:xyz:SP500:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: SP500（HIP-3株式等先物） 24時間騰落率+1.30%, 価格7652.0, 建玉390300254USD, 24時間出来高709695532USD, 資金調達率(年率)+3.6%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,652",
+        "change_pct": "+1.30%",
+        "oi": "約3.9億ドル",
+        "volume": "約7.1億ドル",
+        "funding_annual": "+3.6%",
+        "asof": "日本時間11/4(水) 22:53時点",
+        "asof_short": "22:53時点"
+      },
+      "raw": {
+        "mark": 7652.0,
+        "change_pct": 1.304,
+        "oi_usd": 390300254,
+        "vol_usd": 709695532,
+        "funding_annual_pct": 3.62
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-04T13:53:44.932207+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    }
+  ],
+  "sources": [
+    {
+      "name": "BigGo ファイナンス・bloomingbit",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1yN0d1WVJBdVZJZnVNT082U1NQNW5NR0ZkVC04RWNWQjV2NTY5TE04YVdURXZCUTNMYWhPOGl2UkVnMHdUaEM4RTh2YUxjSVh0LWpxbA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    }
+  ],
+  "needs_human": false
+}
