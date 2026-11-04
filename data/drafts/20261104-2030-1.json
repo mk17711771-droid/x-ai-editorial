@@ -1,0 +1,111 @@
+{
+  "id": "20261104-2030-1",
+  "slot_key": "20261104-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "posted",
+  "created_at": "2026-11-04T11:54:05.680043+00:00",
+  "text": "半導体株指数の反発に合わせて現物が買われる中で、なぜ$SOXXのHIP-3株式先物では強気の歪みが生まれているのか。\n\n【いま起きていること】\n米国株の現物市場では半導体セクターの指数であるSOXXが反発し、着実な戻りを見せている。その中でHyperliquidの株式先物（HIP-3）市場では、同セクターのレバレッジ型先物であるSOXLが活発に取引され、現物の動きに先行して買い手がポジションを厚く積み上げる展開となっている。\n\n【数字で見る】（日本時間11/4(水) 20:53時点）\n・SOXX 現物価格$465.00（前日終値比+2.50%、高値$472.63、安値$461.83）\n・SOXL HIP-3先物価格$75.99（24時間騰落率+6.26%、建玉約3,680万ドル、24時間出来高約3.1億ドル、資金調達率+32.5%）\n\n【なぜ「歪み」なのか】\n現物市場が+2.50%の上昇を記録する一方で、HIP-3のSOXL先物側では24時間騰落率が+6.26%とさらに大きく値を飛ばし、資金調達率も+32.5%という強気の水準に達している。現物の値動きに対してオンチェーンのデリバティブ側でロングの傾きが急激に強まっているのは、レバレッジをかけた短期の投機資金が先物市場に集中している構図があるとみている。個人的には、この現物と先物の過熱感のギャップがさらに拡大すると、ポジションの傾きが巻き戻された際に激しいボラティリティを伴う調整の火種になる可能性があると推測している。\n\n【次に見るポイント】\n①現物市場の寄付き後にSOXXがこのまま上値を追う展開になるか\n②HIP-3先物の資金調達率+32.5%がさらに高騰するかどうか\n③建玉約3,680万ドルの増減とロングの偏りの変化",
+  "template": "半導体株指数の反発に合わせて現物が買われる中で、なぜ$SOXXのHIP-3株式先物では強気の歪みが生まれているのか。\n\n【いま起きていること】\n米国株の現物市場では半導体セクターの指数であるSOXXが反発し、着実な戻りを見せている。その中でHyperliquidの{{f43.market}}市場では、同セクターのレバレッジ型先物であるSOXLが活発に取引され、現物の動きに先行して買い手がポジションを厚く積み上げる展開となっている。\n\n【数字で見る】（{{f43.asof}}）\n・${{f4.symbol}} 現物価格{{f4.price}}（{{f4.basis}}{{f4.change_pct}}、高値{{f4.high}}、安値{{f4.low}}）\n・${{f43.symbol}} HIP-3先物価格{{f43.price}}（24時間騰落率{{f43.change_pct}}、建玉{{f43.oi}}、24時間出来高{{f43.volume}}、資金調達率{{f43.funding_annual}}）\n\n【なぜ「歪み」なのか】\n現物市場が{{f4.change_pct}}の上昇を記録する一方で、HIP-3のSOXL先物側では24時間騰落率が{{f43.change_pct}}とさらに大きく値を飛ばし、資金調達率も{{f43.funding_annual}}という強気の水準に達している。現物の値動きに対してオンチェーンのデリバティブ側でロングの傾きが急激に強まっているのは、レバレッジをかけた短期の投機資金が先物市場に集中している構図があるとみている。個人的には、この現物と先物の過熱感のギャップがさらに拡大すると、ポジションの傾きが巻き戻された際に激しいボラティリティを伴う調整の火種になる可能性があると推測している。\n\n【次に見るポイント】\n①現物市場の寄付き後にSOXXがこのまま上値を追う展開になるか\n②HIP-3先物の資金調達率{{f43.funding_annual}}がさらに高騰するかどうか\n③建玉{{f43.oi}}の増減とロングの偏りの変化",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:SOXX:big_move",
+  "angle": "半導体株指数の反発に伴う、HIP-3のSOXL先物の極端な資金調達率の歪みを解説する",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 93,
+  "fact_ids": [
+    "f4",
+    "f43"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格465, 前日比+2.50%, 前日終値453.65, 高値472.63, 安値461.83",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$465.00",
+        "change_pct": "+2.50%",
+        "prev_close": "$453.65",
+        "high": "$472.63",
+        "low": "$461.83",
+        "asof": "米国11/3終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 465,
+        "change_pct": 2.502,
+        "prev_close": 453.65
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-04T11:53:38.223819+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "hl:xyz:SOXL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SOXL（HIP-3株式等先物） 24時間騰落率+6.26%, 価格75.992, 建玉36795972USD, 24時間出来高311752322USD, 資金調達率(年率)+32.5%",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$75.99",
+        "change_pct": "+6.26%",
+        "oi": "約3,680万ドル",
+        "volume": "約3.1億ドル",
+        "funding_annual": "+32.5%",
+        "asof": "日本時間11/4(水) 20:53時点",
+        "asof_short": "20:53時点"
+      },
+      "raw": {
+        "mark": 75.992,
+        "change_pct": 6.262,
+        "oi_usd": 36795972,
+        "vol_usd": 311752322,
+        "funding_annual_pct": 32.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-04T11:53:43.037450+00:00",
+      "confidence": "confirmed",
+      "id": "f43"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2117948551929934113",
+  "posted_at": "2026-11-04T11:54:19.275087+00:00"
+}
