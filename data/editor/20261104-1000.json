@@ -1,0 +1,50 @@
+[
+  {
+    "fact_ids": [
+      "f10"
+    ],
+    "topic_key": "hl:xyz:SOXL:funding_extreme",
+    "angle": "SOXLの資金調達率が極端なショート過熱（年率-304.1%）に陥っている異常値を指摘する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "半導体レバレッジETFのHIP-3先物における極端なショート過熱とコスト負担を具体的な数字で捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f15"
+    ],
+    "topic_key": "hl:xyz:NVDA:oi_change",
+    "angle": "NVDAのHIP-3先物で建玉が24時間で33.4%減少している急変の背景を追う。",
+    "scores": {
+      "novelty": 15,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "主要半導体銘柄の建玉急減というオンチェーン特有のポジション調整の動きを明確な数字で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f9"
+    ],
+    "topic_key": "hl:xyz:CXMT:funding_extreme",
+    "angle": "CXMTのHIP-3先物で資金調達率が年率-342.7%の記録的なショート過熱となっている歪みを伝える。",
+    "scores": {
+      "novelty": 16,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 17
+    },
+    "total": 82,
+    "reason": "メモリ関連銘柄の先物市場における極端な需給の偏りを具体的なコスト数値で浮き彫りにしているため。"
+  }
+]
