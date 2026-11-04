@@ -1,0 +1,111 @@
+{
+  "id": "20261104-1215-2",
+  "slot_key": "20261104-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-04T05:09:46.031641+00:00",
+  "text": "現物市場で$AMDが+3.65%と強さを見せているのに対し、Hyperliquidの株式先物（HIP-3）のナスダック100は-0.30%と小幅安。\n\n現物の買い戻しとデリバティブ側の冷え込みにズレがある。",
+  "template": "現物市場で${{f6.symbol}}が{{f6.change_pct}}と強さを見せているのに対し、Hyperliquidの{{f41.market}}の${{f41.coin}}は{{f41.change_pct}}と小幅安。\n\n現物の買い戻しとデリバティブ側の冷え込みにズレがある。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "stock:AMD:big_move",
+  "angle": "現物で+3.65%と買われるAMDに対し、HIP-3のXYZ100は-0.30%と小幅安。現物の上昇とデリバティブ側の冷え込みのギャップに注目する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f6",
+    "f41"
+  ],
+  "facts": [
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格483.9, 前日比+3.65%, 前日終値466.84, 高値497.4, 安値473.5401",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$483.90",
+        "change_pct": "+3.65%",
+        "prev_close": "$466.84",
+        "high": "$497.40",
+        "low": "$473.54",
+        "asof": "米国11/3終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 483.9,
+        "change_pct": 3.654,
+        "prev_close": 466.84
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-04T05:09:31.575805+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-0.30%, 価格27910.0, 建玉295717100USD, 24時間出来高449376880USD, 資金調達率(年率)+13.7%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$27,910",
+        "change_pct": "-0.30%",
+        "oi": "約3.0億ドル",
+        "volume": "約4.5億ドル",
+        "funding_annual": "+13.7%",
+        "asof": "日本時間11/4(水) 14:09時点",
+        "asof_short": "14:09時点"
+      },
+      "raw": {
+        "mark": 27910.0,
+        "change_pct": -0.297,
+        "oi_usd": 295717100,
+        "vol_usd": 449376880,
+        "funding_annual_pct": 13.7
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-04T05:09:37.475314+00:00",
+      "confidence": "confirmed",
+      "id": "f41"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2117846792943415467",
+  "posted_at": "2026-11-04T05:09:58.012292+00:00"
+}

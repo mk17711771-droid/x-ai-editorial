@@ -2,35 +2,52 @@
   {
     "fact_ids": [
       "f6",
-      "f4"
+      "f41"
     ],
     "topic_key": "stock:AMD:big_move",
-    "angle": "半導体株（SOXX +2.50%）の反発局面でAMD（+3.65%）などの主要銘柄がどう動いたかという個別株の明暗と地合いの対比",
+    "angle": "現物で+3.65%と買われるAMDに対し、HIP-3のXYZ100は-0.30%と小幅安。現物の上昇とデリバティブ側の冷え込みのギャップに注目する。",
     "scores": {
-      "novelty": 16,
-      "interest": 18,
-      "evidence": 19,
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 18,
       "utility": 17,
       "insight": 18
     },
-    "total": 88,
-    "reason": "半導体セクター全体の反発と主要銘柄の具体的な値動きを対比させ、市場の資金還流を明確に捉えているため。"
+    "total": 90,
+    "reason": "主要な半導体株の大きな値動きとオンチェーン先物の乖離を捉えており、市場の歪みを的確に示しているため。"
   },
   {
     "fact_ids": [
-      "f21",
-      "f3"
+      "f7",
+      "f39"
     ],
-    "topic_key": "stock:COIN:big_move",
-    "angle": "主要指数（QQQ +0.62%）が持ち直す中、コインベース（COIN +5.53%）などの関連銘柄が強い動きを見せている背景の解説",
+    "topic_key": "stock:AVGO:big_move",
+    "angle": "AVGOが+3.07%と強い値動きを見せる一方、HIP-3のS&P500先物は-0.18%と微減。個別株の強さと指数全体の温度差を伝える。",
     "scores": {
-      "novelty": 16,
-      "interest": 17,
+      "novelty": 17,
+      "interest": 18,
       "evidence": 18,
       "utility": 16,
       "insight": 17
     },
+    "total": 86,
+    "reason": "個別株の強烈な上昇とオンチェーンの指数先物の対比により、資金の集中先を浮き彫りにしているため。"
+  },
+  {
+    "fact_ids": [
+      "f21",
+      "f43"
+    ],
+    "topic_key": "stock:COIN:big_move",
+    "angle": "COINが+5.53%と大幅上昇を記録し、HIP-3のSOXL先物も+2.25%と連動。関連セクターのモメンタムの強さを数字で比較する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 17,
+      "utility": 16,
+      "insight": 16
+    },
     "total": 84,
-    "reason": "インデックスの堅調さと個別金融関連株の大幅上昇のつながりを具体的な数字で示しているため。"
+    "reason": "仮想通貨関連株の強い動きとレバレッジ型先物の連動性を簡潔に伝える構成になっているため。"
   }
 ]

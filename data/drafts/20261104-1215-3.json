@@ -1,0 +1,108 @@
+{
+  "id": "20261104-1215-3",
+  "slot_key": "20261104-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "superseded",
+  "created_at": "2026-11-04T05:09:52.629277+00:00",
+  "text": "個別株の強さと指数全体の温度差が気になってる。\n\n【いま起きていること】\n米国株の現物市場で$AVGOが前日終値比+3.07%としっかり買われる一方で、HyperliquidのHIP-3株式先物市場ではSP500が日本時間11/4(水) 14:09時点で価格$7,516（-0.18%）とマイナス圏で推移している。",
+  "template": "個別株の強さと指数全体の温度差が気になってる。\n\n【いま起きていること】\n米国株の現物市場で${{f7.symbol}}が前日終値比{{f7.change_pct}}としっかり買われる一方で、HyperliquidのHIP-3株式先物市場では{{f39.coin}}が{{f39.asof}}で価格{{f39.price}}（{{f39.change_pct}}）とマイナス圏で推移している。\n\n【数字で見る】（{{f39.asof}}）\n・${{f7.symbol}} 現物価格{{f7.price}}（前日終値比{{f7.change_pct}}、高値{{f7.high}}、安値{{f7.low}}）\n・{{f39.coin}}（HIP-3株式先物） 価格{{f39.price}}、24時間騰落率{{f39.change_pct}}、建玉{{f39.oi}}、24時間出来高{{f39.volume}}、資金調達率{{f39.funding_annual}}\n\n【なぜ「歪み」なのか】\n個別株側が強さを見せているのに対し、HIP-3の指数先物側では目立った上値追いが見られず微減となっている。現物とデリバティブの温度差がどこまで続くか見ておきたい。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "stock:AVGO:big_move",
+  "angle": "AVGOが+3.07%と強い値動きを見せる一方、HIP-3のS&P500先物は-0.18%と微減。個別株の強さと指数全体の温度差を伝える。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 86,
+  "fact_ids": [
+    "f7",
+    "f39"
+  ],
+  "facts": [
+    {
+      "key": "stock:AVGO:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AVGO 価格332.13, 前日比+3.07%, 前日終値322.23, 高値335.74, 安値326.6",
+      "fields": {
+        "symbol": "AVGO",
+        "price": "$332.13",
+        "change_pct": "+3.07%",
+        "prev_close": "$322.23",
+        "high": "$335.74",
+        "low": "$326.60",
+        "asof": "米国11/3終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 332.13,
+        "change_pct": 3.072,
+        "prev_close": 322.23
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AVGO"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AVGO"
+      },
+      "asof": "2026-11-04T05:09:31.685338+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率-0.18%, 価格7515.9, 建玉376292432USD, 24時間出来高519630811USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,516",
+        "change_pct": "-0.18%",
+        "oi": "約3.8億ドル",
+        "volume": "約5.2億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/4(水) 14:09時点",
+        "asof_short": "14:09時点"
+      },
+      "raw": {
+        "mark": 7515.9,
+        "change_pct": -0.175,
+        "oi_usd": 376292432,
+        "vol_usd": 519630811,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-04T05:09:37.475288+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AVGO"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    }
+  ],
+  "needs_human": false
+}
