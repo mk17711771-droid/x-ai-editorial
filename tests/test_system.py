@@ -1185,3 +1185,10 @@ def test_note_drops_only_unsafe_sentences():
     out, dropped = checks.drop_unsafe_sentences(body, facts)
     assert "63億ドル" not in out and "{{f1.price}}" in out and "chart:hl:HYPE" in out and len(dropped) == 1
     assert checks.check_template(out, facts) == []
+
+
+def test_stray_dollar_before_non_price_removed():
+    from aiedit import checks
+    facts = {"f1": {"fields": {"change_pct": "+5.53%", "asof": "米国11/3終値", "price": "$145.45", "symbol": "COIN"}}}
+    out = checks.render("前日比${{f1.change_pct}}、QQQ（${{f1.asof}}）、価格{{f1.price}}、${{f1.symbol}}", facts)
+    assert out == "前日比+5.53%、QQQ（米国11/3終値）、価格$145.45、$COIN"

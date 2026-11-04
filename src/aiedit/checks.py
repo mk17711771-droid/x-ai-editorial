@@ -79,6 +79,9 @@ def render(template: str, facts: dict[str, dict]) -> str:
         stripped = before.rstrip(SPACES)
         if stripped != before and _is_jp(stripped[-1:]) and not TICKER.match(value):
             before = stripped
+        if before.endswith("$") and not TICKER.match(value) and not re.match(r"^\$?\d", value):
+            # 「$」は銘柄記号と価格の前だけ。騰落率や「米国11/3終値」の前の「$」は消す（11/4「前日比$+5.53%」）
+            before = before[:-1]
         out.append(before)
         out.append(value)
         pos = m.end()
