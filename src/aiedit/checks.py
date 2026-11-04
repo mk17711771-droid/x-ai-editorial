@@ -202,6 +202,24 @@ LABEL_WRONG = {"安値": "high", "高値": "low"}
 LABELED = re.compile(r"(安値|高値)(?:は|が|も|の)?[\s:：]?\{\{(f\d+)\.(\w+)\}\}")
 
 
+def drop_unsafe_sentences(template: str, facts: dict[str, dict]) -> tuple[str, list[str]]:
+    """データ以外の数字・不正な差し込みを含む文だけを外す（note記事用。記事は公開前に人が読むので、全体は捨てない）。
+    11/4 今週の速報の説明文の数字（63億ドルなど）をAIが直接書き、3回とも記事ごと破棄されて水曜の記事が出なかった。"""
+    dropped: list[str] = []
+    lines = []
+    for ln in template.split("\n"):
+        if not ln.strip() or ln.lstrip().startswith("!["):
+            lines.append(ln)
+            continue
+        parts = re.split(r"(?<=[。！？])", ln)
+        kept = [s for s in parts if not s.strip() or not check_template(s, facts)]
+        dropped += [s for s in parts if s.strip() and check_template(s, facts)]
+        new = "".join(kept)
+        if new.strip() and new.strip() not in ("-", "・", "#", "##", "###"):
+            lines.append(new)
+    return "\n".join(lines), dropped
+
+
 def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     """AIが数字を捏造していないか、存在しないデータを参照していないかを確認する。"""
     errors = []

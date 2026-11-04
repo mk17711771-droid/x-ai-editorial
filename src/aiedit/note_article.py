@@ -126,6 +126,12 @@ def write(theme: str | None = None) -> dict | None:
         body_t, dropped = checks.repair_fields(body_t, by_id)
         if dropped:
             log.info("存在しない項目を使った文を外しました: %s", dropped)
+        body_t, unsafe = checks.drop_unsafe_sentences(body_t, by_id)
+        if unsafe:
+            log.info("データ以外の数字などを含む文を外しました（%d文）: %s", len(unsafe), unsafe[:5])
+        if len(unsafe) > 15:
+            errors = [f"データ以外の数字を書いた文が多すぎる（{len(unsafe)}文）。数字は必ず差し込み記号で書く"]
+            continue
         errors = checks.check_template(title_t + "\n" + body_t, by_id)
         if errors:
             continue

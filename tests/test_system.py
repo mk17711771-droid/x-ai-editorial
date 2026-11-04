@@ -461,11 +461,12 @@ def test_note_article_generated_with_images_and_copy_link(wired, isolated, monke
         return {"title": "上位トレーダーはなぜ売っているのか", "markdown": body, "hashtags": ["#Hyperliquid", "ETH"]}
     monkeypatch.setattr(llm, "generate_json", fake)
     meta = note_article.write("テスト")
-    assert len(calls) == 2 and "前回の原稿で直すべき点" in calls[1]
+    assert len(calls) == 1  # データ以外の数字を書いた文だけを外し、記事全体は捨てない（11/4）
     assert meta["title"] == "上位トレーダーはなぜ売っているのか" and meta["hashtags"] == ["Hyperliquid", "ETH"]
     md_text = store.read_text(f"note_articles/{meta['id']}/article.md")
     assert "▼ここに画像1（上位トレーダーの保有）を挿入" in md_text and "chart:" not in md_text
     assert "50人のうち、ETHを売っているのは23人" in md_text and "売買を勧めるものではありません" in md_text
+    assert "上位五十人" not in md_text
     assert (store.DATA_DIR / f"note_articles/{meta['id']}/image1.png").read_bytes()[:4] == b"\x89PNG"
     msg = isolated[-1][0]["text"]
     assert "noteの記事ができました" in msg and f"/note/{meta['id']}?k=Uabc" in msg
@@ -1175,3 +1176,12 @@ def test_news_items_retried_when_ai_fails(isolated, monkeypatch):
     with pytest.raises(RuntimeError):
         news_watch.run({"items": [{"title": "新しい記事", "source": "A"}]})
     assert news_watch._id("新しい記事") not in store.read_json("news/seen.json", {})
+
+
+def test_note_drops_only_unsafe_sentences():
+    from aiedit import checks
+    facts = {"f1": {"fields": {"price": "$89.27"}}}
+    body = "## いま何が起きているか\nHYPEは{{f1.price}}で推移しています。バイナンスでは63億ドルが流出しました。\n\n![HYPEの値動き](chart:hl:HYPE)\n## 次に見るポイント\n流れを追います。"
+    out, dropped = checks.drop_unsafe_sentences(body, facts)
+    assert "63億ドル" not in out and "{{f1.price}}" in out and "chart:hl:HYPE" in out and len(dropped) == 1
+    assert checks.check_template(out, facts) == []
