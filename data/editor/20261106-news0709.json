@@ -1,0 +1,52 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:hyperliquid-strategies-fcm-cftc-filing",
+    "angle": "Hyperliquid StrategiesのCFTCへのFCM登録申請という伝統金融インフラへの接続の動きを速報として伝える",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "確認済みの大きなニュースであり、オンチェーンと伝統金融の接続というアカウントの軸に完全に合致するため最優先。"
+  },
+  {
+    "fact_ids": [
+      "f14",
+      "f17"
+    ],
+    "topic_key": "hl:xyz:SOXL:funding_extreme",
+    "angle": "SOXLの資金調達率が年率+115.6%まで加熱し、建玉が急増している歪みに焦点を当てる",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 90,
+    "reason": "極端な資金調達率と建玉の急増という具体的な数字の歪みを短文で端的に伝えることができるため。"
+  },
+  {
+    "fact_ids": [
+      "f4",
+      "f19"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "XYZ100の建玉が急増し資金調達率が年率+94.7%に達している市場全体の需給の偏りを指摘する",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "指数先物における大規模な建玉の変化と高い資金調達率の歪みを数字で的確に示せるため。"
+  }
+]
