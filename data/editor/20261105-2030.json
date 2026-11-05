@@ -1,0 +1,56 @@
+[
+  {
+    "fact_ids": [
+      "f9",
+      "f3",
+      "f4"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "半導体セクターでMU（-7.0%）やSOXX（-3.14%）が大きく売られる中、AI半導体の主役級とどのような需給のギャップが生まれているのかを構造化して解説する",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "MUの急落と半導体セクター全体の弱さを軸に、現物とデリバティブの乖離を深く考察できるため"
+  },
+  {
+    "fact_ids": [
+      "f13",
+      "f16",
+      "f17"
+    ],
+    "topic_key": "stock:MSFT:big_move",
+    "angle": "MSFT（+6.68%）やAMZN（+6.12%）、AAPL（+5.31%）が急騰する一方で、半導体株との間でどのような資金のシフトが起きているのかを読み解く",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 91,
+    "reason": "大型テック株の急騰という明確な資金移動の事実を基に、市場全体の構造変化をロジカルに解説できるため"
+  },
+  {
+    "fact_ids": [
+      "f38",
+      "f41",
+      "f1"
+    ],
+    "topic_key": "hl:xyz:CL:hip3_top",
+    "angle": "原油価格の下落や地政学リスクの思惑が交錯する中、SPY（+1.65%）の堅調さとHIP-3の原油先物の資金調達率（年率-25.0%）に表れている歪みを分析する",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "株式市場の堅調さとエネルギー関連のデリバティブにおける資金調達率のマイナス乖離という歪みを鋭く突けるため"
+  }
+]
