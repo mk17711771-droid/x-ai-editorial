@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-05T18:36:37.623157+00:00",
-  "at_jst": "11/06 03:36",
+  "at": "2026-11-05T18:47:13.931311+00:00",
+  "at_jst": "11/06 03:46",
   "ok": false,
   "issues": [
     {
@@ -16,6 +16,14 @@
           "headline": "trade[XYZ]関連のGitBookでセキュリティインシデント発生",
           "sources": [
             "KuCoin"
+          ]
+        },
+        {
+          "headline": "バイナンス、凍結資産3050万ドルの回収に向けArbitrumDAOに承認申請",
+          "sources": [
+            "The Crypto Times",
+            "Bloomberg Law News",
+            "Cryptonews.net"
           ]
         }
       ]
@@ -39,13 +47,6 @@
       "event": "repository_dispatch",
       "at": "2026-11-05T14:05:18Z",
       "id": 42041620348
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-05T12:45:42Z",
-      "id": 42029874390
     }
   ],
   "actions": []
