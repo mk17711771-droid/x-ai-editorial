@@ -1,8 +1,15 @@
 {
-  "at": "2026-11-05T11:49:36.083054+00:00",
-  "at_jst": "11/05 20:49",
+  "at": "2026-11-05T12:45:53.421988+00:00",
+  "at_jst": "11/05 21:45",
   "ok": false,
   "issues": [
+    {
+      "type": "missed_slot",
+      "slot": "2030",
+      "key": "20261105-2030",
+      "generated": false,
+      "within_grace": true
+    },
     {
       "type": "followup_candidates",
       "items": [
@@ -18,7 +25,14 @@
       "type": "error",
       "command": "generate",
       "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
-      "at": "2026-11-05T11:42:42.728661+00:00"
+      "at": "2026-11-05T12:26:08.002747+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "workflow_dispatch",
+      "at": "2026-11-05T12:09:32Z",
+      "id": 42024767066
     },
     {
       "type": "workflow_failed",
@@ -35,5 +49,7 @@
       "id": 42018843026
     }
   ],
-  "actions": []
+  "actions": [
+    "枠2030の投稿を再起動"
+  ]
 }
