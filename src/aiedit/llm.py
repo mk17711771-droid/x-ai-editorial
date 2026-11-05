@@ -29,7 +29,7 @@ def generate_json(system: str, user: str) -> dict:
     models = [cfg["model"]] + [m for m in cfg.get("fallback_models", []) if m != cfg["model"]]
     missing: set[str] = set()
     last_err: Exception | None = None
-    for round_no, wait in enumerate((0, 30, 60, 120)):
+    for round_no, wait in enumerate((0, 30, 60, 120, 240)):  # 11/5 混雑が4分以上続き夜の長文が落ちたので、待つ回数とモデルを増やした
         if wait:
             log.info("Geminiが混雑しているため%d秒待って再試行します（%d巡目）", wait, round_no + 1)
             time.sleep(wait)
