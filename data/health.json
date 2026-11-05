@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-05T16:36:42.756155+00:00",
-  "at_jst": "11/06 01:36",
+  "at": "2026-11-05T18:36:37.623157+00:00",
+  "at_jst": "11/06 03:36",
   "ok": false,
   "issues": [
     {
@@ -46,27 +46,6 @@
       "event": "repository_dispatch",
       "at": "2026-11-05T12:45:42Z",
       "id": 42029874390
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "workflow_dispatch",
-      "at": "2026-11-05T12:09:32Z",
-      "id": 42024767066
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-05T11:35:19Z",
-      "id": 42020178394
-    },
-    {
-      "type": "workflow_failed",
-      "name": "news-watch",
-      "event": "repository_dispatch",
-      "at": "2026-11-05T11:25:28Z",
-      "id": 42018843026
     }
   ],
   "actions": []
