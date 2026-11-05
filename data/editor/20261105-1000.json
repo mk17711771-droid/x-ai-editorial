@@ -1,0 +1,67 @@
+[
+  {
+    "fact_ids": [
+      "f17"
+    ],
+    "topic_key": "hl:xyz:AAPL:oi_change",
+    "angle": "急拡大するアップルの建玉とマイナスの資金調達率が示すオンチェーン先物の需給乖離",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "AAPLの建玉が一日で142.8%増と急増し、資金調達率がマイナスに沈んでいるオンチェーン市場特有の歪みを捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f16"
+    ],
+    "topic_key": "hl:xyz:MRVL:oi_change",
+    "angle": "半導体セクターの明暗が分かれる中、マーベルの建玉が145%超急増した背景",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "半導体関連でマーベルの建玉が24時間で145%超増加という極端な数値が出ており、市場の関心と明確なデータを満たしているため。"
+  },
+  {
+    "fact_ids": [
+      "f18"
+    ],
+    "topic_key": "hl:xyz:MU:oi_change",
+    "angle": "マイクロン株の急落と連動して建玉が88%増えたHIP-3市場の動向",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "MUの株価下落局面において建玉が88.1%急増しており、デリバティブ市場における新規のポジション流入を正確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f20"
+    ],
+    "topic_key": "hl:TRUMP:oi_change",
+    "angle": "大幅下落と高いショート圧力が続くTRUMP先物の建玉急増と過熱する資金調達率",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "TRUMP無期限先物の18%超の下落に伴い建玉が68%以上増加し、年率-154.2%の極端なショート過熱を示しているため。"
+  }
+]
