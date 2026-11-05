@@ -61,6 +61,7 @@ X（@satoshikun_666「カリスマ」）と note（https://note.com/charisma_hl�
   効かなかったものはすぐ外す。試した内容と結果は必ず記録する（`data/improve/daily_review.md`）。
 - 定期点検の9時台・14時台の回で、投稿後の数字（`tools` の metrics-now → `data/metrics_now.json`）を分析する:
   なぜこの数字か／どこが悪いか／伸びている同ジャンルのアカウント（`data/sources/x/`）はなぜ伸びているか。
+- **毎日、昨日より今日・今日より明日を良い数字にする（管理者の指示）**: 9時台の分析で前日の合計表示・最高表示・フォロワーを前々日と比べ、下がった日は原因を特定して対策を必ず1つ以上その場で実装する。上がった日は効いた型を仕組み（チェック・指示）に固定する。
 - 結果は `data/improve/daily_review.md` に追記し、試すことを `data/experiments.md`（編集長・執筆AIが毎回読む）に反映する。
   コードや図の変更が必要なら、その場で実装して push する。前日の試みの結果も必ず確かめる。
 - note: 記事を作った日に未公開なら、12時・19時を過ぎた最初の見回りでLINEに再通知する（`note_check.remind_unpublished`）。
