@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-05T18:47:13.931311+00:00",
-  "at_jst": "11/06 03:46",
+  "at": "2026-11-05T20:39:25.748335+00:00",
+  "at_jst": "11/06 05:39",
   "ok": false,
   "issues": [
     {
@@ -40,13 +40,6 @@
       "event": "workflow_dispatch",
       "at": "2026-11-05T15:09:31Z",
       "id": 42052091763
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-05T14:05:18Z",
-      "id": 42041620348
     }
   ],
   "actions": []
