@@ -1,26 +1,28 @@
 [
   {
     "fact_ids": [
-      "f11"
+      "f7",
+      "f25"
     ],
-    "topic_key": "hl:xyz:NATGAS:funding_extreme",
-    "angle": "天然ガスのHIP-3先物で資金調達率が年率+312.4%まで急騰しているロング過熱の歪みを指摘する。",
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "$SOXLのHIP-3先物が-29.70%まで急落し、資金調達率が年率+78.5%とプラス圏で過熱している歪みを突く。",
     "scores": {
       "novelty": 18,
-      "interest": 17,
+      "interest": 19,
       "evidence": 20,
       "utility": 17,
       "insight": 18
     },
-    "total": 90,
-    "reason": "極端な資金調達率の数値を軸に、市場の過熱感を端的に捉えた実用的なデータ分析。"
+    "total": 92,
+    "reason": "$SOXLの急落とプラスの資金調達率の乖離という、デリバティブ特有の需給の歪みを具体的な数字で示しているため。"
   },
   {
     "fact_ids": [
-      "f18"
+      "f4",
+      "f11"
     ],
-    "topic_key": "hl:xyz:MU:oi_change",
-    "angle": "マイクロン（MU）のHIP-3先物で建玉が24時間で+75.5%急増している異変を伝える。",
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体関連のSKHX先物で資金調達率が年率-1219.2%まで沈み込み、ショートが極端に過熱している歪みを指摘する。",
     "scores": {
       "novelty": 17,
       "interest": 18,
@@ -29,6 +31,23 @@
       "insight": 18
     },
     "total": 89,
-    "reason": "半導体セクターの大きな名前における急激な建玉の増加という明確な変化を数字で示している。"
+    "reason": "年率-1000%を超える極端な資金調達率の異常値を捉えており、市場の歪みを鋭く突いているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f16"
+    ],
+    "topic_key": "hl:xyz:SNXX:big_move",
+    "angle": "SNXX先物が-35.97%の大幅下落とともに建玉が+148.5%急増している異常なポジションの偏りを伝える。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "建玉の急増と価格の急落を同時に示すことで、市場参加者のポジションの傾きを明確に伝えているため。"
   }
 ]
