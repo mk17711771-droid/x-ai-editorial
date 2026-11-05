@@ -1,14 +1,14 @@
 {
-  "at": "2026-11-05T14:36:39.397701+00:00",
-  "at_jst": "11/05 23:36",
+  "at": "2026-11-05T15:18:43.069157+00:00",
+  "at_jst": "11/06 00:18",
   "ok": false,
   "issues": [
     {
       "type": "missed_slot",
-      "slot": "2030",
-      "key": "20261105-2030",
+      "slot": "2300",
+      "key": "20261105-2300",
       "generated": false,
-      "within_grace": false
+      "within_grace": true
     },
     {
       "type": "followup_candidates",
@@ -18,6 +18,12 @@
           "sources": [
             "CoinPost"
           ]
+        },
+        {
+          "headline": "trade[XYZ]関連のGitBookでセキュリティインシデント発生",
+          "sources": [
+            "KuCoin"
+          ]
         }
       ]
     },
@@ -25,7 +31,14 @@
       "type": "error",
       "command": "generate",
       "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
-      "at": "2026-11-05T14:15:36.795160+00:00"
+      "at": "2026-11-05T15:17:52.705641+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "workflow_dispatch",
+      "at": "2026-11-05T15:09:31Z",
+      "id": 42052091763
     },
     {
       "type": "workflow_failed",
@@ -63,5 +76,7 @@
       "id": 42018843026
     }
   ],
-  "actions": []
+  "actions": [
+    "枠2300の投稿を再起動"
+  ]
 }
