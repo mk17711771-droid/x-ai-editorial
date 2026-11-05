@@ -1207,3 +1207,11 @@ def test_funding_annual_labeled():
     f = {"f1": {"fields": {"funding_annual": "-246.5%"}}}
     assert checks.render("資金調達率が{{f1.funding_annual}}まで急低下", f) == "資金調達率が年率-246.5%まで急低下"
     assert checks.render("資金調達率は年率{{f1.funding_annual}}", f) == "資金調達率は年率-246.5%"
+
+
+def test_short_first_line_needs_number():
+    from aiedit import checks
+    bad = "ビッグテックが急伸する一方で半導体銘柄が急落した背景を見ていく。\n\n$MSFTが+6.68%と買われる一方で、MUは-7.00%と売られている。"
+    assert any("1行目に数字がない" in e for e in checks.check_text(bad, "stock:MSFT:x"))
+    ok = "$SOXLの資金調達率が年率-304.1%まで沈み込んでいる。\n\nショート側がロングへ莫大なコストを支払い続けている。"
+    assert not any("1行目に数字がない" in e for e in checks.check_text(ok, "hl:SOXL:x"))

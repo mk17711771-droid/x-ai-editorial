@@ -308,6 +308,10 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
             errors.append(f"禁止表現「{phrase}」")
     if "速報" in text and not topic_key.startswith("news:"):
         errors.append("通常の投稿に「速報」と書いている（速報はネットでいち早くキャッチした話題の速報枠だけ）")
+    first = text.strip().split("\n")[0]
+    if fmt == "short" and not str(topic_key).startswith("news:") and not re.search(r"[0-9０-９]", first):
+        # 伸びた短文は1行目に数字が1つある（11/4 $SOXL 年率-304.1% → 380表示）。数字のない1行目（「〜について解説する」）は弱い
+        errors.append("1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）")
     lev = _leveraged_vs_underlying(text)
     if lev:  # 11/4 SOXL(3倍)とSOXX(1倍)の値動きの差を「歪み」と書いた
         errors.append(lev)
