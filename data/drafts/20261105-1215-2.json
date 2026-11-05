@@ -1,0 +1,102 @@
+{
+  "id": "20261105-1215-2",
+  "slot_key": "20261105-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "superseded",
+  "created_at": "2026-11-05T03:12:54.062582+00:00",
+  "text": "強烈に買われる-$AMZNと下値を切り下げる-ARMのコントラストがすごい。\n\n米国11/4終値でAMZNが+6.12%（高値$271.49）と上昇する一方で、ARMは-5.28%（安値$189.88）まで売り込まれている。\n\nセクター内の資金の移動がかなり極端になってるかも。",
+  "template": "強烈に買われる-${{f16.symbol}}と下値を切り下げる-${{f10.symbol}}のコントラストがすごい。\n\n{{f10.asof}}で${{f16.symbol}}が{{f16.change_pct}}（高値${{f16.high}}）と上昇する一方で、${{f10.symbol}}は{{f10.change_pct}}（安値${{f10.low}}）まで売り込まれている。\n\nセクター内の資金の移動がかなり極端になってるかも。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:ARM:big_move",
+  "angle": "好調な銘柄と大幅な下落を記録した銘柄の対比から、セクター内の資金の移動を浮き彫りにする。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 88,
+  "fact_ids": [
+    "f10",
+    "f16"
+  ],
+  "facts": [
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格191.8, 前日比-5.28%, 前日終値202.49, 高値209.4961, 安値189.88",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$191.80",
+        "change_pct": "-5.28%",
+        "prev_close": "$202.49",
+        "high": "$209.50",
+        "low": "$189.88",
+        "asof": "米国11/4終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 191.8,
+        "change_pct": -5.279,
+        "prev_close": 202.49
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-11-05T03:11:00.153314+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "stock:AMZN:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMZN 価格266.03, 前日比+6.12%, 前日終値250.69, 高値271.49, 安値263.8486",
+      "fields": {
+        "symbol": "AMZN",
+        "price": "$266.03",
+        "change_pct": "+6.12%",
+        "prev_close": "$250.69",
+        "high": "$271.49",
+        "low": "$263.85",
+        "asof": "米国11/4終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 266.03,
+        "change_pct": 6.119,
+        "prev_close": 250.69
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMZN"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMZN"
+      },
+      "asof": "2026-11-05T03:11:00.543817+00:00",
+      "confidence": "confirmed",
+      "id": "f16"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMZN"
+    }
+  ],
+  "needs_human": false
+}

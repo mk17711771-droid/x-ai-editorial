@@ -1,0 +1,105 @@
+{
+  "id": "20261105-1215-1",
+  "slot_key": "20261105-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-05T03:12:47.815640+00:00",
+  "text": "ビッグテックが急伸する一方で半導体銘柄が急落した背景と、市場の二極化について解説する。\n\n$MSFTが米国11/4終値で$555.80（+6.68%）と大きく買われる一方で、半導体のMUは米国11/4終値で$795.23（-7.00%）と売られている。\n\nこのセクター間のねじれがどこまで続くのか気になる。",
+  "template": "ビッグテックが急伸する一方で半導体銘柄が急落した背景と、市場の二極化について解説する。\n\n${{f13.symbol}}が{{f13.asof}}で{{f13.price}}（{{f13.change_pct}}）と大きく買われる一方で、半導体の${{f9.symbol}}は{{f9.asof}}で{{f9.price}}（{{f9.change_pct}}）と売られている。\n\nこのセクター間のねじれがどこまで続くのか気になる。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:MU:big_move",
+  "angle": "ビッグテックが急伸する一方で半導体銘柄が急落した背景と、市場の二極化について解説する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f9",
+    "f13"
+  ],
+  "facts": [
+    {
+      "key": "stock:MU:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MU 価格795.23, 前日比-7.00%, 前日終値855.1, 高値853.3399, 安値782",
+      "fields": {
+        "symbol": "MU",
+        "price": "$795.23",
+        "change_pct": "-7.00%",
+        "prev_close": "$855.10",
+        "high": "$853.34",
+        "low": "$782.00",
+        "asof": "米国11/4終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 795.23,
+        "change_pct": -7.002,
+        "prev_close": 855.1
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MU"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-11-05T03:11:00.092359+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    },
+    {
+      "key": "stock:MSFT:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MSFT 価格555.8, 前日比+6.68%, 前日終値520.99, 高値559.15, 安値542.3",
+      "fields": {
+        "symbol": "MSFT",
+        "price": "$555.80",
+        "change_pct": "+6.68%",
+        "prev_close": "$520.99",
+        "high": "$559.15",
+        "low": "$542.30",
+        "asof": "米国11/4終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 555.8,
+        "change_pct": 6.681,
+        "prev_close": 520.99
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MSFT"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MSFT"
+      },
+      "asof": "2026-11-05T03:11:00.356643+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MSFT"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2118179727454204049",
+  "posted_at": "2026-11-05T03:12:55.802346+00:00"
+}

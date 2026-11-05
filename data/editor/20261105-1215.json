@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f9",
+      "f13"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "ビッグテックが急伸する一方で半導体銘柄が急落した背景と、市場の二極化について解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "主要銘柄の間で大きな明暗が分かれた市場の異変を、具体的な価格変動データとともに端的に伝えるため。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f16"
+    ],
+    "topic_key": "stock:ARM:big_move",
+    "angle": "好調な銘柄と大幅な下落を記録した銘柄の対比から、セクター内の資金の移動を浮き彫りにする。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "個別の大きな値動きを取り上げ、市場全体ではなく特定のハイテク銘柄に起きている変化を伝えるため。"
+  },
+  {
+    "fact_ids": [
+      "f38",
+      "f1"
+    ],
+    "topic_key": "hl:xyz:SP500:hip3_top",
+    "angle": "現物指数とHIP-3先物の動向を交え、市場全体の資金の流れに生じている歪みを検証する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "インデックスの動きとオンチェーン先物のデータを組み合わせ、市場全体の地合いを冷静に分析するため。"
+  }
+]
