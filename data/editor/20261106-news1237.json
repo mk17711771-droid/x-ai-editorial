@@ -1,0 +1,36 @@
+[
+  {
+    "fact_ids": [
+      "f1",
+      "f25"
+    ],
+    "topic_key": "news:hyperliquid-priority-fee-record-stock-selloff",
+    "angle": "半導体株の急落に伴う市場の混乱と、Hyperliquidでの優先手数料の過去最高記録を結びつける",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "半導体株の急落という現実の市場変化と、オンチェーンのデイリー優先手数料が過去最高を記録したという具体的な事実を組み合わせているため。"
+  },
+  {
+    "fact_ids": [
+      "f25",
+      "f11"
+    ],
+    "topic_key": "hl:xyz:MU:hip3_top",
+    "angle": "半導体セクターの歴史的な下げと、HIP-3先物における極端な資金調達率や出来高の偏りを浮き彫りにする",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "MUなど主要半導体銘柄の記録的な下落局面におけるHIP-3先物の出来高と資金調達率の異常値を具体的な数字で示しているため。"
+  }
+]
