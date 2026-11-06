@@ -1230,3 +1230,13 @@ def test_first_line_number_ignores_names():
     from aiedit import checks
     bad = "半導体セクターの急落を受けて、$MUのHIP-3先物で何が起きてるのか。\n\n価格$683.53（-11.37%）で出来高が約4.7億ドルまで急増。"
     assert any("1行目に数字がない" in e for e in checks.check_text(bad, "hl:MU:x"))
+
+
+def test_first_line_futures_symbol_must_match():
+    from aiedit import checks
+    facts = {"f1": {"fields": {"symbol": "AMD", "change_pct": "-17.26%"}},
+             "f2": {"fields": {"coin": "SKHX", "market": "株式先物（HIP-3）", "funding_annual": "+176.6%"}}}
+    bad = "なぜ$AMDの先物だけ強烈な金利がついているのか\\n・AMD {{f1.change_pct}}\\n・SKHX 資金調達率{{f2.funding_annual}}"
+    assert any("別の銘柄" in e for e in checks.check_template(bad.replace("\\\\n", "\\n"), facts))
+    ok = "なぜ$SKHXの先物だけ資金調達率が高いのか\\n・AMD {{f1.change_pct}}\\n・SKHX 資金調達率{{f2.funding_annual}}"
+    assert not any("先物の数字は別の銘柄" in e for e in checks.check_template(ok.replace("\\\\n", "\\n"), facts))

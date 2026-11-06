@@ -240,6 +240,16 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
             if sym and sym != head.group(1) and sym not in head.group(1) and head.group(1) not in sym:
                 errors.append(f"「{head.group(1)}」の行に別の銘柄（{sym}・{fid}）の値を差し込んでいる")
                 break
+    # 1行目で「$AMDの先物」と言うなら、その銘柄の先物（HIP-3）の材料を使っていること（11/6 夜の長文で、AMDの先物と言いながら数字はSKHXだった）
+    first = template.strip().split("\n")[0]
+    m = re.search(r"\$([A-Z][A-Z0-9.]{1,9})[^。\n]{0,12}(先物|資金調達率|建玉|金利)", first)
+    if m:
+        sym = m.group(1)
+        used = {fid for fid, _ in PLACEHOLDER.findall(template)}
+        hl_syms = {str(facts[f]["fields"].get("coin") or facts[f]["fields"].get("symbol") or "").split(":")[-1].upper()
+                   for f in used if f in facts and "先物" in str(facts[f]["fields"].get("market", ""))}
+        if hl_syms and sym not in hl_syms:
+            errors.append(f"1行目で{sym}の先物を語っているが、先物の数字は別の銘柄（{'・'.join(sorted(hl_syms))}）")
     for label, fid, field in LABELED.findall(template):
         if LABEL_WRONG[label] in field:
             errors.append(f"「{label}」のあとに別の値（{fid}.{field}）を差し込んでいる")
