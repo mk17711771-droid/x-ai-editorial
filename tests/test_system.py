@@ -1240,3 +1240,10 @@ def test_first_line_futures_symbol_must_match():
     assert any("別の銘柄" in e for e in checks.check_template(bad.replace("\\\\n", "\\n"), facts))
     ok = "なぜ$SKHXの先物だけ資金調達率が高いのか\\n・AMD {{f1.change_pct}}\\n・SKHX 資金調達率{{f2.funding_annual}}"
     assert not any("先物の数字は別の銘柄" in e for e in checks.check_template(ok.replace("\\\\n", "\\n"), facts))
+
+
+def test_mixed_symbols_in_one_line_and_field_names_rejected():
+    from aiedit import checks
+    facts = {"f5": {"fields": {"symbol": "SOXX", "price": "$131.90"}}, "f14": {"fields": {"symbol": "SOXL", "high": "$28.67"}}}
+    assert any("別々の銘柄" in e for e in checks.check_template("・${{f5.symbol}} 価格{{f5.price}}、高値{{f14.high}}", facts))
+    assert any("項目名" in e for e in checks.check_text("$AMDが急落。価格$404.40（-17.26%、asof: 米国11/5終値）。売りが続く。", "stock:AMD:x", "long"))

@@ -229,6 +229,14 @@ def drop_unsafe_sentences(template: str, facts: dict[str, dict]) -> tuple[str, l
 def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     """AIが数字を捏造していないか、存在しないデータを参照していないかを確認する。"""
     errors = []
+    # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
+    for ln in template.split("\n"):
+        if not ln.strip().startswith(("・", "-")):
+            continue
+        syms = {str((facts.get(fid, {}).get("fields") or {}).get("symbol") or (facts.get(fid, {}).get("fields") or {}).get("coin") or "")
+                .split(":")[-1].upper() for fid, _ in PLACEHOLDER.findall(ln)} - {""}
+        if len(syms) > 1:
+            errors.append(f"1つの行に別々の銘柄の値を混ぜている: {'・'.join(sorted(syms))}")
     # 「・QQQ … {{fN.change_pct}}」のfNが別の銘柄（AMD）だった（11/6 朝の長文でQQQにAMDの騰落率が入った）
     for ln in template.split("\n"):
         head = re.match(r"^[・\-]\s*\$?([A-Z][A-Z0-9.]{1,9})(?![A-Za-z])", ln.strip())
@@ -335,6 +343,8 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     if fmt == "short" and not str(topic_key).startswith("news:") and not re.search(r"[0-9０-９]", first):
         # 伸びた短文は1行目に数字が1つある（11/4 $SOXL 年率-304.1% → 380表示）。数字のない1行目（「〜について解説する」）は弱い
         errors.append("1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）")
+    if re.search(r"\b(asof|change_pct|funding_annual|basis|oi_change_pct|us_change_pct)\b", text):
+        errors.append("データの項目名（asof など）が本文にそのまま出ている")
     lev = _leveraged_vs_underlying(text)
     if lev:  # 11/4 SOXL(3倍)とSOXX(1倍)の値動きの差を「歪み」と書いた
         errors.append(lev)
