@@ -1224,3 +1224,9 @@ def test_line_symbol_mismatch_rejected():
     assert any("別の銘柄" in e for e in checks.check_template(bad, facts))
     ok = "・QQQ 現物価格{{f2.price}}（前日終値比{{f2.change_pct}}）\n・AMD {{f1.change_pct}}"
     assert not any("別の銘柄" in e for e in checks.check_template(ok, facts))
+
+
+def test_first_line_number_ignores_names():
+    from aiedit import checks
+    bad = "半導体セクターの急落を受けて、$MUのHIP-3先物で何が起きてるのか。\n\n価格$683.53（-11.37%）で出来高が約4.7億ドルまで急増。"
+    assert any("1行目に数字がない" in e for e in checks.check_text(bad, "hl:MU:x"))
