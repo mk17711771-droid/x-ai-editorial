@@ -1,0 +1,71 @@
+{
+  "id": "20261106-1000-2",
+  "slot_key": "20261106-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-06T01:17:33.036801+00:00",
+  "text": "天然ガスのHIP-3先物、ロングの過熱感がちょっと異常なことになってるかも。\n\nHyperliquidの株式先物（HIP-3）で10:17時点、$NATGASの価格が$2.98（+1.11%）で推移する一方で、資金調達率が年率+572.0%まで強烈に傾いている。",
+  "template": "天然ガスのHIP-3先物、ロングの過熱感がちょっと異常なことになってるかも。\n\nHyperliquidの{{f12.market}}で{{f12.asof_short}}、$NATGASの価格が{{f12.price}}（{{f12.change_pct}}）で推移する一方で、資金調達率が年率{{f12.funding_annual}}まで強烈に傾いている。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:NATGAS:funding_extreme",
+  "angle": "天然ガス（NATGAS）のHIP-3先物において、資金調達率が年率+572.0%という記録的なロング過熱を示している歪みに焦点を当てる。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 89,
+  "fact_ids": [
+    "f12"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:NATGAS:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: NATGAS（HIP-3株式等先物） 24時間騰落率+1.11%, 価格2.9798, 建玉18511010USD, 24時間出来高19034917USD, 資金調達率(年率)+572.0%",
+      "fields": {
+        "coin": "NATGAS",
+        "symbol": "NATGAS",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$2.98",
+        "change_pct": "+1.11%",
+        "oi": "約1,851万ドル",
+        "volume": "約1,903万ドル",
+        "funding_annual": "+572.0%",
+        "asof": "日本時間11/6(金) 10:17時点",
+        "asof_short": "10:17時点"
+      },
+      "raw": {
+        "mark": 2.9798,
+        "change_pct": 1.11,
+        "oi_usd": 18511010,
+        "vol_usd": 19034917,
+        "funding_annual_pct": 572.05
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NATGAS",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NATGAS"
+      },
+      "asof": "2026-11-06T01:17:17.768345+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NATGAS"
+    }
+  ],
+  "needs_human": false
+}

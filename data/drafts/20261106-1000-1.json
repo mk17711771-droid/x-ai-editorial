@@ -1,0 +1,76 @@
+{
+  "id": "20261106-1000-1",
+  "slot_key": "20261106-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "posted",
+  "created_at": "2026-11-06T01:17:30.943989+00:00",
+  "text": "半導体セクターの急落を受けて、$MUのHIP-3先物で何が起きてるのか。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/6(金) 10:17時点、価格$683.53（-11.37%）に対して出来高が約4.7億ドルまで急増し、資金調達率が年率-72.4%まで大きくマイナスに沈んでいる。",
+  "template": "半導体セクターの急落を受けて、${{f25.symbol}}のHIP-3先物で何が起きてるのか。\n\nHyperliquidの{{f25.market}}で{{f25.asof}}、価格{{f25.price}}（{{f25.change_pct}}）に対して出来高が{{f25.volume}}まで急増し、資金調達率が年率{{f25.funding_annual}}まで大きくマイナスに沈んでいる。\n\n米国株の前日比{{f25.us_change_pct}}の急落に追随する形で、オンチェーンのデリバティブ側でもショートの傾きが急速に強まっているのが気になるところ。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:MU:hip3_top",
+  "angle": "半導体セクターの急落を受け、マイクロン（MU）のHIP-3先物で大規模な出来高とマイナスの資金調達率が観測されている点に着目する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 93,
+  "fact_ids": [
+    "f25"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:MU:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: MU（HIP-3株式等先物） 24時間騰落率-11.37%, 価格683.53, 建玉182356262USD, 24時間出来高474450177USD, 資金調達率(年率)-72.4%（照合: 米国株の前日比-17.46%）",
+      "fields": {
+        "coin": "MU",
+        "symbol": "MU",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$683.53",
+        "change_pct": "-11.37%",
+        "oi": "約1.8億ドル",
+        "volume": "約4.7億ドル",
+        "funding_annual": "-72.4%",
+        "asof": "日本時間11/6(金) 10:17時点",
+        "asof_short": "10:17時点",
+        "us_change_pct": "-17.46%"
+      },
+      "raw": {
+        "mark": 683.53,
+        "change_pct": -11.367,
+        "oi_usd": 182356262,
+        "vol_usd": 474450177,
+        "funding_annual_pct": -72.43,
+        "us_change_pct": -17.459
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:MU",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:MU"
+      },
+      "asof": "2026-11-06T01:17:17.768815+00:00",
+      "confidence": "confirmed",
+      "id": "f25"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:MU"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2118513100869767503",
+  "posted_at": "2026-11-06T01:17:38.212980+00:00"
+}
