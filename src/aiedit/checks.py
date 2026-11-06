@@ -229,6 +229,17 @@ def drop_unsafe_sentences(template: str, facts: dict[str, dict]) -> tuple[str, l
 def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     """AIが数字を捏造していないか、存在しないデータを参照していないかを確認する。"""
     errors = []
+    # 「・QQQ … {{fN.change_pct}}」のfNが別の銘柄（AMD）だった（11/6 朝の長文でQQQにAMDの騰落率が入った）
+    for ln in template.split("\n"):
+        head = re.match(r"^[・\-]\s*\$?([A-Z][A-Z0-9.]{1,9})(?![A-Za-z])", ln.strip())
+        if not head:
+            continue
+        for fid, _ in PLACEHOLDER.findall(ln):
+            f = facts.get(fid, {}).get("fields", {})
+            sym = str(f.get("symbol") or f.get("coin") or "").split(":")[-1].upper()
+            if sym and sym != head.group(1) and sym not in head.group(1) and head.group(1) not in sym:
+                errors.append(f"「{head.group(1)}」の行に別の銘柄（{sym}・{fid}）の値を差し込んでいる")
+                break
     for label, fid, field in LABELED.findall(template):
         if LABEL_WRONG[label] in field:
             errors.append(f"「{label}」のあとに別の値（{fid}.{field}）を差し込んでいる")

@@ -1215,3 +1215,12 @@ def test_short_first_line_needs_number():
     assert any("1行目に数字がない" in e for e in checks.check_text(bad, "stock:MSFT:x"))
     ok = "$SOXLの資金調達率が年率-304.1%まで沈み込んでいる。\n\nショート側がロングへ莫大なコストを支払い続けている。"
     assert not any("1行目に数字がない" in e for e in checks.check_text(ok, "hl:SOXL:x"))
+
+
+def test_line_symbol_mismatch_rejected():
+    from aiedit import checks
+    facts = {"f1": {"fields": {"symbol": "AMD", "change_pct": "-17.26%"}}, "f2": {"fields": {"symbol": "QQQ", "price": "$647.05", "change_pct": "-6.49%"}}}
+    bad = "・QQQ 現物価格{{f2.price}}（前日終値比{{f1.change_pct}}）"
+    assert any("別の銘柄" in e for e in checks.check_template(bad, facts))
+    ok = "・QQQ 現物価格{{f2.price}}（前日終値比{{f2.change_pct}}）\n・AMD {{f1.change_pct}}"
+    assert not any("別の銘柄" in e for e in checks.check_template(ok, facts))
