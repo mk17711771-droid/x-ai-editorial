@@ -1,0 +1,1197 @@
+[
+  {
+    "key": "news:hyperliquid-strategies-fcm-cftc-filing",
+    "kind": "hl",
+    "asof": "2026-11-05T22:05:53.439737+00:00",
+    "expires_at": "2026-11-07T10:05:53.439750+00:00",
+    "status": "posted",
+    "first_reported_at": "2026-11-05T21:49:04Z",
+    "summary": "Hyperliquid Strategiesが米国内での無期限先物展開に向けてCFTC（商品先物取引委員会）へFCM（先物コミッション・マーチャント）登録を申請した。第3四半期は収益予想を上回る1,300万ドルの売上を記録し、HYPEの評価益により6億2,060万ドルの利益を計上している。伝統金融のインフラとオンチェーンを結ぶ動きとして市場の注目を集めている。",
+    "fields": {
+      "headline": "Hyperliquid Strategies、CFTCにFCM登録を申請",
+      "what": "米国内での無期限先物展開を目的としたCFTCへのFCM登録申請と、第3四半期の財務結果の発表。",
+      "status": "承認待ち",
+      "who": "Hyperliquid Strategies"
+    },
+    "raw": {},
+    "source": {
+      "name": "Crypto Briefing・The Defiant",
+      "url": ""
+    },
+    "category": "breaking_news",
+    "refresh": null,
+    "confidence": "confirmed",
+    "id": "f1"
+  },
+  {
+    "key": "news:hyperliquid-priority-fee-record-stock-selloff",
+    "kind": "hl",
+    "asof": "2026-11-06T03:35:46.636900+00:00",
+    "expires_at": "2026-11-07T15:35:46.636913+00:00",
+    "status": "posted",
+    "first_reported_at": "2026-11-06T00:53:00Z",
+    "summary": "日経平均株価や米半導体株の急落・売却の動きが波及する中、市場の混乱に伴ってHyperliquidにおけるデイリー優先手数料が過去最高を記録した。急激なボラティリティの拡大により、オンチェーン上の取引活動と手数料収益が急増している。",
+    "fields": {
+      "headline": "Hyperliquid、米株急落時に優先手数料の記録を更新",
+      "what": "米株セクターの急落を受け市場のボラティリティが急拡大し、デイリー優先手数料が新記録を樹立した。",
+      "status": "確定",
+      "who": "Hyperliquid"
+    },
+    "raw": {},
+    "source": {
+      "name": "www.tokenpost.com・CRYPTO TIMES",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5fcy11d283MldIRXpuamFCenpQRmpxV2ZIT3FhVE54UVk1OFkxckVrajlkaG9TRjVSTEZuQnRRN2ZJM01rVWZwZE1vcTRpWjN2Y1pRNlR5RnUwdw?oc=5"
+    },
+    "category": "breaking_news",
+    "refresh": null,
+    "confidence": "confirmed",
+    "id": "f2"
+  },
+  {
+    "key": "stock:SPY:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】SPY 価格733, 前日比-4.41%, 前日終値766.81, 高値765.97, 安値732.71",
+    "fields": {
+      "symbol": "SPY",
+      "price": "$733.00",
+      "change_pct": "-4.41%",
+      "prev_close": "$766.81",
+      "high": "$765.97",
+      "low": "$732.71",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 733,
+      "change_pct": -4.409,
+      "prev_close": 766.81
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "SPY"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SPY"
+    },
+    "asof": "2026-11-06T11:33:17.956713+00:00",
+    "confidence": "confirmed",
+    "id": "f3"
+  },
+  {
+    "key": "stock:QQQ:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】QQQ 価格647.05, 前日比-6.49%, 前日終値691.95, 高値683.65, 安値647.05",
+    "fields": {
+      "symbol": "QQQ",
+      "price": "$647.05",
+      "change_pct": "-6.49%",
+      "prev_close": "$691.95",
+      "high": "$683.65",
+      "low": "$647.05",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 647.05,
+      "change_pct": -6.489,
+      "prev_close": 691.95
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "QQQ"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    "asof": "2026-11-06T11:33:17.993954+00:00",
+    "confidence": "confirmed",
+    "id": "f4"
+  },
+  {
+    "key": "stock:SOXX:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】SOXX 価格131.9, 前日比-12.15%, 前日終値150.1367, 高値143.73, 安値130.745",
+    "fields": {
+      "symbol": "SOXX",
+      "price": "$131.90",
+      "change_pct": "-12.15%",
+      "prev_close": "$150.14",
+      "high": "$143.73",
+      "low": "$130.75",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 131.9,
+      "change_pct": -12.147,
+      "prev_close": 150.1367
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "SOXX"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    "asof": "2026-11-06T11:33:18.036044+00:00",
+    "confidence": "confirmed",
+    "id": "f5"
+  },
+  {
+    "key": "stock:NVDA:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】NVDA 価格181.6, 前日比-9.26%, 前日終値200.13, 高値196.25, 安値181.462",
+    "fields": {
+      "symbol": "NVDA",
+      "price": "$181.60",
+      "change_pct": "-9.26%",
+      "prev_close": "$200.13",
+      "high": "$196.25",
+      "low": "$181.46",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 181.6,
+      "change_pct": -9.259,
+      "prev_close": 200.13
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "NVDA"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    "asof": "2026-11-06T11:33:18.070298+00:00",
+    "confidence": "confirmed",
+    "id": "f6"
+  },
+  {
+    "key": "stock:AMD:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】AMD 価格404.4, 前日比-17.26%, 前日終値488.78, 高値456.2, 安値402.1",
+    "fields": {
+      "symbol": "AMD",
+      "price": "$404.40",
+      "change_pct": "-17.26%",
+      "prev_close": "$488.78",
+      "high": "$456.20",
+      "low": "$402.10",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 404.4,
+      "change_pct": -17.263,
+      "prev_close": 488.78
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "AMD"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    "asof": "2026-11-06T11:33:18.111644+00:00",
+    "confidence": "confirmed",
+    "id": "f7"
+  },
+  {
+    "key": "stock:AVGO:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】AVGO 価格291.53, 前日比-10.43%, 前日終値325.48, 高値314, 安値290.12",
+    "fields": {
+      "symbol": "AVGO",
+      "price": "$291.53",
+      "change_pct": "-10.43%",
+      "prev_close": "$325.48",
+      "high": "$314.00",
+      "low": "$290.12",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 291.53,
+      "change_pct": -10.431,
+      "prev_close": 325.48
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "AVGO"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AVGO"
+    },
+    "asof": "2026-11-06T11:33:18.148831+00:00",
+    "confidence": "confirmed",
+    "id": "f8"
+  },
+  {
+    "key": "stock:TSM:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】TSM 価格353.1, 前日比-10.78%, 前日終値395.75, 高値380.78, 安値351.1911",
+    "fields": {
+      "symbol": "TSM",
+      "price": "$353.10",
+      "change_pct": "-10.78%",
+      "prev_close": "$395.75",
+      "high": "$380.78",
+      "low": "$351.19",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 353.1,
+      "change_pct": -10.777,
+      "prev_close": 395.75
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "TSM"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/TSM"
+    },
+    "asof": "2026-11-06T11:33:18.186337+00:00",
+    "confidence": "confirmed",
+    "id": "f9"
+  },
+  {
+    "key": "stock:ASML:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】ASML 価格1356.65, 前日比-9.33%, 前日終値1496.3, 高値1443.48, 安値1355.05",
+    "fields": {
+      "symbol": "ASML",
+      "price": "$1,357",
+      "change_pct": "-9.33%",
+      "prev_close": "$1,496",
+      "high": "$1,443",
+      "low": "$1,355",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 1356.65,
+      "change_pct": -9.333,
+      "prev_close": 1496.3
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "ASML"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ASML"
+    },
+    "asof": "2026-11-06T11:33:18.223367+00:00",
+    "confidence": "confirmed",
+    "id": "f10"
+  },
+  {
+    "key": "stock:MU:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】MU 価格656.39, 前日比-17.46%, 前日終値795.23, 高値761.8105, 安値650",
+    "fields": {
+      "symbol": "MU",
+      "price": "$656.39",
+      "change_pct": "-17.46%",
+      "prev_close": "$795.23",
+      "high": "$761.81",
+      "low": "$650.00",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 656.39,
+      "change_pct": -17.459,
+      "prev_close": 795.23
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "MU"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    },
+    "asof": "2026-11-06T11:33:18.260495+00:00",
+    "confidence": "confirmed",
+    "id": "f11"
+  },
+  {
+    "key": "stock:ARM:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】ARM 価格166.72, 前日比-13.08%, 前日終値191.8, 高値175.83, 安値163.13",
+    "fields": {
+      "symbol": "ARM",
+      "price": "$166.72",
+      "change_pct": "-13.08%",
+      "prev_close": "$191.80",
+      "high": "$175.83",
+      "low": "$163.13",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 166.72,
+      "change_pct": -13.076,
+      "prev_close": 191.8
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "ARM"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    "asof": "2026-11-06T11:33:18.309254+00:00",
+    "confidence": "confirmed",
+    "id": "f12"
+  },
+  {
+    "key": "stock:INTC:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】INTC 価格52.25, 前日比-10.33%, 前日終値58.27, 高値56.73, 安値51.51",
+    "fields": {
+      "symbol": "INTC",
+      "price": "$52.25",
+      "change_pct": "-10.33%",
+      "prev_close": "$58.27",
+      "high": "$56.73",
+      "low": "$51.51",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 52.25,
+      "change_pct": -10.331,
+      "prev_close": 58.27
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "INTC"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/INTC"
+    },
+    "asof": "2026-11-06T11:33:18.361484+00:00",
+    "confidence": "confirmed",
+    "id": "f13"
+  },
+  {
+    "key": "stock:SMCI:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】SMCI 価格27.08, 前日比-8.51%, 前日終値29.6, 高値28.67, 安値25.81",
+    "fields": {
+      "symbol": "SMCI",
+      "price": "$27.08",
+      "change_pct": "-8.51%",
+      "prev_close": "$29.60",
+      "high": "$28.67",
+      "low": "$25.81",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 27.08,
+      "change_pct": -8.514,
+      "prev_close": 29.6
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "SMCI"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SMCI"
+    },
+    "asof": "2026-11-06T11:33:18.409684+00:00",
+    "confidence": "confirmed",
+    "id": "f14"
+  },
+  {
+    "key": "stock:MSFT:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】MSFT 価格535.93, 前日比-3.58%, 前日終値555.8, 高値557.62, 安値532.675",
+    "fields": {
+      "symbol": "MSFT",
+      "price": "$535.93",
+      "change_pct": "-3.58%",
+      "prev_close": "$555.80",
+      "high": "$557.62",
+      "low": "$532.67",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 535.93,
+      "change_pct": -3.575,
+      "prev_close": 555.8
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "MSFT"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MSFT"
+    },
+    "asof": "2026-11-06T11:33:18.487088+00:00",
+    "confidence": "confirmed",
+    "id": "f15"
+  },
+  {
+    "key": "stock:GOOGL:quote",
+    "kind": "stock",
+    "category": "quote",
+    "summary": "GOOGL 価格282.57, 前日比-2.20%, 前日終値288.93, 高値295.6, 安値277.07",
+    "fields": {
+      "symbol": "GOOGL",
+      "price": "$282.57",
+      "change_pct": "-2.20%",
+      "prev_close": "$288.93",
+      "high": "$295.60",
+      "low": "$277.07",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 282.57,
+      "change_pct": -2.201,
+      "prev_close": 288.93
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "GOOGL"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/GOOGL"
+    },
+    "asof": "2026-11-06T11:33:18.529537+00:00",
+    "confidence": "confirmed",
+    "id": "f16"
+  },
+  {
+    "key": "stock:META:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】META 価格605.08, 前日比-3.96%, 前日終値630, 高値634.99, 安値583.8",
+    "fields": {
+      "symbol": "META",
+      "price": "$605.08",
+      "change_pct": "-3.96%",
+      "prev_close": "$630.00",
+      "high": "$634.99",
+      "low": "$583.80",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 605.08,
+      "change_pct": -3.956,
+      "prev_close": 630
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "META"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/META"
+    },
+    "asof": "2026-11-06T11:33:18.568002+00:00",
+    "confidence": "confirmed",
+    "id": "f17"
+  },
+  {
+    "key": "stock:AMZN:quote",
+    "kind": "stock",
+    "category": "quote",
+    "summary": "AMZN 価格260.21, 前日比-2.19%, 前日終値266.03, 高値273.23, 安値252.27",
+    "fields": {
+      "symbol": "AMZN",
+      "price": "$260.21",
+      "change_pct": "-2.19%",
+      "prev_close": "$266.03",
+      "high": "$273.23",
+      "low": "$252.27",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 260.21,
+      "change_pct": -2.188,
+      "prev_close": 266.03
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "AMZN"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMZN"
+    },
+    "asof": "2026-11-06T11:33:18.619244+00:00",
+    "confidence": "confirmed",
+    "id": "f18"
+  },
+  {
+    "key": "stock:AAPL:quote",
+    "kind": "stock",
+    "category": "quote",
+    "summary": "AAPL 価格344.17, 前日比-1.53%, 前日終値349.51, 高値355.38, 安値342.06",
+    "fields": {
+      "symbol": "AAPL",
+      "price": "$344.17",
+      "change_pct": "-1.53%",
+      "prev_close": "$349.51",
+      "high": "$355.38",
+      "low": "$342.06",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 344.17,
+      "change_pct": -1.528,
+      "prev_close": 349.51
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "AAPL"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AAPL"
+    },
+    "asof": "2026-11-06T11:33:18.659732+00:00",
+    "confidence": "confirmed",
+    "id": "f19"
+  },
+  {
+    "key": "stock:TSLA:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】TSLA 価格343.69, 前日比-10.77%, 前日終値385.19, 高値374.3, 安値338.15",
+    "fields": {
+      "symbol": "TSLA",
+      "price": "$343.69",
+      "change_pct": "-10.77%",
+      "prev_close": "$385.19",
+      "high": "$374.30",
+      "low": "$338.15",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 343.69,
+      "change_pct": -10.774,
+      "prev_close": 385.19
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "TSLA"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/TSLA"
+    },
+    "asof": "2026-11-06T11:33:18.696061+00:00",
+    "confidence": "confirmed",
+    "id": "f20"
+  },
+  {
+    "key": "stock:PLTR:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】PLTR 価格154.99, 前日比-9.73%, 前日終値171.7, 高値167.25, 安値152.6",
+    "fields": {
+      "symbol": "PLTR",
+      "price": "$154.99",
+      "change_pct": "-9.73%",
+      "prev_close": "$171.70",
+      "high": "$167.25",
+      "low": "$152.60",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 154.99,
+      "change_pct": -9.732,
+      "prev_close": 171.7
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "PLTR"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/PLTR"
+    },
+    "asof": "2026-11-06T11:33:18.737117+00:00",
+    "confidence": "confirmed",
+    "id": "f21"
+  },
+  {
+    "key": "stock:COIN:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】COIN 価格136.82, 前日比-9.69%, 前日終値151.5, 高値151.58, 安値133.5",
+    "fields": {
+      "symbol": "COIN",
+      "price": "$136.82",
+      "change_pct": "-9.69%",
+      "prev_close": "$151.50",
+      "high": "$151.58",
+      "low": "$133.50",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 136.82,
+      "change_pct": -9.69,
+      "prev_close": 151.5
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "COIN"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/COIN"
+    },
+    "asof": "2026-11-06T11:33:18.777122+00:00",
+    "confidence": "confirmed",
+    "id": "f22"
+  },
+  {
+    "key": "stock:HOOD:big_move",
+    "kind": "stock",
+    "category": "big_move",
+    "summary": "【大きな値動き】HOOD 価格78.39, 前日比-10.32%, 前日終値87.41, 高値86.75, 安値75.51",
+    "fields": {
+      "symbol": "HOOD",
+      "price": "$78.39",
+      "change_pct": "-10.32%",
+      "prev_close": "$87.41",
+      "high": "$86.75",
+      "low": "$75.51",
+      "asof": "米国11/5終値",
+      "basis": "前日終値比"
+    },
+    "raw": {
+      "price": 78.39,
+      "change_pct": -10.319,
+      "prev_close": 87.41
+    },
+    "refresh": {
+      "type": "stock",
+      "symbol": "HOOD"
+    },
+    "source": {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/HOOD"
+    },
+    "asof": "2026-11-06T11:33:18.820741+00:00",
+    "confidence": "confirmed",
+    "id": "f23"
+  },
+  {
+    "key": "news:8725291",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・CNBC・11/06 20:00）: Montana votes to ban corporate political money. Next stop? Probably the Supreme Court",
+    "fields": {
+      "source": "CNBC",
+      "time": "11/6(金) 20:00"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "CNBC",
+      "url": "https://www.cnbc.com/2026/11/06/montana-initiative-194-corporate-spending.html"
+    },
+    "asof": "2026-11-06T11:00:01+00:00",
+    "confidence": "headline",
+    "id": "f24"
+  },
+  {
+    "key": "news:8724986",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 14:09）: Markets fret over growth and inflation, just as tech rout gains speed - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 14:09"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxONUh4V2hzQnA1Rk9zNTN6d3ZxcVZycGZQVmNUNjR3NmpXSmphZHh4LWZvaGJmTTVEWDdBc0lNWmZyUUp3MTFndk5uZl80Qnk0QXotRmo5S1g0MVhDejlwMjJlczNLVWY1eHRLZ1c4dExyOUNqdjJPaUFhVnE2WC16QUc4aTVfUlAwQUtKMktZYi1STk94cXBnSXF5OEQ?oc=5"
+    },
+    "asof": "2026-11-06T05:09:00+00:00",
+    "confidence": "headline",
+    "id": "f25"
+  },
+  {
+    "key": "news:8723763",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 11:49）: Oil set for sharp weekly drop but Middle East supply concerns provide floor - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 11:49"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOR0loTjAtWUlkbnpIR2huZE8zWWkxZHZIZlprNlQ5Z3BSaGUxcnE1ZDdqbXFuOHFpQVdrbzEyNnRUSGR4ZDh3SEpqQkpqX2NZa0JlZjEyZlp3RElJMFlhVDRLLTZ3MzRuV2NuTXR3SjhQejExMVR4eE10YThVcmJYaTdNYmt1SjJfeG10NlJRRFB1SFNQUlRSanFrYzBFUjlZNjBGMjhxSi1MZG1sd19kWGU0Ykt5bmR4by1B?oc=5"
+    },
+    "asof": "2026-11-06T02:49:00+00:00",
+    "confidence": "headline",
+    "id": "f26"
+  },
+  {
+    "key": "news:8723762",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 11:04）: As high oil prices curb demand, fresh signs of glut appear - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 11:04"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQem82aUU3S0NZWXNNcXlreW9xS3J0UnpIcDNCWVdqS3NyclRxSUtWenpmMEhoNmp6amtNSG5ZYmpuMzc1TElxODVYTmVSZURrYjJsbVliVXlVSzNtM3J5TDBMNl9sQ0JSTmxKQ2RxVzc4RnMxX2lIZGp3Y3kwTFdrUndLZkFMN0JkN2xLTi02dDZjT0x1Wk0ySTMxZlpNZWRmX1F6ZDhR?oc=5"
+    },
+    "asof": "2026-11-06T02:04:00+00:00",
+    "confidence": "headline",
+    "id": "f27"
+  },
+  {
+    "key": "news:8723360",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 08:20）: Hegseth vows to keep fighting from Pentagon, defends Iran war - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 08:20"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQR1JFX1RGSnZ0bDI2d1ZxN0JpSGpTN2NDT21RbEVMaXhyVGNfNDlHUkVsaU9pNGd1d1hzTjhFWmVxeGgzSmt5SDVEZHA2Q3RjUmVpaFdUSUVic3RBLTJNNms0U253VURJU3Uzdm5rSXRjMmtnSDRMbWhKaFA1R1dtRUZ0LUQxLTlieGhXUzA2QVVvU3BnRkhpLWJBekQzVm5YRVFzTzJxU2s?oc=5"
+    },
+    "asof": "2026-11-05T23:20:00+00:00",
+    "confidence": "headline",
+    "id": "f28"
+  },
+  {
+    "key": "news:8722112",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 08:07）: Midterms upended Congress but Trump still commands foreign policy - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 08:07"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaFdhWXVRZDFtNThlVzMtcUs4eU9nTlVZZHJHZzAxbUhKNVBYN3FoR0lSMHJNSzVkQVJQdXlaWTZQZXNwUzEwSkhxRjBwQ1dRZzIyMFV5QkhTaWRmWHVKWEdSQmhyR1NHaUhyMlpnV09GVkxPbmh5MTlUZEphbVE1OENqSXlNTmdEejZPbUlNdmdzRTBiRnVYTHNuWHVQUEo0VXFvODJTaElxQQ?oc=5"
+    },
+    "asof": "2026-11-05T23:07:42+00:00",
+    "confidence": "headline",
+    "id": "f29"
+  },
+  {
+    "key": "news:8722631",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・CNBC・11/06 06:57）: Nasdaq drops into correction territory — here’s what typically happens next",
+    "fields": {
+      "source": "CNBC",
+      "time": "11/6(金) 06:57"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "CNBC",
+      "url": "https://www.cnbc.com/2026/11/05/nasdaq-drops-into-correction-territory-heres-what-typically-happens-next.html"
+    },
+    "asof": "2026-11-05T21:57:33+00:00",
+    "confidence": "headline",
+    "id": "f30"
+  },
+  {
+    "key": "news:8722523",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・CNBC・11/06 06:20）: Retail traders dump the most stocks in a single day since Covid sell-off",
+    "fields": {
+      "source": "CNBC",
+      "time": "11/6(金) 06:20"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "CNBC",
+      "url": "https://www.cnbc.com/2026/11/05/retail-traders-dump-the-most-stocks-in-single-day-since-covid-sell-off.html"
+    },
+    "asof": "2026-11-05T21:20:03+00:00",
+    "confidence": "headline",
+    "id": "f31"
+  },
+  {
+    "key": "news:8721271",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 05:46）: Israel's president pledges to pick candidate on Sunday to form government - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 05:46"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxONXl2TW1pRDd2eEFya2FTU0pkOWJWd3lFZG1PdUdSNlBWTVR5VGp3UWtLb2E0Ri1iTmt1SWhRckdOVVhkN2ItZ1Y2QlhjT2NrcGR0ZTg3MklhcENpZUFOM0I1SDRYdTZwMFlYeGMwMTM1SWF5ZzNnd2h4ZnJ1bC1BZWhlNDlYUXM3S3FRdXVyR1p3SE5GYUFoMm1wSWRYSlBYY3NkcTBpVklrTnZibm51eURCWkszdHBtdU9vYQ?oc=5"
+    },
+    "asof": "2026-11-05T20:46:13+00:00",
+    "confidence": "headline",
+    "id": "f32"
+  },
+  {
+    "key": "news:8722639",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 05:38）: Across Tehran, billboards threaten Trump, Israel - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 05:38"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRE5zQkdSYVNyRXplTGY4dXF1VmFOTk5peGlUZzFJOHFGY0dudUVjQTZ4XzJ2VmNpc2ZLOTZTd0h2amVDYTBpXzVqWlBIaWJqcE9zRENCTjRfeE9hc0t3M2RuNDNnbHFDYUpjY1NRTTY0cW9oTWc0YmtXU3ZrZjZPTFIzNjhaaDBwRERBbWVUd3RnRDNUamc?oc=5"
+    },
+    "asof": "2026-11-05T20:38:09+00:00",
+    "confidence": "headline",
+    "id": "f33"
+  },
+  {
+    "key": "news:8723862",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 05:23）: Ukraine expects fresh support after US mid-terms, minister says - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 05:23"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQc3BIUVNjZ1pLUVNfRnZ6NDB3T1VIRktQUjJjUVl5OFEyRkpRVnlHSTFZQmFSOWxRek1VaHlrelFpUUtPU1BETUtTWUdBczBmNi1EUzlmbjV4SW1IRGlqOEE0NThVN2FCMjBnbkhzUURwVHFjTEctdUw4NUpsekNWZ0huLXNQT0lfbWt4UENrR0dVb0RGSHNlT0FtazRtRWZzYVd4MkcxTQ?oc=5"
+    },
+    "asof": "2026-11-05T20:23:43+00:00",
+    "confidence": "headline",
+    "id": "f34"
+  },
+  {
+    "key": "news:8722315",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・CNBC・11/06 05:06）: How Wall Street's postelection rally got obliterated — and what's next",
+    "fields": {
+      "source": "CNBC",
+      "time": "11/6(金) 05:06"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "CNBC",
+      "url": "https://www.cnbc.com/investingclub/2026/11/05/how-wall-streets-postelection-rally-got-obliterated-and-whats-next.html"
+    },
+    "asof": "2026-11-05T20:06:31+00:00",
+    "confidence": "headline",
+    "id": "f35"
+  },
+  {
+    "key": "news:8722320",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 04:48）: Iran sent nuclear proposal to the US via Qatar, senior Iranian official tells Reuters - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 04:48"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOSlJZVlphdWhPcDNGc1E5eDVNdDdMQkJNTXVDS0RYSVRqaC1tblFqQy1FekRQdldnV0FsMU5RdnVHNEI3UEZWMC1MY1l5cnRtcjBlcDlpUXdvX0hXbV91S1UxajV1TEx1VmJ2SzNLNElXSjc3YkdmYWw4VGNXZEl5NXR4RFNjRXBxeEZMLWpBT1Z5X2JRc3NEdkdMZDljQ0dkZXZRbzc3U1NmNkhnaFN5QzNhVmRzSmhsM0Q5VzU3Mm11OWZBa3M1V1lvaw?oc=5"
+    },
+    "asof": "2026-11-05T19:48:00+00:00",
+    "confidence": "headline",
+    "id": "f36"
+  },
+  {
+    "key": "news:8721588",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 04:34）: ConocoPhillips boosts dividend after beating estimates on higher oil prices - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 04:34"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPWmVXLVh5bHBBQWh5ZkFmckpmSkRNMVB2UGZwaDFuYVc1TE93TVZKcjl4c1lPSjVQb1doc1pJdm11S01RTGtwTDRUblRGVWp2M3hrb2ZLakV3R0poTGRjcmRyOEI2M2hNOEJFVllydTcyQ043WFVSRURkREJvZWxtaWJmaDJNRllnc3lPZllyM1JtMEhnY09NLWRpZzNuQWt0YU1jTFpCMlQ2UG1ZQVVtYVF5dUlZZw?oc=5"
+    },
+    "asof": "2026-11-05T19:34:08+00:00",
+    "confidence": "headline",
+    "id": "f37"
+  },
+  {
+    "key": "news:8721695",
+    "kind": "stock",
+    "category": "news_headline",
+    "summary": "ニュース見出し（未検証・Reuters・11/06 03:59）: Iran's security chief discusses regional, bilateral affairs with Putin - Reuters",
+    "fields": {
+      "source": "Reuters",
+      "time": "11/6(金) 03:59"
+    },
+    "raw": {},
+    "refresh": null,
+    "source": {
+      "name": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMkR5dEUwb2FoSDZrZ2p1UVF1T3VzbjEwSmhUWFBSeElYM0lHamE3SE0zYVViRHNqZ2piYTBjbWtoZThDU01hQmpYRFlwMHJTTFl3S2MyWnFoZWh1VTRCdEFvckJZcHktYjNpMWxLbU1vOGp3N0k1Yi1FZ0xTMXYzU2I2OHVZeGZrVXdiUmJOZ0phb2dLTjVGTTQ4aGF0WEdOLTVzS2RLQzBYNXR5?oc=5"
+    },
+    "asof": "2026-11-05T18:59:00+00:00",
+    "confidence": "headline",
+    "id": "f38"
+  },
+  {
+    "key": "hl:xyz:XYZ100:hip3_top",
+    "kind": "hl",
+    "category": "hip3_top",
+    "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-4.44%, 価格27032.0, 建玉333679889USD, 24時間出来高1315931480USD, 資金調達率(年率)+5.5%",
+    "fields": {
+      "coin": "XYZ100",
+      "symbol": "XYZ100",
+      "venue": "Hyperliquid",
+      "market": "株式先物（HIP-3）",
+      "price": "$27,032",
+      "change_pct": "-4.44%",
+      "oi": "約3.3億ドル",
+      "volume": "約13.2億ドル",
+      "funding_annual": "+5.5%",
+      "asof": "日本時間11/6(金) 20:33時点",
+      "asof_short": "20:33時点"
+    },
+    "raw": {
+      "mark": 27032.0,
+      "change_pct": -4.443,
+      "oi_usd": 333679889,
+      "vol_usd": 1315931480,
+      "funding_annual_pct": 5.48
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "xyz:XYZ100",
+      "dex": "xyz"
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    "asof": "2026-11-06T11:33:23.215998+00:00",
+    "confidence": "confirmed",
+    "id": "f39"
+  },
+  {
+    "key": "hl:xyz:SKHX:hip3_top",
+    "kind": "hl",
+    "category": "hip3_top",
+    "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率-7.04%, 価格875.41, 建玉342548500USD, 24時間出来高1010882330USD, 資金調達率(年率)+176.6%",
+    "fields": {
+      "coin": "SKHX",
+      "symbol": "SKHX",
+      "venue": "Hyperliquid",
+      "market": "株式先物（HIP-3）",
+      "price": "$875.41",
+      "change_pct": "-7.04%",
+      "oi": "約3.4億ドル",
+      "volume": "約10.1億ドル",
+      "funding_annual": "+176.6%",
+      "asof": "日本時間11/6(金) 20:33時点",
+      "asof_short": "20:33時点"
+    },
+    "raw": {
+      "mark": 875.41,
+      "change_pct": -7.041,
+      "oi_usd": 342548500,
+      "vol_usd": 1010882330,
+      "funding_annual_pct": 176.61
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "xyz:SKHX",
+      "dex": "xyz"
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    },
+    "asof": "2026-11-06T11:33:23.216030+00:00",
+    "confidence": "confirmed",
+    "id": "f40"
+  },
+  {
+    "key": "hl:xyz:SP500:hip3_top",
+    "kind": "hl",
+    "category": "hip3_top",
+    "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率-4.15%, 価格7379.4, 建玉389882806USD, 24時間出来高1005413071USD, 資金調達率(年率)+5.5%",
+    "fields": {
+      "coin": "SP500",
+      "symbol": "SP500",
+      "venue": "Hyperliquid",
+      "market": "株式先物（HIP-3）",
+      "price": "$7,379",
+      "change_pct": "-4.15%",
+      "oi": "約3.9億ドル",
+      "volume": "約10.1億ドル",
+      "funding_annual": "+5.5%",
+      "asof": "日本時間11/6(金) 20:33時点",
+      "asof_short": "20:33時点"
+    },
+    "raw": {
+      "mark": 7379.4,
+      "change_pct": -4.151,
+      "oi_usd": 389882806,
+      "vol_usd": 1005413071,
+      "funding_annual_pct": 5.48
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "xyz:SP500",
+      "dex": "xyz"
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    },
+    "asof": "2026-11-06T11:33:23.216056+00:00",
+    "confidence": "confirmed",
+    "id": "f41"
+  },
+  {
+    "key": "hl:xyz:NVDA:hip3_top",
+    "kind": "hl",
+    "category": "hip3_top",
+    "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-4.17%, 価格189.83, 建玉107897312USD, 24時間出来高343301378USD, 資金調達率(年率)+5.5%",
+    "fields": {
+      "coin": "NVDA",
+      "symbol": "NVDA",
+      "venue": "Hyperliquid",
+      "market": "株式先物（HIP-3）",
+      "price": "$189.83",
+      "change_pct": "-4.17%",
+      "oi": "約1.1億ドル",
+      "volume": "約3.4億ドル",
+      "funding_annual": "+5.5%",
+      "asof": "日本時間11/6(金) 20:33時点",
+      "asof_short": "20:33時点"
+    },
+    "raw": {
+      "mark": 189.83,
+      "change_pct": -4.17,
+      "oi_usd": 107897312,
+      "vol_usd": 343301378,
+      "funding_annual_pct": 5.48
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "xyz:NVDA",
+      "dex": "xyz"
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    },
+    "asof": "2026-11-06T11:33:23.216080+00:00",
+    "confidence": "confirmed",
+    "id": "f42"
+  },
+  {
+    "key": "hl:xyz:SMSN:hip3_top",
+    "kind": "hl",
+    "category": "hip3_top",
+    "summary": "HIP-3市場（株式先物など）の出来高上位: SMSN（HIP-3株式等先物） 24時間騰落率-4.50%, 価格143.77, 建玉44813515USD, 24時間出来高300025208USD, 資金調達率(年率)+103.4%",
+    "fields": {
+      "coin": "SMSN",
+      "symbol": "SMSN",
+      "venue": "Hyperliquid",
+      "market": "株式先物（HIP-3）",
+      "price": "$143.77",
+      "change_pct": "-4.50%",
+      "oi": "約4,481万ドル",
+      "volume": "約3.0億ドル",
+      "funding_annual": "+103.4%",
+      "asof": "日本時間11/6(金) 20:33時点",
+      "asof_short": "20:33時点"
+    },
+    "raw": {
+      "mark": 143.77,
+      "change_pct": -4.503,
+      "oi_usd": 44813515,
+      "vol_usd": 300025208,
+      "funding_annual_pct": 103.45
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "xyz:SMSN",
+      "dex": "xyz"
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SMSN"
+    },
+    "asof": "2026-11-06T11:33:23.216104+00:00",
+    "confidence": "confirmed",
+    "id": "f43"
+  }
+]

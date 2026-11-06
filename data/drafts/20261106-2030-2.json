@@ -1,0 +1,137 @@
+{
+  "id": "20261106-2030-2",
+  "slot_key": "20261106-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "superseded",
+  "created_at": "2026-11-06T11:40:09.457486+00:00",
+  "text": "ナスダック100の急落と、伝統金融へ接続する動きの裏でマーケットにどんな歪みが起きているのか。\n\n【いま起きてること】\n米国11/5終値で$QQQが-6.49%と大きく値を崩す中、Hyperliquid Strategiesが米国内での無期限先物展開を視野に入れてCFTCへFCM登録を申請した。オンチェーンと伝統金融のインフラを直結させる動きが進む一方で、デリバティブ市場では指数先物の需給に大きな揺らぎが生じている。\n\n【数字で見る】（日本時間11/6(金) 20:33時点）\n・QQQ 現物価格$647.05（前日終値比-6.49%、高値$683.65、安値$647.05）\n・ナスダック100（HIP-3株式等先物） 価格$27,032、24時間騰落率-4.44%、建玉約3.3億ドル、24時間出来高約13.2億ドル、資金調達率（年率）+5.5%\n\n【なぜ「歪み」なのか】\n指数が大幅な下落に見舞われる一方で、HIP-3のナスダック100先物側では年率+5.5%とプラスの資金調達率を維持しながら約3.3億ドルの建玉が残っている。現物が大きく売られてリスク回避が強まる中でも、デリバティブ側でロングのコスト負担が続いている構図は、急落後の自律反発を狙う買い手と下値を警戒する売り手が真っ向からぶつかっている表れとみている。個人的には、CFTCへのFCM登録という中長期の制度的な接続期待と、足元の激しい指数下落による需給のギャップが、次の大きな値動きのエネルギーになると推測している。\n\n【次に見るポイント】\n①QQQの現物価格が直近の安値圏から切り返せるかどうか\n②ナスダック100先物における年率+5.5%の金利の傾きと建玉約3.3億ドルの増減\n③Hyperliquid StrategiesのFCM登録申請（ステータス: 承認待ち）を巡る動向",
+  "template": "ナスダック100の急落と、伝統金融へ接続する動きの裏でマーケットにどんな歪みが起きているのか。\n\n【いま起きてること】\n{{f4.asof}}で${{f4.symbol}}が{{f4.change_pct}}と大きく値を崩す中、Hyperliquid Strategiesが米国内での無期限先物展開を視野に入れてCFTCへFCM登録を申請した。オンチェーンと伝統金融のインフラを直結させる動きが進む一方で、デリバティブ市場では指数先物の需給に大きな揺らぎが生じている。\n\n【数字で見る】（{{f39.asof}}）\n・${{f4.symbol}} 現物価格{{f4.price}}（{{f4.basis}}{{f4.change_pct}}、高値{{f4.high}}、安値{{f4.low}}）\n・${{f39.symbol}}（HIP-3株式等先物） 価格{{f39.price}}、24時間騰落率{{f39.change_pct}}、建玉{{f39.oi}}、24時間出来高{{f39.volume}}、資金調達率（年率）{{f39.funding_annual}}\n\n【なぜ「歪み」なのか】\n指数が大幅な下落に見舞われる一方で、HIP-3の{{f39.coin}}先物側では{{f39.funding_annual}}とプラスの資金調達率を維持しながら{{f39.oi}}の建玉が残っている。現物が大きく売られてリスク回避が強まる中でも、デリバティブ側でロングのコスト負担が続いている構図は、急落後の自律反発を狙う買い手と下値を警戒する売り手が真っ向からぶつかっている表れとみている。個人的には、CFTCへのFCM登録という中長期の制度的な接続期待と、足元の激しい指数下落による需給のギャップが、次の大きな値動きのエネルギーになると推測している。\n\n【次に見るポイント】\n①${{f4.symbol}}の現物価格が直近の安値圏から切り返せるかどうか\n②{{f39.coin}}先物における{{f39.funding_annual}}の金利の傾きと建玉{{f39.oi}}の増減\n③Hyperliquid StrategiesのFCM登録申請（ステータス: {{f1.status}}）を巡る動向",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:QQQ:big_move",
+  "angle": "ナスダック100の急落（-6.49%）を受けた市場の動揺と、Hyperliquid StrategiesによるCFTCへのFCM登録申請という伝統金融とオンチェーンの接続の動きを整理する",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 93,
+  "fact_ids": [
+    "f4",
+    "f39",
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "stock:QQQ:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】QQQ 価格647.05, 前日比-6.49%, 前日終値691.95, 高値683.65, 安値647.05",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$647.05",
+        "change_pct": "-6.49%",
+        "prev_close": "$691.95",
+        "high": "$683.65",
+        "low": "$647.05",
+        "asof": "米国11/5終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 647.05,
+        "change_pct": -6.489,
+        "prev_close": 691.95
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-06T11:33:17.993954+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-4.44%, 価格27032.0, 建玉333679889USD, 24時間出来高1315931480USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$27,032",
+        "change_pct": "-4.44%",
+        "oi": "約3.3億ドル",
+        "volume": "約13.2億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/6(金) 20:33時点",
+        "asof_short": "20:33時点"
+      },
+      "raw": {
+        "mark": 27032.0,
+        "change_pct": -4.443,
+        "oi_usd": 333679889,
+        "vol_usd": 1315931480,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-06T11:33:23.215998+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    },
+    {
+      "key": "news:hyperliquid-strategies-fcm-cftc-filing",
+      "kind": "hl",
+      "asof": "2026-11-05T22:05:53.439737+00:00",
+      "expires_at": "2026-11-07T10:05:53.439750+00:00",
+      "status": "posted",
+      "first_reported_at": "2026-11-05T21:49:04Z",
+      "summary": "Hyperliquid Strategiesが米国内での無期限先物展開に向けてCFTC（商品先物取引委員会）へFCM（先物コミッション・マーチャント）登録を申請した。第3四半期は収益予想を上回る1,300万ドルの売上を記録し、HYPEの評価益により6億2,060万ドルの利益を計上している。伝統金融のインフラとオンチェーンを結ぶ動きとして市場の注目を集めている。",
+      "fields": {
+        "headline": "Hyperliquid Strategies、CFTCにFCM登録を申請",
+        "what": "米国内での無期限先物展開を目的としたCFTCへのFCM登録申請と、第3四半期の財務結果の発表。",
+        "status": "承認待ち",
+        "who": "Hyperliquid Strategies"
+      },
+      "raw": {},
+      "source": {
+        "name": "Crypto Briefing・The Defiant",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Crypto Briefing・The Defiant",
+      "url": ""
+    }
+  ],
+  "needs_human": false
+}

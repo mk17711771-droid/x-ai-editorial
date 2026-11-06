@@ -1,0 +1,137 @@
+{
+  "id": "20261106-2030-3",
+  "slot_key": "20261106-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "superseded",
+  "created_at": "2026-11-06T11:40:15.451565+00:00",
+  "text": "半導体セクターが全面安となる中で、なぜ$NVDAの現物とHIP-3先物の間にここまで価格差が生まれているのか。\n\n【いま起きてること】\n米国11/5終値でNVDAの現物価格は$181.60（-9.26%）と大きく値を下げ、市場全体のボラティリティが急拡大した。この激しい売却の動きが波及する形となり、オンチェーン上の取引活動が急増。Hyperliquidではデイリー優先手数料が過去最高を記録するなど、デリバティブ市場全体で慌ただしい需給の偏りが生じている。\n\n【数字で見る】\n・NVDA 現物価格$181.60（-9.26%、前日終値$200.13、高値$196.25、安値$181.46）米国11/5終値\n・NVDA（HIP-3株式等先物） 価格$189.83、24時間騰落率-4.17%、建玉約1.1億ドル、24時間出来高約3.4億ドル、資金調達率年率+5.5% 日本時間11/6(金) 20:33時点\n\n【なぜ「歪み」なのか】\n現物が-9.26%と急落する一方で、HyperliquidのHIP-3先物側は価格$189.83と先物の方が現物より高く推移しており、資金調達率は年率+5.5%のプラス圏を維持している。現物の大幅な下落に対してデリバティブ側が完全に連動しきれていないこのギャップは、急激なボラティリティ拡大の中で参加者のポジション調整が追いついていない証拠とみている。個人的には、この現物と先物の価格差が収束していく過程で、さらなる清算の連鎖が起きる可能性があると推測している。\n\n【次に見るポイント】\n①現物市場の寄付き後に現物とHIP-3先物の価格差が縮小するかどうか\n②建玉約1.1億ドルの規模に大きな変化が出るか\n③資金調達率年率+5.5%のプラス幅が維持されるか",
+  "template": "半導体セクターが全面安となる中で、なぜ$NVDAの現物とHIP-3先物の間にここまで価格差が生まれているのか。\n\n【いま起きてること】\n{{f6.asof}}で${{f6.symbol}}の現物価格は{{f6.price}}（{{f6.change_pct}}）と大きく値を下げ、市場全体のボラティリティが急拡大した。この激しい売却の動きが波及する形となり、オンチェーン上の取引活動が急増。Hyperliquidではデイリー優先手数料が過去最高を記録するなど、デリバティブ市場全体で慌ただしい需給の偏りが生じている。\n\n【数字で見る】\n・${{f6.symbol}} 現物価格{{f6.price}}（{{f6.change_pct}}、前日終値{{f6.prev_close}}、高値{{f6.high}}、安値{{f6.low}}）{{f6.asof}}\n・${{f42.symbol}}（HIP-3株式等先物） 価格{{f42.price}}、24時間騰落率{{f42.change_pct}}、建玉{{f42.oi}}、24時間出来高{{f42.volume}}、資金調達率{{f42.funding_annual}} {{f42.asof}}\n\n【なぜ「歪み」なのか】\n現物が{{f6.change_pct}}と急落する一方で、HyperliquidのHIP-3先物側は価格{{f42.price}}と先物の方が現物より高く推移しており、資金調達率は{{f42.funding_annual}}のプラス圏を維持している。現物の大幅な下落に対してデリバティブ側が完全に連動しきれていないこのギャップは、急激なボラティリティ拡大の中で参加者のポジション調整が追いついていない証拠とみている。個人的には、この現物と先物の価格差が収束していく過程で、さらなる清算の連鎖が起きる可能性があると推測している。\n\n【次に見るポイント】\n①現物市場の寄付き後に現物とHIP-3先物の価格差が縮小するかどうか\n②建玉{{f42.oi}}の規模に大きな変化が出るか\n③資金調達率{{f42.funding_annual}}のプラス幅が維持されるか",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:NVDA:big_move",
+  "angle": "エヌビディア（-9.26%）の急落と、それに伴うボラティリティ拡大で過去最高を記録したHyperliquidの優先手数料のデータを結びつける",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f6",
+    "f42",
+    "f2"
+  ],
+  "facts": [
+    {
+      "key": "stock:NVDA:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】NVDA 価格181.6, 前日比-9.26%, 前日終値200.13, 高値196.25, 安値181.462",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$181.60",
+        "change_pct": "-9.26%",
+        "prev_close": "$200.13",
+        "high": "$196.25",
+        "low": "$181.46",
+        "asof": "米国11/5終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 181.6,
+        "change_pct": -9.259,
+        "prev_close": 200.13
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-11-06T11:33:18.070298+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-4.17%, 価格189.83, 建玉107897312USD, 24時間出来高343301378USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$189.83",
+        "change_pct": "-4.17%",
+        "oi": "約1.1億ドル",
+        "volume": "約3.4億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/6(金) 20:33時点",
+        "asof_short": "20:33時点"
+      },
+      "raw": {
+        "mark": 189.83,
+        "change_pct": -4.17,
+        "oi_usd": 107897312,
+        "vol_usd": 343301378,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-06T11:33:23.216080+00:00",
+      "confidence": "confirmed",
+      "id": "f42"
+    },
+    {
+      "key": "news:hyperliquid-priority-fee-record-stock-selloff",
+      "kind": "hl",
+      "asof": "2026-11-06T03:35:46.636900+00:00",
+      "expires_at": "2026-11-07T15:35:46.636913+00:00",
+      "status": "posted",
+      "first_reported_at": "2026-11-06T00:53:00Z",
+      "summary": "日経平均株価や米半導体株の急落・売却の動きが波及する中、市場の混乱に伴ってHyperliquidにおけるデイリー優先手数料が過去最高を記録した。急激なボラティリティの拡大により、オンチェーン上の取引活動と手数料収益が急増している。",
+      "fields": {
+        "headline": "Hyperliquid、米株急落時に優先手数料の記録を更新",
+        "what": "米株セクターの急落を受け市場のボラティリティが急拡大し、デイリー優先手数料が新記録を樹立した。",
+        "status": "確定",
+        "who": "Hyperliquid"
+      },
+      "raw": {},
+      "source": {
+        "name": "www.tokenpost.com・CRYPTO TIMES",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5fcy11d283MldIRXpuamFCenpQRmpxV2ZIT3FhVE54UVk1OFkxckVrajlkaG9TRjVSTEZuQnRRN2ZJM01rVWZwZE1vcTRpWjN2Y1pRNlR5RnUwdw?oc=5"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f2"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    },
+    {
+      "name": "www.tokenpost.com・CRYPTO TIMES",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5fcy11d283MldIRXpuamFCenpQRmpxV2ZIT3FhVE54UVk1OFkxckVrajlkaG9TRjVSTEZuQnRRN2ZJM01rVWZwZE1vcTRpWjN2Y1pRNlR5RnUwdw?oc=5"
+    }
+  ],
+  "needs_human": false
+}

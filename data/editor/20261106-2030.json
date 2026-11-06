@@ -1,0 +1,56 @@
+[
+  {
+    "fact_ids": [
+      "f7",
+      "f11",
+      "f40"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "半導体株の歴史的な急落（AMD -17.26%、MU -17.46%）と、HyperliquidのSKHX先物における資金調達率の歪みを対比させる",
+    "scores": {
+      "novelty": 19,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 96,
+    "reason": "半導体セクターの歴史的な全面安と、デリバティブ市場における金利の激しいねじれを的確に対比させているため。"
+  },
+  {
+    "fact_ids": [
+      "f4",
+      "f39",
+      "f1"
+    ],
+    "topic_key": "stock:QQQ:big_move",
+    "angle": "ナスダック100の急落（-6.49%）を受けた市場の動揺と、Hyperliquid StrategiesによるCFTCへのFCM登録申請という伝統金融とオンチェーンの接続の動きを整理する",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "主要指数の急落と、インフラ面での大きな動きを組み合わせてマクロな資金の流れを深く解説しているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f42",
+      "f2"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "エヌビディア（-9.26%）の急落と、それに伴うボラティリティ拡大で過去最高を記録したHyperliquidの優先手数料のデータを結びつける",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "主力銘柄の急落とオンチェーン活動の急増という具体的な事実を組み合わせ、市場の混乱を数字で立体的に捉えているため。"
+  }
+]
