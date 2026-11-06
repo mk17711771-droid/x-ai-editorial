@@ -1,8 +1,15 @@
 {
-  "at": "2026-11-06T03:36:02.157084+00:00",
-  "at_jst": "11/06 12:35",
+  "at": "2026-11-06T04:06:46.006932+00:00",
+  "at_jst": "11/06 13:06",
   "ok": false,
   "issues": [
+    {
+      "type": "missed_slot",
+      "slot": "1215",
+      "key": "20261106-1215",
+      "generated": true,
+      "within_grace": true
+    },
     {
       "type": "followup_candidates",
       "items": [
