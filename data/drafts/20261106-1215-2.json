@@ -1,0 +1,65 @@
+{
+  "id": "20261106-1215-2",
+  "slot_key": "20261106-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "pending",
+  "created_at": "2026-11-06T03:17:31.571950+00:00",
+  "text": "$QQQが-6.49%と大きく値を下げた局面で、何が起きているのか。\n\n米国11/5終値でQQQが$647.05（前日終値比-6.49%、安値$647.05）まで急落する中で、デリバティブ側との需給のズレが気になるところ。",
+  "template": "${{f3.symbol}}が{{f3.change_pct}}と大きく値を下げた局面で、何が起きているのか。\n\n{{f3.asof}}で{{f3.symbol}}が{{f3.price}}（{{f3.basis}}{{f3.change_pct}}、安値{{f3.low}}）まで急落する中で、デリバティブ側との需給のズレが気になるところ。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:QQQ:big_move",
+  "angle": "ナスダック100を追うQQQが6.49%安と急落した局面における市場全体の動向を整理する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 17
+  },
+  "total": 89,
+  "fact_ids": [
+    "f3"
+  ],
+  "facts": [
+    {
+      "key": "stock:QQQ:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】QQQ 価格647.05, 前日比-6.49%, 前日終値691.95, 高値683.65, 安値647.05",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$647.05",
+        "change_pct": "-6.49%",
+        "prev_close": "$691.95",
+        "high": "$683.65",
+        "low": "$647.05",
+        "asof": "米国11/5終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 647.05,
+        "change_pct": -6.489,
+        "prev_close": 691.95
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-06T03:16:37.447169+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    }
+  ],
+  "needs_human": false
+}

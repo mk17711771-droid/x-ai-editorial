@@ -1,0 +1,68 @@
+{
+  "id": "20261106-1215-1",
+  "slot_key": "20261106-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "stale",
+  "created_at": "2026-11-06T03:17:29.805434+00:00",
+  "text": "半導体セクターが大きく崩れる中で、$AMDだけが$404.40まで売り込まれて-17.26%を記録している。\n\n前日終値の$488.78からここまで急落した動き、個別株の売りとしてはかなり激しい部類に見える。",
+  "template": "半導体セクターが大きく崩れる中で、${{f6.symbol}}だけが{{f6.price}}まで売り込まれて{{f6.change_pct}}を記録している。\n\n前日終値の{{f6.prev_close}}からここまで急落した動き、個別株の売りとしてはかなり激しい部類に見える。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:AMD:big_move",
+  "angle": "半導体セクターの急落の中でAMDが17.26%安と際立って売られた動きに焦点を当てる。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f6"
+  ],
+  "facts": [
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格404.4, 前日比-17.26%, 前日終値488.78, 高値456.2, 安値402.1",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$404.40",
+        "change_pct": "-17.26%",
+        "prev_close": "$488.78",
+        "high": "$456.20",
+        "low": "$402.10",
+        "asof": "米国11/5終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 404.4,
+        "change_pct": -17.263,
+        "prev_close": 488.78
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-06T03:16:37.865451+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    }
+  ],
+  "needs_human": false,
+  "problems": [
+    "再確認のデータ取得に失敗: 429 Client Error: Too Many Requests for url: https://finnhub.io/api/v1/quote?symbol=AMD&token=dbfnbqpr01qiahua1b00dbfnbqpr01qiahua1b0g"
+  ]
+}
