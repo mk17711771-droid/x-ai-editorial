@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: data-writer
+  group: decide  # 削除・承認は他のデータ処理の順番待ちで取り消されないよう別の列にする（11/6 削除が取り消された）。保存は rebase で再試行する
   cancel-in-progress: false
 
 jobs:
