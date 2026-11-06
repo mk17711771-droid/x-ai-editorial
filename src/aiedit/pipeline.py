@@ -444,9 +444,12 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         return []
 
     # 全自動モードでは最高点の案を投稿する。未検証ニュースを含む案だけは人の承認に回す
-    auto_pick = next((d for d in drafts if not d["needs_human"]), None) if cfg["mode"] == "auto" else None
-    if auto_pick:
-        publish(auto_pick["id"], "approve", decided_by="auto")
+    auto_picks = [d for d in drafts if not d["needs_human"]] if cfg["mode"] == "auto" else []
+    if auto_picks:
+        # 1案目が投稿直前の確認で使えなくなったら、次の案を出す（11/6 12時 1案目が「データが古い」で止まり、2案目が残ったまま枠を落とした）
+        for d in auto_picks:
+            if publish(d["id"], "approve", decided_by="auto") not in ("stale", "rejected"):
+                break
     else:
         line.send_approval_request(drafts, cfg["limits"]["draft_expiry_hours"])
     return drafts
@@ -658,8 +661,9 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
             )
             return "refreshed"
         _close(draft, "stale", problems=problems)
-        line.notify("投稿直前の確認で問題が見つかったため投稿を中止しました:\n- " + "\n- ".join(problems)
-                    + "\n\n値動きで投稿の切り口が成り立たなくなったため、作り直しも見送りました。")
+        if decided_by != "auto":  # 自動投稿では次の案に回すので、LINEは使わない（見回りが枠の投稿漏れを見る）
+            line.notify("投稿直前の確認で問題が見つかったため投稿を中止しました:\n- " + "\n- ".join(problems)
+                        + "\n\n値動きで投稿の切り口が成り立たなくなったため、作り直しも見送りました。")
         return "stale"
 
     media_ids = _attach_chart(draft)
