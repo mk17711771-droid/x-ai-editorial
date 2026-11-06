@@ -1,0 +1,168 @@
+{
+  "id": "20261106-2030-4",
+  "slot_key": "20261106-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "superseded",
+  "created_at": "2026-11-06T12:25:32.676869+00:00",
+  "text": "半導体が全面安となる中で、なぜオンチェーンの取引活動と手数料だけが過去最高を更新したのか\n\n【いま起きてること】\n米国11/5終値でナスダック100や半導体セクターに強烈な売りが走り、現物市場ではパニック的な下落となった。その激しいボラティリティの拡大に伴い、Hyperliquidにおけるデイリー優先手数料が新記録を樹立している。市場の混乱がオンチェーンの取引活動を急増させている状況だ。\n\n【数字で見る】（米国11/5終値時点）\n・$QQQ 価格$647.05（前日終値$691.95、高値$683.65、安値$647.05、前日終値比-6.49%）\n・SOXX 価格$131.90（前日終値$150.14、高値$143.73、安値$130.75、前日終値比-12.15%）\n・NVDA 価格$181.60（前日終値$200.13、高値$196.25、安値$181.46、前日終値比-9.26%）\n\n【なぜ「歪み」なのか】\n現物がこれほどの規模で投げ売りされ、主要指数や半導体セクターが二桁近い歴史的な下落を記録する一方で、オンチェーン側ではボラティリティの急拡大を背景に取引と手数料が過去最高を叩き出している。伝統金融のパニック売りがそのままブロックチェーン上のデリバティブ活動を活性化させるこの構造は、急激な値動きに対応するためのヘッジや強制清算が集中している表れとみている。個人的には、この現物の圧倒的な下落圧力がオンチェーンの需給バランスにさらなる歪みをもたらす可能性があると推測している。\n\n【次に見るポイント】\n①現物市場の次セッションにおける売り圧力が継続するかどうか\n②Hyperliquidのデイリー優先手数料の推移とオンチェーンの取引活動の過熱感\n③主要な半導体・指数銘柄におけるボラティリティの収束タイミング",
+  "template": "半導体が全面安となる中で、なぜオンチェーンの取引活動と手数料だけが過去最高を更新したのか\n\n【いま起きてること】\n{{f4.asof}}でナスダック100や半導体セクターに強烈な売りが走り、現物市場ではパニック的な下落となった。その激しいボラティリティの拡大に伴い、Hyperliquidにおけるデイリー優先手数料が新記録を樹立している。市場の混乱がオンチェーンの取引活動を急増させている状況だ。\n\n【数字で見る】（{{f4.asof}}時点）\n・${{f4.symbol}} 価格{{f4.price}}（前日終値{{f4.prev_close}}、高値{{f4.high}}、安値{{f4.low}}、前日終値比{{f4.change_pct}}）\n・${{f5.symbol}} 価格{{f5.price}}（前日終値{{f5.prev_close}}、高値{{f5.high}}、安値{{f5.low}}、前日終値比{{f5.change_pct}}）\n・${{f6.symbol}} 価格{{f6.price}}（前日終値{{f6.prev_close}}、高値{{f6.high}}、安値{{f6.low}}、前日終値比{{f6.change_pct}}）\n\n【なぜ「歪み」なのか】\n現物がこれほどの規模で投げ売りされ、主要指数や半導体セクターが二桁近い歴史的な下落を記録する一方で、オンチェーン側ではボラティリティの急拡大を背景に取引と手数料が過去最高を叩き出している。伝統金融のパニック売りがそのままブロックチェーン上のデリバティブ活動を活性化させるこの構造は、急激な値動きに対応するためのヘッジや強制清算が集中している表れとみている。個人的には、この現物の圧倒的な下落圧力がオンチェーンの需給バランスにさらなる歪みをもたらす可能性があると推測している。\n\n【次に見るポイント】\n①現物市場の次セッションにおける売り圧力が継続するかどうか\n②Hyperliquidのデイリー優先手数料の推移とオンチェーンの取引活動の過熱感\n③主要な半導体・指数銘柄におけるボラティリティの収束タイミング",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:QQQ:big_move",
+  "angle": "ナスダックの急落（-6.49%）と半導体指数（SOXX -12.15%）の暴落に伴う市場の混乱が、Hyperliquid上のデイリー優先手数料を過去最高へと押し上げた構造を読み解く。",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f4",
+    "f5",
+    "f6",
+    "f2"
+  ],
+  "facts": [
+    {
+      "key": "stock:QQQ:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】QQQ 価格647.05, 前日比-6.49%, 前日終値691.95, 高値683.65, 安値647.05",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$647.05",
+        "change_pct": "-6.49%",
+        "prev_close": "$691.95",
+        "high": "$683.65",
+        "low": "$647.05",
+        "asof": "米国11/5終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 647.05,
+        "change_pct": -6.489,
+        "prev_close": 691.95
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-06T12:21:19.587316+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格131.9, 前日比-12.15%, 前日終値150.1367, 高値143.73, 安値130.745",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$131.90",
+        "change_pct": "-12.15%",
+        "prev_close": "$150.14",
+        "high": "$143.73",
+        "low": "$130.75",
+        "asof": "米国11/5終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 131.9,
+        "change_pct": -12.147,
+        "prev_close": 150.1367
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-06T12:21:19.686183+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    },
+    {
+      "key": "stock:NVDA:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】NVDA 価格181.6, 前日比-9.26%, 前日終値200.13, 高値196.25, 安値181.462",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$181.60",
+        "change_pct": "-9.26%",
+        "prev_close": "$200.13",
+        "high": "$196.25",
+        "low": "$181.46",
+        "asof": "米国11/5終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 181.6,
+        "change_pct": -9.259,
+        "prev_close": 200.13
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-11-06T12:21:19.778828+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "news:hyperliquid-priority-fee-record-stock-selloff",
+      "kind": "hl",
+      "asof": "2026-11-06T03:35:46.636900+00:00",
+      "expires_at": "2026-11-07T15:35:46.636913+00:00",
+      "status": "posted",
+      "first_reported_at": "2026-11-06T00:53:00Z",
+      "summary": "日経平均株価や米半導体株の急落・売却の動きが波及する中、市場の混乱に伴ってHyperliquidにおけるデイリー優先手数料が過去最高を記録した。急激なボラティリティの拡大により、オンチェーン上の取引活動と手数料収益が急増している。",
+      "fields": {
+        "headline": "Hyperliquid、米株急落時に優先手数料の記録を更新",
+        "what": "米株セクターの急落を受け市場のボラティリティが急拡大し、デイリー優先手数料が新記録を樹立した。",
+        "status": "確定",
+        "who": "Hyperliquid"
+      },
+      "raw": {},
+      "source": {
+        "name": "www.tokenpost.com・CRYPTO TIMES",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5fcy11d283MldIRXpuamFCenpQRmpxV2ZIT3FhVE54UVk1OFkxckVrajlkaG9TRjVSTEZuQnRRN2ZJM01rVWZwZE1vcTRpWjN2Y1pRNlR5RnUwdw?oc=5"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f2"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "www.tokenpost.com・CRYPTO TIMES",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5fcy11d283MldIRXpuamFCenpQRmpxV2ZIT3FhVE54UVk1OFkxckVrajlkaG9TRjVSTEZuQnRRN2ZJM01rVWZwZE1vcTRpWjN2Y1pRNlR5RnUwdw?oc=5"
+    }
+  ],
+  "needs_human": false
+}
