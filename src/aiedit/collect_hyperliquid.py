@@ -107,13 +107,24 @@ def _snapshot_oi(markets: list[dict]) -> dict[str, float]:
     return best["oi"] if best else {}
 
 
+# HIP-3には株式だけでなく商品の先物もある（11/6 天然ガスを「株式先物」と書いた）
+COMMODITIES = {"NATGAS", "GOLD", "SILVER", "BRENTOIL", "CL", "WTI", "OIL", "COPPER", "PLATINUM", "PALLADIUM", "CORN",
+               "WHEAT", "SOYBEAN", "DIESEL", "URANIUM", "COCOA", "COFFEE", "SUGAR", "GASOLINE", "XAU", "XAG"}
+
+
+def _market_label(m: dict) -> str:
+    if not m["dex"]:
+        return "無期限先物"
+    return "商品先物（HIP-3）" if display_name(m).upper() in COMMODITIES else "株式先物（HIP-3）"
+
+
 def _fact(m: dict, category: str, summary: str, extra_fields: dict | None = None, extra_raw: dict | None = None) -> dict:
     asof = now_utc()
     fields = {
         "coin": display_name(m),
         "symbol": display_name(m),  # 米国株の材料と同じ名前でも書けるように（AIの書き間違いを減らす）
         "venue": "Hyperliquid",
-        "market": "株式先物（HIP-3）" if m["dex"] else "無期限先物",
+        "market": _market_label(m),
         "price": fmt.usd_price(m["mark"]),
         "change_pct": fmt.pct(m["change_pct"]),
         "oi": fmt.usd_amount_ja(m["oi_usd"]),

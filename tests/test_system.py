@@ -1247,3 +1247,9 @@ def test_mixed_symbols_in_one_line_and_field_names_rejected():
     facts = {"f5": {"fields": {"symbol": "SOXX", "price": "$131.90"}}, "f14": {"fields": {"symbol": "SOXL", "high": "$28.67"}}}
     assert any("別々の銘柄" in e for e in checks.check_template("・${{f5.symbol}} 価格{{f5.price}}、高値{{f14.high}}", facts))
     assert any("項目名" in e for e in checks.check_text("$AMDが急落。価格$404.40（-17.26%、asof: 米国11/5終値）。売りが続く。", "stock:AMD:x", "long"))
+
+
+def test_commodity_market_label():
+    from aiedit import collect_hyperliquid as ch
+    assert ch._market_label({"coin": "xyz:NATGAS", "dex": "xyz"}) == "商品先物（HIP-3）"
+    assert ch._market_label({"coin": "xyz:NVDA", "dex": "xyz"}) == "株式先物（HIP-3）"
