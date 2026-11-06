@@ -1,0 +1,148 @@
+{
+  "id": "20261106-2030-6",
+  "slot_key": "20261106-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "posted",
+  "created_at": "2026-11-06T12:36:35.647867+00:00",
+  "text": "市場全体が急落する中で、なぜ$QQQとNVDAの下げがここまで深くなったのか。\n\n【いま起きてること】\n米国11/5終値の市場ではインフレや成長への懸念が意識され、主要な指数や半導体セクターに強い下落圧力がかかった。QQQの現物価格は$647.05まで売り込まれ、個別でもNVDAが$181.60と大きく値を下げる展開となっている。こうした現物の急落と連動して、HyperliquidのHIP-3株式先物市場でも激しい値動きが生じている。\n\n【数字で見る】（日本時間11/6(金) 21:35時点）\n・QQQ 現物価格$647.05（前日終値比-6.49%、高値$683.65、安値$647.05、基準は前日終値比）\n・NVDA 現物価格$181.60（前日終値比-9.26%、高値$196.25、安値$181.46、基準は前日終値比）\n・ナスダック100（株式先物（HIP-3）） 価格$27,028、24時間騰落率-4.15%、建玉約3.4億ドル、24時間出来高約13.2億ドル、資金調達率（年率）+8.7%\n\n【なぜ「歪み」なのか】\n現物市場でQQQが-6.49%と急落する一方で、HIP-3のナスダック100先物側では-4.15%の下げにとどまりつつ、資金調達率が年率+8.7%のプラスを維持している。現物がこれほどのスピードで売られているにもかかわらず、デリバティブ側で極端なパニック売りやショートの傾きが見られないのは興味深い。個人的には、急落局面でありながらロング側のコスト負担が残っているこの構造が、さらなるボラティリティを産む引き金になるとみている。\n\n【次に見るポイント】\n①現物市場の寄り付き後にQQQの安値圏での値固めが進むか\n②HIP-3のナスダック100における建玉約3.4億ドルと出来高約13.2億ドルの増減\n③プラス圏で推移する資金調達率年率+8.7%の推移",
+  "template": "市場全体が急落する中で、なぜ`${{f4.symbol}}`と`${{f6.symbol}}`の下げがここまで深くなったのか。\n\n【いま起きてること】\n{{f4.asof}}の市場ではインフレや成長への懸念が意識され、主要な指数や半導体セクターに強い下落圧力がかかった。`${{f4.symbol}}`の現物価格は{{f4.price}}まで売り込まれ、個別でも`${{f6.symbol}}`が{{f6.price}}と大きく値を下げる展開となっている。こうした現物の急落と連動して、HyperliquidのHIP-3株式先物市場でも激しい値動きが生じている。\n\n【数字で見る】（{{f39.asof}}）\n・${{f4.symbol}} 現物価格{{f4.price}}（前日終値比{{f4.change_pct}}、高値{{f4.high}}、安値{{f4.low}}、基準は{{f4.basis}}）\n・`${{f6.symbol}}` 現物価格{{f6.price}}（前日終値比{{f6.change_pct}}、高値{{f6.high}}、安値{{f6.low}}、基準は{{f6.basis}}）\n・${{f39.coin}}（{{f39.market}}） 価格{{f39.price}}、24時間騰落率{{f39.change_pct}}、建玉{{f39.oi}}、24時間出来高{{f39.volume}}、資金調達率（年率）{{f39.funding_annual}}\n\n【なぜ「歪み」なのか】\n現物市場で`${{f4.symbol}}`が{{f4.change_pct}}と急落する一方で、HIP-3の`${{f39.coin}}`先物側では{{f39.change_pct}}の下げにとどまりつつ、資金調達率が{{f39.funding_annual}}のプラスを維持している。現物がこれほどのスピードで売られているにもかかわらず、デリバティブ側で極端なパニック売りやショートの傾きが見られないのは興味深い。個人的には、急落局面でありながらロング側のコスト負担が残っているこの構造が、さらなるボラティリティを産む引き金になるとみている。\n\n【次に見るポイント】\n①現物市場の寄り付き後に`${{f4.symbol}}`の安値圏での値固めが進むか\n②HIP-3の`${{f39.coin}}`における建玉{{f39.oi}}と出来高{{f39.volume}}の増減\n③プラス圏で推移する資金調達率{{f39.funding_annual}}の推移",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:QQQ:big_move",
+  "angle": "ナスダック100（QQQ -6.49%）およびエヌビディア（NVDA -9.26%）の急落局面における、HIP-3指数先物（XYZ100）の需給とインフレ・成長懸念の影響",
+  "scores": {
+    "novelty": 18,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 94,
+  "fact_ids": [
+    "f4",
+    "f6",
+    "f39"
+  ],
+  "facts": [
+    {
+      "key": "stock:QQQ:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】QQQ 価格647.05, 前日比-6.49%, 前日終値691.95, 高値683.65, 安値647.05",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$647.05",
+        "change_pct": "-6.49%",
+        "prev_close": "$691.95",
+        "high": "$683.65",
+        "low": "$647.05",
+        "asof": "米国11/5終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 647.05,
+        "change_pct": -6.489,
+        "prev_close": 691.95
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-06T12:35:28.613083+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "stock:NVDA:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】NVDA 価格181.6, 前日比-9.26%, 前日終値200.13, 高値196.25, 安値181.462",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$181.60",
+        "change_pct": "-9.26%",
+        "prev_close": "$200.13",
+        "high": "$196.25",
+        "low": "$181.46",
+        "asof": "米国11/5終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 181.6,
+        "change_pct": -9.259,
+        "prev_close": 200.13
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-11-06T12:35:28.812919+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-4.15%, 価格27028.0, 建玉336562386USD, 24時間出来高1318857059USD, 資金調達率(年率)+8.7%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$27,028",
+        "change_pct": "-4.15%",
+        "oi": "約3.4億ドル",
+        "volume": "約13.2億ドル",
+        "funding_annual": "+8.7%",
+        "asof": "日本時間11/6(金) 21:35時点",
+        "asof_short": "21:35時点"
+      },
+      "raw": {
+        "mark": 27028.0,
+        "change_pct": -4.153,
+        "oi_usd": 336562386,
+        "vol_usd": 1318857059,
+        "funding_annual_pct": 8.69
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-06T12:35:34.675093+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2118683975615230020",
+  "posted_at": "2026-11-06T12:36:37.920946+00:00"
+}

@@ -3,20 +3,54 @@
     "fact_ids": [
       "f7",
       "f11",
-      "f5",
-      "f40",
-      "f1"
+      "f40"
     ],
     "topic_key": "stock:AMD:big_move",
-    "angle": "半導体セクターの歴史的な急落（AMD-17.26%、MU-17.46%）とHyperliquidでのCFTC向けFCM登録申請の動きを対比し、伝統金融とオンチェーンの接続が進む中でオンチェーン取引活動（優先手数料過去最高）がどう加熱しているかを構造解説する。",
+    "angle": "半導体セクターの歴史的な急落（AMD -17.26%、MU -17.46%）と、HyperliquidのHIP-3先物（SKHXなど）における建玉・資金調達率の歪みを交えた構造解説",
     "scores": {
-      "novelty": 18,
-      "interest": 19,
-      "evidence": 19,
+      "novelty": 19,
+      "interest": 20,
+      "evidence": 20,
       "utility": 18,
       "insight": 19
     },
-    "total": 93,
-    "reason": "半導体の歴史的急落という強烈な事実と、Hyperliquidの制度的進展・オンチェーンの活況を組み合わせ、市場の歪みを深い視点で解説しているため。"
+    "total": 96,
+    "reason": "半導体株の歴史的暴落と、それに対するオンチェーンデリバティブ側の資金調達率や建玉の動向を正確な数値で結びつけているため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f2",
+      "f41"
+    ],
+    "topic_key": "news:hyperliquid-strategies-fcm-cftc-filing",
+    "angle": "市場の混乱と過去最高の優先手数料を記録する中でのHyperliquidによるCFTCへのFCM登録申請と、伝統金融・オンチェーン間の資金フローの分析",
+    "scores": {
+      "novelty": 20,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 19,
+      "insight": 18
+    },
+    "total": 95,
+    "reason": "最新の規制対応と手数料の記録的急増という大きな変化を、Hyperliquidの成長文脈に沿って深く考察しているため。"
+  },
+  {
+    "fact_ids": [
+      "f4",
+      "f6",
+      "f39"
+    ],
+    "topic_key": "stock:QQQ:big_move",
+    "angle": "ナスダック100（QQQ -6.49%）およびエヌビディア（NVDA -9.26%）の急落局面における、HIP-3指数先物（XYZ100）の需給とインフレ・成長懸念の影響",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 94,
+    "reason": "主要インデックスと代表的半導体銘柄の大幅下落という市場の全体像を、具体的な数値とHIP-3先物の金利・建玉データから鋭く読み解いているため。"
   }
 ]
