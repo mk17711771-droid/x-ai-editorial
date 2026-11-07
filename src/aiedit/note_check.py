@@ -187,12 +187,22 @@ def promote_text(meta: dict, url: str) -> str:
     """公開したnote記事をXで知らせる文（数字はタイトル・リード文＝実データから作った原稿のものだけ）。"""
     md_path = store.DATA_DIR / f"note_articles/{meta['id']}/article.md"
     body = md_path.read_text(encoding="utf-8") if md_path.exists() else ""
-    lead = next((ln.strip() for ln in body.splitlines()[1:] if ln.strip() and not ln.startswith("#")), "")
-    lead = re.sub(r"\*\*", "", lead).split("。")[0] + "。"
+    lines = [re.sub(r"\*\*", "", ln.strip()) for ln in body.splitlines()[1:]
+             if ln.strip() and not ln.startswith(("#", "!", "<", "|", "※"))]
+    sentences = [x.strip() + "。" for ln in lines for x in ln.split("。") if x.strip()]
+    # 1行目は記事の中で一番強い「数字の入った一文」（Xで伸びる型＝大きな名前＋数字1つ。11/7 定型の書き出しの紹介は22表示）
+    hook = next((x for x in sentences if re.search(r"\d[\d.,]*\s*(%|％|ドル|倍|億|万)", x) and 15 <= len(x) <= 70), "")
+    hook = re.sub(r"^(また|さらに|一方で|一方|そして|なお)、", "", hook)
+    lead = sentences[0] if sentences else ""
     fallback = "Xでは書ききれない数字と図を、記事にまとめました。"
-    for body_line in (lead, fallback, ""):
-        text = f"noteで深掘りしました。\n\n「{meta['title']}」\n\n" + (f"{body_line}\n\n" if body_line else "") + url
-        if checks.weighted_length(text) <= 280:  # 文の途中で切らず、収まらなければ定型の一文にする
+    cands = []
+    if hook:
+        cands += [f"{hook}\n\nこの理由をnoteで深掘りしました。\n\n「{meta['title']}」\n\n{url}",
+                  f"{hook}\n\nnoteで深掘りしました。\n\n{url}"]
+    cands += [f"noteで深掘りしました。\n\n「{meta['title']}」\n\n" + (f"{b}\n\n" if b else "") + url
+              for b in (lead, fallback, "")]
+    for text in cands:
+        if checks.weighted_length(text) <= 280:  # 文の途中で切らず、収まらなければ次の形にする
             return text
     return text
 

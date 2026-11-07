@@ -1325,3 +1325,11 @@ def test_ai_reused_story_key_for_different_event_is_split(isolated, monkeypatch)
     monkeypatch.setattr(news_watch, "_reported_earlier", lambda s: False)
     news_watch.run({"items": [{"title": "Kalshi launches stock perps", "source": "FinanceFeeds"}]})
     assert not store.read_jsonl("news/followups.jsonl")  # 続報として捨てず、新しい話題として扱う
+
+
+def test_note_promo_leads_with_number(isolated):
+    """11/7: 「noteで深掘りしました」で始まる紹介は22表示。1行目は記事の中の数字の一文にする。"""
+    from aiedit import note_check
+    store.write_text("note_articles/a/article.md", "# 題\n\n今週は大きく動いた1週間でした。\n\nまた、SKHXの資金調達率は年率+138.1%のロング過熱を示しています。")
+    t = note_check.promote_text({"id": "a", "title": "題"}, "https://note.com/x")
+    assert t.startswith("SKHXの資金調達率は年率+138.1%") and t.endswith("https://note.com/x")
