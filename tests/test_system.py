@@ -1305,3 +1305,23 @@ def test_posted_news_not_reused_in_regular_slot_after_12h(monkeypatch):
     keys = [f["key"] for f in pipeline.news_facts()]
     assert keys == ["news:new"]
     assert {f["key"] for f in pipeline.news_facts(weekly=True)} == {"news:old", "news:new"}
+
+
+def test_ai_reused_story_key_for_different_event_is_split(isolated, monkeypatch):
+    """11/7: KalshiのCFTC承認・株式Perp開始を、AIがHyperliquid StrategiesのFCM申請の話題にまとめた。"""
+    from datetime import timedelta
+    from aiedit import news_watch
+    from aiedit.common import now_utc
+    t = (now_utc() - timedelta(hours=30)).isoformat()
+    store.write_json("news_facts.json", [{"key": "news:hls-fcm", "asof": t, "status": "posted", "summary": "",
+                                          "fields": {"headline": "Hyperliquid Strategies、CFTCへFCM登録を申請"}}])
+    store.write_json("news/stories.json", {"hls-fcm": {"at": t, "posts": 1, "posted_or_queued": True, "last_post_at": t,
+                                                       "headline": "Hyperliquid Strategies、CFTCへFCM登録を申請"}})
+    monkeypatch.setattr(news_watch, "triage", lambda *a: [{"story_key": "hls-fcm", "headline": "KalshiがCFTC承認を受けて株式無期限先物をローンチ",
+                        "importance": 5, "buzz_fit": 5, "in_scope": True, "fresh": True, "new_development": True,
+                        "sources": ["FinanceFeeds"]}])
+    monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    monkeypatch.setattr(news_watch, "_reported_earlier", lambda s: False)
+    news_watch.run({"items": [{"title": "Kalshi launches stock perps", "source": "FinanceFeeds"}]})
+    assert not store.read_jsonl("news/followups.jsonl")  # 続報として捨てず、新しい話題として扱う

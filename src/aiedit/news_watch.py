@@ -99,7 +99,8 @@ def triage(new: list[dict], context: list[dict], hype_1h: float | None) -> list[
 
 # どの話題にも出てくる語（同じ出来事かの判定には使わない）
 COMMON_TOKENS = {"hyperliquid", "hype", "hip-3", "trade[xyz]", "tradexyz", "trade.xyz", "ハイパーリキッド", "無期限先物",
-                 "暗号資産", "仮想通貨", "ビットコイン", "btc", "eth", "速報", "発表", "市場", "米国", "取引所"}
+                 "暗号資産", "仮想通貨", "ビットコイン", "btc", "eth", "速報", "発表", "市場", "米国", "取引所",
+                 "cftc", "sec", "fcm", "etf", "perp", "perps", "dex", "nasdaq", "ナスダック"}  # 規制当局・商品の種類は社名ではない（11/7 KalshiとHL StrategiesをCFTCだけで結んだ）
 TOKEN = re.compile(r"[A-Za-z][A-Za-z0-9.\[\]\-]{1,}|[ァ-ヶー]{3,}|\d[\d,.]*億|[一-龥]{2,}氏")
 
 
@@ -242,6 +243,17 @@ def run(payload: dict | None = None) -> dict:
     handled = store.read_json("news/stories.json", {})
     known_keys = {f["key"].removeprefix("news:"): f for f in store.read_json("news_facts.json", []) or []}
     for s in stories:
+        # AIが既存の話題の story_key を付けても、見出しが別の出来事なら新しい話題にする
+        # （11/7 KalshiのCFTC承認・株式Perpの開始を、Hyperliquid StrategiesのFCM申請の「続報」にまとめて見落とした）
+        prev_f = known_keys.get(s.get("story_key"))
+        prev_h = (handled.get(s.get("story_key")) or {}).get("headline", "")
+        if prev_f or prev_h:
+            from .checks import similarity
+            text = f"{s.get('headline', '')} {s.get('summary_ja', '')}"
+            ref = f"{(prev_f or {}).get('fields', {}).get('headline', '')} {(prev_f or {}).get('summary', '')} {prev_h}"
+            if not (_tokens(text) & _tokens(ref)) and similarity(s.get("headline", ""), ref) < 0.3:
+                import hashlib
+                s["story_key"] = "story-" + hashlib.sha1(s.get("headline", "").encode()).hexdigest()[:8] + "x"
         # 既に扱った話題と同じ出来事なら、同じ story_key にそろえる（同じニュースを別の話題として二度投稿しない）
         if s.get("story_key") not in known_keys:
             from .checks import similarity
