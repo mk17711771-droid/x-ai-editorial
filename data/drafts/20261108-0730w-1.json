@@ -1,0 +1,74 @@
+{
+  "id": "20261108-0730w-1",
+  "slot_key": "20261108-0730w",
+  "slot_theme": "07:42 週末の朝: 米国市場が閉まっている間に動いたHIP-3株式先物・HYPE・BTCの数字1つ（大きな名前＋極端な数字を1行目で言い切る）",
+  "status": "posted",
+  "created_at": "2026-11-07T22:32:32.901047+00:00",
+  "text": "週末の$BTC無期限先物、建玉が約31.5億ドルまで膨らんでる。\n\nHyperliquidの市場で価格が-0.37%と落ち着いている一方で、資金調達率は年率+11.0%（日本時間11/8(日) 07:32時点）までついてる。\n\nこのタイミングでポジションがどう偏っていくのか、次の値動きへの布石になりそう。",
+  "template": "週末の${{f1.coin}}無期限先物、建玉が{{f1.oi}}まで膨らんでる。\n\nHyperliquidの市場で価格が{{f1.change_pct}}と落ち着いている一方で、資金調達率は年率{{f1.funding_annual}}（{{f1.asof}}）までついてる。\n\nこのタイミングでポジションがどう偏っていくのか、次の値動きへの布石になりそう。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:BTC:volume_top",
+  "angle": "週末のBTC無期限先物の動向と、上位勢のポジション調整の動きを短く整理する。",
+  "scores": {
+    "novelty": 15,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 86,
+  "fact_ids": [
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "hl:BTC:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: BTC（無期限先物） 24時間騰落率-0.37%, 価格75774.0, 建玉3148141212USD, 24時間出来高555972703USD, 資金調達率(年率)+11.0%",
+      "fields": {
+        "coin": "BTC",
+        "symbol": "BTC",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$75,774",
+        "change_pct": "-0.37%",
+        "oi": "約31.5億ドル",
+        "volume": "約5.6億ドル",
+        "funding_annual": "+11.0%",
+        "asof": "日本時間11/8(日) 07:32時点",
+        "asof_short": "07:32時点"
+      },
+      "raw": {
+        "mark": 75774.0,
+        "change_pct": -0.371,
+        "oi_usd": 3148141212,
+        "vol_usd": 555972703,
+        "funding_annual_pct": 10.95
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BTC",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BTC"
+      },
+      "asof": "2026-11-07T22:32:25.120324+00:00",
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BTC"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119196343075852702",
+  "posted_at": "2026-11-07T22:32:35.868894+00:00"
+}
