@@ -1,0 +1,66 @@
+[
+  {
+    "fact_ids": [
+      "f8"
+    ],
+    "topic_key": "hl:xyz:RKLB:big_move",
+    "angle": "RKLBのHIP-3先物が+14.32%と急騰する中、資金調達率が年率-7.6%とマイナス圏で推移している歪みに着目する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 82,
+    "reason": "株式先物の急騰とマイナス金利のねじれを具体的な数値で捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f7"
+    ],
+    "topic_key": "hl:xyz:SKHX:volume_top",
+    "angle": "SKHXのHIP-3先物が出来高上位に並び、資金調達率が年率+61.7%と強いロングの傾きを示している点を指摘する。",
+    "scores": {
+      "novelty": 15,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 15
+    },
+    "total": 81,
+    "reason": "半導体関連のHIP-3先物における過熱感を明確な数値で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f11"
+    ],
+    "topic_key": "hl:xyz:SPCX:funding_extreme",
+    "angle": "SPCXの資金調達率が年率-85.9%まで沈み込み、ショートが極端に過熱している歪みを浮き彫りにする。",
+    "scores": {
+      "novelty": 16,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 15
+    },
+    "total": 80,
+    "reason": "極端な資金調達率の異常値をベースに、市場の偏りを端的に伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f14"
+    ],
+    "topic_key": "hl:io:NBIS:oi_change",
+    "angle": "NBISの建玉が24時間で+51.5%と急増し、価格上昇を伴いながら新たな資金が流入している動きを追う。",
+    "scores": {
+      "novelty": 15,
+      "interest": 15,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 15
+    },
+    "total": 78,
+    "reason": "建玉の急増という明確な量的異変を捉えているため。"
+  }
+]
