@@ -109,7 +109,7 @@ def system_audit() -> list[dict]:
         flag("note_article_missing", date=f"{now:%Y-%m-%d}")
     # 扱い済みの話題の新しい動き（自動の続報は出さないので、点検で裏取りして判断する）
     fu = [r for r in store.read_jsonl("news/followups.jsonl")
-          if now_utc() - datetime.fromisoformat(r["at"]) < timedelta(hours=24)]
+          if now_utc() - datetime.fromisoformat(r["at"]) < timedelta(hours=6)]  # 点検は3時間おき。6時間あれば必ず1回は見る（24時間だと1日中「異常あり」のままで、本当の異常が埋もれる）
     if fu:
         flag("followup_candidates", items=[{"headline": r["headline"], "sources": r["sources"][:3]} for r in fu[-5:]])
     # 無料枠・費用
