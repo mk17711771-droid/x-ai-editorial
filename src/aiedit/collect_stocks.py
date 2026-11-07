@@ -114,9 +114,9 @@ def week_change_facts() -> list[dict]:
         ch = (by_day[last] / by_day[base] - 1) * 100
         out.append({
             "key": f"stock:{sym}:week_change", "kind": "stock", "category": "week_change",
-            "summary": f"{sym} 1週間（{base}→{last}の終値）の値動き{ch:+.2f}%",
+            "summary": f"{sym} 1週間の値動き{ch:+.2f}%（{_date_ja(base)}→{_date_ja(last)}の終値）",
             "fields": {"symbol": sym, "week_change_pct": fmt.pct(ch), "price": fmt.usd_price(by_day[last]),
-                       "basis": "5取引日前の終値比", "asof": f"米国{_date_ja(last)}終値"},
+                       "basis": "5取引日前の終値比", "period": f"{_date_ja(base)}〜{_date_ja(last)}の終値", "asof": f"米国{_date_ja(last)}終値"},
             "raw": {"week_change_pct": round(ch, 3)}, "refresh": None,
             "source": {"name": SOURCE_NAME, "url": f"https://finance.yahoo.com/quote/{sym}"},
             "asof": now_utc().isoformat(), "confidence": "confirmed",
