@@ -1290,3 +1290,18 @@ def test_fit_length_drops_last_sentence_before_paragraph():
          "価格が上がっているのにショート側のコスト負担が重くなっているこのねじれ、どう動くか注目してる。")
     o = checks.fit_length(t, "short")
     assert checks.weighted_length(o) <= 280 and "約604万ドル" in o and "注目してる" not in o
+
+
+def test_posted_news_not_reused_in_regular_slot_after_12h(monkeypatch):
+    """11/7 21:07: 前日朝に速報で出した話題の説明文を、夜の長文が「いま起きてること」にそのまま書いた。"""
+    from datetime import timedelta
+    from aiedit import pipeline, store
+    from aiedit.common import now_utc
+    old = (now_utc() - timedelta(hours=40)).isoformat()
+    exp = (now_utc() + timedelta(hours=2)).isoformat()
+    facts = [{"key": "news:old", "status": "posted", "asof": old, "first_reported_at": old, "expires_at": exp, "fields": {}},
+             {"key": "news:new", "status": "posted", "asof": now_utc().isoformat(), "expires_at": exp, "fields": {}}]
+    monkeypatch.setattr(store, "read_json", lambda name, default=None: facts if name == "news_facts.json" else default)
+    keys = [f["key"] for f in pipeline.news_facts()]
+    assert keys == ["news:new"]
+    assert {f["key"] for f in pipeline.news_facts(weekly=True)} == {"news:old", "news:new"}

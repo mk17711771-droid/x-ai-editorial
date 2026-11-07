@@ -103,7 +103,12 @@ def _story_first_seen(key: str) -> datetime:
     return min(times) if times else now_utc()
 
 
-def news_facts(pending_only: bool = False) -> list[dict]:
+# 投稿済みの速報を通常の枠の材料に使うのは、最初の報道から12時間まで（11/7 21:07 の週末長文が、
+# 11/6朝に速報で出した「優先手数料の過去最高」の説明文をそのまま「いま起きてること」に書いた反省）。週の振り返りは除く
+POSTED_NEWS_REUSE_HOURS = 12
+
+
+def news_facts(pending_only: bool = False, weekly: bool = False) -> list[dict]:
     """確認済みの速報（公式発表・複数の報道で裏付けたもの）。data/news_facts.json に期限つきで置く。"""
     now = now_utc()
     out = []
@@ -112,6 +117,9 @@ def news_facts(pending_only: bool = False) -> list[dict]:
             continue  # 速報枠では、まだ投稿していない速報だけを主役にする
         if pending_only and now - _story_first_seen(f["key"]) > timedelta(hours=NEWS_FRESH_HOURS):
             continue  # 最初の報道から時間がたった話題は「速報」として出さない（10/31 1:11 前日のバイナンスの件を【速報】で出した反省）
+        if (not pending_only and not weekly and f.get("status") == "posted"
+                and now - _story_first_seen(f["key"]) > timedelta(hours=POSTED_NEWS_REUSE_HOURS)):
+            continue
         if datetime.fromisoformat(f["expires_at"]) > now:
             out.append({**f, "kind": f.get("kind", "news"), "category": "breaking_news", "refresh": None,
                         "confidence": "confirmed"})
@@ -120,7 +128,7 @@ def news_facts(pending_only: bool = False) -> list[dict]:
 
 def collect(kind: str, weekly: bool = False, pending_news: bool = False) -> list[dict]:
     raw = collect_stocks.collect() if kind == "stock" else collect_hyperliquid.collect() + traders.facts()
-    raw = news_facts(pending_only=pending_news) + raw  # 確認済みの速報（あれば最優先の材料）
+    raw = news_facts(pending_only=pending_news, weekly=weekly) + raw  # 確認済みの速報（あれば最優先の材料）
     if weekly:
         # 週の振り返り: 1週間の値動き（Hyperliquidの主要銘柄・HIP-3と、記録した米国株の終値）
         try:
