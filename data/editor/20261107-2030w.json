@@ -1,0 +1,38 @@
+[
+  {
+    "fact_ids": [
+      "f1",
+      "f8",
+      "f20"
+    ],
+    "topic_key": "news:hyperliquid-priority-fee-record-stock-selloff",
+    "angle": "半導体株の急落や市場の混乱が波及する中、Hyperliquidのデイリー優先手数料が過去最高を記録した背景と、HIP-3先物（SOXL）における極端なショート過熱・マイナス金利の歪みを構造的に解説する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 20,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 95,
+    "reason": "市場の混乱とオンチェーンでの手数料急増、さらに特定銘柄の極端な資金調達率の歪みを実データで結びつけて深く解説しているため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f19",
+      "f21"
+    ],
+    "topic_key": "hl:xyz:RKLB:big_move",
+    "angle": "週末の市場において、RKLBなどの個別銘柄が大幅な上昇を見せる一方で、主要な半導体関連のHIP-3先物（SKHX等）との間で観測される需給の温度差と流動性の偏りを読み解く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "個別銘柄の顕著な値動きとHIP-3市場全体の出来高・建玉の規模感を対比させ、週末特有の資金の流れを多角的に捉えているため。"
+  }
+]

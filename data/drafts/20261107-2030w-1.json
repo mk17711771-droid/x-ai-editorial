@@ -1,0 +1,146 @@
+{
+  "id": "20261107-2030w-1",
+  "slot_key": "20261107-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "posted",
+  "created_at": "2026-11-07T12:07:19.696998+00:00",
+  "text": "半導体株が急落する中で、なぜ$SOXLの先物市場でここまでショートが偏っているのか。\n\n【いま起きてること】\n日経平均株価や米半導体株の急落・売却の動きが波及する中、市場の混乱に伴ってHyperliquidにおけるデイリー優先手数料が過去最高を記録した。急激なボラティリティの拡大により、オンチェーン上の取引活動と手数料収益が急増している。こうした全般的な混乱の中で、HIP-3の株式先物市場でも激しい値動きが生じている。\n\n【数字で見る】（日本時間11/7(土) 21:07時点）\n・SOXL 価格$45.53、24時間騰落率-5.70%、建玉約6,423万ドル、24時間出来高約2.4億ドル、資金調達率（年率）-150.4%\n\n【なぜ「歪み」なのか】\n現物セクターの急落トレンドが強まる中で、SOXLのHIP-3先物では資金調達率が年率-150.4%という極端なマイナスまで沈み込んでいる。価格が-5.70%と下落する一方で、ショート側がロングに対して多額のコストを支払い続ける状況が生まれているのは興味深い。個人的には、これほどショートに傾いたポジションがどのような形で清算されるのか、そのエネルギーの行き先に注目している。\n\n【次に見るポイント】\n①Hyperliquid全体のデイリー優先手数料の推移とオンチェーンの取引活動の持続性\n②SOXLにおける建玉約6,423万ドルと出来高約2.4億ドルの増減\n③年率-150.4%まで低下したマイナス金利の歪みが解消に向かうか",
+  "template": "半導体株が急落する中で、なぜ`${{f8.symbol}}`の先物市場でここまでショートが偏っているのか。\n\n【いま起きてること】\n日経平均株価や米半導体株の急落・売却の動きが波及する中、市場の混乱に伴ってHyperliquidにおけるデイリー優先手数料が過去最高を記録した。急激なボラティリティの拡大により、オンチェーン上の取引活動と手数料収益が急増している。こうした全般的な混乱の中で、HIP-3の株式先物市場でも激しい値動きが生じている。\n\n【数字で見る】（{{f8.asof}}）\n・${{f8.symbol}} 価格{{f8.price}}、24時間騰落率{{f8.change_pct}}、建玉{{f8.oi}}、24時間出来高{{f8.volume}}、資金調達率（年率）{{f8.funding_annual}}\n\n【なぜ「歪み」なのか】\n現物セクターの急落トレンドが強まる中で、${{f8.symbol}}のHIP-3先物では資金調達率が年率{{f8.funding_annual}}という極端なマイナスまで沈み込んでいる。価格が{{f8.change_pct}}と下落する一方で、ショート側がロングに対して多額のコストを支払い続ける状況が生まれているのは興味深い。個人的には、これほどショートに傾いたポジションがどのような形で清算されるのか、そのエネルギーの行き先に注目している。\n\n【次に見るポイント】\n①Hyperliquid全体のデイリー優先手数料の推移とオンチェーンの取引活動の持続性\n②${{f8.symbol}}における建玉{{f8.oi}}と出来高{{f8.volume}}の増減\n③年率{{f8.funding_annual}}まで低下したマイナス金利の歪みが解消に向かうか",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "news:hyperliquid-priority-fee-record-stock-selloff",
+  "angle": "半導体株の急落や市場の混乱が波及する中、Hyperliquidのデイリー優先手数料が過去最高を記録した背景と、HIP-3先物（SOXL）における極端なショート過熱・マイナス金利の歪みを構造的に解説する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 20,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 95,
+  "fact_ids": [
+    "f1",
+    "f8",
+    "f20"
+  ],
+  "facts": [
+    {
+      "key": "news:hyperliquid-priority-fee-record-stock-selloff",
+      "kind": "hl",
+      "asof": "2026-11-06T03:35:46.636900+00:00",
+      "expires_at": "2026-11-07T15:35:46.636913+00:00",
+      "status": "posted",
+      "first_reported_at": "2026-11-06T00:53:00Z",
+      "summary": "日経平均株価や米半導体株の急落・売却の動きが波及する中、市場の混乱に伴ってHyperliquidにおけるデイリー優先手数料が過去最高を記録した。急激なボラティリティの拡大により、オンチェーン上の取引活動と手数料収益が急増している。",
+      "fields": {
+        "headline": "Hyperliquid、米株急落時に優先手数料の記録を更新",
+        "what": "米株セクターの急落を受け市場のボラティリティが急拡大し、デイリー優先手数料が新記録を樹立した。",
+        "status": "確定",
+        "who": "Hyperliquid"
+      },
+      "raw": {},
+      "source": {
+        "name": "www.tokenpost.com・CRYPTO TIMES",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5fcy11d283MldIRXpuamFCenpQRmpxV2ZIT3FhVE54UVk1OFkxckVrajlkaG9TRjVSTEZuQnRRN2ZJM01rVWZwZE1vcTRpWjN2Y1pRNlR5RnUwdw?oc=5"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:xyz:SOXL:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: SOXL（HIP-3株式等先物） 24時間騰落率-5.70%, 価格45.527, 建玉64233021USD, 24時間出来高235390523USD, 資金調達率(年率)-150.4%",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$45.53",
+        "change_pct": "-5.70%",
+        "oi": "約6,423万ドル",
+        "volume": "約2.4億ドル",
+        "funding_annual": "-150.4%",
+        "asof": "日本時間11/7(土) 21:07時点",
+        "asof_short": "21:07時点"
+      },
+      "raw": {
+        "mark": 45.527,
+        "change_pct": -5.696,
+        "oi_usd": 64233021,
+        "vol_usd": 235390523,
+        "funding_annual_pct": -150.38
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-07T12:07:00.422948+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "hl:xyz:SOXL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SOXL（HIP-3株式等先物） 24時間騰落率-5.70%, 価格45.527, 建玉64233021USD, 24時間出来高235390523USD, 資金調達率(年率)-150.4%",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$45.53",
+        "change_pct": "-5.70%",
+        "oi": "約6,423万ドル",
+        "volume": "約2.4億ドル",
+        "funding_annual": "-150.4%",
+        "asof": "日本時間11/7(土) 21:07時点",
+        "asof_short": "21:07時点"
+      },
+      "raw": {
+        "mark": 45.527,
+        "change_pct": -5.696,
+        "oi_usd": 64233021,
+        "vol_usd": 235390523,
+        "funding_annual_pct": -150.38
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-07T12:07:00.423149+00:00",
+      "confidence": "confirmed",
+      "id": "f20"
+    }
+  ],
+  "sources": [
+    {
+      "name": "www.tokenpost.com・CRYPTO TIMES",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5fcy11d283MldIRXpuamFCenpQRmpxV2ZIT3FhVE54UVk1OFkxckVrajlkaG9TRjVSTEZuQnRRN2ZJM01rVWZwZE1vcTRpWjN2Y1pRNlR5RnUwdw?oc=5"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119039000765993176",
+  "posted_at": "2026-11-07T12:07:22.529423+00:00"
+}
