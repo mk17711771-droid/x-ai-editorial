@@ -1253,3 +1253,14 @@ def test_commodity_market_label():
     from aiedit import collect_hyperliquid as ch
     assert ch._market_label({"coin": "xyz:NATGAS", "dex": "xyz"}) == "商品先物（HIP-3）"
     assert ch._market_label({"coin": "xyz:NVDA", "dex": "xyz"}) == "株式先物（HIP-3）"
+
+
+def test_week_change_ignores_split_jump(monkeypatch):
+    """11/7: SOXXの分割（450→131）を「週間-71%」と投稿した。飛びより前の終値は比べない。"""
+    from aiedit import collect_stocks, store
+    closes = {"SOXX": {"2026-10-28": 521.94, "2026-10-29": 513.86, "2026-10-30": 471.51,
+                       "2026-11-02": 453.65, "2026-11-03": 465.0, "2026-11-04": 450.41,
+                       "2026-11-05": 131.9, "2026-11-06": 136.53}}
+    monkeypatch.setattr(store, "read_json", lambda name, default=None: closes)
+    assert collect_stocks.week_change_facts() == []
+    assert list(collect_stocks.after_last_break(closes["SOXX"])) == ["2026-11-05", "2026-11-06"]

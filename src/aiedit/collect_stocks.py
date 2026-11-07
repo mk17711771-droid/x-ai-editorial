@@ -82,7 +82,23 @@ def record_close(sym: str, q: dict) -> None:
     day = datetime.fromtimestamp(int(q["t"]), timezone.utc).astimezone(NY).strftime("%Y-%m-%d")
     closes = store.read_json("stock_closes.json", {})
     closes.setdefault(sym, {})[day] = float(q["c"])
+    closes[sym] = after_last_break(closes[sym])
     store.write_json("stock_closes.json", closes)
+
+
+# 1日で±40%を超える終値の飛びは、株式分割・併合やデータ源の切り替えとみなす（11/7 SOXXの-71%誤投稿の反省）。
+# 飛びより前の記録は比べられないので捨てる。
+BREAK_RATIO = 0.4
+
+
+def after_last_break(by_day: dict) -> dict:
+    days = sorted(by_day)
+    start = 0
+    for i in range(1, len(days)):
+        a, b = by_day[days[i - 1]], by_day[days[i]]
+        if a > 0 and abs(b / a - 1) > BREAK_RATIO:
+            start = i
+    return {d: by_day[d] for d in days[start:]}
 
 
 def week_change_facts() -> list[dict]:
@@ -90,6 +106,7 @@ def week_change_facts() -> list[dict]:
     closes = store.read_json("stock_closes.json", {})
     out = []
     for sym, by_day in closes.items():
+        by_day = after_last_break(by_day)
         days = sorted(by_day)
         if len(days) < 6:
             continue
