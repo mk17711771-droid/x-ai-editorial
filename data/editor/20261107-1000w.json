@@ -3,40 +3,36 @@
     "fact_ids": [
       "f9",
       "f5",
-      "f15",
-      "f17",
-      "f41"
+      "f29"
     ],
-    "topic_key": "stock:SOXX:week_change",
-    "angle": "半導体セクターの激しい週間下落と、HyperliquidでのCFTC向けFCM登録申請という伝統金融インフラへの接近という対比から、市場の構造変化を読み解く。",
+    "topic_key": "stock:MU:week_change",
+    "angle": "半導体セクターの歴史的な週足下落（MU -22.01%など）に対し、HyperliquidのHIP-3先物でマイナス金利（ショート過熱）がどこまで拡大したかを構造的に振り返る。",
     "scores": {
-      "novelty": 19,
-      "interest": 20,
+      "novelty": 18,
+      "interest": 19,
       "evidence": 20,
       "utility": 18,
       "insight": 19
     },
-    "total": 96,
-    "reason": "半導体株の歴史的な週間下落とインフラ拡張の動きを組み合わせ、今週の最大の歪みを深く考察できるため。"
+    "total": 94,
+    "reason": "半導体株の急落とオンチェーン先物の資金調達率の極端な歪みを組み合わせ、今週の市場動向を深く解説できるため。"
   },
   {
     "fact_ids": [
-      "f10",
       "f6",
-      "f18",
-      "f41",
-      "f48"
+      "f7",
+      "f18"
     ],
     "topic_key": "hl:xyz:XYZ100:week_change",
-    "angle": "株式市場の急落が波及して過去最高の優先手数料を記録したオンチェーン環境と、主要指数の週間下落の背景にある需給の歪みに迫る。",
+    "angle": "主要指数の週足安とボラティリティ拡大に伴い、Hyperliquidの手数料収益が過去最高を記録した背景から市場の資金循環を読み解く。",
     "scores": {
-      "novelty": 18,
-      "interest": 19,
+      "novelty": 17,
+      "interest": 18,
       "evidence": 19,
       "utility": 18,
       "insight": 18
     },
-    "total": 92,
-    "reason": "手数料の急増というオンチェーンの記録と株式指数の下落を紐付け、市場の混乱を多角的に解説できるため。"
+    "total": 90,
+    "reason": "市場の混乱とオンチェーンでの活動急増のつながりを具体的なデータで示せるため。"
   }
 ]
