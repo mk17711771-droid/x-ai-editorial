@@ -24,6 +24,10 @@ slots:
   - { id: "1215", time: "12:26", kind: stock, days: weekday, theme: "市場の異変の解説" }
   - { id: "2030", time: "20:47", kind: stock, days: weekday, format: long, theme: "考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点" }
   - { id: "2030w", time: "20:47", kind: hl,   days: weekend, format: long, theme: "週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント" }
+  # 11/7〜 週末も1日5投稿（週末は2枠＋noteだけで、1日5〜6投稿の方針と数字の両方で不足していた）。米国市場が閉まっている間もHIP-3の株式先物は動く＝週末だけの“歪み”
+  - { id: "0730w", time: "07:42", kind: hl,   days: weekend, theme: "週末の朝: 米国市場が閉まっている間に動いたHIP-3株式先物・HYPE・BTCの数字1つ（大きな名前＋極端な数字を1行目で言い切る）" }
+  - { id: "1215w", time: "12:26", kind: hl,   days: weekend, theme: "週末の昼: Hyperliquidの24時間の異変（建玉・資金調達率・急変動）。大きな名前の銘柄を優先" }
+  - { id: "2300w", time: "23:13", kind: hl,   days: weekend, theme: "週末の夜: 週明けの米国市場の前に、HIP-3株式先物が示している方向（金曜終値との差・資金調達率の偏り）" }
   - { id: "news", time: "00:00", kind: hl,    days: manual,  theme: "速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応" }
   - { id: "newslong", time: "00:00", kind: hl, days: manual, format: long, theme: "話題のニュースの解説（長文）: 初めての人にもわかるように、何が起きたか・何が変わるか・実データで見る市場の反応・次に見るところ" }
   - { id: "2300", time: "23:13", kind: hl,    days: weekday, theme: "米国市場オープン前後のHyperliquid（株式先物・暗号資産）" }
