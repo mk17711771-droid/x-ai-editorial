@@ -1,38 +1,40 @@
 [
   {
     "fact_ids": [
-      "f9",
       "f5",
-      "f29"
+      "f9",
+      "f22",
+      "f35"
     ],
     "topic_key": "stock:MU:week_change",
-    "angle": "半導体セクターの歴史的な週足下落（MU -22.01%など）に対し、HyperliquidのHIP-3先物でマイナス金利（ショート過熱）がどこまで拡大したかを構造的に振り返る。",
+    "angle": "マイクロン（MU）の1週間で-22.01%という歴史的な急落に対し、HIP-3先物のSKHXが年率-101.9%の極端なマイナス金利を示している背景と、半導体セクター全体の歪みを構造的に読み解く。",
     "scores": {
       "novelty": 18,
-      "interest": 19,
+      "interest": 20,
       "evidence": 20,
       "utility": 18,
       "insight": 19
     },
-    "total": 94,
-    "reason": "半導体株の急落とオンチェーン先物の資金調達率の極端な歪みを組み合わせ、今週の市場動向を深く解説できるため。"
+    "total": 95,
+    "reason": "主要半導体株の急落と、それに連動するHIP-3先物でのショート過熱（マイナス金利）の構造的なギャップを鮮やかに浮き彫りにしているため。"
   },
   {
     "fact_ids": [
       "f6",
       "f7",
+      "f17",
       "f18"
     ],
-    "topic_key": "hl:xyz:XYZ100:week_change",
-    "angle": "主要指数の週足安とボラティリティ拡大に伴い、Hyperliquidの手数料収益が過去最高を記録した背景から市場の資金循環を読み解く。",
+    "topic_key": "news:hyperliquid-strategies-fcm-cftc-filing",
+    "angle": "株式市場の急落と連動してHyperliquidの優先手数料が過去最高を記録した一方、FCM登録申請による伝統金融インフラへの接続が進む現在の市場構造を紐解く。",
     "scores": {
-      "novelty": 17,
-      "interest": 18,
+      "novelty": 19,
+      "interest": 19,
       "evidence": 19,
-      "utility": 18,
-      "insight": 18
+      "utility": 17,
+      "insight": 19
     },
-    "total": 90,
-    "reason": "市場の混乱とオンチェーンでの活動急増のつながりを具体的なデータで示せるため。"
+    "total": 93,
+    "reason": "市場の混乱とオンチェーンの活動急増、そしてインフラ統合という最新のトピックを数字を交えて見事に結びつけているため。"
   }
 ]
