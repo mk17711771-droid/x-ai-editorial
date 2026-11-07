@@ -1,0 +1,71 @@
+{
+  "id": "20261107-2300w-3",
+  "slot_key": "20261107-2300w",
+  "slot_theme": "23:13 週末の夜: 週明けの米国市場の前に、HIP-3株式先物が示している方向（金曜終値との差・資金調達率の偏り）",
+  "status": "superseded",
+  "created_at": "2026-11-07T14:24:51.651905+00:00",
+  "text": "$XMRの資金調達率が年率+54.3%まで跳ね上がってる。\n\nHyperliquidの無期限先物で価格が-1.38%と軟調なのに、ロング側がこれだけのコストを払って耐えてるのが歪みだな。建玉も約1.6億ドルまで膨らんでるし、耐えきれなくなったときの反動に注意。",
+  "template": "${{f7.symbol}}の資金調達率が{{f7.funding_annual}}まで跳ね上がってる。\n\n{{f7.venue}}の{{f7.market}}で価格が{{f7.change_pct}}と軟調なのに、ロング側がこれだけのコストを払って耐えてるのが歪みだな。建玉も{{f7.oi}}まで膨らんでるし、耐えきれなくなったときの反動に注意。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:XMR:funding_extreme",
+  "angle": "暗号資産の無期限先物でXMRの資金調達率が年率54.3%まで上昇し、ロングが過熱している構造的な歪みを指摘する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 16,
+    "evidence": 18,
+    "utility": 15,
+    "insight": 16
+  },
+  "total": 81,
+  "fact_ids": [
+    "f7"
+  ],
+  "facts": [
+    {
+      "key": "hl:XMR:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: XMR（無期限先物） 24時間騰落率-1.38%, 価格613.68, 建玉158974159USD, 24時間出来高43210340USD, 資金調達率(年率)+54.3%",
+      "fields": {
+        "coin": "XMR",
+        "symbol": "XMR",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$613.68",
+        "change_pct": "-1.38%",
+        "oi": "約1.6億ドル",
+        "volume": "約4,321万ドル",
+        "funding_annual": "+54.3%",
+        "asof": "日本時間11/7(土) 23:19時点",
+        "asof_short": "23:19時点"
+      },
+      "raw": {
+        "mark": 613.68,
+        "change_pct": -1.384,
+        "oi_usd": 158974159,
+        "vol_usd": 43210340,
+        "funding_annual_pct": 54.27
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "XMR",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/XMR"
+      },
+      "asof": "2026-11-07T14:19:17.011796+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/XMR"
+    }
+  ],
+  "needs_human": false
+}

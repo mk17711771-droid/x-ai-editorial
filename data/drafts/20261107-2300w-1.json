@@ -1,0 +1,119 @@
+{
+  "id": "20261107-2300w-1",
+  "slot_key": "20261107-2300w",
+  "slot_theme": "23:13 週末の夜: 週明けの米国市場の前に、HIP-3株式先物が示している方向（金曜終値との差・資金調達率の偏り）",
+  "status": "posted",
+  "created_at": "2026-11-07T14:21:19.802580+00:00",
+  "text": "建玉が24時間で-15.5%急減。\n\nHyperliquidのナスダック連動先物$XYZ100は、23:19時点で価格$26,984（-0.20%）と横ばいなのにポジションの解消が進んでる。\n\n週末のうちにリスクを落としたい人が多いってことだな。",
+  "template": "建玉が24時間で{{f11.oi_change_pct}}急減。\n\nHyperliquidのナスダック連動先物${{f11.symbol}}は、{{f11.asof_short}}で価格{{f11.price}}（{{f11.change_pct}}）と横ばいなのにポジションの解消が進んでる。\n\n週末のうちにリスクを落としたい人が多いってことだな。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:XYZ100:oi_change",
+  "angle": "週末の静けさの中でナスダック100連動のHIP-3先物（XYZ100）の建玉が15.5%減少し、ポジションの整理が進んでいる点に着目する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 84,
+  "fact_ids": [
+    "f4",
+    "f11"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:XYZ100:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-0.20%, 価格26984.0, 建玉284773550USD, 24時間出来高342707501USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$26,984",
+        "change_pct": "-0.20%",
+        "oi": "約2.8億ドル",
+        "volume": "約3.4億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/7(土) 23:19時点",
+        "asof_short": "23:19時点"
+      },
+      "raw": {
+        "mark": 26984.0,
+        "change_pct": -0.203,
+        "oi_usd": 284773550,
+        "vol_usd": 342707501,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-07T14:19:17.011721+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "hl:xyz:XYZ100:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化-15.5%: XYZ100（HIP-3株式等先物） 24時間騰落率-0.20%, 価格26984.0, 建玉284773550USD, 24時間出来高342707501USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$26,984",
+        "change_pct": "-0.20%",
+        "oi": "約2.8億ドル",
+        "volume": "約3.4億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/7(土) 23:19時点",
+        "asof_short": "23:19時点",
+        "oi_change_pct": "-15.5%"
+      },
+      "raw": {
+        "mark": 26984.0,
+        "change_pct": -0.203,
+        "oi_usd": 284773550,
+        "vol_usd": 342707501,
+        "funding_annual_pct": 5.48,
+        "oi_change_pct": -15.52
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-07T14:19:17.011893+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119073610287440005",
+  "posted_at": "2026-11-07T14:24:54.119855+00:00"
+}

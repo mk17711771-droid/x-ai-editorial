@@ -1,0 +1,71 @@
+{
+  "id": "20261107-2300w-2",
+  "slot_key": "20261107-2300w",
+  "slot_theme": "23:13 週末の夜: 週明けの米国市場の前に、HIP-3株式先物が示している方向（金曜終値との差・資金調達率の偏り）",
+  "status": "superseded",
+  "created_at": "2026-11-07T14:23:22.229021+00:00",
+  "text": "韓国株連動の$KORU、HIP-3先物で年率+53.6%のロング過熱に達しているの偏りすぎじゃない？\n\nHyperliquidの市場で-1.88%と売られる中で、建玉約1,161万ドルに対してロングがコストを支払い続けるこの構造、どう動くのか。",
+  "template": "韓国株連動の$KORU、HIP-3先物で年率{{f8.funding_annual}}のロング過熱に達しているの偏りすぎじゃない？\n\nHyperliquidの市場で{{f8.change_pct}}と売られる中で、建玉{{f8.oi}}に対してロングがコストを支払い続けるこの構造、どう動くのか。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:KORU:funding_extreme",
+  "angle": "韓国株連動のHIP-3先物（KORU）で資金調達率が年率53.6%のロング過熱に達しており、週末の需給の偏りを伝える。",
+  "scores": {
+    "novelty": 17,
+    "interest": 16,
+    "evidence": 18,
+    "utility": 15,
+    "insight": 16
+  },
+  "total": 82,
+  "fact_ids": [
+    "f8"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:KORU:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: KORU（HIP-3株式等先物） 24時間騰落率-1.88%, 価格7.0296, 建玉11611423USD, 24時間出来高54722516USD, 資金調達率(年率)+53.6%",
+      "fields": {
+        "coin": "KORU",
+        "symbol": "KORU",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7.03",
+        "change_pct": "-1.88%",
+        "oi": "約1,161万ドル",
+        "volume": "約5,472万ドル",
+        "funding_annual": "+53.6%",
+        "asof": "日本時間11/7(土) 23:19時点",
+        "asof_short": "23:19時点"
+      },
+      "raw": {
+        "mark": 7.0296,
+        "change_pct": -1.882,
+        "oi_usd": 11611423,
+        "vol_usd": 54722516,
+        "funding_annual_pct": 53.61
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:KORU",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:KORU"
+      },
+      "asof": "2026-11-07T14:19:17.011811+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:KORU"
+    }
+  ],
+  "needs_human": false
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "fact_ids": [
+      "f4",
+      "f11"
+    ],
+    "topic_key": "hl:xyz:XYZ100:oi_change",
+    "angle": "週末の静けさの中でナスダック100連動のHIP-3先物（XYZ100）の建玉が15.5%減少し、ポジションの整理が進んでいる点に着目する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "週末を控えて指数連動のHIP-3先物で建玉の減少という具体的な数字が確認でき、週明けに向けたポジション調整の動きを実用的に示せるため。"
+  },
+  {
+    "fact_ids": [
+      "f8"
+    ],
+    "topic_key": "hl:xyz:KORU:funding_extreme",
+    "angle": "韓国株連動のHIP-3先物（KORU）で資金調達率が年率53.6%のロング過熱に達しており、週末の需給の偏りを伝える。",
+    "scores": {
+      "novelty": 17,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 82,
+    "reason": "特定の地域別指数先物における極端な資金調達率の偏りを具体的な数字で示し、市場の歪みを突く切り口になっているため。"
+  },
+  {
+    "fact_ids": [
+      "f7"
+    ],
+    "topic_key": "hl:XMR:funding_extreme",
+    "angle": "暗号資産の無期限先物でXMRの資金調達率が年率54.3%まで上昇し、ロングが過熱している構造的な歪みを指摘する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 81,
+    "reason": "週末の暗号資産市場における資金調達率の急激な傾きを明確な数字とともに示し、読者に現在の過熱感を伝えるため。"
+  }
+]
