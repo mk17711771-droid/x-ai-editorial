@@ -4,63 +4,63 @@
       "f8"
     ],
     "topic_key": "hl:xyz:RKLB:big_move",
-    "angle": "RKLBのHIP-3先物が+14.32%と急騰する中、資金調達率が年率-7.6%とマイナス圏で推移している歪みに着目する。",
+    "angle": "週末のHIP-3株式先物でRKLBが+14%超の急騰を見せる中、資金調達率がマイナス圏にある歪みに着目する",
     "scores": {
       "novelty": 16,
-      "interest": 17,
-      "evidence": 18,
-      "utility": 15,
-      "insight": 16
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
     },
-    "total": 82,
-    "reason": "株式先物の急騰とマイナス金利のねじれを具体的な数値で捉えているため。"
+    "total": 88,
+    "reason": "週末の限られた時間の中でも明確な急騰とマイナス金利のねじれが発生している点に迫るため。"
   },
   {
     "fact_ids": [
-      "f7"
+      "f29"
     ],
-    "topic_key": "hl:xyz:SKHX:volume_top",
-    "angle": "SKHXのHIP-3先物が出来高上位に並び、資金調達率が年率+61.7%と強いロングの傾きを示している点を指摘する。",
+    "topic_key": "traders:funnel",
+    "angle": "ランキング上位のトレーダーを条件で絞り込むとごく少数が残るという、見落とされがちな真実を数字で示す",
     "scores": {
-      "novelty": 15,
+      "novelty": 16,
       "interest": 17,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "上位＝真似すべきとは限らないというファクトをファネルの人数で視覚化し、学びを提供できるため。"
+  },
+  {
+    "fact_ids": [
+      "f2"
+    ],
+    "topic_key": "news:hyperliquid-priority-fee-record-stock-selloff",
+    "angle": "株式市場の急落と混乱の波及に伴い、オンチェーンの手数料収益が過去最高を記録した事実を伝える",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
       "evidence": 18,
       "utility": 16,
-      "insight": 15
+      "insight": 17
     },
-    "total": 81,
-    "reason": "半導体関連のHIP-3先物における過熱感を明確な数値で示しているため。"
+    "total": 86,
+    "reason": "市場の混乱がオンチェーンの活動量と手数料にどう反映されたかを示す確実なニュースであるため。"
   },
   {
     "fact_ids": [
-      "f11"
+      "f21"
     ],
-    "topic_key": "hl:xyz:SPCX:funding_extreme",
-    "angle": "SPCXの資金調達率が年率-85.9%まで沈み込み、ショートが極端に過熱している歪みを浮き彫りにする。",
-    "scores": {
-      "novelty": 16,
-      "interest": 16,
-      "evidence": 18,
-      "utility": 15,
-      "insight": 15
-    },
-    "total": 80,
-    "reason": "極端な資金調達率の異常値をベースに、市場の偏りを端的に伝えているため。"
-  },
-  {
-    "fact_ids": [
-      "f14"
-    ],
-    "topic_key": "hl:io:NBIS:oi_change",
-    "angle": "NBISの建玉が24時間で+51.5%と急増し、価格上昇を伴いながら新たな資金が流入している動きを追う。",
+    "topic_key": "hl:xyz:SOXL:hip3_top",
+    "angle": "レバレッジ型先物SOXLにおける資金調達率の深いマイナスと、高水準な出来高の背景にある需給の偏りを紐解く",
     "scores": {
       "novelty": 15,
-      "interest": 15,
+      "interest": 18,
       "evidence": 18,
-      "utility": 15,
-      "insight": 15
+      "utility": 16,
+      "insight": 17
     },
-    "total": 78,
-    "reason": "建玉の急増という明確な量的異変を捉えているため。"
+    "total": 84,
+    "reason": "人気銘柄の先物市場における金利のマイナス継続という構造的な歪みを端的に伝えるため。"
   }
 ]

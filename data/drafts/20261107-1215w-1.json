@@ -1,0 +1,76 @@
+{
+  "id": "20261107-1215w-1",
+  "slot_key": "20261107-1215w",
+  "slot_theme": "12:26 週末の昼: Hyperliquidの24時間の異変（建玉・資金調達率・急変動）。大きな名前の銘柄を優先",
+  "status": "posted",
+  "created_at": "2026-11-07T05:18:19.568921+00:00",
+  "text": "週末のHIP-3株式先物で$RKLBが+14.31%と急騰しているのに、資金調達率が年率-10.5%までマイナスに沈んでるの違和感しかない。\n\nHyperliquidの市場で価格が上がっている一方でショート側にコストがかかっているこの歪み、ここからどう動くのか気になる。",
+  "template": "週末のHIP-3株式先物で${{f8.symbol}}が{{f8.change_pct}}と急騰しているのに、資金調達率が年率{{f8.funding_annual}}までマイナスに沈んでるの違和感しかない。\n\nHyperliquidの市場で価格が上がっている一方でショート側にコストがかかっているこの歪み、ここからどう動くのか気になる。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:RKLB:big_move",
+  "angle": "週末のHIP-3株式先物でRKLBが+14%超の急騰を見せる中、資金調達率がマイナス圏にある歪みに着目する",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f8"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:RKLB:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: RKLB（HIP-3株式等先物） 24時間騰落率+14.31%, 価格53.636, 建玉6041289USD, 24時間出来高9456079USD, 資金調達率(年率)-10.5%（照合: 米国株の前日比+15.39%）",
+      "fields": {
+        "coin": "RKLB",
+        "symbol": "RKLB",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$53.64",
+        "change_pct": "+14.31%",
+        "oi": "約604万ドル",
+        "volume": "約946万ドル",
+        "funding_annual": "-10.5%",
+        "asof": "日本時間11/7(土) 14:18時点",
+        "asof_short": "14:18時点",
+        "us_change_pct": "+15.39%"
+      },
+      "raw": {
+        "mark": 53.636,
+        "change_pct": 14.309,
+        "oi_usd": 6041289,
+        "vol_usd": 9456079,
+        "funding_annual_pct": -10.53,
+        "us_change_pct": 15.395
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:RKLB",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:RKLB"
+      },
+      "asof": "2026-11-07T05:18:14.868595+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:RKLB"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2118936088269992358",
+  "posted_at": "2026-11-07T05:18:26.293125+00:00"
+}
