@@ -1264,3 +1264,19 @@ def test_week_change_ignores_split_jump(monkeypatch):
     monkeypatch.setattr(store, "read_json", lambda name, default=None: closes)
     assert collect_stocks.week_change_facts() == []
     assert list(collect_stocks.after_last_break(closes["SOXX"])) == ["2026-11-05", "2026-11-06"]
+
+
+def test_line_label_borrowed_from_other_fact_is_aligned():
+    """11/7: 「・{{f7.coin}}（{{f6.market}}）」で枠を落とした。ラベルだけの借用は行の主役に揃えて通す。"""
+    from aiedit import checks
+    facts = {
+        "f6": {"id": "f6", "fields": {"coin": "xyz:XYZ100", "market": "株式先物（HIP-3）", "price": "$1", "asof": "a"}},
+        "f7": {"id": "f7", "fields": {"coin": "xyz:SP500", "market": "株式先物（HIP-3）", "price": "$2", "asof": "a"}},
+    }
+    t = "【数字】\n・{{f7.coin}}（{{f6.market}}） 価格{{f7.price}}"
+    fixed = checks.relink(t, facts)
+    assert "{{f7.market}}" in fixed
+    assert not checks.check_template(fixed, facts)
+    # 数字の借用は直さない（チェックで弾く）
+    bad = checks.relink("・{{f7.coin}} 価格{{f6.price}}、{{f7.asof}}", facts)
+    assert checks.check_template(bad, facts)

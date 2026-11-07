@@ -148,7 +148,30 @@ def relink(template: str, facts: dict[str, dict]) -> str:
     for i in range(0, len(parts), 2):  # 既存の差し込み記号の中は触らない
         for value, ph in pairs:
             parts[i] = parts[i].replace(value, ph)
-    return "".join(parts)
+    return align_line_labels("".join(parts), facts)
+
+
+LABEL_FIELDS = {"market", "asof", "basis"}
+
+
+def align_line_labels(template: str, facts: dict[str, dict]) -> str:
+    """箇条書きの1行で、ラベル（市場の種類・時点・基準）だけ別の材料を指していたら、その行の主役の材料に揃える。
+    11/7「・{{f7.coin}}（{{f6.market}}）…」で行の混在チェックに当たり、週末長文の枠を落とした。数字の項目は直さない。"""
+    out = []
+    for ln in template.split("\n"):
+        if ln.strip().startswith(("・", "-")):
+            ids = [fid for fid, _ in PLACEHOLDER.findall(ln)]
+            if ids:
+                main = max(set(ids), key=ids.count)
+                if ids.count(main) >= 2 and main in facts:
+                    def fix(m: re.Match) -> str:
+                        fid, field = m.group(1), m.group(2)
+                        if fid != main and field in LABEL_FIELDS and field in facts[main]["fields"]:
+                            return f"{{{{{main}.{field}}}}}"
+                        return m.group(0)
+                    ln = PLACEHOLDER.sub(fix, ln)
+        out.append(ln)
+    return "\n".join(out)
 
 
 def repair_fields(template: str, facts: dict[str, dict]) -> tuple[str, list[str]]:
