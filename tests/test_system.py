@@ -1280,3 +1280,13 @@ def test_line_label_borrowed_from_other_fact_is_aligned():
     # 数字の借用は直さない（チェックで弾く）
     bad = checks.relink("・{{f7.coin}} 価格{{f6.price}}、{{f7.asof}}", facts)
     assert checks.check_template(bad, facts)
+
+
+def test_fit_length_drops_last_sentence_before_paragraph():
+    """11/7: 281/280の短文で最後の段落ごと落とすと短すぎて諦め、枠を落とした。まず最後の1文を落とす。"""
+    from aiedit import checks
+    t = ("$RKLBが+14.32%と急騰しているのに、資金調達率が年率-7.6%まで沈んでるの違和感しかない。\n\n"
+         "Hyperliquidの株式先物（HIP-3）で日本時間11/7(土) 14:11時点、価格$53.64に対して建玉は約604万ドルまで積まれている。"
+         "価格が上がっているのにショート側のコスト負担が重くなっているこのねじれ、どう動くか注目してる。")
+    o = checks.fit_length(t, "short")
+    assert checks.weighted_length(o) <= 280 and "約604万ドル" in o and "注目してる" not in o

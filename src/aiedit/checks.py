@@ -51,9 +51,15 @@ def fit_length(text: str, fmt: str = "short") -> str:
     min_chars, _, max_weighted = length_limits(fmt)
     if weighted_length(text) <= max_weighted:
         return text
+    # 最後の段落の最後の文から1文ずつ落とす（段落ごと落とすと短すぎて諦めていた。11/7 281/280などで3案を破棄）
     paras = [p for p in text.split("\n\n") if p.strip()]
     while len(paras) > 1 and weighted_length("\n\n".join(paras)) > max_weighted:
-        paras.pop()
+        last = paras[-1].rstrip()
+        body = last.rstrip("。")
+        if "。" in body:
+            paras[-1] = body.rsplit("。", 1)[0] + "。"
+        else:
+            paras.pop()
     out = "\n\n".join(paras)
     while weighted_length(out) > max_weighted and "。" in out.rstrip("。"):
         out = out.rstrip("。").rsplit("。", 1)[0] + "。"
