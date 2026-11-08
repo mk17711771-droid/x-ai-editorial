@@ -253,7 +253,8 @@ def collect() -> list[dict]:
             "total_oi": fmt.usd_amount_ja(total_oi),
             "total_volume": fmt.usd_amount_ja(total_vol),
             "hip3_volume": fmt.usd_amount_ja(hip3_vol),
-            "hip3_share": fmt.pct(hip3_vol / total_vol * 100, 1).lstrip("+") if total_vol else "0.0%",
+            # 出来高のシェア（建玉のシェアではない。11/8 21:17「建玉が…シェア19.6%」と取り違えた）
+            "hip3_volume_share": fmt.pct(hip3_vol / total_vol * 100, 1).lstrip("+") if total_vol else "0.0%",
             "hip3_oi": fmt.usd_amount_ja(hip3_oi),
             **({"hip3_oi_change_pct": fmt.pct(hip3_ch, 1)} if hip3_ch is not None else {}),
             "asof": f"日本時間{fmt_jst(asof)}時点",
