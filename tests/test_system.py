@@ -1333,3 +1333,14 @@ def test_note_promo_leads_with_number(isolated):
     store.write_text("note_articles/a/article.md", "# 題\n\n今週は大きく動いた1週間でした。\n\nまた、SKHXの資金調達率は年率+138.1%のロング過熱を示しています。")
     t = note_check.promote_text({"id": "a", "title": "題"}, "https://note.com/x")
     assert t.startswith("SKHXの資金調達率は年率+138.1%") and t.endswith("https://note.com/x")
+
+
+def test_cross_fact_transition_and_unbacked_record_rejected():
+    """11/8 10:08: 「年率{{f8}}から{{f6}}へ」（別の銘柄）・材料のない「記録的な急落」で長文を削除した。"""
+    from aiedit import checks
+    facts = {"f8": {"id": "f8", "category": "week_change", "summary": "SNDK 1週間", "fields": {"coin": "SNDK", "funding_annual": "-16.4%", "week_change_pct": "-28.80%"}},
+             "f6": {"id": "f6", "category": "week_change", "summary": "BRENTOIL 1週間", "fields": {"coin": "BRENTOIL", "funding_annual": "-18.5%"}},
+             "f9": {"id": "f9", "category": "breaking_news", "summary": "優先手数料が過去最高", "fields": {"headline": "x"}}}
+    assert any("から〜へ" in e for e in checks.check_template("資金調達率が年率{{f8.funding_annual}}から{{f6.funding_annual}}へと沈んだ。", facts))
+    assert any("記録的" in e for e in checks.check_template("SNDKが{{f8.week_change_pct}}と記録的な急落。", facts))
+    assert not any("記録的" in e for e in checks.check_template("{{f9.headline}}で過去最高、SNDKは{{f8.week_change_pct}}。", facts))

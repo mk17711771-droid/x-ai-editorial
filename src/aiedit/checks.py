@@ -258,6 +258,17 @@ def drop_unsafe_sentences(template: str, facts: dict[str, dict]) -> tuple[str, l
 def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     """AIが数字を捏造していないか、存在しないデータを参照していないかを確認する。"""
     errors = []
+    # 「{{f8.x}}から{{f6.x}}へ」: 別々の材料（別の銘柄）の値を、1つの値の変化のように書かない
+    # （11/8 10:08「資金調達率が年率-16.4%から年率-18.5%へと」はSNDKとBRENTOILの別々の値だった）
+    for m in re.finditer(r"\{\{\s*(f\d+)\.(\w+)\s*\}\}\s*から[^。\n]{0,12}?\{\{\s*(f\d+)\.(\w+)\s*\}\}\s*(へ|に|まで)", template):
+        if m.group(1) != m.group(3) and m.group(2) == m.group(4):
+            errors.append(f"別々の材料（{m.group(1)}・{m.group(3)}）の値を「から〜へ」で1つの変化のように書いている")
+    # 「記録的」「歴史的」「過去最高」は、記録の材料（過去最高値・速報の記録）があるときだけ（11/8 SNDKの1週間-28.80%を「記録的な急落」と書いた）
+    if re.search(r"記録的|歴史的|過去最高|史上最高|史上最大|過去最大", PLACEHOLDER.sub("", template)):
+        used = [facts[f] for f, _ in PLACEHOLDER.findall(template) if f in facts]
+        if not any(f.get("category") in ("record", "ath", "breaking_news") or "記録" in str(f.get("summary", ""))
+                   or "最高" in str(f.get("summary", "")) for f in used):
+            errors.append("「記録的・歴史的・過去最高」と書いているが、記録を示す材料がない")
     # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
     for ln in template.split("\n"):
         if not ln.strip().startswith(("・", "-")):
