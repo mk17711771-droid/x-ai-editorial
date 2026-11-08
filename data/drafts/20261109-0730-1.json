@@ -1,0 +1,148 @@
+{
+  "id": "20261109-0730-1",
+  "slot_key": "20261109-0730",
+  "slot_theme": "07:42 朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い",
+  "status": "posted",
+  "created_at": "2026-11-08T23:10:04.562188+00:00",
+  "text": "半導体セクターで現物が大きく買われる日に、なぜデリバティブ側ではここまで強烈なショートの偏りが生まれるのか。\n\n【いま起きてること】\n$AMDが前日比+11.04%と力強い上昇を見せる半面、関連するHIP-3先物市場では現物の上昇ピッチに追従しきれないままコストの歪みが拡大している。\n\n【数字で見る】（日本時間11/9(月) 08:09時点）\n・AMD 価格$449.04、前日比+11.04%、前日終値$404.40\n・MU 価格$690.00、前日比+5.12%、前日終値$656.39\n・SKHX（株式先物（HIP-3）） 価格$849.99、24時間騰落率-2.43%、資金調達率（年率）-234.5%\n\n【なぜ「歪み」なのか】\nAMDが+11.04%、MUが+5.12%と揃って上昇しているのに対し、SKHXの先物市場では資金調達率が年率-234.5%という強いマイナスに張り付いている。現物の力強さとデリバティブ側のコストの重さに乖離がある状態は、ポジションの偏りが限界に達しつつあるサインと見ている。ここからショートカバーを誘発する展開になるのかどうかは慎重に見極めたい。\n\n【次に見るポイント】\n①AMDの価格$449.04を軸とした押し目買いの強さ\n②SKHXの資金調達率年率-234.5%の推移\n③半導体セクター全体の現物と先物における需給のねじれの行方",
+  "template": "半導体セクターで現物が大きく買われる日に、なぜデリバティブ側ではここまで強烈なショートの偏りが生まれるのか。\n\n【いま起きてること】\n`${{f6.symbol}}`が前日比{{f6.change_pct}}と力強い上昇を見せる半面、関連するHIP-3先物市場では現物の上昇ピッチに追従しきれないままコストの歪みが拡大している。\n\n【数字で見る】（{{f38.asof}}）\n・`${{f6.symbol}}` 価格{{f6.price}}、前日比{{f6.change_pct}}、前日終値{{f6.prev_close}}\n・`${{f10.symbol}}` 価格{{f10.price}}、前日比{{f10.change_pct}}、前日終値{{f10.prev_close}}\n・`${{f38.symbol}}`（{{f38.market}}） 価格{{f38.price}}、24時間騰落率{{f38.change_pct}}、資金調達率（年率）{{f38.funding_annual}}\n\n【なぜ「歪み」なのか】\n`${{f6.symbol}}`が{{f6.change_pct}}、`${{f10.symbol}}`が{{f10.change_pct}}と揃って上昇しているのに対し、`${{f38.symbol}}`の先物市場では資金調達率が年率{{f38.funding_annual}}という強いマイナスに張り付いている。現物の力強さとデリバティブ側のコストの重さに乖離がある状態は、ポジションの偏りが限界に達しつつあるサインと見ている。ここからショートカバーを誘発する展開になるのかどうかは慎重に見極めたい。\n\n【次に見るポイント】\n①`${{f6.symbol}}`の価格{{f6.price}}を軸とした押し目買いの強さ\n②`${{f38.symbol}}`の資金調達率年率{{f38.funding_annual}}の推移\n③半導体セクター全体の現物と先物における需給のねじれの行方",
+  "style": "構造解説型",
+  "format": "long",
+  "topic_key": "stock:AMD:big_move",
+  "angle": "$AMDが+11.04%と急騰する裏で、半導体セクターのデリバティブ市場にどのような需給の歪みが起きているのかを解説する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f6",
+    "f10",
+    "f38"
+  ],
+  "facts": [
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格449.04, 前日比+11.04%, 前日終値404.4, 高値459.8, 安値433.3",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$449.04",
+        "change_pct": "+11.04%",
+        "prev_close": "$404.40",
+        "high": "$459.80",
+        "low": "$433.30",
+        "asof": "米国11/6終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 449.04,
+        "change_pct": 11.039,
+        "prev_close": 404.4
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-08T23:09:49.475939+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "stock:MU:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MU 価格690, 前日比+5.12%, 前日終値656.39, 高値724.8, 安値676.0006",
+      "fields": {
+        "symbol": "MU",
+        "price": "$690.00",
+        "change_pct": "+5.12%",
+        "prev_close": "$656.39",
+        "high": "$724.80",
+        "low": "$676.00",
+        "asof": "米国11/6終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 690,
+        "change_pct": 5.12,
+        "prev_close": 656.39
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MU"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-11-08T23:09:49.899733+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率-2.43%, 価格849.99, 建玉356176969USD, 24時間出来高74411348USD, 資金調達率(年率)-234.5%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$849.99",
+        "change_pct": "-2.43%",
+        "oi": "約3.6億ドル",
+        "volume": "約7,441万ドル",
+        "funding_annual": "-234.5%",
+        "asof": "日本時間11/9(月) 08:09時点",
+        "asof_short": "08:09時点"
+      },
+      "raw": {
+        "mark": 849.99,
+        "change_pct": -2.429,
+        "oi_usd": 356176969,
+        "vol_usd": 74411348,
+        "funding_annual_pct": -234.46
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-08T23:09:53.922404+00:00",
+      "confidence": "confirmed",
+      "id": "f38"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119568175419584569",
+  "posted_at": "2026-11-08T23:10:07.564565+00:00"
+}

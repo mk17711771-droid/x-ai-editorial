@@ -1,0 +1,38 @@
+[
+  {
+    "fact_ids": [
+      "f6",
+      "f10",
+      "f38"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "$AMDが+11.04%と急騰する裏で、半導体セクターのデリバティブ市場にどのような需給の歪みが起きているのかを解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "大幅上昇したAMDを主役に据えつつ、SKハイニックスのHIP-3先物における極端なマイナス金利の歪みを組み合わせて深い考察を提供できるため。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f36",
+      "f38"
+    ],
+    "topic_key": "hl:xyz:MU:hip3_top",
+    "angle": "メモリ株が揃って上昇を見せる中、Hyperliquid上の半導体関連先物における異常な資金調達率の偏りに焦点を当てる。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 92,
+    "reason": "マイクロンの強い値動きと、HIP-3先物でのNVDAやSKHXのマイナス金利という具体的な数字のギャップを対比させやすいため。"
+  }
+]
