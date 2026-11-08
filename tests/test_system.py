@@ -1344,3 +1344,14 @@ def test_cross_fact_transition_and_unbacked_record_rejected():
     assert any("から〜へ" in e for e in checks.check_template("資金調達率が年率{{f8.funding_annual}}から{{f6.funding_annual}}へと沈んだ。", facts))
     assert any("記録的" in e for e in checks.check_template("SNDKが{{f8.week_change_pct}}と記録的な急落。", facts))
     assert not any("記録的" in e for e in checks.check_template("{{f9.headline}}で過去最高、SNDKは{{f8.week_change_pct}}。", facts))
+
+
+def test_weekly_stock_post_gets_chart():
+    """11/8 12:16: 米国株の1週間の値動きが主役の長文が図なしで出た（refresh がない材料は図を作っていなかった）。"""
+    from aiedit import charts
+    wk = lambda s, v: {"kind": "stock", "category": "week_change", "refresh": None, "raw": {"week_change_pct": v},
+                       "asof": "2026-11-08T03:00:00+00:00",
+                       "fields": {"symbol": s, "asof": "米国11/6(金)終値", "period": "10/30(金)〜11/6(金)の終値"}}
+    facts = [wk("ARM", -15.22), wk("AMD", -11.05), wk("NVDA", -3.1)]
+    png = charts.build_for_draft({"facts": facts[:2]}, facts)
+    assert png and png[:4] == b"\x89PNG"

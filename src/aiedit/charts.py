@@ -126,19 +126,25 @@ def hl_price_chart(fact: dict, candles: list[dict]) -> bytes:
     return _to_png(fig)
 
 
-def stock_change_chart(facts: list[dict], highlight: set[str] | None = None) -> bytes:
-    """監視銘柄の前日比を並べた横棒グラフ。投稿で取り上げた銘柄を強調する。"""
-    quotes = sorted((f for f in facts if f["kind"] == "stock" and f["category"] in ("quote", "big_move")),
-                    key=lambda f: f["raw"]["change_pct"])
+def stock_change_chart(facts: list[dict], highlight: set[str] | None = None, weekly: bool = False) -> bytes:
+    """監視銘柄の前日比（weekly=True なら1週間の値動き）を並べた横棒グラフ。投稿で取り上げた銘柄を強調する。"""
+    cats, key = (("week_change",), "week_change_pct") if weekly else (("quote", "big_move"), "change_pct")
+    quotes = sorted((f for f in facts if f["kind"] == "stock" and f["category"] in cats and key in f.get("raw", {})),
+                    key=lambda f: f["raw"][key])
     highlight = highlight or set()
     names = [f["fields"]["symbol"] for f in quotes]
-    vals = [f["raw"]["change_pct"] for f in quotes]
+    vals = [f["raw"][key] for f in quotes]
 
     fig = plt.figure(figsize=(16, 9), facecolor=BG)
     label = quotes[-1]["fields"]["asof"] if quotes else ""
     session = label.replace("米国", "米国時間 ") if "終値" in label else "取引時間中"
-    fig.text(0.04, 0.9, "米国株ウォッチリスト  ・  前日比", color=TEXT, fontsize=30, fontweight="bold")
-    fig.text(0.04, 0.852, f"前日終値からの騰落率  ・  {session}", color=MUTED, fontsize=16)
+    if weekly:
+        period = quotes[-1]["fields"].get("period", "") if quotes else ""
+        fig.text(0.04, 0.9, "米国株ウォッチリスト  ・  1週間の値動き", color=TEXT, fontsize=30, fontweight="bold")
+        fig.text(0.04, 0.852, f"5取引日前の終値からの騰落率  ・  {period}", color=MUTED, fontsize=16)
+    else:
+        fig.text(0.04, 0.9, "米国株ウォッチリスト  ・  前日比", color=TEXT, fontsize=30, fontweight="bold")
+        fig.text(0.04, 0.852, f"前日終値からの騰落率  ・  {session}", color=MUTED, fontsize=16)
 
     ax = fig.add_axes([0.1, 0.12, 0.84, 0.69], facecolor=BG)
     colors = [(UP if v >= 0 else DOWN) for v in vals]
@@ -249,6 +255,10 @@ def build_for_draft(draft: dict, all_facts: list[dict] | None = None) -> bytes |
         return smart_money_chart(snap, {f["fields"]["coin"] for f in smart}) if snap else None
     main = next((f for f in draft["facts"] if f.get("refresh")), None)
     if not main:
+        # 週の振り返り（米国株の1週間の値動き）は refresh がないので図なしになっていた（11/8 12:16 ARMの長文）
+        weekly = {f["fields"]["symbol"] for f in draft["facts"] if f.get("category") == "week_change" and f["kind"] == "stock"}
+        if weekly and all_facts:
+            return stock_change_chart(all_facts, highlight=weekly, weekly=True)
         return None
     if main["kind"] == "hl":
         end = datetime.now(timezone.utc)
