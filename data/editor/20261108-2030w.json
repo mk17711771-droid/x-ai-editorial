@@ -2,57 +2,37 @@
   {
     "fact_ids": [
       "f7",
-      "f9",
-      "f15"
+      "f14",
+      "f16"
     ],
-    "topic_key": "hl:xyz:MU:funding_extreme",
-    "angle": "半導体関連のHIP-3先物（MUやSNDK、DRAM）で資金調達率が異常なショート過熱に陥っている背景と、オンチェーンの歪みを解説する。",
+    "topic_key": "hl:xyz:GEV:funding_extreme",
+    "angle": "GEVの資金調達率が+63.3%まで急上昇している背景と、週末のHIP-3市場全体（建玉3.47億ドル規模）における需給の偏りを構造的に解説する。",
     "scores": {
       "novelty": 18,
-      "interest": 19,
-      "evidence": 19,
-      "utility": 18,
-      "insight": 19
-    },
-    "total": 93,
-    "reason": "半導体関連のHIP-3先物における極端なショート過熱（MUの年率-65.3%など）という具体的な異常数値をベースに、市場の歪みと来週見るべきポイントを深く考察できているため。"
-  },
-  {
-    "fact_ids": [
-      "f17",
-      "f18",
-      "f19",
-      "f20"
-    ],
-    "topic_key": "traders:HYPE:bias",
-    "angle": "安定上位トレーダーのポジション偏りと、真似できる条件で絞り込んだファネル分析から見えてきた市場の真実を読み解く。",
-    "scores": {
-      "novelty": 17,
       "interest": 18,
-      "evidence": 19,
+      "evidence": 18,
       "utility": 17,
       "insight": 18
     },
     "total": 89,
-    "reason": "安定上位勢の偏り（BTCやHYPEでの売りへの傾き）とファネルデータを組み合わせ、ランキングの数字の裏側にある本質を冷静に解説しているため。"
+    "reason": "GEVの極端なロング過熱とHIP-3市場全体の規模を組み合わせ、週末のデリバティブ市場における歪みを深く解説できるため。"
   },
   {
     "fact_ids": [
-      "f5",
-      "f11",
-      "f14",
-      "f16"
+      "f15",
+      "f16",
+      "f17"
     ],
-    "topic_key": "hl:xyz:XYZ100:volume_top",
-    "angle": "週末の静けさの中でも巨大な建玉を維持するXYZ100やSP500などの株式HIP-3先物市場の全体像と資金の流れを追う。",
+    "topic_key": "hl:xyz:SNDK:hip3_top",
+    "angle": "SNDKの資金調達率が-38.2%まで沈み込む一方で、安定上位トレーダーのHYPE保有における売りの偏りと合わせて週末の市場構造を読み解く。",
     "scores": {
-      "novelty": 16,
+      "novelty": 17,
       "interest": 17,
       "evidence": 18,
       "utility": 17,
-      "insight": 17
+      "insight": 18
     },
-    "total": 85,
-    "reason": "Hyperliquid全体の建玉規模とHIP-3市場の出来高データを紐付け、週末の伝統金融休場中にオンチェーンでどう資金が維持されているかを示す実用的な内容だから。"
+    "total": 87,
+    "reason": "SNDKのショート過熱と上位勢のポジションの偏りを対比させ、週末の市場参加者の心理と需給の歪みを浮き彫りにできるため。"
   }
 ]

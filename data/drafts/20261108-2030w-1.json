@@ -1,0 +1,152 @@
+{
+  "id": "20261108-2030w-1",
+  "slot_key": "20261108-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "posted",
+  "created_at": "2026-11-08T12:17:28.716350+00:00",
+  "text": "週末のHIP-3市場で$GEVの資金調達率が年率+63.3%まで跳ね上がっているの、ロングが過熱しすぎじゃない？\n\n【いま起きてること】\n米国市場が休みの週末を迎える中で、HyperliquidのHIP-3株式先物市場では個別銘柄ごとに資金の偏りが表面化している。全体的なマーケットの動向が落ち着きを見せる一方で、一部の個別先物においてはロング側のコスト負担が急激に膨らむ展開となっている。\n\n【数字で見る】（日本時間11/8(日) 21:17時点）\n・GEV（株式先物（HIP-3）） 価格$776.58、24時間騰落率-0.37%、建玉約44万ドル、24時間出来高約511万ドル、資金調達率（年率）+63.3%\n・SP500（株式先物（HIP-3）） 価格$7,380、24時間騰落率-0.15%、建玉約3.9億ドル、24時間出来高約2,540万ドル、資金調達率（年率）+5.5%\n・Hyperliquid全体 建玉合計約146.8億ドル、24時間出来高合計約17.8億ドル、うちHIP-3市場約3.5億ドル（シェア19.6%）、HIP-3建玉約44.7億ドル（24時間変化+0.2%）\n\n【なぜ「歪み」なのか】\nHIP-3市場全体で建玉が約44.7億ドル規模に達し、全体のシェアが19.6%を占める中で、SP500の資金調達率が年率+5.5%と落ち着いた水準にあるのに対し、GEVだけが年率+63.3%という異例のプラスを叩き出している。価格自体は-0.37%と小幅に下落しているにもかかわらず、ロング側がショートに対してこれだけのコストを支払い続けている構造は興味深い。個人的には、週末の薄商いの中で特定の個別先物にここまで過熱感が持ち越されている場合、週明けの現物市場が始まった瞬間にポジションの清算を巻き込む引き金になりやすいと見ている。\n\n【次に見るポイント】\n①GEVにおける建玉約44万ドルと出来高約511万ドルの週明けの増減\n②年率+63.3%まで急上昇した資金調達率がそのまま維持されるか\n③HIP-3市場全体における約44.7億ドルの建玉の傾きと資金の流れ",
+  "template": "週末のHIP-3市場で$GEVの資金調達率が年率{{f7.funding_annual}}まで跳ね上がっているの、ロングが過熱しすぎじゃない？\n\n【いま起きてること】\n米国市場が休みの週末を迎える中で、HyperliquidのHIP-3株式先物市場では個別銘柄ごとに資金の偏りが表面化している。全体的なマーケットの動向が落ち着きを見せる一方で、一部の個別先物においてはロング側のコスト負担が急激に膨らむ展開となっている。\n\n【数字で見る】（{{f7.asof}}）\n・GEV（{{f7.market}}） 価格{{f7.price}}、24時間騰落率{{f7.change_pct}}、建玉{{f7.oi}}、24時間出来高{{f7.volume}}、資金調達率（年率）{{f7.funding_annual}}\n・{{f14.coin}}（{{f14.market}}） 価格{{f14.price}}、24時間騰落率{{f14.change_pct}}、建玉{{f14.oi}}、24時間出来高{{f14.volume}}、資金調達率（年率）{{f14.funding_annual}}\n・Hyperliquid全体 建玉合計{{f16.total_oi}}、24時間出来高合計{{f16.total_volume}}、うちHIP-3市場{{f16.hip3_volume}}（シェア{{f16.hip3_share}}）、HIP-3建玉{{f16.hip3_oi}}（24時間変化{{f16.hip3_oi_change_pct}}）\n\n【なぜ「歪み」なのか】\nHIP-3市場全体で建玉が{{f16.hip3_oi}}規模に達し、全体のシェアが{{f16.hip3_share}}を占める中で、{{f14.coin}}の資金調達率が年率{{f14.funding_annual}}と落ち着いた水準にあるのに対し、GEVだけが年率{{f7.funding_annual}}という異例のプラスを叩き出している。価格自体は{{f7.change_pct}}と小幅に下落しているにもかかわらず、ロング側がショートに対してこれだけのコストを支払い続けている構造は興味深い。個人的には、週末の薄商いの中で特定の個別先物にここまで過熱感が持ち越されている場合、週明けの現物市場が始まった瞬間にポジションの清算を巻き込む引き金になりやすいと見ている。\n\n【次に見るポイント】\n①GEVにおける建玉{{f7.oi}}と出来高{{f7.volume}}の週明けの増減\n②年率{{f7.funding_annual}}まで急上昇した資金調達率がそのまま維持されるか\n③HIP-3市場全体における{{f16.hip3_oi}}の建玉の傾きと資金の流れ",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:GEV:funding_extreme",
+  "angle": "GEVの資金調達率が+63.3%まで急上昇している背景と、週末のHIP-3市場全体（建玉3.47億ドル規模）における需給の偏りを構造的に解説する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f7",
+    "f14",
+    "f16"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:GEV:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: GEV（HIP-3株式等先物） 24時間騰落率-0.37%, 価格776.58, 建玉439412USD, 24時間出来高5109572USD, 資金調達率(年率)+63.3%",
+      "fields": {
+        "coin": "GEV",
+        "symbol": "GEV",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$776.58",
+        "change_pct": "-0.37%",
+        "oi": "約44万ドル",
+        "volume": "約511万ドル",
+        "funding_annual": "+63.3%",
+        "asof": "日本時間11/8(日) 21:17時点",
+        "asof_short": "21:17時点"
+      },
+      "raw": {
+        "mark": 776.58,
+        "change_pct": -0.368,
+        "oi_usd": 439412,
+        "vol_usd": 5109572,
+        "funding_annual_pct": 63.31
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:GEV",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:GEV"
+      },
+      "asof": "2026-11-08T12:17:03.852906+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率-0.15%, 価格7379.7, 建玉386744765USD, 24時間出来高25404610USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,380",
+        "change_pct": "-0.15%",
+        "oi": "約3.9億ドル",
+        "volume": "約2,540万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/8(日) 21:17時点",
+        "asof_short": "21:17時点"
+      },
+      "raw": {
+        "mark": 7379.7,
+        "change_pct": -0.146,
+        "oi_usd": 386744765,
+        "vol_usd": 25404610,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-08T12:17:03.853050+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    },
+    {
+      "key": "hl:market:overview",
+      "kind": "hl",
+      "category": "overview",
+      "summary": "Hyperliquid全体: 建玉合計14681321451USD, 24時間出来高合計1778696776USD, うちHIP-3市場347862887USD, 上場銘柄数346",
+      "fields": {
+        "total_oi": "約146.8億ドル",
+        "total_volume": "約17.8億ドル",
+        "hip3_volume": "約3.5億ドル",
+        "hip3_share": "19.6%",
+        "hip3_oi": "約44.7億ドル",
+        "hip3_oi_change_pct": "+0.2%",
+        "asof": "日本時間11/8(日) 21:17時点"
+      },
+      "raw": {
+        "total_oi": 14681321451,
+        "total_vol": 1778696776,
+        "hip3_vol": 347862887,
+        "hip3_oi": 4474226291,
+        "hip3_oi_change_pct": 0.22
+      },
+      "refresh": null,
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade"
+      },
+      "asof": "2026-11-08T12:17:03.853140+00:00",
+      "confidence": "confirmed",
+      "id": "f16"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:GEV"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119403991063056580",
+  "posted_at": "2026-11-08T12:17:42.973110+00:00"
+}
