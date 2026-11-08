@@ -1,0 +1,69 @@
+[
+  {
+    "fact_ids": [
+      "f15",
+      "f19"
+    ],
+    "topic_key": "hl:xyz:NVDA:oi_change",
+    "angle": "エヌビディア（NVDA）のHIP-3先物で建玉が24時間で+25.5%と急増。価格が-2.57%と下落する中でショートとロングの攻防が激化している。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "大きな名前の代表格であるNVDAの建玉急増という明確な量的異変に着目した点。"
+  },
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:eth-hourly-drop-hyperliquid",
+    "angle": "【速報】イーサリアム（ETH）が直近1時間で4.67%急落。ハッキングや規制等の直接的な報道はなく、Hyperliquid上でのポジション調整とデリバティブ市場の歪みが影響しているとみられる。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 16,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "直近のオンチェーンでの急落事象とHyperliquidの実データを結びつけたタイムリーな速報枠。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f13"
+    ],
+    "topic_key": "hl:xyz:SOXL:funding_extreme",
+    "angle": "SOXLのHIP-3先物で資金調達率が年率-430.2%まで沈み込み、MSTRも年率-769.0%を記録。半導体・暗号資産関連のレバレッジ型先物でショートの偏りが極限に達している。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "極端なマイナス金利の数値を用いて市場の偏りを鋭く切り取っている点。"
+  },
+  {
+    "fact_ids": [
+      "f26",
+      "f29"
+    ],
+    "topic_key": "traders:ETH:bias",
+    "angle": "安定上位トレーダーのETH保有状況は売りが8人で買いが0人と完全な一方通行。約1日前には含み益の利確とみられるポジション手仕舞いも観測されている。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 87,
+    "reason": "看板企画である上位トレーダーの明確な偏りと利確の動きを数字で整理している点。"
+  }
+]

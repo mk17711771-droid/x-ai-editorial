@@ -1,0 +1,59 @@
+{
+  "id": "20261109-news0708-1",
+  "slot_key": "20261109-news0708",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "posted",
+  "created_at": "2026-11-08T22:10:40.476489+00:00",
+  "text": "【速報】Hyperliquid上でETHが直近1時間に-4.67%急落した。\n\n特にハッキングや規制などのニュースは出てないっぽい。\nデリバティブのポジション整理による歪みで走った感じかな。$ETH の建玉の動きは追っておきたい。",
+  "template": "【速報】{{f1.what}}。\n\n特にハッキングや規制などのニュースは出てないっぽい。\nデリバティブのポジション整理による歪みで走った感じかな。$ETH の建玉の動きは追っておきたい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "news:eth-hourly-drop-hyperliquid",
+  "angle": "【速報】イーサリアム（ETH）が直近1時間で4.67%急落。ハッキングや規制等の直接的な報道はなく、Hyperliquid上でのポジション調整とデリバティブ市場の歪みが影響しているとみられる。",
+  "scores": {
+    "novelty": 19,
+    "interest": 19,
+    "evidence": 16,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "news:eth-hourly-drop-hyperliquid",
+      "kind": "hl",
+      "asof": "2026-11-08T22:07:24.743548+00:00",
+      "expires_at": "2026-11-10T10:07:24.743575+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-08T22:05:14Z",
+      "summary": "Hyperliquid上のオンチェーンデータにおいて、イーサリアム（ETH）が直近1時間で4.67%急落した。直近の報道や公式発表において、急落に直結する大規模なハッキングや規制などの直接の原因は確認されていない。デリバティブ市場における建玉の偏りやポジション整理に伴う歪みの可能性がある。",
+      "fields": {
+        "headline": "ETHが直近1時間で4.6%急落",
+        "what": "Hyperliquid上でETHが直近1時間に-4.67%急落した",
+        "status": "確定",
+        "who": "Hyperliquid、イーサリアム（ETH）"
+      },
+      "raw": {},
+      "source": {
+        "name": "Hyperliquid（オンチェーン）",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid（オンチェーン）",
+      "url": ""
+    }
+  ],
+  "needs_human": false,
+  "tweet_id": "2119553218887700781",
+  "posted_at": "2026-11-08T22:10:41.568095+00:00"
+}
