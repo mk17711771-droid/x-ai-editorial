@@ -1,0 +1,71 @@
+{
+  "id": "20261108-1215w-2",
+  "slot_key": "20261108-1215w",
+  "slot_theme": "12:26 週末の昼: Hyperliquidの24時間の異変（建玉・資金調達率・急変動）。大きな名前の銘柄を優先",
+  "status": "superseded",
+  "created_at": "2026-11-08T03:28:00.648482+00:00",
+  "text": "$NIFTYの資金調達率が年率-322.2%まで沈んでる。\n\nHyperliquidの株式先物（HIP-3）で、価格は$25,112（+1.38%）と上がってるのにショートが極端に偏ってる。\n建玉約20万ドルに対して出来高約1,349万ドルだから短期で激しく回されてるな。",
+  "template": "${{f7.symbol}}の資金調達率が年率{{f7.funding_annual}}まで沈んでる。\n\n{{f7.venue}}の{{f7.market}}で、価格は{{f7.price}}（{{f7.change_pct}}）と上がってるのにショートが極端に偏ってる。\n建玉{{f7.oi}}に対して出来高{{f7.volume}}だから短期で激しく回されてるな。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:NIFTY:funding_extreme",
+  "angle": "NIFTYのHIP-3先物で資金調達率が年率-322.2%まで沈み込み、ショート側が極端に偏っている",
+  "scores": {
+    "novelty": 16,
+    "interest": 15,
+    "evidence": 19,
+    "utility": 15,
+    "insight": 17
+  },
+  "total": 82,
+  "fact_ids": [
+    "f7"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:NIFTY:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: NIFTY（HIP-3株式等先物） 24時間騰落率+1.38%, 価格25112.0, 建玉197596USD, 24時間出来高13486472USD, 資金調達率(年率)-322.2%",
+      "fields": {
+        "coin": "NIFTY",
+        "symbol": "NIFTY",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$25,112",
+        "change_pct": "+1.38%",
+        "oi": "約20万ドル",
+        "volume": "約1,349万ドル",
+        "funding_annual": "-322.2%",
+        "asof": "日本時間11/8(日) 12:26時点",
+        "asof_short": "12:26時点"
+      },
+      "raw": {
+        "mark": 25112.0,
+        "change_pct": 1.385,
+        "oi_usd": 197596,
+        "vol_usd": 13486472,
+        "funding_annual_pct": -322.17
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NIFTY",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NIFTY"
+      },
+      "asof": "2026-11-08T03:26:16.339994+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NIFTY"
+    }
+  ],
+  "needs_human": false
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "fact_ids": [
+      "f8"
+    ],
+    "topic_key": "hl:xyz:MU:funding_extreme",
+    "angle": "$MUのHIP-3先物で資金調達率が年率+161.9%まで跳ね上がり、ロングの過熱感が鮮明になっている",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "半導体関連の主要銘柄における資金調達率の極端な偏りを具体的な数字で捉えており、市場の歪みを的確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f6"
+    ],
+    "topic_key": "hl:xyz:SOXL:funding_extreme",
+    "angle": "$SOXLのHIP-3先物で資金調達率が年率+378.7%に達し、ロング勢のコスト負担が急増している",
+    "scores": {
+      "novelty": 15,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 84,
+    "reason": "レバレッジ型半導体先物における極端なロング過熱の数値を提示し、デリバティブ市場の歪みを端的に伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f7"
+    ],
+    "topic_key": "hl:xyz:NIFTY:funding_extreme",
+    "angle": "NIFTYのHIP-3先物で資金調達率が年率-322.2%まで沈み込み、ショート側が極端に偏っている",
+    "scores": {
+      "novelty": 16,
+      "interest": 15,
+      "evidence": 19,
+      "utility": 15,
+      "insight": 17
+    },
+    "total": 82,
+    "reason": "マイナス方向へ異様に傾いた資金調達率の数値を扱い、市場参加者のポジションの偏りを鋭く切り取っているため。"
+  },
+  {
+    "fact_ids": [
+      "f18",
+      "f25"
+    ],
+    "topic_key": "traders:HYPE:bias",
+    "angle": "$HYPEの上位トレーダー保有は売りが6割を超え、含み益の利確の動きも観測されている",
+    "scores": {
+      "novelty": 15,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 81,
+    "reason": "安定上位トレーダーの具体的なポジションの偏りと利確の動きを数字で集計し、実用的なインサイトを提供しているため。"
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "id": "20261108-1215w-1",
+  "slot_key": "20261108-1215w",
+  "slot_theme": "12:26 週末の昼: Hyperliquidの24時間の異変（建玉・資金調達率・急変動）。大きな名前の銘柄を優先",
+  "status": "posted",
+  "created_at": "2026-11-08T03:26:20.595783+00:00",
+  "text": "$MUの資金調達率が年率+161.9%まで跳ね上がってるの、過熱感すごくない？\n\nHyperliquidの株式先物（HIP-3）で日本時間11/8(日) 12:26時点、MUの価格が$692.02（+0.32%）と小動きなのに、ロングの偏りがここまで強くなっているのは興味深い。",
+  "template": "$MUの資金調達率が年率{{f8.funding_annual}}まで跳ね上がってるの、過熱感すごくない？\n\nHyperliquidの{{f8.market}}で{{f8.asof}}、$MUの価格が{{f8.price}}（{{f8.change_pct}}）と小動きなのに、ロングの偏りがここまで強くなっているのは興味深い。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:MU:funding_extreme",
+  "angle": "$MUのHIP-3先物で資金調達率が年率+161.9%まで跳ね上がり、ロングの過熱感が鮮明になっている",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 86,
+  "fact_ids": [
+    "f8"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:MU:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: MU（HIP-3株式等先物） 24時間騰落率+0.32%, 価格692.02, 建玉180447015USD, 24時間出来高14560584USD, 資金調達率(年率)+161.9%",
+      "fields": {
+        "coin": "MU",
+        "symbol": "MU",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$692.02",
+        "change_pct": "+0.32%",
+        "oi": "約1.8億ドル",
+        "volume": "約1,456万ドル",
+        "funding_annual": "+161.9%",
+        "asof": "日本時間11/8(日) 12:26時点",
+        "asof_short": "12:26時点"
+      },
+      "raw": {
+        "mark": 692.02,
+        "change_pct": 0.322,
+        "oi_usd": 180447015,
+        "vol_usd": 14560584,
+        "funding_annual_pct": 161.88
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:MU",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:MU"
+      },
+      "asof": "2026-11-08T03:26:16.340020+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:MU"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119270717912969619",
+  "posted_at": "2026-11-08T03:28:08.223121+00:00"
+}
