@@ -1,0 +1,50 @@
+[
+  {
+    "fact_ids": [
+      "f6"
+    ],
+    "topic_key": "hl:xyz:SOXL:funding_extreme",
+    "angle": "$SOXLの資金調達率が年率-175.3%まで沈み込んでいる背景を、HIP-3先物市場のショート過熱の視点から短文で端的に伝える。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "極端な資金調達率の異常値を数字で示し、市場の歪みを簡潔に伝える構成が優れているため。"
+  },
+  {
+    "fact_ids": [
+      "f10"
+    ],
+    "topic_key": "hl:xyz:SP500:hip3_top",
+    "angle": "週末のS&P500のHIP-3先物が示す価格と資金調達率のニュートラルな水準から、週明けの方向感を冷徹に読み解く。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "主要インデックスのHIP-3先物のデータを基に、週末時点の冷静な市場の立ち位置を示せるため。"
+  },
+  {
+    "fact_ids": [
+      "f8"
+    ],
+    "topic_key": "hl:xyz:BRENTOIL:hip3_top",
+    "angle": "原油（BRENTOIL）のHIP-3先物における建玉と資金調達率のプラス推移から、商品市場の資金の流れを短文で追う。",
+    "scores": {
+      "novelty": 16,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "株式以外のHIP-3主要銘柄における需給の偏りを簡潔に提示できるため。"
+  }
+]
