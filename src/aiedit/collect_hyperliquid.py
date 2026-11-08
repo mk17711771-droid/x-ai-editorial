@@ -238,6 +238,11 @@ def collect() -> list[dict]:
     total_oi = sum(m["oi_usd"] for m in markets)
     total_vol = sum(m["vol_usd"] for m in markets)
     hip3_vol = sum(m["vol_usd"] for m in markets if m["dex"])
+    # HIP-3全体の建玉と24時間変化（同ジャンルで伸びた型「HIP-3の建玉が記録的×HYPEは下落」の材料。11/8の分析）
+    hip3_oi = sum(m["oi_usd"] for m in markets if m["dex"])
+    hip3_prev = sum(prev_oi.get(m["coin"], 0) for m in markets if m["dex"])
+    covered = sum(m["oi_usd"] for m in markets if m["dex"] and m["coin"] in prev_oi)
+    hip3_ch = (covered / hip3_prev - 1) * 100 if hip3_prev > 1e7 else None  # 24時間前にもあった市場だけで比べる
     asof = now_utc()
     facts.append({
         "key": "hl:market:overview",
@@ -249,9 +254,12 @@ def collect() -> list[dict]:
             "total_volume": fmt.usd_amount_ja(total_vol),
             "hip3_volume": fmt.usd_amount_ja(hip3_vol),
             "hip3_share": fmt.pct(hip3_vol / total_vol * 100, 1).lstrip("+") if total_vol else "0.0%",
+            "hip3_oi": fmt.usd_amount_ja(hip3_oi),
+            **({"hip3_oi_change_pct": fmt.pct(hip3_ch, 1)} if hip3_ch is not None else {}),
             "asof": f"日本時間{fmt_jst(asof)}時点",
         },
-        "raw": {"total_oi": round(total_oi), "total_vol": round(total_vol), "hip3_vol": round(hip3_vol)},
+        "raw": {"total_oi": round(total_oi), "total_vol": round(total_vol), "hip3_vol": round(hip3_vol),
+                "hip3_oi": round(hip3_oi), **({"hip3_oi_change_pct": round(hip3_ch, 2)} if hip3_ch is not None else {})},
         "refresh": None,
         "source": {"name": SOURCE_NAME, "url": "https://app.hyperliquid.xyz/trade"},
         "asof": asof.isoformat(),
