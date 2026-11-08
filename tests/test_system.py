@@ -1355,3 +1355,16 @@ def test_weekly_stock_post_gets_chart():
     facts = [wk("ARM", -15.22), wk("AMD", -11.05), wk("NVDA", -3.1)]
     png = charts.build_for_draft({"facts": facts[:2]}, facts)
     assert png and png[:4] == b"\x89PNG"
+
+
+def test_relink_short_people_counts_from_used_fact():
+    """11/8: 「40人のうち8人…買い2人・売り6人」と材料どおりの人数を書いた短文が「データ以外の数字」で破棄された。"""
+    from aiedit import checks
+    facts = {"f18": {"id": "f18", "fields": {"coin": "HYPE", "top_n": "40人", "holders": "8人", "long_n": "2人", "short_n": "6人",
+                                             "long_ratio": "25%"}}}
+    t = "上位トレーダー40人のうち${{f18.coin}}を持つ8人は買い2人・売り6人（ロング比率{{f18.long_ratio}}）。"
+    fixed = checks.relink(t, facts)
+    assert not checks.check_template(fixed, facts)
+    assert checks.render(fixed, facts) == checks.render(t.replace("{{f18.coin}}", "HYPE").replace("{{f18.long_ratio}}", "25%"), facts)
+    # 材料を使っていない原稿の短い人数は戻さない（偶然の一致で作り話を通さない）
+    assert checks.check_template(checks.relink("上位トレーダー40人が買い。", facts), facts)

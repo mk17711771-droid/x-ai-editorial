@@ -10,7 +10,8 @@ from .common import read_list, settings
 PLACEHOLDER = re.compile(r"\{\{\s*(f\d+)\.(\w+)\s*\}\}")
 DIGIT = re.compile(r"[0-9０-９]")
 PLACEHOLDER_ANY = re.compile(r"(\{\{[^}]*\}\})")
-KANJI_QUANTITY = re.compile(r"[一二三四五六七八九十百千万億兆]+(?:割|%|％|倍|億|万|兆|ドル|円|ポイント|銘柄|ヶ月|か月|年)")
+KANJI_QUANTITY = re.compile(r"[一二三四五六七八九十百千万億兆]+(?:割|%|％|倍|億|万|兆|ドル|円|ポイント|銘柄|ヶ月|か月|年)"
+                            r"|[二三四五六七八九十百千][一二三四五六七八九十百千]*人")  # 人数（「一人」は数に数えない）
 URL = re.compile(r"https?://|www\.|\b[\w-]+\.(?:com|io|xyz|jp|net|org)\b", re.I)
 MENTION = re.compile(r"(?<![\w])@\w+")
 HASHTAG = re.compile(r"[#＃]\w+")
@@ -148,8 +149,12 @@ def relink(template: str, facts: dict[str, dict]) -> str:
 
     値が材料と完全に一致するときだけ置き換えるので、捏造の数字はそのまま残り、チェックで弾かれる。
     """
+    used = {fid for fid, _ in PLACEHOLDER.findall(template)}
+    # 「40人」「8人」のような短い人数も、原稿がすでに使っている材料の値なら差し込みに戻す
+    # （11/8 上位トレーダーの短文が「40人のうち8人…買い2人・売り6人」と正しい人数を書いて破棄された）
     pairs = sorted(((str(v), f"{{{{{fid}.{k}}}}}") for fid, f in facts.items() for k, v in f["fields"].items()
-                    if DIGIT.search(str(v)) and len(str(v)) >= 4), key=lambda p: -len(p[0]))
+                    if DIGIT.search(str(v)) and (len(str(v)) >= 4 or (fid in used and re.fullmatch(r"\d{1,3}人", str(v))))),
+                   key=lambda p: -len(p[0]))
     parts = PLACEHOLDER_ANY.split(template)
     for i in range(0, len(parts), 2):  # 既存の差し込み記号の中は触らない
         for value, ph in pairs:
