@@ -153,7 +153,7 @@ def relink(template: str, facts: dict[str, dict]) -> str:
     # 「40人」「8人」のような短い人数も、原稿がすでに使っている材料の値なら差し込みに戻す
     # （11/8 上位トレーダーの短文が「40人のうち8人…買い2人・売り6人」と正しい人数を書いて破棄された）
     pairs = sorted(((str(v), f"{{{{{fid}.{k}}}}}") for fid, f in facts.items() for k, v in f["fields"].items()
-                    if DIGIT.search(str(v)) and (len(str(v)) >= 4 or (fid in used and re.fullmatch(r"\d{1,3}人", str(v))))),
+                    if DIGIT.search(str(v)) and (len(str(v)) >= 4 or (fid in used and re.fullmatch(r"\d{1,3}(?:人|%)", str(v))))),
                    key=lambda p: -len(p[0]))
     parts = PLACEHOLDER_ANY.split(template)
     for i in range(0, len(parts), 2):  # 既存の差し込み記号の中は触らない
