@@ -1,0 +1,40 @@
+[
+  {
+    "fact_ids": [
+      "f8",
+      "f29",
+      "f6",
+      "f27"
+    ],
+    "topic_key": "hl:xyz:SNDK:week_change",
+    "angle": "主要株の週次下落率でSNDKの28%安などの際立った急落を取り上げ、HIP-3先物市場での波及とコモディティ（原油）を含めた全体のリスクオフの構造を紐解く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "SNDKなどの個別株の記録的な週次下落幅とHIP-3先物の動向を組み合わせ、広範囲の資金流出の歪みを深く解説できるため。"
+  },
+  {
+    "fact_ids": [
+      "f9",
+      "f10",
+      "f11",
+      "f14"
+    ],
+    "topic_key": "stock:MU:week_change",
+    "angle": "半導体セクターの歴史的な1週間の下げ幅（MU-22%、ARM-15%など）に焦点を当て、株価の急ピッチな調整がデリバティブに与えた影響を整理する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "半導体株の具体的な週次下落率の数字を用いて、市場全体の調整局面におけるセクター内の明暗と歪みを客観的に示せるため。"
+  }
+]
