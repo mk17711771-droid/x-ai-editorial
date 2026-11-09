@@ -1,0 +1,56 @@
+[
+  {
+    "fact_ids": [
+      "f6",
+      "f4",
+      "f40"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "半導体セクター全体で$AMDが+11.04%と急騰する一方、HIP-3の$NVDA先物は-5.13%と下落。個別株の強い値動きとデリバティブ側の冷ややかな視線のギャップを読み解く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "主要半導体の記録的な急騰とデリバティブ側の逆行する動きを対比させ、市場の歪みを鋭く突いているため。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f3",
+      "f39"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "$MUが+5.12%と強い値動きを見せる中、HIP-3の$SKHXは資金調達率が年率+413.9%まで高騰。メモリセクターに集まる熱狂と、過熱する先物市場の構造を解説する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "メモリ銘柄の現物上昇とHyperliquid上の極端な資金調達率の偏りを組み合わせた実用的な構造解説だから。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f5",
+      "f42"
+    ],
+    "topic_key": "stock:QQQ:quote",
+    "angle": "ナスダック（QQQ）が+1.40%と堅調に推移する背景で、S&P500のHIP-3先物は建玉が4億ドル超へ拡大。指数全体の資金流入とデリバティブの規模感を整理する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "主要指数の値上がりとオンチェーン上の建玉規模を紐付け、全体の資金の流れを分かりやすく整理しているため。"
+  }
+]
