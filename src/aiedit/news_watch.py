@@ -281,7 +281,12 @@ def run(payload: dict | None = None) -> dict:
             continue
         # 出来事そのものが古い（昨日・一昨日の話の再報道）なら速報にしない（10/31 2:05 ICEの件を「速報をキャッチ」と知らせた反省）
         # 特定のトレーダー・アドレスの売買を主役にした話題は扱わない（上位トレーダーは集計だけ。11/2「利益上位トレーダー2名が…」）
-        individual = re.search(r"(トレーダー|クジラ|大口|whale|アドレス)[^。]{0,6}[0-9０-９一二三]\s*(名|人|人の|つ)", s.get("headline", "") + s.get("summary_ja", ""))
+        story_text = s.get("headline", "") + s.get("summary_ja", "")
+        individual = (re.search(r"(トレーダー|クジラ|大口|whale|アドレス)[^。]{0,6}[0-9０-９一二三]\s*(名|人|人の|つ)", story_text)
+                      # 特定のウォレット・特定の会社や人のポジションの損益を追う話題も扱わない（11/9 Wintermute のものとされるアドレスの空売り利益。
+                      # 研究者がアドレスを結び付けただけで公式の開示ではなく、個人・特定の口座の追跡になる）
+                      or re.search(r"(ウォレット|アドレス|wallet|address|0x[0-9a-fA-F]{4})", story_text)
+                      or re.search(r"(空売り|ショート|ロング)[^。]{0,12}(利益|含み益)", story_text))  # 「清算の損失を補填」などの事件は対象外
         if not s.get("story_key") or not hot or s.get("in_scope") is False or s.get("fresh") is False or individual:
             continue
         prev = handled.get(s["story_key"], {})

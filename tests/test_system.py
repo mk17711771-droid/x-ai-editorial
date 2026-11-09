@@ -1406,3 +1406,16 @@ def test_trimmed_short_post_keeps_stale_close_asof(monkeypatch):
     fb = []
     assert pipeline._write_once({"id": "1215"}, "", "", list(by.values()), by, "t", "short", fb) is None
     assert any("長すぎる" in e for e in fb) and any("時点" in e for e in fb)
+
+
+def test_news_tracking_one_partys_position_pnl_skipped(isolated, monkeypatch):
+    """11/9 14:51: Wintermuteのものとされるアドレスの空売り利益を速報で出した（特定の口座の追跡は扱わない）。"""
+    from aiedit import news_watch
+    monkeypatch.setattr(news_watch, "triage", lambda *a: [{"story_key": "wm", "headline": "WintermuteのHyperliquid空売り利益が2.2億ドル突破",
+                        "summary_ja": "空売りポジションの利益が2億2,200万ドルに到達", "importance": 5, "buzz_fit": 6, "in_scope": True,
+                        "fresh": True, "sources": ["A（公式）"]}])
+    monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    monkeypatch.setattr(news_watch, "_reported_earlier", lambda s: False)
+    news_watch.run({"items": [{"title": "Wintermute short profit", "source": "A"}]})
+    assert not [f for f in (store.read_json("news_facts.json", []) or []) if f["key"] == "news:wm"]
