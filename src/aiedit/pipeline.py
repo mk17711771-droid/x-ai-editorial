@@ -256,6 +256,18 @@ def _cand_symbol(cand: dict, facts_by_id: dict[str, dict]) -> str:
     return ""
 
 
+def us_close_stale(now: datetime | None = None) -> bool:
+    """記録した米国株の最新の終値が、米国の日付で2日以上前か（週明けの月曜の取引開始前・祝日明け）。"""
+    from zoneinfo import ZoneInfo
+    closes = store.read_json("stock_closes.json", {}) or {}
+    days = [d for by_day in closes.values() for d in by_day]
+    if not days:
+        return False
+    last = datetime.strptime(max(days), "%Y-%m-%d").date()
+    today_ny = (now or now_utc()).astimezone(ZoneInfo("America/New_York")).date()
+    return (today_ny - last).days >= 2
+
+
 def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | None:
     """原稿を3案作らせ、チェックを通過した中で最良の1案を返す。"""
     fmt = slot_format(slot)
@@ -347,6 +359,11 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         # 速報を短時間に連発しない（同じ出来事の言い換えが続いて単調になる）。速報は未投稿のまま残し、間隔をあけて出す
         log.info("直近2時間以内に速報を出したため、今回は見送ります")
         return []
+    if slot["kind"] == "stock" and us_close_stale():
+        # 週明けの月曜（米国の取引開始前）・祝日明けは、米国株の材料が2日以上前の終値しかない。
+        # 24時間動いているHIP-3の株式先物を主役にする（11/9 月曜は朝・昼・夜の米国株の枠が期間の違う対比で全滅・削除）
+        slot = {**slot, "kind": "hl", "theme": slot["theme"] + "。※米国株は前営業日の終値しかないため、24時間動いているHIP-3の株式先物（大きな名前の銘柄）の今の数字を主役にする"}
+        log.info("米国株の終値が2日以上前のため、HIP-3の株式先物を主役にします")
     facts = collect(slot["kind"], weekly=bool(slot.get("weekly")), pending_news=slot["id"] == "news")
     store.write_json(f"facts/{key}.json", facts)
     log.info("材料 %d 件を収集", len(facts))

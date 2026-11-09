@@ -1419,3 +1419,14 @@ def test_news_tracking_one_partys_position_pnl_skipped(isolated, monkeypatch):
     monkeypatch.setattr(news_watch, "_reported_earlier", lambda s: False)
     news_watch.run({"items": [{"title": "Wintermute short profit", "source": "A"}]})
     assert not [f for f in (store.read_json("news_facts.json", []) or []) if f["key"] == "news:wm"]
+
+
+def test_us_close_stale_on_monday_before_open(monkeypatch):
+    """11/9 月曜: 米国株の材料が金曜の終値しかなく、米国株の枠が全滅・削除。月曜の取引開始前は古いと判定する。"""
+    from datetime import datetime, timezone
+    from aiedit import pipeline, store
+    monkeypatch.setattr(store, "read_json", lambda name, default=None: {"AMD": {"2026-11-05": 1, "2026-11-06": 2}})
+    assert pipeline.us_close_stale(datetime(2026, 11, 9, 11, 35, tzinfo=timezone.utc))       # 月曜 20:35 JST
+    assert not pipeline.us_close_stale(datetime(2026, 11, 7, 1, 0, tzinfo=timezone.utc))    # 土曜 10:00 JST（金曜の終値は1日前）
+    monkeypatch.setattr(store, "read_json", lambda name, default=None: {"AMD": {"2026-11-09": 1}})
+    assert not pipeline.us_close_stale(datetime(2026, 11, 9, 22, 40, tzinfo=timezone.utc))   # 火曜 07:40 JST
