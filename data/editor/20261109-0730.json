@@ -2,37 +2,54 @@
   {
     "fact_ids": [
       "f6",
-      "f10",
-      "f38"
+      "f37"
     ],
     "topic_key": "stock:AMD:big_move",
-    "angle": "$AMDが+11.04%と急騰する裏で、半導体セクターのデリバティブ市場にどのような需給の歪みが起きているのかを解説する。",
+    "angle": "+11.04%と急騰したAMDの裏で、HIP-3のNVDA先物が年率-449.0%まで沈み込む歪みを解説する",
+    "scores": {
+      "novelty": 19,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 96,
+    "reason": "大幅上昇したAMDの動きに対し、HIP-3のNVDA先物における極端な資金調達率の歪みを鋭く対比させているため"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f36"
+    ],
+    "topic_key": "hl:xyz:SKHX:hip3_top",
+    "category": "smart_money",
+    "angle": "+5.12%と上昇したマイクロン（MU）に対し、HIP-3のSKHX先物が年率+70.7%のプラス圏で推移する構造を追う",
     "scores": {
       "novelty": 18,
       "interest": 19,
       "evidence": 20,
       "utility": 18,
-      "insight": 19
+      "insight": 18
     },
-    "total": 94,
-    "reason": "大幅上昇したAMDを主役に据えつつ、SKハイニックスのHIP-3先物における極端なマイナス金利の歪みを組み合わせて深い考察を提供できるため。"
+    "total": 93,
+    "reason": "メモリ関連の現物上昇とHIP-3先物市場での資金調達率の逆転現象を具体的な数字で捉えているため"
   },
   {
     "fact_ids": [
-      "f10",
-      "f36",
+      "f3",
       "f38"
     ],
-    "topic_key": "hl:xyz:MU:hip3_top",
-    "angle": "メモリ株が揃って上昇を見せる中、Hyperliquid上の半導体関連先物における異常な資金調達率の偏りに焦点を当てる。",
+    "topic_key": "stock:QQQ:big_move",
+    "category": "smart_money",
+    "angle": "ナスダック100（QQQ）が+1.40%と戻す中で、HIP-3のS&P 500指数先物が小幅な値動きにとどまる背景の解説",
     "scores": {
       "novelty": 17,
       "interest": 18,
       "evidence": 20,
       "utility": 18,
-      "insight": 19
+      "insight": 18
     },
-    "total": 92,
-    "reason": "マイクロンの強い値動きと、HIP-3先物でのNVDAやSKHXのマイナス金利という具体的な数字のギャップを対比させやすいため。"
+    "total": 91,
+    "reason": "主要インデックスの現物価格とデリバティブ市場の出来高・建玉のバランスを冷静に整理しているため"
   }
 ]
