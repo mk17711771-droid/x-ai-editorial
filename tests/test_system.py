@@ -1430,3 +1430,11 @@ def test_us_close_stale_on_monday_before_open(monkeypatch):
     assert not pipeline.us_close_stale(datetime(2026, 11, 7, 1, 0, tzinfo=timezone.utc))    # 土曜 10:00 JST（金曜の終値は1日前）
     monkeypatch.setattr(store, "read_json", lambda name, default=None: {"AMD": {"2026-11-09": 1}})
     assert not pipeline.us_close_stale(datetime(2026, 11, 9, 22, 40, tzinfo=timezone.utc))   # 火曜 07:40 JST
+
+
+def test_xyz_market_code_in_prose_and_broken_phrase():
+    """11/10 00:43: 「新しい市場「xyz:TTWO」が取引開始」「どのような資金の流れていくのか」を削除。"""
+    from aiedit import checks
+    t = checks.render("Hyperliquidで新しい市場「xyz:TTWO」が取引開始。$TTWO を見る。", {})
+    assert "xyz:" not in t and "TTWO" in t
+    assert any("資金の流れていく" in e for e in checks.check_text("新しい市場が10個できた。どのような資金の流れていくのか見たい。", "news:x"))
