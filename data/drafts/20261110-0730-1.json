@@ -1,0 +1,149 @@
+{
+  "id": "20261110-0730-1",
+  "slot_key": "20261110-0730",
+  "slot_theme": "07:42 朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い",
+  "status": "stale",
+  "created_at": "2026-11-09T23:07:59.416742+00:00",
+  "text": "主要指数が強含む中で$AVGOが急騰した背景と、デリバティブ市場との間にどんな需給の温度差が隠されているのか。\n\n【いま起きてること】\n前夜の米国株市場では主要な指数が揃って堅調な値動きを見せる中、個別銘柄では特定の名前に強い買いが集まり、現物価格が大きく押し上げられる展開となっている。一方でHyperliquidの株式先物（HIP-3）市場においては、全体の出来高上位に位置する指数先物の需給がどのようにバランスしているのかが注目される。\n\n【数字で見る】\n・AVGO 現物価格$319.48、前日比+8.78%、高値$323.05、安値$304.29（米国11/9終値）\n・SPY 現物価格$752.69、前日比+2.37%、高値$755.42、安値$741.02（米国11/9終値）\n・ナスダック100（株式先物（HIP-3）） 価格$27,940、24時間騰落率+3.48%、建玉約2.2億ドル、24時間出来高約6.4億ドル、資金調達率（年率）+4.6%（日本時間11/10(火) 08:07時点）\n\n【なぜ「歪み」なのか】\nSPYが前日比+2.37%と堅調に推移し、現物市場でAVGOが+8.78%という際立った上昇を記録している一方で、HyperliquidのHIP-3市場におけるナスダック100は建玉約2.2億ドルを抱えながらも資金調達率が年率+4.6%と比較的穏やかな水準に収まっている。現物側の強い上昇圧力に対して、デリバティブ側では過度なロングの偏りが抑えられており、両者の間に大きなコストの歪みは見られない。個人的には、このニュートラルな需給バランスが次のトレンドをどのように支えるのかに注目している。\n\n【次に見るポイント】\n①AVGOの現物価格$319.48を起点とした値動きの持続性\n②ナスダック100の約2.2億ドルの建玉と出来高約6.4億ドルの増減\n③年率+4.6%に留まる資金調達率がどちらの方向に傾くか",
+  "template": "主要指数が強含む中で`${{f9.symbol}}`が急騰した背景と、デリバティブ市場との間にどんな需給の温度差が隠されているのか。\n\n【いま起きてること】\n前夜の米国株市場では主要な指数が揃って堅調な値動きを見せる中、個別銘柄では特定の名前に強い買いが集まり、現物価格が大きく押し上げられる展開となっている。一方でHyperliquidの{{f41.market}}市場においては、全体の出来高上位に位置する指数先物の需給がどのようにバランスしているのかが注目される。\n\n【数字で見る】\n・`${{f9.symbol}}` 現物価格{{f9.price}}、前日比{{f9.change_pct}}、高値{{f9.high}}、安値{{f9.low}}（{{f9.asof}}）\n・SPY 現物価格{{f4.price}}、前日比{{f4.change_pct}}、高値{{f4.high}}、安値{{f4.low}}（{{f4.asof}}）\n・`${{f41.symbol}}`（{{f41.market}}） 価格{{f41.price}}、24時間騰落率{{f41.change_pct}}、建玉{{f41.oi}}、24時間出来高{{f41.volume}}、資金調達率（年率）{{f41.funding_annual}}（{{f41.asof}}）\n\n【なぜ「歪み」なのか】\nSPYが前日比{{f4.change_pct}}と堅調に推移し、現物市場で`${{f9.symbol}}`が{{f9.change_pct}}という際立った上昇を記録している一方で、HyperliquidのHIP-3市場における{{f41.coin}}は建玉{{f41.oi}}を抱えながらも資金調達率が年率{{f41.funding_annual}}と比較的穏やかな水準に収まっている。現物側の強い上昇圧力に対して、デリバティブ側では過度なロングの偏りが抑えられており、両者の間に大きなコストの歪みは見られない。個人的には、このニュートラルな需給バランスが次のトレンドをどのように支えるのかに注目している。\n\n【次に見るポイント】\n①`${{f9.symbol}}`の現物価格{{f9.price}}を起点とした値動きの持続性\n②{{f41.coin}}の{{f41.oi}}の建玉と出来高{{f41.volume}}の増減\n③年率{{f41.funding_annual}}に留まる資金調達率がどちらの方向に傾くか",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:AVGO:big_move",
+  "angle": "主要指数が強含む中でAVGOが+8.78%と急騰した背景と、HIP-3上のXYZ100の資金調達率（年率+4.6%）が示す需給の温度差を検証する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f9",
+    "f41",
+    "f4"
+  ],
+  "facts": [
+    {
+      "key": "stock:AVGO:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AVGO 価格319.48, 前日比+8.78%, 前日終値293.69, 高値323.05, 安値304.292",
+      "fields": {
+        "symbol": "AVGO",
+        "price": "$319.48",
+        "change_pct": "+8.78%",
+        "prev_close": "$293.69",
+        "high": "$323.05",
+        "low": "$304.29",
+        "asof": "米国11/9終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 319.48,
+        "change_pct": 8.781,
+        "prev_close": 293.69
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AVGO"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AVGO"
+      },
+      "asof": "2026-11-09T23:07:39.709310+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率+3.48%, 価格27940.0, 建玉221611569USD, 24時間出来高636643418USD, 資金調達率(年率)+4.6%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$27,940",
+        "change_pct": "+3.48%",
+        "oi": "約2.2億ドル",
+        "volume": "約6.4億ドル",
+        "funding_annual": "+4.6%",
+        "asof": "日本時間11/10(火) 08:07時点",
+        "asof_short": "08:07時点"
+      },
+      "raw": {
+        "mark": 27940.0,
+        "change_pct": 3.478,
+        "oi_usd": 221611569,
+        "vol_usd": 636643418,
+        "funding_annual_pct": 4.56
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-09T23:07:52.113426+00:00",
+      "confidence": "confirmed",
+      "id": "f41"
+    },
+    {
+      "key": "stock:SPY:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SPY 価格752.69, 前日比+2.37%, 前日終値735.29, 高値755.42, 安値741.025",
+      "fields": {
+        "symbol": "SPY",
+        "price": "$752.69",
+        "change_pct": "+2.37%",
+        "prev_close": "$735.29",
+        "high": "$755.42",
+        "low": "$741.02",
+        "asof": "米国11/9終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 752.69,
+        "change_pct": 2.366,
+        "prev_close": 735.29
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SPY"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SPY"
+      },
+      "asof": "2026-11-09T23:07:39.014055+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AVGO"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SPY"
+    }
+  ],
+  "needs_human": false,
+  "problems": [
+    "再確認のデータ取得に失敗: 429 Client Error: Too Many Requests for url: https://finnhub.io/api/v1/quote?symbol=AVGO&token=dbfnbqpr01qiahua1b00dbfnbqpr01qiahua1b0g",
+    "再確認のデータ取得に失敗: 429 Client Error: Too Many Requests for url: https://finnhub.io/api/v1/quote?symbol=SPY&token=dbfnbqpr01qiahua1b00dbfnbqpr01qiahua1b0g"
+  ]
+}

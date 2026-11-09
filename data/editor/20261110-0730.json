@@ -1,0 +1,56 @@
+[
+  {
+    "fact_ids": [
+      "f8",
+      "f6",
+      "f43"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "前夜の米国株で+13.26%と急騰したAMDを主役に、SOXXの+7.49%高とHIP-3先物（SOXL）の資金調達率が-1.2%まで沈み込む需給の歪みを構造解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "半導体セクターの急反発と、デリバティブ市場における極端な資金調達率の逆転現象をデータで鋭く結びつけているため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f40",
+      "f5"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "半導体市場が全面高に沸く中でなぜNVDAだけが-4.27%と逆行安になったのか、HIP-3先物の資金調達率（年率+16.9%）と建玉の歪みから読み解く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "全体の強気相場の中での単体での下落という強い違和感を、先物市場の具体的な建玉と資金調達率で深く解説しているため。"
+  },
+  {
+    "fact_ids": [
+      "f9",
+      "f41",
+      "f4"
+    ],
+    "topic_key": "stock:AVGO:big_move",
+    "angle": "主要指数が強含む中でAVGOが+8.78%と急騰した背景と、HIP-3上のXYZ100の資金調達率（年率+4.6%）が示す需給の温度差を検証する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "個別ハイテク株の強い値動きとインデックス先物の関係性を、具体的数値を用いて論理的に整理しているため。"
+  }
+]
