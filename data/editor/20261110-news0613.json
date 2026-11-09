@@ -1,0 +1,52 @@
+[
+  {
+    "fact_ids": [
+      "f4",
+      "f18"
+    ],
+    "topic_key": "hl:xyz:NVDA:oi_change",
+    "angle": "エヌビディア（NVDA）のHIP-3先物で建玉が24時間で+114.6%と急増。価格が-2.87%と調整する中で、市場のポジションが急ピッチで傾いています。",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 95,
+    "reason": "大きな名前であるNVDAの建玉急増という明確な数字の異変をとらえており、市場の関心と実データを高いレベルで網羅しているため。"
+  },
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:tradexyz-lists-muu-perp",
+    "angle": "trade[XYZ]がマイクロン（MU）の2倍ETF（MUU）の無期限先物の取り扱いを開始。オンチェーンでのレバレッジ商品の拡充が加速しています。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "新商品の取り扱いという確度の高いニュース速報であり、プラットフォームの機能拡張をいち早く伝える有用な内容のため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f26"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "SOXLのHIP-3先物が+23.79%の大幅上昇を記録し、資金調達率は年率+5.5%で推移。米国株の急騰に追随する強気な需給が続いています。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "半導体レバレッジETFの急変動とHyperliquid上の価格・調達率のデータを正確に対比させているため。"
+  }
+]
