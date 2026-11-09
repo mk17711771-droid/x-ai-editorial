@@ -282,9 +282,11 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         used_ids = {fid for fid, _ in PLACEHOLDER.findall(template)}
         if not all(f"{{{{{fid}.asof}}}}" in template for fid in stale.values()):
             errors.append(f"{names}は2日以上前の終値なのに、時点（asof）を書かずに使っている")
-        hl_24h = any(facts[f].get("kind") == "hl" for f in used_ids if f in facts)
-        if hl_24h and any(w in PLACEHOLDER.sub("", template) for w in CONTRAST):
-            errors.append(f"{names}の2日以上前の終値の動きと、Hyperliquidの今の動きを対比している（期間が違う）")
+        # 時点を書かずにHyperliquidの今の動きと対比するのは不可。時点を書けば対比は可（24時間騰落率との対比は _stale_close_contrast が見る）
+        hl_now = any(facts[f].get("kind") == "hl" for f in used_ids if f in facts)
+        missing = [n for n, fid in stale.items() if f"{{{{{fid}.asof}}}}" not in template]
+        if hl_now and missing and any(w in PLACEHOLDER.sub("", template) for w in CONTRAST):
+            errors.append(f"{'・'.join(missing)}の2日以上前の終値の動きを、時点なしでHyperliquidの今の動きと対比している（期間が違う）")
     # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
     for ln in template.split("\n"):
         if not ln.strip().startswith(("・", "-")):

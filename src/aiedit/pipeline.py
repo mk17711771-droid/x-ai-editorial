@@ -268,6 +268,12 @@ def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | N
     user = (f"# 投稿枠\n{slot['theme']}{shape}\n\n# 編集長の切り口\n{cand.get('angle', '')}\n\n"
             f"# 材料（この差し込み記号だけ使える）\n{_facts_for_llm(used, with_fields=True)}\n\n"
             f"# 直近の投稿 (recent_posts)\n{json.dumps(list(store.recent_texts(10)), ensure_ascii=False)}")
+    # 週明けの朝など、米国株の数字が2日以上前の終値のときは先に伝える（11/9 月曜の朝の長文が全案破棄・1本は誤投稿）
+    stale = checks._stale_close_facts("".join(f"{{{{{f['id']}.x}}}}" for f in used), {f["id"]: f for f in used})
+    if stale:
+        user += ("\n\n# 注意（米国株の時点）\n" + "・".join(sorted(stale)) + " の数字は2日以上前（前営業日）の終値。"
+                 "必ず {{fN.asof}} で時点（例: 米国11/6(金)終値）を書き、「今日」「今」の動きとして書かない。"
+                 "Hyperliquidの24時間騰落率とは並べて対比しない（資金調達率・建玉の偏りとの比較はよい）。")
     topic_key = cand.get("topic_key") or used[0]["key"]
     feedback: list[str] = []
     for attempt in range(2):
