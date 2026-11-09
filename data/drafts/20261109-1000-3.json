@@ -1,0 +1,143 @@
+{
+  "id": "20261109-1000-3",
+  "slot_key": "20261109-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-09T01:00:16.999906+00:00",
+  "text": "$HYPEが-3.50%（$74.88）と調整する中で、安定上位トレーダー41人のうち4人が利確で撤退し、保有者の売買も売り越し（買3人/売5人）に傾いているのが気になる。\n\n価格の調整に合わせて利益を確定させる動きが出始めているこの局面、ここからどうポジションが整理されるのか注目したい。",
+  "template": "${{f6.symbol}}が{{f6.change_pct}}（{{f6.price}}）と調整する中で、安定上位トレーダー{{f25.top_n}}のうち{{f31.closed_n}}人が利確で撤退し、保有者の売買も売り越し（買{{f25.long_n}}/売{{f25.short_n}}）に傾いているのが気になる。\n\n価格の調整に合わせて利益を確定させる動きが出始めているこの局面、ここからどうポジションが整理されるのか注目したい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "traders:HYPE:bias",
+  "angle": "HYPEが24時間で-3.50%（74.882ドル）と調整する中、安定上位トレーダー4人が利確で撤退し、保有者も売り越し（買3/売5）に傾いている実態を突く。",
+  "scores": {
+    "novelty": 16,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 16
+  },
+  "total": 86,
+  "fact_ids": [
+    "f6",
+    "f25",
+    "f31"
+  ],
+  "facts": [
+    {
+      "key": "hl:HYPE:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: HYPE（無期限先物） 24時間騰落率-3.50%, 価格74.882, 建玉1676270599USD, 24時間出来高316499307USD, 資金調達率(年率)+11.0%",
+      "fields": {
+        "coin": "HYPE",
+        "symbol": "HYPE",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$74.88",
+        "change_pct": "-3.50%",
+        "oi": "約16.8億ドル",
+        "volume": "約3.2億ドル",
+        "funding_annual": "+11.0%",
+        "asof": "日本時間11/9(月) 09:58時点",
+        "asof_short": "09:58時点"
+      },
+      "raw": {
+        "mark": 74.882,
+        "change_pct": -3.495,
+        "oi_usd": 1676270599,
+        "vol_usd": 316499307,
+        "funding_annual_pct": 10.95
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "HYPE",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/HYPE"
+      },
+      "asof": "2026-11-09T00:58:31.700940+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-09T00:36:09.234248+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:HYPE:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー41人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、HYPEを持っている8人の内訳: 買い3人・売り5人（買い比率38%）、買い合計531458USD・売り合計1337282USD、平均レバレッジ10.0倍（このほか、現物つきの売り＝ヘッジ・裁定が4人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "HYPE",
+        "top_n": "41人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "8人",
+        "long_n": "3人",
+        "short_n": "5人",
+        "long_ratio": "38%",
+        "long_usd": "約53万ドル",
+        "short_usd": "約134万ドル",
+        "hedge_n": "4人",
+        "avg_leverage": "10.0倍",
+        "asof": "日本時間11/9(月) 09:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 3,
+        "short_n": 5,
+        "long_usd": 531458,
+        "short_usd": 1337282
+      },
+      "id": "f25"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-09T00:36:09.234248+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:HYPE:takeprofit",
+      "category": "smart_money_exit",
+      "summary": "安定上位トレーダー41人のうち4人が、約1日前に含み益で持っていたHYPEのポジションを閉じた（利確とみられる。前回時点の含み益合計54970USD）",
+      "fields": {
+        "coin": "HYPE",
+        "top_n": "41人",
+        "closed_n": "4人",
+        "upnl": "約5万ドル",
+        "asof": "日本時間11/9(月) 09:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "closed_n": 4,
+        "upnl": 54970
+      },
+      "id": "f31"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/HYPE"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false
+}

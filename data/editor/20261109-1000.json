@@ -1,0 +1,69 @@
+[
+  {
+    "fact_ids": [
+      "f10",
+      "f19"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体メモリ大手SKハイニックス（$SKHX）のHIP-3先物で、価格が-1.87%と軟調ななか資金調達率が年率+172.9%とロング過熱の歪みが生じている点を取り上げる。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "半導体の主要銘柄でありながら直近で主役になっておらず、年率+172.9%という突出した資金調達率の異常値が確認できるため。"
+  },
+  {
+    "fact_ids": [
+      "f27"
+    ],
+    "topic_key": "traders:SOL:bias",
+    "angle": "安定上位トレーダー41人のうちSOLを保有する4人全員が「売り」を持ち、買い比率0%（売り総額約156万ドル）という徹底した下方向の偏りを数字で示す。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "直近で主役にしていない主要銘柄SOLにおいて、安定上位勢のポジションが売り100%に偏っている明確な事実があるため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f25",
+      "f31"
+    ],
+    "topic_key": "traders:HYPE:bias",
+    "angle": "HYPEが24時間で-3.50%（74.882ドル）と調整する中、安定上位トレーダー4人が利確で撤退し、保有者も売り越し（買3/売5）に傾いている実態を突く。",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 16
+    },
+    "total": 86,
+    "reason": "プラットフォーム基軸通貨のHYPEについて、下落局面における上位勢の利確退出と売り偏向の動向が把握できるため。"
+  },
+  {
+    "fact_ids": [
+      "f28"
+    ],
+    "topic_key": "traders:funnel",
+    "angle": "Hyperliquidランキング上位300人を「レバ3倍以下」「ドローダウン15%以内」など真似できる条件で絞り込むと0人になる現実から、ランキング上位の罠を解説する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 16,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 15
+    },
+    "total": 85,
+    "reason": "特定銘柄ではなくアカウントの読者が保存したくなる本質的な集計データであり、定期的な教育的切り口として有用なため。"
+  }
+]
