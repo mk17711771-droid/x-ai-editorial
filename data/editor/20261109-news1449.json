@@ -1,0 +1,52 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:wintermute-hyperliquid-shorts-profits",
+    "angle": "Wintermuteの空売りポジションが2億2,200万ドルの利益を記録したニュースと、クジラ勢の動向に焦点を当てる。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "大手マーケットメイカーの具体的な空売り利益という強力な数字と、市場の動向を端的に結びつけているため。"
+  },
+  {
+    "fact_ids": [
+      "f15",
+      "f21"
+    ],
+    "topic_key": "hl:xyz:NVDA:oi_change",
+    "angle": "NVDAのHIP-3先物で建玉が24時間で27.5%急増している不穏な動きを切り取る。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 86,
+    "reason": "大きな名前であるNVDAの具体的な建玉急増データを提示し、市場の緊張感を正確に伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f13",
+      "f20"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "SKHXのHIP-3先物で資金調達率が年率+120.5%に達しているロング過熱の歪みに注目する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 16
+    },
+    "total": 85,
+    "reason": "半導体関連の具体的な資金調達率の異常値を提示し、デリバティブ市場の需給の偏りを明確に示しているため。"
+  }
+]

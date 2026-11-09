@@ -1,0 +1,59 @@
+{
+  "id": "20261109-news1449-1",
+  "slot_key": "20261109-news1449",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "posted",
+  "created_at": "2026-11-09T05:51:51.585372+00:00",
+  "text": "クジラや大手マーケットメイカーの動き、やっぱり見逃せないよな。\n\nWintermuteの空売りポジションの利益が2億2,200万ドルに到達し、空売り総額が1億1,500万ドル超にが確認されていて、ステータスは確定となっている。デリバティブ市場での大きな偏りがどう動くか注目したい。",
+  "template": "クジラや大手マーケットメイカーの動き、やっぱり見逃せないよな。\n\n{{f1.who}}の{{f1.what}}が確認されていて、ステータスは{{f1.status}}となっている。デリバティブ市場での大きな偏りがどう動くか注目したい。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "news:wintermute-hyperliquid-shorts-profits",
+  "angle": "Wintermuteの空売りポジションが2億2,200万ドルの利益を記録したニュースと、クジラ勢の動向に焦点を当てる。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 88,
+  "fact_ids": [
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "news:wintermute-hyperliquid-shorts-profits",
+      "kind": "hl",
+      "asof": "2026-11-09T04:45:48.465435+00:00",
+      "expires_at": "2026-11-10T16:45:48.465447+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-09T03:30:00Z",
+      "summary": "WintermuteによるHyperliquid上の空売りポジションの利益が2億2,200万ドルに達し、空売り総額が1億1,500万ドルを超えていることが報じられました。クジラや大手マーケットメイカーによる大規模なポジション動向として市場の関心を集めています。",
+      "fields": {
+        "headline": "WintermuteのHyperliquid空売り利益が2.2億ドル突破",
+        "what": "空売りポジションの利益が2億2,200万ドルに到達し、空売り総額が1億1,500万ドル超に",
+        "status": "確定",
+        "who": "Wintermute"
+      },
+      "raw": {},
+      "source": {
+        "name": "www.tokenpost.com・Pluang",
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1GeTBJSEV1Q2hDX2taNHNlMktkZ3ZCYS1MODZtODBraU51SmZ3ZjFwM3JpTV9Dakc1Mi01NktKMWo4YmVXSExDTlJYRXp3dWVKT2xjRE9hY0JQUQ?oc=5"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "www.tokenpost.com・Pluang",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1GeTBJSEV1Q2hDX2taNHNlMktkZ3ZCYS1MODZtODBraU51SmZ3ZjFwM3JpTV9Dakc1Mi01NktKMWo4YmVXSExDTlJYRXp3dWVKT2xjRE9hY0JQUQ?oc=5"
+    }
+  ],
+  "needs_human": false,
+  "tweet_id": "2119669280472191462",
+  "posted_at": "2026-11-09T05:51:52.783360+00:00"
+}
