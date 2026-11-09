@@ -1,0 +1,111 @@
+{
+  "id": "20261109-0730-2",
+  "slot_key": "20261109-0730",
+  "slot_theme": "07:42 朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い",
+  "status": "posted",
+  "created_at": "2026-11-09T00:16:18.989240+00:00",
+  "text": "半導体セクターで明暗が分かれる中、+11.04%と買われたAMDと、年率-417.5%のマイナス金利を付けた$NVDAの先物の間にどんな歪みが隠されているのか。\n\n【いま起きてること】\n米国株の現物相場での値動きと、Hyperliquid上のHIP-3株式先物におけるトレーダーのポジション構築の間で、コストの偏りが鮮明になっている。セクター内の主力銘柄であっても、デリバティブ側では全く異なる需給のプレッシャーが加わっている。\n\n【数字で見る】（日本時間11/9(月) 09:12時点）\n・AMD 現物価格$449.04、前日比+11.04%、高値$459.80、安値$433.30（米国11/6終値）\n・NVDA（株式先物（HIP-3）） 価格$180.00、24時間騰落率-3.83%、建玉約1.3億ドル、資金調達率（年率）-417.5%\n\n【なぜ「歪み」なのか】\nAMDが前日比+11.04%と強い買いを集めた前営業日の動きとは裏腹に、HIP-3のNVDA先物では価格が-3.83%と下落し、資金調達率が年率-417.5%という強烈なマイナスに突入している。ロング側が優位に立ちにくい構造の中でショート側が多額のコストを支払い続けているのは、下値を見込む売り手がデリバティブ市場に集中している証左だ。個人的には、この歪んだコストバランスがどちらの方向へポジションの巻き戻しを誘発するのかが興味深いところだ。\n\n【次に見るポイント】\n①NVDAの先物における約1.3億ドルの建玉がさらに積み上がるか\n②年率-417.5%の資金調達率がショート側の利食いで和らぐか\n③セクター内の他の半導体関連先物への波及効果",
+  "template": "半導体セクターで明暗が分かれる中、{{f6.change_pct}}と買われたAMDと、年率{{f37.funding_annual}}のマイナス金利を付けた$NVDAの先物の間にどんな歪みが隠されているのか。\n\n【いま起きてること】\n米国株の現物相場での値動きと、Hyperliquid上のHIP-3株式先物におけるトレーダーのポジション構築の間で、コストの偏りが鮮明になっている。セクター内の主力銘柄であっても、デリバティブ側では全く異なる需給のプレッシャーが加わっている。\n\n【数字で見る】（{{f37.asof}}）\n・AMD 現物価格{{f6.price}}、前日比{{f6.change_pct}}、高値{{f6.high}}、安値{{f6.low}}（{{f6.asof}}）\n・NVDA（{{f37.market}}） 価格{{f37.price}}、24時間騰落率{{f37.change_pct}}、建玉{{f37.oi}}、資金調達率（年率）{{f37.funding_annual}}\n\n【なぜ「歪み」なのか】\nAMDが前日比{{f6.change_pct}}と強い買いを集めた前営業日の動きとは裏腹に、HIP-3のNVDA先物では価格が{{f37.change_pct}}と下落し、資金調達率が年率{{f37.funding_annual}}という強烈なマイナスに突入している。ロング側が優位に立ちにくい構造の中でショート側が多額のコストを支払い続けているのは、下値を見込む売り手がデリバティブ市場に集中している証左だ。個人的には、この歪んだコストバランスがどちらの方向へポジションの巻き戻しを誘発するのかが興味深いところだ。\n\n【次に見るポイント】\n①NVDAの先物における{{f37.oi}}の建玉がさらに積み上がるか\n②年率{{f37.funding_annual}}の資金調達率がショート側の利食いで和らぐか\n③セクター内の他の半導体関連先物への波及効果",
+  "style": "構造解説型",
+  "format": "long",
+  "topic_key": "stock:AMD:big_move",
+  "angle": "+11.04%と急騰したAMDの裏で、NVDAのHIP-3先物が年率-417.5%の極端なマイナス金利に沈んだ理由を読み解く。",
+  "scores": {
+    "novelty": 18,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 95,
+  "fact_ids": [
+    "f6",
+    "f37"
+  ],
+  "facts": [
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格449.04, 前日比+11.04%, 前日終値404.4, 高値459.8, 安値433.3",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$449.04",
+        "change_pct": "+11.04%",
+        "prev_close": "$404.40",
+        "high": "$459.80",
+        "low": "$433.30",
+        "asof": "米国11/6終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 449.04,
+        "change_pct": 11.039,
+        "prev_close": 404.4
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-09T00:12:06.646717+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-3.83%, 価格180.0, 建玉133199326USD, 24時間出来高122317179USD, 資金調達率(年率)-417.5%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$180.00",
+        "change_pct": "-3.83%",
+        "oi": "約1.3億ドル",
+        "volume": "約1.2億ドル",
+        "funding_annual": "-417.5%",
+        "asof": "日本時間11/9(月) 09:12時点",
+        "asof_short": "09:12時点"
+      },
+      "raw": {
+        "mark": 180.0,
+        "change_pct": -3.831,
+        "oi_usd": 133199326,
+        "vol_usd": 122317179,
+        "funding_annual_pct": -417.5
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-09T00:12:10.424306+00:00",
+      "confidence": "confirmed",
+      "id": "f37"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119584840576094596",
+  "posted_at": "2026-11-09T00:16:20.871105+00:00"
+}
