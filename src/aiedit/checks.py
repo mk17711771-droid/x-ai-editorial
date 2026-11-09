@@ -287,6 +287,13 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         missing = [n for n, fid in stale.items() if f"{{{{{fid}.asof}}}}" not in template]
         if hl_now and missing and any(w in PLACEHOLDER.sub("", template) for w in CONTRAST):
             errors.append(f"{'・'.join(missing)}の2日以上前の終値の動きを、時点なしでHyperliquidの今の動きと対比している（期間が違う）")
+    # 速報の内部の項目（status: 確定/確認中）を本文に出さない。説明文（what）を名詞のように「〜の{{what}}が」で埋め込まない
+    # （11/9 14:51「Wintermuteの空売りポジションの利益が…1億1,500万ドル超にが確認されていて、ステータスは確定」）
+    for fid, field in PLACEHOLDER.findall(template):
+        if field == "status" and (facts.get(fid) or {}).get("category") == "breaking_news":
+            errors.append("速報の内部の項目（status）を本文に書いている")
+    if re.search(r"\{\{\s*f\d+\.what\s*\}\}\s*(が|を|は)", template):
+        errors.append("速報の説明文（what）を名詞のように「〜が・〜を」で埋め込んでいる（文として使う）")
     # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
     for ln in template.split("\n"):
         if not ln.strip().startswith(("・", "-")):

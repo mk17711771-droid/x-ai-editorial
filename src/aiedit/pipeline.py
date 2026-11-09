@@ -307,7 +307,15 @@ def _write_once(slot: dict, system: str, user: str, used: list[dict], facts_by_i
         errors = checks.check_template(tmpl, usable)
         text = checks.render(tmpl, usable) if not errors else tmpl
         if not errors:
+            before = text
             text = checks.fit_length(text, fmt)  # 少しだけ長い短文は、最後の段落・文を落として収める（11/3 文字数超過で枠を落とした）
+            if len(text) < len(before) * 0.6:
+                # 半分近く削ると、時点など大事な部分が落ちる（11/9 12:18 長文の形の原稿が1行目だけになり、金曜の終値の時点が消えた）
+                errors = [f"短文の上限に対して長すぎる（{len(before)}字）。短文の形（2〜3段落）で書き直す"]
+            for sym, fid in checks._stale_close_facts(tmpl, usable).items():
+                asof = str(usable[fid]["fields"].get("asof", ""))
+                if asof and asof not in text:
+                    errors.append(f"{sym}は2日以上前の終値なのに、投稿文に時点（{asof}）が残っていない")
         errors = errors or checks.check_text(text, topic_key, fmt)
         if errors:
             log.info("案%d（%s）を破棄: %s", idx, v.get("style"), errors)

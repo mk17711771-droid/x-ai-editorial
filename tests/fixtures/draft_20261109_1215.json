@@ -1,0 +1,111 @@
+{
+  "id": "20261109-1215-1",
+  "slot_key": "20261109-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-09T03:18:41.033267+00:00",
+  "text": "$SOXXの現物が+3.51%と反発している一方で、HyperliquidのHIP-3市場ではNVDA先物が-3.85%と軟調な値動きを見せている。",
+  "template": "$SOXXの現物が{{f4.change_pct}}と反発している一方で、HyperliquidのHIP-3市場では$NVDA先物が{{f38.change_pct}}と軟調な値動きを見せている。\n\n【いま起きてること】\n半導体セクターの現物市場が{{f4.asof}}で前日比{{f4.change_pct}}と買い戻される動きを見せる中、Hyperliquidの{{f38.market}}では個別銘柄ごとに異なる需給のプレッシャーがかかっている。\n\n【数字で見る】\n・SOXX 価格{{f4.price}}、前日比{{f4.change_pct}}（{{f4.asof}}）\n・NVDA（{{f38.market}}） 価格{{f38.price}}、24時間騰落率{{f38.change_pct}}、建玉{{f38.oi}}、資金調達率（年率）{{f38.funding_annual}}（{{f38.asof}}）\n\n【なぜ「歪み」なのか】\n現物セクター全体が前日比でプラス圏へ切り返す動きを見せる一方で、HIP-3のNVDA先物は{{f38.asof}}で{{f38.change_pct}}と軟調に推移している。セクター全体の反発とデリバティブ側の個別の値動きに生じているこの温度差は興味深い。\n\n【次に見るポイント】\n①SOXXの現物価格{{f4.price}}を起点としたトレンドの継続性\n②NVDA先物における{{f38.oi}}の建玉の推移\n③現物と先物の方向感のギャップがどう収束するか",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:SOXX:big_move",
+  "angle": "SOXX現物が前日比+3.51%と急反発を見せる一方で、HIP-3のNVDA先物は24時間で-3.85%と軟調なねじれ現象を短く提示する。",
+  "scores": {
+    "novelty": 15,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 14
+  },
+  "total": 82,
+  "fact_ids": [
+    "f4",
+    "f38"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格136.53, 前日比+3.51%, 前日終値131.9, 高値140.21, 安値133.8",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$136.53",
+        "change_pct": "+3.51%",
+        "prev_close": "$131.90",
+        "high": "$140.21",
+        "low": "$133.80",
+        "asof": "米国11/6終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 136.53,
+        "change_pct": 3.51,
+        "prev_close": 131.9
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-09T03:14:07.810932+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-3.85%, 価格179.98, 建玉114225944USD, 24時間出来高184579795USD, 資金調達率(年率)+9.2%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$179.98",
+        "change_pct": "-3.85%",
+        "oi": "約1.1億ドル",
+        "volume": "約1.8億ドル",
+        "funding_annual": "+9.2%",
+        "asof": "日本時間11/9(月) 12:14時点",
+        "asof_short": "12:14時点"
+      },
+      "raw": {
+        "mark": 179.98,
+        "change_pct": -3.847,
+        "oi_usd": 114225944,
+        "vol_usd": 184579795,
+        "funding_annual_pct": 9.17
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-09T03:14:12.121261+00:00",
+      "confidence": "confirmed",
+      "id": "f38"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119630734466175240",
+  "posted_at": "2026-11-09T03:18:42.798029+00:00"
+}

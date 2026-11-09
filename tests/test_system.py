@@ -1381,3 +1381,28 @@ def test_stale_friday_close_without_asof_rejected(monkeypatch):
     assert any("時点" in e for e in errs) and any("対比" in e for e in errs)
     ok = checks.check_template("$AMDは{{f1.asof}}に{{f1.change_pct}}。", facts)
     assert not any("2日以上前" in e for e in ok)
+
+
+def test_news_status_field_and_what_as_noun_rejected():
+    """11/9 14:51: 「{{f1.who}}の{{f1.what}}が確認されていて、ステータスは{{f1.status}}」で崩れた日本語・内部の項目が出た。"""
+    from aiedit import checks
+    facts = {"f1": {"category": "breaking_news", "fields": {"who": "W", "what": "利益が2億ドルに", "status": "確定"}}}
+    errs = checks.check_template("{{f1.who}}の{{f1.what}}が確認されていて、ステータスは{{f1.status}}。", facts)
+    assert any("status" in e for e in errs) and any("what" in e for e in errs)
+    assert not checks.check_template("{{f1.who}}、{{f1.what}}。", facts)
+
+
+def test_trimmed_short_post_keeps_stale_close_asof(monkeypatch):
+    """11/9 12:18: 長文の形の原稿を短文の枠で1行目だけに削り、金曜の終値の時点が消えたまま「反発」を投稿した。"""
+    import json as _json
+    from datetime import datetime
+    from pathlib import Path
+    from aiedit import common, llm, pipeline
+    monkeypatch.setattr(common, "now_jst", lambda: datetime(2026, 11, 9, 12, 18, tzinfo=common.JST))
+    d = _json.loads((Path(__file__).parent / "fixtures/draft_20261109_1215.json").read_text(encoding="utf-8"))
+    by = {f["id"]: f for f in d["facts"]}
+    monkeypatch.setattr(llm, "generate_json", lambda s, u: {"variants": [{"template": d["template"], "style": "x"}], "best": 0})
+    monkeypatch.setattr(pipeline.store, "append_jsonl", lambda *a, **k: None)
+    fb = []
+    assert pipeline._write_once({"id": "1215"}, "", "", list(by.values()), by, "t", "short", fb) is None
+    assert any("長すぎる" in e for e in fb) and any("時点" in e for e in fb)
