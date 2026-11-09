@@ -1,0 +1,117 @@
+{
+  "id": "20261109-2300-1",
+  "slot_key": "20261109-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "posted",
+  "created_at": "2026-11-09T14:20:15.377702+00:00",
+  "text": "$BRENTOILの資金調達率が年率-198.8%まで沈み込んでいるの、ショート過熱しすぎじゃない？\n\nHyperliquidの商品先物（HIP-3）で日本時間11/9(月) 23:18時点、BRENTOILの価格は$92.67（-4.87%）と下落し、建玉は約3.5億ドルに達している。",
+  "template": "$BRENTOILの資金調達率が年率{{f9.funding_annual}}まで沈み込んでいるの、ショート過熱しすぎじゃない？\n\nHyperliquidの{{f9.market}}で{{f9.asof}}、$BRENTOILの価格は{{f9.price}}（{{f9.change_pct}}）と下落し、建玉は{{f9.oi}}に達している。\n\n価格が下がっているのにショート側がこれだけのコストを支払い続けている構造、どこで巻き戻しが起きるのか気になる。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:BRENTOIL:funding_extreme",
+  "angle": "BRENTOILの資金調達率が極端なマイナスに沈み、ショート過熱が進む構造を浮き彫りにする",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 93,
+  "fact_ids": [
+    "f9",
+    "f22"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:BRENTOIL:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: BRENTOIL（HIP-3株式等先物） 24時間騰落率-4.87%, 価格92.672, 建玉347560531USD, 24時間出来高268407514USD, 資金調達率(年率)-198.8%",
+      "fields": {
+        "coin": "BRENTOIL",
+        "symbol": "BRENTOIL",
+        "venue": "Hyperliquid",
+        "market": "商品先物（HIP-3）",
+        "price": "$92.67",
+        "change_pct": "-4.87%",
+        "oi": "約3.5億ドル",
+        "volume": "約2.7億ドル",
+        "funding_annual": "-198.8%",
+        "asof": "日本時間11/9(月) 23:18時点",
+        "asof_short": "23:18時点"
+      },
+      "raw": {
+        "mark": 92.672,
+        "change_pct": -4.867,
+        "oi_usd": 347560531,
+        "vol_usd": 268407514,
+        "funding_annual_pct": -198.76
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:BRENTOIL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:BRENTOIL"
+      },
+      "asof": "2026-11-09T14:18:03.926939+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    },
+    {
+      "key": "hl:xyz:BRENTOIL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: BRENTOIL（HIP-3株式等先物） 24時間騰落率-4.87%, 価格92.672, 建玉347560531USD, 24時間出来高268407514USD, 資金調達率(年率)-198.8%",
+      "fields": {
+        "coin": "BRENTOIL",
+        "symbol": "BRENTOIL",
+        "venue": "Hyperliquid",
+        "market": "商品先物（HIP-3）",
+        "price": "$92.67",
+        "change_pct": "-4.87%",
+        "oi": "約3.5億ドル",
+        "volume": "約2.7億ドル",
+        "funding_annual": "-198.8%",
+        "asof": "日本時間11/9(月) 23:18時点",
+        "asof_short": "23:18時点"
+      },
+      "raw": {
+        "mark": 92.672,
+        "change_pct": -4.867,
+        "oi_usd": 347560531,
+        "vol_usd": 268407514,
+        "funding_annual_pct": -198.76
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:BRENTOIL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:BRENTOIL"
+      },
+      "asof": "2026-11-09T14:18:03.927174+00:00",
+      "confidence": "confirmed",
+      "id": "f22"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:BRENTOIL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:BRENTOIL"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119797229149929823",
+  "posted_at": "2026-11-09T14:20:18.319666+00:00"
+}

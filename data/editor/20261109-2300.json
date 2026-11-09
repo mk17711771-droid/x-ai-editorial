@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f14",
+      "f20"
+    ],
+    "topic_key": "hl:xyz:NVDA:oi_change",
+    "angle": "NVDAが6%を超える急落を見せる中、HIP-3先物では建玉が急増している背景を突く",
+    "scores": {
+      "novelty": 19,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 96,
+    "reason": "大きな名前であるNVDAの急落とHIP-3市場での建玉急増の歪みを捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f5"
+    ],
+    "topic_key": "news:wintermute-hyperliquid-shorts-profits",
+    "angle": "Wintermuteの空売り利益が巨額に膨らむ中、HYPEの価格推移とデリバティブの動向を解説する",
+    "scores": {
+      "novelty": 20,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "マーケットメイカーの大規模な空売り利益という具体的な数字と市場のインパクトを伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f9",
+      "f22"
+    ],
+    "topic_key": "hl:xyz:BRENTOIL:funding_extreme",
+    "angle": "BRENTOILの資金調達率が極端なマイナスに沈み、ショート過熱が進む構造を浮き彫りにする",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "商品先物セクターにおける極端な資金調達率の歪みを正確な数値で示しているため。"
+  }
+]
