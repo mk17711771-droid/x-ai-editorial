@@ -4,6 +4,15 @@ name: decide-draft
 on:
   repository_dispatch:
     types: [draft_decision, resume]
+  # 点検からの削除・承認の予備の入口（11/10 repository_dispatch からの起動が「workflow file issue」で失敗した）
+  workflow_dispatch:
+    inputs:
+      id:
+        description: "下書きID"
+        required: true
+      action:
+        description: "delete / approve"
+        required: true
 
 permissions:
   contents: write
@@ -40,8 +49,8 @@ jobs:
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_ADMIN_USER_ID: ${{ secrets.LINE_ADMIN_USER_ID }}
-          DRAFT_ID: ${{ github.event.client_payload.id }}
-          DRAFT_ACTION: ${{ github.event.client_payload.action }}
+          DRAFT_ID: ${{ github.event.client_payload.id || inputs.id }}
+          DRAFT_ACTION: ${{ github.event.client_payload.action || inputs.action }}
         run: |
           if [ "${{ github.event.action }}" = "resume" ]; then
             python -m aiedit.cli resume
