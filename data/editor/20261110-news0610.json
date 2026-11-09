@@ -1,0 +1,66 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:tradexyz-lists-muu-perp",
+    "angle": "trade[XYZ]でのマイクロンETF（MUU）先物の新規上場を速報として伝え、オンチェーン市場でのレバレッジ商品の拡充に焦点を当てる。",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 16,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "新商品の取り扱い開始という確認済みファクトをベースに、市場の新たな選択肢をいち早く伝える新規性の高い候補。"
+  },
+  {
+    "fact_ids": [
+      "f17"
+    ],
+    "topic_key": "hl:xyz:IBM:oi_change",
+    "angle": "IBMのHIP-3先物で起きた建玉の急増（+2065.9%）とマイナスの資金調達率の歪みに着目する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "他銘柄とは異なる桁違いの建玉急増という具体的な数字を伴っており、読者の関心を惹きつけやすい。"
+  },
+  {
+    "fact_ids": [
+      "f18"
+    ],
+    "topic_key": "hl:xyz:NVDA:oi_change",
+    "angle": "エヌビディアのHIP-3先物における建玉の急増（+114.0%）と価格下落の背景にある需給の歪みを指摘する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 86,
+    "reason": "市場の関心が高いNVDAを主役に据え、建玉の急増と価格の動きをセットで追う実用的な切り口。"
+  },
+  {
+    "fact_ids": [
+      "f12"
+    ],
+    "topic_key": "hl:xyz:BRENTOIL:funding_extreme",
+    "angle": "ブレント原油のHIP-3先物で進む記録的なショート過熱（年率-279.7%）の歪みを数字で浮き彫りにする。",
+    "scores": {
+      "novelty": 17,
+      "interest": 16,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 85,
+    "reason": "極端な資金調達率の異常値をベースにしており、コモディティ市場における需給の偏りを明確に示せる。"
+  }
+]
