@@ -373,6 +373,10 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
                                must=f"次の銘柄は主役にしない（直近に投稿済み）: {'・'.join(sorted(recent_syms))}。主役の違う候補を3件以上出す")
         cands = [c for c in all_cands if c["total"] >= cfg["scoring"]["auto_post_min"]]
         store.write_json(f"editor/{key}.json", all_cands)
+    # 主役が「大きな名前」（config/big_names.txt）の候補を先に書く（11/8 夜の長文 $GEV は65表示、
+    # 11/7 $SOXL 820・11/8 $MU 106。馴染みの薄い銘柄は点数が高くても伸びない）
+    big = {n.upper() for n in checks.read_list("big_names.txt")}
+    cands.sort(key=lambda c: (_cand_symbol(c, facts_by_id).upper() in big, c["total"]), reverse=True)
     # 切り口が3回続かないように、直近2件と同じ系統の候補は後回しにする
     recent_angles = [angle_family(p.get("topic_key", "")) for p in store.recent_posts(36)][-2:]
     repeat = recent_angles[0] if len(recent_angles) == 2 and recent_angles[0] == recent_angles[1] else None
