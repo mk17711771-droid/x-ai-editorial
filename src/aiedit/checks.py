@@ -274,6 +274,17 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         if not any(f.get("category") in ("record", "ath", "breaking_news") or "記録" in str(f.get("summary", ""))
                    or "最高" in str(f.get("summary", "")) for f in used):
             errors.append("「記録的・歴史的・過去最高」と書いているが、記録を示す材料がない")
+    # 2日以上前の米国の終値（週明けの朝の金曜終値など）を、時点を書かずに「今日の動き」として使わない。
+    # Hyperliquidの24時間の動きと対比するのも不可（11/9 08:10「現物が大きく買われる日に」がAMDの金曜+11.04%だった）
+    stale = _stale_close_facts(template, facts)
+    if stale:
+        names = "・".join(sorted(stale))
+        used_ids = {fid for fid, _ in PLACEHOLDER.findall(template)}
+        if not all(f"{{{{{fid}.asof}}}}" in template for fid in stale.values()):
+            errors.append(f"{names}は2日以上前の終値なのに、時点（asof）を書かずに使っている")
+        hl_24h = any(facts[f].get("kind") == "hl" for f in used_ids if f in facts)
+        if hl_24h and any(w in PLACEHOLDER.sub("", template) for w in CONTRAST):
+            errors.append(f"{names}の2日以上前の終値の動きと、Hyperliquidの今の動きを対比している（期間が違う）")
     # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
     for ln in template.split("\n"):
         if not ln.strip().startswith(("・", "-")):
@@ -338,7 +349,30 @@ def _leveraged_vs_underlying(text: str) -> str:
 
 
 CLOSE_DATE = re.compile(r"(\d{1,2})/(\d{1,2})(?:\([月火水木金土日]\))?終値")
-CONTRAST = ("のに", "一方", "対し", "コントラスト", "温度差", "乖離", "崩れてない", "崩れていない", "平気")
+CONTRAST = ("のに", "一方", "対し", "コントラスト", "温度差", "乖離", "崩れてない", "崩れていない", "平気", "半面", "反面", "裏で")
+
+
+def _stale_close_facts(template: str, facts: dict[str, dict]) -> dict[str, str]:
+    """原稿が使っている米国株の材料のうち、終値が2日以上前のもの（銘柄→fid）。"""
+    from .common import now_jst
+    today = now_jst().date()
+    out = {}
+    for fid, field in PLACEHOLDER.findall(template):
+        f = facts.get(fid) or {}
+        if f.get("kind") != "stock" or field == "asof":
+            continue
+        m = re.search(r"米国(\d{1,2})/(\d{1,2})", str(f.get("fields", {}).get("asof", "")))
+        if not m or "終値" not in str(f["fields"].get("asof", "")):
+            continue
+        try:
+            close = today.replace(month=int(m.group(1)), day=int(m.group(2)))
+        except ValueError:
+            continue
+        if close > today:
+            close = close.replace(year=close.year - 1)
+        if (today - close).days >= 2 and f.get("category") != "week_change":  # 週の振り返りは期間を書く前提
+            out[str(f["fields"].get("symbol", fid))] = fid
+    return out
 
 
 def _stale_close_contrast(text: str) -> str:

@@ -1368,3 +1368,16 @@ def test_relink_short_people_counts_from_used_fact():
     assert checks.render(fixed, facts) == checks.render(t.replace("{{f18.coin}}", "HYPE").replace("{{f18.long_ratio}}", "25%"), facts)
     # 材料を使っていない原稿の短い人数は戻さない（偶然の一致で作り話を通さない）
     assert checks.check_template(checks.relink("上位トレーダー40人が買い。", facts), facts)
+
+
+def test_stale_friday_close_without_asof_rejected(monkeypatch):
+    """11/9 08:10: 月曜の朝に、AMDの金曜の+11.04%を時点なしで「現物が大きく買われる日」と書き、HIP-3の24時間と対比した。"""
+    from datetime import datetime
+    from aiedit import checks, common
+    monkeypatch.setattr(common, "now_jst", lambda: datetime(2026, 11, 9, 8, 10, tzinfo=common.JST))
+    facts = {"f1": {"kind": "stock", "category": "big_move", "fields": {"symbol": "AMD", "change_pct": "+11.04%", "asof": "米国11/6終値"}},
+             "f2": {"kind": "hl", "category": "funding_extreme", "fields": {"coin": "xyz:SKHX", "funding_annual": "-234.5%", "asof": "x"}}}
+    errs = checks.check_template("$AMDが{{f1.change_pct}}と上昇する半面、SKHXの資金調達率は{{f2.funding_annual}}。", facts)
+    assert any("時点" in e for e in errs) and any("対比" in e for e in errs)
+    ok = checks.check_template("$AMDは{{f1.asof}}に{{f1.change_pct}}。", facts)
+    assert not any("2日以上前" in e for e in ok)
