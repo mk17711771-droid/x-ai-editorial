@@ -1,0 +1,59 @@
+{
+  "id": "20261110-news0041-1",
+  "slot_key": "20261110-news0041",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "posted",
+  "created_at": "2026-11-09T15:43:54.604367+00:00",
+  "text": "【速報】Hyperliquid上で新しい市場「xyz:TTWO」が取引開始\n\nHyperliquidのオンチェーン上で新たに「xyz:TTWO」の無期限先物が取引開始された。\n\n株式Perpの選択肢がさらに増えることで、どのような資金の流れていくのか見ておきたい。",
+  "template": "【速報】{{f1.headline}}\n\n{{f1.who}}のオンチェーン上で新たに「xyz:TTWO」の無期限先物が取引開始された。\n\n株式Perpの選択肢がさらに増えることで、どのような資金の流れていくのか見ておきたい。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "news:hyperliquid-lists-ttwo-perpetual",
+  "angle": "Hyperliquidのオンチェーン上で新たにTTWOの株式Perp市場が追加され、ラインナップがさらに拡充",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 16,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 87,
+  "fact_ids": [
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "news:hyperliquid-lists-ttwo-perpetual",
+      "kind": "hl",
+      "asof": "2026-11-09T15:37:49.814552+00:00",
+      "expires_at": "2026-11-11T03:37:49.814567+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-09T15:35:14Z",
+      "summary": "Hyperliquidのオンチェーン上で新たに「xyz:TTWO」市場が追加され、取引が可能になった。株式Perpのラインナップがさらに拡充されている。",
+      "fields": {
+        "headline": "Hyperliquid上で新しい市場「xyz:TTWO」が取引開始",
+        "what": "Hyperliquid上でTake-Two（xyz:TTWO）の無期限先物の取り扱いが開始された",
+        "status": "確定",
+        "who": "Hyperliquid"
+      },
+      "raw": {},
+      "source": {
+        "name": "Hyperliquid（オンチェーン）",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid（オンチェーン）",
+      "url": ""
+    }
+  ],
+  "needs_human": false,
+  "tweet_id": "2119818273785278949",
+  "posted_at": "2026-11-09T15:43:55.568082+00:00"
+}

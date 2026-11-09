@@ -1,0 +1,51 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:hyperliquid-lists-ttwo-perpetual",
+    "angle": "Hyperliquidのオンチェーン上で新たにTTWOの株式Perp市場が追加され、ラインナップがさらに拡充",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 16,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "新規の株式Perp追加というプラットフォームの拡大を捉えたConfirmedの確実な速報材料であるため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f18"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "NVDAのHIP-3先物で建玉が24時間で131%増と急増する中、価格は-4.54%と下落",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 87,
+    "reason": "主要な大きな名前であるNVDAの建玉急増と価格下落のコントラストを具体的な数字で示せるため。"
+  },
+  {
+    "fact_ids": [
+      "f7"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "SOXLのHIP-3先物が24時間で+17.49%の大幅急騰を記録",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 84,
+    "reason": "半導体レバレッジ銘柄の大きな値動きと出来高のデータを端的に伝える実用的な材料。"
+  }
+]
