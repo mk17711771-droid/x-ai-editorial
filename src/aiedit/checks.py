@@ -351,7 +351,7 @@ def _leveraged_vs_underlying(text: str) -> str:
 
 
 CLOSE_DATE = re.compile(r"(\d{1,2})/(\d{1,2})(?:\([月火水木金土日]\))?終値")
-CONTRAST = ("のに", "一方", "対し", "コントラスト", "温度差", "乖離", "崩れてない", "崩れていない", "平気", "半面", "反面", "裏で")
+CONTRAST = ("のに", "一方", "対し", "コントラスト", "温度差", "乖離", "崩れてない", "崩れていない", "平気", "半面", "反面", "裏で", "裏腹")
 
 
 def _stale_close_facts(template: str, facts: dict[str, dict]) -> dict[str, str]:
