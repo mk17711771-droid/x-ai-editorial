@@ -100,7 +100,10 @@ def triage(new: list[dict], context: list[dict], hype_1h: float | None) -> list[
 # どの話題にも出てくる語（同じ出来事かの判定には使わない）
 COMMON_TOKENS = {"hyperliquid", "hype", "hip-3", "trade[xyz]", "tradexyz", "trade.xyz", "ハイパーリキッド", "無期限先物",
                  "暗号資産", "仮想通貨", "ビットコイン", "btc", "eth", "速報", "発表", "市場", "米国", "取引所",
-                 "cftc", "sec", "fcm", "etf", "perp", "perps", "dex", "nasdaq", "ナスダック"}  # 規制当局・商品の種類は社名ではない（11/7 KalshiとHL StrategiesをCFTCだけで結んだ）
+                 "cftc", "sec", "fcm", "etf", "perp", "perps", "dex", "nasdaq", "ナスダック",
+                 # 一般的なカタカナ語は出来事の目印にならない（11/10 MUUの上場をTTWOの上場の続報にまとめた）
+                 "オンチェーン", "ラインナップ", "マーケット", "デリバティブ", "レバレッジ", "ポジション", "トレーダー",
+                 "プラットフォーム", "アカウント", "ボラティリティ", "セクター", "エヌビディア"}  # 規制当局・商品の種類は社名ではない（11/7 KalshiとHL StrategiesをCFTCだけで結んだ）
 TOKEN = re.compile(r"[A-Za-z][A-Za-z0-9.\[\]\-]{1,}|[ァ-ヶー]{3,}|\d[\d,.]*億|[一-龥]{2,}氏")
 
 
