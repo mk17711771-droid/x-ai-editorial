@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f1",
+      "f4"
+    ],
+    "topic_key": "news:tradexyz-lists-muu-perp",
+    "angle": "trade[XYZ]でのマイクロン株ETF上場と、それに伴うNVDAなど主要半導体先物の実データの動きを速報で伝える。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "新着の公式上場ニュース（確認済み）とHyperliquid上の実データを組み合わせた、新規性の高い速報枠。"
+  },
+  {
+    "fact_ids": [
+      "f18",
+      "f4"
+    ],
+    "topic_key": "hl:xyz:NVDA:oi_change",
+    "angle": "NVDA先物の建玉急増と価格下落の同時発生から、市場の緊張感とポジションの偏りを読み解く。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "大きな名前であるNVDAの建玉変化（+114.2%）という強力な数字を軸に据えているため。"
+  },
+  {
+    "fact_ids": [
+      "f17",
+      "f25"
+    ],
+    "topic_key": "hl:xyz:IBM:oi_change",
+    "angle": "IBM先物で起きた建玉の記録的な爆増と、指数先物の安定した需給のコントラストを追う。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "IBMの建玉+2065.8%という極端な異変を数字で正面から捉えているため。"
+  }
+]

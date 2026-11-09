@@ -1,0 +1,102 @@
+{
+  "id": "20261110-news0614-1",
+  "slot_key": "20261110-news0614",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "posted",
+  "created_at": "2026-11-09T21:14:44.046297+00:00",
+  "text": "【速報】trade[XYZ]がマイクロンのレバレッジ型ETF（MUU）の無期限先物の取り扱いを開始した。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/10(火) 06:14時点、出来高上位の$NVDAは価格$178.47（-3.01%）、建玉約2.5億ドル、資金調達率年率+31.9%となっている。",
+  "template": "【速報】trade[XYZ]がマイクロンのレバレッジ型ETF（MUU）の無期限先物の取り扱いを開始した。\n\nHyperliquidの{{f4.market}}で{{f4.asof}}、出来高上位の${{f4.symbol}}は価格{{f4.price}}（{{f4.change_pct}}）、建玉{{f4.oi}}、資金調達率年率{{f4.funding_annual}}となっている。\n\n関連銘柄のデリバティブ市場で需給がどう傾くか注目したい。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "news:tradexyz-lists-muu-perp",
+  "angle": "trade[XYZ]でのマイクロン株ETF上場と、それに伴うNVDAなど主要半導体先物の実データの動きを速報で伝える。",
+  "scores": {
+    "novelty": 19,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f1",
+    "f4"
+  ],
+  "facts": [
+    {
+      "key": "news:tradexyz-lists-muu-perp",
+      "kind": "hl",
+      "asof": "2026-11-09T21:09:35.020026+00:00",
+      "expires_at": "2026-11-11T09:09:35.020049+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-09T20:10:00Z",
+      "summary": "trade[XYZ]の公式アカウントが、マイクロン株のレバレッジ型ETF（MUU）を原資産とする無期限先物の取り扱い開始を発表した。",
+      "fields": {
+        "headline": "trade[XYZ]、マイクロンのレバレッジ型ETF（MUU）の無期限先物を上場",
+        "what": "マイクロン株のレバレッジ型ETF（MUU）の無期限先物の取り扱いが始まった",
+        "who": "trade[XYZ]"
+      },
+      "raw": {},
+      "source": {
+        "name": "@tradexyz（公式）",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:xyz:NVDA:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-3.01%, 価格178.47, 建玉246386318USD, 24時間出来高746872060USD, 資金調達率(年率)+31.9%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$178.47",
+        "change_pct": "-3.01%",
+        "oi": "約2.5億ドル",
+        "volume": "約7.5億ドル",
+        "funding_annual": "+31.9%",
+        "asof": "日本時間11/10(火) 06:14時点",
+        "asof_short": "06:14時点"
+      },
+      "raw": {
+        "mark": 178.47,
+        "change_pct": -3.005,
+        "oi_usd": 246386318,
+        "vol_usd": 746872060,
+        "funding_annual_pct": 31.9
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-09T21:14:38.553359+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    }
+  ],
+  "sources": [
+    {
+      "name": "@tradexyz（公式）",
+      "url": ""
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119901533135630833",
+  "posted_at": "2026-11-09T21:14:47.862616+00:00"
+}
