@@ -1,0 +1,104 @@
+{
+  "id": "20261111-0730-1",
+  "slot_key": "20261111-0730",
+  "slot_theme": "07:42 朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い",
+  "status": "failed",
+  "created_at": "2026-11-10T22:32:40.366337+00:00",
+  "text": "半導体設計の$ARMが軟調に推移する裏で、ハイテク指数全体のボラティリティと先物市場のコスト構造にはどのような違いが現れているのか。\n\n【いま起きてること】\n米国市場で個別銘柄の明暗が分かれる中、ハイテク関連の現物とインデックス全体の動きには慎重なムードが漂っている。こうした中で、主要な指数の値動きと個別銘柄の調整局面における需給のバランスに注目が集まっている。\n\n【数字で見る】（米国11/10終値時点）\n・ARM 価格$181.49、前日比-2.58%、前日終値$186.30、高値$186.51、安値$175.78\n・QQQ 価格$674.76、前日比-0.68%、前日終値$679.35、高値$680.95、安値$667.05\n\n【なぜ「歪み」なのか】\nARMが前日比-2.58%と下落して安値$175.78まで調整する一方で、QQQは前日比-0.68%のマイナス幅に留まり、高値$680.95から安値$667.05のレンジ内で比較的落ち着いた値動きを見せている。個別銘柄の調整圧力が強まる場面でも、指数全体としてはパニック的な売りが広がっていないこの温度差こそが、現在の市場の冷静なポジション調整を映し出していると見ている。\n\n【次に見るポイント】\n①ARMの価格$181.49近辺における下値支持の強さ\n②QQQの価格$674.76を巡る買い手と売り手の攻防\n③ハイテクセクター全体におけるボラティリティの推移",
+  "template": "半導体設計の`${{f11.symbol}}`が軟調に推移する裏で、ハイテク指数全体のボラティリティと先物市場のコスト構造にはどのような違いが現れているのか。\n\n【いま起きてること】\n米国市場で個別銘柄の明暗が分かれる中、ハイテク関連の現物とインデックス全体の動きには慎重なムードが漂っている。こうした中で、主要な指数の値動きと個別銘柄の調整局面における需給のバランスに注目が集まっている。\n\n【数字で見る】（{{f11.asof}}時点）\n・${{f11.symbol}} 価格{{f11.price}}、前日比{{f11.change_pct}}、前日終値{{f11.prev_close}}、高値{{f11.high}}、安値{{f11.low}}\n・${{f3.symbol}} 価格{{f3.price}}、前日比{{f3.change_pct}}、前日終値{{f3.prev_close}}、高値{{f3.high}}、安値{{f3.low}}\n\n【なぜ「歪み」なのか】\n${{f11.symbol}}が前日比{{f11.change_pct}}と下落して安値{{f11.low}}まで調整する一方で、${{f3.symbol}}は前日比{{f3.change_pct}}のマイナス幅に留まり、高値{{f3.high}}から安値{{f3.low}}のレンジ内で比較的落ち着いた値動きを見せている。個別銘柄の調整圧力が強まる場面でも、指数全体としてはパニック的な売りが広がっていないこの温度差こそが、現在の市場の冷静なポジション調整を映し出していると見ている。\n\n【次に見るポイント】\n①${{f11.symbol}}の価格{{f11.price}}近辺における下値支持の強さ\n②${{f3.symbol}}の価格{{f3.price}}を巡る買い手と売り手の攻防\n③ハイテクセクター全体におけるボラティリティの推移",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:ARM:quote",
+  "angle": "半導体設計のARMが前日比-2.58%と軟調に推移する中、ハイテク指数全体のボラティリティと先物市場のコスト構造に表れた変化を追う。",
+  "scores": {
+    "novelty": 16,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 84,
+  "fact_ids": [
+    "f11",
+    "f3"
+  ],
+  "facts": [
+    {
+      "key": "stock:ARM:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "ARM 価格181.49, 前日比-2.58%, 前日終値186.3, 高値186.51, 安値175.775",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$181.49",
+        "change_pct": "-2.58%",
+        "prev_close": "$186.30",
+        "high": "$186.51",
+        "low": "$175.78",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 181.49,
+        "change_pct": -2.582,
+        "prev_close": 186.3
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-11-10T22:31:32.043253+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "stock:QQQ:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "QQQ 価格674.76, 前日比-0.68%, 前日終値679.35, 高値680.9499, 安値667.0501",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$674.76",
+        "change_pct": "-0.68%",
+        "prev_close": "$679.35",
+        "high": "$680.95",
+        "low": "$667.05",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 674.76,
+        "change_pct": -0.676,
+        "prev_close": 679.35
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-10T22:31:31.151040+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "error": "402 credits depleted: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
+}
