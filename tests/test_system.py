@@ -1464,3 +1464,11 @@ def test_missing_to_before_miteiru_fixed():
     assert checks.render("予兆になる見ている。", {}) == "予兆になると見ている。"
     assert checks.render("引き金になると見ている。", {}) == "引き金になると見ている。"
     assert checks.render("じっくり見ている。", {}) == "じっくり見ている。"
+
+
+def test_sector_etf_vs_index_future_rejected():
+    """11/10 09:16: SOXX（半導体ETF）+7.49%とナスダック100先物+3.92%の差を「先物が現物と違う」とした。"""
+    from aiedit import checks
+    t = "SOXXが+7.49%と急伸しているのに対し、ナスダック100先物は+3.92%にとどまっている。"
+    assert any("別の指数" in e for e in checks.check_text(t, "hl:x", "long"))
+    assert not any("別の指数" in e for e in checks.check_text("QQQが+3.54%、ナスダック100先物は+3.92%。ほぼ同じ動き。", "hl:x", "long"))

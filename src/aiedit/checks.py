@@ -362,6 +362,22 @@ def _leveraged_vs_underlying(text: str) -> str:
     return ""
 
 
+# 指数の先物と、比べてよい現物（同じ指数に連動するもの）。セクターETF（SOXXなど）と比べて「先物と現物のずれ」とは言わない
+INDEX_PAIRS = {"ナスダック100": ("QQQ", "ナスダック"), "XYZ100": ("QQQ", "ナスダック"), "SP500": ("SPY", "S&P"), "S&P500": ("SPY", "S&P")}
+SECTOR_ETFS = ("SOXX", "SMH", "SOXL", "XLK", "XLF", "ARKK")
+
+
+def _sector_vs_index(text: str) -> str:
+    if not any(w in text for w in CONTRAST + ("違う", "穏やか", "とどま")):
+        return ""
+    for idx in INDEX_PAIRS:
+        if idx in text:
+            for etf in SECTOR_ETFS:
+                if re.search(rf"(?<![A-Z]){etf}(?![A-Z])", text):
+                    return f"セクターETFの{etf}と指数の先物（{idx}）の値動きの差を比べている（別の指数どうし。比べるなら{INDEX_PAIRS[idx][0]}と）"
+    return ""
+
+
 CLOSE_DATE = re.compile(r"(\d{1,2})/(\d{1,2})(?:\([月火水木金土日]\))?終値")
 CONTRAST = ("のに", "一方", "対し", "コントラスト", "温度差", "乖離", "崩れてない", "崩れていない", "平気", "半面", "反面", "裏で", "裏腹")
 
@@ -438,6 +454,9 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
         errors.append("1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）")
     if re.search(r"\b(asof|change_pct|funding_annual|basis|oi_change_pct|us_change_pct)\b", text):
         errors.append("データの項目名（asof など）が本文にそのまま出ている")
+    cross = _sector_vs_index(text)
+    if cross:  # 11/10 09:16 半導体ETF（SOXX +7.49%）とナスダック100先物（+3.92%）の差を「現物との違い」とした
+        errors.append(cross)
     lev = _leveraged_vs_underlying(text)
     if lev:  # 11/4 SOXL(3倍)とSOXX(1倍)の値動きの差を「歪み」と書いた
         errors.append(lev)
