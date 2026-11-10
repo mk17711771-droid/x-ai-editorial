@@ -148,7 +148,8 @@ def _reported_earlier(story: dict) -> bool:
 
 # 他社の記事を集めて載せるだけのサイト（独立した報道として裏取りに数えない。11/2 まとめサイト2つだけの話題を確認済みとして2回投稿した）
 AGGREGATORS = ("biggo", "jinacoin", "mexc", "binance square", "coingecko", "tradingview", "coinmarketcap", "kucoin",
-               "investing.com", "yahoo", "msn", "smartnews", "gunosy", "livedoor", "goo")
+               "investing.com", "yahoo", "msn", "smartnews", "gunosy", "livedoor", "goo",
+               "pluang")  # 投資アプリのニュース転載（11/11 傾向記事を速報として出した）
 
 
 def _verified(story: dict) -> bool:
@@ -285,6 +286,11 @@ def run(payload: dict | None = None) -> dict:
         # 出来事そのものが古い（昨日・一昨日の話の再報道）なら速報にしない（10/31 2:05 ICEの件を「速報をキャッチ」と知らせた反省）
         # 特定のトレーダー・アドレスの売買を主役にした話題は扱わない（上位トレーダーは集計だけ。11/2「利益上位トレーダー2名が…」）
         story_text = s.get("headline", "") + s.get("summary_ja", "")
+        # 「取引量が急増」「拡大」のような傾向・分析の記事は出来事ではないので速報にしない（11/11 05:35）
+        trend = re.search(r"(拡大|急増|増加|高水準|伸び|成長|人気)(して|が続|を続|傾向)?", s.get("headline", "")) and not re.search(
+            r"(発表|開始|上場|承認|申請|提出|ハッキング|流出|停止|再開|買収|提携|記録|過去最高|突破|ローンチ|導入|採用)", story_text)
+        if trend:
+            continue
         individual = (re.search(r"(トレーダー|クジラ|大口|whale|アドレス)[^。]{0,6}[0-9０-９一二三]\s*(名|人|人の|つ)", story_text)
                       # 特定のウォレット・特定の会社や人のポジションの損益を追う話題も扱わない（11/9 Wintermute のものとされるアドレスの空売り利益。
                       # 研究者がアドレスを結び付けただけで公式の開示ではなく、個人・特定の口座の追跡になる）

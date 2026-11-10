@@ -1484,3 +1484,16 @@ def test_deleted_news_fact_not_used_in_regular_slot(monkeypatch):
              {"key": "news:sk", "status": "skipped", "asof": now_utc().isoformat(), "expires_at": exp, "fields": {}}]
     monkeypatch.setattr(store, "read_json", lambda name, default=None: facts if name == "news_facts.json" else default)
     assert pipeline.news_facts() == [] and pipeline.news_facts(weekly=True) == []
+
+
+def test_trend_article_not_breaking_news(isolated, monkeypatch):
+    """11/11 05:35: 「Hyperliquidの株式トークン取引量が拡大」という傾向記事を【速報】で出した。"""
+    from aiedit import news_watch
+    monkeypatch.setattr(news_watch, "triage", lambda *a: [{"story_key": "tr", "headline": "Hyperliquidの株式トークン取引量が拡大",
+                        "summary_ja": "株式トークンとPerpの取引量が急増している", "importance": 5, "buzz_fit": 5, "in_scope": True,
+                        "fresh": True, "sources": ["A", "B"]}])
+    monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    monkeypatch.setattr(news_watch, "_reported_earlier", lambda s: False)
+    news_watch.run({"items": [{"title": "x", "source": "A"}]})
+    assert not [f for f in (store.read_json("news_facts.json", []) or []) if f["key"] == "news:tr"]
