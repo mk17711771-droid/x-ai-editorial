@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f10",
+      "f41"
+    ],
+    "topic_key": "stock:AVGO:big_move",
+    "angle": "Broadcomの大幅高（+8.78%）とHyperliquid上のSKHX先物の資金調達率（年率+87.8%）を組み合わせ、半導体セクター全体の強い買い戻しの流れを指摘する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "主要半導体株の急騰とオンチェーンの先物需給の加熱を定量的に結びつけているため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f43"
+    ],
+    "topic_key": "stock:SOXX:big_move",
+    "angle": "フィラデルフィア半導体指数（SOXX）の大幅上昇（+7.49%）を受け、HIP-3のSOXL先物市場で起きている急ピッチな値動きと建玉の状況を解説する。",
+    "scores": {
+      "novelty": 15,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 83,
+    "reason": "半導体指数の大きな値動きとHIP-3の連動性を具体的な数字で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f14",
+      "f6"
+    ],
+    "topic_key": "stock:ARM:big_move",
+    "angle": "QQQの強い上昇（+3.54%）を背景に、ARMが+6.69%と大きく買われた動きから、ハイテク株全般の資金流入の構図を浮き彫りにする。",
+    "scores": {
+      "novelty": 15,
+      "interest": 17,
+      "evidence": 17,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 80,
+    "reason": "主要な指数と個別ハイテク株の連動する資金の流れを的確に捉えているため。"
+  }
+]

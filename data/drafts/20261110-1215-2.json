@@ -1,0 +1,102 @@
+{
+  "id": "20261110-1215-2",
+  "slot_key": "20261110-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "superseded",
+  "created_at": "2026-11-10T03:42:29.625204+00:00",
+  "text": "$ARMが前日比+6.69%の$186.30まで急伸しているの、QQQの強さをそのまま増幅させたような値動きだな。\n\n米国11/9終値のベースで見ると、QQQが前日比+3.54%（$679.35）と力強い戻りを見せる中、ARMは高値$190.09まで買われて前日終値$174.62から大きく上値を追う展開になっている。",
+  "template": "${{f14.symbol}}が前日比{{f14.change_pct}}の{{f14.price}}まで急伸しているの、QQQの強さをそのまま増幅させたような値動きだな。\n\n{{f14.asof}}のベースで見ると、$QQQが前日比{{f6.change_pct}}（{{f6.price}}）と力強い戻りを見せる中、$ARMは高値{{f14.high}}まで買われて前日終値{{f14.prev_close}}から大きく上値を追う展開になっている。\n\n指数を上回る勢いで資金が流れ込んでいるこのセクター内の温度差、どこまで続くのか見ものだ。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "stock:ARM:big_move",
+  "angle": "QQQの強い上昇（+3.54%）を背景に、ARMが+6.69%と大きく買われた動きから、ハイテク株全般の資金流入の構図を浮き彫りにする。",
+  "scores": {
+    "novelty": 15,
+    "interest": 17,
+    "evidence": 17,
+    "utility": 15,
+    "insight": 16
+  },
+  "total": 80,
+  "fact_ids": [
+    "f14",
+    "f6"
+  ],
+  "facts": [
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格186.3, 前日比+6.69%, 前日終値174.62, 高値190.09, 安値174.76",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$186.30",
+        "change_pct": "+6.69%",
+        "prev_close": "$174.62",
+        "high": "$190.09",
+        "low": "$174.76",
+        "asof": "米国11/9終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 186.3,
+        "change_pct": 6.689,
+        "prev_close": 174.62
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-11-10T03:41:49.314364+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    },
+    {
+      "key": "stock:QQQ:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】QQQ 価格679.35, 前日比+3.54%, 前日終値656.1, 高値682.48, 安値662.02",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$679.35",
+        "change_pct": "+3.54%",
+        "prev_close": "$656.10",
+        "high": "$682.48",
+        "low": "$662.02",
+        "asof": "米国11/9終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 679.35,
+        "change_pct": 3.544,
+        "prev_close": 656.1
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-10T03:41:48.438957+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    }
+  ],
+  "needs_human": false
+}

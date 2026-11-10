@@ -1,0 +1,111 @@
+{
+  "id": "20261110-1215-1",
+  "slot_key": "20261110-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-10T03:42:24.362502+00:00",
+  "text": "$AVGOが前日比+8.78%と大幅高を見せる裏で、HyperliquidのHIP-3市場にあるSKHX先物の資金調達率は年率+87.8%まで跳ね上がっている。\n\n現物市場の強い買い戻しの流れがデリバティブ側へ波及し、ロングの過熱感が一段と高まっているっぽい。",
+  "template": "${{f10.symbol}}が前日比{{f10.change_pct}}と大幅高を見せる裏で、HyperliquidのHIP-3市場にある${{f41.symbol}}先物の資金調達率は年率{{f41.funding_annual}}まで跳ね上がっている。\n\n現物市場の強い買い戻しの流れがデリバティブ側へ波及し、ロングの過熱感が一段と高まっているっぽい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:AVGO:big_move",
+  "angle": "Broadcomの大幅高（+8.78%）とHyperliquid上のSKHX先物の資金調達率（年率+87.8%）を組み合わせ、半導体セクター全体の強い買い戻しの流れを指摘する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 15,
+    "insight": 17
+  },
+  "total": 84,
+  "fact_ids": [
+    "f10",
+    "f41"
+  ],
+  "facts": [
+    {
+      "key": "stock:AVGO:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AVGO 価格319.48, 前日比+8.78%, 前日終値293.69, 高値323.05, 安値304.292",
+      "fields": {
+        "symbol": "AVGO",
+        "price": "$319.48",
+        "change_pct": "+8.78%",
+        "prev_close": "$293.69",
+        "high": "$323.05",
+        "low": "$304.29",
+        "asof": "米国11/9終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 319.48,
+        "change_pct": 8.781,
+        "prev_close": 293.69
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AVGO"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AVGO"
+      },
+      "asof": "2026-11-10T03:41:48.829351+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+1.82%, 価格894.02, 建玉347826098USD, 24時間出来高531072693USD, 資金調達率(年率)+87.8%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$894.02",
+        "change_pct": "+1.82%",
+        "oi": "約3.5億ドル",
+        "volume": "約5.3億ドル",
+        "funding_annual": "+87.8%",
+        "asof": "日本時間11/10(火) 12:41時点",
+        "asof_short": "12:41時点"
+      },
+      "raw": {
+        "mark": 894.02,
+        "change_pct": 1.822,
+        "oi_usd": 347826098,
+        "vol_usd": 531072693,
+        "funding_annual_pct": 87.83
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-10T03:41:57.596618+00:00",
+      "confidence": "confirmed",
+      "id": "f41"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AVGO"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2119999114590969956",
+  "posted_at": "2026-11-10T03:42:31.503162+00:00"
+}
