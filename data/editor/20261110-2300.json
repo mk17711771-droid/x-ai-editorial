@@ -1,0 +1,50 @@
+[
+  {
+    "fact_ids": [
+      "f3"
+    ],
+    "topic_key": "news:nyse-avalanche-tokenized-securities",
+    "angle": "ニューヨーク証券取引所（NYSE）がアバランチを採用したニュースを受け、伝統金融とオンチェーンのインフラ統合がどこまで進んでいるかを指摘する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 12,
+      "utility": 15,
+      "insight": 17
+    },
+    "total": 81,
+    "reason": "伝統金融の巨大インフラとパブリックブロックチェーンの統合という市場構造の大きな変化を捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:wintermute-hyperliquid-shorts-profits",
+    "angle": "Wintermuteの空売りポジションと巨額の利益・ポジション規模から、大手マーケットメイカーの動向と市場の需給バランスを読み解く。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 14,
+      "insight": 15
+    },
+    "total": 81,
+    "reason": "具体的な利益と空売り総額の数字が出ており、クジラの動向に焦点を当てた実用的なインサイトを提供できるため。"
+  },
+  {
+    "fact_ids": [
+      "f20"
+    ],
+    "topic_key": "hl:xyz:IBM:oi_change",
+    "angle": "IBMのHIP-3先物で起きた建玉の急増（+1200.5%）に着目し、個別株のデリバティブ市場における急激な資金流入の背景を追う。",
+    "scores": {
+      "novelty": 17,
+      "interest": 16,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 12
+    },
+    "total": 80,
+    "reason": "建玉が10倍以上に跳ね上がるという極端な量的異変を正確な数字で捉えており、市場の歪みを示す好材料であるため。"
+  }
+]

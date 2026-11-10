@@ -1,0 +1,73 @@
+{
+  "id": "20261110-2300-2",
+  "slot_key": "20261110-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-11-10T14:24:19.256189+00:00",
+  "text": "$IBMの建玉が24時間で一気に+1200.5%も増えているの、個別株のデリバティブにすごい勢いで資金が流れ込んできてる。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/10(火) 23:19時点、IBMの価格は$244.81（-0.80%）と軟調なのに、建玉は約2,870万ドルまで急拡大している。",
+  "template": "$IBMの建玉が24時間で一気に{{f20.oi_change_pct}}も増えているの、個別株のデリバティブにすごい勢いで資金が流れ込んできてる。\n\nHyperliquidの{{f20.market}}で{{f20.asof}}、$IBMの価格は{{f20.price}}（{{f20.change_pct}}）と軟調なのに、建玉は{{f20.oi}}まで急拡大している。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:IBM:oi_change",
+  "angle": "IBMのHIP-3先物で起きた建玉の急増（+1200.5%）に着目し、個別株のデリバティブ市場における急激な資金流入の背景を追う。",
+  "scores": {
+    "novelty": 17,
+    "interest": 16,
+    "evidence": 19,
+    "utility": 16,
+    "insight": 12
+  },
+  "total": 80,
+  "fact_ids": [
+    "f20"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:IBM:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+1200.5%: IBM（HIP-3株式等先物） 24時間騰落率-0.80%, 価格244.81, 建玉28696320USD, 24時間出来高27619078USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "IBM",
+        "symbol": "IBM",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$244.81",
+        "change_pct": "-0.80%",
+        "oi": "約2,870万ドル",
+        "volume": "約2,762万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/10(火) 23:19時点",
+        "asof_short": "23:19時点",
+        "oi_change_pct": "+1200.5%"
+      },
+      "raw": {
+        "mark": 244.81,
+        "change_pct": -0.802,
+        "oi_usd": 28696320,
+        "vol_usd": 27619078,
+        "funding_annual_pct": 5.48,
+        "oi_change_pct": 1200.53
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:IBM",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:IBM"
+      },
+      "asof": "2026-11-10T14:19:30.543547+00:00",
+      "confidence": "confirmed",
+      "id": "f20"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:IBM"
+    }
+  ],
+  "needs_human": false
+}
