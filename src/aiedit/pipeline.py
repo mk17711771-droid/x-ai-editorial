@@ -117,6 +117,8 @@ def news_facts(pending_only: bool = False, weekly: bool = False) -> list[dict]:
             continue  # 速報枠では、まだ投稿していない速報だけを主役にする
         if pending_only and now - _story_first_seen(f["key"]) > timedelta(hours=NEWS_FRESH_HOURS):
             continue  # 最初の報道から時間がたった話題は「速報」として出さない（10/31 1:11 前日のバイナンスの件を【速報】で出した反省）
+        if f.get("status") in ("deleted", "skipped"):
+            continue  # 削除・見送りにした速報は、通常の枠でも材料にしない（11/10 23:24 削除したWintermuteの件が通常の短文で再登場）
         if (not pending_only and not weekly and f.get("status") == "posted"
                 and now - _story_first_seen(f["key"]) > timedelta(hours=POSTED_NEWS_REUSE_HOURS)):
             continue

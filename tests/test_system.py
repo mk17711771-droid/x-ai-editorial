@@ -1472,3 +1472,15 @@ def test_sector_etf_vs_index_future_rejected():
     t = "SOXXが+7.49%と急伸しているのに対し、ナスダック100先物は+3.92%にとどまっている。"
     assert any("別の指数" in e for e in checks.check_text(t, "hl:x", "long"))
     assert not any("別の指数" in e for e in checks.check_text("QQQが+3.54%、ナスダック100先物は+3.92%。ほぼ同じ動き。", "hl:x", "long"))
+
+
+def test_deleted_news_fact_not_used_in_regular_slot(monkeypatch):
+    """11/10 23:24: 削除した速報（Wintermute）の材料が、通常の短文の枠で使われ再投稿された。"""
+    from datetime import timedelta
+    from aiedit import pipeline, store
+    from aiedit.common import now_utc
+    exp = (now_utc() + timedelta(hours=5)).isoformat()
+    facts = [{"key": "news:wm", "status": "deleted", "asof": now_utc().isoformat(), "expires_at": exp, "fields": {}},
+             {"key": "news:sk", "status": "skipped", "asof": now_utc().isoformat(), "expires_at": exp, "fields": {}}]
+    monkeypatch.setattr(store, "read_json", lambda name, default=None: facts if name == "news_facts.json" else default)
+    assert pipeline.news_facts() == [] and pipeline.news_facts(weekly=True) == []
