@@ -174,9 +174,13 @@ def run() -> list[dict]:
         results.append(res)
     store.write_json("note/checked.json", checked)
     # 公開から3日以内で、確認に問題がなく、まだXで紹介していない記事を紹介する（指摘があった記事は直ってから）
+    # Xで紹介するのは見られる時間帯（日本時間19〜23時）だけ。日中の紹介は25〜27表示どまり、同じ日の夜の長文は300〜800表示
+    # （11/10 noteのダッシュボード: 1記事のビュー2〜8。Xからの流入を増やす）
+    from .common import now_jst
+    evening = 19 <= now_jst().hour < 23
     for g in generated:
         meta = store.read_json(f"note_articles/{g['id']}/meta.json") or {}
-        if (meta.get("status") == "published" and meta.get("check_ok") and not meta.get("promoted") and meta.get("published_at")
+        if (evening and meta.get("status") == "published" and meta.get("check_ok") and not meta.get("promoted") and meta.get("published_at")
                 and now_utc() - datetime.fromisoformat(meta["published_at"]) < timedelta(days=3)):
             promote(meta, f"https://note.com/{urlname}/n/{meta['note_key']}")
     _record_stats(urlname)
