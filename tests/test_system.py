@@ -1497,3 +1497,13 @@ def test_trend_article_not_breaking_news(isolated, monkeypatch):
     monkeypatch.setattr(news_watch, "_reported_earlier", lambda s: False)
     news_watch.run({"items": [{"title": "x", "source": "A"}]})
     assert not [f for f in (store.read_json("news_facts.json", []) or []) if f["key"] == "news:tr"]
+
+
+def test_x_credits_depleted_notifies_once_per_day(isolated, monkeypatch):
+    """11/11 06:08: X APIのクレジット切れ（402）。管理者の支払いが必要なので、LINEは1日1回だけ。"""
+    from aiedit import line, pipeline
+    sent = []
+    monkeypatch.setattr(line, "notify", lambda m, **k: sent.append(m))
+    pipeline.notify_credits_depleted()
+    pipeline.notify_credits_depleted()
+    assert len(sent) == 1 and "クレジット" in sent[0]

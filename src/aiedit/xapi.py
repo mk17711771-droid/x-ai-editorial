@@ -17,6 +17,10 @@ class XRateLimitError(Exception):
     pass
 
 
+class XCreditsError(Exception):
+    """X APIの利用クレジットが尽きた（402 credits depleted）。管理者の支払いが必要。"""
+
+
 class XPostError(Exception):
     pass
 
@@ -78,6 +82,8 @@ def post(text: str, reply_to: str | None = None, media_ids: list[str] | None = N
         raise XAuthError(f"{r.status_code}: {r.text[:300]}")
     if r.status_code == 429:
         raise XRateLimitError(r.text[:300])
+    if r.status_code == 402:
+        raise XCreditsError(r.text[:300])
     if r.status_code >= 400:
         raise XPostError(f"{r.status_code}: {r.text[:300]}")
     return r.json()["data"]["id"]

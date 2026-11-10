@@ -258,6 +258,18 @@ def _cand_symbol(cand: dict, facts_by_id: dict[str, dict]) -> str:
     return ""
 
 
+def notify_credits_depleted() -> None:
+    st = store.state()
+    today = now_jst().strftime("%Y-%m-%d")
+    if st.get("credits_notified") == today:
+        return
+    line.notify("【要対応】X APIの利用クレジットが尽きたため、Xへの投稿・削除ができなくなっています（402 credits depleted）。\n"
+                "X Developer Portal（developer.x.com）→ 該当アプリの Billing / Credits からクレジットを追加してください。"
+                "追加後は自動で投稿が再開します（操作は不要です）。")
+    st["credits_notified"] = today
+    store.save_state(st)
+
+
 def us_close_stale(now: datetime | None = None) -> bool:
     """記録した米国株の最新の終値が、米国の日付で2日以上前か（週明けの月曜の取引開始前・祝日明け）。"""
     from zoneinfo import ZoneInfo
@@ -729,6 +741,11 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
         store.halt(f"X API認証・権限エラー: {e}")
         _close(draft, "failed", error=str(e))
         line.notify(f"【緊急停止】X APIで認証・権限エラーが発生したため自動運用を停止しました。\n{e}\n\n確認後、LINEで「再開」と送ってください。")
+        raise
+    except xapi.XCreditsError as e:
+        # X APIのクレジット切れ（11/11 06:08〜）。管理者の支払いが必要なので、1日1回だけ知らせる（LINEの無料枠を使いすぎない）
+        _close(draft, "failed", error=f"402 credits depleted: {e}")
+        notify_credits_depleted()
         raise
     except (xapi.XRateLimitError, xapi.XPostError, requests.RequestException) as e:
         _close(draft, "failed", error=str(e))
