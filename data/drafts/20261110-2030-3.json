@@ -1,0 +1,108 @@
+{
+  "id": "20261110-2030-3",
+  "slot_key": "20261110-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "superseded",
+  "created_at": "2026-11-10T12:18:50.567140+00:00",
+  "text": "指数ベースの現物市場が力強く買い戻される裏で、HIP-3の先物市場におけるコストはどれほど落ち着いているのか。\n\n【いま起きてること】\n株式の現物市場が急ピッチで回復する局面において、Hyperliquidのデリバティブ側では急激な買い急ぎが見られず、秩序立ったポジションの積み上げが続いている。現物と先物の間で需給の温度差がどのように消化されているかが注目される。\n\n【数字で見る】（日本時間11/10(火) 21:07時点）\n・$QQQ 価格$679.35、前日比+3.54%、前日終値$656.10、高値$682.48、安値$662.02（米国11/9終値）\n・ナスダック100 価格$27,808、24時間騰落率+2.59%、建玉約2.2億ドル、24時間出来高約4.3億ドル、資金調達率（年率）+3.0%\n\n【なぜ「歪み」なのか】\nQQQが前日比+3.54%の急上昇を記録した一方で、ナスダック100先物の資金調達率は年率+3.0%にとどまっており、過度なレバレッジの偏りが生じていない。約2.2億ドルの建玉が存在しながらもコストが安定している点は、デリバティブ参加者が冷静に相場を見極めている証左だ。個人的には、この健全なコストバランスが中期的な相場の安定感を裏付けていると考えている。\n\n【次に見るポイント】\n①現物市場での買いの勢いが先物の建玉へどう波及するか\n②年率+3.0%の資金調達率の推移\n③出来高約4.3億ドルを伴う先物市場の流動性の変化",
+  "template": "指数ベースの現物市場が力強く買い戻される裏で、HIP-3の先物市場におけるコストはどれほど落ち着いているのか。\n\n【いま起きてること】\n株式の現物市場が急ピッチで回復する局面において、Hyperliquidのデリバティブ側では急激な買い急ぎが見られず、秩序立ったポジションの積み上げが続いている。現物と先物の間で需給の温度差がどのように消化されているかが注目される。\n\n【数字で見る】（{{f44.asof}}）\n・${{f6.symbol}} 価格{{f6.price}}、前日比{{f6.change_pct}}、前日終値{{f6.prev_close}}、高値{{f6.high}}、安値{{f6.low}}（{{f6.asof}}）\n・${{f44.symbol}} 価格{{f44.price}}、24時間騰落率{{f44.change_pct}}、建玉{{f44.oi}}、24時間出来高{{f44.volume}}、資金調達率（年率）{{f44.funding_annual}}\n\n【なぜ「歪み」なのか】\nQQQが前日比{{f6.change_pct}}の急上昇を記録した一方で、{{f44.coin}}先物の資金調達率は年率{{f44.funding_annual}}にとどまっており、過度なレバレッジの偏りが生じていない。{{f44.oi}}の建玉が存在しながらもコストが安定している点は、デリバティブ参加者が冷静に相場を見極めている証左だ。個人的には、この健全なコストバランスが中期的な相場の安定感を裏付けていると考えている。\n\n【次に見るポイント】\n①現物市場での買いの勢いが先物の建玉へどう波及するか\n②年率{{f44.funding_annual}}の資金調達率の推移\n③出来高{{f44.volume}}を伴う先物市場の流動性の変化",
+  "style": "構造解説型",
+  "format": "long",
+  "topic_key": "stock:QQQ:big_move",
+  "angle": "ナスダック100（QQQ）が+3.54%と急上昇を見せる一方、HyperliquidのXYZ100先物は年率+3.0%の資金調達率を維持。指数先物と現物市場の連動性とコストの構造を検証する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 17,
+    "evidence": 17,
+    "utility": 15,
+    "insight": 16
+  },
+  "total": 81,
+  "fact_ids": [
+    "f6",
+    "f44"
+  ],
+  "facts": [
+    {
+      "key": "stock:QQQ:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】QQQ 価格679.35, 前日比+3.54%, 前日終値656.1, 高値682.48, 安値662.02",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$679.35",
+        "change_pct": "+3.54%",
+        "prev_close": "$656.10",
+        "high": "$682.48",
+        "low": "$662.02",
+        "asof": "米国11/9終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 679.35,
+        "change_pct": 3.544,
+        "prev_close": 656.1
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-10T12:07:07.357749+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率+2.59%, 価格27808.0, 建玉218875845USD, 24時間出来高427585226USD, 資金調達率(年率)+3.0%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$27,808",
+        "change_pct": "+2.59%",
+        "oi": "約2.2億ドル",
+        "volume": "約4.3億ドル",
+        "funding_annual": "+3.0%",
+        "asof": "日本時間11/10(火) 21:07時点",
+        "asof_short": "21:07時点"
+      },
+      "raw": {
+        "mark": 27808.0,
+        "change_pct": 2.586,
+        "oi_usd": 218875845,
+        "vol_usd": 427585226,
+        "funding_annual_pct": 2.99
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-10T12:07:13.039707+00:00",
+      "confidence": "confirmed",
+      "id": "f44"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    }
+  ],
+  "needs_human": false
+}

@@ -1,0 +1,108 @@
+{
+  "id": "20261110-2030-2",
+  "slot_key": "20261110-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "superseded",
+  "created_at": "2026-11-10T12:16:24.621130+00:00",
+  "text": "半導体や個別株が大きく買われる一方で、なぜS&P500の先物市場ではマイナス金利の歪みが生じているのか。\n\n【いま起きてること】\n米国株の現物相場において個別銘柄が強い買いを集める展開が続いている。そうした中で、HyperliquidのHIP-3市場における主要な指数先物では、デリバティブ側特有のコストやポジションの偏りが現物市場との間にギャップを生み出している。\n\n【数字で見る】（日本時間11/10(火) 21:07時点）\n・$ARM 価格$186.30, 前日終値比+6.69%（米国11/9終値）\n・SP500（株式先物（HIP-3）） 価格$7,552, +1.71%, 建玉約4.2億ドル, 資金調達率（年率）-4.3%\n\n【なぜ「歪み」なのか】\nARMが現物ベースで前日終値比+6.69%と力強い上昇を見せているのに対し、HyperliquidのSP500先物は価格が+1.71%と堅調ながらも資金調達率が年率-4.3%というマイナス圏で推移している。指数全体の上昇モメンタムに対してデリバティブ側でショートのコスト支払いが続いているのは、市場参加者の間に慎重なヘッジ姿勢や上値への警戒感が残っている証左だ。個人的には、この現物と先物の需給の温度差がどのように解消されていくのかが興味深いところだ。\n\n【次に見るポイント】\n①約4.2億ドル規模に達するSP500先物の建玉の推移\n②年率-4.3%のマイナス金利がどちらの方向に修正されるか\n③ARMの現物価格$186.30近辺での値動きの持続性",
+  "template": "半導体や個別株が大きく買われる一方で、なぜS&P500の先物市場ではマイナス金利の歪みが生じているのか。\n\n【いま起きてること】\n米国株の現物相場において個別銘柄が強い買いを集める展開が続いている。そうした中で、HyperliquidのHIP-3市場における主要な指数先物では、デリバティブ側特有のコストやポジションの偏りが現物市場との間にギャップを生み出している。\n\n【数字で見る】（{{f46.asof}}）\n・`${{f14.symbol}}` 価格{{f14.price}}, ${{f14.basis}}{{f14.change_pct}}（{{f14.asof}}）\n・`${{f46.symbol}}`（{{f46.market}}） 価格{{f46.price}}, ${{f46.change_pct}}, 建玉{{f46.oi}}, 資金調達率（年率）{{f46.funding_annual}}\n\n【なぜ「歪み」なのか】\n`${{f14.symbol}}`が現物ベースで${{f14.basis}}{{f14.change_pct}}と力強い上昇を見せているのに対し、Hyperliquidの`${{f46.symbol}}`先物は価格が{{f46.change_pct}}と堅調ながらも資金調達率が年率{{f46.funding_annual}}というマイナス圏で推移している。指数全体の上昇モメンタムに対してデリバティブ側でショートのコスト支払いが続いているのは、市場参加者の間に慎重なヘッジ姿勢や上値への警戒感が残っている証左だ。個人的には、この現物と先物の需給の温度差がどのように解消されていくのかが興味深いところだ。\n\n【次に見るポイント】\n①{{f46.oi}}規模に達する`${{f46.symbol}}`先物の建玉の推移\n②年率{{f46.funding_annual}}のマイナス金利がどちらの方向に修正されるか\n③`${{f14.symbol}}`の現物価格${{f14.price}}近辺での値動きの持続性",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:ARM:big_move",
+  "angle": "ARMが+6.69%と大きく買われる展開の中、HyperliquidのS&P500先物（SP500）の資金調達率が年率-4.3%とマイナス圏で推移。指数全体の堅調さと個別ハイテク株の熱量のギャップに迫る。",
+  "scores": {
+    "novelty": 16,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 84,
+  "fact_ids": [
+    "f14",
+    "f46"
+  ],
+  "facts": [
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格186.3, 前日比+6.69%, 前日終値174.62, 高値190.09, 安値174.76",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$186.30",
+        "change_pct": "+6.69%",
+        "prev_close": "$174.62",
+        "high": "$190.09",
+        "low": "$174.76",
+        "asof": "米国11/9終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 186.3,
+        "change_pct": 6.689,
+        "prev_close": 174.62
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-11-10T12:07:07.739132+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率+1.71%, 価格7552.2, 建玉415971219USD, 24時間出来高360332083USD, 資金調達率(年率)-4.3%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,552",
+        "change_pct": "+1.71%",
+        "oi": "約4.2億ドル",
+        "volume": "約3.6億ドル",
+        "funding_annual": "-4.3%",
+        "asof": "日本時間11/10(火) 21:07時点",
+        "asof_short": "21:07時点"
+      },
+      "raw": {
+        "mark": 7552.2,
+        "change_pct": 1.715,
+        "oi_usd": 415971219,
+        "vol_usd": 360332083,
+        "funding_annual_pct": -4.32
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-10T12:07:13.039759+00:00",
+      "confidence": "confirmed",
+      "id": "f46"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    }
+  ],
+  "needs_human": false
+}

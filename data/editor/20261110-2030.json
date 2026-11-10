@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f13",
+      "f43"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "マイクロン［MU］が+6.25%と続伸する中で、HyperliquidのHIP-3先物（SKHX）では資金調達率が年率+5.5%へ推移。半導体メモリーセクターへの資金流入とデリバティブ市場の需給バランスを追う。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "主要な半導体メモリー銘柄の強い値動きとHyperliquid上の関連先物の数値を組み合わせ、セクター全体の資金流入の構造を冷静に解説しているため。"
+  },
+  {
+    "fact_ids": [
+      "f14",
+      "f46"
+    ],
+    "topic_key": "stock:ARM:big_move",
+    "angle": "ARMが+6.69%と大きく買われる展開の中、HyperliquidのS&P500先物（SP500）の資金調達率が年率-4.3%とマイナス圏で推移。指数全体の堅調さと個別ハイテク株の熱量のギャップに迫る。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "個別ハイテク株の強い上昇と指数先物市場の需給の歪みに焦点を当て、市場全体の温度差をデータで丁寧に読み解いているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f44"
+    ],
+    "topic_key": "stock:QQQ:big_move",
+    "angle": "ナスダック100（QQQ）が+3.54%と急上昇を見せる一方、HyperliquidのXYZ100先物は年率+3.0%の資金調達率を維持。指数先物と現物市場の連動性とコストの構造を検証する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 17,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 81,
+    "reason": "主要インデックスの上昇局面におけるオンチェーンデリバティブの資金調達コストを的確に捉え、実需と先物の関係を整理しているため。"
+  }
+]

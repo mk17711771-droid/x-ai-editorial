@@ -1,0 +1,111 @@
+{
+  "id": "20261110-2030-1",
+  "slot_key": "20261110-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "posted",
+  "created_at": "2026-11-10T12:15:29.346632+00:00",
+  "text": "マイクロンが大幅続伸を見せる一方で、HyperliquidのHIP-3市場にある$SKHX先物ではどのような需給のバランスが形成されているのか。\n\n【いま起きてること】\n半導体メモリーセクターを中心に現物市場で強い買い戻しが入る中、デリバティブ市場では価格の連動性と資金調達率のバランスに興味深い特徴が見えている。現物側の上昇に対して、先物側では過度な偏りが抑えられた状態での推移が続いている。\n\n【数字で見る】（日本時間11/10(火) 21:07時点）\n・MU 価格$733.15、前日比+6.25%、前日終値$690.00、高値$744.74、安値$689.65（米国11/9終値）\n・SKHX（株式先物（HIP-3）） 価格$894.48、24時間騰落率+6.60%、建玉約3.2億ドル、24時間出来高約4.9億ドル、資金調達率（年率）+5.5%\n\n【なぜ「歪み」なのか】\nMUが前日比+6.25%と力強い続伸を記録しているのに対し、HIP-3のSKHX先物は24時間騰落率+6.60%と追随しつつも、資金調達率は年率+5.5%という穏やかなプラス圏に留まっている。約3.2億ドルの建玉と約4.9億ドルの出来高を伴いながらもロングが過熱しすぎていないのは、現物の買いに対してデリバティブ側が冷静なポジション構築を維持している証左だ。個人的には、このニュートラルなコストバランスが次のトレンド継続に向けた土台になると見ている。\n\n【次に見るポイント】\n①約3.2億ドル規模に達するSKHX先物の建玉の増減\n②年率+5.5%の資金調達率がどちらの方向へ推移するか\n③MUの現物価格$733.15近辺における値動きと先物との乖離",
+  "template": "マイクロンが大幅続伸を見せる一方で、HyperliquidのHIP-3市場にある${{f43.symbol}}先物ではどのような需給のバランスが形成されているのか。\n\n【いま起きてること】\n半導体メモリーセクターを中心に現物市場で強い買い戻しが入る中、デリバティブ市場では価格の連動性と資金調達率のバランスに興味深い特徴が見えている。現物側の上昇に対して、先物側では過度な偏りが抑えられた状態での推移が続いている。\n\n【数字で見る】（{{f43.asof}}）\n・${{f13.symbol}} 価格{{f13.price}}、前日比{{f13.change_pct}}、前日終値{{f13.prev_close}}、高値{{f13.high}}、安値{{f13.low}}（{{f13.asof}}）\n・${{f43.symbol}}（{{f43.market}}） 価格{{f43.price}}、24時間騰落率{{f43.change_pct}}、建玉{{f43.oi}}、24時間出来高{{f43.volume}}、資金調達率（年率）{{f43.funding_annual}}\n\n【なぜ「歪み」なのか】\n${{f13.symbol}}が前日比{{f13.change_pct}}と力強い続伸を記録しているのに対し、HIP-3の${{f43.symbol}}先物は24時間騰落率{{f43.change_pct}}と追随しつつも、資金調達率は年率{{f43.funding_annual}}という穏やかなプラス圏に留まっている。{{f43.oi}}の建玉と{{f43.volume}}の出来高を伴いながらもロングが過熱しすぎていないのは、現物の買いに対してデリバティブ側が冷静なポジション構築を維持している証左だ。個人的には、このニュートラルなコストバランスが次のトレンド継続に向けた土台になると見ている。\n\n【次に見るポイント】\n①{{f43.oi}}規模に達する${{f43.symbol}}先物の建玉の増減\n②年率{{f43.funding_annual}}の資金調達率がどちらの方向へ推移するか\n③${{f13.symbol}}の現物価格{{f13.price}}近辺における値動きと先物との乖離",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:MU:big_move",
+  "angle": "マイクロン［MU］が+6.25%と続伸する中で、HyperliquidのHIP-3先物（SKHX）では資金調達率が年率+5.5%へ推移。半導体メモリーセクターへの資金流入とデリバティブ市場の需給バランスを追う。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 86,
+  "fact_ids": [
+    "f13",
+    "f43"
+  ],
+  "facts": [
+    {
+      "key": "stock:MU:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MU 価格733.15, 前日比+6.25%, 前日終値690, 高値744.74, 安値689.65",
+      "fields": {
+        "symbol": "MU",
+        "price": "$733.15",
+        "change_pct": "+6.25%",
+        "prev_close": "$690.00",
+        "high": "$744.74",
+        "low": "$689.65",
+        "asof": "米国11/9終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 733.15,
+        "change_pct": 6.254,
+        "prev_close": 690
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MU"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-11-10T12:07:07.698398+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+6.60%, 価格894.48, 建玉317125533USD, 24時間出来高486093070USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$894.48",
+        "change_pct": "+6.60%",
+        "oi": "約3.2億ドル",
+        "volume": "約4.9億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/10(火) 21:07時点",
+        "asof_short": "21:07時点"
+      },
+      "raw": {
+        "mark": 894.48,
+        "change_pct": 6.6,
+        "oi_usd": 317125533,
+        "vol_usd": 486093070,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-10T12:07:13.039682+00:00",
+      "confidence": "confirmed",
+      "id": "f43"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2120129060168704164",
+  "posted_at": "2026-11-10T12:18:53.004355+00:00"
+}
