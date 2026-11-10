@@ -1,0 +1,155 @@
+{
+  "id": "20261110-0730-2",
+  "slot_key": "20261110-0730",
+  "slot_theme": "07:42 朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い",
+  "status": "stale",
+  "created_at": "2026-11-10T00:11:24.012251+00:00",
+  "text": "半導体セクターが力強く上昇する一方で、商品先物の世界でここまで強烈なマイナス金利が放置されているのはなぜなのか。\n\n【いま起きてること】\n米国株の現物市場では半導体株を中心に買い戻しが進んで主要な指数が値を上げる中、HyperliquidのHIP-3市場では株式指数と商品先物の間で資金の向かう先が完全に分断されている。\n\n【数字で見る】（日本時間11/10(火) 09:10時点）\n・$SOXX 現物価格$146.76、前日比+7.49%、高値$148.00、安値$137.97（米国11/9終値）\n・SP500（株式先物（HIP-3）） 価格$7,561、24時間騰落率+2.41%、建玉約4.1億ドル、資金調達率（年率）+3.4%\n・CL（商品先物（HIP-3）） 価格$85.89、24時間騰落率-4.41%、建玉約1.5億ドル、資金調達率（年率）-30.5%\n\n【なぜ「歪み」なのか】\nSOXXが現物ベースで+7.49%と急伸し、株式先物のSP500もプラス圏で推移して穏やかな資金調達率を維持しているのに対し、商品先物のCLは-4.41%と大きく下げながら年率-30.5%という強烈なマイナス金利を叩き出している。株式に強気な資金が向かう裏で、コモディティ側ではショートの偏りが極端に膨らんでおり、市場全体でのリスクテイストの温度差がそのままデリバティブのコストに反映されている構造だ。個人的には、このセクター間の歪みが次の資金シフトの予兆になる見ている。\n\n【次に見るポイント】\n①現物で+7.49%と急騰したSOXXの買い圧力が継続するか\n②年率-30.5%まで沈み込んだCLのマイナス金利がショートの買い戻しを誘発するか\n③株式と商品のHIP-3市場における建玉の増減のバランス",
+  "template": "半導体セクターが力強く上昇する一方で、商品先物の世界でここまで強烈なマイナス金利が放置されているのはなぜなのか。\n\n【いま起きてること】\n米国株の現物市場では半導体株を中心に買い戻しが進んで主要な指数が値を上げる中、HyperliquidのHIP-3市場では株式指数と商品先物の間で資金の向かう先が完全に分断されている。\n\n【数字で見る】（{{f43.asof}}）\n・`${{f6.symbol}}` 現物価格{{f6.price}}、前日比{{f6.change_pct}}、高値{{f6.high}}、安値{{f6.low}}（{{f6.asof}}）\n・{{f43.coin}}（{{f43.market}}） 価格{{f43.price}}、24時間騰落率{{f43.change_pct}}、建玉{{f43.oi}}、資金調達率（年率）{{f43.funding_annual}}\n・CL（{{f44.market}}） 価格{{f44.price}}、24時間騰落率{{f44.change_pct}}、建玉{{f44.oi}}、資金調達率（年率）{{f44.funding_annual}}\n\n【なぜ「歪み」なのか】\nSOXXが現物ベースで{{f6.change_pct}}と急伸し、株式先物の{{f43.coin}}もプラス圏で推移して穏やかな資金調達率を維持しているのに対し、商品先物のCLは{{f44.change_pct}}と大きく下げながら年率{{f44.funding_annual}}という強烈なマイナス金利を叩き出している。株式に強気な資金が向かう裏で、コモディティ側ではショートの偏りが極端に膨らんでおり、市場全体でのリスクテイストの温度差がそのままデリバティブのコストに反映されている構造だ。個人的には、このセクター間の歪みが次の資金シフトの予兆になる見ている。\n\n【次に見るポイント】\n①現物で{{f6.change_pct}}と急騰したSOXXの買い圧力が継続するか\n②年率{{f44.funding_annual}}まで沈み込んだCLのマイナス金利がショートの買い戻しを誘発するか\n③株式と商品のHIP-3市場における建玉の増減のバランス",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:SOXX:big_move",
+  "angle": "フィラデルフィア半導体株指数（SOXX）の大幅な上昇と、HIP-3市場におけるS&P500や原油先物（CL）の動向を対比させ、市場全体の資金の流出入の歪みを解説する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f6",
+    "f43",
+    "f44"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格146.76, 前日比+7.49%, 前日終値136.53, 高値148.005, 安値137.97",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$146.76",
+        "change_pct": "+7.49%",
+        "prev_close": "$136.53",
+        "high": "$148.00",
+        "low": "$137.97",
+        "asof": "米国11/9終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 146.76,
+        "change_pct": 7.493,
+        "prev_close": 136.53
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-10T00:10:25.290534+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率+2.41%, 価格7561.0, 建玉408485339USD, 24時間出来高399114059USD, 資金調達率(年率)+3.4%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,561",
+        "change_pct": "+2.41%",
+        "oi": "約4.1億ドル",
+        "volume": "約4.0億ドル",
+        "funding_annual": "+3.4%",
+        "asof": "日本時間11/10(火) 09:10時点",
+        "asof_short": "09:10時点"
+      },
+      "raw": {
+        "mark": 7561.0,
+        "change_pct": 2.411,
+        "oi_usd": 408485339,
+        "vol_usd": 399114059,
+        "funding_annual_pct": 3.39
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-10T00:10:41.011537+00:00",
+      "confidence": "confirmed",
+      "id": "f43"
+    },
+    {
+      "key": "hl:xyz:CL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: CL（HIP-3株式等先物） 24時間騰落率-4.41%, 価格85.887, 建玉148785186USD, 24時間出来高337255600USD, 資金調達率(年率)-30.5%",
+      "fields": {
+        "coin": "CL",
+        "symbol": "CL",
+        "venue": "Hyperliquid",
+        "market": "商品先物（HIP-3）",
+        "price": "$85.89",
+        "change_pct": "-4.41%",
+        "oi": "約1.5億ドル",
+        "volume": "約3.4億ドル",
+        "funding_annual": "-30.5%",
+        "asof": "日本時間11/10(火) 09:10時点",
+        "asof_short": "09:10時点"
+      },
+      "raw": {
+        "mark": 85.887,
+        "change_pct": -4.405,
+        "oi_usd": 148785186,
+        "vol_usd": 337255600,
+        "funding_annual_pct": -30.53
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:CL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:CL"
+      },
+      "asof": "2026-11-10T00:10:41.011550+00:00",
+      "confidence": "confirmed",
+      "id": "f44"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:CL"
+    }
+  ],
+  "needs_human": false,
+  "problems": [
+    "再確認のデータ取得に失敗: 429 Client Error: Too Many Requests for url: https://finnhub.io/api/v1/quote?symbol=SOXX&token=dbfnbqpr01qiahua1b00dbfnbqpr01qiahua1b0g"
+  ],
+  "refreshed_to": "20261110-0730-3"
+}
