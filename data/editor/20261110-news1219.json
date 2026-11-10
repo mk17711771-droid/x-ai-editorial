@@ -1,0 +1,68 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:nyse-avalanche-tokenized-securities",
+    "angle": "NYSEがアバランチを採用しトークン化証券の清算インフラに導入。伝統金融とオンチェーンの融合における大きなマイルストーンとなる動き。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 16,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "伝統金融の巨大インフラがパブリックチェーンを採用した確実なニュースであり、新規性と読者の関心が極めて高いため。"
+  },
+  {
+    "fact_ids": [
+      "f5",
+      "f23"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体セクターの強さを背景にSKハイニックスのHIP-3先物の資金調達率が年率+105.5%と記録的な高水準に到達。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "半導体関連のHIP-3先物における過熱感と具体的な数値を端的に示せるため。"
+  },
+  {
+    "fact_ids": [
+      "f8",
+      "f25"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "半導体株の急騰に連動しSOXLのHIP-3先物が+18.99%の大幅上昇を記録、出来高も4億ドル超へ急増。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "主要なレバレッジ型半導体先物の急変動と売買代金の規模感が明確だから。"
+  },
+  {
+    "fact_ids": [
+      "f17"
+    ],
+    "topic_key": "hl:xyz:IBM:oi_change",
+    "angle": "IBMのHIP-3先物で建玉が24時間で+1842.9%と異例の急増を見せ、市場の資金が急ピッチで流入中。",
+    "scores": {
+      "novelty": 18,
+      "interest": 16,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 85,
+    "reason": "建玉の伸び率が突出しており、個別株先物への突発的な資金流入という明確な歪みを示せるため。"
+  }
+]
