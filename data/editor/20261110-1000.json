@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f10",
+      "f27"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "$SOXLの急変動とHIP-3の建玉動向から、半導体レバレッジ市場の過熱感を浮き彫りにする。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "半導体レバレッジ先物の急騰と具体的な建玉・資金調達率のデータを伴っており、読者の関心が高いテーマであるため。"
+  },
+  {
+    "fact_ids": [
+      "f18",
+      "f19"
+    ],
+    "topic_key": "hl:xyz:IBM:oi_change",
+    "angle": "$IBMのHIP-3先物で起きた建玉の記録的な急増とマイナス金利の歪みを指摘する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "建玉が20倍以上に急増した顕著な数値の異変をとらえており、市場の歪みを追うアカウントの軸に合致しているため。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f17"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "$SKHXのHIP-3先物における極端なロング過熱と資金調達率の歪みに着目する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "半導体関連の主要銘柄における高い資金調達率の偏りを、具体的な数値を用いて客観的に解説できるため。"
+  }
+]

@@ -1,0 +1,116 @@
+{
+  "id": "20261110-1000-2",
+  "slot_key": "20261110-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-10T01:01:26.031919+00:00",
+  "text": "建玉が+2119.0%も急増している$IBMの先物市場、ショートの過熱感がすごすぎない？\n\nHyperliquidの株式先物（HIP-3）で日本時間11/10(火) 09:59時点、IBMの価格は$246.30（+0.54%）と小動きなのに、資金調達率は年率-119.1%まで沈み込んでいる。",
+  "template": "建玉が{{f19.oi_change_pct}}も急増している$IBMの先物市場、ショートの過熱感がすごすぎない？\n\nHyperliquidの{{f18.market}}で{{f18.asof}}、IBMの価格は{{f18.price}}（{{f18.change_pct}}）と小動きなのに、資金調達率は年率{{f18.funding_annual}}まで沈み込んでいる。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:IBM:oi_change",
+  "angle": "$IBMのHIP-3先物で起きた建玉の記録的な急増とマイナス金利の歪みを指摘する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 17,
+    "evidence": 19,
+    "utility": 16,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f18",
+    "f19"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:IBM:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: IBM（HIP-3株式等先物） 24時間騰落率+0.54%, 価格246.3, 建玉30560559USD, 24時間出来高26242888USD, 資金調達率(年率)-119.1%",
+      "fields": {
+        "coin": "IBM",
+        "symbol": "IBM",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$246.30",
+        "change_pct": "+0.54%",
+        "oi": "約3,056万ドル",
+        "volume": "約2,624万ドル",
+        "funding_annual": "-119.1%",
+        "asof": "日本時間11/10(火) 09:59時点",
+        "asof_short": "09:59時点"
+      },
+      "raw": {
+        "mark": 246.3,
+        "change_pct": 0.539,
+        "oi_usd": 30560559,
+        "vol_usd": 26242888,
+        "funding_annual_pct": -119.07
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:IBM",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:IBM"
+      },
+      "asof": "2026-11-10T00:59:18.212147+00:00",
+      "confidence": "confirmed",
+      "id": "f18"
+    },
+    {
+      "key": "hl:xyz:IBM:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+2119.0%: IBM（HIP-3株式等先物） 24時間騰落率+0.54%, 価格246.3, 建玉30560559USD, 24時間出来高26242888USD, 資金調達率(年率)-119.1%",
+      "fields": {
+        "coin": "IBM",
+        "symbol": "IBM",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$246.30",
+        "change_pct": "+0.54%",
+        "oi": "約3,056万ドル",
+        "volume": "約2,624万ドル",
+        "funding_annual": "-119.1%",
+        "asof": "日本時間11/10(火) 09:59時点",
+        "asof_short": "09:59時点",
+        "oi_change_pct": "+2119.0%"
+      },
+      "raw": {
+        "mark": 246.3,
+        "change_pct": 0.539,
+        "oi_usd": 30560559,
+        "vol_usd": 26242888,
+        "funding_annual_pct": -119.07,
+        "oi_change_pct": 2118.96
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:IBM",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:IBM"
+      },
+      "asof": "2026-11-10T00:59:18.212265+00:00",
+      "confidence": "confirmed",
+      "id": "f19"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:IBM"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:IBM"
+    }
+  ],
+  "needs_human": false
+}
