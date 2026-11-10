@@ -553,6 +553,16 @@ def refresh_draft(draft: dict) -> dict | None:
         try:
             nf = (collect_stocks if f["refresh"]["type"] == "stock" else collect_hyperliquid).refresh_fact(f)
         except requests.RequestException as e:
+            # 取得元の回数制限（Finnhub 429）などで作り直せなくても、集めて30分以内の数字ならそのまま使う
+            # （11/10 08:05 朝の長文が429で作り直せず、枠ごと見送りになった）
+            try:
+                age = now_utc() - datetime.fromisoformat(f["asof"])
+            except (KeyError, ValueError):
+                age = timedelta(hours=99)
+            if age <= timedelta(minutes=30):
+                log.warning("最新データでの作り直しに失敗（%s）。%d分前の数字のまま使います", e, age.total_seconds() // 60)
+                facts.append(f)
+                continue
             log.warning("最新データでの作り直しに失敗: %s", e)
             return None
         if not nf or not _still_valid(f, nf):

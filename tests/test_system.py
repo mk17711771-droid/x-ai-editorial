@@ -1438,3 +1438,21 @@ def test_xyz_market_code_in_prose_and_broken_phrase():
     t = checks.render("Hyperliquidで新しい市場「xyz:TTWO」が取引開始。$TTWO を見る。", {})
     assert "xyz:" not in t and "TTWO" in t
     assert any("資金の流れていく" in e for e in checks.check_text("新しい市場が10個できた。どのような資金の流れていくのか見たい。", "news:x"))
+
+
+def test_refresh_keeps_fresh_fact_on_rate_limit(monkeypatch):
+    """11/10 08:05: Finnhubの429で作り直せず朝の長文の枠を見送った。集めて30分以内の数字はそのまま使う。"""
+    import requests
+    from aiedit import collect_stocks, pipeline
+    from aiedit.common import now_utc
+    f = {"id": "f1", "kind": "stock", "category": "quote", "asof": now_utc().isoformat(), "refresh": {"type": "stock", "symbol": "AVGO"},
+         "fields": {"symbol": "AVGO", "price": "$1"}, "raw": {}}
+    def boom(_f):
+        raise requests.HTTPError("429 Too Many Requests")
+    monkeypatch.setattr(collect_stocks, "refresh_fact", boom)
+    monkeypatch.setattr(pipeline.checks, "check_text", lambda *a, **k: [])
+    monkeypatch.setattr(pipeline.store, "load_draft", lambda *a: None)
+    monkeypatch.setattr(pipeline.store, "save_draft", lambda *a: None)
+    out = pipeline.refresh_draft({"id": "d-1", "slot_key": "d", "facts": [dict(f, source={})], "template": "AVGO {{f1.price}}",
+                                  "format": "short", "topic_key": "t"})
+    assert out is not None
