@@ -1456,3 +1456,11 @@ def test_refresh_keeps_fresh_fact_on_rate_limit(monkeypatch):
     out = pipeline.refresh_draft({"id": "d-1", "slot_key": "d", "facts": [dict(f, source={})], "template": "AVGO {{f1.price}}",
                                   "format": "short", "topic_key": "t"})
     assert out is not None
+
+
+def test_missing_to_before_miteiru_fixed():
+    """11/10 09:11: 「予兆になる見ている」（と が抜けた）。投稿の直前に自動で直す。"""
+    from aiedit import checks
+    assert checks.render("予兆になる見ている。", {}) == "予兆になると見ている。"
+    assert checks.render("引き金になると見ている。", {}) == "引き金になると見ている。"
+    assert checks.render("じっくり見ている。", {}) == "じっくり見ている。"

@@ -123,6 +123,9 @@ def render(template: str, facts: dict[str, dict]) -> str:
     text = re.sub(r"(?<![$:A-Za-z])XYZ100(?![A-Za-z0-9])", "ナスダック100", text)
     # 市場の内部の記号「xyz:TTWO」は本文では銘柄名だけにする（11/10 00:43 速報「新しい市場「xyz:TTWO」が取引開始」）
     text = re.sub(r"「?(?<![$A-Za-z])xyz:([A-Z][A-Z0-9]*)」?", r"\1", text)
+    # 「〜になる見ている」「〜だ考えている」のように引用の「と」が抜けた崩れを直す（11/10 09:11「予兆になる見ている」）
+    text = re.sub(r"(?<=[るいただ])(見ている|考えている|思っている|みている)", r"と\1", text)
+    text = text.replace("ととみている", "とみている").replace("とと見ている", "と見ている")
     # 表記の統一（過去の表記ミスを config/name_fixes.txt に貯めて、投稿の直前に直す）
     for ln in read_list("name_fixes.txt"):
         wrong, _, right = ln.partition("\t")
