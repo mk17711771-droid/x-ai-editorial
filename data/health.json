@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-11T01:47:48.840251+00:00",
-  "at_jst": "11/11 10:47",
+  "at": "2026-11-11T02:46:07.624426+00:00",
+  "at_jst": "11/11 11:45",
   "ok": false,
   "issues": [
     {
@@ -11,6 +11,13 @@
       "within_grace": false
     },
     {
+      "type": "missed_slot",
+      "slot": "1000",
+      "key": "20261111-1000",
+      "generated": true,
+      "within_grace": true
+    },
+    {
       "type": "metrics_late",
       "posts": [
         "2119901533135630833"
@@ -18,9 +25,16 @@
     },
     {
       "type": "error",
-      "command": "generate",
-      "error": "XCreditsError: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-11T01:04:02.467091+00:00"
+      "command": "research",
+      "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+      "at": "2026-11-11T02:36:18.570726+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-11T02:35:18Z",
+      "id": 42947042389
     },
     {
       "type": "workflow_failed",
@@ -66,15 +80,11 @@
     },
     {
       "type": "many_rejections",
-      "n": 14,
+      "n": 10,
       "reasons": [
         "1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）",
         "データ以外の数字が含まれている: ['1', '1', '1', '1']",
-        "データ以外の数字が含まれている: ['1', '1', '5', '0', '0', '2', '2', '2', '0', '0']",
-        "データ以外の数字が含まれている: ['2', '2', '2', '0', '0', '1', '1', '5', '0', '0']",
         "データ以外の数字が含まれている: ['5', '2', '9']",
-        "漢数字による数量表現: ['万ドル', '万ドル']",
-        "短文の上限に対して長すぎる（577字）。短文の形（2〜3段落）で書き直す",
         "締めの言い回し（〜っぽい）が直近の投稿と同じ。別の締め方にする"
       ]
     }
