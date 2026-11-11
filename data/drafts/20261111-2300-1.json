@@ -1,0 +1,76 @@
+{
+  "id": "20261111-2300-1",
+  "slot_key": "20261111-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "stale",
+  "created_at": "2026-11-11T14:34:00.145298+00:00",
+  "text": "$AVGOが+10.61%の急騰を見せる裏で、デリバティブ側の勢いが現物（+3.91%）を大きく引き離している。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/11(水) 23:27時点、AVGOの価格は$350.60、建玉は約588万ドル、資金調達率は年率+9.4%となっている。",
+  "template": "${{f10.symbol}}が{{f10.change_pct}}の急騰を見せる裏で、デリバティブ側の勢いが現物（{{f10.us_change_pct}}）を大きく引き離している。\n\nHyperliquidの{{f10.market}}で{{f10.asof}}、${{f10.symbol}}の価格は{{f10.price}}、建玉は{{f10.oi}}、資金調達率は{{f10.funding_annual}}となっている。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "stock:AVGO:big_move",
+  "angle": "$AVGOの株式先物が+10.61%まで急伸し、現物（+3.91%）を大きく上回る強い買い圧力を示している",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 86,
+  "fact_ids": [
+    "f10"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:AVGO:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: AVGO（HIP-3株式等先物） 24時間騰落率+10.61%, 価格350.6, 建玉5884169USD, 24時間出来高6478648USD, 資金調達率(年率)+9.4%（照合: 米国株の前日比+3.91%）",
+      "fields": {
+        "coin": "AVGO",
+        "symbol": "AVGO",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$350.60",
+        "change_pct": "+10.61%",
+        "oi": "約588万ドル",
+        "volume": "約648万ドル",
+        "funding_annual": "+9.4%",
+        "asof": "日本時間11/11(水) 23:27時点",
+        "asof_short": "23:27時点",
+        "us_change_pct": "+3.91%"
+      },
+      "raw": {
+        "mark": 350.6,
+        "change_pct": 10.606,
+        "oi_usd": 5884169,
+        "vol_usd": 6478648,
+        "funding_annual_pct": 9.35,
+        "us_change_pct": 3.913
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:AVGO",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:AVGO"
+      },
+      "asof": "2026-11-11T14:27:09.505603+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:AVGO"
+    }
+  ],
+  "needs_human": false,
+  "problems": [
+    "AVGO の騰落率が変化（+10.61% → +7.98%）"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "20261111-2300-3",
+  "slot_key": "20261111-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "pending",
+  "created_at": "2026-11-11T14:35:49.563580+00:00",
+  "text": "$BRENTOILの資金調達率が年率-178.9%まで急低下している。\n\nHyperliquidの商品先物（HIP-3）で日本時間11/11(水) 23:27時点、価格が+2.54%のプラスで$90.95まで戻す一方で、約3.2億ドルの建玉に対してショートの支払いがここまで膨らんでいるのはかなり偏っている印象。",
+  "template": "${{f13.symbol}}の資金調達率が年率{{f13.funding_annual}}まで急低下している。\n\nHyperliquidの{{f13.market}}で{{f13.asof}}、価格が{{f13.change_pct}}のプラスで{{f13.price}}まで戻す一方で、{{f13.oi}}の建玉に対してショートの支払いがここまで膨らんでいるのはかなり偏っている印象。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:BRENTOIL:funding_extreme",
+  "angle": "$BRENTOILの資金調達率が年率-178.9%まで沈み込み、ショート側が過熱している",
+  "scores": {
+    "novelty": 15,
+    "interest": 16,
+    "evidence": 18,
+    "utility": 15,
+    "insight": 16
+  },
+  "total": 80,
+  "fact_ids": [
+    "f13"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:BRENTOIL:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: BRENTOIL（HIP-3株式等先物） 24時間騰落率+2.54%, 価格90.952, 建玉317440383USD, 24時間出来高143751154USD, 資金調達率(年率)-178.9%",
+      "fields": {
+        "coin": "BRENTOIL",
+        "symbol": "BRENTOIL",
+        "venue": "Hyperliquid",
+        "market": "商品先物（HIP-3）",
+        "price": "$90.95",
+        "change_pct": "+2.54%",
+        "oi": "約3.2億ドル",
+        "volume": "約1.4億ドル",
+        "funding_annual": "-178.9%",
+        "asof": "日本時間11/11(水) 23:27時点",
+        "asof_short": "23:27時点"
+      },
+      "raw": {
+        "mark": 90.952,
+        "change_pct": 2.541,
+        "oi_usd": 317440383,
+        "vol_usd": 143751154,
+        "funding_annual_pct": -178.9
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:BRENTOIL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:BRENTOIL"
+      },
+      "asof": "2026-11-11T14:27:09.505702+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:BRENTOIL"
+    }
+  ],
+  "needs_human": false
+}

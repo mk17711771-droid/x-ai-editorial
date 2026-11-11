@@ -1,0 +1,50 @@
+[
+  {
+    "fact_ids": [
+      "f10"
+    ],
+    "topic_key": "stock:AVGO:big_move",
+    "angle": "$AVGOの株式先物が+10.61%まで急伸し、現物（+3.91%）を大きく上回る強い買い圧力を示している",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "大きな名前であるAVGOのHIP-3先物と現物の上昇率の開きに着目し、デリバティブ側の強い勢いを数字で捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f8"
+    ],
+    "topic_key": "hl:xyz:HIMS:big_move",
+    "angle": "$HIMSの株式先物が-13.40%と大きく売り込まれ、建玉も半数近く減少する荒れた値動きを見せている",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 82,
+    "reason": "急変動銘柄の先物価格と建玉の減少データをシンプルに結びつけ、市場でのポジション解消の動きを伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f13"
+    ],
+    "topic_key": "hl:xyz:BRENTOIL:funding_extreme",
+    "angle": "$BRENTOILの資金調達率が年率-178.9%まで沈み込み、ショート側が過熱している",
+    "scores": {
+      "novelty": 15,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 80,
+    "reason": "コモディティ系HIP-3先物の極端な資金調達率の歪みを捉え、市場の偏りを端的に示しているため。"
+  }
+]
