@@ -1,0 +1,188 @@
+{
+  "id": "20261111-2030-3",
+  "slot_key": "20261111-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "pending",
+  "created_at": "2026-11-11T12:19:07.207972+00:00",
+  "text": "米国株の指標がマイナス圏で推移する中で、なぜHIP-3の指数先物はプラスを維持できているのか。\n\n【いま起きてること】\n伝統的な米国市場が前日の終値から下押し圧力を受ける中、HyperliquidのHIP-3市場では指数連動型の先物が逆行高の展開を見せている。現物側の軟調な値動きに対して、デリバティブ側でどのような需給の歪みが生じているのかが見所だ。\n\n【数字で見る】（日本時間11/11(水) 21:12時点）\n・$XYZ100 価格$28,270、24時間騰落率+1.67%、建玉約2.0億ドル、24時間出来高約5.5億ドル、資金調達率（年率）+5.5%\n・SP500 価格$7,586、24時間騰落率+0.47%、建玉約4.2億ドル、24時間出来高約4.7億ドル、資金調達率（年率）+5.5%\n・SPY 価格$749.92、前日比-0.37%、前日終値$752.69、高値$752.14、安値$744.86（米国11/10終値）\n・QQQ 価格$674.76、前日比-0.68%、前日終値$679.35、高値$680.95、安値$667.05（米国11/10終値）\n\n【なぜ「歪み」なのか】\nSPYが前日比-0.37%、QQQが前日比-0.68%と下落して引けたのに対し、HIP-3のナスダック100先物は24時間騰落率+1.67%、SP500先物は24時間騰落率+0.47%と揃ってプラス圏で推移している。現物市場の調整ムードとデリバティブ側の買い意欲との間に明確なギャップが生じており、約2.0億ドルの建玉を抱えるナスダック100先物などが下支え役を買って出ている構図だ。個人的には、この現物と先物の需給の乖離が翌日の市場全体の方向性を占う上で重要なシグナルになると見ている。\n\n【次に見るポイント】\n①ナスダック100先物が示す約2.0億ドルの建玉の推移\n②SP500先物の資金調達率年率+5.5%を維持したままの上値追い\n③米国現物市場の開場後にこの先物のプラス乖離がどう作用するか",
+  "template": "米国株の指標がマイナス圏で推移する中で、なぜHIP-3の指数先物はプラスを維持できているのか。\n\n【いま起きてること】\n伝統的な米国市場が前日の終値から下押し圧力を受ける中、HyperliquidのHIP-3市場では指数連動型の先物が逆行高の展開を見せている。現物側の軟調な値動きに対して、デリバティブ側でどのような需給の歪みが生じているのかが見所だ。\n\n【数字で見る】（{{f38.asof}}）\n・${{f38.symbol}} 価格{{f38.price}}、24時間騰落率{{f38.change_pct}}、建玉{{f38.oi}}、24時間出来高{{f38.volume}}、資金調達率（年率）{{f38.funding_annual}}\n・${{f40.symbol}} 価格{{f40.price}}、24時間騰落率{{f40.change_pct}}、建玉{{f40.oi}}、24時間出来高{{f40.volume}}、資金調達率（年率）{{f40.funding_annual}}\n・${{f1.symbol}} 価格{{f1.price}}、前日比{{f1.change_pct}}、前日終値{{f1.prev_close}}、高値{{f1.high}}、安値{{f1.low}}（{{f1.asof}}）\n・${{f2.symbol}} 価格{{f2.price}}、前日比{{f2.change_pct}}、前日終値{{f2.prev_close}}、高値{{f2.high}}、安値{{f2.low}}（{{f2.asof}}）\n\n【なぜ「歪み」なのか】\nSPYが前日比{{f1.change_pct}}、QQQが前日比{{f2.change_pct}}と下落して引けたのに対し、HIP-3の{{f38.coin}}先物は24時間騰落率{{f38.change_pct}}、{{f40.coin}}先物は24時間騰落率{{f40.change_pct}}と揃ってプラス圏で推移している。現物市場の調整ムードとデリバティブ側の買い意欲との間に明確なギャップが生じており、{{f38.oi}}の建玉を抱える{{f38.coin}}先物などが下支え役を買って出ている構図だ。個人的には、この現物と先物の需給の乖離が翌日の市場全体の方向性を占う上で重要なシグナルになると見ている。\n\n【次に見るポイント】\n①{{f38.coin}}先物が示す{{f38.oi}}の建玉の推移\n②{{f40.coin}}先物の資金調達率年率{{f38.funding_annual}}を維持したままの上値追い\n③米国現物市場の開場後にこの先物のプラス乖離がどう作用するか",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:XYZ100:hip3_top",
+  "angle": "米国市場の指標がマイナス圏で推移する中、HIP-3のXYZ100先物が+1.67%とプラスを維持している乖離の構図。現物とデリバティブの需給の差を検証する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 17,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 87,
+  "fact_ids": [
+    "f38",
+    "f40",
+    "f1",
+    "f2"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率+1.67%, 価格28270.0, 建玉201728020USD, 24時間出来高551936431USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$28,270",
+        "change_pct": "+1.67%",
+        "oi": "約2.0億ドル",
+        "volume": "約5.5億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/11(水) 21:12時点",
+        "asof_short": "21:12時点"
+      },
+      "raw": {
+        "mark": 28270.0,
+        "change_pct": 1.672,
+        "oi_usd": 201728020,
+        "vol_usd": 551936431,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-11T12:12:05.492450+00:00",
+      "confidence": "confirmed",
+      "id": "f38"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率+0.47%, 価格7586.3, 建玉420813169USD, 24時間出来高466262435USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,586",
+        "change_pct": "+0.47%",
+        "oi": "約4.2億ドル",
+        "volume": "約4.7億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/11(水) 21:12時点",
+        "asof_short": "21:12時点"
+      },
+      "raw": {
+        "mark": 7586.3,
+        "change_pct": 0.471,
+        "oi_usd": 420813169,
+        "vol_usd": 466262435,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-11T12:12:05.492499+00:00",
+      "confidence": "confirmed",
+      "id": "f40"
+    },
+    {
+      "key": "stock:SPY:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SPY 価格749.92, 前日比-0.37%, 前日終値752.69, 高値752.139, 安値744.86",
+      "fields": {
+        "symbol": "SPY",
+        "price": "$749.92",
+        "change_pct": "-0.37%",
+        "prev_close": "$752.69",
+        "high": "$752.14",
+        "low": "$744.86",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 749.92,
+        "change_pct": -0.368,
+        "prev_close": 752.69
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SPY"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SPY"
+      },
+      "asof": "2026-11-11T12:11:58.163947+00:00",
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "stock:QQQ:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "QQQ 価格674.76, 前日比-0.68%, 前日終値679.35, 高値680.9499, 安値667.0501",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$674.76",
+        "change_pct": "-0.68%",
+        "prev_close": "$679.35",
+        "high": "$680.95",
+        "low": "$667.05",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 674.76,
+        "change_pct": -0.676,
+        "prev_close": 679.35
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-11T12:11:58.258743+00:00",
+      "confidence": "confirmed",
+      "id": "f2"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SPY"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    }
+  ],
+  "needs_human": false
+}

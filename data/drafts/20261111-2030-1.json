@@ -1,0 +1,184 @@
+{
+  "id": "20261111-2030-1",
+  "slot_key": "20261111-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "failed",
+  "created_at": "2026-11-11T12:14:15.917224+00:00",
+  "text": "半導体セクター全体が軟調に推移する中で、なぜ$NVDAだけが大きめの調整を見せているのか。\n\n【いま起きてること】\n米国市場で主要な指数や銘柄が頭の重い展開となる中、HyperliquidのHIP-3市場における個別株式先物と現物市場の間で、ポジションの傾き方に興味深い差異が生じている。\n\n【数字で見る】（日本時間11/11(水) 21:12時点）\n・NVDA 価格$168.89、前日比-5.47%、前日終値$178.67、高値$174.69、安値$165.89（米国11/10終値）\n・NVDA（株式先物（HIP-3）） 価格$175.12、24時間騰落率-1.41%、建玉約3.8億ドル、24時間出来高約5.5億ドル、資金調達率（年率）+12.6%\n・SPY 価格$749.92、前日比-0.37%、前日終値$752.69、高値$752.14、安値$744.86（米国11/10終値）\n・QQQ 価格$674.76、前日比-0.68%、前日終値$679.35、高値$680.95、安値$667.05（米国11/10終値）\n\n【なぜ「歪み」なのか】\n現物のNVDAが前日比-5.47%と下落圧力を受けているのに対し、HIP-3の株式先物は24時間騰落率-1.41%と比較的落ち着いた値動きにとどまっている。さらに、約3.8億ドルという大きな建玉が積み上がっている一方で、資金調達率は年率+12.6%とプラス圏を維持しており、過度なショートへの偏りが見られない。個人的には、現物の下落幅に対してデリバティブ側のポジションがニュートラルに保たれているこのギャップこそが、今後のトレンド転換に向けたエネルギーを溜め込む局面であると見ている。\n\n【次に見るポイント】\n①約3.8億ドルに達するNVDA先物の建玉の増減\n②年率+12.6%の資金調達率がどちらの方向へ推移するか\n③現物価格$168.89近辺での値動きと先物価格との乖離",
+  "template": "半導体セクター全体が軟調に推移する中で、なぜ`${{f4.symbol}}`だけが大きめの調整を見せているのか。\n\n【いま起きてること】\n米国市場で主要な指数や銘柄が頭の重い展開となる中、HyperliquidのHIP-3市場における個別株式先物と現物市場の間で、ポジションの傾き方に興味深い差異が生じている。\n\n【数字で見る】（{{f39.asof}}）\n・`${{f4.symbol}}` 価格${{f4.price}}、前日比${{f4.change_pct}}、前日終値${{f4.prev_close}}、高値${{f4.high}}、安値${{f4.low}}（{{f4.asof}}）\n・`${{f39.symbol}}`（{{f39.market}}） 価格${{f39.price}}、24時間騰落率${{f39.change_pct}}、建玉{{f39.oi}}、24時間出来高{{f39.volume}}、資金調達率（年率）${{f39.funding_annual}}\n・SPY 価格${{f1.price}}、前日比${{f1.change_pct}}、前日終値${{f1.prev_close}}、高値${{f1.high}}、安値${{f1.low}}（{{f1.asof}}）\n・QQQ 価格${{f2.price}}、前日比${{f2.change_pct}}、前日終値${{f2.prev_close}}、高値${{f2.high}}、安値${{f2.low}}（{{f2.asof}}）\n\n【なぜ「歪み」なのか】\n現物の`${{f4.symbol}}`が前日比${{f4.change_pct}}と下落圧力を受けているのに対し、HIP-3の株式先物は24時間騰落率${{f39.change_pct}}と比較的落ち着いた値動きにとどまっている。さらに、{{f39.oi}}という大きな建玉が積み上がっている一方で、資金調達率は年率${{f39.funding_annual}}とプラス圏を維持しており、過度なショートへの偏りが見られない。個人的には、現物の下落幅に対してデリバティブ側のポジションがニュートラルに保たれているこのギャップこそが、今後のトレンド転換に向けたエネルギーを溜め込む局面であると見ている。\n\n【次に見るポイント】\n①{{f39.oi}}に達する`${{f39.symbol}}`先物の建玉の増減\n②年率${{f39.funding_annual}}の資金調達率がどちらの方向へ推移するか\n③現物価格${{f4.price}}近辺での値動きと先物価格との乖離",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:NVDA:big_move",
+  "angle": "半導体セクター全体の軟調な値動きの中で、なぜ$NVDAだけが-5.47%と大きく売られているのか。現物の下落とHyperliquidのHIP-3株式先物（建玉3.76億ドル、資金調達率年率+12.6%）におけるポジションの偏りを紐解く。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f4",
+    "f39",
+    "f1",
+    "f2"
+  ],
+  "facts": [
+    {
+      "key": "stock:NVDA:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】NVDA 価格168.89, 前日比-5.47%, 前日終値178.67, 高値174.69, 安値165.89",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$168.89",
+        "change_pct": "-5.47%",
+        "prev_close": "$178.67",
+        "high": "$174.69",
+        "low": "$165.89",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 168.89,
+        "change_pct": -5.474,
+        "prev_close": 178.67
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-11-11T12:11:58.448870+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-1.41%, 価格175.12, 建玉376087449USD, 24時間出来高549276718USD, 資金調達率(年率)+12.6%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$175.12",
+        "change_pct": "-1.41%",
+        "oi": "約3.8億ドル",
+        "volume": "約5.5億ドル",
+        "funding_annual": "+12.6%",
+        "asof": "日本時間11/11(水) 21:12時点",
+        "asof_short": "21:12時点"
+      },
+      "raw": {
+        "mark": 175.12,
+        "change_pct": -1.413,
+        "oi_usd": 376087449,
+        "vol_usd": 549276718,
+        "funding_annual_pct": 12.57
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-11T12:12:05.492476+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    },
+    {
+      "key": "stock:SPY:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SPY 価格749.92, 前日比-0.37%, 前日終値752.69, 高値752.139, 安値744.86",
+      "fields": {
+        "symbol": "SPY",
+        "price": "$749.92",
+        "change_pct": "-0.37%",
+        "prev_close": "$752.69",
+        "high": "$752.14",
+        "low": "$744.86",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 749.92,
+        "change_pct": -0.368,
+        "prev_close": 752.69
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SPY"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SPY"
+      },
+      "asof": "2026-11-11T12:11:58.163947+00:00",
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "stock:QQQ:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "QQQ 価格674.76, 前日比-0.68%, 前日終値679.35, 高値680.9499, 安値667.0501",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$674.76",
+        "change_pct": "-0.68%",
+        "prev_close": "$679.35",
+        "high": "$680.95",
+        "low": "$667.05",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 674.76,
+        "change_pct": -0.676,
+        "prev_close": 679.35
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-11T12:11:58.258743+00:00",
+      "confidence": "confirmed",
+      "id": "f2"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SPY"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "error": "402 credits depleted: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
+}

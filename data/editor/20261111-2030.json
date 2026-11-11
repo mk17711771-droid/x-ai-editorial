@@ -1,0 +1,58 @@
+[
+  {
+    "fact_ids": [
+      "f4",
+      "f39",
+      "f1",
+      "f2"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "半導体セクター全体の軟調な値動きの中で、なぜ$NVDAだけが-5.47%と大きく売られているのか。現物の下落とHyperliquidのHIP-3株式先物（建玉3.76億ドル、資金調達率年率+12.6%）におけるポジションの偏りを紐解く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "主要銘柄の明確な下落トレンドとオンチェーンのデリバティブデータを組み合わせ、市場の歪みを深く解説しているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f2",
+      "f1"
+    ],
+    "topic_key": "stock:AVGO:big_move",
+    "angle": "全体が売りに押される中で+3.91%と逆行高を見せた$AVGO。指数が軟調に推移する背景と、個別銘柄で分かれる資金の選別色の強さを整理する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "強さを見せる個別株に焦点を当て、セクター内の明暗を的確に浮き彫りにしているため。"
+  },
+  {
+    "fact_ids": [
+      "f38",
+      "f40",
+      "f1",
+      "f2"
+    ],
+    "topic_key": "hl:xyz:XYZ100:hip3_top",
+    "angle": "米国市場の指標がマイナス圏で推移する中、HIP-3のXYZ100先物が+1.67%とプラスを維持している乖離の構図。現物とデリバティブの需給の差を検証する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 87,
+    "reason": "指数先物と現物の値動きのギャップに注目し、オンチェーンならではの視点を提供しているため。"
+  }
+]

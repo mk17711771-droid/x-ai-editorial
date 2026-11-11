@@ -1,0 +1,139 @@
+{
+  "id": "20261111-2030-2",
+  "slot_key": "20261111-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "pending",
+  "created_at": "2026-11-11T12:16:56.896914+00:00",
+  "text": "市場全体が売りに押される中で、なぜ$AVGOだけがこれほど強い逆行高を見せているのか。\n\n【いま起きてること】\n米国市場全体が軟調な値動きを見せる中、個別銘柄における資金の選別色が急激に強まっている。主要な株価指数が軒並み下落する展開となる一方で、一部の強力な銘柄には強い買いが集中し、セクター内の二極化が鮮明になっている。\n\n【数字で見る】（米国11/10終値）\n・AVGO 価格$331.98、前日終値比+3.91%、前日終値$319.48、高値$334.67、安値$316.69\n・QQQ 価格$674.76、前日終値比-0.68%、前日終値$679.35、高値$680.95、安値$667.05\n・SPY 価格$749.92、前日終値比-0.37%、前日終値$752.69、高値$752.14、安値$744.86\n\n【なぜ「歪み」なのか】\nQQQが-0.68%、SPYが-0.37%と指数全体がマイナス圏で推移しているのに対し、AVGOは+3.91%と明確に逆行して上昇している。全体がリスクオフの雰囲気に包まれながらも、特定の強い銘柄にだけは資金が集中して高値圏を維持しているこの構造は、市場参加者がいかに銘柄を選別しているかを物語っている。個人的には、こうした指数の軟調さと個別株の強さのギャップこそが、現在の相場における最大の歪みだと見ている。\n\n【次に見るポイント】\n①指数が下落する中でAVGOが高値圏の$334.67を維持できるか\n②QQQの下落圧力が他の半導体銘柄へ波及するか\n③個別の資金選別がさらに狭い範囲に集中していくか",
+  "template": "市場全体が売りに押される中で、なぜ`${{f6.symbol}}`だけがこれほど強い逆行高を見せているのか。\n\n【いま起きてること】\n米国市場全体が軟調な値動きを見せる中、個別銘柄における資金の選別色が急激に強まっている。主要な株価指数が軒並み下落する展開となる一方で、一部の強力な銘柄には強い買いが集中し、セクター内の二極化が鮮明になっている。\n\n【数字で見る】（{{f6.asof}}）\n・`${{f6.symbol}}` 価格${{f6.price}}、{{f6.basis}}{{f6.change_pct}}、前日終値${{f6.prev_close}}、高値${{f6.high}}、安値${{f6.low}}\n・`${{f2.symbol}}` 価格${{f2.price}}、{{f2.basis}}{{f2.change_pct}}、前日終値${{f2.prev_close}}、高値${{f2.high}}、安値${{f2.low}}\n・`${{f1.symbol}}` 価格${{f1.price}}、{{f1.basis}}{{f1.change_pct}}、前日終値${{f1.prev_close}}、高値${{f1.high}}、安値${{f1.low}}\n\n【なぜ「歪み」なのか】\n`${{f2.symbol}}`が{{f2.change_pct}}、`${{f1.symbol}}`が{{f1.change_pct}}と指数全体がマイナス圏で推移しているのに対し、`${{f6.symbol}}`は{{f6.change_pct}}と明確に逆行して上昇している。全体がリスクオフの雰囲気に包まれながらも、特定の強い銘柄にだけは資金が集中して高値圏を維持しているこの構造は、市場参加者がいかに銘柄を選別しているかを物語っている。個人的には、こうした指数の軟調さと個別株の強さのギャップこそが、現在の相場における最大の歪みだと見ている。\n\n【次に見るポイント】\n①指数が下落する中で`${{f6.symbol}}`が高値圏の`${{f6.high}}`を維持できるか\n②`${{f2.symbol}}`の下落圧力が他の半導体銘柄へ波及するか\n③個別の資金選別がさらに狭い範囲に集中していくか",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:AVGO:big_move",
+  "angle": "全体が売りに押される中で+3.91%と逆行高を見せた$AVGO。指数が軟調に推移する背景と、個別銘柄で分かれる資金の選別色の強さを整理する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f6",
+    "f2",
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "stock:AVGO:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AVGO 価格331.98, 前日比+3.91%, 前日終値319.48, 高値334.6689, 安値316.69",
+      "fields": {
+        "symbol": "AVGO",
+        "price": "$331.98",
+        "change_pct": "+3.91%",
+        "prev_close": "$319.48",
+        "high": "$334.67",
+        "low": "$316.69",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 331.98,
+        "change_pct": 3.913,
+        "prev_close": 319.48
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AVGO"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AVGO"
+      },
+      "asof": "2026-11-11T12:11:58.647832+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "stock:QQQ:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "QQQ 価格674.76, 前日比-0.68%, 前日終値679.35, 高値680.9499, 安値667.0501",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$674.76",
+        "change_pct": "-0.68%",
+        "prev_close": "$679.35",
+        "high": "$680.95",
+        "low": "$667.05",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 674.76,
+        "change_pct": -0.676,
+        "prev_close": 679.35
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-11T12:11:58.258743+00:00",
+      "confidence": "confirmed",
+      "id": "f2"
+    },
+    {
+      "key": "stock:SPY:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SPY 価格749.92, 前日比-0.37%, 前日終値752.69, 高値752.139, 安値744.86",
+      "fields": {
+        "symbol": "SPY",
+        "price": "$749.92",
+        "change_pct": "-0.37%",
+        "prev_close": "$752.69",
+        "high": "$752.14",
+        "low": "$744.86",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 749.92,
+        "change_pct": -0.368,
+        "prev_close": 752.69
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SPY"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SPY"
+      },
+      "asof": "2026-11-11T12:11:58.163947+00:00",
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AVGO"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SPY"
+    }
+  ],
+  "needs_human": false
+}
