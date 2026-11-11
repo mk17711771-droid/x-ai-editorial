@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f6",
+      "f20"
+    ],
+    "topic_key": "hl:xyz:NVDA:oi_change",
+    "angle": "$NVDAの株価が下落する中で建玉が35.8%急増し、資金調達率が年率+159.2%まで上昇している歪みに焦点を当てる。",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 95,
+    "reason": "大きな名前であるNVDAの価格下落と建玉の急増、高い資金調達率という明確な歪みを数字で捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f16",
+      "f25"
+    ],
+    "topic_key": "hl:xyz:SKHY:funding_extreme",
+    "angle": "$SKHYの資金調達率が年率+217.5%とロング過熱を示している点と、高水準の建玉が維持されている構造を解説する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "半導体関連のHIP-3先物における極端な資金調達率の偏りを具体的な数字で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f18"
+    ],
+    "topic_key": "hl:xyz:HIMS:oi_change",
+    "angle": "$HIMSの株価急落と連動して建玉が52.9%減少している、ポジションの急激な巻き戻しの動きを追う。",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "建玉の大幅な減少と価格の急変動という、市場のデレバレッジの兆候を数字で捉えているため。"
+  }
+]

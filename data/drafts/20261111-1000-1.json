@@ -1,0 +1,116 @@
+{
+  "id": "20261111-1000-1",
+  "slot_key": "20261111-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "failed",
+  "created_at": "2026-11-11T01:03:49.718240+00:00",
+  "text": "$SKHYの資金調達率が年率+217.5%まで跳ね上がってるの、ロングの偏りがかなり強烈になってないか。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/11(水) 10:03時点、SKHYの価格は$133.73（+0.00%）、建玉は約1.3億ドル、出来高は約9,578万ドルを記録している。",
+  "template": "$SKHYの資金調達率が年率{{f16.funding_annual}}まで跳ね上がってるの、ロングの偏りがかなり強烈になってないか。\n\nHyperliquidの{{f16.market}}で{{f16.asof}}、${{f16.symbol}}の価格は{{f16.price}}（{{f16.change_pct}}）、建玉は{{f16.oi}}、出来高は{{f16.volume}}を記録している。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "hl:xyz:SKHY:funding_extreme",
+  "angle": "$SKHYの資金調達率が年率+217.5%とロング過熱を示している点と、高水準の建玉が維持されている構造を解説する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f16",
+    "f25"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SKHY:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SKHY（HIP-3株式等先物） 24時間騰落率+0.00%, 価格133.73, 建玉130392998USD, 24時間出来高95776127USD, 資金調達率(年率)+217.5%",
+      "fields": {
+        "coin": "SKHY",
+        "symbol": "SKHY",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$133.73",
+        "change_pct": "+0.00%",
+        "oi": "約1.3億ドル",
+        "volume": "約9,578万ドル",
+        "funding_annual": "+217.5%",
+        "asof": "日本時間11/11(水) 10:03時点",
+        "asof_short": "10:03時点"
+      },
+      "raw": {
+        "mark": 133.73,
+        "change_pct": 0.0,
+        "oi_usd": 130392998,
+        "vol_usd": 95776127,
+        "funding_annual_pct": 217.51
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHY",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHY"
+      },
+      "asof": "2026-11-11T01:03:39.792208+00:00",
+      "confidence": "confirmed",
+      "id": "f16"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+1.50%, 価格915.44, 建玉326669491USD, 24時間出来高435086318USD, 資金調達率(年率)+13.2%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$915.44",
+        "change_pct": "+1.50%",
+        "oi": "約3.3億ドル",
+        "volume": "約4.4億ドル",
+        "funding_annual": "+13.2%",
+        "asof": "日本時間11/11(水) 10:03時点",
+        "asof_short": "10:03時点"
+      },
+      "raw": {
+        "mark": 915.44,
+        "change_pct": 1.502,
+        "oi_usd": 326669491,
+        "vol_usd": 435086318,
+        "funding_annual_pct": 13.22
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-11T01:03:39.792469+00:00",
+      "confidence": "confirmed",
+      "id": "f25"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHY"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "error": "402 credits depleted: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
+}

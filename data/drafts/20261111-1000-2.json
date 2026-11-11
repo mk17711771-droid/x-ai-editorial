@@ -1,0 +1,120 @@
+{
+  "id": "20261111-1000-2",
+  "slot_key": "20261111-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "pending",
+  "created_at": "2026-11-11T01:04:00.446747+00:00",
+  "text": "$HIMSの建玉が24時間で-52.9%も削ぎ落とされているの、ポジションの巻き戻しが急すぎない？\n\nHyperliquidの株式先物（HIP-3）で日本時間11/11(水) 10:03時点、HIMSの価格は$19.05（-14.11%）、建玉は約153万ドル、資金調達率は年率+142.2%を記録している。",
+  "template": "${{f18.symbol}}の建玉が24時間で{{f18.oi_change_pct}}も削ぎ落とされているの、ポジションの巻き戻しが急すぎない？\n\nHyperliquidの{{f7.market}}で{{f18.asof}}、${{f18.symbol}}の価格は{{f18.price}}（{{f18.change_pct}}）、建玉は{{f18.oi}}、資金調達率は年率{{f18.funding_annual}}を記録している。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:HIMS:oi_change",
+  "angle": "$HIMSの株価急落と連動して建玉が52.9%減少している、ポジションの急激な巻き戻しの動きを追う。",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f7",
+    "f18"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:HIMS:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: HIMS（HIP-3株式等先物） 24時間騰落率-14.11%, 価格19.047, 建玉1534026USD, 24時間出来高8236573USD, 資金調達率(年率)+142.2%（照合: 米国株の前日比-16.61%）",
+      "fields": {
+        "coin": "HIMS",
+        "symbol": "HIMS",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$19.05",
+        "change_pct": "-14.11%",
+        "oi": "約153万ドル",
+        "volume": "約824万ドル",
+        "funding_annual": "+142.2%",
+        "asof": "日本時間11/11(水) 10:03時点",
+        "asof_short": "10:03時点",
+        "us_change_pct": "-16.61%"
+      },
+      "raw": {
+        "mark": 19.047,
+        "change_pct": -14.106,
+        "oi_usd": 1534026,
+        "vol_usd": 8236573,
+        "funding_annual_pct": 142.2,
+        "us_change_pct": -16.608
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:HIMS",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:HIMS"
+      },
+      "asof": "2026-11-11T01:03:39.792012+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    },
+    {
+      "key": "hl:xyz:HIMS:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化-52.9%: HIMS（HIP-3株式等先物） 24時間騰落率-14.11%, 価格19.047, 建玉1534026USD, 24時間出来高8236573USD, 資金調達率(年率)+142.2%（照合: 米国株の前日比-16.61%）",
+      "fields": {
+        "coin": "HIMS",
+        "symbol": "HIMS",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$19.05",
+        "change_pct": "-14.11%",
+        "oi": "約153万ドル",
+        "volume": "約824万ドル",
+        "funding_annual": "+142.2%",
+        "asof": "日本時間11/11(水) 10:03時点",
+        "asof_short": "10:03時点",
+        "oi_change_pct": "-52.9%",
+        "us_change_pct": "-16.61%"
+      },
+      "raw": {
+        "mark": 19.047,
+        "change_pct": -14.106,
+        "oi_usd": 1534026,
+        "vol_usd": 8236573,
+        "funding_annual_pct": 142.2,
+        "us_change_pct": -16.608,
+        "oi_change_pct": -52.88
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:HIMS",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:HIMS"
+      },
+      "asof": "2026-11-11T01:03:39.792322+00:00",
+      "confidence": "confirmed",
+      "id": "f18"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:HIMS"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:HIMS"
+    }
+  ],
+  "needs_human": false
+}
