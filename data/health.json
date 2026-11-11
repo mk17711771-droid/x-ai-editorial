@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-11T04:25:58.131027+00:00",
-  "at_jst": "11/11 13:25",
+  "at": "2026-11-11T05:06:50.001885+00:00",
+  "at_jst": "11/11 14:06",
   "ok": false,
   "issues": [
     {
@@ -34,9 +34,16 @@
     },
     {
       "type": "error",
-      "command": "generate",
-      "error": "XCreditsError: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-11T03:09:31.265111+00:00"
+      "command": "research",
+      "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+      "at": "2026-11-11T04:36:16.614025+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-11T04:35:18Z",
+      "id": 42960211702
     },
     {
       "type": "workflow_failed",
@@ -72,20 +79,6 @@
       "event": "workflow_dispatch",
       "at": "2026-11-11T00:08:36Z",
       "id": 42928989890
-    },
-    {
-      "type": "workflow_failed",
-      "name": "research-and-learn",
-      "event": "repository_dispatch",
-      "at": "2026-11-10T22:35:19Z",
-      "id": 42915946453
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-10T22:30:20Z",
-      "id": 42915156760
     },
     {
       "type": "many_rejections",
