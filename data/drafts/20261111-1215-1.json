@@ -1,0 +1,110 @@
+{
+  "id": "20261111-1215-1",
+  "slot_key": "20261111-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "failed",
+  "created_at": "2026-11-11T03:09:17.220042+00:00",
+  "text": "主要ハイテク株が軟調に推移する中で$AMDが前日比+1.30%とプラス圏を死守しているの、強さが際立ってるな。\n\nHyperliquidのHIP-3市場にあるナスダック100（株式先物（HIP-3））も価格$28,041（24時間騰落率+0.69%）と底堅く推移しており、資金調達率は年率+5.5%を記録している。",
+  "template": "主要ハイテク株が軟調に推移する中で$AMDが前日比{{f6.change_pct}}とプラス圏を死守しているの、強さが際立ってるな。\n\nHyperliquidのHIP-3市場にある${{f39.coin}}（{{f39.market}}）も価格{{f39.price}}（24時間騰落率{{f39.change_pct}}）と底堅く推移しており、資金調達率は年率{{f39.funding_annual}}を記録している。\n\n全体が不安定な地合いでも個別で買われる銘柄にはしっかり買い手がついているっぽい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:AMD:big_move",
+  "angle": "主要ハイテク株が軟調に推移する中でプラス圏を維持したAMDの強さと、HIP-3市場での安定した推移の対比。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 17,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 84,
+  "fact_ids": [
+    "f6",
+    "f39"
+  ],
+  "facts": [
+    {
+      "key": "stock:AMD:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "AMD 価格515.21, 前日比+1.30%, 前日終値508.58, 高値539.25, 安値495",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$515.21",
+        "change_pct": "+1.30%",
+        "prev_close": "$508.58",
+        "high": "$539.25",
+        "low": "$495.00",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 515.21,
+        "change_pct": 1.304,
+        "prev_close": 508.58
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-11T03:06:15.962026+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率+0.69%, 価格28041.0, 建玉201272701USD, 24時間出来高566902752USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$28,041",
+        "change_pct": "+0.69%",
+        "oi": "約2.0億ドル",
+        "volume": "約5.7億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/11(水) 12:06時点",
+        "asof_short": "12:06時点"
+      },
+      "raw": {
+        "mark": 28041.0,
+        "change_pct": 0.689,
+        "oi_usd": 201272701,
+        "vol_usd": 566902752,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-11T03:06:21.411506+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "error": "402 credits depleted: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
+}

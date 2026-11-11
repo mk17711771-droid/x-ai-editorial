@@ -1,0 +1,108 @@
+{
+  "id": "20261111-1215-2",
+  "slot_key": "20261111-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "pending",
+  "created_at": "2026-11-11T03:09:29.190980+00:00",
+  "text": "$MSFTが前日比-2.20%と下げる裏で、HIP-3のインデックス先物はしっかり踏みとどまっている。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/11(水) 12:06時点、SP500の価格は$7,562（+0.13%）となり、建玉は約4.1億ドル、資金調達率は年率+5.5%で推移している。",
+  "template": "${{f14.symbol}}が前日比{{f14.change_pct}}と下げる裏で、HIP-3のインデックス先物はしっかり踏みとどまっている。\n\nHyperliquidの{{f41.market}}で{{f41.asof}}、${{f41.symbol}}の価格は{{f41.price}}（{{f41.change_pct}}）となり、建玉は{{f41.oi}}、資金調達率は{{f41.funding_annual}}で推移している。\n\n個別株の調整と指数側の底堅さが作るこの歪み、ポジションの偏りがどう解消されるか見ておきたい。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "stock:MSFT:quote",
+  "angle": "マイクロソフトの下落と、S&P500のHIP-3先物の底堅さのギャップに注目した解説。",
+  "scores": {
+    "novelty": 15,
+    "interest": 17,
+    "evidence": 16,
+    "utility": 16,
+    "insight": 16
+  },
+  "total": 80,
+  "fact_ids": [
+    "f14",
+    "f41"
+  ],
+  "facts": [
+    {
+      "key": "stock:MSFT:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "MSFT 価格533.16, 前日比-2.20%, 前日終値545.18, 高値544.19, 安値526.365",
+      "fields": {
+        "symbol": "MSFT",
+        "price": "$533.16",
+        "change_pct": "-2.20%",
+        "prev_close": "$545.18",
+        "high": "$544.19",
+        "low": "$526.37",
+        "asof": "米国11/10終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 533.16,
+        "change_pct": -2.205,
+        "prev_close": 545.18
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MSFT"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MSFT"
+      },
+      "asof": "2026-11-11T03:06:16.824124+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率+0.13%, 価格7562.3, 建玉414052517USD, 24時間出来高452647821USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,562",
+        "change_pct": "+0.13%",
+        "oi": "約4.1億ドル",
+        "volume": "約4.5億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/11(水) 12:06時点",
+        "asof_short": "12:06時点"
+      },
+      "raw": {
+        "mark": 7562.3,
+        "change_pct": 0.131,
+        "oi_usd": 414052517,
+        "vol_usd": 452647821,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-11T03:06:21.411555+00:00",
+      "confidence": "confirmed",
+      "id": "f41"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MSFT"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    }
+  ],
+  "needs_human": false
+}

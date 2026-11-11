@@ -1,0 +1,36 @@
+[
+  {
+    "fact_ids": [
+      "f6",
+      "f39"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "主要ハイテク株が軟調に推移する中でプラス圏を維持したAMDの強さと、HIP-3市場での安定した推移の対比。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 17,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "市場全体の売り優勢の流れに逆行して上昇したAMDの動きにスポットを当て、デリバティブ側の健全な推移をシンプルに伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f14",
+      "f41"
+    ],
+    "topic_key": "stock:MSFT:quote",
+    "angle": "マイクロソフトの下落と、S&P500のHIP-3先物の底堅さのギャップに注目した解説。",
+    "scores": {
+      "novelty": 15,
+      "interest": 17,
+      "evidence": 16,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 80,
+    "reason": "大型株の軟調な値動きとオンチェーン先物の流動性の対比を端的に捉え、市場の歪みを示唆しているため。"
+  }
+]
