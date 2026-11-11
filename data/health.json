@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-11T07:36:14.643682+00:00",
-  "at_jst": "11/11 16:36",
+  "at": "2026-11-11T12:48:06.144411+00:00",
+  "at_jst": "11/11 21:47",
   "ok": false,
   "issues": [
     {
@@ -25,6 +25,13 @@
       "within_grace": false
     },
     {
+      "type": "missed_slot",
+      "slot": "2030",
+      "key": "20261111-2030",
+      "generated": true,
+      "within_grace": true
+    },
+    {
       "type": "metrics_late",
       "posts": [
         "2119901533135630833",
@@ -38,46 +45,45 @@
       "type": "error",
       "command": "research",
       "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-11T06:36:18.376016+00:00"
+      "at": "2026-11-11T12:36:17.353474+00:00"
     },
     {
       "type": "workflow_failed",
       "name": "research-and-learn",
       "event": "repository_dispatch",
-      "at": "2026-11-11T06:35:19Z",
-      "id": 42973484415
-    },
-    {
-      "type": "workflow_failed",
-      "name": "research-and-learn",
-      "event": "repository_dispatch",
-      "at": "2026-11-11T04:35:18Z",
-      "id": 42960211702
+      "at": "2026-11-11T12:35:18Z",
+      "id": 43021633003
     },
     {
       "type": "workflow_failed",
       "name": "generate-drafts",
       "event": "repository_dispatch",
-      "at": "2026-11-11T03:05:20Z",
-      "id": 42950379292
+      "at": "2026-11-11T12:10:18Z",
+      "id": 43018024434
     },
     {
       "type": "workflow_failed",
       "name": "research-and-learn",
       "event": "repository_dispatch",
-      "at": "2026-11-11T02:35:18Z",
-      "id": 42947042389
+      "at": "2026-11-11T10:35:18Z",
+      "id": 43004871351
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-11T08:35:20Z",
+      "id": 42988233112
     },
     {
       "type": "many_rejections",
-      "n": 12,
+      "n": 7,
       "reasons": [
+        "1つの行に別々の銘柄の値を混ぜている: SP500・XYZ100",
         "1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）",
-        "データ以外の数字が含まれている: ['1', '1', '1', '1']",
         "データ以外の数字が含まれている: ['5', '2', '9']",
         "短文の上限に対して長すぎる（241字）。短文の形（2〜3段落）で書き直す",
-        "短文の上限に対して長すぎる（654字）。短文の形（2〜3段落）で書き直す",
-        "締めの言い回し（〜っぽい）が直近の投稿と同じ。別の締め方にする"
+        "短文の上限に対して長すぎる（654字）。短文の形（2〜3段落）で書き直す"
       ]
     }
   ],
