@@ -1,0 +1,213 @@
+{
+  "id": "20261112-0730-2",
+  "slot_key": "20261112-0730",
+  "slot_theme": "07:42 朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い",
+  "status": "pending",
+  "created_at": "2026-11-11T23:08:57.513371+00:00",
+  "text": "インデックスが上昇基調を描く一方で、なぜ特定の半導体銘柄だけがこれほど急激に買われているのか。\n\n【いま起きてること】\n市場全体では幅広い買い戻しが観測されるものの、個別銘柄を見ると資金の集中先が極端に偏っている。指数を構成する主力の巨大テックが値を下げる中で、半導体関連の特定銘柄に強烈な買い圧力が流れ込んでいる。\n\n【数字で見る】（米国11/11終値時点）\n・$QQQ 価格$690.38、前日比+2.31%、前日終値$674.76、高値$695.57、安値$683.56\n・ARM 価格$203.36、前日比+12.05%、前日終値$181.49、高値$207.44、安値$188.43\n・SOXX 価格$155.40、前日比+6.01%、前日終値$146.59、高値$158.58、安値$150.88\n・MSFT 価格$521.12、前日比-2.26%、前日終値$533.16、高値$534.76、安値$518.45\n・AMZN 価格$266.17、前日比-1.74%、前日終値$270.87、高値$274.87、安値$265.62\n\n【なぜ「歪み」なのか】\nQQQが前日比+2.31%と堅調な足取りを見せている裏で、MSFTが前日比-2.26%、AMZNが前日比-1.74%と足踏み状態にある。これに対し、ARMは前日比+12.05%と二桁の急騰を演じ、SOXXも前日比+6.01%とそれに追随する動きを見せている。インデックスのけん引役が入れ替わりつつあるこの乖離は、市場参加者がリスクを取る対象を特定の高成長領域へ急速に絞り込んでいる証拠だと捉えている。\n\n【次に見るポイント】\n①QQQの前日比+2.31%の上昇を支えるセクター内の主導権の行方\n②ARMの高値$207.44および安値$188.43のレンジ内での推移\n③MSFTの価格$521.12近辺における売り圧力の強弱",
+  "template": "インデックスが上昇基調を描く一方で、なぜ特定の半導体銘柄だけがこれほど急激に買われているのか。\n\n【いま起きてること】\n市場全体では幅広い買い戻しが観測されるものの、個別銘柄を見ると資金の集中先が極端に偏っている。指数を構成する主力の巨大テックが値を下げる中で、半導体関連の特定銘柄に強烈な買い圧力が流れ込んでいる。\n\n【数字で見る】（{{f10.asof}}時点）\n・${{f2.symbol}} 価格{{f2.price}}、前日比{{f2.change_pct}}、前日終値{{f2.prev_close}}、高値{{f2.high}}、安値{{f2.low}}\n・${{f10.symbol}} 価格{{f10.price}}、前日比{{f10.change_pct}}、前日終値{{f10.prev_close}}、高値{{f10.high}}、安値{{f10.low}}\n・${{f3.symbol}} 価格{{f3.price}}、前日比{{f3.change_pct}}、前日終値{{f3.prev_close}}、高値{{f3.high}}、安値{{f3.low}}\n・${{f13.symbol}} 価格{{f13.price}}、前日比{{f13.change_pct}}、前日終値{{f13.prev_close}}、高値{{f13.high}}、安値{{f13.low}}\n・${{f16.symbol}} 価格{{f16.price}}、前日比{{f16.change_pct}}、前日終値{{f16.prev_close}}、高値{{f16.high}}、安値{{f16.low}}\n\n【なぜ「歪み」なのか】\n${{f2.symbol}}が前日比{{f2.change_pct}}と堅調な足取りを見せている裏で、${{f13.symbol}}が前日比{{f13.change_pct}}、${{f16.symbol}}が前日比{{f16.change_pct}}と足踏み状態にある。これに対し、${{f10.symbol}}は前日比{{f10.change_pct}}と二桁の急騰を演じ、${{f3.symbol}}も前日比{{f3.change_pct}}とそれに追随する動きを見せている。インデックスのけん引役が入れ替わりつつあるこの乖離は、市場参加者がリスクを取る対象を特定の高成長領域へ急速に絞り込んでいる証拠だと捉えている。\n\n【次に見るポイント】\n①${{f2.symbol}}の前日比{{f2.change_pct}}の上昇を支えるセクター内の主導権の行方\n②${{f10.symbol}}の高値{{f10.high}}および安値{{f10.low}}のレンジ内での推移\n③${{f13.symbol}}の価格{{f13.price}}近辺における売り圧力の強弱",
+  "style": "比較型",
+  "format": "long",
+  "topic_key": "stock:ARM:big_move",
+  "angle": "ナスダック100（QQQ +2.31%）が上昇する裏でMSFT（-2.26%）やAMZN（-1.74%）が下落する一方、なぜARMは+12.05%と突出した急伸を見せたのか。巨大テックから半導体IPへの資金シフトを対比する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 85,
+  "fact_ids": [
+    "f10",
+    "f3",
+    "f13",
+    "f16",
+    "f2"
+  ],
+  "facts": [
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格203.36, 前日比+12.05%, 前日終値181.49, 高値207.44, 安値188.425",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$203.36",
+        "change_pct": "+12.05%",
+        "prev_close": "$181.49",
+        "high": "$207.44",
+        "low": "$188.43",
+        "asof": "米国11/11終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 203.36,
+        "change_pct": 12.05,
+        "prev_close": 181.49
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-11-11T23:06:58.403749+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格155.4, 前日比+6.01%, 前日終値146.59, 高値158.58, 安値150.88",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$155.40",
+        "change_pct": "+6.01%",
+        "prev_close": "$146.59",
+        "high": "$158.58",
+        "low": "$150.88",
+        "asof": "米国11/11終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 155.4,
+        "change_pct": 6.01,
+        "prev_close": 146.59
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-11T23:06:58.011454+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "key": "stock:MSFT:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "MSFT 価格521.125, 前日比-2.26%, 前日終値533.16, 高値534.76, 安値518.45",
+      "fields": {
+        "symbol": "MSFT",
+        "price": "$521.12",
+        "change_pct": "-2.26%",
+        "prev_close": "$533.16",
+        "high": "$534.76",
+        "low": "$518.45",
+        "asof": "米国11/11終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 521.125,
+        "change_pct": -2.257,
+        "prev_close": 533.16
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MSFT"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MSFT"
+      },
+      "asof": "2026-11-11T23:06:58.546541+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    },
+    {
+      "key": "stock:AMZN:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "AMZN 価格266.17, 前日比-1.74%, 前日終値270.87, 高値274.87, 安値265.62",
+      "fields": {
+        "symbol": "AMZN",
+        "price": "$266.17",
+        "change_pct": "-1.74%",
+        "prev_close": "$270.87",
+        "high": "$274.87",
+        "low": "$265.62",
+        "asof": "米国11/11終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 266.17,
+        "change_pct": -1.735,
+        "prev_close": 270.87
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMZN"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMZN"
+      },
+      "asof": "2026-11-11T23:06:58.682515+00:00",
+      "confidence": "confirmed",
+      "id": "f16"
+    },
+    {
+      "key": "stock:QQQ:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "QQQ 価格690.38, 前日比+2.31%, 前日終値674.76, 高値695.57, 安値683.5617",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$690.38",
+        "change_pct": "+2.31%",
+        "prev_close": "$674.76",
+        "high": "$695.57",
+        "low": "$683.56",
+        "asof": "米国11/11終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 690.38,
+        "change_pct": 2.315,
+        "prev_close": 674.76
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-11T23:06:57.958882+00:00",
+      "confidence": "confirmed",
+      "id": "f2"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MSFT"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMZN"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    }
+  ],
+  "needs_human": false
+}
