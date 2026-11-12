@@ -1,0 +1,102 @@
+{
+  "id": "20261112-1215-2",
+  "slot_key": "20261112-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "pending",
+  "created_at": "2026-11-12T03:17:03.384719+00:00",
+  "text": "MUが+11.89%で$811.30まで駆け上がる一方で、SOXXも前日終値比+11.89%と強いリバウンドを見せているの、セクター内の資金の戻り足がかなり急ピッチになってるな。\n\n現物市場でのこの急激な値動きが、デリバティブ側の需給にどう影響していくのかちょっと見ておきたい感じがする👀",
+  "template": "MUが{{f10.change_pct}}で{{f10.price}}まで駆け上がる一方で、SOXXも{{f10.basis}}{{f10.change_pct}}と強いリバウンドを見せているの、セクター内の資金の戻り足がかなり急ピッチになってるな。\n\n現物市場でのこの急激な値動きが、デリバティブ側の需給にどう影響していくのかちょっと見ておきたい感じがする👀\n\n明日のセクター全体の動きで答え合わせ。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:MU:big_move",
+  "angle": "MUが+11.89%と二桁の上昇を記録し、SOXXも+6.01%と急反発した局面でのセクター内の資金循環を追う。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 15,
+    "insight": 15
+  },
+  "total": 82,
+  "fact_ids": [
+    "f10",
+    "f4"
+  ],
+  "facts": [
+    {
+      "key": "stock:MU:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MU 価格811.3, 前日比+11.89%, 前日終値725.11, 高値827.58, 安値763.05",
+      "fields": {
+        "symbol": "MU",
+        "price": "$811.30",
+        "change_pct": "+11.89%",
+        "prev_close": "$725.11",
+        "high": "$827.58",
+        "low": "$763.05",
+        "asof": "米国11/11終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 811.3,
+        "change_pct": 11.886,
+        "prev_close": 725.11
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MU"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-11-12T03:14:31.253206+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格155.4, 前日比+6.01%, 前日終値146.59, 高値158.58, 安値150.88",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$155.40",
+        "change_pct": "+6.01%",
+        "prev_close": "$146.59",
+        "high": "$158.58",
+        "low": "$150.88",
+        "asof": "米国11/11終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 155.4,
+        "change_pct": 6.01,
+        "prev_close": 146.59
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-12T03:14:30.609764+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    }
+  ],
+  "needs_human": false
+}

@@ -1,0 +1,104 @@
+{
+  "id": "20261112-1215-1",
+  "slot_key": "20261112-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "failed",
+  "created_at": "2026-11-12T03:17:00.460219+00:00",
+  "text": "半導体セクター全体が強い値動きを見せる中で、$ARMが+12.05%と急伸しているの、資金の流入がすさまじくない？\n\n米国米国11/11終値、ARMの価格は$203.36（前日終値比+12.05%）を記録し、前日終値の$181.49から高値$207.44まで一気に買われている。",
+  "template": "半導体セクター全体が強い値動きを見せる中で、${{f11.symbol}}が{{f11.change_pct}}と急伸しているの、資金の流入がすさまじくない？\n\n米国{{f11.asof}}、${{f11.symbol}}の価格は{{f11.price}}（{{f11.basis}}{{f11.change_pct}}）を記録し、前日終値の{{f11.prev_close}}から高値{{f11.high}}まで一気に買われている。${{f4.symbol}}も{{f4.change_pct}}と連れ高になっており、半導体全体の熱量が一段と高まっているっぽい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:ARM:big_move",
+  "angle": "半導体セクター全体が強い値動きを見せる中で、ARMが+12.05%と急伸した背景にある資金の流入と過熱感を解説する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 15,
+    "insight": 16
+  },
+  "total": 83,
+  "fact_ids": [
+    "f11",
+    "f4"
+  ],
+  "facts": [
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格203.36, 前日比+12.05%, 前日終値181.49, 高値207.44, 安値188.425",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$203.36",
+        "change_pct": "+12.05%",
+        "prev_close": "$181.49",
+        "high": "$207.44",
+        "low": "$188.43",
+        "asof": "米国11/11終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 203.36,
+        "change_pct": 12.05,
+        "prev_close": 181.49
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-11-12T03:14:31.368619+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格155.4, 前日比+6.01%, 前日終値146.59, 高値158.58, 安値150.88",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$155.40",
+        "change_pct": "+6.01%",
+        "prev_close": "$146.59",
+        "high": "$158.58",
+        "low": "$150.88",
+        "asof": "米国11/11終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 155.4,
+        "change_pct": 6.01,
+        "prev_close": 146.59
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-12T03:14:30.609764+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "error": "402 credits depleted: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f11",
+      "f4"
+    ],
+    "topic_key": "stock:ARM:big_move",
+    "angle": "半導体セクター全体が強い値動きを見せる中で、ARMが+12.05%と急伸した背景にある資金の流入と過熱感を解説する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 83,
+    "reason": "半導体の個別銘柄の大きな値動きとセクター全体の連動性を具体的な数字で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f4"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "MUが+11.89%と二桁の上昇を記録し、SOXXも+6.01%と急反発した局面でのセクター内の資金循環を追う。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 15
+    },
+    "total": 82,
+    "reason": "メモリ関連の急騰と半導体指数の強い相関関係を数字を交えて明確に伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f41"
+    ],
+    "topic_key": "news:kraken-xstocks-expansion-200-stocks",
+    "angle": "伝統金融とオンチェーンの接点拡大が進む中、KrakenのxStocksが200銘柄を追加し関連資産が11億ドルを突破した動きとデリバティブ市場への影響。",
+    "scores": {
+      "novelty": 18,
+      "interest": 16,
+      "evidence": 17,
+      "utility": 15,
+      "insight": 15
+    },
+    "total": 81,
+    "reason": "オンチェーン株式サービスの拡大という構造的な変化を具体的な資産総額の数字とともに捉えているため。"
+  }
+]

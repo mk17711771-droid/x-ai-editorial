@@ -1,0 +1,100 @@
+{
+  "id": "20261112-1215-3",
+  "slot_key": "20261112-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "pending",
+  "created_at": "2026-11-12T03:17:05.246919+00:00",
+  "text": "伝統金融のトークン化サービスが拡大する中で、オンチェーンのデリバティブ市場も無視できない規模になってきている。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/12(木) 12:14時点、$XYZ100の価格は$28,188（+0.41%）、建玉は約2.1億ドル、資金調達率は年率+5.5%で推移している。",
+  "template": "伝統金融のトークン化サービスが拡大する中で、オンチェーンのデリバティブ市場も無視できない規模になってきている。\n\nHyperliquidの{{f41.market}}で{{f41.asof}}、${{f41.coin}}の価格は{{f41.price}}（{{f41.change_pct}}）、建玉は{{f41.oi}}、資金調達率は年率{{f41.funding_annual}}で推移している。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "news:kraken-xstocks-expansion-200-stocks",
+  "angle": "伝統金融とオンチェーンの接点拡大が進む中、KrakenのxStocksが200銘柄を追加し関連資産が11億ドルを突破した動きとデリバティブ市場への影響。",
+  "scores": {
+    "novelty": 18,
+    "interest": 16,
+    "evidence": 17,
+    "utility": 15,
+    "insight": 15
+  },
+  "total": 81,
+  "fact_ids": [
+    "f1",
+    "f41"
+  ],
+  "facts": [
+    {
+      "key": "news:kraken-xstocks-expansion-200-stocks",
+      "kind": "hl",
+      "asof": "2026-11-12T01:36:56.725249+00:00",
+      "expires_at": "2026-11-13T13:36:56.725264+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-12T01:13:37Z",
+      "summary": "暗号資産取引所のKrakenは、トークン化株式サービス「xStocks」の取扱銘柄を拡大し、新たにヨーロッパの200を超える株式を追加した。この拡張により、関連する資産総額は11億ドルを突破している。伝統金融とオンチェーンの接点におけるサービス拡大の動きが続いている。",
+      "fields": {
+        "headline": "KrakenがxStocksを拡大、欧州の200超の株式を追加",
+        "what": "KrakenがxStocksに欧州の200超の株式を追加し資産総額が11億ドルを突破",
+        "status": "確定",
+        "who": "Kraken"
+      },
+      "raw": {},
+      "source": {
+        "name": "PortalCripto・CoinDesk",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率+0.41%, 価格28188.0, 建玉212649900USD, 24時間出来高423357260USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$28,188",
+        "change_pct": "+0.41%",
+        "oi": "約2.1億ドル",
+        "volume": "約4.2億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/12(木) 12:14時点",
+        "asof_short": "12:14時点"
+      },
+      "raw": {
+        "mark": 28188.0,
+        "change_pct": 0.413,
+        "oi_usd": 212649900,
+        "vol_usd": 423357260,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-12T03:14:36.407577+00:00",
+      "confidence": "confirmed",
+      "id": "f41"
+    }
+  ],
+  "sources": [
+    {
+      "name": "PortalCripto・CoinDesk",
+      "url": ""
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    }
+  ],
+  "needs_human": false
+}
