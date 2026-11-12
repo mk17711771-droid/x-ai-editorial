@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-12T08:16:19.702573+00:00",
-  "at_jst": "11/12 17:16",
+  "at": "2026-11-12T11:33:17.693482+00:00",
+  "at_jst": "11/12 20:33",
   "ok": false,
   "issues": [
     {
@@ -42,21 +42,24 @@
       "type": "followers_missing"
     },
     {
-      "type": "followup_candidates",
-      "items": [
-        {
-          "headline": "トークン化株が5兆ドルのDEX取引高を達成",
-          "sources": [
-            "Coinfomania"
-          ]
-        }
-      ]
-    },
-    {
       "type": "error",
       "command": "research",
       "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-12T06:36:21.964431+00:00"
+      "at": "2026-11-12T10:36:15.710094+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-12T10:35:20Z",
+      "id": 43201693394
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-12T08:35:19Z",
+      "id": 43184182990
     },
     {
       "type": "workflow_failed",
@@ -66,45 +69,17 @@
       "id": 43169177864
     },
     {
-      "type": "workflow_failed",
-      "name": "research-and-learn",
-      "event": "repository_dispatch",
-      "at": "2026-11-12T04:35:18Z",
-      "id": 43155782333
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-12T03:10:18Z",
-      "id": 43146374065
-    },
-    {
-      "type": "workflow_failed",
-      "name": "research-and-learn",
-      "event": "repository_dispatch",
-      "at": "2026-11-12T02:35:19Z",
-      "id": 43142457960
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-12T02:19:59Z",
-      "id": 43140653353
-    },
-    {
       "type": "many_rejections",
-      "n": 22,
+      "n": 19,
       "reasons": [
         "1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）",
-        "「表面化している」は最近も使った言い回し。別の言葉で書く",
-        "セクターETFのSOXXと指数の先物（ナスダック100）の値動きの差を比べている（別の指数どうし。比べるならQQQと）",
         "データ以外の数字が含まれている: ['1', '1']",
         "データ以外の数字が含まれている: ['2', '0', '0', '1', '1']",
         "データ以外の数字が含まれている: ['2', '0', '0']",
         "漢数字による数量表現: ['億ドル']",
-        "短文の上限に対して長すぎる（167字）。短文の形（2〜3段落）で書き直す"
+        "短文の上限に対して長すぎる（167字）。短文の形（2〜3段落）で書き直す",
+        "短文の上限に対して長すぎる（168字）。短文の形（2〜3段落）で書き直す",
+        "短文の上限に対して長すぎる（193字）。短文の形（2〜3段落）で書き直す"
       ]
     }
   ],
