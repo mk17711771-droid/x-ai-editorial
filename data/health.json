@@ -1,23 +1,33 @@
 {
-  "at": "2026-11-12T20:17:04.529665+00:00",
-  "at_jst": "11/13 05:16",
+  "at": "2026-11-12T21:36:04.608614+00:00",
+  "at_jst": "11/13 06:35",
   "ok": false,
   "issues": [
     {
       "type": "metrics_late",
       "posts": [
-        "2119901533135630833",
         "2119947256455405843",
         "2119958584511664289",
         "2119994104578748470",
-        "2119999114590969956"
+        "2119999114590969956",
+        "2120078990765617576"
       ]
+    },
+    {
+      "type": "followers_missing"
     },
     {
       "type": "error",
       "command": "research",
       "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-12T18:36:17.237352+00:00"
+      "at": "2026-11-12T20:36:17.645487+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-12T20:35:20Z",
+      "id": 43301787100
     },
     {
       "type": "workflow_failed",
@@ -46,27 +56,6 @@
       "event": "repository_dispatch",
       "at": "2026-11-12T16:35:19Z",
       "id": 43260308621
-    },
-    {
-      "type": "workflow_failed",
-      "name": "news-watch",
-      "event": "repository_dispatch",
-      "at": "2026-11-12T15:35:26Z",
-      "id": 43249437986
-    },
-    {
-      "type": "workflow_failed",
-      "name": "news-watch",
-      "event": "repository_dispatch",
-      "at": "2026-11-12T14:55:24Z",
-      "id": 43242239700
-    },
-    {
-      "type": "workflow_failed",
-      "name": "research-and-learn",
-      "event": "repository_dispatch",
-      "at": "2026-11-12T14:35:20Z",
-      "id": 43238745881
     }
   ],
   "actions": []
