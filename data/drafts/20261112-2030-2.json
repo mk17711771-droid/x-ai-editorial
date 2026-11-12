@@ -1,0 +1,108 @@
+{
+  "id": "20261112-2030-2",
+  "slot_key": "20261112-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "pending",
+  "created_at": "2026-11-12T11:41:54.101740+00:00",
+  "text": "現物で$MUが前日比+11.89%と猛烈な勢いを見せる一方で、HIP-3の関連先物ではなぜ真逆の値動きとコストが発生しているのか。\n\n【いま起きてること】\n個別株の現物買いが市場を牽引する熱狂的なムードの陰で、Hyperliquidのデリバティブ市場ではリスク資産に対する参加者のスタンスが割れており、現物と先物の値動きに明確なギャップが生まれている。\n\n【数字で見る】（日本時間11/12(木) 20:36時点）\n・MU 価格$811.30、前日比+11.89%、前日終値$725.11、高値$827.58、安値$763.05（米国11/11終値）\n・SOXL（株式先物（HIP-3）） 価格$61.71、24時間騰落率-4.00%、建玉約5,023万ドル、24時間出来高約4.2億ドル、資金調達率（年率）+5.5%\n\n【なぜ「歪み」なのか】\nMUの現物が前日終値$725.11から高値$827.58まで買われる強い値動きを見せているのに対し、HIP-3のSOXL先物は24時間騰落率-4.00%と下落方向に押し戻され、それでも資金調達率は$年率+5.5%を維持している。現物の大幅高に対してデリバティブ側が下落しつつもプラス金利を伴っている点は、先物市場特有のポジションの偏りと利食い・投げの交錯を示唆している。個人的には、この強弱のねじれが解消されるタイミングで次のトレンドが急加速すると見ている。\n\n【次に見るポイント】\n①約4.2億ドルに達しているSOXL先物の出来高の推移\n②MUの現物高がデリバティブ側へ波及するかどうか\n③$年率+5.5%の資金調達率と建玉約5,023万ドルのバランスの変化",
+  "template": "現物で${{f10.symbol}}が前日比${{f10.change_pct}}と猛烈な勢いを見せる一方で、HIP-3の関連先物ではなぜ真逆の値動きとコストが発生しているのか。\n\n【いま起きてること】\n個別株の現物買いが市場を牽引する熱狂的なムードの陰で、Hyperliquidのデリバティブ市場ではリスク資産に対する参加者のスタンスが割れており、現物と先物の値動きに明確なギャップが生まれている。\n\n【数字で見る】（{{f39.asof}}）\n・${{f10.symbol}} 価格${{f10.price}}、前日比${{f10.change_pct}}、前日終値${{f10.prev_close}}、高値${{f10.high}}、安値${{f10.low}}（${{f10.asof}}）\n・${{f39.symbol}}（${{f39.market}}） 価格${{f39.price}}、24時間騰落率${{f39.change_pct}}、建玉${{f39.oi}}、24時間出来高${{f39.volume}}、資金調達率（年率）${{f39.funding_annual}}\n\n【なぜ「歪み」なのか】\n${{f10.symbol}}の現物が前日終値${{f10.prev_close}}から高値${{f10.high}}まで買われる強い値動きを見せているのに対し、HIP-3の${{f39.symbol}}先物は24時間騰落率${{f39.change_pct}}と下落方向に押し戻され、それでも資金調達率は${{f39.funding_annual}}を維持している。現物の大幅高に対してデリバティブ側が下落しつつもプラス金利を伴っている点は、先物市場特有のポジションの偏りと利食い・投げの交錯を示唆している。個人的には、この強弱のねじれが解消されるタイミングで次のトレンドが急加速すると見ている。\n\n【次に見るポイント】\n①${{f39.volume}}に達している${{f39.symbol}}先物の出来高の推移\n②${{f10.symbol}}の現物高がデリバティブ側へ波及するかどうか\n③${{f39.funding_annual}}の資金調達率と建玉${{f39.oi}}のバランスの変化",
+  "style": "比較型",
+  "format": "long",
+  "topic_key": "stock:MU:big_move",
+  "angle": "MUが+11.89%と圧倒的な上げ幅を記録する一方、HIP-3のSOXL先物では下落とプラスの資金調達率が並ぶ歪みを追う。",
+  "scores": {
+    "novelty": 17,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f10",
+    "f39"
+  ],
+  "facts": [
+    {
+      "key": "stock:MU:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MU 価格811.3, 前日比+11.89%, 前日終値725.11, 高値827.58, 安値763.05",
+      "fields": {
+        "symbol": "MU",
+        "price": "$811.30",
+        "change_pct": "+11.89%",
+        "prev_close": "$725.11",
+        "high": "$827.58",
+        "low": "$763.05",
+        "asof": "米国11/11終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 811.3,
+        "change_pct": 11.886,
+        "prev_close": 725.11
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MU"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-11-12T11:36:08.264461+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "hl:xyz:SOXL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SOXL（HIP-3株式等先物） 24時間騰落率-4.00%, 価格61.712, 建玉50228653USD, 24時間出来高417648072USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$61.71",
+        "change_pct": "-4.00%",
+        "oi": "約5,023万ドル",
+        "volume": "約4.2億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/12(木) 20:36時点",
+        "asof_short": "20:36時点"
+      },
+      "raw": {
+        "mark": 61.712,
+        "change_pct": -4.004,
+        "oi_usd": 50228653,
+        "vol_usd": 417648072,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-12T11:36:12.358795+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    }
+  ],
+  "needs_human": false
+}

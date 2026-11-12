@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f11",
+      "f40"
+    ],
+    "topic_key": "stock:ARM:big_move",
+    "angle": "ARMが+12.05%と急騰を見せる中、HIP-3のSKHXで資金調達率が年率+60.4%まで跳ね上がっている背景を構造解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "半導体セクターの急騰とオンチェーン先物の過熱感を結びつけ、具体的な高水準の数字で構造を解説しているため。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f39"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "MUが+11.89%と圧倒的な上げ幅を記録する一方、HIP-3のSOXL先物では下落とプラスの資金調達率が並ぶ歪みを追う。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "メモリ関連の急騰銘柄とレバレッジ型HIP-3先物の需給ギャップに焦点を当てており、実用的な視点があるため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f38"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "AMDが+7.32%と大きく値を飛ばす裏で、HIP-3のXYZ100指数先物が小幅な値動きに留まる理由と資金の流れを読み解く。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 87,
+    "reason": "個別株の強い上昇と指数先物市場との温度差を対比させ、市場全体のセクター資金循環を分かりやすく整理しているため。"
+  }
+]
