@@ -1,0 +1,69 @@
+[
+  {
+    "fact_ids": [
+      "f8",
+      "f16"
+    ],
+    "topic_key": "hl:xyz:AMD:big_move",
+    "angle": "AMDの株価上昇とHIP-3先物での建玉急増、資金調達率の歪みを対比させる",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "AMDの急騰と建玉の記録的な増加、資金調達率の逆行を組み合わせた具体的な数字が揃っているため。"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f17"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "NVDAの下落局面におけるHIP-3先物の建玉急増と過熱する資金調達率の歪みを指摘する",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "NVDAの下落と建玉・資金調達率の逆方向の過熱感という明確な歪みを数字で捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f33"
+    ],
+    "topic_key": "traders:funnel",
+    "angle": "ランキング上位のトレーダーを条件で絞り込んだ際の厳しい現実を数字で示す",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "ランキングの真の姿を示すファネル分析であり、読者の関心を引きやすく保存されやすいため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f11"
+    ],
+    "topic_key": "hl:INIT:big_move",
+    "angle": "INIT先物における歴史的な下落と極端なショート過熱の資金調達率を伝える",
+    "scores": {
+      "novelty": 19,
+      "interest": 16,
+      "evidence": 20,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 86,
+    "reason": "年率マイナス1000%を超える極端な資金調達率と記録的な下落幅という強いインパクトがあるため。"
+  }
+]

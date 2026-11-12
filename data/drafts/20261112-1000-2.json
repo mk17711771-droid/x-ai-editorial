@@ -1,0 +1,116 @@
+{
+  "id": "20261112-1000-2",
+  "slot_key": "20261112-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "pending",
+  "created_at": "2026-11-12T00:58:13.338679+00:00",
+  "text": "$NVDAの資金調達率が年率+62.7%まで跳ね上がっているの、下落局面なのにロングの熱狂がすごすぎない？\n\nHyperliquidの株式先物（HIP-3）で09:56時点、NVDAの価格は$159.13（-6.79%）と下落し、建玉は約4.9億ドル、建玉の24時間変化は+46.4%に達している。",
+  "template": "${{f2.symbol}}の資金調達率が年率{{f2.funding_annual}}まで跳ね上がっているの、下落局面なのにロングの熱狂がすごすぎない？\n\nHyperliquidの{{f2.market}}で{{f2.asof_short}}、${{f2.symbol}}の価格は{{f2.price}}（{{f2.change_pct}}）と下落し、建玉は{{f2.oi}}、建玉の24時間変化は{{f17.oi_change_pct}}に達している。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:NVDA:volume_top",
+  "angle": "NVDAの下落局面におけるHIP-3先物の建玉急増と過熱する資金調達率の歪みを指摘する",
+  "scores": {
+    "novelty": 17,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 16,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f2",
+    "f17"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:NVDA:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-6.79%, 価格159.13, 建玉488704792USD, 24時間出来高1021801481USD, 資金調達率(年率)+62.7%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$159.13",
+        "change_pct": "-6.79%",
+        "oi": "約4.9億ドル",
+        "volume": "約10.2億ドル",
+        "funding_annual": "+62.7%",
+        "asof": "日本時間11/12(木) 09:56時点",
+        "asof_short": "09:56時点"
+      },
+      "raw": {
+        "mark": 159.13,
+        "change_pct": -6.794,
+        "oi_usd": 488704792,
+        "vol_usd": 1021801481,
+        "funding_annual_pct": 62.72
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-12T00:56:00.734438+00:00",
+      "confidence": "confirmed",
+      "id": "f2"
+    },
+    {
+      "key": "hl:xyz:NVDA:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+46.4%: NVDA（HIP-3株式等先物） 24時間騰落率-6.79%, 価格159.13, 建玉488704792USD, 24時間出来高1021801481USD, 資金調達率(年率)+62.7%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$159.13",
+        "change_pct": "-6.79%",
+        "oi": "約4.9億ドル",
+        "volume": "約10.2億ドル",
+        "funding_annual": "+62.7%",
+        "asof": "日本時間11/12(木) 09:56時点",
+        "asof_short": "09:56時点",
+        "oi_change_pct": "+46.4%"
+      },
+      "raw": {
+        "mark": 159.13,
+        "change_pct": -6.794,
+        "oi_usd": 488704792,
+        "vol_usd": 1021801481,
+        "funding_annual_pct": 62.72,
+        "oi_change_pct": 46.36
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-12T00:56:00.735000+00:00",
+      "confidence": "confirmed",
+      "id": "f17"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false
+}
