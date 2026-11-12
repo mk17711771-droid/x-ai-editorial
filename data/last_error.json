@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-12T06:36:21.964431+00:00",
+  "at": "2026-11-12T08:36:10.717015+00:00",
   "command": "research",
   "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
   "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/cli.py\", line 81, in main\n    print(f\"反応を計測: {research.measure()}件\")\n                         ^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/research.py\", line 107, in measure\n    for t in xapi.get_tweets(list(due)):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/xapi.py\", line 112, in get_tweets\n    raise XPostError(f\"投稿の取得 {r.status_code}: {r.text[:300]}\")\naiedit.xapi.XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}\n"
