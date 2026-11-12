@@ -1,0 +1,58 @@
+{
+  "id": "20261113-news0748-1",
+  "slot_key": "20261113-news0748",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "failed",
+  "created_at": "2026-11-12T22:50:24.415634+00:00",
+  "text": "【速報】米司法省、バイナンスハック関連の1.2十億ドルを押収\n\n米司法省（DOJ）がバイナンスのハッキング事件に絡む北朝鮮の窃盗スキームを摘発し、巨額の資金押収に動いたのはかなり大きなニュース。",
+  "template": "【速報】{{f1.headline}}\n\n米司法省（DOJ）がバイナンスのハッキング事件に絡む北朝鮮の窃盗スキームを摘発し、巨額の資金押収に動いたのはかなり大きなニュース。\n\nバイナンス側は損失のカバーを表明しているものの、オンチェーンの安全性を巡る議論にどう影響するか見ておきたい。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "news:doj-seize-binance-hack-north-korea",
+  "angle": "米司法省によるバイナンスハッキング関連の押収劇と、オンチェーンおよびデリバティブ市場への影響を整理する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 17,
+    "evidence": 16,
+    "utility": 15,
+    "insight": 16
+  },
+  "total": 81,
+  "fact_ids": [
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "news:doj-seize-binance-hack-north-korea",
+      "kind": "hl",
+      "asof": "2026-11-12T22:45:51.746545+00:00",
+      "expires_at": "2026-11-14T10:45:51.746553+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-12T22:22:16Z",
+      "summary": "米司法省（DOJ）がバイナンスのハッキング事件に関連する12億ドルの押収手続きを開始し、北朝鮮によるディープフェイク等を用いた暗号資産窃盗スキームを摘発した。バイナンス側は北朝鮮関連のサイバー攻撃による資産損失はすべてカバーされていると表明している。",
+      "fields": {
+        "headline": "米司法省、バイナンスハック関連の1.2十億ドルを押収",
+        "what": "DOJが北朝鮮関連のハッキング事件に絡む資金の押収とスキームの解体を実施",
+        "status": "確定",
+        "who": "米司法省 / バイナンス"
+      },
+      "raw": {},
+      "source": {
+        "name": "The Block・The Korea Times・The Defiant",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBwbWFnMmk1VDhfWDRyYVZkaXB3R2htblNvcEtSTlNhT1ZqTkF5eDNTNGt1SXNycjZoUmtBZ3VzeDh2QTFnVk91LVFYdE1lZ3hManR4VDc1UjRuUTRJWXc"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "The Block・The Korea Times・The Defiant",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBwbWFnMmk1VDhfWDRyYVZkaXB3R2htblNvcEtSTlNhT1ZqTkF5eDNTNGt1SXNycjZoUmtBZ3VzeDh2QTFnVk91LVFYdE1lZ3hManR4VDc1UjRuUTRJWXc"
+    }
+  ],
+  "needs_human": false,
+  "error": "402 credits depleted: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
+}
