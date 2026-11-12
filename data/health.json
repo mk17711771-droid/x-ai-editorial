@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-12T02:56:59.349143+00:00",
-  "at_jst": "11/12 11:56",
+  "at": "2026-11-12T04:16:22.509385+00:00",
+  "at_jst": "11/12 13:16",
   "ok": false,
   "issues": [
     {
@@ -14,6 +14,13 @@
       "type": "missed_slot",
       "slot": "1000",
       "key": "20261112-1000",
+      "generated": true,
+      "within_grace": false
+    },
+    {
+      "type": "missed_slot",
+      "slot": "1215",
+      "key": "20261112-1215",
       "generated": true,
       "within_grace": true
     },
@@ -46,15 +53,17 @@
       ]
     },
     {
-      "type": "announced_not_posted",
-      "story": "kraken-xstocks-expansion-200-stocks",
-      "since": "2026-11-12T01:36:57.003928+00:00"
+      "type": "error",
+      "command": "generate",
+      "error": "XCreditsError: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+      "at": "2026-11-12T03:17:07.200007+00:00"
     },
     {
-      "type": "error",
-      "command": "research",
-      "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-12T02:36:15.837602+00:00"
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-12T03:10:18Z",
+      "id": 43146374065
     },
     {
       "type": "workflow_failed",
@@ -100,7 +109,7 @@
     },
     {
       "type": "many_rejections",
-      "n": 19,
+      "n": 22,
       "reasons": [
         "1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）",
         "「表面化している」は最近も使った言い回し。別の言葉で書く",
