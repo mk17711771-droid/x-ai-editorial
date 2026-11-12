@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-12T22:50:26.974651+00:00",
+  "at": "2026-11-12T22:52:16.127296+00:00",
   "command": "generate",
   "error": "XCreditsError: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
   "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/cli.py\", line 70, in main\n    drafts = pipeline.generate(args.slot, args.force)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/pipeline.py\", line 508, in generate\n    if publish(d[\"id\"], \"approve\", decided_by=\"auto\") not in (\"stale\", \"rejected\"):\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/pipeline.py\", line 739, in publish\n    tweet_id = xapi.post(draft[\"text\"], media_ids=media_ids)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/xapi.py\", line 86, in post\n    raise XCreditsError(r.text[:300])\naiedit.xapi.XCreditsError: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}\n"

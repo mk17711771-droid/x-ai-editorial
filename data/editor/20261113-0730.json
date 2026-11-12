@@ -1,0 +1,55 @@
+[
+  {
+    "fact_ids": [
+      "f6",
+      "f40",
+      "f32"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "-4.34%と急落した$NVDAに対し、HyperliquidのHIP-3先物では資金調達率が年率+5.5%とプラスを維持しており、下落局面におけるデリバティブ側の強気な構えと現物の需給の歪みを紐解く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "市場の注目を集めるエヌビディアの急落と、HIP-3先物市場での資金調達率の逆行現象を組み合わせたタイムリーな考察。"
+  },
+  {
+    "fact_ids": [
+      "f14",
+      "f5"
+    ],
+    "topic_key": "stock:SMCI:big_move",
+    "angle": "連日で-11.30%の大幅下落となった$SMCIと、小幅な値動きにとどまる半導体指数$SOXXの対比から、個別銘柄の急激な売り圧力がセクター全体に与える影響の限定性を読み解く。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "突出した下落率を見せたSMCIの個別リスクと半導体全体の動向のギャップに焦点を当てた実践的な切り口。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f42",
+      "f8"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "+5.86%と急騰した$AMDと、連動して上昇する$SOXLのHIP-3先物の動向から、資金がどこに向かっているのかの歪みを検証する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 17,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "強烈な上げ幅を記録したAMDと関連先物の値動きから、資金流入の偏りを浮き彫りにする構成。"
+  }
+]

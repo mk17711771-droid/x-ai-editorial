@@ -1,0 +1,132 @@
+{
+  "id": "20261113-0730-1",
+  "slot_key": "20261113-0730",
+  "slot_theme": "07:42 朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い",
+  "status": "pending",
+  "created_at": "2026-11-12T22:52:06.386623+00:00",
+  "text": "前夜の米国株で$NVDAが大幅に売られた日に、なぜHyperliquidのデリバティブ側では強気な構えが維持されているのか。\n\n【いま起きてること】\n市場全体で半導体セクターの調整ムードが意識される中、現物市場での急落とデリバティブ市場におけるポジションの温度差に奇妙なねじれが生じている。ニュース見出しでもCEOの動向や押し目買いの議論が取り沙汰されるなど、投資家の見方が大きく揺れる展開となっている。\n\n【数字で見る】（日本時間11/13(金) 07:51時点）\n・NVDA 価格$166.19、前日比-4.34%、前日終値$173.73、高値$167.14、安値$148.80（米国11/12終値）\n・NVDA（株式先物（HIP-3）） 価格$166.82、24時間騰落率+4.64%、建玉約4.5億ドル、24時間出来高約22.6億ドル、資金調達率（年率）+5.5%\n\n【なぜ「歪み」なのか】\n現物のNVDAが前日比-4.34%と大きく値を下げて$166.19まで落ち込んでいるのに対し、HIP-3市場の先物は24時間騰落率+4.64%と逆行高を見せており、資金調達率も年率+5.5%のプラス圏を保っている。約4.5億ドルの建玉と約22.6億ドルの巨大な出来高を伴いながらもロング側のコストが維持されているのは、下落局面であってもデリバティブ参加者が強気の姿勢を崩していない証拠だ。個人的には、この現物の売りと先物の楽観的なポジションとのギャップが、今後のボラティリティ急拡大のトリガーになると見ている。\n\n【次に見るポイント】\n①約4.5億ドル規模に達する建玉がこの急落局面でさらに膨らむか\n②年率+5.5%の資金調達率がマイナスへ転じるかどうかの変化\n③現物価格$166.19近辺を挟んだ上下の攻防と出来高の推移",
+  "template": "前夜の米国株で$NVDAが大幅に売られた日に、なぜHyperliquidのデリバティブ側では強気な構えが維持されているのか。\n\n【いま起きてること】\n市場全体で半導体セクターの調整ムードが意識される中、現物市場での急落とデリバティブ市場におけるポジションの温度差に奇妙なねじれが生じている。ニュース見出しでもCEOの動向や押し目買いの議論が取り沙汰されるなど、投資家の見方が大きく揺れる展開となっている。\n\n【数字で見る】（{{f40.asof}}）\n・`${{f6.symbol}}` 価格{{f6.price}}、前日比{{f6.change_pct}}、前日終値{{f6.prev_close}}、高値{{f6.high}}、安値{{f6.low}}（{{f6.asof}}）\n・`${{f40.symbol}}`（{{f40.market}}） 価格{{f40.price}}、24時間騰落率{{f40.change_pct}}、建玉{{f40.oi}}、24時間出来高{{f40.volume}}、資金調達率（年率）{{f40.funding_annual}}\n\n【なぜ「歪み」なのか】\n現物の${{f6.symbol}}が前日比{{f6.change_pct}}と大きく値を下げて{{f6.price}}まで落ち込んでいるのに対し、HIP-3市場の先物は24時間騰落率{{f40.change_pct}}と逆行高を見せており、資金調達率も年率{{f40.funding_annual}}のプラス圏を保っている。{{f40.oi}}の建玉と{{f40.volume}}の巨大な出来高を伴いながらもロング側のコストが維持されているのは、下落局面であってもデリバティブ参加者が強気の姿勢を崩していない証拠だ。個人的には、この現物の売りと先物の楽観的なポジションとのギャップが、今後のボラティリティ急拡大のトリガーになると見ている。\n\n【次に見るポイント】\n①{{f40.oi}}規模に達する建玉がこの急落局面でさらに膨らむか\n②年率{{f40.funding_annual}}の資金調達率がマイナスへ転じるかどうかの変化\n③現物価格{{f6.price}}近辺を挟んだ上下の攻防と出来高の推移",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:NVDA:big_move",
+  "angle": "-4.34%と急落した$NVDAに対し、HyperliquidのHIP-3先物では資金調達率が年率+5.5%とプラスを維持しており、下落局面におけるデリバティブ側の強気な構えと現物の需給の歪みを紐解く。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f6",
+    "f40",
+    "f32"
+  ],
+  "facts": [
+    {
+      "key": "stock:NVDA:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】NVDA 価格166.19, 前日比-4.34%, 前日終値173.73, 高値167.14, 安値148.8",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$166.19",
+        "change_pct": "-4.34%",
+        "prev_close": "$173.73",
+        "high": "$167.14",
+        "low": "$148.80",
+        "asof": "米国11/12終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 166.19,
+        "change_pct": -4.34,
+        "prev_close": 173.73
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-11-12T22:51:50.718597+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率+4.64%, 価格166.82, 建玉447029228USD, 24時間出来高2262441982USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$166.82",
+        "change_pct": "+4.64%",
+        "oi": "約4.5億ドル",
+        "volume": "約22.6億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/13(金) 07:51時点",
+        "asof_short": "07:51時点"
+      },
+      "raw": {
+        "mark": 166.82,
+        "change_pct": 4.642,
+        "oi_usd": 447029228,
+        "vol_usd": 2262441982,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-12T22:51:55.672331+00:00",
+      "confidence": "confirmed",
+      "id": "f40"
+    },
+    {
+      "key": "news:8748378",
+      "kind": "stock",
+      "category": "news_headline",
+      "summary": "ニュース見出し（未検証・CNBC・11/13 05:01）: Jensen Huang is out and Nvidia stock is down—what market pros say about buying dips",
+      "fields": {
+        "source": "CNBC",
+        "time": "11/13(金) 05:01"
+      },
+      "raw": {},
+      "refresh": null,
+      "source": {
+        "name": "CNBC",
+        "url": "https://www.cnbc.com/make-it/2026/11/12/nvidia-what-market-pros-say-about-buying-dips.html"
+      },
+      "asof": "2026-11-12T20:01:29+00:00",
+      "confidence": "headline",
+      "id": "f32"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    },
+    {
+      "name": "CNBC",
+      "url": "https://www.cnbc.com/make-it/2026/11/12/nvidia-what-market-pros-say-about-buying-dips.html"
+    }
+  ],
+  "needs_human": true
+}
