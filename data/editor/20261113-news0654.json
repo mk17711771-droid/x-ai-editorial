@@ -1,0 +1,68 @@
+[
+  {
+    "fact_ids": [
+      "f16"
+    ],
+    "topic_key": "hl:xyz:AMD:oi_change",
+    "angle": "株価が+3.83%と反発するAMDで、Hyperliquidの先物建玉が24時間で+65.9%（約7078万ドル）へ急増。出来高も3.3億ドルを突破し、短期資金が急激に流入している歪みを伝える。",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "主要半導体銘柄であるAMDへの建玉急増（+65.9%）という明確な数字があり、関心度・実用性ともに非常に高いため。"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f21"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "Googleトレンドでも関心が高まる中、HyperliquidのNVDA先物の24時間出来高が25.7億ドル（建玉4.57億ドル）に達し、暗号資産を凌駕する規模で取引されている実態を速報する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 20,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "圧倒的な知名度を持つNVDAのオンチェーン出来高が25億ドル超という突出した規模を記録しており、読者の関心と強く一致するため。"
+  },
+  {
+    "fact_ids": [
+      "f15",
+      "f25"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体メモリ大手のSKハイニックス（SKHX）先物が-3.87%下落する中、資金調達率が年率+143.0%へ急上昇。下落局面でロング過熱という需給のねじれを突く。",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 87,
+    "reason": "半導体主要銘柄において、価格下落と3桁の高資金調達率という明確な市場の「歪み」を数字で説明できるため。"
+  },
+  {
+    "fact_ids": [
+      "f11"
+    ],
+    "topic_key": "hl:xyz:NATGAS:funding_extreme",
+    "angle": "HyperliquidのNATGAS先物で資金調達率が年率+1034.6%という異常値まで暴騰。建玉3000万ドル規模に対してロング過熱が極限に達しているリスクを伝える。",
+    "scores": {
+      "novelty": 16,
+      "interest": 15,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 82,
+    "reason": "年率4桁に達する突出した異常数値があり、デリバティブ特有のコスト負担と歪みを端的に示せるため。"
+  }
+]
