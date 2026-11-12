@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f3",
+      "f18"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "NVDAの株価下落と建玉急増の裏にあるデリバティブ側の過熱感を指摘する",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "NVDAの-5.21%の下落に対し建玉が+58.9%と急増している点に焦点を当て、市場の偏りを数字で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f27"
+    ],
+    "topic_key": "news:kraken-xstocks-expansion-200-stocks",
+    "angle": "Krakenのトークン化株式サービス拡大とオンチェーン市場の規模感を対比させる",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 85,
+    "reason": "伝統金融のオンチェーン化が進む中で資産総額が11億ドルを突破した事実とHyperliquidの動向を結びつけているため。"
+  },
+  {
+    "fact_ids": [
+      "f5",
+      "f23"
+    ],
+    "topic_key": "hl:xyz:SKHX:volume_top",
+    "angle": "SKHX先物の堅調な値動きとマイナスの資金調達率が示す需給の歪みを解説する",
+    "scores": {
+      "novelty": 15,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 82,
+    "reason": "SKHXの+4.72%の上昇と年率-26.0%の資金調達率という具体的な数字から、デリバティブ市場特有のコスト構造を浮き彫りにしているため。"
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "id": "20261112-news1123-1",
+  "slot_key": "20261112-news1123",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "failed",
+  "created_at": "2026-11-12T02:23:49.349593+00:00",
+  "text": "KrakenがxStocksを拡大して欧州の株式を追加した動き、オンチェーン市場の規模感と伝統金融の接点がどこまで広がるか気になるな。\n\nHyperliquid全体でも建玉約132.6億ドル、うちHIP-3市場が約47.1億ドルと過去の基準から見ても大きな流動性を維持している。",
+  "template": "KrakenがxStocksを拡大して欧州の株式を追加した動き、オンチェーン市場の規模感と伝統金融の接点がどこまで広がるか気になるな。\n\nHyperliquid全体でも建玉{{f27.total_oi}}、うちHIP-3市場が{{f27.hip3_oi}}と過去の基準から見ても大きな流動性を維持している。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "news:kraken-xstocks-expansion-200-stocks",
+  "angle": "Krakenのトークン化株式サービス拡大とオンチェーン市場の規模感を対比させる",
+  "scores": {
+    "novelty": 17,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 85,
+  "fact_ids": [
+    "f1",
+    "f27"
+  ],
+  "facts": [
+    {
+      "key": "news:kraken-xstocks-expansion-200-stocks",
+      "kind": "hl",
+      "asof": "2026-11-12T01:36:56.725249+00:00",
+      "expires_at": "2026-11-13T13:36:56.725264+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-12T01:13:37Z",
+      "summary": "暗号資産取引所のKrakenは、トークン化株式サービス「xStocks」の取扱銘柄を拡大し、新たにヨーロッパの200を超える株式を追加した。この拡張により、関連する資産総額は11億ドルを突破している。伝統金融とオンチェーンの接点におけるサービス拡大の動きが続いている。",
+      "fields": {
+        "headline": "KrakenがxStocksを拡大、欧州の200超の株式を追加",
+        "what": "KrakenがxStocksに欧州の200超の株式を追加し資産総額が11億ドルを突破",
+        "status": "確定",
+        "who": "Kraken"
+      },
+      "raw": {},
+      "source": {
+        "name": "PortalCripto・CoinDesk",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:market:overview",
+      "kind": "hl",
+      "category": "overview",
+      "summary": "Hyperliquid全体: 建玉合計13258805469USD, 24時間出来高合計10068931915USD, うちHIP-3市場5179618647USD, 上場銘柄数344",
+      "fields": {
+        "total_oi": "約132.6億ドル",
+        "total_volume": "約100.7億ドル",
+        "hip3_volume": "約51.8億ドル",
+        "hip3_volume_share": "51.4%",
+        "hip3_oi": "約47.1億ドル",
+        "hip3_oi_change_pct": "+3.5%",
+        "asof": "日本時間11/12(木) 11:23時点"
+      },
+      "raw": {
+        "total_oi": 13258805469,
+        "total_vol": 10068931915,
+        "hip3_vol": 5179618647,
+        "hip3_oi": 4708893285,
+        "hip3_oi_change_pct": 3.53
+      },
+      "refresh": null,
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade"
+      },
+      "asof": "2026-11-12T02:23:32.040769+00:00",
+      "confidence": "confirmed",
+      "id": "f27"
+    }
+  ],
+  "sources": [
+    {
+      "name": "PortalCripto・CoinDesk",
+      "url": ""
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade"
+    }
+  ],
+  "needs_human": false,
+  "error": "402 credits depleted: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
+}
