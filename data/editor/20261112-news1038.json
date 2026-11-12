@@ -1,0 +1,52 @@
+[
+  {
+    "fact_ids": [
+      "f3",
+      "f18"
+    ],
+    "topic_key": "hl:xyz:NVDA:oi_change",
+    "angle": "NVDAが-6.80%と下落する中で建玉が52.6%急増している歪みに着目し、市場の警戒感を伝える",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "代表的な半導体銘柄の急落と建玉の急増という明確な数字の歪みを捉えており、関心が高い。"
+  },
+  {
+    "fact_ids": [
+      "f17"
+    ],
+    "topic_key": "hl:xyz:AMD:oi_change",
+    "angle": "AMDの株価が+7.24%と上昇しつつ建玉が109.0%増えている背景にある資金流入の勢いを解説する",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 90,
+    "reason": "建玉が倍増した明確なデータがあり、半導体セクターの資金の動きをダイレクトに示している。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f27"
+    ],
+    "topic_key": "news:kraken-xstocks-expansion-200-stocks",
+    "angle": "伝統金融とオンチェーンの接点拡大を背景に、オンチェーン側の株式関連市場の規模を数字で結びつける",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "検証済みのニュースとオンチェーン側の具体的な資産規模を組み合わせた実用的な視点。"
+  }
+]
