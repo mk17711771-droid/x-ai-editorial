@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-12T02:19:57.615327+00:00",
-  "at_jst": "11/12 11:19",
+  "at": "2026-11-12T02:56:59.349143+00:00",
+  "at_jst": "11/12 11:56",
   "ok": false,
   "issues": [
     {
@@ -52,9 +52,23 @@
     },
     {
       "type": "error",
-      "command": "generate",
-      "error": "XCreditsError: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-12T01:00:19.981681+00:00"
+      "command": "research",
+      "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+      "at": "2026-11-12T02:36:15.837602+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-12T02:35:19Z",
+      "id": 43142457960
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-12T02:19:59Z",
+      "id": 43140653353
     },
     {
       "type": "workflow_failed",
@@ -86,20 +100,18 @@
     },
     {
       "type": "many_rejections",
-      "n": 20,
+      "n": 19,
       "reasons": [
         "1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）",
         "「表面化している」は最近も使った言い回し。別の言葉で書く",
         "セクターETFのSOXXと指数の先物（ナスダック100）の値動きの差を比べている（別の指数どうし。比べるならQQQと）",
         "データ以外の数字が含まれている: ['1', '1']",
         "データ以外の数字が含まれている: ['2', '0', '0', '1', '1']",
+        "データ以外の数字が含まれている: ['2', '0', '0']",
         "漢数字による数量表現: ['億ドル']",
-        "短文の上限に対して長すぎる（167字）。短文の形（2〜3段落）で書き直す",
-        "短文の上限に対して長すぎる（168字）。短文の形（2〜3段落）で書き直す"
+        "短文の上限に対して長すぎる（167字）。短文の形（2〜3段落）で書き直す"
       ]
     }
   ],
-  "actions": [
-    "速報 kraken-xstocks-expansion-200-stocks が投稿されていなかったため出し直し"
-  ]
+  "actions": []
 }
