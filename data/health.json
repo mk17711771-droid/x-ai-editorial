@@ -1,8 +1,15 @@
 {
-  "at": "2026-11-12T22:46:10.843915+00:00",
-  "at_jst": "11/13 07:45",
+  "at": "2026-11-12T23:27:48.211079+00:00",
+  "at_jst": "11/13 08:27",
   "ok": false,
   "issues": [
+    {
+      "type": "missed_slot",
+      "slot": "0730",
+      "key": "20261113-0730",
+      "generated": true,
+      "within_grace": true
+    },
     {
       "type": "learn_missing",
       "date": "2026-11-13"
@@ -21,10 +28,29 @@
       "type": "followers_missing"
     },
     {
+      "type": "announced_not_posted",
+      "story": "doj-seize-binance-hack-north-korea",
+      "since": "2026-11-12T22:45:52.067629+00:00"
+    },
+    {
       "type": "error",
-      "command": "research",
-      "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-12T22:36:22.602928+00:00"
+      "command": "generate",
+      "error": "XCreditsError: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+      "at": "2026-11-12T22:52:16.127296+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-12T22:50:18Z",
+      "id": 43323557471
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-12T22:45:54Z",
+      "id": 43322899661
     },
     {
       "type": "workflow_failed",
@@ -62,5 +88,7 @@
       "id": 43272772101
     }
   ],
-  "actions": []
+  "actions": [
+    "速報 doj-seize-binance-hack-north-korea が投稿されていなかったため出し直し"
+  ]
 }
