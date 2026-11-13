@@ -144,6 +144,11 @@ def write(theme: str | None = None) -> dict | None:
         if len(body) < 1500:
             errors = [f"本文が短すぎる（{len(body)}字）。各大見出しの下に400〜700字書き、全体で{min_chars}字以上にする"]
             continue
+        refs = {ref for _, ref in CHART.findall(body)}
+        if len(refs) < 2:
+            # 図は違うものを2枚以上（11/11 同じ「上位トレーダーの保有」を2回指定して画像が1枚だけになった）
+            errors = [f"図が{len(refs)}種類しかない。chart: の指定は違う種類の図を2〜3枚（同じ図を2回使わない）"]
+            continue
         bad = [p for p in checks.read_list("banned_phrases.txt") if p in title + body]
         if bad or checks.URL.search(body) or checks.HASHTAG.search(body):
             errors = [f"禁止表現・URL・ハッシュタグを含む: {bad}"]
@@ -160,10 +165,13 @@ def write(theme: str | None = None) -> dict | None:
     # 画像はnoteに手動で入れるので、本文には「ここに画像」の目印を残す
     n = 0
 
+    seen: set[str] = set()
+
     def marker(m: re.Match) -> str:
         nonlocal n
-        if m.group(2) not in images:
-            return ""
+        if m.group(2) not in images or m.group(2) in seen:
+            return ""  # 同じ図の2回目は目印を出さない（11/11 画像1枚なのに「画像2」の目印が残った）
+        seen.add(m.group(2))
         n += 1
         return f"\n**▼ここに画像{n}（{m.group(1)}）を挿入**\n"
     body_marked = CHART.sub(marker, body) + FOOTER

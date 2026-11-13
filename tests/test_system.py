@@ -455,6 +455,7 @@ def test_note_article_generated_with_images_and_copy_link(wired, isolated, monke
         eth = next(f["id"] for f in facts if f["category"] == "smart_money")
         body = (f"今週のHyperliquidで目立ったのは、上位トレーダーの売りへの偏りです。\n\n## いま何が起きているか\n\n"
                 f"月間利益上位{{{{{eth}.top_n}}}}のうち、ETHを売っているのは{{{{{eth}.short_n}}}}です。\n\n"
+                "![上位トレーダーの保有](chart:smart_money)\n\n![米国株の前日比](chart:stocks)\n\n"
                 "![上位トレーダーの保有](chart:smart_money)\n\n" + "ただし、ヘッジ目的の売りも含まれます。" * 200)
         if len(calls) == 1:  # 1回目はわざと数字を書いて、直させる
             body = "上位五十人のうち、売りは23人でした。" + body
@@ -465,6 +466,7 @@ def test_note_article_generated_with_images_and_copy_link(wired, isolated, monke
     assert meta["title"] == "上位トレーダーはなぜ売っているのか" and meta["hashtags"] == ["Hyperliquid", "ETH"]
     md_text = store.read_text(f"note_articles/{meta['id']}/article.md")
     assert "▼ここに画像1（上位トレーダーの保有）を挿入" in md_text and "chart:" not in md_text
+    assert md_text.count("（上位トレーダーの保有）を挿入") == 1  # 同じ図の2回目は目印を出さない（11/11）
     assert "50人のうち、ETHを売っているのは23人" in md_text and "売買を勧めるものではありません" in md_text
     assert "上位五十人" not in md_text
     assert (store.DATA_DIR / f"note_articles/{meta['id']}/image1.png").read_bytes()[:4] == b"\x89PNG"
