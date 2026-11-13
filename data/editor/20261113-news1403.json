@@ -1,0 +1,67 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:hyperliquid-open-interest-record-q3",
+    "angle": "Hyperliquidの第3四半期オープンインタレストが過去最高の181億ドルを記録した事実を速報として伝え、デリバティブ市場での圧倒的な存在感の拡大を数字で示す。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "第3四半期のオープンインタレスト過去最高という強力な数字と速報性を満たしており、アカウントの主要プラットフォームの拡大を捉える重要度の高い材料。"
+  },
+  {
+    "fact_ids": [
+      "f17",
+      "f3"
+    ],
+    "topic_key": "hl:xyz:AMD:oi_change",
+    "angle": "AMDのHIP-3株式先物で建玉が24時間で50.8%急増している異変に焦点を当て、株価の上昇とデリバティブ市場への資金流入の急ピッチな偏りを伝える。",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 90,
+    "reason": "主要半導体銘柄における建玉の急増という明確な量的異変をとらえており、読者の関心が高い半導体×HIP-3の構造を的確に解説できる。"
+  },
+  {
+    "fact_ids": [
+      "f12"
+    ],
+    "topic_key": "hl:xyz:UNITREE:funding_extreme",
+    "angle": "UNITREEのHIP-3株式先物で資金調達率が年率-870.4%まで沈み込んでいる極端なショート過熱の歪みを浮き彫りにする。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "-870%を超える極端な資金調達率という圧倒的な数値を根拠に、市場の強烈なポジションの偏りを端的に示すことができる。"
+  },
+  {
+    "fact_ids": [
+      "f16"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "SKHXのHIP-3株式先物で資金調達率が年率+50.6%とロング過熱に傾いている状況から、半導体セクターに対する投機的な買い圧力の偏りを指摘する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "半導体関連の個別先物における明確なコストの偏りを数値で示し、市場の需給の歪みを伝える実用的な材料。"
+  }
+]
