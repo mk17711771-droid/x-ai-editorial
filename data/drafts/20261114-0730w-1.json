@@ -1,0 +1,94 @@
+{
+  "id": "20261114-0730w-1",
+  "slot_key": "20261114-0730w",
+  "slot_theme": "07:42 週末の朝: 米国市場が閉まっている間に動いたHIP-3株式先物・HYPE・BTCの数字1つ（大きな名前＋極端な数字を1行目で言い切る）",
+  "status": "posted",
+  "created_at": "2026-11-13T22:52:14.040204+00:00",
+  "text": "Hyperliquidのオープンインタレストが約123.8億ドルに達し、プラットフォーム全体の規模が一段と拡大している。\n\nHyperliquid全体で日本時間11/14(土) 07:50時点、建玉合計は約123.8億ドル、24時間出来高合計は約133.5億ドル、うちHIP-3市場は約45.5億ドルを記録している。",
+  "template": "Hyperliquidのオープンインタレストが{{f29.total_oi}}に達し、プラットフォーム全体の規模が一段と拡大している。\n\nHyperliquid全体で{{f29.asof}}、建玉合計は{{f29.total_oi}}、24時間出来高合計は{{f29.total_volume}}、うちHIP-3市場は{{f29.hip3_volume}}を記録している。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "news:hyperliquid-open-interest-record-q3",
+  "angle": "Hyperliquid全体のオープンインタレストが過去最高を記録した事実を、現在のプラットフォーム全体の建玉総額の数字とともに提示する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f2",
+    "f29"
+  ],
+  "facts": [
+    {
+      "key": "news:hyperliquid-open-interest-record-q3",
+      "kind": "hl",
+      "asof": "2026-11-13T04:58:50.786593+00:00",
+      "expires_at": "2026-11-14T16:58:50.786606+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-13T03:19:10Z",
+      "summary": "Hyperliquidの第3四半期におけるオープンインタレスト（建玉総額）が過去最高の181億ドルに達したことが明らかになった。取引所の収益や1日あたりのアクティブユーザー数も大幅な伸びを記録しており、デリバティブ市場における存在感を高めている。",
+      "fields": {
+        "headline": "Hyperliquidのオープンインタレストが過去最高の181億ドルを記録",
+        "what": "Q3のオープンインタレストが過去最高値を更新し、ユーザー数や収益も拡大した。",
+        "status": "確定",
+        "who": "Hyperliquid"
+      },
+      "raw": {},
+      "source": {
+        "name": "FXStreet・Benzinga・Crypto Briefing",
+        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOdHE2M2Y0cVltb0hJV0pGMzhwZXRfbk80WW1jMFpSSDFrRXBsb3RPTUpHSldhQWw5dk1jNlkwV1JsS2Fkc2dUV1FUSW9qYmdaU2VOR21ORVBrZEttUXRsQXJZY3RNeXZDQ19OMFR6T25TU3ZRcV9TZ2Vuc01CVy1hQ3lDdEgzN1hpLUF3dDBXUzc3V1doZDNPQTdiYmFNNEE3a0xCYmcxS0JZM1o3bF9RYl8yTlEtcHRpaWZKTTlWUlhteGlSWXJVaktXcw"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f2"
+    },
+    {
+      "key": "hl:market:overview",
+      "kind": "hl",
+      "category": "overview",
+      "summary": "Hyperliquid全体: 建玉合計12381324061USD, 24時間出来高合計13352658389USD, うちHIP-3市場4548998954USD, 上場銘柄数346",
+      "fields": {
+        "total_oi": "約123.8億ドル",
+        "total_volume": "約133.5億ドル",
+        "hip3_volume": "約45.5億ドル",
+        "hip3_volume_share": "34.1%",
+        "hip3_oi": "約44.2億ドル",
+        "hip3_oi_change_pct": "-6.4%",
+        "asof": "日本時間11/14(土) 07:50時点"
+      },
+      "raw": {
+        "total_oi": 12381324061,
+        "total_vol": 13352658389,
+        "hip3_vol": 4548998954,
+        "hip3_oi": 4423665262,
+        "hip3_oi_change_pct": -6.38
+      },
+      "refresh": null,
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade"
+      },
+      "asof": "2026-11-13T22:50:02.199819+00:00",
+      "confidence": "confirmed",
+      "id": "f29"
+    }
+  ],
+  "sources": [
+    {
+      "name": "FXStreet・Benzinga・Crypto Briefing",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOdHE2M2Y0cVltb0hJV0pGMzhwZXRfbk80WW1jMFpSSDFrRXBsb3RPTUpHSldhQWw5dk1jNlkwV1JsS2Fkc2dUV1FUSW9qYmdaU2VOR21ORVBrZEttUXRsQXJZY3RNeXZDQ19OMFR6T25TU3ZRcV9TZ2Vuc01CVy1hQ3lDdEgzN1hpLUF3dDBXUzc3V1doZDNPQTdiYmFNNEE3a0xCYmcxS0JZM1o3bF9RYl8yTlEtcHRpaWZKTTlWUlhteGlSWXJVaktXcw"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade"
+    }
+  ],
+  "needs_human": false,
+  "tweet_id": "2121375633280242127",
+  "posted_at": "2026-11-13T22:52:19.022136+00:00"
+}

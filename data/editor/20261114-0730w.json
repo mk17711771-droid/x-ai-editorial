@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f3",
+      "f4"
+    ],
+    "topic_key": "hl:BTC:volume_top",
+    "angle": "ビットコインの7万ドル割れと強制ロスカットの発生を伝えるとともに、Hyperliquidでの建玉と資金調達率の数字を添えて市場の歪みを浮き彫りにする。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "ビットコインの下落と清算という市場の急変を、具体的な数字を用いて簡潔に伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f29"
+    ],
+    "topic_key": "news:hyperliquid-open-interest-record-q3",
+    "angle": "Hyperliquid全体のオープンインタレストが過去最高を記録した事実を、現在のプラットフォーム全体の建玉総額の数字とともに提示する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "プラットフォーム全体の成長を示す確実な数字と実績をベースに構成しているため。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f20"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "週末の休場を前に半導体レバレッジ先物で起きた急変動と、それに伴う建玉の急減という需給の歪みを数字で切り取る。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "半導体関連の大きな値動きとポジションの清算トレンドを明確に捉えているため。"
+  }
+]
