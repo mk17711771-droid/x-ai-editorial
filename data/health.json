@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-13T02:06:13.637876+00:00",
-  "at_jst": "11/13 11:05",
+  "at": "2026-11-13T03:06:04.904096+00:00",
+  "at_jst": "11/13 12:05",
   "ok": false,
   "issues": [
     {
@@ -15,7 +15,7 @@
       "slot": "1000",
       "key": "20261113-1000",
       "generated": true,
-      "within_grace": true
+      "within_grace": false
     },
     {
       "type": "learn_missing",
@@ -35,10 +35,30 @@
       "type": "followers_missing"
     },
     {
+      "type": "followup_candidates",
+      "items": [
+        {
+          "headline": "【速報】FBI、バイナンスから盗まれた12億ドルの暗号資産を押収",
+          "sources": [
+            "BBC",
+            "tippinsights",
+            "Yahoo News Canada"
+          ]
+        }
+      ]
+    },
+    {
       "type": "error",
-      "command": "generate",
-      "error": "XCreditsError: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-13T01:21:27.720487+00:00"
+      "command": "research",
+      "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+      "at": "2026-11-13T02:44:46.736630+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-13T02:35:18Z",
+      "id": 43353214663
     },
     {
       "type": "workflow_failed",
@@ -81,13 +101,6 @@
       "event": "repository_dispatch",
       "at": "2026-11-12T22:35:19Z",
       "id": 43321286824
-    },
-    {
-      "type": "workflow_failed",
-      "name": "research-and-learn",
-      "event": "repository_dispatch",
-      "at": "2026-11-12T20:35:20Z",
-      "id": 43301787100
     },
     {
       "type": "many_rejections",
