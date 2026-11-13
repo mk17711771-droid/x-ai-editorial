@@ -178,6 +178,8 @@ def write(theme: str | None = None) -> dict | None:
                    for i, ref in enumerate(order, 1)],
         "chars": len(body), "status": "ready",
     }
+    # 文を外したあとに句点が重なる（11/13 公開後の確認で「。。」を指摘された）
+    body_marked = re.sub(r"。{2,}", "。", body_marked)
     store.write_text(f"note_articles/{article_id}/article.md", f"# {title}\n\n{body_marked}")
     store.write_text(f"note_articles/{article_id}/article.html",
                      md.markdown(body_marked, extensions=["sane_lists"]))
