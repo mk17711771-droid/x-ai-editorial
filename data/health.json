@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-13T01:56:08.151515+00:00",
-  "at_jst": "11/13 10:55",
+  "at": "2026-11-13T02:06:13.637876+00:00",
+  "at_jst": "11/13 11:05",
   "ok": false,
   "issues": [
     {
@@ -9,6 +9,13 @@
       "key": "20261113-0730",
       "generated": true,
       "within_grace": false
+    },
+    {
+      "type": "missed_slot",
+      "slot": "1000",
+      "key": "20261113-1000",
+      "generated": true,
+      "within_grace": true
     },
     {
       "type": "learn_missing",
