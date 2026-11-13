@@ -1,0 +1,52 @@
+[
+  {
+    "fact_ids": [
+      "f16"
+    ],
+    "topic_key": "hl:xyz:AMD:oi_change",
+    "angle": "米国市場オープン直前、AMDのHIP-3株式先物で建玉が急増している動きに焦点を当てる。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "主要銘柄のAMDにおける建玉の急増という具体的な数値を捉えており、米国市場のオープンに向けた資金の動きを的確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f26"
+    ],
+    "topic_key": "news:hyperliquid-open-interest-record-q3",
+    "angle": "Hyperliquid全体のオープンインタレストが過去最高を記録している巨大なマネーフローを伝える。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "プラットフォーム全体の規模感を示す確実な数字があり、デリバティブ市場における足元の勢いを強く意識させられるため。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f4"
+    ],
+    "topic_key": "news:crypto-liquidations-drop-below-70k",
+    "angle": "ビットコインが7万ドルを割り込み、清算が広がる暗号資産市場のボラティリティの歪みを指摘する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "BTCの下落と大規模なロスカットという市場の急変を直接的な数字で押さえており、オープン前の緊張感を伝えるのに適しているため。"
+  }
+]

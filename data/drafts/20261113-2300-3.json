@@ -1,0 +1,100 @@
+{
+  "id": "20261113-2300-3",
+  "slot_key": "20261113-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-11-13T14:13:32.232488+00:00",
+  "text": "ビットコイン急落に伴う強制ロスカットの清算額がCrypto Marketでビットコイン急落で清算額が14.1億ドルを突破。\n\nHyperliquidの無期限先物市場で日本時間11/13(金) 23:01時点、$BTCは価格$69,486（-4.11%）、建玉約28.1億ドルの規模で推移している。",
+  "template": "ビットコイン急落に伴う強制ロスカットの清算額が{{f3.who}}で{{f3.headline}}。\n\nHyperliquidの無期限先物市場で{{f4.asof}}、${{f4.coin}}は価格{{f4.price}}（{{f4.change_pct}}）、建玉{{f4.oi}}の規模で推移している。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "news:crypto-liquidations-drop-below-70k",
+  "angle": "ビットコインが7万ドルを割り込み、清算が広がる暗号資産市場のボラティリティの歪みを指摘する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 87,
+  "fact_ids": [
+    "f3",
+    "f4"
+  ],
+  "facts": [
+    {
+      "key": "news:crypto-liquidations-drop-below-70k",
+      "kind": "hl",
+      "asof": "2026-11-13T05:29:42.126496+00:00",
+      "expires_at": "2026-11-14T17:29:42.126511+00:00",
+      "status": "pending",
+      "first_reported_at": "Fri, 13 Nov 2026 05:15:58 GMT",
+      "summary": "ビットコインが7万ドルを下回り、一時6万9千ドル割れまで下落した。市場全体の急落に伴い、暗号資産全体の強制ロスカット（清算）総額は14.1億ドルに達している。ボラティリティの拡大によりオンチェーンおよびCEXのポジション整理が急ピッチで進んでいる。",
+      "fields": {
+        "headline": "ビットコイン急落で清算額が14.1億ドルを突破",
+        "what": "7万ドル割れに伴う急落で大規模な清算が発生した。",
+        "status": "確定",
+        "who": "Crypto Market"
+      },
+      "raw": {},
+      "source": {
+        "name": "CryptoTicker.io・The Crypto Times",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "key": "hl:BTC:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: BTC（無期限先物） 24時間騰落率-4.11%, 価格69486.0, 建玉2812074974USD, 24時間出来高5779133656USD, 資金調達率(年率)+11.0%",
+      "fields": {
+        "coin": "BTC",
+        "symbol": "BTC",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$69,486",
+        "change_pct": "-4.11%",
+        "oi": "約28.1億ドル",
+        "volume": "約57.8億ドル",
+        "funding_annual": "+11.0%",
+        "asof": "日本時間11/13(金) 23:01時点",
+        "asof_short": "23:01時点"
+      },
+      "raw": {
+        "mark": 69486.0,
+        "change_pct": -4.115,
+        "oi_usd": 2812074974,
+        "vol_usd": 5779133656,
+        "funding_annual_pct": 10.95
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BTC",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BTC"
+      },
+      "asof": "2026-11-13T14:01:29.269009+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    }
+  ],
+  "sources": [
+    {
+      "name": "CryptoTicker.io・The Crypto Times",
+      "url": ""
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BTC"
+    }
+  ],
+  "needs_human": false
+}
