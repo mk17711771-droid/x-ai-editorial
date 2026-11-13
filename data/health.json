@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-13T00:46:00.855833+00:00",
-  "at_jst": "11/13 09:45",
+  "at": "2026-11-13T01:56:08.151515+00:00",
+  "at_jst": "11/13 10:55",
   "ok": false,
   "issues": [
     {
@@ -17,11 +17,11 @@
     {
       "type": "metrics_late",
       "posts": [
-        "2119958584511664289",
         "2119994104578748470",
         "2119999114590969956",
         "2120078990765617576",
-        "2120129060168704164"
+        "2120129060168704164",
+        "2120253977883197935"
       ]
     },
     {
@@ -29,9 +29,16 @@
     },
     {
       "type": "error",
-      "command": "research",
-      "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-13T00:36:14.605590+00:00"
+      "command": "generate",
+      "error": "XCreditsError: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+      "at": "2026-11-13T01:21:27.720487+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-13T01:20:18Z",
+      "id": 43344153403
     },
     {
       "type": "workflow_failed",
@@ -74,6 +81,20 @@
       "event": "repository_dispatch",
       "at": "2026-11-12T20:35:20Z",
       "id": 43301787100
+    },
+    {
+      "type": "many_rejections",
+      "n": 9,
+      "reasons": [
+        "「気になるところ」は最近も使った言い回し。別の言葉で書く",
+        "データ以外の数字が含まれている: ['1', '1', '2', '0', '0', '1', '1']",
+        "データ以外の数字が含まれている: ['1', '1']",
+        "データ以外の数字が含まれている: ['1', '2']",
+        "データ以外の数字が含まれている: ['2', '0', '0', '1', '1', '2', '0', '0']",
+        "データ以外の数字が含まれている: ['2', '0', '0', '1', '1']",
+        "漢数字による数量表現: ['億ドル', '億ドル']",
+        "漢数字による数量表現: ['億ドル']"
+      ]
     }
   ],
   "actions": []
