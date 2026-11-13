@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-13T10:07:02.956161+00:00",
-  "at_jst": "11/13 19:06",
+  "at": "2026-11-13T11:06:33.201235+00:00",
+  "at_jst": "11/13 20:06",
   "ok": false,
   "issues": [
     {
@@ -31,8 +31,7 @@
     {
       "type": "metrics_late",
       "posts": [
-        "2120129060168704164",
-        "2120253977883197935"
+        "2120129060168704164"
       ]
     },
     {
@@ -47,19 +46,48 @@
             "The Crypto Times",
             "Coin Gabbar"
           ]
+        },
+        {
+          "headline": "Wintermute、HyperliquidでのHYPE空売りを9,071万ドルに拡大",
+          "sources": [
+            "bloomingbit",
+            "TradingView",
+            "BigGo ファイナンス"
+          ]
         }
       ]
     },
     {
       "type": "line_quota",
-      "used": 151,
+      "used": 157,
       "limit": 200
     },
     {
       "type": "error",
-      "command": "research",
-      "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-13T08:36:27.068182+00:00"
+      "command": "decide",
+      "error": "XPostError: 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+      "at": "2026-11-13T10:37:38.549864+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "tools",
+      "event": "workflow_dispatch",
+      "at": "2026-11-13T10:37:13Z",
+      "id": 43410471008
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-13T10:35:19Z",
+      "id": 43410218124
+    },
+    {
+      "type": "workflow_failed",
+      "name": "tools",
+      "event": "workflow_dispatch",
+      "at": "2026-11-13T10:33:46Z",
+      "id": 43410008777
     },
     {
       "type": "workflow_failed",
@@ -90,31 +118,17 @@
       "id": 43372409703
     },
     {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-13T04:58:54Z",
-      "id": 43368969728
-    },
-    {
-      "type": "workflow_failed",
-      "name": "research-and-learn",
-      "event": "repository_dispatch",
-      "at": "2026-11-13T04:35:18Z",
-      "id": 43366496842
-    },
-    {
       "type": "many_rejections",
-      "n": 22,
+      "n": 20,
       "reasons": [
         "「気になるところ」は最近も使った言い回し。別の言葉で書く",
         "「記録的・歴史的・過去最高」と書いているが、記録を示す材料がない",
         "データ以外の数字が含まれている: ['1', '0']",
         "データ以外の数字が含まれている: ['1', '1', '2', '0', '0', '1', '1']",
         "データ以外の数字が含まれている: ['1', '1']",
-        "データ以外の数字が含まれている: ['1', '2']",
         "データ以外の数字が含まれている: ['1', '4', '1']",
-        "データ以外の数字が含まれている: ['1', '8', '1', '3']"
+        "データ以外の数字が含まれている: ['1', '8', '1', '3']",
+        "データ以外の数字が含まれている: ['1', '8', '1']"
       ]
     }
   ],
