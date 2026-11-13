@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-13T05:30:01.249103+00:00",
-  "at_jst": "11/13 14:29",
+  "at": "2026-11-13T05:47:40.082292+00:00",
+  "at_jst": "11/13 14:47",
   "ok": false,
   "issues": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "line_quota",
-      "used": 147,
+      "used": 149,
       "limit": 200
     },
     {
@@ -73,7 +73,14 @@
       "type": "error",
       "command": "generate",
       "error": "XCreditsError: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-13T05:04:06.659703+00:00"
+      "at": "2026-11-13T05:30:53.560923+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-13T05:30:03Z",
+      "id": 43372409703
     },
     {
       "type": "workflow_failed",
@@ -132,7 +139,5 @@
       ]
     }
   ],
-  "actions": [
-    "速報 hyperliquid-open-interest-record-q3 が投稿されていなかったため出し直し"
-  ]
+  "actions": []
 }
