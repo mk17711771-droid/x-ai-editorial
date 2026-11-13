@@ -532,8 +532,10 @@ def test_note_check_finds_paste_mistakes_and_notifies(monkeypatch, isolated):
     assert "16" in issues and "15" in issues  # 数字の食い違い
     assert isolated and "直したほうがよい点" in json.dumps(isolated, ensure_ascii=False)
     assert store.read_json("note_articles/20261027-0739/meta.json")["status"] == "published"
-    # 2回目は同じ記事を確認しない
-    assert note_check.run() == []
+    # 指摘があった記事は、直したかどうかを見るため2回目も確認する。ただし同じ指摘のLINEは2回送らない（11/13）
+    sent = len(isolated)
+    assert [r["key"] for r in note_check.run()] == ["nabc"]
+    assert len(isolated) == sent
 
 
 def test_note_check_silent_when_clean(monkeypatch, isolated):

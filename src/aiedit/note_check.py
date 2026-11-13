@@ -150,8 +150,10 @@ def run() -> list[dict]:
         key = n.get("key")
         pub = n.get("publishAt")
         pub_at = datetime.fromisoformat(pub) if pub else None
-        if not key or key in checked or (pub_at and pub_at < since):
+        # 確認済みで問題なしの記事は飛ばす。指摘があった記事は、管理者が直したあと見直す（11/13 直しても再確認されず紹介されなかった）
+        if not key or checked.get(key, {}).get("ok") or (pub_at and pub_at < since):
             continue
+        prev = checked.get(key)
         data = fetch_body(key)
         title = data.get("name") or n.get("name") or ""
         body = data.get("body") or ""
@@ -164,13 +166,17 @@ def run() -> list[dict]:
                "matched": gen["id"] if gen else None, "issues": issues, "proofread": typos,
                "chars": len(text), "images": n_images, "likes": n.get("likeCount")}
         store.write_json(f"note/checks/{key}.json", res)
-        checked[key] = {"title": title, "at": res["checked_at"], "ok": not (issues or typos)}
+        # 「作成から時間がたって公開」は直せない注意なので、紹介を止める理由にしない
+        blocking = [i for i in issues if not i.startswith("記事の作成から")]
+        ok = not (blocking or typos)
+        sig = "|".join(sorted(issues + typos))
+        checked[key] = {"title": title, "at": res["checked_at"], "ok": ok, "sig": sig}
         if gen:
             meta = store.read_json(f"note_articles/{gen['id']}/meta.json")
-            meta.update(status="published", note_key=key, published_at=pub, check_ok=not (issues or typos))
+            meta.update(status="published", note_key=key, published_at=pub, check_ok=ok)
             store.write_json(f"note_articles/{gen['id']}/meta.json", meta)
-        if issues or typos:
-            _notify(res, urlname)
+        if (blocking or typos) and not (prev and prev.get("sig") == sig):
+            _notify(res, urlname)  # 同じ指摘は2回知らせない（LINEの無料枠）
         results.append(res)
     store.write_json("note/checked.json", checked)
     # 公開から3日以内で、確認に問題がなく、まだXで紹介していない記事を紹介する（指摘があった記事は直ってから）
