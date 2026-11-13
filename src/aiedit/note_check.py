@@ -168,14 +168,16 @@ def run() -> list[dict]:
         store.write_json(f"note/checks/{key}.json", res)
         # 「作成から時間がたって公開」は直せない注意なので、紹介を止める理由にしない
         blocking = [i for i in issues if not i.startswith("記事の作成から")]
-        ok = not (blocking or typos)
+        # 文章の手直しの提案（AIの校正）は紹介を止めない。止めるのは機械の確認の指摘（目印の残り・数字の食い違いなど）だけ
+        # （11/13 画像と句点を直したあと、言い回しの提案だけで紹介されなかった）
+        ok = not blocking
         sig = "|".join(sorted(issues + typos))
         checked[key] = {"title": title, "at": res["checked_at"], "ok": ok, "sig": sig}
         if gen:
             meta = store.read_json(f"note_articles/{gen['id']}/meta.json")
             meta.update(status="published", note_key=key, published_at=pub, check_ok=ok)
             store.write_json(f"note_articles/{gen['id']}/meta.json", meta)
-        if (blocking or typos) and not (prev and prev.get("sig") == sig):
+        if (blocking and not (prev and prev.get("sig") == sig)) or (typos and not prev):
             _notify(res, urlname)  # 同じ指摘は2回知らせない（LINEの無料枠）
         results.append(res)
     store.write_json("note/checked.json", checked)
