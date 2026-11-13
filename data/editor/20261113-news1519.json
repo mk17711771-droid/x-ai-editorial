@@ -1,0 +1,35 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:hyperliquid-open-interest-record-q3",
+    "angle": "Hyperliquidの第3四半期オープンインタレストが過去最高の181億ドルに到達した記録を速報として伝える",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "第3四半期のオープンインタレスト過去最高という強力な実績数値を正確に提示しており、アカウントの軸に直結する重要な速報であるため。"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f3"
+    ],
+    "topic_key": "news:crypto-liquidations-drop-below-70k",
+    "angle": "ビットコインが7万ドルを割り込み清算が膨らむ中での無期限先物の動向を追う",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "BTCの下落と清算額の具体的数字を組み合わせ、市場全体の急ピッチなポジション整理の異変を捉えているため。"
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "id": "20261113-news1519-1",
+  "slot_key": "20261113-news1519",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "failed",
+  "created_at": "2026-11-13T06:19:41.176133+00:00",
+  "text": "【速報】Hyperliquidのオープンインタレストが過去最高の181億ドルを記録\n\nQ3のオープンインタレストが過去最高値を更新し、ユーザー数や収益も拡大した。デリバティブ市場における存在感を高めているな👀",
+  "template": "【速報】{{f1.headline}}\n\n{{f1.what}}デリバティブ市場における存在感を高めているな👀",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "news:hyperliquid-open-interest-record-q3",
+  "angle": "Hyperliquidの第3四半期オープンインタレストが過去最高の181億ドルに到達した記録を速報として伝える",
+  "scores": {
+    "novelty": 19,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 93,
+  "fact_ids": [
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "news:hyperliquid-open-interest-record-q3",
+      "kind": "hl",
+      "asof": "2026-11-13T04:58:50.786593+00:00",
+      "expires_at": "2026-11-14T16:58:50.786606+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-13T03:19:10Z",
+      "summary": "Hyperliquidの第3四半期におけるオープンインタレスト（建玉総額）が過去最高の181億ドルに達したことが明らかになった。取引所の収益や1日あたりのアクティブユーザー数も大幅な伸びを記録しており、デリバティブ市場における存在感を高めている。",
+      "fields": {
+        "headline": "Hyperliquidのオープンインタレストが過去最高の181億ドルを記録",
+        "what": "Q3のオープンインタレストが過去最高値を更新し、ユーザー数や収益も拡大した。",
+        "status": "確定",
+        "who": "Hyperliquid"
+      },
+      "raw": {},
+      "source": {
+        "name": "FXStreet・Benzinga・Crypto Briefing",
+        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOdHE2M2Y0cVltb0hJV0pGMzhwZXRfbk80WW1jMFpSSDFrRXBsb3RPTUpHSldhQWw5dk1jNlkwV1JsS2Fkc2dUV1FUSW9qYmdaU2VOR21ORVBrZEttUXRsQXJZY3RNeXZDQ19OMFR6T25TU3ZRcV9TZ2Vuc01CVy1hQ3lDdEgzN1hpLUF3dDBXUzc3V1doZDNPQTdiYmFNNEE3a0xCYmcxS0JZM1o3bF9RYl8yTlEtcHRpaWZKTTlWUlhteGlSWXJVaktXcw"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "FXStreet・Benzinga・Crypto Briefing",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOdHE2M2Y0cVltb0hJV0pGMzhwZXRfbk80WW1jMFpSSDFrRXBsb3RPTUpHSldhQWw5dk1jNlkwV1JsS2Fkc2dUV1FUSW9qYmdaU2VOR21ORVBrZEttUXRsQXJZY3RNeXZDQ19OMFR6T25TU3ZRcV9TZ2Vuc01CVy1hQ3lDdEgzN1hpLUF3dDBXUzc3V1doZDNPQTdiYmFNNEE3a0xCYmcxS0JZM1o3bF9RYl8yTlEtcHRpaWZKTTlWUlhteGlSWXJVaktXcw"
+    }
+  ],
+  "needs_human": false,
+  "error": "402 credits depleted: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
+}
