@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-13T03:37:53.709151+00:00",
-  "at_jst": "11/13 12:37",
+  "at": "2026-11-13T04:37:47.380115+00:00",
+  "at_jst": "11/13 13:37",
   "ok": false,
   "issues": [
     {
@@ -18,13 +18,19 @@
       "within_grace": false
     },
     {
+      "type": "missed_slot",
+      "slot": "1215",
+      "key": "20261113-1215",
+      "generated": true,
+      "within_grace": true
+    },
+    {
       "type": "learn_missing",
       "date": "2026-11-13"
     },
     {
       "type": "metrics_late",
       "posts": [
-        "2119999114590969956",
         "2120078990765617576",
         "2120129060168704164",
         "2120253977883197935"
@@ -48,14 +54,28 @@
     },
     {
       "type": "line_quota",
-      "used": 141,
+      "used": 143,
       "limit": 200
     },
     {
       "type": "error",
       "command": "research",
       "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-13T02:44:46.736630+00:00"
+      "at": "2026-11-13T04:36:19.140194+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-13T04:35:18Z",
+      "id": 43366496842
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-13T03:45:18Z",
+      "id": 43361037289
     },
     {
       "type": "workflow_failed",
@@ -100,15 +120,8 @@
       "id": 43322899661
     },
     {
-      "type": "workflow_failed",
-      "name": "research-and-learn",
-      "event": "repository_dispatch",
-      "at": "2026-11-12T22:35:19Z",
-      "id": 43321286824
-    },
-    {
       "type": "many_rejections",
-      "n": 9,
+      "n": 14,
       "reasons": [
         "「気になるところ」は最近も使った言い回し。別の言葉で書く",
         "データ以外の数字が含まれている: ['1', '1', '2', '0', '0', '1', '1']",
@@ -116,8 +129,8 @@
         "データ以外の数字が含まれている: ['1', '2']",
         "データ以外の数字が含まれている: ['2', '0', '0', '1', '1', '2', '0', '0']",
         "データ以外の数字が含まれている: ['2', '0', '0', '1', '1']",
-        "漢数字による数量表現: ['億ドル', '億ドル']",
-        "漢数字による数量表現: ['億ドル']"
+        "データ以外の数字が含まれている: ['3', '0', '4', '3', '2', '6', '9', '9']",
+        "漢数字による数量表現: ['億ドル', '億ドル']"
       ]
     }
   ],
