@@ -1,0 +1,185 @@
+{
+  "id": "20261113-2030-1",
+  "slot_key": "20261113-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "posted",
+  "created_at": "2026-11-13T12:03:19.975549+00:00",
+  "text": "半導体セクターが全面高に向かう中で、なぜ$NVDAだけが下落し、他の銘柄は急反発しているのか。\n\n【いま起きてること】\n米国株の現物市場では半導体株の動きにまだら模様が広がり、銘柄ごとの明暗が分かれている。そうした中で、HyperliquidのHIP-3市場におけるデリバティブの需給と現物の値動きとの間に興味深いギャップが生まれている。\n\n【数字で見る】（日本時間11/13(金) 21:02時点）\n・NVDA 価格$166.19、前日比-4.34%、前日終値$173.73、高値$167.14、安値$148.80（米国11/12終値）\n・AMD 価格$585.30、前日比+5.86%、前日終値$552.90、高値$594.00、安値$554.90（米国11/12終値）\n・AVGO 価格$364.36、前日比+5.54%、前日終値$345.22、高値$369.82、安値$354.72（米国11/12終値）\n・NVDA（株式先物（HIP-3）） 価格$169.70、24時間騰落率+5.59%、建玉約3.7億ドル、24時間出来高約19.0億ドル、資金調達率（年率）+5.5%\n\n【なぜ「歪み」なのか】\n現物市場でNVDAが前日比-4.34%と軟調な動きを見せる一方で、AMDは前日比+5.86%、AVGOは前日比+5.54%と力強い急反発を記録し、セクター内での資金の矛先が分散している。一方でHIP-3市場のNVDA先物は価格$169.70で推移しつつ、資金調達率が年率+5.5%とプラス圏でロングの買い圧力が継続している。現物の下落とデリバティブ側のコスト負担にねじれが生じているこの構造こそが、次のポジション調整の引き金になると見ている。\n\n【次に見るポイント】\n①NVDAの資金調達率（年率）+5.5%が維持されるか\n②現物市場におけるNVDAとAMDの相対的な強弱の変化\n③約3.7億ドル規模に達する建玉の増減",
+  "template": "半導体セクターが全面高に向かう中で、なぜ${{f8.symbol}}だけが下落し、他の銘柄は急反発しているのか。\n\n【いま起きてること】\n米国株の現物市場では半導体株の動きにまだら模様が広がり、銘柄ごとの明暗が分かれている。そうした中で、HyperliquidのHIP-3市場におけるデリバティブの需給と現物の値動きとの間に興味深いギャップが生まれている。\n\n【数字で見る】（{{f42.asof}}）\n・${{f8.symbol}} 価格${{f8.price}}、前日比{{f8.change_pct}}、前日終値${{f8.prev_close}}、高値${{f8.high}}、安値${{f8.low}}（{{f8.asof}}）\n・${{f9.symbol}} 価格${{f9.price}}、前日比{{f9.change_pct}}、前日終値${{f9.prev_close}}、高値${{f9.high}}、安値${{f9.low}}（{{f9.asof}}）\n・${{f10.symbol}} 価格${{f10.price}}、前日比{{f10.change_pct}}、前日終値${{f10.prev_close}}、高値${{f10.high}}、安値${{f10.low}}（{{f10.asof}}）\n・${{f42.symbol}}（{{f42.market}}） 価格${{f42.price}}、24時間騰落率{{f42.change_pct}}、建玉{{f42.oi}}、24時間出来高{{f42.volume}}、資金調達率（年率）{{f42.funding_annual}}\n\n【なぜ「歪み」なのか】\n現物市場で${{f8.symbol}}が前日比{{f8.change_pct}}と軟調な動きを見せる一方で、${{f9.symbol}}は前日比{{f9.change_pct}}、${{f10.symbol}}は前日比{{f10.change_pct}}と力強い急反発を記録し、セクター内での資金の矛先が分散している。一方でHIP-3市場の${{f42.symbol}}先物は価格{{f42.price}}で推移しつつ、資金調達率が年率{{f42.funding_annual}}とプラス圏でロングの買い圧力が継続している。現物の下落とデリバティブ側のコスト負担にねじれが生じているこの構造こそが、次のポジション調整の引き金になると見ている。\n\n【次に見るポイント】\n①${{f42.symbol}}の資金調達率（年率）{{f42.funding_annual}}が維持されるか\n②現物市場における${{f8.symbol}}と${{f9.symbol}}の相対的な強弱の変化\n③{{f42.oi}}規模に達する建玉の増減",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:NVDA:big_move",
+  "angle": "NVDAが-4.34%と下落する一方でAMDやAVGOが急反発した動きを取り上げ、半導体セクター内の資金の「まだら模様」とHIP-3先物（NVDA先物の資金調達率+5.5%）の需給の歪みを構造的に解説する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 93,
+  "fact_ids": [
+    "f8",
+    "f9",
+    "f10",
+    "f42"
+  ],
+  "facts": [
+    {
+      "key": "stock:NVDA:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】NVDA 価格166.19, 前日比-4.34%, 前日終値173.73, 高値167.14, 安値148.8",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$166.19",
+        "change_pct": "-4.34%",
+        "prev_close": "$173.73",
+        "high": "$167.14",
+        "low": "$148.80",
+        "asof": "米国11/12終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 166.19,
+        "change_pct": -4.34,
+        "prev_close": 173.73
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-11-13T12:02:36.106563+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格585.3, 前日比+5.86%, 前日終値552.9, 高値594, 安値554.9",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$585.30",
+        "change_pct": "+5.86%",
+        "prev_close": "$552.90",
+        "high": "$594.00",
+        "low": "$554.90",
+        "asof": "米国11/12終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 585.3,
+        "change_pct": 5.86,
+        "prev_close": 552.9
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-13T12:02:36.248063+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    },
+    {
+      "key": "stock:AVGO:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AVGO 価格364.36, 前日比+5.54%, 前日終値345.22, 高値369.82, 安値354.72",
+      "fields": {
+        "symbol": "AVGO",
+        "price": "$364.36",
+        "change_pct": "+5.54%",
+        "prev_close": "$345.22",
+        "high": "$369.82",
+        "low": "$354.72",
+        "asof": "米国11/12終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 364.36,
+        "change_pct": 5.544,
+        "prev_close": 345.22
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AVGO"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AVGO"
+      },
+      "asof": "2026-11-13T12:02:36.378344+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率+5.59%, 価格169.7, 建玉371510641USD, 24時間出来高1903173449USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$169.70",
+        "change_pct": "+5.59%",
+        "oi": "約3.7億ドル",
+        "volume": "約19.0億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/13(金) 21:02時点",
+        "asof_short": "21:02時点"
+      },
+      "raw": {
+        "mark": 169.7,
+        "change_pct": 5.594,
+        "oi_usd": 371510641,
+        "vol_usd": 1903173449,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-13T12:02:41.735051+00:00",
+      "confidence": "confirmed",
+      "id": "f42"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AVGO"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2121212412888326213",
+  "posted_at": "2026-11-13T12:03:44.331052+00:00"
+}

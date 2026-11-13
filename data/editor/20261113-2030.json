@@ -1,0 +1,39 @@
+[
+  {
+    "fact_ids": [
+      "f8",
+      "f9",
+      "f10",
+      "f42"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "NVDAが-4.34%と下落する一方でAMDやAVGOが急反発した動きを取り上げ、半導体セクター内の資金の「まだら模様」とHIP-3先物（NVDA先物の資金調達率+5.5%）の需給の歪みを構造的に解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "半導体の明暗が分かれた実際の株価変動とHyperliquidのデリバティブデータを組み合わせ、市場の資金移動を深く読み解く構成になっているため。"
+  },
+  {
+    "fact_ids": [
+      "f16",
+      "f7",
+      "f46"
+    ],
+    "topic_key": "stock:SMCI:big_move",
+    "angle": "SMCIが-11.30%と大幅な下落を見せる中でSOXX（-0.26%）やSOXL先物がどのような反応を示しているか、セクター全体に広がるボラティリティの波とデリバティブの歪みを追う。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "個別株の急落とレバレッジ関連の先物市場における歪みに焦点を当て、投資家が気にするリスクの所在を明確にしているため。"
+  }
+]
