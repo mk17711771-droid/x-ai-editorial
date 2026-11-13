@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f8",
+      "f18"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "SOXLのHIP-3先物が-16.70%と急落する中で建玉が-38.1%減少している動きを伝える。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "半導体レバレッジ先物の急落と建玉の急減という明確な数字の歪みを短文で端的に伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f16",
+      "f26"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "SKHXのHIP-3先物で資金調達率が年率-95.8%まで沈み込んでいるショート過熱の歪みを指摘する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "半導体関連の個別株先物における極端な資金調達率のマイナスを具体的な数値で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f5"
+    ],
+    "topic_key": "news:21shares-hyperliquid-staking-etf-locks",
+    "angle": "HYPEの供給量の大半がステーキングされる中のETFロックアップの動きと価格・建玉の反応を伝える。",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 16,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "確認済みのETF関連ニュースとオンチェーンの供給構造の変化を組み合わせたタイムリーな切り口。"
+  }
+]
