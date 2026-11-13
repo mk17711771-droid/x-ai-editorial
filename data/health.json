@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-13T07:06:17.147513+00:00",
-  "at_jst": "11/13 16:06",
+  "at": "2026-11-13T10:07:02.956161+00:00",
+  "at_jst": "11/13 19:06",
   "ok": false,
   "issues": [
     {
@@ -31,7 +31,6 @@
     {
       "type": "metrics_late",
       "posts": [
-        "2120078990765617576",
         "2120129060168704164",
         "2120253977883197935"
       ]
@@ -42,14 +41,6 @@
     {
       "type": "followup_candidates",
       "items": [
-        {
-          "headline": "【速報】FBI、バイナンスから盗まれた12億ドルの暗号資産を押収",
-          "sources": [
-            "BBC",
-            "tippinsights",
-            "Yahoo News Canada"
-          ]
-        },
         {
           "headline": "米司法省、バイナンスハックに関連する北朝鮮資金12億ドルを押収へ",
           "sources": [
@@ -65,15 +56,17 @@
       "limit": 200
     },
     {
-      "type": "announced_not_posted",
-      "story": "crypto-liquidations-drop-below-70k",
-      "since": "2026-11-13T05:29:42.438969+00:00"
-    },
-    {
       "type": "error",
       "command": "research",
       "error": "XPostError: 投稿の取得 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-13T06:36:16.353831+00:00"
+      "at": "2026-11-13T08:36:27.068182+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-13T08:35:19Z",
+      "id": 43394388770
     },
     {
       "type": "workflow_failed",
@@ -109,27 +102,6 @@
       "event": "repository_dispatch",
       "at": "2026-11-13T04:35:18Z",
       "id": 43366496842
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-13T03:45:18Z",
-      "id": 43361037289
-    },
-    {
-      "type": "workflow_failed",
-      "name": "research-and-learn",
-      "event": "repository_dispatch",
-      "at": "2026-11-13T02:35:18Z",
-      "id": 43353214663
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-13T01:20:18Z",
-      "id": 43344153403
     },
     {
       "type": "many_rejections",
