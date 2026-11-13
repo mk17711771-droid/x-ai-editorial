@@ -1,32 +1,11 @@
 {
-  "at": "2026-11-13T14:36:46.896361+00:00",
-  "at_jst": "11/13 23:36",
+  "at": "2026-11-13T16:36:41.401143+00:00",
+  "at_jst": "11/14 01:36",
   "ok": false,
   "issues": [
     {
-      "type": "missed_slot",
-      "slot": "0730",
-      "key": "20261113-0730",
-      "generated": true,
-      "within_grace": false
-    },
-    {
-      "type": "missed_slot",
-      "slot": "1000",
-      "key": "20261113-1000",
-      "generated": true,
-      "within_grace": false
-    },
-    {
-      "type": "missed_slot",
-      "slot": "1215",
-      "key": "20261113-1215",
-      "generated": true,
-      "within_grace": false
-    },
-    {
-      "type": "learn_missing",
-      "date": "2026-11-13"
+      "type": "x_research_stale",
+      "last": "20261111"
     },
     {
       "type": "followup_candidates",
@@ -60,22 +39,8 @@
       "id": 43410471008
     },
     {
-      "type": "workflow_failed",
-      "name": "research-and-learn",
-      "event": "repository_dispatch",
-      "at": "2026-11-13T10:35:19Z",
-      "id": 43410218124
-    },
-    {
-      "type": "workflow_failed",
-      "name": "tools",
-      "event": "workflow_dispatch",
-      "at": "2026-11-13T10:33:46Z",
-      "id": 43410008777
-    },
-    {
       "type": "many_rejections",
-      "n": 26,
+      "n": 21,
       "reasons": [
         "1行目でSMCIの先物を語っているが、先物の数字は別の銘柄（SOXL）",
         "「気になるところ」は最近も使った言い回し。別の言葉で書く",
