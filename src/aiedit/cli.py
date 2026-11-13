@@ -76,7 +76,7 @@ def main(argv: list[str] | None = None) -> int:
             store.resume()
             line.notify("自動運用を再開しました。")
         elif args.cmd == "notify":
-            line.notify(args.message)
+            line.notify(args.message, essential=True)  # 点検から管理者へ「操作が必要」を知らせるときだけ使う
         elif args.cmd == "research":
             research.watch()
             print(f"反応を計測: {research.measure()}件")

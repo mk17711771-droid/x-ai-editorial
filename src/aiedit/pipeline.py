@@ -265,7 +265,7 @@ def notify_credits_depleted() -> None:
         return
     line.notify("【要対応】X APIの利用クレジットが尽きたため、Xへの投稿・削除ができなくなっています（402 credits depleted）。\n"
                 "X Developer Portal（developer.x.com）→ 該当アプリの Billing / Credits からクレジットを追加してください。"
-                "追加後は自動で投稿が再開します（操作は不要です）。")
+                "追加後は自動で投稿が再開します（操作は不要です）。", essential=True)
     st["credits_notified"] = today
     store.save_state(st)
 
@@ -740,7 +740,7 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
     except xapi.XAuthError as e:
         store.halt(f"X API認証・権限エラー: {e}")
         _close(draft, "failed", error=str(e))
-        line.notify(f"【緊急停止】X APIで認証・権限エラーが発生したため自動運用を停止しました。\n{e}\n\n確認後、LINEで「再開」と送ってください。")
+        line.notify(f"【緊急停止】X APIで認証・権限エラーが発生したため自動運用を停止しました。\n{e}\n\n確認後、LINEで「再開」と送ってください。", essential=True)
         raise
     except xapi.XCreditsError as e:
         # X APIのクレジット切れ（11/11 06:08〜）。管理者の支払いが必要なので、1日1回だけ知らせる（LINEの無料枠を使いすぎない）

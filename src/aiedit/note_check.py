@@ -254,7 +254,7 @@ def _notify(res: dict, urlname: str) -> None:
     for i, s in enumerate(res["issues"] + res["proofread"], 1):
         lines.append(f"{i}. {s}")
     lines.append(f"\nhttps://note.com/{urlname}/n/{res['key']}")
-    line.notify("\n".join(lines)[:4800])
+    line.notify("\n".join(lines)[:4800], essential=True)
 
 
 def _record_stats(urlname: str) -> None:
@@ -271,7 +271,7 @@ def _record_stats(urlname: str) -> None:
     store.write_json("note/stats.json", stats)
 
 
-REMIND_AT_JST = (12, 19)  # この時刻を過ぎても未公開なら知らせる（1日最大2回）
+REMIND_AT_JST = (19,)  # この時刻を過ぎても未公開なら1回だけ知らせる（11/13 LINEは必要最低限）
 
 
 def remind_unpublished() -> list[str]:
@@ -289,7 +289,7 @@ def remind_unpublished() -> list[str]:
         if not due:
             continue
         line.notify(f"📝【リマインド】今日のnote記事がまだ公開されていません\n\n「{meta['title']}」\n\n"
-                    f"↓タイトルと本文のコピーはこちら\n{viewer_url(meta['id'])}")
+                    f"↓タイトルと本文のコピーはこちら\n{viewer_url(meta['id'])}", essential=True)
         meta["reminded"] = reminded + due
         store.write_json(f"note_articles/{meta['id']}/meta.json", meta)
         sent.append(meta["id"])

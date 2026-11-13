@@ -211,5 +211,6 @@ def notify(meta: dict) -> None:
     line.notify(
         f"📝 noteの記事ができました（{meta['chars']}字・図{len(meta['images'])}枚）\n\n"
         f"「{meta['title']}」\n\n"
-        f"↓ここからタイトルと本文をコピーして、noteに貼り付けて公開してください\n{viewer_url(meta['id'])}"
+        f"↓ここからタイトルと本文をコピーして、noteに貼り付けて公開してください\n{viewer_url(meta['id'])}",
+        essential=True,
     )

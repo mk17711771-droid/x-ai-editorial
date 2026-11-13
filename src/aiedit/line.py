@@ -11,7 +11,13 @@ from .common import env, log
 PUSH_URL = "https://api.line.me/v2/bot/message/push"
 
 
-def push(messages: list[dict]) -> bool:
+# 管理者の指示（11/13）: LINEは必要最低限。通知が多すぎてnoteの更新依頼が埋もれる・迷惑。
+# 送るのは「管理者が何かする必要があるもの」だけ（essential=True）: noteの記事ができた・公開後の誤り・未公開のリマインド（1回）、
+# X APIのクレジット切れ・認証停止、承認制のときの承認依頼。速報・投稿のお知らせ・まとめ・エラーの報告などは送らない。
+def push(messages: list[dict], essential: bool = False) -> bool:
+    if not essential:
+        log.info("LINEは必要最低限のため送りません: %s", str(messages)[:120])
+        return False
     token = env("LINE_CHANNEL_ACCESS_TOKEN", required=False)
     to = env("LINE_ADMIN_USER_ID", required=False)
     if not token or not to:
@@ -46,8 +52,8 @@ def quota() -> dict | None:
         return None
 
 
-def notify(text: str) -> bool:
-    return push([{"type": "text", "text": text[:4900]}])
+def notify(text: str, essential: bool = False) -> bool:
+    return push([{"type": "text", "text": text[:4900]}], essential=essential)
 
 
 def _preview(text: str, limit: int = 900) -> str:
@@ -118,7 +124,7 @@ def send_approval_request(drafts: list[dict], expiry_hours: int, note: str | Non
     }, {
         "type": "text",
         "text": f"承認は{expiry_hours}時間以内にお願いします。1枠につき承認できるのは1件までです。「停止」と送ると自動運用を止められます。",
-    }])
+    }], essential=True)  # 承認制のときは管理者の操作が必要
 
 
 def send_posted_notice(draft: dict, tweet_id: str) -> bool:

@@ -17,7 +17,7 @@ def isolated(tmp_path, monkeypatch):
     monkeypatch.delenv("BOT_ENABLED", raising=False)
     settings.cache_clear()
     sent = []
-    monkeypatch.setattr(line, "push", lambda msgs: sent.append(msgs) or True)
+    monkeypatch.setattr(line, "push", lambda msgs, **k: sent.append(msgs) or True)
     return sent
 
 
@@ -680,13 +680,15 @@ def test_note_reminder_until_published(monkeypatch, isolated):
                                                                "created_at": "2026-10-28T00:17:00+00:00"})
     monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T02:00:00+00:00")  # 11:00 JST: まだ知らせない
     assert note_check.remind_unpublished() == []
-    monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T03:30:00+00:00")  # 12:30 JST
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T03:30:00+00:00")  # 12:30 JST: リマインドは19時の1回だけ（11/13 LINEは必要最低限）
+    assert note_check.remind_unpublished() == []
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T10:10:00+00:00")  # 19:10 JST
     assert note_check.remind_unpublished() == ["20261028-0917"]
     assert note_check.remind_unpublished() == []  # 同じ時間帯に2回送らない
     meta = store.read_json("note_articles/20261028-0917/meta.json")
     meta["status"] = "published"
     store.write_json("note_articles/20261028-0917/meta.json", meta)
-    monkeypatch.setenv("AIEDIT_NOW", "2026-10-28T10:30:00+00:00")  # 19:30 JST: 公開済みなら送らない
+    monkeypatch.setenv("AIEDIT_NOW", "2026-10-29T10:30:00+00:00")  # 翌日19:30 JST: 公開済みなら送らない
     assert note_check.remind_unpublished() == []
 
 
@@ -1518,3 +1520,19 @@ def test_note_promo_hook_prefers_sentence_with_ticker(isolated):
     from aiedit import note_check
     store.write_text("note_articles/b/article.md", "# 題\n\n価格は$168.89となり、前日比-5.47%の値下がり。\n\nNVDAの資金調達率は年率-234.5%まで沈んだ。")
     assert note_check.promote_text({"id": "b", "title": "題"}, "u").startswith("NVDAの資金調達率は年率-234.5%")
+
+
+def test_line_sends_only_essential(monkeypatch):
+    """11/13 管理者: LINEの通知が多すぎて迷惑・noteの依頼が埋もれる。管理者の操作が必要なものだけ送る。"""
+    import importlib
+    import requests
+    from aiedit import line
+    line = importlib.reload(line)  # ほかのテスト用の差し替えを外して本物の push を試す
+    calls = []
+    monkeypatch.setenv("LINE_CHANNEL_ACCESS_TOKEN", "t")
+    monkeypatch.setenv("LINE_ADMIN_USER_ID", "u")
+    monkeypatch.setattr(requests, "post", lambda *a, **k: calls.append(1) or type("R", (), {"status_code": 200, "text": ""})())
+    from aiedit import store as _store
+    monkeypatch.setattr(_store, "append_jsonl", lambda *a, **k: None)
+    assert line.notify("速報をキャッチ") is False and calls == []
+    assert line.notify("noteの記事ができました", essential=True) is True and calls == [1]
