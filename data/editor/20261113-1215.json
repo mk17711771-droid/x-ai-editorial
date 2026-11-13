@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f6",
+      "f40"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "NVDAの前日比-4.34%の急落に対し、HyperliquidのHIP-3先物は24時間騰落率+2.21%と逆行する動きを見せている点に焦点を当てる。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "主要銘柄の急落とオンチェーン先物の逆行という市場の歪みを具体的な数字で対比しているため。"
+  },
+  {
+    "fact_ids": [
+      "f14",
+      "f43"
+    ],
+    "topic_key": "stock:SMCI:big_move",
+    "angle": "SMCIが前日比-11.30%と大幅に下落した一方、レバレッジ型のSOXLのHIP-3先物は+4.56%と異なる値動きを示した背景を整理する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "個別株の急落と関連セクターのデリバティブ市場における値動きのギャップを端的に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f8"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "市場全体が調整する中でAMD(+5.86%)やAVGO(+5.54%)が急上昇した強さの背景と、セクター内の資金の偏りを解説する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 84,
+    "reason": "半導体セクター内で明暗が分かれた具体的な騰落率の数字を基に、物色の変化を実用的に伝えているため。"
+  }
+]

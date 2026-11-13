@@ -1,0 +1,108 @@
+{
+  "id": "20261113-1215-2",
+  "slot_key": "20261113-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "pending",
+  "created_at": "2026-11-13T03:49:45.879693+00:00",
+  "text": "$SOXLの資金調達率が年率-15.1%まで沈み込んでいるの、現物の下落との温度差がすごいことになってない？\n\nHyperliquidの株式先物（HIP-3）で日本時間11/13(金) 12:47時点、SOXLの価格は$64.92（+4.56%）、建玉は約3,304万ドルとなっている。",
+  "template": "${{f43.symbol}}の資金調達率が年率{{f43.funding_annual}}まで沈み込んでいるの、現物の下落との温度差がすごいことになってない？\n\nHyperliquidの{{f43.market}}で{{f43.asof}}、${{f43.symbol}}の価格は{{f43.price}}（{{f43.change_pct}}）、建玉は{{f43.oi}}となっている。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "stock:SMCI:big_move",
+  "angle": "SMCIが前日比-11.30%と大幅に下落した一方、レバレッジ型のSOXLのHIP-3先物は+4.56%と異なる値動きを示した背景を整理する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 86,
+  "fact_ids": [
+    "f14",
+    "f43"
+  ],
+  "facts": [
+    {
+      "key": "stock:SMCI:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SMCI 価格26.99, 前日比-11.30%, 前日終値30.43, 高値29, 安値25.7",
+      "fields": {
+        "symbol": "SMCI",
+        "price": "$26.99",
+        "change_pct": "-11.30%",
+        "prev_close": "$30.43",
+        "high": "$29.00",
+        "low": "$25.70",
+        "asof": "米国11/12終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 26.99,
+        "change_pct": -11.305,
+        "prev_close": 30.43
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SMCI"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SMCI"
+      },
+      "asof": "2026-11-13T03:47:23.174982+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    },
+    {
+      "key": "hl:xyz:SOXL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SOXL（HIP-3株式等先物） 24時間騰落率+4.56%, 価格64.92, 建玉33042007USD, 24時間出来高320430874USD, 資金調達率(年率)-15.1%",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$64.92",
+        "change_pct": "+4.56%",
+        "oi": "約3,304万ドル",
+        "volume": "約3.2億ドル",
+        "funding_annual": "-15.1%",
+        "asof": "日本時間11/13(金) 12:47時点",
+        "asof_short": "12:47時点"
+      },
+      "raw": {
+        "mark": 64.92,
+        "change_pct": 4.56,
+        "oi_usd": 33042007,
+        "vol_usd": 320430874,
+        "funding_annual_pct": -15.12
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-13T03:47:28.180870+00:00",
+      "confidence": "confirmed",
+      "id": "f43"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SMCI"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    }
+  ],
+  "needs_human": false
+}

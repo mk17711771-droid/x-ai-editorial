@@ -1,0 +1,102 @@
+{
+  "id": "20261113-1215-3",
+  "slot_key": "20261113-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "pending",
+  "created_at": "2026-11-13T03:49:48.341193+00:00",
+  "text": "$AMDの価格が$585.30まで上昇して+5.86%を叩き出している裏で、AVGOも価格$364.36（前日終値比+5.54%）と力強い伸びを見せている。\n\n米国11/12終値のデータを見ると、高値はAMDが$594.00、AVGOが$369.82を記録しており、下値を切り上げながら買いが先行しているのがわかる。",
+  "template": "$AMDの価格が{{f7.price}}まで上昇して{{f7.change_pct}}を叩き出している裏で、$AVGOも価格{{f8.price}}（{{f8.basis}}{{f8.change_pct}}）と力強い伸びを見せている。\n\n{{f7.asof}}のデータを見ると、高値はAMDが{{f7.high}}、AVGOが{{f8.high}}を記録しており、下値を切り上げながら買いが先行しているのがわかる。全体が調整している局面でこの強さを維持できるのは、セクター内の特定のプレイヤーによるリバランスが働いているとみるのが自然かも。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "stock:AMD:big_move",
+  "angle": "市場全体が調整する中でAMD(+5.86%)やAVGO(+5.54%)が急上昇した強さの背景と、セクター内の資金の偏りを解説する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 16
+  },
+  "total": 84,
+  "fact_ids": [
+    "f7",
+    "f8"
+  ],
+  "facts": [
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格585.3, 前日比+5.86%, 前日終値552.9, 高値594, 安値554.9",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$585.30",
+        "change_pct": "+5.86%",
+        "prev_close": "$552.90",
+        "high": "$594.00",
+        "low": "$554.90",
+        "asof": "米国11/12終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 585.3,
+        "change_pct": 5.86,
+        "prev_close": 552.9
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-13T03:47:22.421520+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    },
+    {
+      "key": "stock:AVGO:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AVGO 価格364.36, 前日比+5.54%, 前日終値345.22, 高値369.82, 安値354.72",
+      "fields": {
+        "symbol": "AVGO",
+        "price": "$364.36",
+        "change_pct": "+5.54%",
+        "prev_close": "$345.22",
+        "high": "$369.82",
+        "low": "$354.72",
+        "asof": "米国11/12終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 364.36,
+        "change_pct": 5.544,
+        "prev_close": 345.22
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AVGO"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AVGO"
+      },
+      "asof": "2026-11-13T03:47:22.539614+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AVGO"
+    }
+  ],
+  "needs_human": false
+}
