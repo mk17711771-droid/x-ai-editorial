@@ -1,0 +1,70 @@
+[
+  {
+    "fact_ids": [
+      "f16",
+      "f24"
+    ],
+    "topic_key": "hl:xyz:AMD:oi_change",
+    "angle": "AMDのHIP-3先物で建玉が急増する一方、資金調達率がマイナス圏で推移している歪みに焦点を当てる。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "AMDの建玉急増とマイナスの資金調達率という明確なデリバティブの歪みを捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f8",
+      "f15"
+    ],
+    "topic_key": "hl:xyz:NBIS:oi_change",
+    "angle": "NBISのHIP-3先物における記録的な建玉増加と急落の連動性を数字で浮き彫りにする。",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 15,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "建玉の24時間変化+55.2%という大きな数値の異変を正確に伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f4"
+    ],
+    "topic_key": "news:kraken-xstocks-expansion-200-stocks",
+    "angle": "トークン化株式の裾野が広がる中でのNVDA先物の動向を対比させる。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "伝統金融とオンチェーンの接点拡大という大きな流れと、個別銘柄の動きを関連付けているため。"
+  },
+  {
+    "fact_ids": [
+      "f12",
+      "f18"
+    ],
+    "topic_key": "hl:xyz:KIOXIA:oi_change",
+    "angle": "KIOXIAのHIP-3先物で建玉急増と高水準の資金調達率が同時に起きている過熱感を指摘する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 84,
+    "reason": "建玉増加と資金調達率の偏りを具体的な数字で示し、市場の過熱感を描写しているため。"
+  }
+]

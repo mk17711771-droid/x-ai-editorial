@@ -1,0 +1,120 @@
+{
+  "id": "20261113-1000-2",
+  "slot_key": "20261113-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "pending",
+  "created_at": "2026-11-13T01:21:17.375352+00:00",
+  "text": "$NBISの建玉が+55.2%も急増して約4,975万ドルに達する裏で、価格は-14.03%と急落している。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/13(金) 10:21時点、NBISの価格は$130.84、資金調達率は年率+66.0%となっている。",
+  "template": "${{f8.symbol}}の建玉が{{f15.oi_change_pct}}も急増して{{f15.oi}}に達する裏で、価格は{{f8.change_pct}}と急落している。\n\nHyperliquidの{{f8.market}}で{{f8.asof}}、${{f8.symbol}}の価格は{{f8.price}}、資金調達率は年率{{f8.funding_annual}}となっている。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:NBIS:oi_change",
+  "angle": "NBISのHIP-3先物における記録的な建玉増加と急落の連動性を数字で浮き彫りにする。",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 15,
+    "insight": 17
+  },
+  "total": 88,
+  "fact_ids": [
+    "f8",
+    "f15"
+  ],
+  "facts": [
+    {
+      "key": "hl:io:NBIS:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: NBIS（HIP-3株式等先物） 24時間騰落率-14.03%, 価格130.84, 建玉6463813USD, 24時間出来高5860468USD, 資金調達率(年率)+66.0%（照合: 米国株の前日比-16.84%）",
+      "fields": {
+        "coin": "NBIS",
+        "symbol": "NBIS",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$130.84",
+        "change_pct": "-14.03%",
+        "oi": "約646万ドル",
+        "volume": "約586万ドル",
+        "funding_annual": "+66.0%",
+        "asof": "日本時間11/13(金) 10:21時点",
+        "asof_short": "10:21時点",
+        "us_change_pct": "-16.84%"
+      },
+      "raw": {
+        "mark": 130.84,
+        "change_pct": -14.029,
+        "oi_usd": 6463813,
+        "vol_usd": 5860468,
+        "funding_annual_pct": 66.01,
+        "us_change_pct": -16.84
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "io:NBIS",
+        "dex": "io"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/io:NBIS"
+      },
+      "asof": "2026-11-13T01:21:07.687737+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "hl:xyz:NBIS:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+55.2%: NBIS（HIP-3株式等先物） 24時間騰落率-13.86%, 価格131.1, 建玉49753808USD, 24時間出来高153087241USD, 資金調達率(年率)+11.5%（照合: 米国株の前日比-16.84%）",
+      "fields": {
+        "coin": "NBIS",
+        "symbol": "NBIS",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$131.10",
+        "change_pct": "-13.86%",
+        "oi": "約4,975万ドル",
+        "volume": "約1.5億ドル",
+        "funding_annual": "+11.5%",
+        "asof": "日本時間11/13(金) 10:21時点",
+        "asof_short": "10:21時点",
+        "oi_change_pct": "+55.2%",
+        "us_change_pct": "-16.84%"
+      },
+      "raw": {
+        "mark": 131.1,
+        "change_pct": -13.863,
+        "oi_usd": 49753808,
+        "vol_usd": 153087241,
+        "funding_annual_pct": 11.54,
+        "us_change_pct": -16.84,
+        "oi_change_pct": 55.21
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NBIS",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NBIS"
+      },
+      "asof": "2026-11-13T01:21:07.687929+00:00",
+      "confidence": "confirmed",
+      "id": "f15"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/io:NBIS"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NBIS"
+    }
+  ],
+  "needs_human": false
+}

@@ -1,0 +1,116 @@
+{
+  "id": "20261113-1000-3",
+  "slot_key": "20261113-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "pending",
+  "created_at": "2026-11-13T01:21:24.946275+00:00",
+  "text": "$KIOXIAの資金調達率が年率+110.1%まで跳ね上がっているの、ロングの過熱感が強すぎない？\n\nHyperliquidの株式先物（HIP-3）で日本時間11/13(金) 10:21時点、KIOXIAの価格は$60.06（-2.45%）と下落する一方で、建玉は+30.1%増えて約886万ドルに達している。",
+  "template": "${{f12.symbol}}の資金調達率が年率{{f12.funding_annual}}まで跳ね上がっているの、ロングの過熱感が強すぎない？\n\nHyperliquidの{{f12.market}}で{{f12.asof}}、{{f12.symbol}}の価格は{{f12.price}}（{{f12.change_pct}}）と下落する一方で、建玉は{{f18.oi_change_pct}}増えて{{f12.oi}}に達している。",
+  "style": "短文",
+  "format": "short",
+  "topic_key": "hl:xyz:KIOXIA:oi_change",
+  "angle": "KIOXIAのHIP-3先物で建玉急増と高水準の資金調達率が同時に起きている過熱感を指摘する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 17,
+    "evidence": 19,
+    "utility": 16,
+    "insight": 16
+  },
+  "total": 84,
+  "fact_ids": [
+    "f12",
+    "f18"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:KIOXIA:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: KIOXIA（HIP-3株式等先物） 24時間騰落率-2.45%, 価格60.056, 建玉8857051USD, 24時間出来高9935372USD, 資金調達率(年率)+110.1%",
+      "fields": {
+        "coin": "KIOXIA",
+        "symbol": "KIOXIA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$60.06",
+        "change_pct": "-2.45%",
+        "oi": "約886万ドル",
+        "volume": "約994万ドル",
+        "funding_annual": "+110.1%",
+        "asof": "日本時間11/13(金) 10:21時点",
+        "asof_short": "10:21時点"
+      },
+      "raw": {
+        "mark": 60.056,
+        "change_pct": -2.454,
+        "oi_usd": 8857051,
+        "vol_usd": 9935372,
+        "funding_annual_pct": 110.05
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:KIOXIA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:KIOXIA"
+      },
+      "asof": "2026-11-13T01:21:07.687815+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    },
+    {
+      "key": "hl:xyz:KIOXIA:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+30.1%: KIOXIA（HIP-3株式等先物） 24時間騰落率-2.45%, 価格60.056, 建玉8857051USD, 24時間出来高9935372USD, 資金調達率(年率)+110.1%",
+      "fields": {
+        "coin": "KIOXIA",
+        "symbol": "KIOXIA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$60.06",
+        "change_pct": "-2.45%",
+        "oi": "約886万ドル",
+        "volume": "約994万ドル",
+        "funding_annual": "+110.1%",
+        "asof": "日本時間11/13(金) 10:21時点",
+        "asof_short": "10:21時点",
+        "oi_change_pct": "+30.1%"
+      },
+      "raw": {
+        "mark": 60.056,
+        "change_pct": -2.454,
+        "oi_usd": 8857051,
+        "vol_usd": 9935372,
+        "funding_annual_pct": 110.05,
+        "oi_change_pct": 30.08
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:KIOXIA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:KIOXIA"
+      },
+      "asof": "2026-11-13T01:21:07.687986+00:00",
+      "confidence": "confirmed",
+      "id": "f18"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:KIOXIA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:KIOXIA"
+    }
+  ],
+  "needs_human": false
+}
