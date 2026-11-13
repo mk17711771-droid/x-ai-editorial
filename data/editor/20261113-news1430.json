@@ -1,0 +1,70 @@
+[
+  {
+    "fact_ids": [
+      "f1",
+      "f3"
+    ],
+    "topic_key": "news:hyperliquid-open-interest-record-q3",
+    "angle": "第3四半期の建玉総額が181億ドルの過去最高を記録する中、BTCが6万8千ドル台へ下落し清算が進む市場の歪みを追う。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "Hyperliquid全体の記録的な建玉拡大と、足元のBTC下落による清算の対比を数字で捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f4",
+      "f21"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "NVDA先物が堅調に推移する一方で、建玉が25%減少しているデリバティブ市場のポジション変化を読み解く。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "主要な半導体銘柄であるNVDAの価格と建玉の増減のギャップに焦点を当てているため。"
+  },
+  {
+    "fact_ids": [
+      "f8",
+      "f19"
+    ],
+    "topic_key": "hl:xyz:NBIS:big_move",
+    "angle": "NBIS先物が15%を超える急落を見せ、建玉が44%急増している異変に迫る。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "個別銘柄における大きな価格変動と建玉の急増という具体的な数値を組み合わせているため。"
+  },
+  {
+    "fact_ids": [
+      "f13",
+      "f17"
+    ],
+    "topic_key": "hl:xyz:UNITREE:funding_extreme",
+    "angle": "SKHXの強烈なロング過熱とUNITREEの極端なショート過熱が示す、HIP-3市場の歪みを暴く。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "資金調達率の異常値を引き合いに出し、デリバティブ市場のポジションの偏りを明確に示しているため。"
+  }
+]
