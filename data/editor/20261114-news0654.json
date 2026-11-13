@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f7",
+      "f17"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "$SOXLが24時間で-13.60%と急落し、HIP-3先物の建玉も32.2%減少している",
+    "scores": {
+      "novelty": 19,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 96,
+    "reason": "半導体レバレッジ先物の急落と建玉の大幅な減少という明確な数字の異変を捉えているため"
+  },
+  {
+    "fact_ids": [
+      "f11",
+      "f25"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "$SKHXの資金調達率が年率-217.6%まで沈み込み、ショートが極端に過熱している",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "主要な半導体関連銘柄における異常な資金調達率の歪みを具体的な数字で示しているため"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f27"
+    ],
+    "topic_key": "hl:BTC:volume_top",
+    "angle": "$BTCが7万ドルを下回り下落する中、安定上位トレーダーの保有は売りが19人と大半を占めている",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "相場の下落局面における上位勢のポジションの偏りを集計データで明確に示しているため"
+  }
+]
