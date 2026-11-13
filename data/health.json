@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-13T05:18:35.411661+00:00",
-  "at_jst": "11/13 14:18",
+  "at": "2026-11-13T05:30:01.249103+00:00",
+  "at_jst": "11/13 14:29",
   "ok": false,
   "issues": [
     {
@@ -49,13 +49,25 @@
             "tippinsights",
             "Yahoo News Canada"
           ]
+        },
+        {
+          "headline": "米司法省、バイナンスハックに関連する北朝鮮資金12億ドルを押収へ",
+          "sources": [
+            "The Crypto Times",
+            "Coin Gabbar"
+          ]
         }
       ]
     },
     {
       "type": "line_quota",
-      "used": 146,
+      "used": 147,
       "limit": 200
+    },
+    {
+      "type": "announced_not_posted",
+      "story": "hyperliquid-open-interest-record-q3",
+      "since": "2026-11-13T04:58:51.018483+00:00"
     },
     {
       "type": "error",
@@ -106,13 +118,6 @@
       "id": 43338240614
     },
     {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-12T23:27:49Z",
-      "id": 43329061328
-    },
-    {
       "type": "many_rejections",
       "n": 16,
       "reasons": [
@@ -127,5 +132,7 @@
       ]
     }
   ],
-  "actions": []
+  "actions": [
+    "速報 hyperliquid-open-interest-record-q3 が投稿されていなかったため出し直し"
+  ]
 }
