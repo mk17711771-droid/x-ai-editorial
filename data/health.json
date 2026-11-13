@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-13T16:36:41.401143+00:00",
-  "at_jst": "11/14 01:36",
+  "at": "2026-11-13T16:46:05.928632+00:00",
+  "at_jst": "11/14 01:45",
   "ok": false,
   "issues": [
     {
@@ -24,19 +24,6 @@
       "type": "line_quota",
       "used": 157,
       "limit": 200
-    },
-    {
-      "type": "error",
-      "command": "decide",
-      "error": "XPostError: 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-      "at": "2026-11-13T10:37:38.549864+00:00"
-    },
-    {
-      "type": "workflow_failed",
-      "name": "tools",
-      "event": "workflow_dispatch",
-      "at": "2026-11-13T10:37:13Z",
-      "id": 43410471008
     },
     {
       "type": "many_rejections",
