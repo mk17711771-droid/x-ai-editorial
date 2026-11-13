@@ -65,7 +65,7 @@ jobs:
             python -m aiedit.cli notify --message "$XC_USERS"
           elif [ "$TOOL" = "delete-post" ]; then
             # 点検からの削除の予備の入口（11/10 decide-draft が「workflow file issue」で起動しなかった）。args_users に下書きIDを入れる
-            python -m aiedit.cli decide --id "$XC_USERS" --action delete
+            QUIET_DELETE=1 python -m aiedit.cli decide --id "$XC_USERS" --action delete
           elif [ "$TOOL" = "x-check" ]; then
             python -m aiedit.cli x-check --users "$XC_USERS" --query "$XC_QUERY"
           elif [ "$TOOL" = "note-trends" ]; then

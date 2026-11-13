@@ -800,5 +800,8 @@ def delete_post(draft: dict) -> str:
     store.record_decision({"id": draft["id"], "action": "delete", "by": "admin", "at": now_utc().isoformat(),
                            "total": draft["total"], "scores": draft["scores"], "style": draft["style"],
                            "topic_key": draft["topic_key"], "text": draft["text"]})
-    line.notify("🗑 投稿を削除しました。理由は今後の改善に使います。")
+    if not os.environ.get("QUIET_DELETE"):
+        # 点検からの削除（tools の delete-post）はLINEで知らせない。管理者がLINEのボタンで消したときだけ確認を返す
+        # （11/13 点検の削除・再試行でLINEを1日26通使い、無料枠の残りが49通になった）
+        line.notify("🗑 投稿を削除しました。理由は今後の改善に使います。")
     return "deleted"

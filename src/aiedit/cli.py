@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import traceback
 
@@ -152,7 +153,10 @@ def main(argv: list[str] | None = None) -> int:
             "error": f"{type(e).__name__}: {e}",
             "traceback": traceback.format_exc()[-4000:],
         })
-        if args.cmd in ("generate", "decide", "note-article", "news-watch"):
+        from . import xapi
+        if args.cmd in ("generate", "decide", "note-article", "news-watch") and not isinstance(e, xapi.XCreditsError) \
+                and "credits depleted" not in str(e) and not (args.cmd == "decide" and os.environ.get("QUIET_DELETE")):
+            # クレジット切れは pipeline が1日1回だけ知らせる。点検からの削除の失敗は点検が見る（LINEの無料枠）
             # リサーチ・学習の失敗は次の回で取り戻せるので、LINEの通数を使わない
             line.notify(f"【異常】{args.cmd} でエラーが発生しました\n{type(e).__name__}: {str(e)[:600]}")
         raise
