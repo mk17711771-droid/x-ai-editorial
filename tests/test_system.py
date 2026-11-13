@@ -1511,3 +1511,10 @@ def test_x_credits_depleted_notifies_once_per_day(isolated, monkeypatch):
     pipeline.notify_credits_depleted()
     pipeline.notify_credits_depleted()
     assert len(sent) == 1 and "クレジット" in sent[0]
+
+
+def test_note_promo_hook_prefers_sentence_with_ticker(isolated):
+    """11/13: 紹介の1行目が「価格は$168.89となり…」と何の価格かわからなかった。銘柄名のある文を優先する。"""
+    from aiedit import note_check
+    store.write_text("note_articles/b/article.md", "# 題\n\n価格は$168.89となり、前日比-5.47%の値下がり。\n\nNVDAの資金調達率は年率-234.5%まで沈んだ。")
+    assert note_check.promote_text({"id": "b", "title": "題"}, "u").startswith("NVDAの資金調達率は年率-234.5%")
