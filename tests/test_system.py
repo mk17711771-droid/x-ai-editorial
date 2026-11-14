@@ -1565,3 +1565,11 @@ def test_field_name_leak_and_repeated_bullets_rejected():
     facts = {"f1": {"fields": {"coin": "SOXL", "price": "$1", "change_pct": "-15%", "funding_annual": "+29.7%", "oi_change_pct": "-33%"}}}
     t = "・SOXL 価格{{f1.price}}、{{f1.change_pct}}、{{f1.funding_annual}}\n・SOXL 建玉{{f1.oi_change_pct}}（{{f1.change_pct}}、{{f1.price}}、{{f1.funding_annual}}）"
     assert any("同じ数字を繰り返して" in e for e in checks.check_template(t, facts))
+
+
+def test_news_headline_not_embedded_mid_sentence():
+    """11/14 20:51: 「ビットコインが{{who}}の急落で{{headline}}となる中」で日本語が崩れた。"""
+    from aiedit import checks
+    facts = {"f1": {"category": "breaking_news", "fields": {"who": "X", "headline": "清算額が14.1億ドルを突破", "what": "急落した。"}}}
+    assert any("見出し" in e for e in checks.check_template("BTCが急落で{{f1.headline}}となる中、資金が流出。", facts))
+    assert not any("見出し" in e for e in checks.check_template("「{{f1.headline}}」と報じられた。", facts))

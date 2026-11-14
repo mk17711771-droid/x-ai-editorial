@@ -297,6 +297,10 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     for fid, field in PLACEHOLDER.findall(template):
         if field == "status" and (facts.get(fid) or {}).get("category") == "breaking_news":
             errors.append("速報の内部の項目（status）を本文に書いている")
+    # 速報の見出し（headline）・説明（what）は、文として置くか「」で囲む。助詞でつないで文の途中に埋め込まない
+    # （11/14 20:51「ビットコインが{{who}}の急落で{{headline}}となる中」で日本語が崩れた）
+    if re.search(r"(?<!「)\{\{\s*f\d+\.(headline|what)\s*\}\}(?!」)\s*(となる|となり|が|を|は|で|の|に|と)", template):
+        errors.append("速報の見出し・説明を文の途中に助詞でつないで埋め込んでいる（文として置くか「」で囲む）")
     if re.search(r"\{\{\s*f\d+\.what\s*\}\}\s*(が|を|は)", template):
         errors.append("速報の説明文（what）を名詞のように「〜が・〜を」で埋め込んでいる（文として使う）")
     # 「建玉が拡大・増加・膨らんでいる」は、変化率の材料（*_change_pct）を使うときだけ（11/14 07:52 建玉合計123.8億ドルを

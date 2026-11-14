@@ -205,6 +205,8 @@ def promote_text(meta: dict, url: str) -> str:
     # 1行目は記事の中で一番強い「数字の入った一文」（Xで伸びる型＝大きな名前＋数字1つ。11/7 定型の書き出しの紹介は22表示）
     numeric = [x for x in sentences if re.search(r"\d[\d.,]*\s*(%|％|ドル|倍|億|万)", x) and 15 <= len(x) <= 70]
     # 銘柄名（NVDA・HYPEなど）が入った文を優先する（11/13 「価格は$168.89となり…」と主語のない1行目になった）
+    # 「ETHに関しても…」のように前の文を受ける書き出しは、1行目だけでは意味が通らない（11/14 19:36）
+    numeric = [x for x in numeric if not re.search(r"^.{0,12}(に関しても|についても|も同様|も、)", x)] or numeric
     hook = next((x for x in numeric if re.search(r"[A-Z]{2,}|エヌビディア|ハイパーリキッド|Hyperliquid", x)), numeric[0] if numeric else "")
     hook = re.sub(r"^(また|さらに|一方で|一方|そして|なお)、", "", hook)
     lead = sentences[0] if sentences else ""
