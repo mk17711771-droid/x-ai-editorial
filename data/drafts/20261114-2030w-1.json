@@ -1,0 +1,152 @@
+{
+  "id": "20261114-2030w-1",
+  "slot_key": "20261114-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "posted",
+  "created_at": "2026-11-14T11:49:35.358268+00:00",
+  "text": "ビットコインの急落と連動して、半導体レバレッジ先物のポジションはどれほどの速度で巻き戻されているのか。\n\n【いま起きてること】\nビットコインがCrypto Marketの急落でビットコイン急落で清算額が14.1億ドルを突破となる中、市場全体の調整局面でデリバティブ市場からの資金流出が加速している。半導体レバレッジ先物市場でも、現物の大幅な下落と連動する形で急速なポジション整理が進んでいる。\n\n【数字で見る】（日本時間11/14(土) 20:49時点）\n・$SOXL 価格$55.98、24時間騰落率-14.33%、建玉約2,173万ドル、24時間出来高約2.4億ドル、資金調達率年率-2.7%、米国株前日比-11.00%\n・SOXL 建玉の24時間変化-31.6%\n\n【なぜ「歪み」なのか】\n暗号資産全体で大規模な清算が発生する中で、半導体レバレッジ先物は24時間騰落率-14.33%と急ピッチで下落し、建玉も-31.6%という大幅な減少を記録している。現物側の米国株前日比-11.00%の下落圧力がデリバティブ側にそのまま直撃し、滞留していたレバレッジが一気に解消された形だ。個人的には、この急速なポジションの巻き戻しが完了したあとに残る需給の歪みこそが、次のトレンド転換を測る重要なシグナルになると見ている。\n\n【次に見るポイント】\n①約2,173万ドルまで減少した建玉の推移とさらなる投げ売りの有無\n②年率-2.7%まで低下した資金調達率の変動\n③現物市場における米国株の下落トレンドの落ち着きどころ",
+  "template": "ビットコインの急落と連動して、半導体レバレッジ先物のポジションはどれほどの速度で巻き戻されているのか。\n\n【いま起きてること】\nビットコインが{{f1.who}}の急落で{{f1.headline}}となる中、市場全体の調整局面でデリバティブ市場からの資金流出が加速している。半導体レバレッジ先物市場でも、現物の大幅な下落と連動する形で急速なポジション整理が進んでいる。\n\n【数字で見る】（{{f8.asof}}）\n・${{f8.symbol}} 価格{{f8.price}}、24時間騰落率{{f8.change_pct}}、建玉{{f8.oi}}、24時間出来高{{f8.volume}}、資金調達率{{f8.funding_annual}}、米国株前日比{{f8.us_change_pct}}\n・${{f18.symbol}} 建玉の24時間変化{{f18.oi_change_pct}}\n\n【なぜ「歪み」なのか】\n暗号資産全体で大規模な清算が発生する中で、半導体レバレッジ先物は24時間騰落率{{f8.change_pct}}と急ピッチで下落し、建玉も{{f18.oi_change_pct}}という大幅な減少を記録している。現物側の米国株前日比{{f8.us_change_pct}}の下落圧力がデリバティブ側にそのまま直撃し、滞留していたレバレッジが一気に解消された形だ。個人的には、この急速なポジションの巻き戻しが完了したあとに残る需給の歪みこそが、次のトレンド転換を測る重要なシグナルになると見ている。\n\n【次に見るポイント】\n①{{f8.oi}}まで減少した建玉の推移とさらなる投げ売りの有無\n②年率{{f8.funding_annual}}まで低下した資金調達率の変動\n③現物市場における米国株の下落トレンドの落ち着きどころ",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:SOXL:big_move",
+  "angle": "ビットコインの7万ドル割れと連動した全体的調整の中で、半導体レバレッジ先物からいかに急速にポジションが巻き戻されているかを整理する",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f1",
+    "f8",
+    "f18"
+  ],
+  "facts": [
+    {
+      "key": "news:crypto-liquidations-drop-below-70k",
+      "kind": "hl",
+      "asof": "2026-11-13T05:29:42.126496+00:00",
+      "expires_at": "2026-11-14T17:29:42.126511+00:00",
+      "status": "pending",
+      "first_reported_at": "Fri, 13 Nov 2026 05:15:58 GMT",
+      "summary": "ビットコインが7万ドルを下回り、一時6万9千ドル割れまで下落した。市場全体の急落に伴い、暗号資産全体の強制ロスカット（清算）総額は14.1億ドルに達している。ボラティリティの拡大によりオンチェーンおよびCEXのポジション整理が急ピッチで進んでいる。",
+      "fields": {
+        "headline": "ビットコイン急落で清算額が14.1億ドルを突破",
+        "what": "7万ドル割れに伴う急落で大規模な清算が発生した。",
+        "status": "確定",
+        "who": "Crypto Market"
+      },
+      "raw": {},
+      "source": {
+        "name": "CryptoTicker.io・The Crypto Times",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:xyz:SOXL:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: SOXL（HIP-3株式等先物） 24時間騰落率-14.33%, 価格55.978, 建玉21731077USD, 24時間出来高237732770USD, 資金調達率(年率)-2.7%（照合: 米国株の前日比-11.00%）",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$55.98",
+        "change_pct": "-14.33%",
+        "oi": "約2,173万ドル",
+        "volume": "約2.4億ドル",
+        "funding_annual": "-2.7%",
+        "asof": "日本時間11/14(土) 20:49時点",
+        "asof_short": "20:49時点",
+        "us_change_pct": "-11.00%"
+      },
+      "raw": {
+        "mark": 55.978,
+        "change_pct": -14.335,
+        "oi_usd": 21731077,
+        "vol_usd": 237732770,
+        "funding_annual_pct": -2.71,
+        "us_change_pct": -11.003
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-14T11:49:14.022690+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "hl:xyz:SOXL:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化-31.6%: SOXL（HIP-3株式等先物） 24時間騰落率-14.33%, 価格55.978, 建玉21731077USD, 24時間出来高237732770USD, 資金調達率(年率)-2.7%（照合: 米国株の前日比-11.00%）",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$55.98",
+        "change_pct": "-14.33%",
+        "oi": "約2,173万ドル",
+        "volume": "約2.4億ドル",
+        "funding_annual": "-2.7%",
+        "asof": "日本時間11/14(土) 20:49時点",
+        "asof_short": "20:49時点",
+        "oi_change_pct": "-31.6%",
+        "us_change_pct": "-11.00%"
+      },
+      "raw": {
+        "mark": 55.978,
+        "change_pct": -14.335,
+        "oi_usd": 21731077,
+        "vol_usd": 237732770,
+        "funding_annual_pct": -2.71,
+        "us_change_pct": -11.003,
+        "oi_change_pct": -31.59
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-14T11:49:14.022914+00:00",
+      "confidence": "confirmed",
+      "id": "f18"
+    }
+  ],
+  "sources": [
+    {
+      "name": "CryptoTicker.io・The Crypto Times",
+      "url": ""
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2121571799125336358",
+  "posted_at": "2026-11-14T11:51:48.677019+00:00"
+}
