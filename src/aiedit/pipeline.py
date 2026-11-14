@@ -356,6 +356,50 @@ def _write_once(slot: dict, system: str, user: str, used: list[dict], facts_by_i
     return None
 
 
+def _write_drafts(slot: dict, cands: list[dict], key: str, seq: int, facts_by_id: dict, recent_topics: set,
+                  recent_syms: set, tried_syms: set, cfg: dict) -> list[dict]:
+    """候補を順に書かせ、チェックを通った下書きを返す。"""
+    drafts: list[dict] = []
+    for cand in cands:
+        if len(drafts) >= cfg["limits"]["max_candidates_per_slot"]:
+            break
+        if any(d["topic_key"] == cand.get("topic_key") for d in drafts):
+            continue
+        if cand.get("topic_key") in recent_topics:
+            log.info("候補 %s は直近に投稿済みの話題なので飛ばします", cand.get("topic_key"))
+            continue
+        if slot["id"] != "news" and _cand_symbol(cand, facts_by_id) in recent_syms:
+            # 主役の銘柄を直近に出している候補は、書かせる前に飛ばす（11/3 23時 $SKHXの案を何度も書かせて枠を落とした）
+            log.info("候補 %s は主役の銘柄を直近に投稿済みなので飛ばします", cand.get("topic_key"))
+            continue
+        tried_syms.add(_cand_symbol(cand, facts_by_id))
+        w = run_writer(slot, cand, facts_by_id)
+        if not w:
+            continue
+        draft = {
+            "id": f"{key}-{seq + len(drafts)}",
+            "slot_key": key,
+            "slot_theme": f"{slot['time']} {slot['theme']}",
+            "status": "pending",
+            "created_at": now_utc().isoformat(),
+            "text": w["text"],
+            "template": w["template"],
+            "style": w["style"],
+            "format": w["format"],
+            "topic_key": w["topic_key"],
+            "angle": cand.get("angle", ""),
+            "scores": cand["scores"],
+            "total": cand["total"],
+            "fact_ids": cand["fact_ids"],
+            "facts": w["facts"],
+            "sources": [f["source"] for f in w["facts"]],
+            "needs_human": any(f["confidence"] == "headline" for f in w["facts"]),
+        }
+        store.save_draft(draft)
+        drafts.append(draft)
+    return drafts
+
+
 def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
     ensure_running()
     cfg = settings()
@@ -446,42 +490,20 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
                 picked = news_cands([c for c in again if c["total"] >= cfg["scoring"]["auto_post_min"] - 10])
         cands = picked
     drafts = []
-    for cand in cands:
-        if len(drafts) >= cfg["limits"]["max_candidates_per_slot"]:
-            break
-        if any(d["topic_key"] == cand.get("topic_key") for d in drafts):
-            continue
-        if cand.get("topic_key") in recent_topics:
-            log.info("候補 %s は直近に投稿済みの話題なので飛ばします", cand.get("topic_key"))
-            continue
-        if slot["id"] != "news" and _cand_symbol(cand, facts_by_id) in recent_syms:
-            # 主役の銘柄を直近に出している候補は、書かせる前に飛ばす（11/3 23時 $SKHXの案を何度も書かせて枠を落とした）
-            log.info("候補 %s は主役の銘柄を直近に投稿済みなので飛ばします", cand.get("topic_key"))
-            continue
-        w = run_writer(slot, cand, facts_by_id)
-        if not w:
-            continue
-        draft = {
-            "id": f"{key}-{seq + len(drafts)}",
-            "slot_key": key,
-            "slot_theme": f"{slot['time']} {slot['theme']}",
-            "status": "pending",
-            "created_at": now_utc().isoformat(),
-            "text": w["text"],
-            "template": w["template"],
-            "style": w["style"],
-            "format": w["format"],
-            "topic_key": w["topic_key"],
-            "angle": cand.get("angle", ""),
-            "scores": cand["scores"],
-            "total": cand["total"],
-            "fact_ids": cand["fact_ids"],
-            "facts": w["facts"],
-            "sources": [f["source"] for f in w["facts"]],
-            "needs_human": any(f["confidence"] == "headline" for f in w["facts"]),
-        }
-        store.save_draft(draft)
-        drafts.append(draft)
+    tried_syms: set[str] = set()
+    for _round in range(2):
+        if _round == 1:
+            if drafts or slot["id"] in ("news", "newslong"):
+                break
+            # 1巡目の候補が全部だめだったら、主役を変えて編集をやり直す（11/14 10時 候補3件のうち2件が直近の銘柄、
+            # 残り1件はSOXLとSOXXの比較で2回とも破棄され、週末の長文の枠を落とした）
+            avoid = sorted((recent_syms | tried_syms) - {""})
+            log.info("1巡目で原稿ができなかったため、主役を変えて編集をやり直します（除外: %s）", "・".join(avoid))
+            again = run_editor(slot, facts, exclude=recent_topics,
+                               must=f"次の銘柄は主役にしない: {'・'.join(avoid)}。主役の違う候補を3件以上出す")
+            cands = [c for c in again if c["total"] >= cfg["scoring"]["auto_post_min"]]
+        skip = recent_syms | (set(tried_syms) if _round else set())  # 2巡目は1巡目で失敗した銘柄も避ける
+        drafts = _write_drafts(slot, cands, key, seq, facts_by_id, recent_topics, skip, tried_syms, cfg)
 
     if os.environ.get("DRY_RUN"):
         # 試し書き: 下書きを保存するだけで、投稿もLINE通知もしない

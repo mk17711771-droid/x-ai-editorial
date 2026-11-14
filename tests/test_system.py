@@ -1544,3 +1544,15 @@ def test_oi_growth_claim_needs_change_data():
     facts = {"f1": {"fields": {"total_oi": "約123.8億ドル", "hip3_oi_change_pct": "+0.2%"}}}
     assert any("変化を示す材料" in e for e in checks.check_template("建玉が{{f1.total_oi}}に達し、規模が一段と拡大している。", facts))
     assert not any("変化を示す材料" in e for e in checks.check_template("HIP-3の建玉は24時間で{{f1.hip3_oi_change_pct}}と増加。", facts))
+
+
+def test_write_drafts_tracks_tried_symbols(monkeypatch):
+    """11/14 10時: 候補が全部失敗したら主役を変えてやり直すため、試した銘柄を記録する。"""
+    from aiedit import pipeline
+    monkeypatch.setattr(pipeline, "run_writer", lambda *a, **k: None)
+    tried = set()
+    facts = {"f1": {"id": "f1", "kind": "stock", "fields": {"symbol": "SOXL"}, "key": "stock:SOXL:x"}}
+    cands = [{"topic_key": "stock:SOXL:x", "fact_ids": ["f1"], "total": 90, "scores": {}}]
+    out = pipeline._write_drafts({"id": "1000w"}, cands, "k", 1, facts, set(), set(), tried,
+                                 {"limits": {"max_candidates_per_slot": 3}})
+    assert out == [] and "SOXL" in tried
