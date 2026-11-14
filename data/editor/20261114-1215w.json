@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f14",
+      "f15"
+    ],
+    "topic_key": "hl:xyz:MSTR:funding_extreme",
+    "angle": "暗号資産全体の急落に伴う市場の動揺の中、MSTRやCOINのHIP-3株式先物でショート勢の支払いが急増している異常な資金調達率の歪みを指摘する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "MSTRの年率-211.0%という極端な資金調達率の数字を基に、デリバティブ市場におけるポジションの偏りを明確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f11",
+      "f21"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "半導体レバレッジ型先物市場における急激なポジションの手仕舞いと価格下落の相関関係にスポットを当てる。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "SOXLの24時間で33.2%という大幅な建玉減少と価格下落のデータを組み合わせ、実需の動きを的確に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f4"
+    ],
+    "topic_key": "hl:BTC:volume_top",
+    "angle": "ビットコインの7万ドル割れと大規模な清算が発生する中で、主要デリバティブ市場の建玉と資金調達率に表れた需給の歪みを伝える。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "市場全体の急落イベントとHyperliquid上の具体的な建玉規模およびマイナスの資金調達率を論理的に結びつけているため。"
+  }
+]
