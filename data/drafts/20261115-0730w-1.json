@@ -1,0 +1,74 @@
+{
+  "id": "20261115-0730w-1",
+  "slot_key": "20261115-0730w",
+  "slot_theme": "07:42 週末の朝: 米国市場が閉まっている間に動いたHIP-3株式先物・HYPE・BTCの数字1つ（大きな名前＋極端な数字を1行目で言い切る）",
+  "status": "posted",
+  "created_at": "2026-11-14T22:59:18.767135+00:00",
+  "text": "$NVDAの24時間騰落率が-1.61%まで下がる中で、資金調達率は年率-28.7%に突入している。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/15(日) 07:53時点、建玉は約3.8億ドル規模を維持しながらポジションの偏りが起きているのが気になるところ。",
+  "template": "${{f22.coin}}の24時間騰落率が{{f22.change_pct}}まで下がる中で、資金調達率は年率{{f22.funding_annual}}に突入している。\n\nHyperliquidの{{f22.market}}で{{f22.asof}}、建玉は{{f22.oi}}規模を維持しながらポジションの偏りが起きているのが気になるところ。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "hl:xyz:NVDA:hip3_top",
+  "angle": "週末のHIP-3先物におけるエヌビディア先物の値動きとマイナス資金調達率の乖離に焦点を当てる",
+  "scores": {
+    "novelty": 16,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 88,
+  "fact_ids": [
+    "f22"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-1.61%, 価格158.64, 建玉375322301USD, 24時間出来高138509765USD, 資金調達率(年率)-28.7%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$158.64",
+        "change_pct": "-1.61%",
+        "oi": "約3.8億ドル",
+        "volume": "約1.4億ドル",
+        "funding_annual": "-28.7%",
+        "asof": "日本時間11/15(日) 07:53時点",
+        "asof_short": "07:53時点"
+      },
+      "raw": {
+        "mark": 158.64,
+        "change_pct": -1.613,
+        "oi_usd": 375322301,
+        "vol_usd": 138509765,
+        "funding_annual_pct": -28.65
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-14T22:53:04.264809+00:00",
+      "confidence": "confirmed",
+      "id": "f22"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2121739789661524343",
+  "posted_at": "2026-11-14T22:59:20.781160+00:00"
+}

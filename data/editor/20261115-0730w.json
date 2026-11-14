@@ -1,0 +1,50 @@
+[
+  {
+    "fact_ids": [
+      "f11"
+    ],
+    "topic_key": "hl:xyz:CRCL:funding_extreme",
+    "angle": "CRCLのHIP-3株式先物で起きた極端なショート過熱と資金調達率の異常値を伝える",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "休日中のHIP-3市場における極端な資金調達率の歪みを具体的な数字で示しており基準を満たしているため"
+  },
+  {
+    "fact_ids": [
+      "f15"
+    ],
+    "topic_key": "hl:xyz:SOXL:funding_extreme",
+    "angle": "週末のHIP-3先物におけるSOXLの過剰なショート偏重と資金調達率の歪みを指摘する",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "半導体レバレッジ銘柄のデリバティブ市場における極端な数値を端的に伝えているため"
+  },
+  {
+    "fact_ids": [
+      "f22"
+    ],
+    "topic_key": "hl:xyz:NVDA:hip3_top",
+    "angle": "週末のHIP-3先物におけるエヌビディア先物の値動きとマイナス資金調達率の乖離に焦点を当てる",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "主要な半導体銘柄の休日中のデリバティブ動向を的確に捉えているため"
+  }
+]
