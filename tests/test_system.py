@@ -1536,3 +1536,11 @@ def test_line_sends_only_essential(monkeypatch):
     monkeypatch.setattr(_store, "append_jsonl", lambda *a, **k: None)
     assert line.notify("速報をキャッチ") is False and calls == []
     assert line.notify("noteの記事ができました", essential=True) is True and calls == [1]
+
+
+def test_oi_growth_claim_needs_change_data():
+    """11/14 07:52: 建玉合計123.8億ドルを「規模が一段と拡大」と書いたが、実際は前週の146億ドルから減っていた。"""
+    from aiedit import checks
+    facts = {"f1": {"fields": {"total_oi": "約123.8億ドル", "hip3_oi_change_pct": "+0.2%"}}}
+    assert any("変化を示す材料" in e for e in checks.check_template("建玉が{{f1.total_oi}}に達し、規模が一段と拡大している。", facts))
+    assert not any("変化を示す材料" in e for e in checks.check_template("HIP-3の建玉は24時間で{{f1.hip3_oi_change_pct}}と増加。", facts))

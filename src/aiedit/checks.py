@@ -299,6 +299,14 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
             errors.append("速報の内部の項目（status）を本文に書いている")
     if re.search(r"\{\{\s*f\d+\.what\s*\}\}\s*(が|を|は)", template):
         errors.append("速報の説明文（what）を名詞のように「〜が・〜を」で埋め込んでいる（文として使う）")
+    # 「建玉が拡大・増加・膨らんでいる」は、変化率の材料（*_change_pct）を使うときだけ（11/14 07:52 建玉合計123.8億ドルを
+    # 「規模が一段と拡大」と書いたが、11/8の約146億ドルから減っていた）
+    plain = PLACEHOLDER.sub("", template)
+    if re.search(r"(建玉|オープンインタレスト|規模|出来高)[^。\n]{0,25}(拡大|増加|膨らん|急増|伸び|積み上が|膨張)", plain) or \
+            re.search(r"(拡大|増加|膨らん|急増|積み上が)[^。\n]{0,10}(建玉|オープンインタレスト)", plain):
+        fields_used = {f for _, f in PLACEHOLDER.findall(template)}
+        if not any(f.endswith("change_pct") or f in ("oi_change", "volume_change") for f in fields_used):
+            errors.append("建玉・出来高が「拡大・増加・膨らんだ」と書いているが、変化を示す材料（〜の24時間変化など）を使っていない")
     # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
     for ln in template.split("\n"):
         if not ln.strip().startswith(("・", "-")):
