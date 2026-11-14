@@ -1,0 +1,74 @@
+{
+  "id": "20261114-2300w-1",
+  "slot_key": "20261114-2300w",
+  "slot_theme": "23:13 週末の夜: 週明けの米国市場の前に、HIP-3株式先物が示している方向（金曜終値との差・資金調達率の偏り）",
+  "status": "posted",
+  "created_at": "2026-11-14T14:38:13.647181+00:00",
+  "text": "$COINの資金調達率が年率-335.1%という極端な水準に達している。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/14(土) 23:35時点、価格は$121.47（-6.64%）、建玉は約1,590万ドル、24時間出来高は約2,044万ドルとなっており、ショート側のコスト負担が限界に近づいているっぽい。",
+  "template": "$COINの資金調達率が年率{{f13.funding_annual}}という極端な水準に達している。\n\nHyperliquidの{{f13.market}}で{{f13.asof}}、価格は{{f13.price}}（{{f13.change_pct}}）、建玉は{{f13.oi}}、24時間出来高は{{f13.volume}}となっており、ショート側のコスト負担が限界に近づいているっぽい。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:COIN:funding_extreme",
+  "angle": "COINのHIP-3先物で資金調達率が年率-335.1%まで沈み、ショート過熱の歪みが拡大している点に焦点を当てる。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f13"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:COIN:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: COIN（HIP-3株式等先物） 24時間騰落率-6.64%, 価格121.47, 建玉15902553USD, 24時間出来高20444368USD, 資金調達率(年率)-335.1%",
+      "fields": {
+        "coin": "COIN",
+        "symbol": "COIN",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$121.47",
+        "change_pct": "-6.64%",
+        "oi": "約1,590万ドル",
+        "volume": "約2,044万ドル",
+        "funding_annual": "-335.1%",
+        "asof": "日本時間11/14(土) 23:35時点",
+        "asof_short": "23:35時点"
+      },
+      "raw": {
+        "mark": 121.47,
+        "change_pct": -6.641,
+        "oi_usd": 15902553,
+        "vol_usd": 20444368,
+        "funding_annual_pct": -335.06
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:COIN",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:COIN"
+      },
+      "asof": "2026-11-14T14:35:59.838764+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:COIN"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2121613688117629315",
+  "posted_at": "2026-11-14T14:38:15.808452+00:00"
+}
