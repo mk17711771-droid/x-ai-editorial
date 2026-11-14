@@ -1,0 +1,186 @@
+{
+  "id": "20261114-1000w-2",
+  "slot_key": "20261114-1000w",
+  "slot_theme": "10:17 今週の振り返り（長文）: 1週間でいちばんの“違和感”（大きく上げた・下げた銘柄、明暗）を「なぜ〜？」の問いで主役にし、HIP-3株式先物と米国株の数字で読み解く",
+  "status": "superseded",
+  "created_at": "2026-11-14T03:14:17.478189+00:00",
+  "text": "価格が1週間で-10.89%と急落する裏で、なぜ上位勢はロングわずか2人に対して19人ものショートを積み上げているのか。\n\n【いま起きてること】\n市場全体で7万ドル割れに伴う急落で大規模な清算が発生した。とされる中、$BTCは節目の水準を割り込んで売りが加速している。急激なボラティリティの上昇に伴いデリバティブ市場ではポジションの偏りが極端な水準に達している。\n\n【数字で見る】（日本時間11/14(土) 12:09時点）\n・BTC（無期限先物） 価格$67,593、1週間騰落率-10.89%、建玉約26.4億ドル、資金調達率（年率）-5.2%\n・安定上位トレーダー（日本時間11/14(土) 11:36時点）46人中BTC保有21人、買い2人対売り19人、売り総額約1,809万ドル、平均レバレッジ29.3倍\n\n【歪みの構造】\n下落局面において一般的には値ごろ感からの逆張り買いが入りやすいが、Hyperliquidの安定上位トレーダーでは買い比率がわずか10%に留まり、ショート金額が約1,809万ドルに達している。一方で無期限先物の資金調達率は年率-5.2%と明確なマイナスを示しており、売り手側がコストを支払ってポジションを維持している状況だ。事実として上位勢は平均レバレッジ29.3倍で売り方向にポジションを集中させているが、推測としては、この極端な偏りが一段の下落を狙う動きであると同時に、相場が反発した際のショートスクイーズを引き起こす潜在的な要因にもなっている可能性がある。\n\n【次に見るポイント】\n①年率-5.2%となっている資金調達率がプラス圏へ反転するか\n②売り比率が支配的となっている安定上位トレーダーの建玉動向\n③約26.4億ドル規模の建玉が急激に減少する清算イベントの有無",
+  "template": "価格が1週間で{{f1.week_change_pct}}と急落する裏で、なぜ上位勢はロングわずか{{f46.long_n}}に対して{{f46.short_n}}ものショートを積み上げているのか。\n\n【いま起きてること】\n市場全体で{{f18.what}}とされる中、${{f1.symbol}}は節目の水準を割り込んで売りが加速している。急激なボラティリティの上昇に伴いデリバティブ市場ではポジションの偏りが極端な水準に達している。\n\n【数字で見る】（{{f1.asof}}）\n・${{f1.symbol}}（無期限先物） 価格{{f1.price}}、1週間騰落率{{f1.week_change_pct}}、建玉{{f1.oi}}、資金調達率（年率）{{f1.funding_annual}}\n・{{f46.cohort}}（{{f46.asof}}） {{f46.top_n}}中BTC保有{{f46.holders}}、買い{{f46.long_n}}対売り{{f46.short_n}}、売り総額{{f46.short_usd}}、平均レバレッジ{{f46.avg_leverage}}\n\n【歪みの構造】\n下落局面において一般的には値ごろ感からの逆張り買いが入りやすいが、{{f46.venue}}の{{f46.cohort}}では買い比率がわずか{{f46.long_ratio}}に留まり、ショート金額が{{f46.short_usd}}に達している。一方で無期限先物の資金調達率は年率{{f1.funding_annual}}と明確なマイナスを示しており、売り手側がコストを支払ってポジションを維持している状況だ。事実として上位勢は平均レバレッジ{{f46.avg_leverage}}で売り方向にポジションを集中させているが、推測としては、この極端な偏りが一段の下落を狙う動きであると同時に、相場が反発した際のショートスクイーズを引き起こす潜在的な要因にもなっている可能性がある。\n\n【次に見るポイント】\n①年率{{f1.funding_annual}}となっている資金調達率がプラス圏へ反転するか\n②売り比率が支配的となっている{{f46.cohort}}の建玉動向\n③{{f1.oi}}規模の建玉が急激に減少する清算イベントの有無",
+  "style": "構造解説型",
+  "format": "long",
+  "topic_key": "hl:BTC:week_change",
+  "angle": "ビットコインが1週間で-10.89%下落し7万ドル割れとなる中で、安定上位トレーダー46人のうちBTCを持つ21人の内訳が売り19人と極端な偏りを見せている構造を解説する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f1",
+    "f18",
+    "f20",
+    "f46"
+  ],
+  "facts": [
+    {
+      "key": "hl:BTC:week_change",
+      "kind": "hl",
+      "category": "week_change",
+      "summary": "1週間の値動き-10.89%: BTC（無期限先物）",
+      "fields": {
+        "coin": "BTC",
+        "symbol": "BTC",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$67,593",
+        "change_pct": "-3.11%",
+        "oi": "約26.4億ドル",
+        "volume": "約48.7億ドル",
+        "funding_annual": "-5.2%",
+        "asof": "日本時間11/14(土) 12:09時点",
+        "asof_short": "12:09時点",
+        "week_change_pct": "-10.89%"
+      },
+      "raw": {
+        "mark": 67593.0,
+        "change_pct": -3.111,
+        "oi_usd": 2644677690,
+        "vol_usd": 4874887280,
+        "funding_annual_pct": -5.23,
+        "week_change_pct": -10.886
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BTC",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BTC"
+      },
+      "asof": "2026-11-14T03:09:38.087891+00:00",
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "news:crypto-liquidations-drop-below-70k",
+      "kind": "hl",
+      "asof": "2026-11-13T05:29:42.126496+00:00",
+      "expires_at": "2026-11-14T17:29:42.126511+00:00",
+      "status": "pending",
+      "first_reported_at": "Fri, 13 Nov 2026 05:15:58 GMT",
+      "summary": "ビットコインが7万ドルを下回り、一時6万9千ドル割れまで下落した。市場全体の急落に伴い、暗号資産全体の強制ロスカット（清算）総額は14.1億ドルに達している。ボラティリティの拡大によりオンチェーンおよびCEXのポジション整理が急ピッチで進んでいる。",
+      "fields": {
+        "headline": "ビットコイン急落で清算額が14.1億ドルを突破",
+        "what": "7万ドル割れに伴う急落で大規模な清算が発生した。",
+        "status": "確定",
+        "who": "Crypto Market"
+      },
+      "raw": {},
+      "source": {
+        "name": "CryptoTicker.io・The Crypto Times",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f18"
+    },
+    {
+      "key": "hl:BTC:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: BTC（無期限先物） 24時間騰落率-3.09%, 価格67607.0, 建玉2645204709USD, 24時間出来高4874876779USD, 資金調達率(年率)-5.2%",
+      "fields": {
+        "coin": "BTC",
+        "symbol": "BTC",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$67,607",
+        "change_pct": "-3.09%",
+        "oi": "約26.5億ドル",
+        "volume": "約48.7億ドル",
+        "funding_annual": "-5.2%",
+        "asof": "日本時間11/14(土) 12:09時点",
+        "asof_short": "12:09時点"
+      },
+      "raw": {
+        "mark": 67607.0,
+        "change_pct": -3.09,
+        "oi_usd": 2645204709,
+        "vol_usd": 4874876779,
+        "funding_annual_pct": -5.16
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BTC",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BTC"
+      },
+      "asof": "2026-11-14T03:09:35.499838+00:00",
+      "confidence": "confirmed",
+      "id": "f20"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-14T02:36:21.137763+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:BTC:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー46人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、BTCを持っている21人の内訳: 買い2人・売り19人（買い比率10%）、買い合計233410USD・売り合計18094611USD、平均レバレッジ29.3倍（このほか、現物つきの売り＝ヘッジ・裁定が3人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "BTC",
+        "top_n": "46人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "21人",
+        "long_n": "2人",
+        "short_n": "19人",
+        "long_ratio": "10%",
+        "long_usd": "約23万ドル",
+        "short_usd": "約1,809万ドル",
+        "hedge_n": "3人",
+        "avg_leverage": "29.3倍",
+        "asof": "日本時間11/14(土) 11:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 2,
+        "short_n": 19,
+        "long_usd": 233410,
+        "short_usd": 18094611
+      },
+      "id": "f46"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BTC"
+    },
+    {
+      "name": "CryptoTicker.io・The Crypto Times",
+      "url": ""
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BTC"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false
+}
