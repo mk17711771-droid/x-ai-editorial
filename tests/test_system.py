@@ -1556,3 +1556,12 @@ def test_write_drafts_tracks_tried_symbols(monkeypatch):
     out = pipeline._write_drafts({"id": "1000w"}, cands, "k", 1, facts, set(), set(), tried,
                                  {"limits": {"max_candidates_per_slot": 3}})
     assert out == [] and "SOXL" in tried
+
+
+def test_field_name_leak_and_repeated_bullets_rejected():
+    """11/14 12:14: 「（市場: 株式先物（HIP-3）、venue: Hyperliquid）」と項目名が出て、SOXLの行を2本並べた。"""
+    from aiedit import checks
+    assert any("項目名" in e for e in checks.check_text("SOXL 価格$55.98（市場: 株式先物、venue: Hyperliquid）", "hl:x", "long"))
+    facts = {"f1": {"fields": {"coin": "SOXL", "price": "$1", "change_pct": "-15%", "funding_annual": "+29.7%", "oi_change_pct": "-33%"}}}
+    t = "・SOXL 価格{{f1.price}}、{{f1.change_pct}}、{{f1.funding_annual}}\n・SOXL 建玉{{f1.oi_change_pct}}（{{f1.change_pct}}、{{f1.price}}、{{f1.funding_annual}}）"
+    assert any("同じ数字を繰り返して" in e for e in checks.check_template(t, facts))

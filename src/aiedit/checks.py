@@ -307,6 +307,13 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         fields_used = {f for _, f in PLACEHOLDER.findall(template)}
         if not any(f.endswith("change_pct") or f in ("oi_change", "volume_change") for f in fields_used):
             errors.append("建玉・出来高が「拡大・増加・膨らんだ」と書いているが、変化を示す材料（〜の24時間変化など）を使っていない")
+    # 箇条書きで同じ数字を繰り返さない（11/14 12:14 SOXLの行が2本、同じ値を並べた）
+    bullet_sets = [frozenset(f"{a}.{b}" for a, b in PLACEHOLDER.findall(ln)) for ln in template.split("\n")
+                   if ln.strip().startswith(("・", "-")) and PLACEHOLDER.search(ln)]
+    for i, a in enumerate(bullet_sets):
+        if any(len(a & b) >= 3 for b in bullet_sets[i + 1:]):
+            errors.append("箇条書きの2つの行で同じ数字を繰り返している（1つの行にまとめる）")
+            break
     # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
     for ln in template.split("\n"):
         if not ln.strip().startswith(("・", "-")):
@@ -460,7 +467,7 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     if fmt == "short" and not str(topic_key).startswith("news:") and not re.search(r"[0-9０-９]", first):
         # 伸びた短文は1行目に数字が1つある（11/4 $SOXL 年率-304.1% → 380表示）。数字のない1行目（「〜について解説する」）は弱い
         errors.append("1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）")
-    if re.search(r"\b(asof|change_pct|funding_annual|basis|oi_change_pct|us_change_pct)\b", text):
+    if re.search(r"\b(asof|change_pct|funding_annual|basis|oi_change_pct|us_change_pct|venue|market|symbol|coin)\b|venue:|市場:", text):
         errors.append("データの項目名（asof など）が本文にそのまま出ている")
     cross = _sector_vs_index(text)
     if cross:  # 11/10 09:16 半導体ETF（SOXX +7.49%）とナスダック100先物（+3.92%）の差を「現物との違い」とした
