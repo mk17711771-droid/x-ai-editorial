@@ -318,6 +318,12 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         if any(len(a & b) >= 3 for b in bullet_sets[i + 1:]):
             errors.append("箇条書きの2つの行で同じ数字を繰り返している（1つの行にまとめる）")
             break
+    # HIP-3・Hyperliquidの先物の価格を「現物価格」と書かない（11/14 21:18「現物価格$56.00」はSOXLの先物の価格）
+    for m in re.finditer(r"現物(?:の)?(?:価格|値)\s*\{\{\s*(f\d+)\.(price|change_pct)\s*\}\}", template):
+        f = facts.get(m.group(1)) or {}
+        if f.get("kind") == "hl" or "先物" in str((f.get("fields") or {}).get("market", "")):
+            errors.append("Hyperliquidの先物の数字を「現物」と書いている")
+            break
     # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
     for ln in template.split("\n"):
         if not ln.strip().startswith(("・", "-")):

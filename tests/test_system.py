@@ -1573,3 +1573,10 @@ def test_news_headline_not_embedded_mid_sentence():
     facts = {"f1": {"category": "breaking_news", "fields": {"who": "X", "headline": "清算額が14.1億ドルを突破", "what": "急落した。"}}}
     assert any("見出し" in e for e in checks.check_template("BTCが急落で{{f1.headline}}となる中、資金が流出。", facts))
     assert not any("見出し" in e for e in checks.check_template("「{{f1.headline}}」と報じられた。", facts))
+
+
+def test_futures_price_not_called_spot():
+    """11/14 21:18: SOXLのHIP-3先物の価格を「現物価格$56.00」と書いた。"""
+    from aiedit import checks
+    facts = {"f1": {"kind": "hl", "fields": {"coin": "xyz:SOXL", "price": "$56.00", "market": "株式先物（HIP-3）"}}}
+    assert any("現物" in e for e in checks.check_template("③現物価格{{f1.price}}と先物の乖離", facts))
