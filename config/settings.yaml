@@ -114,6 +114,7 @@ llm:
   temperature: 0.7
 
 note:
+  promo_link: false   # 11/15〜試み: Xの紹介投稿に外部リンクを入れず、プロフィールのnoteへ誘導（リンク付きは15〜23表示どまり）
   urlname: charisma_hl
   # これ以降に公開された記事を確認する（それより前の記事は対象外）
   check_since: "2026-10-27T00:00:00+09:00"

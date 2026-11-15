@@ -211,6 +211,10 @@ def promote_text(meta: dict, url: str) -> str:
     hook = re.sub(r"^(また|さらに|一方で|一方|そして|なお)、", "", hook)
     lead = sentences[0] if sentences else ""
     fallback = "Xでは書ききれない数字と図を、記事にまとめました。"
+    # 11/15〜の試み: X本文の外部リンクは表示が伸びにくい（紹介は夜でも15〜23表示）。リンクを入れず、プロフィールへ誘導する形を試す
+    from .common import settings
+    if not settings().get("note", {}).get("promo_link", True):
+        url = "記事はプロフィールのリンク（note）から読めます。"
     cands = []
     if hook:
         cands += [f"{hook}\n\nこの理由をnoteで深掘りしました。\n\n「{meta['title']}」\n\n{url}",

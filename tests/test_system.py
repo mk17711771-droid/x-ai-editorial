@@ -1097,7 +1097,9 @@ def test_repeated_phrase_rejected():
 
 def test_note_promoted_on_x_once(isolated, monkeypatch):
     # 11/2 noteの記事の表示が27〜61どまり。Xのフォロワーをnoteへつなぐ導線がなかった
-    from aiedit import note_check, xapi
+    from aiedit import common, note_check, xapi
+    real = common.settings
+    monkeypatch.setattr(common, "settings", lambda: {**real(), "note": {**real().get("note", {}), "promo_link": True}})
     store.write_json("note_articles/20261031-0744/meta.json", {"id": "20261031-0744", "title": "【歪み】ICEの参入", "status": "published",
                      "check_ok": True, "note_key": "abc", "published_at": "2026-10-31T07:56:14+09:00", "created_at": "2026-10-31T07:44:00+09:00"})
     store.write_text("note_articles/20261031-0744/article.md", "# 【歪み】ICEの参入\n\n今週は伝統金融が動いた歴史的な1週間でした。\n\n## 見出し\n本文")
@@ -1333,9 +1335,11 @@ def test_ai_reused_story_key_for_different_event_is_split(isolated, monkeypatch)
     assert not store.read_jsonl("news/followups.jsonl")  # 続報として捨てず、新しい話題として扱う
 
 
-def test_note_promo_leads_with_number(isolated):
+def test_note_promo_leads_with_number(isolated, monkeypatch):
     """11/7: 「noteで深掘りしました」で始まる紹介は22表示。1行目は記事の中の数字の一文にする。"""
-    from aiedit import note_check
+    from aiedit import common, note_check
+    real = common.settings
+    monkeypatch.setattr(common, "settings", lambda: {**real(), "note": {**real().get("note", {}), "promo_link": True}})
     store.write_text("note_articles/a/article.md", "# 題\n\n今週は大きく動いた1週間でした。\n\nまた、SKHXの資金調達率は年率+138.1%のロング過熱を示しています。")
     t = note_check.promote_text({"id": "a", "title": "題"}, "https://note.com/x")
     assert t.startswith("SKHXの資金調達率は年率+138.1%") and t.endswith("https://note.com/x")
@@ -1580,3 +1584,13 @@ def test_futures_price_not_called_spot():
     from aiedit import checks
     facts = {"f1": {"kind": "hl", "fields": {"coin": "xyz:SOXL", "price": "$56.00", "market": "株式先物（HIP-3）"}}}
     assert any("現物" in e for e in checks.check_template("③現物価格{{f1.price}}と先物の乖離", facts))
+
+
+def test_note_promo_without_link_points_to_profile(isolated, monkeypatch):
+    """11/15〜の試み: 紹介投稿に外部リンクを入れず、プロフィールのnoteへ誘導する。"""
+    from aiedit import common, note_check
+    real = common.settings
+    monkeypatch.setattr(common, "settings", lambda: {**real(), "note": {**real().get("note", {}), "promo_link": False}})
+    store.write_text("note_articles/c/article.md", "# 題\n\nNVDAの資金調達率は年率-234.5%まで沈んだ。")
+    t = note_check.promote_text({"id": "c", "title": "題"}, "https://note.com/x")
+    assert "https://" not in t and "プロフィール" in t
