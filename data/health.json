@@ -1,8 +1,15 @@
 {
-  "at": "2026-11-15T14:36:47.181103+00:00",
-  "at_jst": "11/15 23:36",
+  "at": "2026-11-15T14:56:01.699013+00:00",
+  "at_jst": "11/15 23:55",
   "ok": false,
   "issues": [
+    {
+      "type": "missed_slot",
+      "slot": "2300w",
+      "key": "20261115-2300w",
+      "generated": true,
+      "within_grace": true
+    },
     {
       "type": "line_quota",
       "used": 159,
