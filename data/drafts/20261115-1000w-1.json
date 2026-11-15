@@ -1,0 +1,224 @@
+{
+  "id": "20261115-1000w-1",
+  "slot_key": "20261115-1000w",
+  "slot_theme": "10:17 今週の振り返り（長文）: 1週間でいちばんの“違和感”（大きく上げた・下げた銘柄、明暗）を「なぜ〜？」の問いで主役にし、HIP-3株式先物と米国株の数字で読み解く",
+  "status": "posted",
+  "created_at": "2026-11-15T03:09:44.521139+00:00",
+  "text": "半導体セクターで$AMDが急伸する一方で、なぜ逆行して売られた銘柄との間でこれほどの明暗が分かれたのか。\n\n【いま起きてること】\n1週間の現物市場を振り返ると、半導体関連の主要銘柄の間で資金の流入出に明確な温度差が生まれている。強い上昇を見せる銘柄がある一方で、一部の主力株には重たい上値が意識される展開となっており、デリバティブ市場におけるポジションの偏りにもその影響が波及している。\n\n【数字で見る】（米国11/13(金)終値）\n・AMD 1週間の値動き+18.93%、価格$534.06（11/6(金)〜11/13(金)の終値）\n・AVGO 1週間の値動き+18.16%、価格$347.01（11/6(金)〜11/13(金)の終値）\n・MU 1週間の値動き+12.80%、価格$778.31（11/6(金)〜11/13(金)の終値）\n・NVDA 1週間の値動き-12.75%、価格$162.85（11/6(金)〜11/13(金)の終値）\n・SOXX 1週間の値動き+9.35%、価格$149.30（11/6(金)〜11/13(金)の終値）\n\n【なぜ「歪み」なのか】\nAMDが+18.93%と大きく値を飛ばし、AVGOやMUも二桁の上昇を記録する中で、NVDAだけが-12.75%と逆行安を演じた。このセクター内の極端な明暗は、市場参加者の期待値が特定の銘柄へ集中し、リバランスの売りが他方へ向かった結果だと見ている。現物側のこの歪みが、今後のデリバティブ市場の需給バランスにどう影響するか注目している。\n\n【次に見るポイント】\n①AMDとNVDAの相対的な強弱が今週も継続するか\n②半導体指数であるSOXXの動向と個別株の連動性\n③主要銘柄のデリバティブ市場におけるポジションの偏り",
+  "template": "半導体セクターで${{f9.symbol}}が急伸する一方で、なぜ逆行して売られた銘柄との間でこれほどの明暗が分かれたのか。\n\n【いま起きてること】\n1週間の現物市場を振り返ると、半導体関連の主要銘柄の間で資金の流入出に明確な温度差が生まれている。強い上昇を見せる銘柄がある一方で、一部の主力株には重たい上値が意識される展開となっており、デリバティブ市場におけるポジションの偏りにもその影響が波及している。\n\n【数字で見る】（{{f9.asof}}）\n・${{f9.symbol}} 1週間の値動き{{f9.week_change_pct}}、価格{{f9.price}}（{{f9.period}}）\n・${{f10.symbol}} 1週間の値動き{{f10.week_change_pct}}、価格{{f10.price}}（{{f10.period}}）\n・${{f11.symbol}} 1週間の値動き{{f11.week_change_pct}}、価格{{f11.price}}（{{f11.period}}）\n・${{f12.symbol}} 1週間の値動き{{f12.week_change_pct}}、価格{{f12.price}}（{{f12.period}}）\n・${{f13.symbol}} 1週間の値動き{{f13.week_change_pct}}、価格{{f13.price}}（{{f13.period}}）\n\n【なぜ「歪み」なのか】\n${{f9.symbol}}が{{f9.week_change_pct}}と大きく値を飛ばし、${{f10.symbol}}や${{f11.symbol}}も二桁の上昇を記録する中で、${{f12.symbol}}だけが{{f12.week_change_pct}}と逆行安を演じた。このセクター内の極端な明暗は、市場参加者の期待値が特定の銘柄へ集中し、リバランスの売りが他方へ向かった結果だと見ている。現物側のこの歪みが、今後のデリバティブ市場の需給バランスにどう影響するか注目している。\n\n【次に見るポイント】\n①${{f9.symbol}}と${{f12.symbol}}の相対的な強弱が今週も継続するか\n②半導体指数である${{f13.symbol}}の動向と個別株の連動性\n③主要銘柄のデリバティブ市場におけるポジションの偏り",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:AMD:week_change",
+  "angle": "半導体セクター内でAMDが+18.93%と急伸する一方、NVDAが-12.75%と下落した週の明暗を、HIP-3先物の建玉と資金調達率の歪みから読み解く",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f39"
+  ],
+  "facts": [
+    {
+      "key": "stock:AMD:week_change",
+      "kind": "stock",
+      "category": "week_change",
+      "summary": "AMD 1週間の値動き+18.93%（11/6(金)→11/13(金)の終値）",
+      "fields": {
+        "symbol": "AMD",
+        "week_change_pct": "+18.93%",
+        "price": "$534.06",
+        "basis": "5取引日前の終値比",
+        "period": "11/6(金)〜11/13(金)の終値",
+        "asof": "米国11/13(金)終値"
+      },
+      "raw": {
+        "week_change_pct": 18.934
+      },
+      "refresh": null,
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-15T03:09:32.553488+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    },
+    {
+      "key": "stock:AVGO:week_change",
+      "kind": "stock",
+      "category": "week_change",
+      "summary": "AVGO 1週間の値動き+18.16%（11/6(金)→11/13(金)の終値）",
+      "fields": {
+        "symbol": "AVGO",
+        "week_change_pct": "+18.16%",
+        "price": "$347.01",
+        "basis": "5取引日前の終値比",
+        "period": "11/6(金)〜11/13(金)の終値",
+        "asof": "米国11/13(金)終値"
+      },
+      "raw": {
+        "week_change_pct": 18.155
+      },
+      "refresh": null,
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AVGO"
+      },
+      "asof": "2026-11-15T03:09:32.553537+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "stock:MU:week_change",
+      "kind": "stock",
+      "category": "week_change",
+      "summary": "MU 1週間の値動き+12.80%（11/6(金)→11/13(金)の終値）",
+      "fields": {
+        "symbol": "MU",
+        "week_change_pct": "+12.80%",
+        "price": "$778.31",
+        "basis": "5取引日前の終値比",
+        "period": "11/6(金)〜11/13(金)の終値",
+        "asof": "米国11/13(金)終値"
+      },
+      "raw": {
+        "week_change_pct": 12.799
+      },
+      "refresh": null,
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-11-15T03:09:32.553677+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "stock:NVDA:week_change",
+      "kind": "stock",
+      "category": "week_change",
+      "summary": "NVDA 1週間の値動き-12.75%（11/6(金)→11/13(金)の終値）",
+      "fields": {
+        "symbol": "NVDA",
+        "week_change_pct": "-12.75%",
+        "price": "$162.85",
+        "basis": "5取引日前の終値比",
+        "period": "11/6(金)〜11/13(金)の終値",
+        "asof": "米国11/13(金)終値"
+      },
+      "raw": {
+        "week_change_pct": -12.746
+      },
+      "refresh": null,
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-11-15T03:09:32.553439+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    },
+    {
+      "key": "stock:SOXX:week_change",
+      "kind": "stock",
+      "category": "week_change",
+      "summary": "SOXX 1週間の値動き+9.35%（11/6(金)→11/13(金)の終値）",
+      "fields": {
+        "symbol": "SOXX",
+        "week_change_pct": "+9.35%",
+        "price": "$149.30",
+        "basis": "5取引日前の終値比",
+        "period": "11/6(金)〜11/13(金)の終値",
+        "asof": "米国11/13(金)終値"
+      },
+      "raw": {
+        "week_change_pct": 9.353
+      },
+      "refresh": null,
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-15T03:09:32.553388+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-0.65%, 価格160.88, 建玉374681299USD, 24時間出来高139361374USD, 資金調達率(年率)+250.3%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$160.88",
+        "change_pct": "-0.65%",
+        "oi": "約3.7億ドル",
+        "volume": "約1.4億ドル",
+        "funding_annual": "+250.3%",
+        "asof": "日本時間11/15(日) 12:09時点",
+        "asof_short": "12:09時点"
+      },
+      "raw": {
+        "mark": 160.88,
+        "change_pct": -0.648,
+        "oi_usd": 374681299,
+        "vol_usd": 139361374,
+        "funding_annual_pct": 250.35
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-15T03:09:29.401656+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AVGO"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2121802814301286540",
+  "posted_at": "2026-11-15T03:09:46.999206+00:00"
+}
