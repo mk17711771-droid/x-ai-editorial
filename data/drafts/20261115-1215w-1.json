@@ -1,0 +1,74 @@
+{
+  "id": "20261115-1215w-1",
+  "slot_key": "20261115-1215w",
+  "slot_theme": "12:26 週末の昼: Hyperliquidの24時間の異変（建玉・資金調達率・急変動）。大きな名前の銘柄を優先",
+  "status": "posted",
+  "created_at": "2026-11-15T03:30:42.425600+00:00",
+  "text": "$SOLの資金調達率が年率-12.8%まで急低下し、ショート側が優勢になっている。\n\nHyperliquidの無期限先物（日本時間11/15(日) 12:26時点）では価格が-5.51%の$71.53となり、建玉が約3.3億ドル規模で推移している。",
+  "template": "${{f4.coin}}の資金調達率が{{f4.funding_annual}}まで急低下し、ショート側が優勢になっている。\n\nHyperliquidの無期限先物（{{f4.asof}}）では価格が{{f4.change_pct}}の{{f4.price}}となり、建玉が{{f4.oi}}規模で推移している。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:SOL:volume_top",
+  "angle": "ソラナ無期限先物が5.51%下落し71.53ドル台へ。価格下落と同時に資金調達率が年率-12.8%へとマイナス圏に沈み、ショート優勢に傾く需給の変化を追う。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 86,
+  "fact_ids": [
+    "f4"
+  ],
+  "facts": [
+    {
+      "key": "hl:SOL:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: SOL（無期限先物） 24時間騰落率-5.51%, 価格71.532, 建玉332610993USD, 24時間出来高627804242USD, 資金調達率(年率)-12.8%",
+      "fields": {
+        "coin": "SOL",
+        "symbol": "SOL",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$71.53",
+        "change_pct": "-5.51%",
+        "oi": "約3.3億ドル",
+        "volume": "約6.3億ドル",
+        "funding_annual": "-12.8%",
+        "asof": "日本時間11/15(日) 12:26時点",
+        "asof_short": "12:26時点"
+      },
+      "raw": {
+        "mark": 71.532,
+        "change_pct": -5.512,
+        "oi_usd": 332610993,
+        "vol_usd": 627804242,
+        "funding_annual_pct": -12.77
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "SOL",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/SOL"
+      },
+      "asof": "2026-11-15T03:26:35.615821+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/SOL"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2121808613131817062",
+  "posted_at": "2026-11-15T03:32:49.578485+00:00"
+}
