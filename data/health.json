@@ -1,12 +1,17 @@
 {
-  "at": "2026-11-15T03:56:58.431542+00:00",
-  "at_jst": "11/15 12:56",
+  "at": "2026-11-15T04:07:32.170013+00:00",
+  "at_jst": "11/15 13:07",
   "ok": false,
   "issues": [
     {
       "type": "line_quota",
       "used": 159,
       "limit": 200
+    },
+    {
+      "type": "announced_not_posted",
+      "story": "tradexyz-nvda-leverage-reduction-earnings",
+      "since": "2026-11-15T03:46:21.871812+00:00"
     },
     {
       "type": "many_rejections",
@@ -23,5 +28,7 @@
       ]
     }
   ],
-  "actions": []
+  "actions": [
+    "速報 tradexyz-nvda-leverage-reduction-earnings が投稿されていなかったため出し直し"
+  ]
 }
