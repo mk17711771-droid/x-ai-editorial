@@ -1,0 +1,71 @@
+{
+  "id": "20261115-2300w-2",
+  "slot_key": "20261115-2300w",
+  "slot_theme": "23:13 週末の夜: 週明けの米国市場の前に、HIP-3株式先物が示している方向（金曜終値との差・資金調達率の偏り）",
+  "status": "superseded",
+  "created_at": "2026-11-15T15:13:44.389415+00:00",
+  "text": "$MSTRの資金調達率が年率-303.8%まで沈み込み、ショート側がコストを払い続ける極端な偏りが起きている。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/16(月) 00:09時点、MSTRは24時間騰落率-4.85%（価格$99.02）、建玉は約2,727万ドルを記録しており、ショートの過熱感が限界に近づいているっぽい。",
+  "template": "$MSTRの資金調達率が年率{{f15.funding_annual}}まで沈み込み、ショート側がコストを払い続ける極端な偏りが起きている。\n\nHyperliquidの{{f15.market}}で{{f15.asof}}、MSTRは24時間騰落率{{f15.change_pct}}（価格{{f15.price}}）、建玉は{{f15.oi}}を記録しており、ショートの過熱感が限界に近づいているっぽい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:MSTR:funding_extreme",
+  "angle": "MSTRのHIP-3株式先物で資金調達率が年率-303.8%まで沈み込み、ショート側がロングへ支払い続ける極端な偏りが継続。",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f15"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:MSTR:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: MSTR（HIP-3株式等先物） 24時間騰落率-4.85%, 価格99.02, 建玉27270868USD, 24時間出来高34476646USD, 資金調達率(年率)-303.8%",
+      "fields": {
+        "coin": "MSTR",
+        "symbol": "MSTR",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$99.02",
+        "change_pct": "-4.85%",
+        "oi": "約2,727万ドル",
+        "volume": "約3,448万ドル",
+        "funding_annual": "-303.8%",
+        "asof": "日本時間11/16(月) 00:09時点",
+        "asof_short": "00:09時点"
+      },
+      "raw": {
+        "mark": 99.02,
+        "change_pct": -4.853,
+        "oi_usd": 27270868,
+        "vol_usd": 34476646,
+        "funding_annual_pct": -303.79
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:MSTR",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:MSTR"
+      },
+      "asof": "2026-11-15T15:09:25.529405+00:00",
+      "confidence": "confirmed",
+      "id": "f15"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:MSTR"
+    }
+  ],
+  "needs_human": false
+}
