@@ -423,6 +423,13 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
         slot = {**slot, "kind": "hl", "theme": slot["theme"] + "。※米国株は前営業日の終値しかないため、24時間動いているHIP-3の株式先物（大きな名前の銘柄）の今の数字を主役にする"}
         log.info("米国株の終値が2日以上前のため、HIP-3の株式先物を主役にします")
     facts = collect(slot["kind"], weekly=bool(slot.get("weekly")), pending_news=slot["id"] == "news")
+    if us_close_stale():
+        # 週末・祝日明けは米国株の日々の終値が2日以上前。今の24時間の数字と並べると期間の違う対比になるので材料から外す
+        # （1週間の値動きは期間を書く前提なので残す。11/15 日曜の週末長文が「11/13の終値と今の24時間の対比」で全案破棄）
+        before = len(facts)
+        facts = [f for f in facts if not (f.get("kind") == "stock" and f.get("category") != "week_change")]
+        if len(facts) != before:
+            log.info("米国株の終値が古いため、日々の米国株の材料 %d 件を外しました", before - len(facts))
     store.write_json(f"facts/{key}.json", facts)
     log.info("材料 %d 件を収集", len(facts))
     facts_by_id = {f["id"]: f for f in facts}
