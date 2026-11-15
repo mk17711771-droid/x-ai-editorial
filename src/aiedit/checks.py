@@ -542,9 +542,19 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     return errors
 
 
+# 事実を伝える定型の語（データの行）は、どの投稿にも出るので類似度の計算から外す
+# （11/15 23時 銘柄も数字も違う短文が、定型の行が同じため類似度0.47〜0.50で全案破棄され枠を落とした）
+SIM_BOILERPLATE = ("Hyperliquidの株式先物（HIP-3）で", "Hyperliquidの商品先物（HIP-3）で", "Hyperliquidの無期限先物", "日本時間",
+                   "時点", "24時間騰落率", "24時間出来高", "資金調達率", "（年率）", "年率", "建玉は約", "建玉", "価格は", "価格",
+                   "となっている", "を記録している", "に達している", "まで")
+
+
 def _shingles(text: str) -> set[str]:
-    # 数字を揃えて比較し、「数字だけ違う同じ構文」も類似とみなす
-    t = re.sub(r"[0-9０-９.,]+", "0", re.sub(r"\s+", "", text))
+    # 数字を揃えて比較し、「数字だけ違う同じ構文」も類似とみなす。定型の語は除く
+    t = re.sub(r"\s+", "", text)
+    for w in SIM_BOILERPLATE:
+        t = t.replace(w, "")
+    t = re.sub(r"[0-9０-９.,]+", "0", t)
     return {t[i:i + 3] for i in range(max(len(t) - 2, 0))}
 
 
