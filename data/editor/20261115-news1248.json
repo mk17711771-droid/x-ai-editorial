@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f1",
+      "f23"
+    ],
+    "topic_key": "news:tradexyz-nvda-leverage-reduction-earnings",
+    "angle": "NVDA決算を前にtrade[XYZ]が最大レバレッジを20倍から10倍に引き下げ。HIP-3のNVDA先物は建玉3.7億ドル規模で高水準の資金調達率が続く中、リスク管理の動きが強まる.",
+    "scores": {
+      "novelty": 19,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 96,
+    "reason": "決算を控えた最大レバレッジの引き下げという実務的な変更と、Hyperliquid上の巨大な建玉・資金調達率データを直接結びつけているため。"
+  },
+  {
+    "fact_ids": [
+      "f16",
+      "f22"
+    ],
+    "topic_key": "hl:xyz:MSTR:funding_extreme",
+    "angle": "MSTRのHIP-3先物で年率284.8%に達する極端なロング過熱が継続。指数先物も建玉が膨らむ中で、デリバティブ側の強い偏りが示されている.",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "具体的な資金調達率の異常値と株式先物の建玉規模を組み合わせ、市場の偏りを明確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f13",
+      "f26"
+    ],
+    "topic_key": "hl:xyz:CRCL:funding_extreme",
+    "angle": "CRCLのHIP-3先物で年率399.3%という異次元の資金調達率を記録。出来高と建玉がともに高水準で推移し、強烈なロングの買い意欲が持続している.",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "株式先物市場における極端な資金調達率の数値とその背景にある流動性を的確に捉えているため。"
+  }
+]
