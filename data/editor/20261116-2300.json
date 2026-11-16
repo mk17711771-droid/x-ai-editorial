@@ -1,0 +1,52 @@
+[
+  {
+    "fact_ids": [
+      "f12",
+      "f21"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "SKHX（SKハイニックス）のHIP-3先物における極端なロング過熱と、それに伴う資金調達率の歪みを指摘する",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "半導体関連のHIP-3先物における具体的な資金調達率の異常値を提示しており、市場の需給の偏りが一目で分かるため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f9"
+    ],
+    "topic_key": "hl:SKR:funding_extreme",
+    "angle": "SKRの無期限先物における記録的なショート過熱と、資金調達率の極端なマイナス乖離を解説する",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "年率-1758%という極端な資金調達率の数値を伴うショート過熱の歪みを捉えており、読者の関心を強く惹くため。"
+  },
+  {
+    "fact_ids": [
+      "f10"
+    ],
+    "topic_key": "hl:xyz:CXMT:funding_extreme",
+    "angle": "CXMTのHIP-3先物におけるロング過熱と資金調達率の高止まりに着目する",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "具体的な資金調達率の数字を基に、個別株式先物でのロング側のコスト負担の大きさを端的に示しているため。"
+  }
+]
