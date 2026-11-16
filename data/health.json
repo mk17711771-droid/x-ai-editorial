@@ -1,18 +1,25 @@
 {
-  "at": "2026-11-16T21:50:51.491630+00:00",
-  "at_jst": "11/17 06:50",
+  "at": "2026-11-16T22:36:40.061678+00:00",
+  "at_jst": "11/17 07:36",
   "ok": false,
   "issues": [
     {
       "type": "line_quota",
-      "used": 159,
+      "used": 160,
       "limit": 200
     },
     {
       "type": "error",
-      "command": "news-watch",
-      "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
-      "at": "2026-11-16T18:06:53.803925+00:00"
+      "command": "generate",
+      "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: Expecting property name enclosed in double quotes: line 5 column 7 (char 52)",
+      "at": "2026-11-16T22:32:36.947602+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-16T22:20:19Z",
+      "id": 43969084671
     },
     {
       "type": "workflow_failed",
