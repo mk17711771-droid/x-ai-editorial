@@ -732,7 +732,7 @@ def test_news_watch_verifies_and_queues(monkeypatch, isolated):
     monkeypatch.setattr(news_watch, "_dispatch_news_slot", lambda: True)
     monkeypatch.setattr(news_watch, "official_posts", lambda: [])
     monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
-    monkeypatch.setattr(llm, "generate_json", lambda s, u: {"stories": [
+    monkeypatch.setattr(llm, "generate_json", lambda s, u, **k: {"stories": [
         {"story_key": "ice-tradexyz", "headline": "ICEがtrade[XYZ]に出資", "summary_ja": "…", "importance": 5,
          "official": False, "sources": ["CoinDesk", "Bloomberg"], "fields": {"what": "提携と出資"}},
         {"story_key": "minor", "headline": "解説記事", "importance": 2, "sources": ["X"]}]})

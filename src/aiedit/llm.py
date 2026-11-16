@@ -15,7 +15,9 @@ def prompt(name: str) -> str:
     return (PROMPTS_DIR / f"{name}.md").read_text(encoding="utf-8")
 
 
-def generate_json(system: str, user: str) -> dict:
+def generate_json(system: str, user: str, fast: bool = False) -> dict:
+    """fast=True: 待ち時間の短い呼び出し（10分おきに走る速報の見張り用。失敗しても次の回で拾い直す）。
+    11/16 GitHub Actionsの無料枠を使い切った。待ち時間も課金されるため、速報の見張りは長く待たない。"""
     cfg = settings()["llm"]
     body = {
         "systemInstruction": {"parts": [{"text": system}]},
@@ -29,7 +31,8 @@ def generate_json(system: str, user: str) -> dict:
     models = [cfg["model"]] + [m for m in cfg.get("fallback_models", []) if m != cfg["model"]]
     missing: set[str] = set()
     last_err: Exception | None = None
-    for round_no, wait in enumerate((0, 30, 60, 120, 240)):  # 11/5 混雑が4分以上続き夜の長文が落ちたので、待つ回数とモデルを増やした
+    waits = (0, 20) if fast else (0, 30, 60, 120, 240)  # 11/5 混雑が4分以上続き夜の長文が落ちたので、待つ回数とモデルを増やした
+    for round_no, wait in enumerate(waits):
         if wait:
             log.info("Geminiが混雑しているため%d秒待って再試行します（%d巡目）", wait, round_no + 1)
             time.sleep(wait)
@@ -37,7 +40,7 @@ def generate_json(system: str, user: str) -> dict:
             if model in missing:
                 continue
             try:
-                r = requests.post(API.format(model=model), params={"key": env("GEMINI_API_KEY")}, json=body, timeout=120)
+                r = requests.post(API.format(model=model), params={"key": env("GEMINI_API_KEY")}, json=body, timeout=45)  # 120秒待ちが積み重なりActionsの時間を使っていた（11/16）
                 if r.status_code == 404:
                     missing.add(model)
                     continue

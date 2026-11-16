@@ -91,7 +91,7 @@ def triage(new: list[dict], context: list[dict], hype_1h: float | None) -> list[
     payload = {"new_items": new, "related_items_last_24h": context[:60], "hype_1h_change_pct": hype_1h,
                "known_stories": known[-15:]}
     rubric = (CONFIG_DIR / "buzz_patterns.md").read_text(encoding="utf-8")
-    out = llm.generate_json(llm.prompt("news_triage") + "\n\n" + rubric, json.dumps(payload, ensure_ascii=False))
+    out = llm.generate_json(llm.prompt("news_triage") + "\n\n" + rubric, json.dumps(payload, ensure_ascii=False), fast=True)
     if isinstance(out, list):  # AIが {"stories": [...]} ではなく配列だけを返すことがある（10/30 20:46に停止）
         return [s for s in out if isinstance(s, dict)]
     return [s for s in out.get("stories", []) if isinstance(s, dict)]
