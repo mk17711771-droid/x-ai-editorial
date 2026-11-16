@@ -11,6 +11,12 @@ from aiedit.common import settings
 
 
 @pytest.fixture(autouse=True)
+def _traders_key(monkeypatch):
+    # 上位トレーダーのアドレスの暗号化に使う鍵（本番は GitHub Secrets の値から作る）
+    monkeypatch.setenv("TRADERS_KEY", "test-key")
+
+
+@pytest.fixture(autouse=True)
 def isolated(tmp_path, monkeypatch):
     monkeypatch.setattr(store, "DATA_DIR", tmp_path)
     monkeypatch.setenv("AIEDIT_NOW", "2026-10-26T01:20:00+00:00")  # 10:20 JST（月曜）
@@ -1594,3 +1600,19 @@ def test_note_promo_without_link_points_to_profile(isolated, monkeypatch):
     store.write_text("note_articles/c/article.md", "# 題\n\nNVDAの資金調達率は年率-234.5%まで沈んだ。")
     t = note_check.promote_text({"id": "c", "title": "題"}, "https://note.com/x")
     assert "https://" not in t and "プロフィール" in t
+
+
+def test_trader_addresses_encrypted_at_rest(isolated, monkeypatch):
+    """11/16 リポジトリ公開: 上位トレーダーのアドレスを平文で保存しない（読むときは元に戻る）。"""
+    addr = "0x" + "ab" * 20
+    monkeypatch.setenv("TRADERS_KEY", "k1")
+    store.write_json("traders/latest.json", {"positions": {addr: [1]}, "list": [{"address": addr}]})
+    raw = (store.DATA_DIR / "traders/latest.json").read_text()
+    assert addr not in raw and "enc:" in raw
+    assert store.read_json("traders/latest.json")["list"][0]["address"] == addr
+    store.write_json("traders/x.json", {"a": addr})
+    assert (store.DATA_DIR / "traders/x.json").read_text() == (store.DATA_DIR / "traders/x.json").read_text()
+    monkeypatch.delenv("TRADERS_KEY")
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    store.write_json("traders/y.json", {"a": addr})
+    assert addr not in (store.DATA_DIR / "traders/y.json").read_text()

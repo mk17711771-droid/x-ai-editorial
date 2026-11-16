@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Iterable
@@ -15,15 +16,60 @@ def _path(*parts: str) -> Path:
     return p
 
 
+# 上位トレーダーのアドレスはリポジトリに平文で残さない（11/16 リポジトリを公開。アドレス・個人を特定する情報は出さない方針）。
+# traders/ の下のファイルだけ、アドレスを決定的な暗号（AES-SIV）で「enc:…」に置き換えて保存し、読むときに戻す。
+# 鍵は GitHub Secrets の値から作る（TRADERS_KEY → GEMINI_API_KEY）。鍵がない環境ではアドレスを伏せ字にして保存する。
+_ADDR = re.compile(r"0x[0-9a-fA-F]{40}")
+_ENC = re.compile(r"enc:[A-Za-z0-9_\-]+=*")
+
+
+def _addr_cipher():
+    import hashlib
+    import os
+    secret = os.environ.get("TRADERS_KEY") or os.environ.get("GEMINI_API_KEY")
+    if not secret:
+        return None
+    from cryptography.hazmat.primitives.ciphers.aead import AESSIV
+    return AESSIV(hashlib.sha512(("traders-address:" + secret).encode()).digest())
+
+
+def _protect(text: str) -> str:
+    import base64
+    c = _addr_cipher()
+    if c is None:
+        return _ADDR.sub("0x" + "*" * 40, text)
+    return _ADDR.sub(lambda m: "enc:" + base64.urlsafe_b64encode(c.encrypt(m.group(0).lower().encode(), None)).decode(), text)
+
+
+def _reveal(text: str) -> str:
+    import base64
+    c = _addr_cipher()
+    if c is None or "enc:" not in text:
+        return text
+
+    def dec(m: re.Match) -> str:
+        try:
+            return c.decrypt(base64.urlsafe_b64decode(m.group(0)[4:]), None).decode()
+        except Exception:  # noqa: BLE001  鍵が違う・壊れているときはそのまま
+            return m.group(0)
+    return _ENC.sub(dec, text)
+
+
 def read_json(rel: str, default: Any = None) -> Any:
     p = _path(rel)
     if not p.exists():
         return default
-    return json.loads(p.read_text(encoding="utf-8"))
+    text = p.read_text(encoding="utf-8")
+    if rel.startswith("traders/"):
+        text = _reveal(text)
+    return json.loads(text)
 
 
 def write_json(rel: str, obj: Any) -> None:
-    _path(rel).write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    text = json.dumps(obj, ensure_ascii=False, indent=2) + "\n"
+    if rel.startswith("traders/"):
+        text = _protect(text)
+    _path(rel).write_text(text, encoding="utf-8")
 
 
 def append_jsonl(rel: str, obj: dict) -> None:
