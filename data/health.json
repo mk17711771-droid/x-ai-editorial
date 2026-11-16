@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-15T15:55:42.327108+00:00",
-  "at_jst": "11/16 00:55",
+  "at": "2026-11-16T15:00:41.576088+00:00",
+  "at_jst": "11/17 00:00",
   "ok": false,
   "issues": [
     {
@@ -9,18 +9,53 @@
       "limit": 200
     },
     {
-      "type": "many_rejections",
-      "n": 23,
-      "reasons": [
-        "1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）",
-        "「気になるところ」は最近も使った言い回し。別の言葉で書く",
-        "「記録的・歴史的・過去最高」と書いているが、記録を示す材料がない",
-        "データ以外の数字が含まれている: ['1', '0']",
-        "データ以外の数字が含まれている: ['1', '1', '1', '7', '2', '0', '2', '7', '1', '1', '1', '5', '8', '0', '5']",
-        "データ以外の数字が含まれている: ['1', '1', '1', '7']",
-        "データ以外の数字が含まれている: ['2', '0', '1', '0']",
-        "データ以外の数字が含まれている: ['4', '9', '2', '4', '1', '2', '3', '4']"
-      ]
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-16T14:35:22Z",
+      "id": 43887297689
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-16T14:35:21Z",
+      "id": 43887296212
+    },
+    {
+      "type": "workflow_failed",
+      "name": "news-watch",
+      "event": "repository_dispatch",
+      "at": "2026-11-16T13:05:24Z",
+      "id": 43872460335
+    },
+    {
+      "type": "workflow_failed",
+      "name": "news-watch",
+      "event": "repository_dispatch",
+      "at": "2026-11-16T11:55:27Z",
+      "id": 43861970698
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-16T11:55:18Z",
+      "id": 43861947550
+    },
+    {
+      "type": "workflow_failed",
+      "name": "news-watch",
+      "event": "repository_dispatch",
+      "at": "2026-11-16T11:45:25Z",
+      "id": 43860534304
+    },
+    {
+      "type": "workflow_failed",
+      "name": "research-and-learn",
+      "event": "repository_dispatch",
+      "at": "2026-11-16T10:35:20Z",
+      "id": 43850201648
     }
   ],
   "actions": []
