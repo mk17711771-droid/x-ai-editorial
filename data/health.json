@@ -1,12 +1,32 @@
 {
-  "at": "2026-11-16T16:37:08.594575+00:00",
-  "at_jst": "11/17 01:36",
+  "at": "2026-11-16T18:37:01.244540+00:00",
+  "at_jst": "11/17 03:36",
   "ok": false,
   "issues": [
     {
       "type": "line_quota",
       "used": 159,
       "limit": 200
+    },
+    {
+      "type": "error",
+      "command": "news-watch",
+      "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+      "at": "2026-11-16T18:06:53.803925+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "news-watch",
+      "event": "repository_dispatch",
+      "at": "2026-11-16T18:05:26Z",
+      "id": 43925146188
+    },
+    {
+      "type": "workflow_failed",
+      "name": "news-watch",
+      "event": "repository_dispatch",
+      "at": "2026-11-16T17:05:28Z",
+      "id": 43914628383
     },
     {
       "type": "workflow_failed",
@@ -28,27 +48,6 @@
       "event": "repository_dispatch",
       "at": "2026-11-16T13:05:24Z",
       "id": 43872460335
-    },
-    {
-      "type": "workflow_failed",
-      "name": "news-watch",
-      "event": "repository_dispatch",
-      "at": "2026-11-16T11:55:27Z",
-      "id": 43861970698
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-16T11:55:18Z",
-      "id": 43861947550
-    },
-    {
-      "type": "workflow_failed",
-      "name": "news-watch",
-      "event": "repository_dispatch",
-      "at": "2026-11-16T11:45:25Z",
-      "id": 43860534304
     }
   ],
   "actions": []
