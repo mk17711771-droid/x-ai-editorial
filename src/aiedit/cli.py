@@ -119,7 +119,13 @@ def main(argv: list[str] | None = None) -> int:
             event_path = os.environ.get("GITHUB_EVENT_PATH")
             if event_path and os.path.exists(event_path):
                 payload = json.load(open(event_path, encoding="utf-8")).get("client_payload") or {}
-            print(json.dumps(news_watch.run(payload), ensure_ascii=False, indent=2))
+            try:
+                print(json.dumps(news_watch.run(payload), ensure_ascii=False, indent=2))
+            except RuntimeError as e:
+                if "Gemini" not in str(e):
+                    raise
+                # Geminiの一時的な混雑。未処理の記事は次の回（10分後）に拾い直すので、失敗扱いにしない（11/17）
+                print(f"Geminiが混雑しているため、次の回で拾い直します: {str(e)[:200]}")
         elif args.cmd == "metrics-now":
             print(json.dumps(research.snapshot(), ensure_ascii=False, indent=2))
         elif args.cmd == "health":
