@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import time
 
 import requests
@@ -13,6 +14,22 @@ API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateC
 
 def prompt(name: str) -> str:
     return (PROMPTS_DIR / f"{name}.md").read_text(encoding="utf-8")
+
+
+def _loads(text: str) -> dict:
+    """JSONの読み込み。軽量モデルが末尾のカンマ・コメント・```囲みを付けることがある（11/17 朝の枠が落ちた）ので直してから読む。"""
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    t = text.strip()
+    t = re.sub(r"^```(?:json)?\s*|\s*```$", "", t)
+    i, j = t.find("{"), t.rfind("}")
+    if i >= 0 and j > i:
+        t = t[i:j + 1]
+    t = re.sub(r"(?m)^\s*//[^\n]*$", "", t)
+    t = re.sub(r",\s*([}\]])", r"\1", t)
+    return json.loads(t)
 
 
 def generate_json(system: str, user: str, fast: bool = False) -> dict:
@@ -50,10 +67,12 @@ def generate_json(system: str, user: str, fast: bool = False) -> dict:
                     # キーの誤りなど、再試行しても直らないエラー
                     raise RuntimeError(f"Gemini APIエラー {r.status_code}（モデル: {model}）: {r.text[:500]}")
                 text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-                return json.loads(text)
+                return _loads(text)
             except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as e:
                 last_err = e
                 log.warning("Gemini（%s）呼び出し失敗: %s", model, str(e)[:200])
+                if isinstance(e, json.JSONDecodeError):
+                    log.warning("壊れたJSONの先頭: %s", e.doc[:200].replace("\n", " "))
         if len(missing) == len(models):
             raise RuntimeError(f"利用できるGeminiモデルがありません: {', '.join(models)}")
     raise RuntimeError(f"Gemini APIの呼び出しに失敗しました: {last_err}")

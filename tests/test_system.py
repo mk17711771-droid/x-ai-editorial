@@ -1616,3 +1616,10 @@ def test_trader_addresses_encrypted_at_rest(isolated, monkeypatch):
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     store.write_json("traders/y.json", {"a": addr})
     assert addr not in (store.DATA_DIR / "traders/y.json").read_text()
+
+
+def test_llm_loads_repairs_trailing_commas():
+    # 11/17 朝: 軽量モデルの応答が末尾カンマ付きのJSONで、朝の枠が落ちた
+    from aiedit.llm import _loads
+    assert _loads('```json\n{\n "drafts": [{"text": "a",},],\n}\n```') == {"drafts": [{"text": "a"}]}
+    assert _loads('{"a": 1}') == {"a": 1}
