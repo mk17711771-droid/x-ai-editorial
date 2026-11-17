@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-17T00:45:55.843677+00:00",
+  "at": "2026-11-17T01:26:29.941175+00:00",
   "command": "health",
   "error": "UnboundLocalError: cannot access local variable 'health' where it is not associated with a value",
   "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/cli.py\", line 132, in main\n    print(json.dumps(health.run(), ensure_ascii=False, indent=2))\n                     ^^^^^^\nUnboundLocalError: cannot access local variable 'health' where it is not associated with a value\n"
