@@ -1,0 +1,92 @@
+{
+  "id": "20261117-news1857-1",
+  "slot_key": "20261117-news1857",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "posted",
+  "created_at": "2026-11-17T10:09:25.697928+00:00",
+  "text": "Kalshiの株式・ETF取引への参入計画が報じられる中、HyperliquidのHIP-3市場はすでに約38.7億ドルもの24時間出来高を叩き出している。\n\n制度側が動き出すより先に、オンチェーンで株式の先物やデリバティブがこれほどの規模で回っている現実を直視したほうがいい。",
+  "template": "Kalshiの株式・ETF取引への参入計画が報じられる中、HyperliquidのHIP-3市場はすでに{{f22.hip3_volume}}もの24時間出来高を叩き出している。\n\n制度側が動き出すより先に、オンチェーンで株式の先物やデリバティブがこれほどの規模で回っている現実を直視したほうがいい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "news:kalshi-stock-trading-plan-cftc",
+  "angle": "予測市場Kalshiの株式・ETF取引参入計画とCFTCの株式Perp権限を巡る司法判断の動きに対し、すでに24時間出来高が38億ドル規模に達しているHyperliquidのHIP-3市場という実データを対比させ、伝統金融とオンチェーン株式取引の境界の溶解を突く。",
+  "scores": {
+    "novelty": 19,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 93,
+  "fact_ids": [
+    "f1",
+    "f22"
+  ],
+  "facts": [
+    {
+      "key": "news:kalshi-stock-trading-plan-cftc",
+      "kind": "hl",
+      "asof": "2026-11-17T09:55:58.949977+00:00",
+      "expires_at": "2026-11-18T21:55:58.949987+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-17T09:43:39Z",
+      "summary": "予測市場のKalshiが、買収した証券会社を通じて今後数ヶ月以内に株式およびETFの取引提供を計画していることが明らかになった。また、裁判所がCFTC（商品先物取引委員会）は株式Perpに関して権限を超過していた可能性が高いとの見解を示している。伝統金融とオンチェーンの接点拡大や規制当局の動きとして注目を集めている。",
+      "fields": {
+        "headline": "Kalshi、株式・ETF取引の提供計画が浮上",
+        "what": "Kalshiが証券会社を買収し、株式およびETF取引の提供を計画していることが判明した。",
+        "status": "計画段階",
+        "who": "Kalshi"
+      },
+      "raw": {},
+      "source": {
+        "name": "Tech Times・CBS News・MLQ.ai",
+        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQaFA4ZWlNcUJCWTdFa2U2XzFoZFBKcXhXZ3M0WUpVMmEyZ1ZxLVVpZW9MQjlIRkFPTjdEVWFLMUlublJnNnBCeXlSM3Q3SXl6ZEs4VW1vTHg2VktCalpleXdxZnJ1OEhsN3B1eTh1dlVTbC1IbFhWT21ZQ09aVXAzbEtQVm1wQ1RGd0s2b0dubzhqQVpYWXpDVm9RY3NhUkJFWHA0TlVmYVdFaDN5d25rNUlxSlhPVVNQNDlXbDZmOTNHUQ?oc=5"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:market:overview",
+      "kind": "hl",
+      "category": "overview",
+      "summary": "Hyperliquid全体: 建玉合計11160893188USD, 24時間出来高合計10200037115USD, うちHIP-3市場3865470155USD, 上場銘柄数347",
+      "fields": {
+        "total_oi": "約111.6億ドル",
+        "total_volume": "約102.0億ドル",
+        "hip3_volume": "約38.7億ドル",
+        "hip3_volume_share": "37.9%",
+        "hip3_oi": "約42.8億ドル",
+        "asof": "日本時間11/17(火) 18:57時点"
+      },
+      "raw": {
+        "total_oi": 11160893188,
+        "total_vol": 10200037115,
+        "hip3_vol": 3865470155,
+        "hip3_oi": 4279115883
+      },
+      "refresh": null,
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade"
+      },
+      "asof": "2026-11-17T09:57:40.627855+00:00",
+      "confidence": "confirmed",
+      "id": "f22"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Tech Times・CBS News・MLQ.ai",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQaFA4ZWlNcUJCWTdFa2U2XzFoZFBKcXhXZ3M0WUpVMmEyZ1ZxLVVpZW9MQjlIRkFPTjdEVWFLMUlublJnNnBCeXlSM3Q3SXl6ZEs4VW1vTHg2VktCalpleXdxZnJ1OEhsN3B1eTh1dlVTbC1IbFhWT21ZQ09aVXAzbEtQVm1wQ1RGd0s2b0dubzhqQVpYWXpDVm9RY3NhUkJFWHA0TlVmYVdFaDN5d25rNUlxSlhPVVNQNDlXbDZmOTNHUQ?oc=5"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade"
+    }
+  ],
+  "needs_human": false,
+  "tweet_id": "2122633201202143448",
+  "posted_at": "2026-11-17T10:09:26.560795+00:00"
+}
