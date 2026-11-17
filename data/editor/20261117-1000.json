@@ -1,0 +1,52 @@
+[
+  {
+    "fact_ids": [
+      "f5",
+      "f14"
+    ],
+    "topic_key": "hl:xyz:NVDA:funding_extreme",
+    "angle": "$NVDAのHIP-3先物で資金調達率が年率+104.0%まで上昇し、ロング過熱の偏りが強まっている点に着目する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "主要な半導体銘柄におけるデリバティブの需給の歪みを明確な数値で捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f22"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "安定上位トレーダーのBTC保有における売りポジションの偏りに焦点を当てる。",
+    "scores": {
+      "novelty": 15,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 16
+    },
+    "total": 85,
+    "reason": "上位勢のポジションの偏りを集計データとして客観的に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f20",
+      "f17"
+    ],
+    "topic_key": "hl:xyz:SOXL:hip3_top",
+    "angle": "$SOXLのHIP-3先物における出来高の大きさと価格の変動にスポットを当てる。",
+    "scores": {
+      "novelty": 15,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 15
+    },
+    "total": 82,
+    "reason": "読者の関心が高いレバレッジ型半導体先物の商いを具体的なデータで示しているため。"
+  }
+]

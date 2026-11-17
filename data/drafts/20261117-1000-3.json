@@ -1,0 +1,114 @@
+{
+  "id": "20261117-1000-3",
+  "slot_key": "20261117-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-17T01:45:27.903375+00:00",
+  "text": "$SOXLの先物市場で約2.6億ドルの出来高が記録され、激しい商いが交わされている。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/17(火) 10:42時点、価格は-7.32%の$50.20となり、建玉は約2,612万ドル、資金調達率は年率-0.7%で推移している。",
+  "template": "$SOXLの先物市場で{{f20.volume}}の出来高が記録され、激しい商いが交わされている。\n\nHyperliquidの{{f20.market}}で{{f20.asof}}、価格は{{f20.change_pct}}の{{f20.price}}となり、建玉は{{f20.oi}}、資金調達率は年率{{f20.funding_annual}}で推移している。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:SOXL:hip3_top",
+  "angle": "$SOXLのHIP-3先物における出来高の大きさと価格の変動にスポットを当てる。",
+  "scores": {
+    "novelty": 15,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 15
+  },
+  "total": 82,
+  "fact_ids": [
+    "f20",
+    "f17"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SOXL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SOXL（HIP-3株式等先物） 24時間騰落率-7.32%, 価格50.2, 建玉26115394USD, 24時間出来高262773030USD, 資金調達率(年率)-0.7%",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$50.20",
+        "change_pct": "-7.32%",
+        "oi": "約2,612万ドル",
+        "volume": "約2.6億ドル",
+        "funding_annual": "-0.7%",
+        "asof": "日本時間11/17(火) 10:42時点",
+        "asof_short": "10:42時点"
+      },
+      "raw": {
+        "mark": 50.2,
+        "change_pct": -7.32,
+        "oi_usd": 26115394,
+        "vol_usd": 262773030,
+        "funding_annual_pct": -0.67
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-17T01:42:53.334028+00:00",
+      "confidence": "confirmed",
+      "id": "f20"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-2.63%, 価格157.21, 建玉418822837USD, 24時間出来高492183998USD, 資金調達率(年率)+24.8%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$157.21",
+        "change_pct": "-2.63%",
+        "oi": "約4.2億ドル",
+        "volume": "約4.9億ドル",
+        "funding_annual": "+24.8%",
+        "asof": "日本時間11/17(火) 10:42時点",
+        "asof_short": "10:42時点"
+      },
+      "raw": {
+        "mark": 157.21,
+        "change_pct": -2.626,
+        "oi_usd": 418822837,
+        "vol_usd": 492183998,
+        "funding_annual_pct": 24.83
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-17T01:42:53.333984+00:00",
+      "confidence": "confirmed",
+      "id": "f17"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false
+}
