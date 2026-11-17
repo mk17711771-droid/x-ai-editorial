@@ -1637,3 +1637,17 @@ def test_cli_health_runs(monkeypatch):
     from aiedit import cli, health
     monkeypatch.setattr(health, "run", lambda: {"ok": True})
     assert cli.main(["health"]) == 0
+
+
+def test_known_stories_covers_weeks_and_merges_followups(monkeypatch):
+    # 11/17: 直近15件だけ渡していたため、10/29のICEの件の再報道を新しい話題と誤認した
+    from datetime import timedelta
+    from aiedit import news_watch, store
+    from aiedit.common import now_utc
+    old = (now_utc() - timedelta(days=19)).isoformat()
+    facts = [{"key": "news:ice-x", "asof": old, "fields": {"headline": "ICEの件"}, "summary": ""},
+             {"key": "news:ice-x-2", "asof": old, "fields": {"headline": "ICEの件 続報"}, "summary": ""}]
+    facts += [{"key": f"news:k{i}", "asof": now_utc().isoformat(), "fields": {"headline": f"h{i}"}, "summary": ""} for i in range(20)]
+    monkeypatch.setattr(store, "read_json", lambda name, default=None: facts if name == "news_facts.json" else default)
+    ks = news_watch.known_stories()
+    assert [k["story_key"] for k in ks].count("ice-x") == 1 and len(ks) == 21

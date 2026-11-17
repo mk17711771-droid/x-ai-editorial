@@ -23,6 +23,7 @@ MAX_POSTS_PER_STORY = 1
 STORY_FRESH_HOURS = 3
 # 大きな出来事の余波は何日も報道が続く。同じ出来事かは7日さかのぼって比べる（11/2 3日前のバイナンスの件の余波を新しい速報として出した）
 SAME_EVENT_DAYS = 7
+KNOWN_STORY_DAYS = 60
 
 
 def _cfg() -> dict:
@@ -83,13 +84,28 @@ def _corroborate(items: list[dict]) -> list[dict]:
     return items + [e for e in extra if (e["title"], e.get("source")) not in seen]
 
 
+def known_stories(days: int = KNOWN_STORY_DAYS, limit: int = 40) -> list[dict]:
+    """AIに渡す「既に扱った話題」。直近15件だけでは、3週間前の出来事の再報道を新しい話題と誤認した
+    （11/17 10/29のICE×trade[XYZ]の件を「【速報】ICEが…国内展開へ」として拾った）。続報(-2,-3)はまとめ、日付を付ける。"""
+    out: dict[str, dict] = {}
+    for f in store.read_json("news_facts.json", []) or []:
+        try:
+            at = datetime.fromisoformat(f["asof"])
+        except (KeyError, ValueError):
+            continue
+        if now_utc() - at > timedelta(days=days):
+            continue
+        key = re.sub(r"-\d+$", "", f["key"].removeprefix("news:"))
+        out.setdefault(key, {"story_key": key, "date": f"{at:%Y-%m-%d}",
+                             "headline": f.get("fields", {}).get("headline", f.get("summary", "")[:60])})
+    return list(out.values())[-limit:]
+
+
 def triage(new: list[dict], context: list[dict], hype_1h: float | None) -> list[dict]:
     """AIで、重要なニュースかどうか・裏取りできているかを判定し、話題ごとにまとめる。"""
     from .common import CONFIG_DIR
-    known = [{"story_key": f["key"].removeprefix("news:"), "headline": f["fields"].get("headline", f["summary"][:60])}
-             for f in store.read_json("news_facts.json", []) or []]
     payload = {"new_items": new, "related_items_last_24h": context[:60], "hype_1h_change_pct": hype_1h,
-               "known_stories": known[-15:]}
+               "known_stories": known_stories()}
     rubric = (CONFIG_DIR / "buzz_patterns.md").read_text(encoding="utf-8")
     out = llm.generate_json(llm.prompt("news_triage") + "\n\n" + rubric, json.dumps(payload, ensure_ascii=False), fast=True)
     if isinstance(out, list):  # AIが {"stories": [...]} ではなく配列だけを返すことがある（10/30 20:46に停止）
