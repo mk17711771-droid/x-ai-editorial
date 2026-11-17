@@ -324,6 +324,10 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         if f.get("kind") == "hl" or "先物" in str((f.get("fields") or {}).get("market", "")):
             errors.append("Hyperliquidの先物の数字を「現物」と書いている")
             break
+    # Hyperliquidの新しい市場（無期限先物）の追加を「現物の取り扱い」と書かない（11/18 0:43 io:INTCの上場を「現物の取り扱いが拡充」）
+    used_hl = any((facts.get(fid) or {}).get("kind") == "hl" for fid, _ in PLACEHOLDER.findall(template))
+    if used_hl and re.search(r"現物(?:の|が)?(?:取り扱い|取扱|上場|追加|銘柄|ラインナップ)", template):
+        errors.append("Hyperliquidの市場は無期限先物。上場・追加を「現物」と書かない")
     # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
     for ln in template.split("\n"):
         if not ln.strip().startswith(("・", "-")):

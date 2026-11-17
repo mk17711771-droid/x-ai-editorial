@@ -1651,3 +1651,11 @@ def test_known_stories_covers_weeks_and_merges_followups(monkeypatch):
     monkeypatch.setattr(store, "read_json", lambda name, default=None: facts if name == "news_facts.json" else default)
     ks = news_watch.known_stories()
     assert [k["story_key"] for k in ks].count("ice-x") == 1 and len(ks) == 21
+
+
+def test_hl_listing_not_called_spot():
+    """11/18 0:43: io:INTCの無期限先物の追加を「現物の取り扱いが拡充」と書いた。"""
+    from aiedit import checks
+    facts = {"f1": {"kind": "hl", "fields": {"headline": "Hyperliquid、インテル（io:INTC）の市場を追加"}}}
+    assert any("現物" in e for e in checks.check_template("{{f1.headline}}。現物の取り扱いが拡充される動き", facts))
+    assert not any("無期限先物。上場" in e for e in checks.check_template("{{f1.headline}}。先物の銘柄が増える動き", facts))
