@@ -1,0 +1,50 @@
+[
+  {
+    "fact_ids": [
+      "f12"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "SKHXの資金調達率の異常値を取り上げる",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 84,
+    "reason": "半導体関連のHIP-3先物における極端な資金調達率の歪みを具体的な数字で示しているから。"
+  },
+  {
+    "fact_ids": [
+      "f10"
+    ],
+    "topic_key": "hl:xyz:KIOXIA:funding_extreme",
+    "angle": "KIOXIAのロング過熱と資金調達率の歪みに注目する",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 84,
+    "reason": "半導体・メモリ関連のHIP-3先物におけるロング過熱の数字を明確に捉えているから。"
+  },
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:kalshi-stock-trading-plan-cftc",
+    "angle": "予測市場による株式取引提供の動きとCFTCの権限見解を伝える",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 12,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 82,
+    "reason": "伝統金融とオンチェーンの接点拡大に関する確度の高いニュースであり、読者の関心が高い分野だから。"
+  }
+]
