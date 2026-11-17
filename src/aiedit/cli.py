@@ -160,6 +160,15 @@ def main(argv: list[str] | None = None) -> int:
             "traceback": traceback.format_exc()[-4000:],
         })
         from . import xapi
+        if args.cmd == "generate" and "Gemini" in str(e) and os.environ.get("DISPATCH_BY") != "gemini_retry":
+            # 11/17 朝: Geminiの混雑で枠が落ち、次の見回り（2時間後）では間に合わなかった。1回だけすぐ出し直す
+            from . import health
+            try:
+                r = health._gh("/dispatches", method="POST", json={
+                    "event_type": "generate", "client_payload": {"by": "gemini_retry", "slot": args.slot}})
+                print(f"Geminiの失敗のため投稿をもう一度起動しました: {r.status_code}")
+            except Exception as e2:  # noqa: BLE001
+                print(f"投稿の再起動に失敗: {e2}")
         if args.cmd in ("generate", "decide", "note-article", "news-watch") and not isinstance(e, xapi.XCreditsError) \
                 and "credits depleted" not in str(e) and not (args.cmd == "decide" and os.environ.get("QUIET_DELETE")):
             # クレジット切れは pipeline が1日1回だけ知らせる。点検からの削除の失敗は点検が見る（LINEの無料枠）

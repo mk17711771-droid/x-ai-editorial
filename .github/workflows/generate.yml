@@ -61,6 +61,8 @@ jobs:
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           X_PREMIUM: ${{ vars.X_PREMIUM }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISPATCH_BY: ${{ github.event.client_payload.by }}
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
           X_API_KEY: ${{ secrets.X_API_KEY }}
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
