@@ -1,0 +1,102 @@
+{
+  "id": "20261117-1215-2",
+  "slot_key": "20261117-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "superseded",
+  "created_at": "2026-11-17T03:20:40.302235+00:00",
+  "text": "$MUの前日比-7.62%という下落が、半導体株全体の冷え込みをそのまま映し出している。\n\n米国11/16終値でSOXXも-5.41%（価格$141.22）の厳しい下げとなっており、メモリから指数全体へリスク回避の動きが強まっている。",
+  "template": "$MUの前日比{{f9.change_pct}}という下落が、半導体株全体の冷え込みをそのまま映し出している。\n\n{{f9.asof}}で$SOXXも{{f3.change_pct}}（価格{{f3.price}}）の厳しい下げとなっており、メモリから指数全体へリスク回避の動きが強まっている。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "stock:MU:big_move",
+  "angle": "メモリ関連を中心に売りが広がる中、MUが-7.62%と厳しい下げを記録している理由と市場の歪みを見る。",
+  "scores": {
+    "novelty": 15,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 15,
+    "insight": 16
+  },
+  "total": 81,
+  "fact_ids": [
+    "f9",
+    "f3"
+  ],
+  "facts": [
+    {
+      "key": "stock:MU:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MU 価格719.02, 前日比-7.62%, 前日終値778.31, 高値739.12, 安値716.38",
+      "fields": {
+        "symbol": "MU",
+        "price": "$719.02",
+        "change_pct": "-7.62%",
+        "prev_close": "$778.31",
+        "high": "$739.12",
+        "low": "$716.38",
+        "asof": "米国11/16終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 719.02,
+        "change_pct": -7.618,
+        "prev_close": 778.31
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MU"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-11-17T03:19:37.839367+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    },
+    {
+      "key": "stock:SOXX:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】SOXX 価格141.22, 前日比-5.41%, 前日終値149.3, 高値144.5, 安値140.88",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$141.22",
+        "change_pct": "-5.41%",
+        "prev_close": "$149.30",
+        "high": "$144.50",
+        "low": "$140.88",
+        "asof": "米国11/16終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 141.22,
+        "change_pct": -5.412,
+        "prev_close": 149.3
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-17T03:19:37.065040+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    }
+  ],
+  "needs_human": false
+}

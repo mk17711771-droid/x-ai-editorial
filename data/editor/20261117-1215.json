@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f10",
+      "f42"
+    ],
+    "topic_key": "stock:ARM:big_move",
+    "angle": "半導体セクター全体が大きく売られる中、ARMが-8.12%と下落を主導している背景と、HIP-3先物の動向を追う。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 15,
+      "insight": 17
+    },
+    "total": 85,
+    "reason": "主要な半導体銘柄の大きな下落を主役にし、市場の資金の流れの変化を明確な数字で捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f9",
+      "f3"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "メモリ関連を中心に売りが広がる中、MUが-7.62%と厳しい下げを記録している理由と市場の歪みを見る。",
+    "scores": {
+      "novelty": 15,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 81,
+    "reason": "半導体セクター内の個別銘柄の急落に焦点を当て、読者の関心が高い価格変動のデータを提示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f40"
+    ],
+    "topic_key": "stock:QQQ:quote",
+    "angle": "指数全体が調整色を強める中で、QQQが-2.67%と下落した背景と、デリバティブ市場の歪みを整理する。",
+    "scores": {
+      "novelty": 14,
+      "interest": 16,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 15
+    },
+    "total": 79,
+    "reason": "主要な株価指数を通じた全体の地合いの変化を捉え、実用的な市場解説を行うため。"
+  }
+]
