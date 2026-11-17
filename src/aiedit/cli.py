@@ -114,7 +114,6 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(records.rebuild(), ensure_ascii=False))
         elif args.cmd == "news-watch":
             from . import news_watch
-            import os
             payload = {}
             event_path = os.environ.get("GITHUB_EVENT_PATH")
             if event_path and os.path.exists(event_path):
@@ -162,9 +161,9 @@ def main(argv: list[str] | None = None) -> int:
         from . import xapi
         if args.cmd == "generate" and "Gemini" in str(e) and os.environ.get("DISPATCH_BY") != "gemini_retry":
             # 11/17 朝: Geminiの混雑で枠が落ち、次の見回り（2時間後）では間に合わなかった。1回だけすぐ出し直す
-            from . import health
+            from . import health as _health
             try:
-                r = health._gh("/dispatches", method="POST", json={
+                r = _health._gh("/dispatches", method="POST", json={
                     "event_type": "generate", "client_payload": {"by": "gemini_retry", "slot": args.slot}})
                 print(f"Geminiの失敗のため投稿をもう一度起動しました: {r.status_code}")
             except Exception as e2:  # noqa: BLE001

@@ -1623,3 +1623,17 @@ def test_llm_loads_repairs_trailing_commas():
     from aiedit.llm import _loads
     assert _loads('```json\n{\n "drafts": [{"text": "a",},],\n}\n```') == {"drafts": [{"text": "a"}]}
     assert _loads('{"a": 1}') == {"a": 1}
+
+
+def test_cli_main_does_not_shadow_modules():
+    # 11/17: main() の中で `from . import health` と書き、health コマンドが UnboundLocalError で止まった
+    import types
+    from aiedit import cli
+    mods = {k for k, v in vars(cli).items() if isinstance(v, types.ModuleType)}
+    assert not (set(cli.main.__code__.co_varnames) & mods)
+
+
+def test_cli_health_runs(monkeypatch):
+    from aiedit import cli, health
+    monkeypatch.setattr(health, "run", lambda: {"ok": True})
+    assert cli.main(["health"]) == 0

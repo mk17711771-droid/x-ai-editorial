@@ -128,3 +128,4 @@
 - 2026-11-16 管理者の判断でリポジトリを公開して GitHub Actions を無料に戻す。公開前に、上位トレーダーのアドレス（data/traders の履歴、約377件）と管理者のメールアドレス（最初のコミット）を履歴から消した。仕組み: traders/ のアドレスは AES-SIV で暗号化して保存（store._protect、鍵は Secrets から）。鍵がなければ伏せ字＋テスト。
 - 2026-11-17 02:05・03:05 速報の見張りがGeminiの混雑（503）で失敗扱いになった（待ち時間を短くしたため）。未処理の記事は次の回で拾い直す設計なので、Geminiの一時的な失敗は正常終了にする（cli）。
 - 11/17 07:30枠が投稿されず: Geminiの混雑（503/タイムアウト）中に軽量モデルが末尾カンマ付きの壊れたJSONを返し続け、全再試行が失敗。→ llm._loads で```囲み・コメント・末尾カンマを直してから読む／壊れたJSONの先頭をログに出す／テスト test_llm_loads_repairs_trailing_commas。朝枠は10時枠と近いため出し直さない。
+- 11/17 09:36〜 見回り（health）が止まった: 朝の修正で cli.main の中に `from . import health` を書き、health がローカル変数扱いになって UnboundLocalError（`|| true` で失敗が見えなかった）。同じ型の `import os` も潜んでいた（エラー処理で os を使うと落ちる）。→ 両方を直し、テスト test_cli_main_does_not_shadow_modules（main内でモジュール名を再定義しない）・test_cli_health_runs を追加。
