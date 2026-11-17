@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-17T04:17:54.900381+00:00",
-  "at_jst": "11/17 13:17",
+  "at": "2026-11-17T04:36:48.533275+00:00",
+  "at_jst": "11/17 13:36",
   "ok": false,
   "issues": [
     {
@@ -20,13 +20,6 @@
       "command": "health",
       "error": "UnboundLocalError: cannot access local variable 'health' where it is not associated with a value",
       "at": "2026-11-17T02:37:13.674726+00:00"
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-16T22:20:19Z",
-      "id": 43969084671
     },
     {
       "type": "many_rejections",
