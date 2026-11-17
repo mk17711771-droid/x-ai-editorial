@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-17T08:36:40.005703+00:00",
-  "at_jst": "11/17 17:36",
+  "at": "2026-11-17T08:56:20.816366+00:00",
+  "at_jst": "11/17 17:56",
   "ok": false,
   "issues": [
     {
@@ -14,12 +14,6 @@
       "type": "line_quota",
       "used": 160,
       "limit": 200
-    },
-    {
-      "type": "error",
-      "command": "health",
-      "error": "UnboundLocalError: cannot access local variable 'health' where it is not associated with a value",
-      "at": "2026-11-17T02:37:13.674726+00:00"
     },
     {
       "type": "many_rejections",
