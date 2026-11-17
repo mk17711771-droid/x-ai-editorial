@@ -130,3 +130,4 @@
 - 11/17 07:30枠が投稿されず: Geminiの混雑（503/タイムアウト）中に軽量モデルが末尾カンマ付きの壊れたJSONを返し続け、全再試行が失敗。→ llm._loads で```囲み・コメント・末尾カンマを直してから読む／壊れたJSONの先頭をログに出す／テスト test_llm_loads_repairs_trailing_commas。朝枠は10時枠と近いため出し直さない。
 - 11/17 09:36〜 見回り（health）が止まった: 朝の修正で cli.main の中に `from . import health` を書き、health がローカル変数扱いになって UnboundLocalError（`|| true` で失敗が見えなかった）。同じ型の `import os` も潜んでいた（エラー処理で os を使うと落ちる）。→ 両方を直し、テスト test_cli_main_does_not_shadow_modules（main内でモジュール名を再定義しない）・test_cli_health_runs を追加。
 - 11/17 17:55 速報の見張りが「【速報】ICEがHyperliquidの無期限先物を国内展開へ、HYPEが17%急騰」を新しい話題として拾った（実際は10/29の出来事の再報道。1社だけだったので投稿はされず）。原因: AIに渡す既知の話題が直近15件だけで10月の件が抜けていた・見出しの固有語が「ICE」1つで機械の重複判定も効かなかった。→ known_stories（60日分・続報をまとめ・日付付き）を渡す。テスト test_known_stories_covers_weeks_and_merges_followups。この話題は扱い済みに設定。
+- 11/17 23:18 $KIOXIA の短文の2文目が、11/16 23:51 $SKHX とほぼ同じ文（「下落する中でデリバティブ側に強い買い圧力が溜まっているな」）。誤りではないため削除せず。→ config/cliche_phrases.txt に追加（直近で使っていたら書き直させる）。
