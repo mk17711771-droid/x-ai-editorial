@@ -1,0 +1,50 @@
+[
+  {
+    "fact_ids": [
+      "f11"
+    ],
+    "topic_key": "hl:xyz:CXMT:funding_extreme",
+    "angle": "CXMTの資金調達率が年率+408.6%まで跳ね上がり、ロングの過熱感が極端に高まっている歪みを突く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "400%を超える極端な資金調達率の数値があり、デリバティブ市場におけるポジションの過熱感をダイレクトに伝えられるため。"
+  },
+  {
+    "fact_ids": [
+      "f6"
+    ],
+    "topic_key": "hl:xyz:ARM:big_move",
+    "angle": "ARMのHIP-3先物が24時間で+10.72%と急騰し、現物の上昇を上回る勢いを見せている点に注目する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 90,
+    "reason": "主要な半導体銘柄であるARMの大きな価格変動と具体的な数字が揃っており、読者の関心を引きやすいため。"
+  },
+  {
+    "fact_ids": [
+      "f14"
+    ],
+    "topic_key": "hl:xyz:PLATINUM:oi_change",
+    "angle": "プラチナのHIP-3先物で建玉が24時間で+75.7%と急増している、資金の流入異変を解説する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "建玉の急増という明確な「量の異変」が捉えられており、新規性と数字の根拠が優れているため。"
+  }
+]

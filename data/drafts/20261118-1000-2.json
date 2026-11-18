@@ -1,0 +1,73 @@
+{
+  "id": "20261118-1000-2",
+  "slot_key": "20261118-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-18T00:59:26.110151+00:00",
+  "text": "$PLATINUMの建玉が24時間で+75.7%も急増し、商品先物のHIP-3市場に異例の資金が流れ込んでいる。\n\nHyperliquidの商品先物（HIP-3）で日本時間11/18(水) 09:58時点、価格は$1,423（-2.13%）と軟調なのに、建玉は約773万ドル規模まで膨らんでいる。",
+  "template": "$PLATINUMの建玉が24時間で{{f14.oi_change_pct}}も急増し、商品先物のHIP-3市場に異例の資金が流れ込んでいる。\n\nHyperliquidの{{f14.market}}で{{f14.asof}}、価格は{{f14.price}}（{{f14.change_pct}}）と軟調なのに、建玉は{{f14.oi}}規模まで膨らんでいる。価格の下落に逆行してデリバティブ側に新たなリスクが持ち込まれている構造は、慎重に見ておきたいところ。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:PLATINUM:oi_change",
+  "angle": "プラチナのHIP-3先物で建玉が24時間で+75.7%と急増している、資金の流入異変を解説する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 17,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f14"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:PLATINUM:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+75.7%: PLATINUM（HIP-3株式等先物） 24時間騰落率-2.13%, 価格1422.7, 建玉7730992USD, 24時間出来高5690372USD, 資金調達率(年率)+33.3%",
+      "fields": {
+        "coin": "PLATINUM",
+        "symbol": "PLATINUM",
+        "venue": "Hyperliquid",
+        "market": "商品先物（HIP-3）",
+        "price": "$1,423",
+        "change_pct": "-2.13%",
+        "oi": "約773万ドル",
+        "volume": "約569万ドル",
+        "funding_annual": "+33.3%",
+        "asof": "日本時間11/18(水) 09:58時点",
+        "asof_short": "09:58時点",
+        "oi_change_pct": "+75.7%"
+      },
+      "raw": {
+        "mark": 1422.7,
+        "change_pct": -2.126,
+        "oi_usd": 7730992,
+        "vol_usd": 5690372,
+        "funding_annual_pct": 33.3,
+        "oi_change_pct": 75.73
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:PLATINUM",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:PLATINUM"
+      },
+      "asof": "2026-11-18T00:58:31.040354+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:PLATINUM"
+    }
+  ],
+  "needs_human": false
+}
