@@ -396,6 +396,15 @@ INDEX_PAIRS = {"ナスダック100": ("QQQ", "ナスダック"), "XYZ100": ("QQQ
 SECTOR_ETFS = ("SOXX", "SMH", "SOXL", "XLK", "XLF", "ARKK")
 
 
+MISSING_NUMBER = re.compile(r"(?<![0-9０-９.一二三四五六七八九十百千])(倍|%|％)(から|に|へ|まで|を|と)|(から|の)(倍|%|％)(に|へ|まで|から)")
+
+
+def missing_number(text: str) -> str:
+    """数字の抜け（「従来の倍から倍に」）。差し込みや文の修正で数字だけ消えたときに出る（11/18 noteの記事）。"""
+    m = MISSING_NUMBER.search(text)
+    return m.group(0) if m else ""
+
+
 def _sector_vs_index(text: str) -> str:
     if not any(w in text for w in CONTRAST + ("違う", "穏やか", "とどま")):
         return ""
@@ -486,6 +495,8 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     cross = _sector_vs_index(text)
     if cross:  # 11/10 09:16 半導体ETF（SOXX +7.49%）とナスダック100先物（+3.92%）の差を「現物との違い」とした
         errors.append(cross)
+    if missing_number(text):
+        errors.append(f"数字が抜けている（「{missing_number(text)}」）")
     # 指数（QQQ・SPY・ナスダック・S&P）を「半導体指数」と呼ばない（11/18 08:09「主要な半導体指数であるQQQおよびSPY」）
     if re.search(r"半導体[^。\n]{0,4}指数(?:である|の|、|：|:)?\s*[「（(]?(?:QQQ|SPY|ナスダック|S&P)|(?:QQQ|SPY|ナスダック100|S&P500)(?:など|という|の)?(?:主要な)?半導体[^。\n]{0,4}指数", text):
         errors.append("QQQ・SPY（ナスダック100・S&P500）は半導体の指数ではない（半導体ならSOXX・SMH）")

@@ -146,6 +146,10 @@ def write(theme: str | None = None) -> dict | None:
         if dup:  # 11/4「バイナンスでバイナンスで」（差し込む値と地の文で語が重なった）
             errors = [f"タイトルで同じ語句「{dup.group(1)}」が重なっている。差し込む値の中身を見て、重ならないように書く"]
             continue
+        gap = checks.missing_number(title + body)
+        if gap:
+            errors = [f"数字が抜けた文がある（「{gap}」）。数字は材料の差し込み記号で書き、材料にない数字の文は書かない"]
+            continue
         if len(body) < 1500:
             errors = [f"本文が短すぎる（{len(body)}字）。各大見出しの下に400〜700字書き、全体で{min_chars}字以上にする"]
             continue

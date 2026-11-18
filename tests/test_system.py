@@ -1676,3 +1676,10 @@ def test_note_drops_dangling_chart_reference():
     assert drop_dangling_chart_refs("前置き\n\n上のチャートが示す通り、NVDAは上昇した。") == "前置き\n\nNVDAは上昇した。"
     kept = "\n**▼ここに画像1（株価）を挿入**\n\n上のチャートが示す通り、上昇した。"
     assert drop_dangling_chart_refs(kept) == kept
+
+
+def test_missing_number_detected():
+    """11/18 note: 「最大レバレッジを従来の倍から倍に引き下げる」（数字が抜けた）。"""
+    from aiedit import checks
+    assert checks.missing_number("最大レバレッジを従来の倍から倍に引き下げる")
+    assert not checks.missing_number("最大レバレッジを20倍から10倍に引き下げる。2倍の値動き、+5.5%に達した")

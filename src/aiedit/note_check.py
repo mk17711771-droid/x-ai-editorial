@@ -288,7 +288,7 @@ def remind_unpublished() -> list[str]:
     sent = []
     for p in sorted(store.DATA_DIR.glob(f"note_articles/{now:%Y%m%d}-*/meta.json")):
         meta = json.loads(p.read_text())
-        if meta.get("status") == "published":
+        if meta.get("status") in ("published", "replaced"):  # 作り直した記事の古い版は知らせない（11/18）
             continue
         reminded = meta.get("reminded", [])
         due = [h for h in REMIND_AT_JST if now.hour >= h and h not in reminded]
