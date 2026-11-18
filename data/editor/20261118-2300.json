@@ -1,0 +1,70 @@
+[
+  {
+    "fact_ids": [
+      "f18",
+      "f7"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体セクターの代表格であるSKHXのHIP-3先物で、年率-117.8%という極端なショート過熱（資金調達率のマイナス）が起きている構造に焦点を当てる。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "主要な半導体関連銘柄におけるデリバティブ側の極端なコストの偏りを具体的な数字で捉えており、市場の歪みを追うアカウントのコンセプトに合致するため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f10"
+    ],
+    "topic_key": "hl:xyz:TTWO:funding_extreme",
+    "angle": "TTWOのHIP-3先物で建玉が24時間で+200.5%と急増し、資金調達率も年率+154.3%のロング過熱に傾いている異変を伝える。",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "特定の個別銘柄における建玉の記録的な急増とロングの過熱コストという明確な数字の異変を示しており、新規性と根拠の強さが際立っているため。"
+  },
+  {
+    "fact_ids": [
+      "f5",
+      "f17"
+    ],
+    "topic_key": "hl:xyz:SP500:volume_top",
+    "angle": "米国市場オープンを前に、SP500のHIP-3先物で資金調達率が年率+7.1%まで上昇し、指数先物市場でのコストの偏りが見えている点を指摘する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 16
+    },
+    "total": 90,
+    "reason": "最優先する大きな名前（SP500）の市場データを扱い、オープン前のインデックス先物におけるポジションとコストの状況を実データで示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f21",
+      "f22"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "安定上位トレーダーの間でBTCやETHの保有がほぼ完全に売りへ傾いており、方向性の偏りが極限に達している構造を整理する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 19
+    },
+    "total": 90,
+    "reason": "看板企画である上位トレーダーのポジションの偏りを具体的な人数と割合で示し、市場参加者の構造的な傾きを深く解説できるため。"
+  }
+]

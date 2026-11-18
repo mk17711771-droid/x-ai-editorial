@@ -1,0 +1,116 @@
+{
+  "id": "20261118-2300-3",
+  "slot_key": "20261118-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-11-18T14:23:02.617371+00:00",
+  "text": "$TTWOのHIP-3先物市場で建玉が+200.5%という異様な伸びを記録している。\n\n23:17時点で価格は$215.34（-0.96%）、資金調達率は年率+154.3%まで跳ね上がっており、価格が軟調なのにロングだけが膨らむ歪みが気になる。",
+  "template": "${{f10.symbol}}のHIP-3先物市場で建玉が{{f10.oi_change_pct}}という異様な伸びを記録している。\n\n{{f10.asof_short}}時点で価格は{{f10.price}}（{{f10.change_pct}}）、資金調達率は年率{{f10.funding_annual}}まで跳ね上がっており、価格が軟調なのにロングだけが膨らむ歪みが気になる。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:TTWO:funding_extreme",
+  "angle": "TTWOのHIP-3先物で建玉が24時間で+200.5%と急増し、資金調達率も年率+154.3%のロング過熱に傾いている異変を伝える。",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 16,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f6",
+    "f10"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:TTWO:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: TTWO（HIP-3株式等先物） 24時間騰落率-0.96%, 価格215.34, 建玉3171618USD, 24時間出来高6639306USD, 資金調達率(年率)+154.3%",
+      "fields": {
+        "coin": "TTWO",
+        "symbol": "TTWO",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$215.34",
+        "change_pct": "-0.96%",
+        "oi": "約317万ドル",
+        "volume": "約664万ドル",
+        "funding_annual": "+154.3%",
+        "asof": "日本時間11/18(水) 23:17時点",
+        "asof_short": "23:17時点"
+      },
+      "raw": {
+        "mark": 215.34,
+        "change_pct": -0.961,
+        "oi_usd": 3171618,
+        "vol_usd": 6639306,
+        "funding_annual_pct": 154.35
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:TTWO",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:TTWO"
+      },
+      "asof": "2026-11-18T14:17:55.369087+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:TTWO:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+200.5%: TTWO（HIP-3株式等先物） 24時間騰落率-0.96%, 価格215.34, 建玉3171618USD, 24時間出来高6639306USD, 資金調達率(年率)+154.3%",
+      "fields": {
+        "coin": "TTWO",
+        "symbol": "TTWO",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$215.34",
+        "change_pct": "-0.96%",
+        "oi": "約317万ドル",
+        "volume": "約664万ドル",
+        "funding_annual": "+154.3%",
+        "asof": "日本時間11/18(水) 23:17時点",
+        "asof_short": "23:17時点",
+        "oi_change_pct": "+200.5%"
+      },
+      "raw": {
+        "mark": 215.34,
+        "change_pct": -0.961,
+        "oi_usd": 3171618,
+        "vol_usd": 6639306,
+        "funding_annual_pct": 154.35,
+        "oi_change_pct": 200.47
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:TTWO",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:TTWO"
+      },
+      "asof": "2026-11-18T14:17:55.369294+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:TTWO"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:TTWO"
+    }
+  ],
+  "needs_human": false
+}
