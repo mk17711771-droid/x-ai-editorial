@@ -129,6 +129,11 @@ def write(theme: str | None = None) -> dict | None:
         body_t, unsafe = checks.drop_unsafe_sentences(body_t, by_id)
         if unsafe:
             log.info("データ以外の数字などを含む文を外しました（%d文）: %s", len(unsafe), unsafe[:5])
+        if attempt < 2 and len(dropped) + len(unsafe) >= 4:
+            # 外した文が多いと、前後の文が宙に浮く（11/18「これらはロングの…」の「これら」が消えた文を指していた）
+            errors = [f"差し込み記号の誤り・データ以外の数字で外した文が多い（{len(dropped) + len(unsafe)}文）。"
+                      "数字は材料の差し込み記号だけで書き、材料にない項目を使わない"]
+            continue
         if len(unsafe) > 15:
             errors = [f"データ以外の数字を書いた文が多すぎる（{len(unsafe)}文）。数字は必ず差し込み記号で書く"]
             continue
@@ -153,6 +158,12 @@ def write(theme: str | None = None) -> dict | None:
         if bad or checks.URL.search(body) or checks.HASHTAG.search(body):
             errors = [f"禁止表現・URL・ハッシュタグを含む: {bad}"]
             continue
+        images = _render_charts(body, facts)
+        missing = [r for r in refs if r not in images]
+        if len(images) < 2 and attempt < 2:
+            # 指定はあっても図が作れないことがある（11/18 chart:hl の材料が見つからず画像1枚、本文に「上のチャートが示す通り」が残った）
+            errors = [f"図 {missing} が作れなかった。chart:stocks・chart:smart_money・材料にある銘柄の chart:hl:<coin> から2〜3枚選ぶ"]
+            continue
         break
     else:
         store.append_jsonl("rejected_variants.jsonl", {"at": now_utc().isoformat(), "slot": "note", "format": "note",
@@ -160,7 +171,6 @@ def write(theme: str | None = None) -> dict | None:
         log.warning("note記事を作れませんでした: %s", errors)
         return None
 
-    images = _render_charts(body, facts)
     article_id = now_utc().astimezone(JST).strftime("%Y%m%d-%H%M")
     # 画像はnoteに手動で入れるので、本文には「ここに画像」の目印を残す
     n = 0
@@ -174,7 +184,7 @@ def write(theme: str | None = None) -> dict | None:
         seen.add(m.group(2))
         n += 1
         return f"\n**▼ここに画像{n}（{m.group(1)}）を挿入**\n"
-    body_marked = CHART.sub(marker, body) + FOOTER
+    body_marked = drop_dangling_chart_refs(CHART.sub(marker, body)) + FOOTER
     order = [ref for _, ref in CHART.findall(body) if ref in images]
     order = list(dict.fromkeys(order))
     for i, ref in enumerate(order, 1):
@@ -194,6 +204,18 @@ def write(theme: str | None = None) -> dict | None:
     store.write_json(f"note_articles/{article_id}/meta.json", meta)
     notify(meta)
     return meta
+
+
+def drop_dangling_chart_refs(text: str) -> str:
+    """直前に画像の目印がないのに「上のチャートが示す通り」と書いた部分を外す（11/18 図が作れず、存在しない図を指していた）。"""
+    out, last = [], -10**9
+    for para in text.split("\n"):
+        if "▼ここに画像" in para:
+            last = len(out)
+        elif len(out) - last > 6:
+            para = re.sub(r"(上|下)の(チャート|図|グラフ)(が示す(通り|とおり)|の(通り|とおり)|を見ると|から(わかる|分かる)ように)、?", "", para)
+        out.append(para)
+    return "\n".join(out)
 
 
 def pipeline_playbook(prompt: str) -> str:

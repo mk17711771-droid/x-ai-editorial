@@ -1668,3 +1668,11 @@ def test_index_not_called_semiconductor_index():
     assert any("半導体の指数ではない" in e for e in checks.check_text(bad, "stock:TSM:big_move", "long"))
     ok = "$TSMが下げた。\n①半導体指数のSOXXとQQQの動き"
     assert not any("半導体の指数ではない" in e for e in checks.check_text(ok, "stock:TSM:big_move", "long"))
+
+
+def test_note_drops_dangling_chart_reference():
+    """11/18: 図が作れなかったのに本文に「上のチャートが示す通り」が残った。"""
+    from aiedit.note_article import drop_dangling_chart_refs
+    assert drop_dangling_chart_refs("前置き\n\n上のチャートが示す通り、NVDAは上昇した。") == "前置き\n\nNVDAは上昇した。"
+    kept = "\n**▼ここに画像1（株価）を挿入**\n\n上のチャートが示す通り、上昇した。"
+    assert drop_dangling_chart_refs(kept) == kept

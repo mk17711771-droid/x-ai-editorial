@@ -133,3 +133,4 @@
 - 11/17 23:18 $KIOXIA の短文の2文目が、11/16 23:51 $SKHX とほぼ同じ文（「下落する中でデリバティブ側に強い買い圧力が溜まっているな」）。誤りではないため削除せず。→ config/cliche_phrases.txt に追加（直近で使っていたら書き直させる）。
 - 11/18 0:43 速報（io:INTCの市場追加）で「現物の取り扱いが拡充される動き」と書いた（実際は無期限先物の市場）→ 削除。checks.check_template に「Hyperliquidの材料を使う原稿で 現物の取り扱い/上場/追加 と書いたら差し戻し」を追加、テスト test_hl_listing_not_called_spot。
 - 11/18 08:09 朝の長文で「①主要な半導体指数であるQQQおよびSPY」と書いた（QQQ・SPYは半導体の指数ではない）→ 削除。checks.check_text に「QQQ・SPY・ナスダック・S&Pを半導体指数と呼んだら差し戻し」を追加、テスト test_index_not_called_semiconductor_index。朝枠は10時枠が近いため出し直さない。
+- 11/18 07:56 noteの記事（エヌビディア決算の裏側）が低品質: Gemini混雑で軽量モデルが書き、図は1枚だけ（chart:hl の図が作れず、本文に「上のチャートが示す通り」が残った）・「trad[XYZ]」・AMD/ASMLの文が崩れ数字が矛盾・外した文の残りが宙に浮いた。→ 図が2枚作れないとき／外した文が4文以上のときは書き直させる（3回目は通す）・前に画像がない「上のチャートが示す通り」を外す・name_fixes に trad[XYZ]。テスト test_note_drops_dangling_chart_reference。記事は作り直してLINEで差し替えを依頼。
