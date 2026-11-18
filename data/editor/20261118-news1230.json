@@ -1,0 +1,52 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:lighter-exploit-abraxas-capital-position",
+    "angle": "Lighterでの1,039万ドル不正流出事件を受け、Abraxas Capitalがポジションを清算。オンチェーンデリバティブ市場全体のリスク管理に対する懸念が強まっている。",
+    "scores": {
+      "novelty": 20,
+      "interest": 19,
+      "evidence": 16,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "オンチェーンデリバティブのセキュリティ事件と大手ファンドの即座の清算という市場構造の急変を捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f15"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "NVDAのHIP-3株式先物が24時間出来高10億ドルを突破しつつも、価格は-0.73%と小幅に下落している。",
+    "scores": {
+      "novelty": 17,
+      "interest": 20,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "市場の注目度が高いNVDAの先物出来高と価格の乖離に焦点を当てているため。"
+  },
+  {
+    "fact_ids": [
+      "f21",
+      "f28"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "安定上位トレーダー38人のうちBTCを持つ20人全員が売りポジションであり、7人が利益確定の決済を行っている。",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 16
+    },
+    "total": 88,
+    "reason": "上位勢のポジション偏りと利確の動きを具体的な人数と数字で示しているため。"
+  }
+]
