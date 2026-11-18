@@ -1,0 +1,37 @@
+[
+  {
+    "fact_ids": [
+      "f2",
+      "f38",
+      "f39"
+    ],
+    "topic_key": "stock:QQQ:quote",
+    "angle": "QQQが前日比-0.73%と下落する中、HIP-3のXYZ100やSP500先物の資金調達率が年率+5.5%を維持している構造を解説する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "主要な株価指数とHIP-3先物のコストの繋がりを論理的に読み解く構成。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f41"
+    ],
+    "topic_key": "stock:SOXX:quote",
+    "angle": "半導体株のSOXXが現物で堅調な動きを見せる一方、HIP-3のSOXL先物市場でどのような需給の偏りが出ているかを検証する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 17,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 86,
+    "reason": "半導体セクターの現物とHIP-3先物の関係性に焦点を当てた実用的な分析。"
+  }
+]

@@ -1,0 +1,154 @@
+{
+  "id": "20261118-2030-1",
+  "slot_key": "20261118-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "posted",
+  "created_at": "2026-11-18T12:08:33.574081+00:00",
+  "text": "QQQが下落する中で、なぜHIP-3の指数先物はプラスの資金調達率を維持しているのか\n\n【いま起きてること】\n現物市場で指数が軟調な値動きを見せる一方で、Hyperliquidの株式等先物市場では、デリバティブ側で特定のポジションに対するコスト負担が維持されており、現物と先物の需給に小さなねじれが生じている。\n\n【数字で見る】（日本時間11/18(水) 21:07時点）\n・$QQQ 価格$656.95、前日終値比-0.73%\n・ナスダック100 価格$27,207、24時間騰落率-0.34%、建玉約2.7億ドル、24時間出来高約6.3億ドル、資金調達率年率+5.5%\n・SP500 価格$7,364、24時間騰落率-0.77%、建玉約4.6億ドル、24時間出来高約4.9億ドル、資金調達率年率+5.5%\n\n【なぜ「歪み」なのか】\n現物側が下値を模索する展開でありながら、HIP-3の主要指数先物では年率+5.5%の資金調達率が保たれている。価格そのものは連動して下落しているものの、デリバティブ側ではロングのコストが抜けきっておらず、市場全体が完全に弱気に振り切れていない構造が見えてくる。現物の下落トレンドと先物側の小幅な楽観が同居するこの状態は、ポジションの偏りが解消される過程でボラティリティを伴う動きにつながる可能性があると見ている。\n\n【次に見るポイント】\n①現物市場の下落圧力がさらに強まった際の先物側の反応\n②年率+5.5%の資金調達率が維持されるかどうかの推移\n③各インデックス先物の建玉規模に現れる増減のサイン",
+  "template": "QQQが下落する中で、なぜHIP-3の指数先物はプラスの資金調達率を維持しているのか\n\n【いま起きてること】\n現物市場で指数が軟調な値動きを見せる一方で、Hyperliquidの株式等先物市場では、デリバティブ側で特定のポジションに対するコスト負担が維持されており、現物と先物の需給に小さなねじれが生じている。\n\n【数字で見る】（{{f38.asof}}）\n・${{f2.symbol}} 価格{{f2.price}}、{{f2.basis}}{{f2.change_pct}}\n・{{f38.coin}} 価格{{f38.price}}、24時間騰落率{{f38.change_pct}}、建玉{{f38.oi}}、24時間出来高{{f38.volume}}、資金調達率{{f38.funding_annual}}\n・{{f39.coin}} 価格{{f39.price}}、24時間騰落率{{f39.change_pct}}、建玉{{f39.oi}}、24時間出来高{{f39.volume}}、資金調達率{{f39.funding_annual}}\n\n【なぜ「歪み」なのか】\n現物側が下値を模索する展開でありながら、HIP-3の主要指数先物では年率{{f38.funding_annual}}の資金調達率が保たれている。価格そのものは連動して下落しているものの、デリバティブ側ではロングのコストが抜けきっておらず、市場全体が完全に弱気に振り切れていない構造が見えてくる。現物の下落トレンドと先物側の小幅な楽観が同居するこの状態は、ポジションの偏りが解消される過程でボラティリティを伴う動きにつながる可能性があると見ている。\n\n【次に見るポイント】\n①現物市場の下落圧力がさらに強まった際の先物側の反応\n②年率{{f38.funding_annual}}の資金調達率が維持されるかどうかの推移\n③各インデックス先物の建玉規模に現れる増減のサイン",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:QQQ:quote",
+  "angle": "QQQが前日比-0.73%と下落する中、HIP-3のXYZ100やSP500先物の資金調達率が年率+5.5%を維持している構造を解説する。",
+  "scores": {
+    "novelty": 16,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f2",
+    "f38",
+    "f39"
+  ],
+  "facts": [
+    {
+      "key": "stock:QQQ:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "QQQ 価格656.95, 前日比-0.73%, 前日終値661.75, 高値663.36, 安値646.64",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$656.95",
+        "change_pct": "-0.73%",
+        "prev_close": "$661.75",
+        "high": "$663.36",
+        "low": "$646.64",
+        "asof": "米国11/17終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 656.95,
+        "change_pct": -0.725,
+        "prev_close": 661.75
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-18T12:07:22.020949+00:00",
+      "confidence": "confirmed",
+      "id": "f2"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-0.34%, 価格27207.0, 建玉273202230USD, 24時間出来高630395531USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$27,207",
+        "change_pct": "-0.34%",
+        "oi": "約2.7億ドル",
+        "volume": "約6.3億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/18(水) 21:07時点",
+        "asof_short": "21:07時点"
+      },
+      "raw": {
+        "mark": 27207.0,
+        "change_pct": -0.337,
+        "oi_usd": 273202230,
+        "vol_usd": 630395531,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-18T12:07:27.263121+00:00",
+      "confidence": "confirmed",
+      "id": "f38"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率-0.77%, 価格7363.8, 建玉462950648USD, 24時間出来高485811881USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,364",
+        "change_pct": "-0.77%",
+        "oi": "約4.6億ドル",
+        "volume": "約4.9億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/18(水) 21:07時点",
+        "asof_short": "21:07時点"
+      },
+      "raw": {
+        "mark": 7363.8,
+        "change_pct": -0.773,
+        "oi_usd": 462950648,
+        "vol_usd": 485811881,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-18T12:07:27.263140+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2123026150612148547",
+  "posted_at": "2026-11-18T12:10:53.095317+00:00"
+}
