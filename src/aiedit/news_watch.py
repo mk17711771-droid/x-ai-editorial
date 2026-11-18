@@ -311,7 +311,9 @@ def run(payload: dict | None = None) -> dict:
                       # 特定のウォレット・特定の会社や人のポジションの損益を追う話題も扱わない（11/9 Wintermute のものとされるアドレスの空売り利益。
                       # 研究者がアドレスを結び付けただけで公式の開示ではなく、個人・特定の口座の追跡になる）
                       or re.search(r"(ウォレット|アドレス|wallet|address|0x[0-9a-fA-F]{4})", story_text)
-                      or re.search(r"(空売り|ショート|ロング)[^。]{0,12}(利益|含み益)", story_text))  # 「清算の損失を補填」などの事件は対象外
+                      or re.search(r"(空売り|ショート|ロング)[^。]{0,12}(利益|含み益)", story_text)
+                      # 特定のファンド・会社のポジションの清算・整理も個別の追跡（11/18 12:31「Abraxas Capitalが関連ポジションを清算」）
+                      or re.search(r"(ポジション|建玉)を(清算|解消|整理|閉じ|手仕舞)", story_text))  # 「清算の損失を補填」などの事件は対象外
         if not s.get("story_key") or not hot or s.get("in_scope") is False or s.get("fresh") is False or individual:
             continue
         prev = handled.get(s["story_key"], {})

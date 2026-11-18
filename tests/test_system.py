@@ -1696,3 +1696,16 @@ def test_notify_expands_note_url_and_blocks_placeholders(monkeypatch):
     assert "/note/20261118-0911?k=U1" in sent[-1]
     with pytest.raises(ValueError):
         cli.main(["notify", "--message", "WORKER/note/x"])
+
+
+def test_news_one_funds_position_closing_skipped(isolated, monkeypatch):
+    """11/18 12:31: 「Abraxas Capitalが関連ポジションを清算」を速報で出した（特定のファンドのポジションの追跡）。"""
+    from aiedit import news_watch
+    monkeypatch.setattr(news_watch, "triage", lambda *a: [{"story_key": "abx", "headline": "Abraxas CapitalがLighterでの資金流出後にポジションを清算",
+                        "summary_ja": "大手ファンドが関連ポジションを清算した", "importance": 5, "buzz_fit": 6, "in_scope": True,
+                        "fresh": True, "sources": ["A（公式）"]}])
+    monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    monkeypatch.setattr(news_watch, "_reported_earlier", lambda s: False)
+    news_watch.run({"items": [{"title": "Abraxas closes positions", "source": "A"}]})
+    assert not [f for f in (store.read_json("news_facts.json", []) or []) if f["key"] == "news:abx"]
