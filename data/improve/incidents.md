@@ -139,3 +139,4 @@
 - 11/18 12:31 速報「Abraxas CapitalがLighterでの資金流出後にポジションを清算」→ 削除（特定のファンドのポジションの追跡・HL本体の出来事ではない・6表示）。news_watch の個別追跡の判定に「ポジション/建玉を清算・解消・整理・閉じ」を追加、テスト test_news_one_funds_position_closing_skipped。
 - 11/18 大きな名前の優先が効いていなかった（pipeline で big_names の並べ替えの直後に点数順で並べ直していた）。3週間、馴染みの薄い銘柄が主役になり表示が横ばい。→ rank_candidates に主役の通じやすさを入れ、テストで固定。
 - 11/18 noteの公開後の確認で「NVDAの価格が$161.75と$155.46で食い違い」と指摘。実際はHIP-3の先物（決算後）と米国の終値（決算前）で、書き分けがなかった。→ 管理者に置き換え文を渡し、手元の記事も修正。checks.unlabeled_dual_prices（同じ銘柄に価格が2つあるのに先物/終値の表記がない文）をnote記事の作成に追加・プロンプトに書き分けの指示、テスト test_unlabeled_dual_prices。
+- 11/18 21:10 夜の長文で $QQQ の前日終値比（11/17の終値）が「日本時間11/18 21:07時点」の見出しの下に時点なしで並んだ（前日比と書いてあるため削除はせず）。→ check_template: Hyperliquidの材料と並べるときは前日の終値でも時点（asof）を必須に。テスト test_previous_close_next_to_hl_needs_asof。

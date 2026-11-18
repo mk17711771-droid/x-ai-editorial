@@ -1732,3 +1732,16 @@ def test_unlabeled_dual_prices():
     ok_title = "【決算の裏側】NVDA先物が$161.75"
     ok_body = "注目のNVDA（HIP-3の先物）は$161.75で推移。\nNVDAは米国11/17終値で$155.46。"
     assert not checks.unlabeled_dual_prices(ok_title, ok_body)
+
+
+def test_previous_close_next_to_hl_needs_asof(monkeypatch):
+    """11/18 21:10: 「$QQQ 前日終値比-0.73%」（11/17の終値）が「日本時間11/18 21:07時点」の見出しの下に時点なしで並んだ。"""
+    from datetime import datetime, timezone, timedelta
+    from aiedit import checks, common
+    monkeypatch.setattr(common, "now_jst", lambda: datetime(2026, 11, 18, 21, 7, tzinfo=timezone(timedelta(hours=9))))
+    facts = {"f1": {"kind": "stock", "fields": {"symbol": "QQQ", "change_pct": "-0.73%", "asof": "米国11/17終値"}},
+             "f2": {"kind": "hl", "fields": {"coin": "xyz:XYZ100", "change_pct": "-0.34%", "asof": "日本時間11/18 21:07時点"}}}
+    bad = "QQQが下落。\n・$QQQ 前日終値比{{f1.change_pct}}\n・ナスダック100 {{f2.change_pct}}（{{f2.asof}}）"
+    assert any("終値の時点" in e for e in checks.check_template(bad, facts))
+    ok = "QQQが下落。\n・$QQQ 前日終値比{{f1.change_pct}}（{{f1.asof}}）\n・ナスダック100 {{f2.change_pct}}（{{f2.asof}}）"
+    assert not any("終値の時点" in e for e in checks.check_template(ok, facts))

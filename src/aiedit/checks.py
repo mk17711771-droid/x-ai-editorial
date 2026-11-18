@@ -292,6 +292,14 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         missing = [n for n, fid in stale.items() if f"{{{{{fid}.asof}}}}" not in template]
         if hl_now and missing and any(w in PLACEHOLDER.sub("", template) for w in CONTRAST):
             errors.append(f"{'・'.join(missing)}の2日以上前の終値の動きを、時点なしでHyperliquidの今の動きと対比している（期間が違う）")
+    # 前日の終値でも、Hyperliquidの「日本時間◯時点」の数字と並べるなら終値の時点を書く
+    # （11/18 21:10 「$QQQ 前日終値比-0.73%」が11/17の終値なのに「日本時間11/18 21:07時点」の見出しの下にあった）
+    used_ids = {fid for fid, _ in PLACEHOLDER.findall(template)}
+    if any((facts.get(f) or {}).get("kind") == "hl" for f in used_ids):
+        prev = {n: fid for n, fid in _stale_close_facts(template, facts, min_days=1).items() if n not in (stale or {})}
+        miss = [n for n, fid in prev.items() if f"{{{{{fid}.asof}}}}" not in template]
+        if miss:
+            errors.append(f"{'・'.join(miss)}は米国の終値。Hyperliquidの今の数字と並べるので、終値の時点（{{{{fN.asof}}}}）を書く")
     # 速報の内部の項目（status: 確定/確認中）を本文に出さない。説明文（what）を名詞のように「〜の{{what}}が」で埋め込まない
     # （11/9 14:51「Wintermuteの空売りポジションの利益が…1億1,500万ドル超にが確認されていて、ステータスは確定」）
     for fid, field in PLACEHOLDER.findall(template):
@@ -444,7 +452,7 @@ CLOSE_DATE = re.compile(r"(\d{1,2})/(\d{1,2})(?:\([月火水木金土日]\))?終
 CONTRAST = ("のに", "一方", "対し", "コントラスト", "温度差", "乖離", "崩れてない", "崩れていない", "平気", "半面", "反面", "裏で", "裏腹")
 
 
-def _stale_close_facts(template: str, facts: dict[str, dict]) -> dict[str, str]:
+def _stale_close_facts(template: str, facts: dict[str, dict], min_days: int = 2) -> dict[str, str]:
     """原稿が使っている米国株の材料のうち、終値が2日以上前のもの（銘柄→fid）。"""
     from .common import now_jst
     today = now_jst().date()
@@ -462,7 +470,7 @@ def _stale_close_facts(template: str, facts: dict[str, dict]) -> dict[str, str]:
             continue
         if close > today:
             close = close.replace(year=close.year - 1)
-        if (today - close).days >= 2 and f.get("category") != "week_change":  # 週の振り返りは期間を書く前提
+        if (today - close).days >= min_days and f.get("category") != "week_change":  # 週の振り返りは期間を書く前提
             out[str(f["fields"].get("symbol", fid))] = fid
     return out
 
