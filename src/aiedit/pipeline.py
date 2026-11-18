@@ -214,6 +214,9 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None, m
     if len(recent_angles) == 2 and recent_angles[0] == recent_angles[1]:
         user += (f"\n\n# 直近2件の切り口が同じ（{ANGLE_NAMES.get(recent_angles[0], recent_angles[0])}）。"
                  "今回は別の切り口の候補を上位にする")
+    top = [n for n in checks.read_list("top_names.txt")]
+    user += ("\n\n# 主役に最優先する名前（日本の個人投資家にいちばん通じる。24時間表示の中央値は約300で、ほかの銘柄の約3倍）。"
+             "材料にあれば、この中の1つを主役にした候補を必ず1件以上出す\n" + "・".join(top))
     big = [n for n in checks.read_list("big_names.txt")]
     user += ("\n\n# 主役に優先する「大きな名前」（読者に通じる銘柄・指数。材料にあればこの中から主役を選ぶ。"
              "馴染みの薄い銘柄は、変化が極端なときだけ主役にする）\n" + "・".join(big))
@@ -247,6 +250,22 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None, m
         c["total"] = sum(sc.values())
         cands.append(c)
     return sorted(cands, key=lambda c: c["total"], reverse=True)
+
+
+def rank_candidates(cands: list[dict], facts_by_id: dict[str, dict], slot: dict, repeat: str | None = None) -> list[dict]:
+    """書く順番: 直近と同じ切り口は後回し → 米国株の枠は米国株が主役 → 主役の通じやすさ（top_names > big_names > その他）→ 点数。
+    11/18: 大きな名前の並べ替えを、このあと点数順で並べ直して消していた（$CXMT・$KIOXIA が主役になった）。
+    10/27〜11/17 の24時間表示の中央値: $QQQ 301・$SOXL 300・ナスダック100 180、ほかの大きな名前 約100、馴染みの薄い銘柄 約80。"""
+    top = {n.upper() for n in checks.read_list("top_names.txt")}
+    big = {n.upper() for n in checks.read_list("big_names.txt")}
+
+    def priority(c: dict) -> tuple:
+        first = facts_by_id.get((c.get("fact_ids") or [""])[0], {})
+        stock_led = slot["kind"] != "stock" or first.get("kind") == "stock"
+        sym = _cand_symbol(c, facts_by_id).upper()
+        tier = 2 if sym in top else 1 if sym in big else 0
+        return (angle_family(c.get("topic_key", "")) == repeat, not stock_led, -tier, -c["total"])
+    return sorted(cands, key=priority)
 
 
 def _cand_symbol(cand: dict, facts_by_id: dict[str, dict]) -> str:
@@ -471,11 +490,7 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
     recent_angles = [angle_family(p.get("topic_key", "")) for p in store.recent_posts(36)][-2:]
     repeat = recent_angles[0] if len(recent_angles) == 2 and recent_angles[0] == recent_angles[1] else None
     # 米国株の枠では、米国株の材料が主役の候補を先にする（Hyperliquidばかりにならないように）
-    def priority(c: dict) -> tuple:
-        first = facts_by_id.get((c.get("fact_ids") or [""])[0], {})
-        stock_led = slot["kind"] != "stock" or first.get("kind") == "stock"
-        return (angle_family(c.get("topic_key", "")) == repeat, not stock_led, -c["total"])
-    cands = sorted(cands, key=priority)
+    cands = rank_candidates(cands, facts_by_id, slot, repeat)
     if slot["id"] in ("news", "newslong"):
         # 速報枠は、まだ出していない速報を主役にした候補だけ。編集長が別の話題を選んだら、速報を主役にするよう編集をやり直す
         def news_cands(cs: list[dict]) -> list[dict]:

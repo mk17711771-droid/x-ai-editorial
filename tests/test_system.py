@@ -1709,3 +1709,15 @@ def test_news_one_funds_position_closing_skipped(isolated, monkeypatch):
     monkeypatch.setattr(news_watch, "_reported_earlier", lambda s: False)
     news_watch.run({"items": [{"title": "Abraxas closes positions", "source": "A"}]})
     assert not [f for f in (store.read_json("news_facts.json", []) or []) if f["key"] == "news:abx"]
+
+
+def test_rank_candidates_prefers_familiar_names_over_score():
+    """11/18: 大きな名前の優先が点数順の並べ替えで消え、$CXMT（点数が高い）が $SOXL より先に書かれていた。"""
+    from aiedit import pipeline
+    facts = {"a": {"kind": "hl", "fields": {"coin": "xyz:CXMT"}}, "b": {"kind": "hl", "fields": {"coin": "xyz:SOXL"}},
+             "c": {"kind": "hl", "fields": {"coin": "xyz:NVDA"}}}
+    cands = [{"fact_ids": ["a"], "total": 95, "topic_key": "hl:CXMT:funding"},
+             {"fact_ids": ["c"], "total": 90, "topic_key": "hl:NVDA:funding"},
+             {"fact_ids": ["b"], "total": 85, "topic_key": "hl:SOXL:funding"}]
+    order = [pipeline._cand_symbol(c, facts) for c in pipeline.rank_candidates(cands, facts, {"kind": "hl"})]
+    assert order == ["SOXL", "NVDA", "CXMT"]
