@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f8",
+      "f4"
+    ],
+    "topic_key": "stock:TSM:big_move",
+    "angle": "TSMの急落（-3.68%）とSOXXの小幅な動きが示す半導体セクター内の明暗の差",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "主要半導体銘柄の個別での大きな下落とセクター指数との乖離に焦点を当てた点。"
+  },
+  {
+    "fact_ids": [
+      "f11",
+      "f3"
+    ],
+    "topic_key": "stock:ARM:big_move",
+    "angle": "全体が下落基調にある中でARMが+4.76%と急騰した背景にある個別の資金の流入",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 82,
+    "reason": "全体市場が軟調な中での個別銘柄の強い逆行高をデータで捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f14",
+      "f2"
+    ],
+    "topic_key": "stock:MSFT:quote",
+    "angle": "主力テックのMSFTが-2.27%と大きく売られたことで指数全体を押し下げた構造",
+    "scores": {
+      "novelty": 15,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 81,
+    "reason": "大型テックの下げがインデックス全体のトレンドに与えた影響を明確に示しているため。"
+  }
+]

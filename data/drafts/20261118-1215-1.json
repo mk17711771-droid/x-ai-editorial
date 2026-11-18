@@ -1,0 +1,105 @@
+{
+  "id": "20261118-1215-1",
+  "slot_key": "20261118-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-18T03:41:14.215026+00:00",
+  "text": "$TSMが米国11/17終値で-3.68%の急落を記録する一方、半導体指数のSOXXは+0.17%と落ち着いた値動きを見せている。\n\nセクター内の選別が進んでいる証拠かもしれない。",
+  "template": "${{f8.symbol}}が{{f8.asof}}で{{f8.change_pct}}の急落を記録する一方、半導体指数のSOXXは{{f4.change_pct}}と落ち着いた値動きを見せている。\n\nセクター内の選別が進んでいる証拠かもしれない。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "stock:TSM:big_move",
+  "angle": "TSMの急落（-3.68%）とSOXXの小幅な動きが示す半導体セクター内の明暗の差",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 15,
+    "insight": 17
+  },
+  "total": 84,
+  "fact_ids": [
+    "f8",
+    "f4"
+  ],
+  "facts": [
+    {
+      "key": "stock:TSM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】TSM 価格359.69, 前日比-3.68%, 前日終値373.45, 高値373.1, 安値353.5",
+      "fields": {
+        "symbol": "TSM",
+        "price": "$359.69",
+        "change_pct": "-3.68%",
+        "prev_close": "$373.45",
+        "high": "$373.10",
+        "low": "$353.50",
+        "asof": "米国11/17終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 359.69,
+        "change_pct": -3.685,
+        "prev_close": 373.45
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "TSM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/TSM"
+      },
+      "asof": "2026-11-18T03:41:00.413360+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格141.46, 前日比+0.17%, 前日終値141.22, 高値142.99, 安値136.16",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$141.46",
+        "change_pct": "+0.17%",
+        "prev_close": "$141.22",
+        "high": "$142.99",
+        "low": "$136.16",
+        "asof": "米国11/17終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 141.46,
+        "change_pct": 0.17,
+        "prev_close": 141.22
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-18T03:40:59.905061+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/TSM"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2122897915882443033",
+  "posted_at": "2026-11-18T03:41:19.622779+00:00"
+}

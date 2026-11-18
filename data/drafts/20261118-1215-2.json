@@ -1,0 +1,102 @@
+{
+  "id": "20261118-1215-2",
+  "slot_key": "20261118-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "superseded",
+  "created_at": "2026-11-18T03:41:17.280401+00:00",
+  "text": "$MSFTが-2.27%と大きく売られたことで、なぜ指数全体まで押し下げられてしまうのか。\n\n米国11/17終値の終値でMSFTが$506.24（-2.27%）まで下げる中、市場全体を示すSPYも-1.01%と連動して下落している。主力テックの一角が崩れた時の波及力の大きさを改めて感じる。",
+  "template": "${{f14.symbol}}が{{f14.change_pct}}と大きく売られたことで、なぜ指数全体まで押し下げられてしまうのか。\n\n{{f14.asof}}の終値で{{f14.symbol}}が{{f14.price}}（{{f14.change_pct}}）まで下げる中、市場全体を示す{{f2.symbol}}も{{f2.change_pct}}と連動して下落している。主力テックの一角が崩れた時の波及力の大きさを改めて感じる。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:MSFT:quote",
+  "angle": "主力テックのMSFTが-2.27%と大きく売られたことで指数全体を押し下げた構造",
+  "scores": {
+    "novelty": 15,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 15,
+    "insight": 16
+  },
+  "total": 81,
+  "fact_ids": [
+    "f14",
+    "f2"
+  ],
+  "facts": [
+    {
+      "key": "stock:MSFT:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "MSFT 価格506.24, 前日比-2.27%, 前日終値517.99, 高値515.64, 安値496.51",
+      "fields": {
+        "symbol": "MSFT",
+        "price": "$506.24",
+        "change_pct": "-2.27%",
+        "prev_close": "$517.99",
+        "high": "$515.64",
+        "low": "$496.51",
+        "asof": "米国11/17終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 506.24,
+        "change_pct": -2.268,
+        "prev_close": 517.99
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MSFT"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MSFT"
+      },
+      "asof": "2026-11-18T03:41:01.120753+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    },
+    {
+      "key": "stock:SPY:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SPY 価格732.44, 前日比-1.01%, 前日終値739.95, 高値739.76, 安値727",
+      "fields": {
+        "symbol": "SPY",
+        "price": "$732.44",
+        "change_pct": "-1.01%",
+        "prev_close": "$739.95",
+        "high": "$739.76",
+        "low": "$727.00",
+        "asof": "米国11/17終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 732.44,
+        "change_pct": -1.015,
+        "prev_close": 739.95
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SPY"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SPY"
+      },
+      "asof": "2026-11-18T03:40:59.469455+00:00",
+      "confidence": "confirmed",
+      "id": "f2"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MSFT"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SPY"
+    }
+  ],
+  "needs_human": false
+}
