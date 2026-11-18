@@ -486,6 +486,9 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     cross = _sector_vs_index(text)
     if cross:  # 11/10 09:16 半導体ETF（SOXX +7.49%）とナスダック100先物（+3.92%）の差を「現物との違い」とした
         errors.append(cross)
+    # 指数（QQQ・SPY・ナスダック・S&P）を「半導体指数」と呼ばない（11/18 08:09「主要な半導体指数であるQQQおよびSPY」）
+    if re.search(r"半導体[^。\n]{0,4}指数(?:である|の|、|：|:)?\s*[「（(]?(?:QQQ|SPY|ナスダック|S&P)|(?:QQQ|SPY|ナスダック100|S&P500)(?:など|という|の)?(?:主要な)?半導体[^。\n]{0,4}指数", text):
+        errors.append("QQQ・SPY（ナスダック100・S&P500）は半導体の指数ではない（半導体ならSOXX・SMH）")
     lev = _leveraged_vs_underlying(text)
     if lev:  # 11/4 SOXL(3倍)とSOXX(1倍)の値動きの差を「歪み」と書いた
         errors.append(lev)

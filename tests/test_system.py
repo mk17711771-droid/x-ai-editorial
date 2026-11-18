@@ -1659,3 +1659,12 @@ def test_hl_listing_not_called_spot():
     facts = {"f1": {"kind": "hl", "fields": {"headline": "Hyperliquid、インテル（io:INTC）の市場を追加"}}}
     assert any("現物" in e for e in checks.check_template("{{f1.headline}}。現物の取り扱いが拡充される動き", facts))
     assert not any("無期限先物。上場" in e for e in checks.check_template("{{f1.headline}}。先物の銘柄が増える動き", facts))
+
+
+def test_index_not_called_semiconductor_index():
+    """11/18 08:09: 「①主要な半導体指数であるQQQおよびSPYの下値支持線の動き」と書いた。"""
+    from aiedit import checks
+    bad = "$TSMが下げた。\n①主要な半導体指数であるQQQおよびSPYの下値支持線の動き"
+    assert any("半導体の指数ではない" in e for e in checks.check_text(bad, "stock:TSM:big_move", "long"))
+    ok = "$TSMが下げた。\n①半導体指数のSOXXとQQQの動き"
+    assert not any("半導体の指数ではない" in e for e in checks.check_text(ok, "stock:TSM:big_move", "long"))
