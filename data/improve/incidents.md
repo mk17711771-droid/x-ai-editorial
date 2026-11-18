@@ -135,3 +135,4 @@
 - 11/18 08:09 朝の長文で「①主要な半導体指数であるQQQおよびSPY」と書いた（QQQ・SPYは半導体の指数ではない）→ 削除。checks.check_text に「QQQ・SPY・ナスダック・S&Pを半導体指数と呼んだら差し戻し」を追加、テスト test_index_not_called_semiconductor_index。朝枠は10時枠が近いため出し直さない。
 - 11/18 07:56 noteの記事（エヌビディア決算の裏側）が低品質: Gemini混雑で軽量モデルが書き、図は1枚だけ（chart:hl の図が作れず、本文に「上のチャートが示す通り」が残った）・「trad[XYZ]」・AMD/ASMLの文が崩れ数字が矛盾・外した文の残りが宙に浮いた。→ 図が2枚作れないとき／外した文が4文以上のときは書き直させる（3回目は通す）・前に画像がない「上のチャートが示す通り」を外す・name_fixes に trad[XYZ]。テスト test_note_drops_dangling_chart_reference。記事は作り直してLINEで差し替えを依頼。
 - 11/18 09:11 作り直した記事も「最大レバレッジを従来の倍から倍に」（数字の抜け）・決算発表後なのに「決算を控えて」と書いていた → 本文を手で直した（数字は足していない）。checks.missing_number（「倍から倍に」のような数字の抜け）を check_text とnote記事の作成に追加、テスト test_missing_number_detected。古い版は status=replaced にしてリマインド対象から外した。
+- 11/18 点検からの差し替え通知を仮のURL（WORKER/…）のまま送りかけた（送信前に取り消し、未送信）。→ notify に {note:記事ID} の展開と、未展開の記号が残っていたら送らない仕組み。テスト test_notify_expands_note_url_and_blocks_placeholders。

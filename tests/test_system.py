@@ -1683,3 +1683,16 @@ def test_missing_number_detected():
     from aiedit import checks
     assert checks.missing_number("最大レバレッジを従来の倍から倍に引き下げる")
     assert not checks.missing_number("最大レバレッジを20倍から10倍に引き下げる。2倍の値動き、+5.5%に達した")
+
+
+def test_notify_expands_note_url_and_blocks_placeholders(monkeypatch):
+    """11/18: 点検からの通知を仮のURL（WORKER/note/...）のまま送りかけた。"""
+    import pytest
+    from aiedit import cli, line
+    sent = []
+    monkeypatch.setattr(line, "notify", lambda m, **k: sent.append(m))
+    monkeypatch.setenv("LINE_ADMIN_USER_ID", "U1")
+    assert cli.main(["notify", "--message", "記事 {note:20261118-0911}"]) == 0
+    assert "/note/20261118-0911?k=U1" in sent[-1]
+    with pytest.raises(ValueError):
+        cli.main(["notify", "--message", "WORKER/note/x"])

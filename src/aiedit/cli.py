@@ -76,7 +76,13 @@ def main(argv: list[str] | None = None) -> int:
             store.resume()
             line.notify("自動運用を再開しました。")
         elif args.cmd == "notify":
-            line.notify(args.message, essential=True)  # 点検から管理者へ「操作が必要」を知らせるときだけ使う
+            # 点検から管理者へ「操作が必要」を知らせるときだけ使う。{note:記事ID} はコピー用ページのURLにする（URLの鍵は点検から見えない）
+            import re as _re
+            from .note_article import viewer_url
+            msg = _re.sub(r"\{note:([0-9]{8}-[0-9]{4})\}", lambda m: viewer_url(m.group(1)), args.message)
+            if "{" in msg or "WORKER" in msg:
+                raise ValueError(f"未展開の差し込みが残っています: {msg[:200]}")  # 11/18 仮のURLのまま送りかけた
+            line.notify(msg, essential=True)
         elif args.cmd == "research":
             research.watch()
             print(f"反応を計測: {research.measure()}件")
