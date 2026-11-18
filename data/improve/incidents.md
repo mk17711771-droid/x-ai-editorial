@@ -138,3 +138,4 @@
 - 11/18 点検からの差し替え通知を仮のURL（WORKER/…）のまま送りかけた（送信前に取り消し、未送信）。→ notify に {note:記事ID} の展開と、未展開の記号が残っていたら送らない仕組み。テスト test_notify_expands_note_url_and_blocks_placeholders。
 - 11/18 12:31 速報「Abraxas CapitalがLighterでの資金流出後にポジションを清算」→ 削除（特定のファンドのポジションの追跡・HL本体の出来事ではない・6表示）。news_watch の個別追跡の判定に「ポジション/建玉を清算・解消・整理・閉じ」を追加、テスト test_news_one_funds_position_closing_skipped。
 - 11/18 大きな名前の優先が効いていなかった（pipeline で big_names の並べ替えの直後に点数順で並べ直していた）。3週間、馴染みの薄い銘柄が主役になり表示が横ばい。→ rank_candidates に主役の通じやすさを入れ、テストで固定。
+- 11/18 noteの公開後の確認で「NVDAの価格が$161.75と$155.46で食い違い」と指摘。実際はHIP-3の先物（決算後）と米国の終値（決算前）で、書き分けがなかった。→ 管理者に置き換え文を渡し、手元の記事も修正。checks.unlabeled_dual_prices（同じ銘柄に価格が2つあるのに先物/終値の表記がない文）をnote記事の作成に追加・プロンプトに書き分けの指示、テスト test_unlabeled_dual_prices。

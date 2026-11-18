@@ -146,6 +146,11 @@ def write(theme: str | None = None) -> dict | None:
         if dup:  # 11/4「バイナンスでバイナンスで」（差し込む値と地の文で語が重なった）
             errors = [f"タイトルで同じ語句「{dup.group(1)}」が重なっている。差し込む値の中身を見て、重ならないように書く"]
             continue
+        dual = checks.unlabeled_dual_prices(title, body)
+        if dual:
+            errors = ["同じ銘柄に価格が2つあるのに、先物（HIP-3）か米国の終値かを書いていない文がある。"
+                      "それぞれ「HIP-3の先物」「米国◯/◯終値」と明記し、タイトルの価格にも先物か終値かを入れる: " + " / ".join(dual[:3])]
+            continue
         gap = checks.missing_number(title + body)
         if gap:
             errors = [f"数字が抜けた文がある（「{gap}」）。数字は材料の差し込み記号で書き、材料にない数字の文は書かない"]

@@ -1721,3 +1721,14 @@ def test_rank_candidates_prefers_familiar_names_over_score():
              {"fact_ids": ["b"], "total": 85, "topic_key": "hl:SOXL:funding"}]
     order = [pipeline._cand_symbol(c, facts) for c in pipeline.rank_candidates(cands, facts, {"kind": "hl"})]
     assert order == ["SOXL", "NVDA", "CXMT"]
+
+
+def test_unlabeled_dual_prices():
+    """11/18 note: NVDAの$161.75（先物）と$155.46（終値）を書き分けず、公開後の確認で食い違いと指摘された。"""
+    from aiedit import checks
+    bad_title = "【決算の裏側】NVDAが$161.75"
+    body = "注目のNVDAは$161.75で推移。\nエヌビディアの現物株（NVDA）は前日比-0.44%の$155.46で引けた。"
+    assert checks.unlabeled_dual_prices(bad_title, body)
+    ok_title = "【決算の裏側】NVDA先物が$161.75"
+    ok_body = "注目のNVDA（HIP-3の先物）は$161.75で推移。\nNVDAは米国11/17終値で$155.46。"
+    assert not checks.unlabeled_dual_prices(ok_title, ok_body)

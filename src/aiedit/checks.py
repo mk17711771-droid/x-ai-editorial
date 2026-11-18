@@ -396,6 +396,30 @@ INDEX_PAIRS = {"ナスダック100": ("QQQ", "ナスダック"), "XYZ100": ("QQQ
 SECTOR_ETFS = ("SOXX", "SMH", "SOXL", "XLK", "XLF", "ARKK")
 
 
+PRICE_LABEL = re.compile(r"先物|HIP-3|終値|現物|引け|前日比")
+
+
+def unlabeled_dual_prices(title: str, body: str) -> list[str]:
+    """同じ銘柄に違う価格が2つ出るのに、どちらが先物・終値かを書いていない文（11/18 noteの記事: NVDAの$161.75（HIP-3先物）と
+    $155.46（現物の終値）を「NVDAは」とだけ書き、公開後の確認で食い違いと指摘された）。"""
+    sentences = [x for x in re.split(r"(?<=[。\n])", title + "\n" + body) if x.strip()]
+    by_sym: dict[str, dict[str, list[str]]] = {}
+    tok = re.compile(r"(?<![A-Za-z$])\$?([A-Z]{2,6})(?![A-Za-z])|(\$[0-9][0-9,]*(?:\.[0-9]+)?)")
+    for sen in sentences:
+        sym = ""
+        for m in tok.finditer(sen):  # 価格は、その直前に出た銘柄のものとして数える
+            if m.group(1):
+                if m.group(1) not in ("EPS", "ETF", "USD", "USDC", "HIP", "CEO", "AI", "GDP", "CPI", "FOMC", "OI"):
+                    sym = m.group(1)
+            elif sym:
+                by_sym.setdefault(sym, {}).setdefault(m.group(2), []).append(sen)
+    bad = []
+    for sym, prices in by_sym.items():
+        if len(prices) >= 2:
+            bad += [f"{sym}: {sen.strip()[:60]}" for sens in prices.values() for sen in sens if not PRICE_LABEL.search(sen)]
+    return bad
+
+
 MISSING_NUMBER = re.compile(r"(?<![0-9０-９.一二三四五六七八九十百千])(倍|%|％)(から|に|へ|まで|を|と)|(から|の)(倍|%|％)(に|へ|まで|から)")
 
 
