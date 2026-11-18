@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f5",
+      "f38"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "エヌビディアの決算後の下落とHyperliquid上の建玉・資金調達率の歪みを検証する",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "NVDAの株価下落とHIP-3先物の建玉・資金調達率のデータを組み合わせた王道の考察枠。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f41"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "半導体セクターで強い値動きを見せたAMDとS&P500先物の需給ギャップを追う",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "AMDの大幅上昇と広範な株価指数先物の資金調達率を対比させた実用的な構成。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f39"
+    ],
+    "topic_key": "stock:QQQ:quote",
+    "angle": "ナスダック100の底堅い推移の裏でHIP-3先物のマイナス金利が示す歪み",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "指数現物と先物の乖離に焦点を当てた堅実な市場分析。"
+  }
+]
