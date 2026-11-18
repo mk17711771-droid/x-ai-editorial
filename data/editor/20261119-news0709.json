@@ -1,0 +1,69 @@
+[
+  {
+    "fact_ids": [
+      "f16",
+      "f24"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体関連のHIP-3先物で続くショート過熱と極端な資金調達率の歪みを指摘する",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "年率-78.4%という極端な資金調達率のショート過熱をデータとして示し、需給の偏りを明確に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f4",
+      "f22"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "エヌビディアの株価下落と、HIP-3市場における建玉と出来高の規模感を示す",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "市場の主役であるNVDAの24時間騰落率とHyperliquid上の豊富な流動性を具体的な数字で伝えているため。"
+  },
+  {
+    "fact_ids": [
+      "f25"
+    ],
+    "topic_key": "hl:xyz:SP500:hip3_top",
+    "angle": "主要指数であるS&P500のHIP-3先物における出来高と建玉の規模を追う",
+    "scores": {
+      "novelty": 15,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "伝統的な株式指数がHyperliquidのオンチェーン先物でどのように取引されているか、規模の数字を正確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f27"
+    ],
+    "topic_key": "news:binance-hack-abu-dhabi-freeze-order",
+    "angle": "アブダビ裁判所の巨額資産凍結命令と、現在のHyperliquid全体の市場規模を対比する",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 17,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 86,
+    "reason": "CEXを巡る法的な資産保全の動きと、オンチェーン全体の流動性規模を客観的な事実ベースで結びつけているため。"
+  }
+]
