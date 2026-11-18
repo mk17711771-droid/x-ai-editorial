@@ -1,0 +1,66 @@
+[
+  {
+    "fact_ids": [
+      "f15"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "$SKHXの資金調達率が年率-99.0%まで沈み込み、ショート過熱の歪みが現れている",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "半導体関連のHIP-3先物における極端な資金調達率の歪みを具体的な数字で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f26"
+    ],
+    "topic_key": "hl:xyz:SOXL:hip3_top",
+    "angle": "$SOXLのHIP-3先物が24時間で-7.38%と急落し、巨大な出来高を伴う動きを見せている",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "主要なレバレッジ型ETFのHIP-3先物における価格下落と出来高の膨張を捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f4"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "$NVDAのHIP-3先物が24時間騰落率-6.29%と下落し、市場全体の重荷となっている",
+    "scores": {
+      "novelty": 15,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "市場の主役であるエヌビディアの先物価格の明確な下落と建玉規模を提示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:binance-hack-abu-dhabi-freeze-order",
+    "angle": "アブダビ裁判所による65億ドル相当の資産凍結命令が、CEX領域に新たな法的波紋を呼んでいる",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 15,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 83,
+    "reason": "大規模な司法による資産保全の動きという確認済みニュースを端的に伝えているため。"
+  }
+]
