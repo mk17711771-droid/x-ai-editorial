@@ -1,0 +1,66 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:hk-sfc-adds-hyperliquid-to-suspicious-list",
+    "angle": "香港SFCによるHyperliquidの警告と、65ドル付近で推移するHYPEの価格・市場の反応を対比する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 16,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "規制当局の動きという重要なニュースに対し、オンチェーン上の価格がどう反応しているかを冷静に捉えた点。"
+  },
+  {
+    "fact_ids": [
+      "f6"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "エヌビディア株の急落（-4.29%）と、HIP-3先物市場での建玉・価格の歪みに着目する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "大きな名前であるNVDAの急落とHIP-3先物の数値を正確に結びつけた実用的な切り口。"
+  },
+  {
+    "fact_ids": [
+      "f11"
+    ],
+    "topic_key": "hl:xyz:SOXL:oi_change",
+    "angle": "SOXLのHIP-3先物で建玉が24時間で+49.5%急増している背景と資金調達率の歪みを追う。",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "最優先銘柄であるSOXLの建玉急増という具体的な数字の異変を明確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f8"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "SKHXのHIP-3先物で資金調達率が年率-102.7%まで沈み込んでいるショート過熱の歪みを解説する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "極端な資金調達率のマイナスというオンチェーン特有の数字の歪みを正確に捉えているため。"
+  }
+]
