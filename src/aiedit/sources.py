@@ -243,7 +243,7 @@ def reference_accounts() -> int:
     from . import xapi
 
     cfg = _cfg().get("x", {})
-    accounts = [a.lstrip("@") for a in cfg.get("reference_accounts", [])]
+    accounts = [a.lstrip("@").lower() for a in cfg.get("reference_accounts", [])]
     if not accounts:
         return 0
     budget = cfg.get("monthly_read_limit", 400) - _reads_this_month()
@@ -252,7 +252,7 @@ def reference_accounts() -> int:
     if missing:
         try:
             for u in xapi.users(missing):
-                ids[u["username"]] = u["id"]
+                ids[u["username"].lower()] = u["id"]  # 表示上の大文字・小文字（YozawaPe）に左右されない
             store.write_json("sources/ref_ids.json", ids)
         except xapi.XPostError as e:
             _error("x", "reference_accounts", e)
@@ -292,7 +292,7 @@ def reference_posts(days: int = 14, n: int = 6) -> list[dict]:
     cfg = _cfg().get("x", {})
     since = now_utc() - timedelta(days=days)
     rows = []
-    for a in [a.lstrip("@") for a in cfg.get("reference_accounts", [])]:
+    for a in [a.lstrip("@").lower() for a in cfg.get("reference_accounts", [])]:
         for r in store.read_jsonl(f"sources/ref/{a}.jsonl"):
             try:
                 if datetime.fromisoformat(str(r.get("created_at", "")).replace("Z", "+00:00")) < since:
