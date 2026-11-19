@@ -500,6 +500,8 @@ CASHTAG_ANY = re.compile(r"\$([A-Za-z][A-Za-z0-9:.]*)")
 TICKER_OK = re.compile(r"^(xyz:)?[A-Z][A-Z0-9.]*$")
 ASOF_PAREN = re.compile(r"[（(][^（）()\n]{0,20}時点[）)]")
 NEAR_DUP = re.compile(r"([ァ-ヶー]{4,}|[A-Za-z]{4,})[^。\n]{0,10}?\1")
+# 「全体相場全体」のように、漢字2字以上の語が3字以内ですぐ繰り返される崩れ（11/19 07:45 朝の長文）
+KANJI_DUP = re.compile(r"([一-龥]{2,})[一-龥]{0,3}\1")
 
 
 def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
@@ -550,6 +552,9 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     m = NEAR_DUP.search(text)
     if m:  # 「バイナンスで…バイナンスが」のような同じ語のすぐの繰り返し（10/30 21:11の速報）
         errors.append(f"同じ語「{m.group(1)}」が近くで繰り返されている（文を組み直す）")
+    kd = KANJI_DUP.search(text)
+    if kd:
+        errors.append(f"同じ語「{kd.group(1)}」がすぐ繰り返されている（「{kd.group(0)}」）")
     if RESTATE.search(text):
         errors.append("数字の言い直し（「〜ではなく〜」）がある")
     if URL.search(text):

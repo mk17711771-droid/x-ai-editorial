@@ -500,7 +500,7 @@
     "kind": "hl",
     "asof": "2026-11-12T22:45:51.746545+00:00",
     "expires_at": "2026-11-14T10:45:51.746553+00:00",
-    "status": "pending",
+    "status": "skipped",
     "first_reported_at": "2026-11-12T22:22:16Z",
     "summary": "米司法省（DOJ）がバイナンスのハッキング事件に関連する12億ドルの押収手続きを開始し、北朝鮮によるディープフェイク等を用いた暗号資産窃盗スキームを摘発した。バイナンス側は北朝鮮関連のサイバー攻撃による資産損失はすべてカバーされていると表明している。",
     "fields": {
@@ -513,7 +513,8 @@
     "source": {
       "name": "The Block・The Korea Times・The Defiant",
       "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBwbWFnMmk1VDhfWDRyYVZkaXB3R2htblNvcEtSTlNhT1ZqTkF5eDNTNGt1SXNycjZoUmtBZ3VzeDh2QTFnVk91LVFYdE1lZ3hManR4VDc1UjRuUTRJWXc"
-    }
+    },
+    "skip_reason": "10/30のバイナンスのハッキングの後日談（自動では出さない）。数字の食い違い・裏取り不十分（11/19 点検）"
   },
   {
     "key": "news:hyperliquid-open-interest-record-q3",
@@ -660,7 +661,7 @@
     "kind": "hl",
     "asof": "2026-11-18T22:06:06.554327+00:00",
     "expires_at": "2026-11-20T10:06:06.554338+00:00",
-    "status": "pending",
+    "status": "skipped",
     "first_reported_at": "2026-11-18T22:04:31Z",
     "summary": "アブダビの裁判所が、過去のバイナンスハック事件に関連して65億ドル相当の資産凍結命令を付与した。CEXにおける大規模なセキュリティ事件を巡る法的な追跡と保全の動きが続いている。オンチェーンと伝統的な司法の連携による資産回収手続きの一環として報じられた。",
     "fields": {
@@ -673,6 +674,7 @@
     "source": {
       "name": "Bitcoin Foundation・Cryptonews.net",
       "url": ""
-    }
+    },
+    "skip_reason": "10/30のバイナンスのハッキングの後日談（自動では出さない）。数字の食い違い・裏取り不十分（11/19 点検）"
   }
 ]

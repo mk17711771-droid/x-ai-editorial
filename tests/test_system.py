@@ -1745,3 +1745,27 @@ def test_previous_close_next_to_hl_needs_asof(monkeypatch):
     assert any("終値の時点" in e for e in checks.check_template(bad, facts))
     ok = "QQQが下落。\n・$QQQ 前日終値比{{f1.change_pct}}（{{f1.asof}}）\n・ナスダック100 {{f2.change_pct}}（{{f2.asof}}）"
     assert not any("終値の時点" in e for e in checks.check_template(ok, facts))
+
+
+def test_kanji_word_repeated_nearby():
+    """11/19 07:45: 「全体相場全体に対する警戒感」。"""
+    from aiedit import checks
+    assert any("全体" in e for e in checks.check_text("$AMDが+5.31%。\n全体相場全体に対する警戒感がデリバティブ側に残っている。" * 2, "stock:AMD:big_move", "short"))
+    assert not any("すぐ繰り返" in e for e in checks.check_text("$AMDが+5.31%。\n相場全体に対する警戒感がデリバティブ側に残っている。" * 2, "stock:AMD:big_move", "short"))
+
+
+def test_incident_aftermath_is_followup_not_breaking(isolated, monkeypatch):
+    """11/19: 10/30のバイナンスのハッキングの後日談（アブダビ裁判所の凍結命令）を新しい速報として出そうとした。"""
+    from aiedit import news_watch
+    from aiedit.common import now_utc
+    store.write_json("news_facts.json", [{"key": "news:binance-historic-hack", "status": "posted", "asof": now_utc().isoformat(),
+                                          "fields": {"headline": "バイナンスで63億ドルのハッキング発生"}, "summary": ""}])
+    monkeypatch.setattr(news_watch, "triage", lambda *a: [{"story_key": "abu", "headline": "アブダビ裁判所、バイナンスハック事件で凍結命令",
+                        "summary_ja": "裁判所が凍結命令を出した", "importance": 5, "buzz_fit": 5, "in_scope": True,
+                        "fresh": True, "sources": ["A", "B"]}])
+    monkeypatch.setattr(news_watch, "_corroborate", lambda items: items)
+    monkeypatch.setattr(news_watch, "official_posts", lambda: [])
+    monkeypatch.setattr(news_watch, "_reported_earlier", lambda s: False)
+    news_watch.run({"items": [{"title": "Abu Dhabi court freeze order Binance hack", "source": "A"}]})
+    keys = [f["key"] for f in store.read_json("news_facts.json", [])]
+    assert keys == ["news:binance-historic-hack"]

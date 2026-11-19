@@ -84,6 +84,31 @@ def _corroborate(items: list[dict]) -> list[dict]:
     return items + [e for e in extra if (e["title"], e.get("source")) not in seen]
 
 
+INCIDENT = re.compile(r"ハッキング|ハック|流出|不正|盗難|exploit|hack", re.I)
+
+
+def same_incident(text: str, known: dict[str, dict], days: int = KNOWN_STORY_DAYS) -> str | None:
+    """過去に投稿した事件と同じ当事者の事件の話か（11/19 10/30のバイナンスのハッキングの後日談「アブダビ裁判所が凍結命令」を
+    新しい速報として自動で出そうとした。数字も6.5億ドル/65億ドルと食い違っていた）。"""
+    if not INCIDENT.search(text):
+        return None
+    low = text.lower()
+    for k, f in known.items():
+        head = f.get("fields", {}).get("headline", "")
+        if f.get("status") not in ("posted", "deleted") or not INCIDENT.search(head):
+            continue
+        try:
+            if now_utc() - datetime.fromisoformat(f["asof"]) > timedelta(days=days):
+                continue
+        except (KeyError, ValueError):
+            continue
+        names = [t for t in re.findall(r"[ァ-ヶー]{3,}|[A-Za-z][A-Za-z0-9.]{2,}", head)
+                 if t.lower() not in COMMON_TOKENS and not INCIDENT.fullmatch(t)]
+        if any(n.lower() in low for n in names):
+            return k
+    return None
+
+
 def known_stories(days: int = KNOWN_STORY_DAYS, limit: int = 40) -> list[dict]:
     """AIに渡す「既に扱った話題」。直近15件だけでは、3週間前の出来事の再報道を新しい話題と誤認した
     （11/17 10/29のICE×trade[XYZ]の件を「【速報】ICEが…国内展開へ」として拾った）。続報(-2,-3)はまとめ、日付を付ける。"""
@@ -286,6 +311,8 @@ def run(payload: dict | None = None) -> dict:
                 same = next((k for k, h in handled.items() if h.get("headline")
                              and now_utc() - datetime.fromisoformat(h["at"]) < timedelta(days=SAME_EVENT_DAYS)
                              and same_event(text, h["headline"])), None)
+            if not same:  # 事件（ハッキング・流出など）の後日談は、日がたっても同じ事件の続報として扱う（自動では出さない）
+                same = same_incident(text, known_keys)
             if same:
                 s["story_key"] = same.rsplit("-", 1)[0] if same.rsplit("-", 1)[-1].isdigit() else same
                 handled.setdefault(s["story_key"], {"at": now_utc().isoformat(), "posted_or_queued": True,
