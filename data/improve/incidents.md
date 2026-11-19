@@ -143,3 +143,4 @@
 - 11/19 07:45 朝の長文に「全体相場全体」（語の重複・削除はせず）→ checks.KANJI_DUP（漢字の語が3字以内で繰り返す崩れ）を check_text に追加、テスト test_kanji_word_repeated_nearby。
 - 11/19 07:06 10/30のバイナンスのハッキングの後日談「アブダビ裁判所が凍結命令」（6.5億ドル/65億ドルと数字が食い違い・裏取りできず）を新しい速報として自動で出そうとし、出し直しも続いていた（投稿はされず）。11/12の米司法省の件も pending のまま残っていた。→ news_watch.same_incident（過去60日に投稿した事件と同じ当事者の事件の話は続報扱い＝自動では出さない）、テスト test_incident_aftermath_is_followup_not_breaking。2件は skipped に。
 - 11/19 13:17 trade[XYZ]のPANW上場（公式）の速報が、案がすべて「データ以外の数字」で弾かれて出なかった。原因の一部は「24時間365日」「1株」のような決まった言い回し（「最大10倍」は材料にないので正しく弾いた）。→ config/allowed_numeric_terms.txt に追加。
+- 11/19 20:43 夜の長文の主役が $SKHX（なじみの薄い名前）になった。順位づけは正しく働いたが、①$QQQ の案が「終値の時点の書き忘れ」と「30時間の同じ銘柄の間隔」で破棄 ②$SOXL の案がSOXXとの倍率比較で破棄。→ 終値の時点を自動で付ける（checks.add_close_asof）・top_names は20時間あければ再び主役にできる（check_text と pipeline の両方）・lessons に SOXL×SOXX の比較禁止。テスト test_relink_adds_close_asof_next_to_hl・test_top_names_cooldown_is_shorter。

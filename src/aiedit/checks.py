@@ -164,7 +164,31 @@ def relink(template: str, facts: dict[str, dict]) -> str:
     for i in range(0, len(parts), 2):  # 既存の差し込み記号の中は触らない
         for value, ph in pairs:
             parts[i] = parts[i].replace(value, ph)
-    return align_line_labels("".join(parts), facts)
+    return add_close_asof(align_line_labels("".join(parts), facts), facts)
+
+
+def add_close_asof(template: str, facts: dict[str, dict]) -> str:
+    """Hyperliquidの今の数字と並べる米国株の終値に、時点（米国◯/◯終値）がなければ自動で付ける。
+    11/19 20時台: 時点の書き忘れで $QQQ（ナスダック100）の案が2つとも破棄され、なじみの薄い $SKHX が主役になった。"""
+    ids = [fid for fid, _ in PLACEHOLDER.findall(template)]
+    if not any((facts.get(f) or {}).get("kind") == "hl" for f in ids):
+        return template
+    for fid in dict.fromkeys(ids):
+        f = facts.get(fid) or {}
+        asof = str((f.get("fields") or {}).get("asof", ""))
+        if f.get("kind") != "stock" or "終値" not in asof or f.get("category") == "week_change":
+            continue
+        if f"{{{{{fid}.asof}}}}" in template or asof in template:
+            continue
+        last = [m for m in PLACEHOLDER_ANY.finditer(template) if m.group(0).startswith(f"{{{{{fid}.")][-1:]
+        if last:
+            m = last[0]
+            # 同じ行にすでに「終値」と書いてあれば足さない（「前日終値比」は時点ではないので足す）
+            line = template[template.rfind("\n", 0, m.start()) + 1: template.find("\n", m.end()) if "\n" in template[m.end():] else len(template)]
+            if re.search(r"(?<!前日)終値", line):
+                continue
+            template = template[:m.end()] + f"（{{{{{fid}.asof}}}}）" + template[m.end():]
+    return template
 
 
 LABEL_FIELDS = {"market", "asof", "basis"}
@@ -592,6 +616,11 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     # 主役（キャッシュタグの銘柄）が直近の投稿と同じなら、話題の名前が違っても続けて出さない
     tags = set(CASHTAG.findall(text)) if not str(topic_key).startswith("news:") else set()  # 速報は同じ銘柄でも出す
     recent_tags = {t for p in store.recent_posts(cfg.get("same_symbol_cooldown_hours", 18)) for t in CASHTAG.findall(p["text"])}
+    # いちばん通じる主役（top_names: QQQ・SOXLなど。中央値300）は、前日の同じ枠の後（20時間）なら続けて使ってよい
+    # （11/19 20時台: 前夜21:10の$QQQから23.5時間で弾かれ、$SKHXが主役になった）
+    top = {n.upper() for n in read_list("top_names.txt")}
+    recent_top = {t for p in store.recent_posts(cfg.get("top_symbol_cooldown_hours", 20)) for t in CASHTAG.findall(p["text"])}
+    recent_tags = {t for t in recent_tags if t.lstrip("$").upper() not in top or t in recent_top}
     if tags & recent_tags:
         errors.append(f"主役の銘柄{'・'.join(sorted(tags & recent_tags))}を直近に投稿済み（別の銘柄を主役にする）")
     return errors

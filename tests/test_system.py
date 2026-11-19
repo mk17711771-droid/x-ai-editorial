@@ -1769,3 +1769,28 @@ def test_incident_aftermath_is_followup_not_breaking(isolated, monkeypatch):
     news_watch.run({"items": [{"title": "Abu Dhabi court freeze order Binance hack", "source": "A"}]})
     keys = [f["key"] for f in store.read_json("news_facts.json", [])]
     assert keys == ["news:binance-historic-hack"]
+
+
+def test_relink_adds_close_asof_next_to_hl():
+    """11/19 20時台: QQQの終値の時点の書き忘れで案が全部破棄された。破棄せず自動で時点を付ける。"""
+    from datetime import datetime, timezone, timedelta
+    from aiedit import checks, common
+    facts = {"f1": {"kind": "stock", "fields": {"symbol": "QQQ", "change_pct": "-0.73%", "asof": "米国11/18終値"}},
+             "f2": {"kind": "hl", "fields": {"coin": "xyz:XYZ100", "change_pct": "-0.34%", "asof": "日本時間11/19 20:38時点"}}}
+    t = checks.relink("・$QQQ 前日終値比{{f1.change_pct}}\n・ナスダック100 {{f2.change_pct}}", facts)
+    assert "{{f1.change_pct}}（{{f1.asof}}）" in t
+    assert not any("終値の時点" in e for e in checks.check_template(t, facts))
+    # HLの材料がないときは足さない
+    assert "asof" not in checks.relink("・$QQQ 前日終値比{{f1.change_pct}}", {"f1": facts["f1"]})
+
+
+def test_top_names_cooldown_is_shorter(monkeypatch):
+    """11/19 20時台: 前夜21:10の$QQQから23.5時間で「直近に投稿済み」と弾かれた。top_names は20時間で使えるようにする。"""
+    from datetime import timedelta
+    from aiedit import checks, store
+    from aiedit.common import now_utc
+    posts = [{"text": "$QQQが下落", "posted_at": (now_utc() - timedelta(hours=23.5)).isoformat(), "topic_key": "stock:QQQ:quote"},
+             {"text": "$SKHXの資金調達率", "posted_at": (now_utc() - timedelta(hours=23.5)).isoformat(), "topic_key": "hl:SKHX"}]
+    monkeypatch.setattr(store, "recent_posts", lambda h: [p for p in posts if now_utc() - __import__("datetime").datetime.fromisoformat(p["posted_at"]) < timedelta(hours=h)])
+    assert not any("直近に投稿済み" in e for e in checks.check_text("$QQQが-0.73%。\n\nナスダック100の先物は資金調達率がプラスのまま、ロングのコストが残っている構図。" , "stock:QQQ:x"))
+    assert any("直近に投稿済み" in e for e in checks.check_text("$SKHXが+3.64%。\n\n先物の資金調達率はマイナスのまま、ショートのコストが残っている構図。", "hl:SKHX:x"))

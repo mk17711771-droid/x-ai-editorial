@@ -475,6 +475,11 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
             recent_topics |= {t, t.rsplit(":", 1)[0] if t.startswith("traders:funnel:") else t}
     recent_syms = {s.lstrip("$") for p in store.recent_posts(cfg["limits"].get("same_symbol_cooldown_hours", 18))
                    for s in checks.CASHTAG.findall(p["text"])}
+    # いちばん通じる主役（top_names）は20時間あければ使ってよい（checks.check_text と同じ基準）
+    top_names = {n.upper() for n in checks.read_list("top_names.txt")}
+    recent_top = {s.lstrip("$") for p in store.recent_posts(cfg["limits"].get("top_symbol_cooldown_hours", 20))
+                  for s in checks.CASHTAG.findall(p["text"])}
+    recent_syms = {s for s in recent_syms if s.upper() not in top_names or s in recent_top}
     stale = lambda c: c.get("topic_key") in recent_topics or (slot["id"] != "news" and _cand_symbol(c, facts_by_id) in recent_syms)  # noqa: E731
     if cands and all(stale(c) for c in cands):
         log.info("候補がすべて直近に投稿済みの話題・銘柄なので、編集をやり直します")
