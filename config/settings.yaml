@@ -149,6 +149,8 @@ research:
       - "(Hyperliquid OR ハイパーリキッド OR HIP-3) lang:ja -is:retweet -is:reply"
       - "(米国株 OR 半導体株) (資金 OR 建玉 OR 決算) lang:ja -is:retweet -is:reply has:media"
       - "(Hyperliquid OR HYPE) (whale OR funding OR \"open interest\") lang:en -is:retweet -is:reply has:media"
+      # 11/19 参考アカウント（@yozawape）に似た投稿（国内の暗号資産の規制・取引所のニュース＋自分の見立て）を探す
+      - "(暗号資産 OR 仮想通貨) (規制 OR 金融庁 OR 規約 OR 取引所) lang:ja -is:retweet -is:reply"
     accounts: []                 # 参考にしたいアカウント（例: satoshikun_666 は自分なので入れない）
     reference_accounts:          # 管理者が「良い投稿で勉強になる」と選んだアカウント（11/19）。24〜48時間前の投稿を毎日1回読み、伸びた型だけを参考にする
       - yozawape
