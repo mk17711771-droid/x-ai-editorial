@@ -576,6 +576,12 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     m = NEAR_DUP.search(text)
     if m:  # 「バイナンスで…バイナンスが」のような同じ語のすぐの繰り返し（10/30 21:11の速報）
         errors.append(f"同じ語「{m.group(1)}」が近くで繰り返されている（文を組み直す）")
+    # 参考アカウントの文章を真似しない（他者の文章の転載・模倣は禁止。型だけを参考にする）
+    from . import sources as _sources
+    for r in _sources.reference_posts(days=30, n=50):
+        if similarity(text, r.get("text", "")) >= 0.3:
+            errors.append(f"参考アカウント（@{r['author']}）の投稿と文章が似すぎている。型だけ参考にして、自分の言葉で書き直す")
+            break
     kd = KANJI_DUP.search(text)
     if kd:
         errors.append(f"同じ語「{kd.group(1)}」がすぐ繰り返されている（「{kd.group(0)}」）")

@@ -222,6 +222,10 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None, m
     focus = focus_note()
     if focus:
         user += "\n\n# 管理者の指示（期間限定の話題）\n" + focus
+    ref = sources.reference_digest()
+    if ref:
+        user += ("\n\n# 参考アカウント（管理者が「良い投稿で勉強になる」と選んだ）の反応がよかった投稿。"
+                 "話題の選び方・切り口（なぜ読まれたか）だけを参考にし、話題と数字は必ず自分の材料から選ぶ。文章は真似しない\n" + ref)
     big = [n for n in checks.read_list("big_names.txt")]
     user += ("\n\n# 主役に優先する「大きな名前」（読者に通じる銘柄・指数。材料にあればこの中から主役を選ぶ。"
              "馴染みの薄い銘柄は、変化が極端なときだけ主役にする）\n" + "・".join(big))
@@ -331,6 +335,10 @@ def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | N
     user = (f"# 投稿枠\n{slot['theme']}{shape}\n\n# 編集長の切り口\n{cand.get('angle', '')}\n\n"
             f"# 材料（この差し込み記号だけ使える）\n{_facts_for_llm(used, with_fields=True)}\n\n"
             f"# 直近の投稿 (recent_posts)\n{json.dumps(list(store.recent_texts(10)), ensure_ascii=False)}")
+    ref = sources.reference_digest()
+    if ref:
+        user += ("\n\n# 参考アカウントの反応がよかった投稿（型の参考: 1行目の入り方・構成・数字の見せ方・図の使い方）。"
+                 "言い回し・文章・数字は使わない（そのまま似せると破棄される）\n" + ref)
     focus = focus_note()
     if focus and any(f.get("status") == "context" for f in used):
         user += "\n\n# 管理者の指示（期間限定の話題）\n" + focus

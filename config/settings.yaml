@@ -142,7 +142,7 @@ research:
     - Hyperliquid
   x:                             # Xの同ジャンルの伸びた投稿（有料: 1件約0.75円。毎日1つずつ順番に検索）
     enabled: true                # 同ジャンルの伸びた投稿の分析に必要（止めると分析の材料がなくなる）。費用を抑えて毎日1テーマ×10件（約7.5円/日）
-    monthly_read_limit: 250      # 月の上限（約190円）
+    monthly_read_limit: 550      # 月の上限（約410円）。11/19 参考アカウントの毎日の確認（1日最大20件）を加えて250→550
     per_query: 10                 # X APIの最低件数は10
     rotate: true
     queries:
@@ -150,6 +150,8 @@ research:
       - "(米国株 OR 半導体株) (資金 OR 建玉 OR 決算) lang:ja -is:retweet -is:reply has:media"
       - "(Hyperliquid OR HYPE) (whale OR funding OR \"open interest\") lang:en -is:retweet -is:reply has:media"
     accounts: []                 # 参考にしたいアカウント（例: satoshikun_666 は自分なので入れない）
+    reference_accounts:          # 管理者が「良い投稿で勉強になる」と選んだアカウント（11/19）。24〜48時間前の投稿を毎日1回読み、伸びた型だけを参考にする
+      - yozawape
 
 # 速報の見張り（Hyperliquid・trade[XYZ]・HIP-3・株式Perpを扱うサービス）
 news_watch:

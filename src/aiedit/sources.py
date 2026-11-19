@@ -8,7 +8,7 @@ from __future__ import annotations
 import html
 import json
 import xml.etree.ElementTree as ET
-from datetime import timedelta
+from datetime import datetime, timedelta
 from urllib.parse import quote
 
 import requests
@@ -235,6 +235,85 @@ def x_search() -> list[dict]:
     return out
 
 
+def reference_accounts() -> int:
+    """管理者が「良い投稿で勉強になる」と選んだアカウントの投稿を毎日読む（11/19 管理者の指示: @yozawape）。
+
+    反応が出そろった投稿だけ見るため、24〜48時間前の投稿を1日1回だけ読む（同じ投稿を二度読まない＝費用を抑える）。
+    data/sources/ref/<アカウント>.jsonl に貯め、編集長・執筆AIが「伸びた型」だけを参考にする（文章は真似しない）。"""
+    from . import xapi
+
+    cfg = _cfg().get("x", {})
+    accounts = [a.lstrip("@") for a in cfg.get("reference_accounts", [])]
+    if not accounts:
+        return 0
+    budget = cfg.get("monthly_read_limit", 400) - _reads_this_month()
+    ids = store.read_json("sources/ref_ids.json", {}) or {}
+    missing = [a for a in accounts if a not in ids]
+    if missing:
+        try:
+            for u in xapi.users(missing):
+                ids[u["username"]] = u["id"]
+            store.write_json("sources/ref_ids.json", ids)
+        except xapi.XPostError as e:
+            _error("x", "reference_accounts", e)
+            return 0
+    now = now_utc().replace(minute=0, second=0, microsecond=0)
+    start, end = (now - timedelta(hours=48)).strftime("%Y-%m-%dT%H:%M:%SZ"), (now - timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    total = 0
+    for a in accounts:
+        if a not in ids or budget < 5:
+            continue
+        done = store.read_json("sources/ref_done.json", {}) or {}
+        if done.get(a) == now.strftime("%Y-%m-%d"):
+            continue  # 1日1回だけ
+        try:
+            tweets = xapi.user_tweets_window(ids[a], start, end, max_results=min(20, budget))
+        except xapi.XPostError as e:
+            _error("x", f"ref:{a}", e)
+            continue
+        budget -= len(tweets)
+        total += len(tweets)
+        store.append_jsonl("sources/x_reads.jsonl", {"month": now_utc().astimezone(JST).strftime("%Y-%m"),
+                                                     "at": now_utc().isoformat(), "n": len(tweets)})
+        for t in tweets:
+            m = t.get("public_metrics", {})
+            store.append_jsonl(f"sources/ref/{a}.jsonl", {
+                "id": t.get("id"), "created_at": t.get("created_at"), "text": html.unescape(t.get("text", ""))[:600],
+                "has_media": bool((t.get("attachments") or {}).get("media_keys")),
+                "likes": m.get("like_count", 0), "reposts": m.get("retweet_count", 0) + m.get("quote_count", 0),
+                "bookmarks": m.get("bookmark_count", 0), "impressions": m.get("impression_count", 0)})
+        done[a] = now.strftime("%Y-%m-%d")
+        store.write_json("sources/ref_done.json", done)
+    return total
+
+
+def reference_posts(days: int = 14, n: int = 6) -> list[dict]:
+    """参考アカウントの直近の投稿のうち、反応がよかったもの（保存・リポストを重く見る）。"""
+    cfg = _cfg().get("x", {})
+    since = now_utc() - timedelta(days=days)
+    rows = []
+    for a in [a.lstrip("@") for a in cfg.get("reference_accounts", [])]:
+        for r in store.read_jsonl(f"sources/ref/{a}.jsonl"):
+            try:
+                if datetime.fromisoformat(str(r.get("created_at", "")).replace("Z", "+00:00")) < since:
+                    continue
+            except ValueError:
+                continue
+            rows.append({**r, "author": a})
+    rows.sort(key=lambda r: r.get("likes", 0) + 3 * r.get("reposts", 0) + 3 * r.get("bookmarks", 0), reverse=True)
+    return rows[:n]
+
+
+def reference_digest() -> str:
+    """編集長・執筆AIに渡す、参考アカウントの伸びた投稿（型の参考。文章・数字は使わない）。"""
+    rows = reference_posts()
+    if not rows:
+        return ""
+    lines = [f"- @{r['author']}（いいね{r.get('likes', 0)}・保存{r.get('bookmarks', 0)}・図{'あり' if r.get('has_media') else 'なし'}）: "
+             + r["text"].replace("\n", " / ")[:220] for r in rows]
+    return "\n".join(lines)
+
+
 def latest(kind: str, days: int = 8) -> list:
     """sources/<kind>/ の直近のファイルを新しい順にまとめて返す。"""
     today = now_utc().astimezone(JST)
@@ -256,6 +335,9 @@ def trend_digest() -> str:
         "x_top_posts": [{k: x.get(k) for k in ("author_followers", "text", "has_media", "likes", "reposts", "bookmarks")}
                         for x in latest("x", 7)[:25]],
         "news_headlines": [n["title"] for n in latest("news", 2)][:40],
+        # 管理者が選んだ参考アカウント（@yozawape など）の伸びた投稿。型だけを抜き出す
+        "reference_account_top_posts": [{k: x.get(k) for k in ("author", "text", "has_media", "likes", "reposts", "bookmarks")}
+                                        for x in reference_posts()],
         "my_recent_posts": [{k: r.get(k) for k in ("text", "impressions", "likes", "bookmarks", "has_image", "format")}
                             for r in mine][-12:],
     }
@@ -275,6 +357,10 @@ def run(daily: bool, weekly: bool, news_only: bool = False) -> dict:
     if daily or weekly:
         res["note"] = len(note_trends())
         res["x"] = len(x_search())
+        try:
+            res["ref"] = reference_accounts()
+        except Exception as e:  # noqa: BLE001 参考アカウントの失敗でほかの収集を止めない
+            log.warning("参考アカウントの取得に失敗: %s", e)
         try:
             res["digest"] = bool(trend_digest())
         except Exception as e:  # noqa: BLE001 まとめの失敗で収集結果を捨てない

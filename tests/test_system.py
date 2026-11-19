@@ -1809,3 +1809,18 @@ def test_focus_note_expires_and_context_fact_not_breaking(monkeypatch):
          "fields": {"headline": "h"}, "summary": "s"}] if name == "news_facts.json" else default)
     assert [f["key"] for f in pipeline.news_facts()] == ["news:summit"]
     assert pipeline.news_facts(pending_only=True) == []
+
+
+def test_reference_posts_ranked_and_copy_guard(isolated, monkeypatch):
+    """11/19 管理者の指示: @yozawape の投稿を毎日見て型を参考にする。文章を真似した原稿は弾く。"""
+    from aiedit import checks, sources
+    from aiedit.common import now_utc
+    monkeypatch.setattr(sources, "_cfg", lambda: {"x": {"reference_accounts": ["yozawape"]}})
+    t = now_utc().isoformat()
+    store.append_jsonl("sources/ref/yozawape.jsonl", {"created_at": t, "text": "弱い投稿", "likes": 1, "reposts": 0, "bookmarks": 0})
+    store.append_jsonl("sources/ref/yozawape.jsonl", {"created_at": t, "text": "半導体株が全面安。それでもエヌビディアの先物だけは買われ続けている理由を整理する",
+                                                     "likes": 50, "reposts": 10, "bookmarks": 30, "has_media": True})
+    top = sources.reference_posts()
+    assert top[0]["likes"] == 50 and "@yozawape" in sources.reference_digest()
+    copied = "半導体株が全面安。それでもエヌビディアの先物だけは買われ続けている理由を整理する。$NVDAは-5.93%。"
+    assert any("似すぎ" in e for e in checks.check_text(copied, "hl:NVDA:x"))

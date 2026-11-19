@@ -146,6 +146,16 @@ def users(usernames: list[str]) -> list[dict]:
     return r.json().get("data", [])
 
 
+def user_tweets_window(user_id: str, start: str, end: str, max_results: int = 20) -> list[dict]:
+    """アカウントの、ある期間の投稿（返信・リポストを除く）と反応の数。参考アカウントの研究用（読んだ件数ぶん課金）。"""
+    params = {"max_results": max(5, min(max_results, 100)), "exclude": "retweets,replies",
+              "start_time": start, "end_time": end, "tweet.fields": "created_at,public_metrics,attachments"}
+    r = requests.get(f"{API}/users/{user_id}/tweets", params=params, auth=_auth(), timeout=30)
+    if r.status_code >= 400:
+        raise XPostError(f"投稿の取得 {r.status_code}: {r.text[:300]}")
+    return r.json().get("data", [])
+
+
 def user_tweets(user_id: str, since_id: str | None = None) -> list[dict]:
     """アカウントの新しい投稿（返信・リポストを除く）。since_id より新しいものだけ（初回は最新5件）。"""
     params = {"max_results": 5 if not since_id else 20, "exclude": "retweets,replies", "tweet.fields": "created_at"}
