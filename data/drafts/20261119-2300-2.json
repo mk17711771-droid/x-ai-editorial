@@ -1,0 +1,71 @@
+{
+  "id": "20261119-2300-2",
+  "slot_key": "20261119-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-11-19T14:33:23.681318+00:00",
+  "text": "$CXMTの資金調達率が年率-158.5%まで沈み込んでいる\n\nHyperliquidの株式先物（HIP-3）で日本時間11/19(木) 23:31時点、価格は+3.58%の$5.61とプラス圏なのに、デリバティブ側でここまで極端なショート過熱に陥っているのはかなり不気味だ。",
+  "template": "$CXMTの資金調達率が年率{{f10.funding_annual}}まで沈み込んでいる\n\nHyperliquidの{{f10.market}}で{{f10.asof}}、価格は{{f10.change_pct}}の{{f10.price}}とプラス圏なのに、デリバティブ側でここまで極端なショート過熱に陥っているのはかなり不気味だ。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:CXMT:funding_extreme",
+  "angle": "メモリ関連銘柄であるCXMTのHIP-3先物で、資金調達率が年率-158.5%という極端なショート過熱に陥っている異変を浮き彫りにする。",
+  "scores": {
+    "novelty": 18,
+    "interest": 17,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 16
+  },
+  "total": 88,
+  "fact_ids": [
+    "f10"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:CXMT:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: CXMT（HIP-3株式等先物） 24時間騰落率+3.58%, 価格5.6115, 建玉21965464USD, 24時間出来高31354317USD, 資金調達率(年率)-158.5%",
+      "fields": {
+        "coin": "CXMT",
+        "symbol": "CXMT",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$5.61",
+        "change_pct": "+3.58%",
+        "oi": "約2,197万ドル",
+        "volume": "約3,135万ドル",
+        "funding_annual": "-158.5%",
+        "asof": "日本時間11/19(木) 23:31時点",
+        "asof_short": "23:31時点"
+      },
+      "raw": {
+        "mark": 5.6115,
+        "change_pct": 3.577,
+        "oi_usd": 21965464,
+        "vol_usd": 31354317,
+        "funding_annual_pct": -158.51
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:CXMT",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:CXMT"
+      },
+      "asof": "2026-11-19T14:31:48.731090+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:CXMT"
+    }
+  ],
+  "needs_human": false
+}

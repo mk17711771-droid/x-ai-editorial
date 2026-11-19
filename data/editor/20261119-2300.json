@@ -1,0 +1,66 @@
+[
+  {
+    "fact_ids": [
+      "f8"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "半導体セクターの現物と先物の乖離に焦点を当て、NVDAのHIP-3先物が24時間騰落率-2.63%と下落する中で資金調達率が年率+15.2%まで高止まりしている歪みを指摘する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "市場の関心が高いNVDAを主役に据え、価格の下落と高水準な資金調達率という明確なデリバティブの歪みを具体的な数字で提示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f21"
+    ],
+    "topic_key": "hl:xyz:SP500:hip3_top",
+    "angle": "米国市場オープンを控え、SP500のHIP-3先物が建玉4億4824万ドル規模で推移しつつ、資金調達率が年率+21.6%と強いロングの傾きを見せている点に切り込む。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "主要インデックスであるSP500の先物市場における巨大な建玉と高すぎる資金調達率の組み合わせから、市場の警戒感とポジションの偏りを的確に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f10"
+    ],
+    "topic_key": "hl:xyz:CXMT:funding_extreme",
+    "angle": "メモリ関連銘柄であるCXMTのHIP-3先物で、資金調達率が年率-158.5%という極端なショート過熱に陥っている異変を浮き彫りにする。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 16
+    },
+    "total": 88,
+    "reason": "マイナス150%超という極端な資金調達率の異常値を切り口に、デリバティブ市場における強烈なショートの偏りを数字で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:tradexyz-lists-panw-perp",
+    "angle": "trade[XYZ]におけるサイバーセキュリティ大手パロアルトネットワークスの上場と、株式Perpエコシステムの拡充という新しい動きを伝える。",
+    "scores": {
+      "novelty": 19,
+      "interest": 16,
+      "evidence": 16,
+      "utility": 17,
+      "insight": 16
+    },
+    "total": 84,
+    "reason": "新銘柄の上場という確度の高い公式ニュースをベースにしつつ、Hyperliquidエコシステムの拡大をコンパクトに伝えることができるため。"
+  }
+]
