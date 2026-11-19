@@ -266,8 +266,10 @@ def reference_accounts() -> int:
         done = store.read_json("sources/ref_done.json", {}) or {}
         if done.get(a) == now.strftime("%Y-%m-%d"):
             continue  # 1日1回だけ
+        first = not store.read_jsonl(f"sources/ref/{a}.jsonl")
+        s_at = (now - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ") if first else start  # 初回だけ直近7日をまとめて読む
         try:
-            tweets = xapi.user_tweets_window(ids[a], start, end, max_results=min(20, budget))
+            tweets = xapi.user_tweets_window(ids[a], s_at, end, max_results=min(20, budget))
         except xapi.XPostError as e:
             _error("x", f"ref:{a}", e)
             continue
