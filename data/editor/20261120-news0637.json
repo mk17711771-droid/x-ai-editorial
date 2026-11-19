@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f9",
+      "f20"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "$SOXLの急落（-8.98%）と建玉の急増（+45.3%）が同時に起きている。デリバティブ側でどのようなポジションの偏りが生まれているのか。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "人気の大きな名前（SOXL）の急落と建玉急増の具体的な数値を捉えており、市場の歪みを追うアカウントの軸に完全に合致するため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f7"
+    ],
+    "topic_key": "news:tradexyz-sndk-stock-split-halt",
+    "angle": "trade[XYZ]での株式分割に伴う一時停止の裏で、SP500先物などの主要指数にどのような資金の流れと歪みが生じているのか。",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "公式の確認済みニュースとHyperliquid上の指数先物のデータを組み合わせ、実用性と新規性の高い構成にできるため。"
+  },
+  {
+    "fact_ids": [
+      "f14",
+      "f26"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "SKHXの資金調達率が年率-418.0%まで沈み込む中、デリバティブ市場でショート過熱の歪みがどこまで拡大しているのか。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "半導体関連の極端な資金調達率のデータを主役に据え、市場の歪みを数字で的確に浮き彫りにできるため。"
+  }
+]
