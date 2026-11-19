@@ -145,3 +145,4 @@
 - 11/19 13:17 trade[XYZ]のPANW上場（公式）の速報が、案がすべて「データ以外の数字」で弾かれて出なかった。原因の一部は「24時間365日」「1株」のような決まった言い回し（「最大10倍」は材料にないので正しく弾いた）。→ config/allowed_numeric_terms.txt に追加。
 - 11/19 20:43 夜の長文の主役が $SKHX（なじみの薄い名前）になった。順位づけは正しく働いたが、①$QQQ の案が「終値の時点の書き忘れ」と「30時間の同じ銘柄の間隔」で破棄 ②$SOXL の案がSOXXとの倍率比較で破棄。→ 終値の時点を自動で付ける（checks.add_close_asof）・top_names は20時間あければ再び主役にできる（check_text と pipeline の両方）・lessons に SOXL×SOXX の比較禁止。テスト test_relink_adds_close_asof_next_to_hl・test_top_names_cooldown_is_shorter。
 - 11/19 管理者の指示「費用はできるだけゼロに」: 点検のたびに metrics-now（直近48時間の投稿を読む・1回約9円）を何度も使っていた。→ snapshot をその日の投稿だけ（14時間）に・点検の metrics-now は14時台の1回だけ・前日分は metrics.json を使う。同ジャンル検索は2日に1回、参考アカウントは1日最大5件、月の上限250件に戻した。見回りの X 予算の確認が別の設定名（research.x）を見ていた誤りも修正。
+- 11/19 23:33 深夜の短文で「米国市場オープン前」と書いたが、開場（23:30）の3分後だった（軽微のため削除せず）。→ check_text: 米国市場の取引時間中は「オープン前・寄り付き前」を差し戻し。テスト test_open_before_during_us_session。

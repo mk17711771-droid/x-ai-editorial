@@ -582,6 +582,13 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
         if similarity(text, r.get("text", "")) >= 0.3:
             errors.append(f"参考アカウント（@{r['author']}）の投稿と文章が似すぎている。型だけ参考にして、自分の言葉で書き直す")
             break
+    # 米国市場の取引時間中に「オープン前・寄り付き前」と書かない（11/19 23:33「米国市場オープン前」は開場の3分後）
+    if re.search(r"(オープン|寄り付き|寄付き|開場|取引開始)(を控えた|前)", text):
+        from zoneinfo import ZoneInfo
+        from .common import now_utc as _now
+        ny = _now().astimezone(ZoneInfo("America/New_York"))
+        if ny.weekday() < 5 and (ny.hour, ny.minute) >= (9, 30) and ny.hour < 16:
+            errors.append("米国市場はすでに開いている（取引時間中）のに「オープン前」と書いている")
     kd = KANJI_DUP.search(text)
     if kd:
         errors.append(f"同じ語「{kd.group(1)}」がすぐ繰り返されている（「{kd.group(0)}」）")

@@ -1824,3 +1824,14 @@ def test_reference_posts_ranked_and_copy_guard(isolated, monkeypatch):
     assert top[0]["likes"] == 50 and "@yozawape" in sources.reference_digest()
     copied = "半導体株が全面安。それでもエヌビディアの先物だけは買われ続けている理由を整理する。$NVDAは-5.93%。"
     assert any("似すぎ" in e for e in checks.check_text(copied, "hl:NVDA:x"))
+
+
+def test_open_before_during_us_session(monkeypatch):
+    """11/19 23:33: 「米国市場オープン前のSP500先物」と書いたが、開場（23:30）の3分後だった。"""
+    from datetime import datetime, timezone
+    from aiedit import checks, common
+    t = "米国市場オープン前のS&P500先物、資金調達率が上がっている。\n\nロングの傾きが出ていて、ちょっと引っかかる構図。"
+    monkeypatch.setattr(common, "now_utc", lambda: datetime(2026, 11, 19, 14, 33, tzinfo=timezone.utc))  # NY 9:33
+    assert any("オープン前" in e for e in checks.check_text(t, "hl:SP500:x"))
+    monkeypatch.setattr(common, "now_utc", lambda: datetime(2026, 11, 19, 14, 0, tzinfo=timezone.utc))   # NY 9:00
+    assert not any("オープン前" in e for e in checks.check_text(t, "hl:SP500:x"))
