@@ -1,0 +1,70 @@
+[
+  {
+    "fact_ids": [
+      "f15",
+      "f22"
+    ],
+    "topic_key": "hl:xyz:SOXL:oi_change",
+    "angle": "SOXLのHIP-3先物で建玉が40%急増し、資金調達率が年率+26.4%まで高水準に達している状況を伝える。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "最優先銘柄であるSOXLの建玉急増と高い資金調達率という具体的な数字を捉えており、市場の歪みを的確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f5"
+    ],
+    "topic_key": "news:tradexyz-lists-panw-perp",
+    "angle": "パロアルトネットワークス（PANW）の株式Perpが新たに上場した一方で、NVDA先物は24時間で-3.50%の下落と軟調な値動きを見せている点に焦点を当てる。",
+    "scores": {
+      "novelty": 20,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "新上場の公式ニュースと主要半導体関連銘柄の実データを組み合わせ、市場の動きをタイムリーに捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f8",
+      "f16"
+    ],
+    "topic_key": "hl:xyz:ZHIPU:funding_extreme",
+    "angle": "ZHIPUのHIP-3先物で資金調達率が年率+144.8%まで跳ね上がり、建玉も+32.2%増加しているロング過熱の歪みを伝える。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "極端な資金調達率と建玉の急増という明確なオンチェーンの異変を具体的な数値で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f20"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "主要な指数先物であるXYZ100やSP500の出来高が上位に並び、資金調達率がプラス圏で推移している全体の需給バランスを解説する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "主要指数の出来高と資金調達率のデータを網羅しており、市場全体の資金の流れを把握するのに役立つため。"
+  }
+]

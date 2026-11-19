@@ -1,0 +1,103 @@
+{
+  "id": "20261119-news1410-1",
+  "slot_key": "20261119-news1410",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "posted",
+  "created_at": "2026-11-19T05:10:37.530462+00:00",
+  "text": "パロアルトネットワークスの無期限先物が新たに上場した裏で、NVDAのHIP-3先物は-3.50%と下落している。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/19(木) 14:10時点、価格は$152.04、資金調達率は年率+6.8%。",
+  "template": "パロアルトネットワークスの無期限先物が新たに上場した裏で、NVDAのHIP-3先物は{{f5.change_pct}}と下落している。\n\nHyperliquidの{{f5.market}}で{{f5.asof}}、価格は{{f5.price}}、資金調達率は{{f5.funding_annual}}。新規上場によるエコシステムの拡大と、主力銘柄の調整局面が重なるこのタイミングでデリバティブ側のコストや建玉がどう反応するかじっくり見ておきたい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "news:tradexyz-lists-panw-perp",
+  "angle": "パロアルトネットワークス（PANW）の株式Perpが新たに上場した一方で、NVDA先物は24時間で-3.50%の下落と軟調な値動きを見せている点に焦点を当てる。",
+  "scores": {
+    "novelty": 20,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f1",
+    "f5"
+  ],
+  "facts": [
+    {
+      "key": "news:tradexyz-lists-panw-perp",
+      "kind": "hl",
+      "asof": "2026-11-19T04:17:06.712634+00:00",
+      "expires_at": "2026-11-20T16:17:06.712663+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-19T04:15:07.000Z",
+      "summary": "trade[XYZ]（公式）は、サイバーセキュリティ大手のパロアルトネットワークス（Nasdaq: PANW）の株式無期限先物を上場したことを発表した。米ドル建てで1株を参照し、最大10倍のレバレッジで24時間365日取引が可能となっている。Hyperliquidエコシステムにおける株式Perpのラインナップがさらに拡充された。",
+      "fields": {
+        "headline": "trade[XYZ]、PANWの無期限先物を上場",
+        "what": "パロアルトネットワークス（PANW）の無期限先物の取り扱いを開始",
+        "status": "確定",
+        "who": "trade[XYZ] / Palo Alto Networks"
+      },
+      "raw": {},
+      "source": {
+        "name": "@tradexyz（公式）",
+        "url": "https://x.com/tradexyz/status/2123268812044722453"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:xyz:NVDA:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-3.50%, 価格152.04, 建玉416705587USD, 24時間出来高443835680USD, 資金調達率(年率)+6.8%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$152.04",
+        "change_pct": "-3.50%",
+        "oi": "約4.2億ドル",
+        "volume": "約4.4億ドル",
+        "funding_annual": "+6.8%",
+        "asof": "日本時間11/19(木) 14:10時点",
+        "asof_short": "14:10時点"
+      },
+      "raw": {
+        "mark": 152.04,
+        "change_pct": -3.503,
+        "oi_usd": 416705587,
+        "vol_usd": 443835680,
+        "funding_annual_pct": 6.8
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-19T05:10:24.831162+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    }
+  ],
+  "sources": [
+    {
+      "name": "@tradexyz（公式）",
+      "url": "https://x.com/tradexyz/status/2123268812044722453"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2123282786328940891",
+  "posted_at": "2026-11-19T05:10:39.828583+00:00"
+}
