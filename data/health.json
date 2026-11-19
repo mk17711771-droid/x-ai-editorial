@@ -1,12 +1,17 @@
 {
-  "at": "2026-11-19T04:36:48.303835+00:00",
-  "at_jst": "11/19 13:36",
+  "at": "2026-11-19T05:07:01.251529+00:00",
+  "at_jst": "11/19 14:06",
   "ok": false,
   "issues": [
     {
       "type": "line_quota",
       "used": 164,
       "limit": 200
+    },
+    {
+      "type": "announced_not_posted",
+      "story": "tradexyz-lists-panw-perp",
+      "since": "2026-11-19T04:17:06.984130+00:00"
     },
     {
       "type": "many_rejections",
@@ -23,5 +28,7 @@
       ]
     }
   ],
-  "actions": []
+  "actions": [
+    "速報 tradexyz-lists-panw-perp が投稿されていなかったため出し直し"
+  ]
 }
