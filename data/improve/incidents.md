@@ -142,3 +142,4 @@
 - 11/18 21:10 夜の長文で $QQQ の前日終値比（11/17の終値）が「日本時間11/18 21:07時点」の見出しの下に時点なしで並んだ（前日比と書いてあるため削除はせず）。→ check_template: Hyperliquidの材料と並べるときは前日の終値でも時点（asof）を必須に。テスト test_previous_close_next_to_hl_needs_asof。
 - 11/19 07:45 朝の長文に「全体相場全体」（語の重複・削除はせず）→ checks.KANJI_DUP（漢字の語が3字以内で繰り返す崩れ）を check_text に追加、テスト test_kanji_word_repeated_nearby。
 - 11/19 07:06 10/30のバイナンスのハッキングの後日談「アブダビ裁判所が凍結命令」（6.5億ドル/65億ドルと数字が食い違い・裏取りできず）を新しい速報として自動で出そうとし、出し直しも続いていた（投稿はされず）。11/12の米司法省の件も pending のまま残っていた。→ news_watch.same_incident（過去60日に投稿した事件と同じ当事者の事件の話は続報扱い＝自動では出さない）、テスト test_incident_aftermath_is_followup_not_breaking。2件は skipped に。
+- 11/19 13:17 trade[XYZ]のPANW上場（公式）の速報が、案がすべて「データ以外の数字」で弾かれて出なかった。原因の一部は「24時間365日」「1株」のような決まった言い回し（「最大10倍」は材料にないので正しく弾いた）。→ config/allowed_numeric_terms.txt に追加。
