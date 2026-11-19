@@ -81,8 +81,10 @@ def _metrics_of(t: dict) -> dict:
     return m
 
 
-def snapshot(hours: int = 48) -> list[dict]:
-    """直近の投稿の、いま時点の反応を取得して data/metrics_now.json に残す（分析・報告用）。"""
+def snapshot(hours: int = 14) -> list[dict]:
+    """直近の投稿の、いま時点の反応を取得して data/metrics_now.json に残す（分析・報告用）。
+    読んだ件数ぶん課金される（1件約0.75円）。11/19 管理者の指示「費用はできるだけゼロに」で48時間→14時間（その日の投稿だけ）。
+    前日以前の数字は measure() が24時間後に記録した metrics.json を使う（追加の費用なし）。"""
     posts = [p for p in store.posts() if now_utc() - datetime.fromisoformat(p["posted_at"]) < timedelta(hours=hours)]
     got = {t["id"]: _metrics_of(t) for t in xapi.get_tweets([p["tweet_id"] for p in posts])} if posts else {}
     rows = [{"posted_at_jst": p["posted_at_jst"], "slot": p["slot_key"], "has_image": p.get("has_image", False),

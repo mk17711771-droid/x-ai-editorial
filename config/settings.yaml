@@ -142,9 +142,11 @@ research:
     - Hyperliquid
   x:                             # Xの同ジャンルの伸びた投稿（有料: 1件約0.75円。毎日1つずつ順番に検索）
     enabled: true                # 同ジャンルの伸びた投稿の分析に必要（止めると分析の材料がなくなる）。費用を抑えて毎日1テーマ×10件（約7.5円/日）
-    monthly_read_limit: 550      # 月の上限（約410円）。11/19 参考アカウントの毎日の確認（1日最大20件）を加えて250→550
+    monthly_read_limit: 250      # 月の上限（約190円）。11/19 管理者の指示「費用はできるだけゼロに」: 検索は2日に1回、参考アカウントは1日最大5件
     per_query: 10                 # X APIの最低件数は10
     rotate: true
+    every_n_days: 2               # 検索は2日に1回（費用を半分に）
+    reference_max_per_day: 5
     queries:
       - "(Hyperliquid OR ハイパーリキッド OR HIP-3) lang:ja -is:retweet -is:reply"
       - "(米国株 OR 半導体株) (資金 OR 建玉 OR 決算) lang:ja -is:retweet -is:reply has:media"

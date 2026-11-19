@@ -194,11 +194,15 @@ def x_search() -> list[dict]:
     cfg = _cfg().get("x", {})
     if not cfg.get("enabled"):
         return []
+    if now_utc().astimezone(JST).toordinal() % max(1, int(cfg.get("every_n_days", 1))):
+        log.info("Xの検索は%s日に1回（費用を抑える）", cfg.get("every_n_days"))
+        return []
     budget = cfg.get("monthly_read_limit", 400) - _reads_this_month()
     queries = list(cfg.get("queries", []))
     if cfg.get("rotate", True) and queries:
-        # 毎日1つずつ順番に検索する（毎日新しい情報を入れつつ、月の上限内に収める）
-        queries = [queries[now_utc().astimezone(JST).toordinal() % len(queries)]]
+        # 1つずつ順番に検索する（新しい情報を入れつつ、月の上限内に収める）
+        n = max(1, int(cfg.get("every_n_days", 1)))
+        queries = [queries[(now_utc().astimezone(JST).toordinal() // n) % len(queries)]]
     accounts = cfg.get("accounts", [])
     if accounts:
         queries.append("(" + " OR ".join(f"from:{a.lstrip('@')}" for a in accounts) + ") -is:retweet -is:reply")
@@ -269,7 +273,7 @@ def reference_accounts() -> int:
         first = not store.read_jsonl(f"sources/ref/{a}.jsonl")
         s_at = (now - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ") if first else start  # 初回だけ直近7日をまとめて読む
         try:
-            tweets = xapi.user_tweets_window(ids[a], s_at, end, max_results=min(20, budget))
+            tweets = xapi.user_tweets_window(ids[a], s_at, end, max_results=min(int(cfg.get("reference_max_per_day", 5)), budget))
         except xapi.XPostError as e:
             _error("x", f"ref:{a}", e)
             continue

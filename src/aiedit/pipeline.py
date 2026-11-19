@@ -243,7 +243,7 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None, m
     hot = sources.hot_digest()
     if hot:
         user += ("\n\n# 日本でいま検索が急増している言葉（Googleトレンド）。アカウントの範囲内の話題（暗号資産・米国株・半導体・取引所の事件など）が"
-                 "あれば旬として切り口に使う。範囲外は無視する。数字・事実は投稿に使わない\n" + hot)
+                 "あれば旬として切り口に使う（範囲は「数字が取れて伸びる話題なら広く」: config/buzz_patterns.md の前提。芸能・スポーツ・市場と無関係な話題は無視）。数字・事実は投稿に使わない\n" + hot)
     out = llm.generate_json(with_playbook(llm.prompt("editor")), user)
     ids = {f["id"] for f in facts}
     cands = []

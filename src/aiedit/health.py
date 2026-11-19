@@ -120,7 +120,8 @@ def system_audit() -> list[dict]:
             flag("line_quota", used=q["used"], limit=q["limit"])
     month = now.strftime("%Y-%m")
     reads = sum(r["n"] for r in store.read_jsonl("sources/x_reads.jsonl") if r.get("month") == month)
-    if reads >= 0.9 * settings().get("research", {}).get("x", {}).get("monthly_read_limit", 250):
+    from .sources import _cfg as _src_cfg
+    if reads >= 0.9 * _src_cfg().get("x", {}).get("monthly_read_limit", 250):
         flag("x_budget", reads=reads)
     return out
 
