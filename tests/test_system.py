@@ -1794,3 +1794,18 @@ def test_top_names_cooldown_is_shorter(monkeypatch):
     monkeypatch.setattr(store, "recent_posts", lambda h: [p for p in posts if now_utc() - __import__("datetime").datetime.fromisoformat(p["posted_at"]) < timedelta(hours=h)])
     assert not any("直近に投稿済み" in e for e in checks.check_text("$QQQが-0.73%。\n\nナスダック100の先物は資金調達率がプラスのまま、ロングのコストが残っている構図。" , "stock:QQQ:x"))
     assert any("直近に投稿済み" in e for e in checks.check_text("$SKHXが+3.64%。\n\n先物の資金調達率はマイナスのまま、ショートのコストが残っている構図。", "hl:SKHX:x"))
+
+
+def test_focus_note_expires_and_context_fact_not_breaking(monkeypatch):
+    """11/19 管理者の指示: 米中ロ首脳会談の影響を11/20まで盛り込む。期間後は消え、速報枠の材料にはならない。"""
+    from datetime import datetime, timezone
+    from aiedit import pipeline
+    monkeypatch.setattr(pipeline, "settings", lambda: {"focus": {"until": "2026-11-20T23:59:00+09:00", "note": "会談の影響"}})
+    assert pipeline.focus_note(datetime(2026, 11, 19, 12, 0, tzinfo=timezone.utc)) == "会談の影響"
+    assert pipeline.focus_note(datetime(2026, 11, 21, 0, 0, tzinfo=timezone.utc)) == ""
+    from aiedit import store
+    monkeypatch.setattr(store, "read_json", lambda name, default=None: [
+        {"key": "news:summit", "status": "context", "expires_at": "2099-01-01T00:00:00+00:00", "asof": "2026-11-19T00:00:00+00:00",
+         "fields": {"headline": "h"}, "summary": "s"}] if name == "news_facts.json" else default)
+    assert [f["key"] for f in pipeline.news_facts()] == ["news:summit"]
+    assert pipeline.news_facts(pending_only=True) == []

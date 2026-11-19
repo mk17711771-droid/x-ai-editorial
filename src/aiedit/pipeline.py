@@ -119,6 +119,8 @@ def news_facts(pending_only: bool = False, weekly: bool = False) -> list[dict]:
             continue  # 最初の報道から時間がたった話題は「速報」として出さない（10/31 1:11 前日のバイナンスの件を【速報】で出した反省）
         if f.get("status") in ("deleted", "skipped"):
             continue  # 削除・見送りにした速報は、通常の枠でも材料にしない（11/10 23:24 削除したWintermuteの件が通常の短文で再登場）
+        if pending_only and f.get("status") == "context":
+            continue
         if (not pending_only and not weekly and f.get("status") == "posted"
                 and now - _story_first_seen(f["key"]) > timedelta(hours=POSTED_NEWS_REUSE_HOURS)):
             continue
@@ -217,6 +219,9 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None, m
     top = [n for n in checks.read_list("top_names.txt")]
     user += ("\n\n# 主役に最優先する名前（日本の個人投資家にいちばん通じる。24時間表示の中央値は約300で、ほかの銘柄の約3倍）。"
              "材料にあれば、この中の1つを主役にした候補を必ず1件以上出す\n" + "・".join(top))
+    focus = focus_note()
+    if focus:
+        user += "\n\n# 管理者の指示（期間限定の話題）\n" + focus
     big = [n for n in checks.read_list("big_names.txt")]
     user += ("\n\n# 主役に優先する「大きな名前」（読者に通じる銘柄・指数。材料にあればこの中から主役を選ぶ。"
              "馴染みの薄い銘柄は、変化が極端なときだけ主役にする）\n" + "・".join(big))
@@ -301,6 +306,19 @@ def us_close_stale(now: datetime | None = None) -> bool:
     return (today_ny - last).days >= 2
 
 
+def focus_note(now: datetime | None = None) -> str:
+    """管理者が期間を決めて入れる話題（settings.yaml の focus）。期間が過ぎたら何も返さない。
+    11/19 管理者の指示: 米中ロ首脳会談（11/19 深圳）がAI・株・暗号資産に与えうる影響を、今日から明日の投稿に盛り込む。"""
+    f = settings().get("focus") or {}
+    try:
+        until = datetime.fromisoformat(str(f.get("until", "")))
+    except ValueError:
+        return ""
+    if not f.get("note") or (now or now_utc()) > until:
+        return ""
+    return str(f["note"]).strip()
+
+
 def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | None:
     """原稿を3案作らせ、チェックを通過した中で最良の1案を返す。"""
     fmt = slot_format(slot)
@@ -313,6 +331,9 @@ def run_writer(slot: dict, cand: dict, facts_by_id: dict[str, dict]) -> dict | N
     user = (f"# 投稿枠\n{slot['theme']}{shape}\n\n# 編集長の切り口\n{cand.get('angle', '')}\n\n"
             f"# 材料（この差し込み記号だけ使える）\n{_facts_for_llm(used, with_fields=True)}\n\n"
             f"# 直近の投稿 (recent_posts)\n{json.dumps(list(store.recent_texts(10)), ensure_ascii=False)}")
+    focus = focus_note()
+    if focus and any(f.get("status") == "context" for f in used):
+        user += "\n\n# 管理者の指示（期間限定の話題）\n" + focus
     # 週明けの朝など、米国株の数字が2日以上前の終値のときは先に伝える（11/9 月曜の朝の長文が全案破棄・1本は誤投稿）
     stale = checks._stale_close_facts("".join(f"{{{{{f['id']}.x}}}}" for f in used), {f["id"]: f for f in used})
     if stale:
