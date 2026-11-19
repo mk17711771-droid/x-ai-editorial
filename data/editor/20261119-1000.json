@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f3",
+      "f20"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "NVDAのHIP-3先物が-5.93%と急落し、資金調達率が+56.7%まで高騰している状況を伝える。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "主要銘柄であるNVDAの急落とデリバティブ側の強い加熱を示す具体的数値を捉えており実用的。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f18"
+    ],
+    "topic_key": "hl:xyz:ZHIPU:funding_extreme",
+    "angle": "ZHIPUの資金調達率が年率+578.2%の異常値に達し、建玉も+30.5%急増している歪みを解説する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "極端な資金調達率と建玉増加のセットで市場の歪みを鮮明に示している。"
+  },
+  {
+    "fact_ids": [
+      "f15",
+      "f9"
+    ],
+    "topic_key": "hl:xyz:TTWO:oi_change",
+    "angle": "TTWOの建玉が24時間で+241.5%と記録的に急増し、価格も+8.19%上昇している点にスポットを当てる。",
+    "scores": {
+      "novelty": 19,
+      "interest": 17,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "建玉の記録的な急増という明確な市場の変化を捉えている。"
+  }
+]
