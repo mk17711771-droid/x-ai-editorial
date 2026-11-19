@@ -268,7 +268,8 @@ def reference_accounts() -> int:
         if a not in ids or budget < 5:
             continue
         done = store.read_json("sources/ref_done.json", {}) or {}
-        if done.get(a) == now.strftime("%Y-%m-%d"):
+        today = now_utc().astimezone(JST).strftime("%Y-%m-%d")  # 日本時間の日付（11/20 5:35の回がUTCの日付で「読了済み」と誤判定した）
+        if done.get(a) == today:
             continue  # 1日1回だけ
         first = not store.read_jsonl(f"sources/ref/{a}.jsonl")
         s_at = (now - timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ") if first else start  # 初回だけ直近7日をまとめて読む
@@ -288,7 +289,7 @@ def reference_accounts() -> int:
                 "has_media": bool((t.get("attachments") or {}).get("media_keys")),
                 "likes": m.get("like_count", 0), "reposts": m.get("retweet_count", 0) + m.get("quote_count", 0),
                 "bookmarks": m.get("bookmark_count", 0), "impressions": m.get("impression_count", 0)})
-        done[a] = now.strftime("%Y-%m-%d")
+        done[a] = today
         store.write_json("sources/ref_done.json", done)
     return total
 
