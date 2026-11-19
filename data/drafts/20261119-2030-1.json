@@ -1,0 +1,111 @@
+{
+  "id": "20261119-2030-1",
+  "slot_key": "20261119-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "posted",
+  "created_at": "2026-11-19T11:43:22.897700+00:00",
+  "text": "半導体セクターが底堅い値動きを見せる中で、なぜ$SKHXの先物市場だけ極端なマイナス金利に沈んでいるのか\n\n【いま起きてること】\n半導体指数の現物が堅調に推移する一方で、Hyperliquidの株式等先物市場では特定の個別銘柄のデリバティブ側で売り手が優勢となり、現物相場の強気と先物側の需給に大きな開きが生じている。\n\n【数字で見る】（日本時間11/19(木) 20:38時点）\n・SOXX 価格$141.85、前日終値比+0.28%（米国11/18終値）\n・SKHX 価格$895.48、24時間騰落率+3.64%、建玉約2.6億ドル、24時間出来高約2.8億ドル、資金調達率年率-56.5%\n\n【なぜ「歪み」なのか】\n半導体全体の現物が落ち着いた動きを見せているにもかかわらず、SKHXのHIP-3先物では資金調達率が年率-56.5%まで深く落ち込んでいる。価格自体はプラス圏で推移しているものの、デリバティブ側ではショートコストの負担を背負う売り手が根強く残っている構造が見えてくる。現物の堅調さと先物側の重たい需給が同居するこの状態は、ショートの買い戻しやポジションの傾きによって価格が急に押し上げられる引き金になると見ている。\n\n【次に見るポイント】\n①現物市場の値動きが先物側のポジションに与える影響\n②年率-56.5%の極端な資金調達率がこのまま維持されるか\n③建玉約2.6億ドルの増減に見るトレーダーの心理変化",
+  "template": "半導体セクターが底堅い値動きを見せる中で、なぜ`${{f41.symbol}}`の先物市場だけ極端なマイナス金利に沈んでいるのか\n\n【いま起きてること】\n半導体指数の現物が堅調に推移する一方で、Hyperliquidの株式等先物市場では特定の個別銘柄のデリバティブ側で売り手が優勢となり、現物相場の強気と先物側の需給に大きな開きが生じている。\n\n【数字で見る】（{{f41.asof}}）\n・SOXX 価格{{f4.price}}、{{f4.basis}}{{f4.change_pct}}（{{f4.asof}}）\n・`${{f41.symbol}}` 価格{{f41.price}}、24時間騰落率{{f41.change_pct}}、建玉{{f41.oi}}、24時間出来高{{f41.volume}}、資金調達率年率{{f41.funding_annual}}\n\n【なぜ「歪み」なのか】\n半導体全体の現物が落ち着いた動きを見せているにもかかわらず、`${{f41.symbol}}`のHIP-3先物では資金調達率が年率{{f41.funding_annual}}まで深く落ち込んでいる。価格自体はプラス圏で推移しているものの、デリバティブ側ではショートコストの負担を背負う売り手が根強く残っている構造が見えてくる。現物の堅調さと先物側の重たい需給が同居するこの状態は、ショートの買い戻しやポジションの傾きによって価格が急に押し上げられる引き金になると見ている。\n\n【次に見るポイント】\n①現物市場の値動きが先物側のポジションに与える影響\n②年率{{f41.funding_annual}}の極端な資金調達率がこのまま維持されるか\n③建玉{{f41.oi}}の増減に見るトレーダーの心理変化",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:SKHX:funding_extreme",
+  "angle": "半導体セクターの堅調な値動きに対し、SKハイニックスのHIP-3先物では資金調達率が極端なマイナス圏で推移しており、需給の歪みが意識される状況を解説する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f41",
+    "f4"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+3.64%, 価格895.48, 建玉264385522USD, 24時間出来高283449632USD, 資金調達率(年率)-56.5%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$895.48",
+        "change_pct": "+3.64%",
+        "oi": "約2.6億ドル",
+        "volume": "約2.8億ドル",
+        "funding_annual": "-56.5%",
+        "asof": "日本時間11/19(木) 20:38時点",
+        "asof_short": "20:38時点"
+      },
+      "raw": {
+        "mark": 895.48,
+        "change_pct": 3.644,
+        "oi_usd": 264385522,
+        "vol_usd": 283449632,
+        "funding_annual_pct": -56.46
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-19T11:38:22.269584+00:00",
+      "confidence": "confirmed",
+      "id": "f41"
+    },
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格141.85, 前日比+0.28%, 前日終値141.46, 高値144.23, 安値139.07",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$141.85",
+        "change_pct": "+0.28%",
+        "prev_close": "$141.46",
+        "high": "$144.23",
+        "low": "$139.07",
+        "asof": "米国11/18終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 141.85,
+        "change_pct": 0.276,
+        "prev_close": 141.46
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-19T11:38:14.052612+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2123381633990664692",
+  "posted_at": "2026-11-19T11:43:26.952324+00:00"
+}
