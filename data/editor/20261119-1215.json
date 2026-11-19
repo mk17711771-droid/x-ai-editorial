@@ -1,0 +1,52 @@
+[
+  {
+    "fact_ids": [
+      "f5",
+      "f41"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "$AMDが+5.31%と大きく買われる中で、Hyperliquidの関連先物市場にどのようなコストの歪みが起きているか",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "主要な大きな名前であるAMDの急騰とHyperliquid上の先物データを組み合わせた実用的な解説"
+  },
+  {
+    "fact_ids": [
+      "f2"
+    ],
+    "topic_key": "stock:QQQ:quote",
+    "angle": "ナスダック100（QQQ）が堅調に推移する背景で、オンチェーンのHIP-3指数先物に現れる資金の偏り",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "最優先指数のQQQを主役に据え、Hyperliquidの市場構造の歪みをシンプルに伝える構成"
+  },
+  {
+    "fact_ids": [
+      "f16",
+      "f39"
+    ],
+    "topic_key": "stock:AMZN:big_move",
+    "angle": "AMZNが+3.82%と強い値動きを見せる一方、S&P500のHIP-3先物市場で観測される需給のバランス",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "大きな名前であるAMZNの顕著な上昇と指数先物の数値を的確にリンクさせた内容"
+  }
+]

@@ -1,0 +1,111 @@
+{
+  "id": "20261119-1215-1",
+  "slot_key": "20261119-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-19T03:20:15.227035+00:00",
+  "text": "$AMZNが米国11/18終値で$267.74（+3.82%）と上げる陰で、Hyperliquidの株式先物（HIP-3）のSP500は日本時間11/19(木) 12:19時点で-0.23%と軟調。\n\n個別株の強気が指数側のデリバティブにどこまで波及するか、ポジションの偏りも含めてじっくり観察中。",
+  "template": "${{f16.symbol}}が${{f16.asof}}で${{f16.price}}（${{f16.change_pct}}）と上げる陰で、Hyperliquidの{{f39.market}}の${{f39.coin}}は{{f39.asof}}で{{f39.change_pct}}と軟調。\n\n個別株の強気が指数側のデリバティブにどこまで波及するか、ポジションの偏りも含めてじっくり観察中。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "stock:AMZN:big_move",
+  "angle": "AMZNが+3.82%と強い値動きを見せる一方、S&P500のHIP-3先物市場で観測される需給のバランス",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f16",
+    "f39"
+  ],
+  "facts": [
+    {
+      "key": "stock:AMZN:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMZN 価格267.74, 前日比+3.82%, 前日終値257.89, 高値268.29, 安値259.51",
+      "fields": {
+        "symbol": "AMZN",
+        "price": "$267.74",
+        "change_pct": "+3.82%",
+        "prev_close": "$257.89",
+        "high": "$268.29",
+        "low": "$259.51",
+        "asof": "米国11/18終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 267.74,
+        "change_pct": 3.82,
+        "prev_close": 257.89
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMZN"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMZN"
+      },
+      "asof": "2026-11-19T03:19:16.157945+00:00",
+      "confidence": "confirmed",
+      "id": "f16"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率-0.23%, 価格7347.4, 建玉455599063USD, 24時間出来高314031551USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,347",
+        "change_pct": "-0.23%",
+        "oi": "約4.6億ドル",
+        "volume": "約3.1億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/19(木) 12:19時点",
+        "asof_short": "12:19時点"
+      },
+      "raw": {
+        "mark": 7347.4,
+        "change_pct": -0.234,
+        "oi_usd": 455599063,
+        "vol_usd": 314031551,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-19T03:19:21.189272+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMZN"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2123255009307488676",
+  "posted_at": "2026-11-19T03:20:17.318549+00:00"
+}
