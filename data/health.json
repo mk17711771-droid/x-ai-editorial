@@ -1,17 +1,11 @@
 {
-  "at": "2026-11-19T12:16:06.924288+00:00",
-  "at_jst": "11/19 21:15",
+  "at": "2026-11-19T12:36:38.224677+00:00",
+  "at_jst": "11/19 21:36",
   "ok": false,
   "issues": [
     {
       "type": "followup_candidates",
       "items": [
-        {
-          "headline": "【法的手続き】アブダビ裁判所、バイナンスハック事件に関連し6.5億ドルの凍結命令を付与",
-          "sources": [
-            "Gulf Business"
-          ]
-        },
         {
           "headline": "【速報】trade[XYZ]、PANWの無期限先物を上場",
           "sources": [
@@ -26,8 +20,13 @@
       "limit": 200
     },
     {
+      "type": "announced_not_posted",
+      "story": "hk-sfc-adds-hyperliquid-to-suspicious-list",
+      "since": "2026-11-19T12:15:51.043215+00:00"
+    },
+    {
       "type": "many_rejections",
-      "n": 29,
+      "n": 35,
       "reasons": [
         "1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）",
         "QQQは米国の終値。Hyperliquidの今の数字と並べるので、終値の時点（{{fN.asof}}）を書く",
@@ -40,5 +39,7 @@
       ]
     }
   ],
-  "actions": []
+  "actions": [
+    "速報 hk-sfc-adds-hyperliquid-to-suspicious-list が投稿されていなかったため出し直し"
+  ]
 }
