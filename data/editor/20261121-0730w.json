@@ -1,0 +1,71 @@
+[
+  {
+    "fact_ids": [
+      "f9",
+      "f27"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "米国市場が休みの週末にSOXLのHIP-3先物が24時間で-24.07%急落し、資金調達率が+39.6%とロング過熱を残したまま下値を切り下げている歪みを指摘する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 96,
+    "reason": "最優先銘柄であるSOXLの週末の急落と資金調達率の歪みを具体的な数字で鋭く突いているため。"
+  },
+  {
+    "fact_ids": [
+      "f5",
+      "f15",
+      "f22"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "週末の休日モードの中、XYZ100のHIP-3先物が建玉を+38.5%急増させながら年率+105.5%の高水準な資金調達率を維持している構造を暴く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 19,
+      "insight": 18
+    },
+    "total": 94,
+    "reason": "主要指数であるXYZ100の建玉増と高率な資金調達率のギャップを的確に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f29",
+      "f36"
+    ],
+    "topic_key": "hl:BTC:volume_top",
+    "angle": "BTCの無期限先物が-4.67%と下落する裏で、安定上位トレーダー40人のうち24人が売りポジションに傾き、さらに9人が手じまい利確を進めた実態に迫る。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "BTCの下落と上位勢の売りの偏り・利確の動きを組み合わせた独自の視点が高得点。"
+  },
+  {
+    "fact_ids": [
+      "f26"
+    ],
+    "topic_key": "hl:xyz:NVDA:hip3_top",
+    "angle": "NVDAのHIP-3先物が-10.78%の下落を記録する一方で、建玉が5億ドル規模を維持し資金調達率がプラス圏にとどまるねじれを解説する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 20,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "大人気銘柄NVDAの週末先物データにおける歪みを明確な数値で示しているため。"
+  }
+]

@@ -1,0 +1,146 @@
+{
+  "id": "20261121-0730w-1",
+  "slot_key": "20261121-0730w",
+  "slot_theme": "07:42 週末の朝: 米国市場が閉まっている間に動いたHIP-3株式先物・HYPE・BTCの数字1つ（大きな名前＋極端な数字を1行目で言い切る）",
+  "status": "posted",
+  "created_at": "2026-11-20T23:11:44.093642+00:00",
+  "text": "$BTCが-4.67%と下げ続ける一方で、上位トレーダーの売り比率が4%まで一気に傾いている。\n\nHyperliquidの無期限先物で日本時間11/21(土) 08:09時点、価格は$59,113、建玉は約22.5億ドル。\n\n安定上位トレーダー40人のうち24人が売りポジションを持ち、さらに9人が利益確定の決済を済ませている。",
+  "template": "$BTCが{{f3.change_pct}}と下げ続ける一方で、上位トレーダーの売り比率が{{f29.long_ratio}}まで一気に傾いている。\n\nHyperliquidの{{f3.market}}で{{f3.asof}}、価格は{{f3.price}}、建玉は{{f3.oi}}。\n\n安定上位トレーダー{{f29.top_n}}のうち{{f29.short_n}}人が売りポジションを持ち、さらに{{f36.closed_n}}人が利益確定の決済を済ませている。このまま売りが重なるのか、ポジションの傾きに少し警戒しておきたい。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:BTC:volume_top",
+  "angle": "BTCの無期限先物が-4.67%と下落する裏で、安定上位トレーダー40人のうち24人が売りポジションに傾き、さらに9人が手じまい利確を進めた実態に迫る。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 93,
+  "fact_ids": [
+    "f3",
+    "f29",
+    "f36"
+  ],
+  "facts": [
+    {
+      "key": "hl:BTC:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: BTC（無期限先物） 24時間騰落率-4.67%, 価格59113.0, 建玉2249539391USD, 24時間出来高6458200556USD, 資金調達率(年率)+7.2%",
+      "fields": {
+        "coin": "BTC",
+        "symbol": "BTC",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$59,113",
+        "change_pct": "-4.67%",
+        "oi": "約22.5億ドル",
+        "volume": "約64.6億ドル",
+        "funding_annual": "+7.2%",
+        "asof": "日本時間11/21(土) 08:09時点",
+        "asof_short": "08:09時点"
+      },
+      "raw": {
+        "mark": 59113.0,
+        "change_pct": -4.673,
+        "oi_usd": 2249539391,
+        "vol_usd": 6458200556,
+        "funding_annual_pct": 7.21
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BTC",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BTC"
+      },
+      "asof": "2026-11-20T23:09:35.302623+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-20T22:45:01.211312+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:BTC:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー40人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、BTCを持っている25人の内訳: 買い1人・売り24人（買い比率4%）、買い合計1696483USD・売り合計15389427USD、平均レバレッジ32.4倍（このほか、現物つきの売り＝ヘッジ・裁定が1人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "BTC",
+        "top_n": "40人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "25人",
+        "long_n": "1人",
+        "short_n": "24人",
+        "long_ratio": "4%",
+        "long_usd": "約170万ドル",
+        "short_usd": "約1,539万ドル",
+        "hedge_n": "1人",
+        "avg_leverage": "32.4倍",
+        "asof": "日本時間11/21(土) 07:45時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 1,
+        "short_n": 24,
+        "long_usd": 1696483,
+        "short_usd": 15389427
+      },
+      "id": "f29"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-20T22:45:01.211312+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:BTC:takeprofit",
+      "category": "smart_money_exit",
+      "summary": "安定上位トレーダー40人のうち9人が、約1日前に含み益で持っていたBTCのポジションを閉じた（利確とみられる。前回時点の含み益合計708317USD）",
+      "fields": {
+        "coin": "BTC",
+        "top_n": "40人",
+        "closed_n": "9人",
+        "upnl": "約71万ドル",
+        "asof": "日本時間11/21(土) 07:45時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "closed_n": 9,
+        "upnl": 708317
+      },
+      "id": "f36"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BTC"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2123917397719654429",
+  "posted_at": "2026-11-20T23:12:22.997486+00:00"
+}
