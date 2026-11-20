@@ -145,9 +145,14 @@ def announced_not_posted(actions: list[str]) -> list[dict]:
         from .pipeline import recent_news_post
         if recent_news_post(minutes=120):
             continue  # 速報の間隔をあけているだけ（出し直しは間隔が過ぎてから）
+        if age > timedelta(hours=6):
+            continue
+        out.append({"type": "announced_not_posted", "story": key, "since": st["last_post_at"],
+                    "retried": bool(st.get("retried"))})
+        # 2時間を過ぎたら出し直さない（遅れた速報は場違い）が、6時間は記録に残して点検で原因を直す
+        # （11/19 21:15 香港SFCの件が出し直しでも同じ理由で破棄され、2時間で記録から消えて点検で見落とした）
         if age > timedelta(hours=2):
-            continue  # 古い話題は追わない（速報は最初の報道から3時間以内だけ。遅れた速報は場違い）
-        out.append({"type": "announced_not_posted", "story": key, "since": st["last_post_at"]})
+            continue
         if not st.get("retried"):
             # まだ出ていない速報を、未投稿として戻して出し直す（1回だけ）
             for k in news_keys:

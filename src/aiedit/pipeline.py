@@ -155,7 +155,12 @@ def collect(kind: str, weekly: bool = False, pending_news: bool = False) -> list
 def _facts_for_llm(facts: list[dict], with_fields: bool) -> str:
     rows = []
     for f in facts:
-        row = {"id": f["id"], "key": f["key"], "category": f["category"], "confidence": f["confidence"], "summary": f["summary"]}
+        summary = f["summary"]
+        if f.get("category") == "breaking_news":
+            # 速報の要約は報道の文章なので、数字（「HYPEは65ドル付近」など）を伏せる。書き写すと全案破棄になる
+            # （11/19 21:15 香港SFCの件で、要約の「65ドル」を全案が書き写して速報を出せなかった）。数字は材料の差し込みで書く
+            summary = re.sub(r"[0-9０-９][0-9０-９,.]*", "◯", summary)
+        row = {"id": f["id"], "key": f["key"], "category": f["category"], "confidence": f["confidence"], "summary": summary}
         if with_fields:
             row["fields"] = f["fields"]
         rows.append(row)

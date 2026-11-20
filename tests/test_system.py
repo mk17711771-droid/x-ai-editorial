@@ -1835,3 +1835,12 @@ def test_open_before_during_us_session(monkeypatch):
     assert any("オープン前" in e for e in checks.check_text(t, "hl:SP500:x"))
     monkeypatch.setattr(common, "now_utc", lambda: datetime(2026, 11, 19, 14, 0, tzinfo=timezone.utc))   # NY 9:00
     assert not any("オープン前" in e for e in checks.check_text(t, "hl:SP500:x"))
+
+
+def test_breaking_news_summary_numbers_masked_for_writer():
+    """11/19 21:15: 速報の要約にあった「65ドル」を全案が書き写して破棄され、香港SFCの速報が出なかった。"""
+    import json
+    from aiedit import pipeline
+    rows = json.loads(pipeline._facts_for_llm([{"id": "f1", "key": "news:x", "category": "breaking_news", "confidence": "confirmed",
+                                                "summary": "HYPEの価格は65ドル付近で推移", "fields": {"headline": "h"}}], True))
+    assert "65" not in rows[0]["summary"] and "◯ドル" in rows[0]["summary"]
