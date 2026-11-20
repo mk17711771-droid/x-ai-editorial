@@ -560,6 +560,11 @@ def generate(slot_id: str = "auto", force: bool = False) -> list[dict]:
             cands = [c for c in again if c["total"] >= cfg["scoring"]["auto_post_min"]]
         skip = recent_syms | (set(tried_syms) if _round else set())  # 2巡目は1巡目で失敗した銘柄も避ける
         drafts = _write_drafts(slot, cands, key, seq, facts_by_id, recent_topics, skip, tried_syms, cfg)
+    if not drafts and cands and slot_format(slot) == "long":
+        # 長文が全案破棄されたら、同じ候補で短文を書いて枠を落とさない
+        # （11/20 朝 長文の案がすべて「過去の長文と類似」「SOXXと指数の比較」で破棄され、朝の枠が空いた）
+        log.info("長文の案がすべて破棄されたため、短文で書き直します")
+        drafts = _write_drafts({**slot, "format": "short"}, cands, key, seq, facts_by_id, recent_topics, skip, set(), cfg)
 
     if os.environ.get("DRY_RUN"):
         # 試し書き: 下書きを保存するだけで、投稿もLINE通知もしない
