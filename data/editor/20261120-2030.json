@@ -1,0 +1,56 @@
+[
+  {
+    "fact_ids": [
+      "f5",
+      "f40",
+      "f7"
+    ],
+    "topic_key": "stock:QQQ:quote",
+    "angle": "主要指数（QQQ）とHIP-3のXYZ100の連動から、米中ロ首脳会談の警戒感とテック株の資金流出構造を紐解く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 93,
+    "reason": "主要な株価指数とHIP-3先物の具体的な数値を組み合わせ、市場の緊張感とデリバティブ側の構造を深く解説しているため。"
+  },
+  {
+    "fact_ids": [
+      "f4",
+      "f41",
+      "f1"
+    ],
+    "topic_key": "stock:SPY:quote",
+    "angle": "S&P500の現物下落とHIP-3先物の建玉・資金調達率のギャップ、さらに香港SFCの動向が市場に与える影響を追う。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "規制当局の話題と主要指数の下落データを組み合わせ、オンチェーンデリバティブ市場への影響を多角的に分析しているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f43",
+      "f8"
+    ],
+    "topic_key": "stock:SOXX:quote",
+    "angle": "半導体セクター全体（SOXX・SKHX）の急落と、デリバティブ市場における極端な資金調達率の歪みを検証する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "半導体の主要指数と個別先物のコスト負担のねじれに焦点を当て、投資家が注目すべきポイントを提示しているため。"
+  }
+]

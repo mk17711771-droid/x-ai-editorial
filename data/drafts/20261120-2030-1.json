@@ -1,0 +1,140 @@
+{
+  "id": "20261120-2030-1",
+  "slot_key": "20261120-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "posted",
+  "created_at": "2026-11-20T11:35:07.434172+00:00",
+  "text": "規制当局の監視が強まるなか、S&P500の現物とHIP-3先物の間にどんなねじれが起きているのか\n\n【いま起きてること】\n香港証券先物委員会（SFC）が無免許運営を理由にHyperliquidを警告リストに追加したと報じられている。こうした外部環境の変化がある中、指数先物市場では現物の値動きとは異なるコスト負担の偏りが観測されている。\n\n【数字で見る】\n・SPY 価格$715.87、前日比-1.96%（米国11/19終値）\n・SP500 価格$7,138、24時間騰落率-3.78%、建玉約4.7億ドル、資金調達率年率+12.2%（日本時間11/20(金) 20:32時点）\n\n【なぜ「歪み」なのか】\n現物市場が-1.96%と軟調な推移を見せる中、HIP-3の指数先物では年率+12.2%というプラスの資金調達率が維持されている。規制強化のニュースが表面化した局面でありながら、デリバティブ側ではロングを維持しようとする動きが残っており、現物との間で需給の向きが一致していない。こうした構造的なズレは、市場参加者の警戒感が薄れた瞬間にポジションの清算を誘発するリスクを孕んでいると見ている。\n\n【次に見るポイント】\n①規制当局による監視強化がデリバティブ側の参加意欲に及ぼす影響\n②現物の下落トレンドと先物側の資金調達率の乖離が解消されるタイミング\n③約4.7億ドル規模の大きな建玉がどちらの方向に動くか",
+  "template": "規制当局の監視が強まるなか、S&P500の現物とHIP-3先物の間にどんなねじれが起きているのか\n\n【いま起きてること】\n香港証券先物委員会（SFC）が無免許運営を理由にHyperliquidを警告リストに追加したと報じられている。こうした外部環境の変化がある中、指数先物市場では現物の値動きとは異なるコスト負担の偏りが観測されている。\n\n【数字で見る】\n・{{f4.symbol}} 価格{{f4.price}}、前日比{{f4.change_pct}}（{{f4.asof}}）\n・{{f41.symbol}} 価格{{f41.price}}、24時間騰落率{{f41.change_pct}}、建玉{{f41.oi}}、資金調達率{{f41.funding_annual}}（{{f41.asof}}）\n\n【なぜ「歪み」なのか】\n現物市場が{{f4.change_pct}}と軟調な推移を見せる中、HIP-3の指数先物では{{f41.funding_annual}}というプラスの資金調達率が維持されている。規制強化のニュースが表面化した局面でありながら、デリバティブ側ではロングを維持しようとする動きが残っており、現物との間で需給の向きが一致していない。こうした構造的なズレは、市場参加者の警戒感が薄れた瞬間にポジションの清算を誘発するリスクを孕んでいると見ている。\n\n【次に見るポイント】\n①規制当局による監視強化がデリバティブ側の参加意欲に及ぼす影響\n②現物の下落トレンドと先物側の資金調達率の乖離が解消されるタイミング\n③{{f41.oi}}規模の大きな建玉がどちらの方向に動くか",
+  "style": "構造解説型",
+  "format": "long",
+  "topic_key": "stock:SPY:quote",
+  "angle": "S&P500の現物下落とHIP-3先物の建玉・資金調達率のギャップ、さらに香港SFCの動向が市場に与える影響を追う。",
+  "scores": {
+    "novelty": 17,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f4",
+    "f41",
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "stock:SPY:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SPY 価格715.87, 前日比-1.96%, 前日終値730.2, 高値739.8999, 安値715.65",
+      "fields": {
+        "symbol": "SPY",
+        "price": "$715.87",
+        "change_pct": "-1.96%",
+        "prev_close": "$730.20",
+        "high": "$739.90",
+        "low": "$715.65",
+        "asof": "米国11/19終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 715.87,
+        "change_pct": -1.962,
+        "prev_close": 730.2
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SPY"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SPY"
+      },
+      "asof": "2026-11-20T11:32:10.356893+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率-3.78%, 価格7137.9, 建玉471582209USD, 24時間出来高659084538USD, 資金調達率(年率)+12.2%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,138",
+        "change_pct": "-3.78%",
+        "oi": "約4.7億ドル",
+        "volume": "約6.6億ドル",
+        "funding_annual": "+12.2%",
+        "asof": "日本時間11/20(金) 20:32時点",
+        "asof_short": "20:32時点"
+      },
+      "raw": {
+        "mark": 7137.9,
+        "change_pct": -3.779,
+        "oi_usd": 471582209,
+        "vol_usd": 659084538,
+        "funding_annual_pct": 12.18
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-20T11:32:24.608062+00:00",
+      "confidence": "confirmed",
+      "id": "f41"
+    },
+    {
+      "key": "news:hk-sfc-adds-hyperliquid-to-suspicious-list",
+      "kind": "hl",
+      "asof": "2026-11-19T12:15:50.644230+00:00",
+      "expires_at": "2026-11-21T00:15:50.644243+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-19T10:03:13Z",
+      "summary": "香港証券先物委員会（SFC）は、無免許での運営を理由にHyperliquidを警告プラットフォーム（不審な暗号資産取引所）のリストに追加した。これを受け、主要メディアや各取引所が報じているが、HYPEの価格は65ドル付近で推移している。規制当局による監視強化が表面化した形となる。",
+      "fields": {
+        "headline": "香港SFC、Hyperliquidを不審な取引所リストに追加",
+        "what": "香港証券先物委員会が無免許運営を理由にHyperliquidを警告リストに掲載した。",
+        "status": "確定",
+        "who": "香港証券先物委員会（SFC）、Hyperliquid"
+      },
+      "raw": {},
+      "source": {
+        "name": "The Defiant・Crypto Briefing・CoinGape・KuCoin",
+        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNenM0VS1zT3J1aldjRTcxQ2RoVkN2WWJkZVR4b3EyTl9oem5yNENDNE83Wlhvc2tVRXZLRWdPckxJZWtOWjZMRWU3a3Nsbi0yTmJxSThQTDNDWDZpc1RoZnB3T0lfTWtzeVYtUGNwWVp6X3d1ZXRNV2hsLXpFT09id2VSU3c0dzVJMTMyaUtaWHQ3MW9SNUE?oc=5"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SPY"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    },
+    {
+      "name": "The Defiant・Crypto Briefing・CoinGape・KuCoin",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNenM0VS1zT3J1aldjRTcxQ2RoVkN2WWJkZVR4b3EyTl9oem5yNENDNE83Wlhvc2tVRXZLRWdPckxJZWtOWjZMRWU3a3Nsbi0yTmJxSThQTDNDWDZpc1RoZnB3T0lfTWtzeVYtUGNwWVp6X3d1ZXRNV2hsLXpFT09id2VSU3c0dzVJMTMyaUtaWHQ3MW9SNUE?oc=5"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2123742006929432875",
+  "posted_at": "2026-11-20T11:35:26.544883+00:00"
+}

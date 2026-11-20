@@ -1,0 +1,147 @@
+{
+  "id": "20261120-2030-2",
+  "slot_key": "20261120-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点",
+  "status": "superseded",
+  "created_at": "2026-11-20T11:35:23.344476+00:00",
+  "text": "半導体セクター全体が調整する裏で、デリバティブ市場の資金調達率にどんな歪みが出ているのか\n\n【いま起きてること】\n$SOXXの現物が下落する局面において、Hyperliquidの株式等先物市場では個別銘柄のコスト負担が極端な水準に達しており、現物とデリバティブの需給に鋭いねじれが生じている。\n\n【数字で見る】（日本時間11/20(金) 20:32時点）\n・SOXX 価格$137.95、前日終値比-2.75%（米国11/19終値）\n・AMD 価格$489.19、前日終値比-7.72%（米国11/19終値）\n・SKHX 価格$820.33、24時間騰落率-8.19%、建玉約2.6億ドル、資金調達率$年率-58.1%\n\n【なぜ「歪み」なのか】\nSOXXが下げる中でAMDの現物が-7.72%と大きく売られており、セクター全体の弱さが意識されやすい。しかしHIP-3のSKHX先物では資金調達率が$年率-58.1%まで低下し、売り手側のコストが重くのしかかっている。現物の下落と先物の極端なコスト偏在が交差するこの構造は、わずかなきっかけでポジションの清算を伴う値動きを引き起こす可能性があると見ている。\n\n【次に見るポイント】\n①SOXXを中心とした半導体現物の値動きの方向性\n②SKHXの資金調達率$年率-58.1%の水準維持とショート側の動向\n③出来高約3.7億ドルの規模感に見る市場の流動性",
+  "template": "半導体セクター全体が調整する裏で、デリバティブ市場の資金調達率にどんな歪みが出ているのか\n\n【いま起きてること】\n${{f6.symbol}}の現物が下落する局面において、Hyperliquidの株式等先物市場では個別銘柄のコスト負担が極端な水準に達しており、現物とデリバティブの需給に鋭いねじれが生じている。\n\n【数字で見る】（{{f43.asof}}）\n・`${{f6.symbol}}` 価格${{f6.price}}、前日終値比${{f6.change_pct}}（${{f6.asof}}）\n・`${{f8.symbol}}` 価格${{f8.price}}、前日終値比${{f8.change_pct}}（${{f8.asof}}）\n・`${{f43.symbol}}` 価格${{f43.price}}、24時間騰落率${{f43.change_pct}}、建玉${{f43.oi}}、資金調達率${{f43.funding_annual}}\n\n【なぜ「歪み」なのか】\n${{f6.symbol}}が下げる中で`${{f8.symbol}}`の現物が${{f8.change_pct}}と大きく売られており、セクター全体の弱さが意識されやすい。しかしHIP-3の`${{f43.symbol}}`先物では資金調達率が${{f43.funding_annual}}まで低下し、売り手側のコストが重くのしかかっている。現物の下落と先物の極端なコスト偏在が交差するこの構造は、わずかなきっかけでポジションの清算を伴う値動きを引き起こす可能性があると見ている。\n\n【次に見るポイント】\n①`${{f6.symbol}}`を中心とした半導体現物の値動きの方向性\n②`${{f43.symbol}}`の資金調達率${{f43.funding_annual}}の水準維持とショート側の動向\n③出来高${{f43.volume}}の規模感に見る市場の流動性",
+  "style": "構造解説型",
+  "format": "long",
+  "topic_key": "stock:SOXX:quote",
+  "angle": "半導体セクター全体（SOXX・SKHX）の急落と、デリバティブ市場における極端な資金調達率の歪みを検証する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f6",
+    "f43",
+    "f8"
+  ],
+  "facts": [
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格137.95, 前日比-2.75%, 前日終値141.85, 高値148.59, 安値137.61",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$137.95",
+        "change_pct": "-2.75%",
+        "prev_close": "$141.85",
+        "high": "$148.59",
+        "low": "$137.61",
+        "asof": "米国11/19終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 137.95,
+        "change_pct": -2.749,
+        "prev_close": 141.85
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-20T11:32:10.610217+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率-8.19%, 価格820.33, 建玉260620268USD, 24時間出来高365439508USD, 資金調達率(年率)-58.1%（照合: 米国株の前日比-5.56%）",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$820.33",
+        "change_pct": "-8.19%",
+        "oi": "約2.6億ドル",
+        "volume": "約3.7億ドル",
+        "funding_annual": "-58.1%",
+        "asof": "日本時間11/20(金) 20:32時点",
+        "asof_short": "20:32時点",
+        "us_change_pct": "-5.56%"
+      },
+      "raw": {
+        "mark": 820.33,
+        "change_pct": -8.189,
+        "oi_usd": 260620268,
+        "vol_usd": 365439508,
+        "funding_annual_pct": -58.06,
+        "us_change_pct": -5.564
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-20T11:32:24.608092+00:00",
+      "confidence": "confirmed",
+      "id": "f43"
+    },
+    {
+      "key": "stock:AMD:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】AMD 価格489.19, 前日比-7.72%, 前日終値530.14, 高値555.01, 安値470.56",
+      "fields": {
+        "symbol": "AMD",
+        "price": "$489.19",
+        "change_pct": "-7.72%",
+        "prev_close": "$530.14",
+        "high": "$555.01",
+        "low": "$470.56",
+        "asof": "米国11/19終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 489.19,
+        "change_pct": -7.724,
+        "prev_close": 530.14
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "AMD"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AMD"
+      },
+      "asof": "2026-11-20T11:32:10.860501+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AMD"
+    }
+  ],
+  "needs_human": false
+}
