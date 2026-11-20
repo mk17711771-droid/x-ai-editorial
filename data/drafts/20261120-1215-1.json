@@ -1,0 +1,111 @@
+{
+  "id": "20261120-1215-1",
+  "slot_key": "20261120-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-20T03:21:24.300383+00:00",
+  "text": "米国11/19終値で$645.04（-2.19%）と下落した$QQQの裏で、HyperliquidのHIP-3市場のナスダック100は資金調達率が年率+21.2%まで高騰している。\n\n日本時間11/20(金) 12:19時点で価格は$26,376（-3.25%）、建玉は約2.9億ドル規模。",
+  "template": "{{f6.asof}}で{{f6.price}}（{{f6.change_pct}}）と下落した$QQQの裏で、HyperliquidのHIP-3市場の${{f42.coin}}は資金調達率が年率{{f42.funding_annual}}まで高騰している。\n\n{{f42.asof}}で価格は{{f42.price}}（{{f42.change_pct}}）、建玉は{{f42.oi}}規模。現物の下げに対して先物側のロングがまだ粘っているこの構造、どこかで清算が走る火種になりそうだな。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "stock:QQQ:big_move",
+  "angle": "ナスダック100の急落と、HIP-3先物市場での値動き・資金調達率の乖離を指摘する",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 85,
+  "fact_ids": [
+    "f6",
+    "f42"
+  ],
+  "facts": [
+    {
+      "key": "stock:QQQ:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "QQQ 価格645.04, 前日比-2.19%, 前日終値659.51, 高値676.49, 安値644.34",
+      "fields": {
+        "symbol": "QQQ",
+        "price": "$645.04",
+        "change_pct": "-2.19%",
+        "prev_close": "$659.51",
+        "high": "$676.49",
+        "low": "$644.34",
+        "asof": "米国11/19終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 645.04,
+        "change_pct": -2.194,
+        "prev_close": 659.51
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "QQQ"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/QQQ"
+      },
+      "asof": "2026-11-20T03:18:50.019016+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-3.25%, 価格26376.0, 建玉292133323USD, 24時間出来高700179177USD, 資金調達率(年率)+21.2%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$26,376",
+        "change_pct": "-3.25%",
+        "oi": "約2.9億ドル",
+        "volume": "約7.0億ドル",
+        "funding_annual": "+21.2%",
+        "asof": "日本時間11/20(金) 12:19時点",
+        "asof_short": "12:19時点"
+      },
+      "raw": {
+        "mark": 26376.0,
+        "change_pct": -3.25,
+        "oi_usd": 292133323,
+        "vol_usd": 700179177,
+        "funding_annual_pct": 21.24
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-20T03:19:01.095818+00:00",
+      "confidence": "confirmed",
+      "id": "f42"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/QQQ"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2123617691105693753",
+  "posted_at": "2026-11-20T03:21:27.379255+00:00"
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "fact_ids": [
+      "f6",
+      "f42"
+    ],
+    "topic_key": "stock:QQQ:big_move",
+    "angle": "ナスダック100の急落と、HIP-3先物市場での値動き・資金調達率の乖離を指摘する",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 85,
+    "reason": "主要な株価指数であるQQQの急落と、それに追随するHIP-3先物のコスト負担を対比させているため。"
+  },
+  {
+    "fact_ids": [
+      "f9",
+      "f44"
+    ],
+    "topic_key": "stock:AMD:big_move",
+    "angle": "半導体セクターの大幅安の中で、個別株の急落と先物市場のコストの歪みに焦点を当てる",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 82,
+    "reason": "半導体の代表的な銘柄の下落と、デリバティブ側の具体的な数値を明確に結びつけているため。"
+  }
+]
