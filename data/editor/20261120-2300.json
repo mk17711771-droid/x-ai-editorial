@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f12",
+      "f15"
+    ],
+    "topic_key": "hl:xyz:AMD:big_move",
+    "angle": "主要な半導体銘柄の下落とHIP-3先物における極端な資金調達率の歪みを取り上げる。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "主要な半導体銘柄の下落と、HIP-3先物でのショート過熱による極端な資金調達率の歪みを直接対比させているため。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f7"
+    ],
+    "topic_key": "news:hk-sfc-adds-hyperliquid-to-suspicious-list",
+    "angle": "規制当局による監視強化の動きと、その中でのHYPEの価格推移や建玉の状況を数字で追う。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 16,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 84,
+    "reason": "規制当局の監視強化という最新のニュースに対し、実際のHYPEの価格や建玉の数字を組み合わせて冷静に検証しているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f8"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "米国市場オープンを前にした主要株価指数先物の出来高と資金調達率の偏りに焦点を当てる。",
+    "scores": {
+      "novelty": 15,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 83,
+    "reason": "主要な株式指数先物の出来高と資金調達率を基に、市場全体のオープン前の需給バランスを明確に示しているため。"
+  }
+]
