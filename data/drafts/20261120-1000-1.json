@@ -1,0 +1,76 @@
+{
+  "id": "20261120-1000-1",
+  "slot_key": "20261120-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "posted",
+  "created_at": "2026-11-20T01:13:36.308475+00:00",
+  "text": "$SOXLのHIP-3先物が急落する中で、資金調達率が年率-96.9%まで深く沈み込んでいる。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/20(金) 10:11時点、価格は$43.75（-15.90%）、建玉は約4,199万ドルを記録しており、米国株の前日比（-8.04%）と比べてもデリバティブ側の売り圧力がかなり重たい。",
+  "template": "${{f10.symbol}}のHIP-3先物が急落する中で、資金調達率が年率{{f10.funding_annual}}まで深く沈み込んでいる。\n\nHyperliquidの{{f10.market}}で{{f10.asof}}、価格は{{f10.price}}（{{f10.change_pct}}）、建玉は{{f10.oi}}を記録しており、米国株の前日比（{{f10.us_change_pct}}）と比べてもデリバティブ側の売り圧力がかなり重たい。\n\n下落トレンドの中でここまで極端なマイナス金利が続くのは、ポジションの偏りがかなり激しい証拠かも。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:SOXL:big_move",
+  "angle": "SOXLのHIP-3先物が急落する中で、資金調達率が年率-96.9%まで沈み込んでいる歪みを指摘する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 96,
+  "fact_ids": [
+    "f10"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SOXL:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: SOXL（HIP-3株式等先物） 24時間騰落率-15.90%, 価格43.75, 建玉41994410USD, 24時間出来高369218280USD, 資金調達率(年率)-96.9%（照合: 米国株の前日比-8.04%）",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$43.75",
+        "change_pct": "-15.90%",
+        "oi": "約4,199万ドル",
+        "volume": "約3.7億ドル",
+        "funding_annual": "-96.9%",
+        "asof": "日本時間11/20(金) 10:11時点",
+        "asof_short": "10:11時点",
+        "us_change_pct": "-8.04%"
+      },
+      "raw": {
+        "mark": 43.75,
+        "change_pct": -15.898,
+        "oi_usd": 41994410,
+        "vol_usd": 369218280,
+        "funding_annual_pct": -96.89,
+        "us_change_pct": -8.039
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-20T01:11:12.759918+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2123585724632928622",
+  "posted_at": "2026-11-20T01:14:25.969697+00:00"
+}

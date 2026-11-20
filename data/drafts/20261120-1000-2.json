@@ -1,0 +1,73 @@
+{
+  "id": "20261120-1000-2",
+  "slot_key": "20261120-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-20T01:14:23.277744+00:00",
+  "text": "$SNXXが下落している裏で、資金調達率が年率+197.9%という凄まじいロング過熱に達している。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/20(金) 10:11時点、価格は$2.45（-12.97%）、建玉は約439万ドル。",
+  "template": "$SNXXが下落している裏で、資金調達率が年率{{f15.funding_annual}}という凄まじいロング過熱に達している。\n\nHyperliquidの{{f15.market}}で{{f15.asof}}、価格は{{f15.price}}（{{f15.change_pct}}）、建玉は{{f15.oi}}。\n\n下落の痛みを抱えながらこれだけ重いコストを払い続ける構造は、一気に清算が走る火種になりそうだ。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:SNXX:funding_extreme",
+  "angle": "SNXXのHIP-3先物で資金調達率が年率+197.9%という記録的なロング過熱に達している歪みに着目する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f15"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SNXX:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SNXX（HIP-3株式等先物） 24時間騰落率-12.97%, 価格2.4523, 建玉4385457USD, 24時間出来高8305402USD, 資金調達率(年率)+197.9%（照合: 米国株の前日比-5.17%）",
+      "fields": {
+        "coin": "SNXX",
+        "symbol": "SNXX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$2.45",
+        "change_pct": "-12.97%",
+        "oi": "約439万ドル",
+        "volume": "約831万ドル",
+        "funding_annual": "+197.9%",
+        "asof": "日本時間11/20(金) 10:11時点",
+        "asof_short": "10:11時点",
+        "us_change_pct": "-5.17%"
+      },
+      "raw": {
+        "mark": 2.4523,
+        "change_pct": -12.974,
+        "oi_usd": 4385457,
+        "vol_usd": 8305402,
+        "funding_annual_pct": 197.94,
+        "us_change_pct": -5.166
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNXX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNXX"
+      },
+      "asof": "2026-11-20T01:11:12.760084+00:00",
+      "confidence": "confirmed",
+      "id": "f15"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNXX"
+    }
+  ],
+  "needs_human": false
+}
