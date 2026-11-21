@@ -232,6 +232,21 @@ def run() -> dict:
     issues += worker_checks()
     issues += system_audit()
     issues += announced_not_posted(actions)
+    # note記事が作れていなければ、見回りのたびに作り直す（18時まで・1日3回まで）
+    # （11/21 7:40 Geminiの混雑で軽量モデルが短い原稿しか書けず、3回とも「本文が短すぎる」で記事なし）
+    if any(i.get("type") == "note_article_missing" for i in issues) and now.hour < 18:
+        st_n = store.state()
+        tries = st_n.get("note_retries", {})
+        today = f"{now:%Y-%m-%d}"
+        if tries.get(today, 0) < 3:
+            try:
+                r = _gh("/dispatches", method="POST", json={"event_type": "note_article", "client_payload": {"by": "health"}})
+                if r.status_code < 300:
+                    st_n["note_retries"] = {today: tries.get(today, 0) + 1}
+                    store.save_state(st_n)
+                    actions.append("note記事を作り直し")
+            except (requests.RequestException, RuntimeError) as e:
+                log.warning("note記事の作り直しの起動に失敗: %s", e)
 
     st = store.state()
     if st.get("halted"):
