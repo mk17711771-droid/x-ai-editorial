@@ -137,6 +137,8 @@ def write(theme: str | None = None) -> dict | None:
         if len(unsafe) > 15:
             errors = [f"データ以外の数字を書いた文が多すぎる（{len(unsafe)}文）。数字は必ず差し込み記号で書く"]
             continue
+        # 文を外したあとに、米国の終値の時点（米国◯/◯終値）をもう一度付ける（11/21 外した文に付いていた時点が消え、全案破棄）
+        body_t = checks.add_close_asof(body_t, by_id)
         errors = checks.check_template(title_t + "\n" + body_t, by_id)
         if errors:
             continue
