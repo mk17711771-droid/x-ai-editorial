@@ -1,0 +1,112 @@
+{
+  "id": "20261122-0730w-3",
+  "slot_key": "20261122-0730w",
+  "slot_theme": "07:42 週末の朝: 米国市場が閉まっている間に動いたHIP-3株式先物・HYPE・BTCの数字1つ（大きな名前＋極端な数字を1行目で言い切る）",
+  "status": "superseded",
+  "created_at": "2026-11-21T22:53:30.234850+00:00",
+  "text": "$ETHが+3.64%と反発を見せる一方で、安定上位トレーダー15人全員が売りポジションに傾いている。\n\nHyperliquidの無期限先物市場で日本時間11/22(日) 07:51時点、価格は$1,680、建玉は日本時間11/22(日) 07:36時点で約10.4億ドルに達している。",
+  "template": "$ETHが{{f3.change_pct}}と反発を見せる一方で、安定上位トレーダー{{f22.holders}}全員が売りポジションに傾いている。\n\nHyperliquidの無期限先物市場で{{f3.asof}}、価格は{{f3.price}}、建玉は{{f22.asof}}時点で{{f3.oi}}に達している。市場価格の上昇と上位勢の完全な売り偏りの間に強烈なねじれが生じており、このポジションの偏りがどう解消されるのかちょっと気になるところだな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "traders:ETH:bias",
+  "angle": "週末にETHが+3.64%と反発を見せる一方で、安定上位トレーダー15人の保有が全員売り（買い比率0%）という市場価格と上位勢の強烈なねじれを数字で提示する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 16
+  },
+  "total": 87,
+  "fact_ids": [
+    "f22",
+    "f3"
+  ],
+  "facts": [
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-21T22:36:16.066575+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:ETH:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー40人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、ETHを持っている15人の内訳: 買い0人・売り15人（買い比率0%）、買い合計0USD・売り合計2563528USD、平均レバレッジ22.7倍（このほか、現物つきの売り＝ヘッジ・裁定が0人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "ETH",
+        "top_n": "40人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "15人",
+        "long_n": "0人",
+        "short_n": "15人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約256万ドル",
+        "hedge_n": "0人",
+        "avg_leverage": "22.7倍",
+        "asof": "日本時間11/22(日) 07:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 15,
+        "long_usd": 0,
+        "short_usd": 2563528
+      },
+      "id": "f22"
+    },
+    {
+      "key": "hl:ETH:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: ETH（無期限先物） 24時間騰落率+3.64%, 価格1680.5, 建玉1037759065USD, 24時間出来高1398466673USD, 資金調達率(年率)-16.3%",
+      "fields": {
+        "coin": "ETH",
+        "symbol": "ETH",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$1,680",
+        "change_pct": "+3.64%",
+        "oi": "約10.4億ドル",
+        "volume": "約14.0億ドル",
+        "funding_annual": "-16.3%",
+        "asof": "日本時間11/22(日) 07:51時点",
+        "asof_short": "07:51時点"
+      },
+      "raw": {
+        "mark": 1680.5,
+        "change_pct": 3.639,
+        "oi_usd": 1037759065,
+        "vol_usd": 1398466673,
+        "funding_annual_pct": -16.31
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "ETH",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/ETH"
+      },
+      "asof": "2026-11-21T22:51:56.529684+00:00",
+      "confidence": "confirmed",
+      "id": "f3"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/ETH"
+    }
+  ],
+  "needs_human": false
+}

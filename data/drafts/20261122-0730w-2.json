@@ -1,0 +1,73 @@
+{
+  "id": "20261122-0730w-2",
+  "slot_key": "20261122-0730w",
+  "slot_theme": "07:42 週末の朝: 米国市場が閉まっている間に動いたHIP-3株式先物・HYPE・BTCの数字1つ（大きな名前＋極端な数字を1行目で言い切る）",
+  "status": "superseded",
+  "created_at": "2026-11-21T22:52:42.525058+00:00",
+  "text": "現物が休みの週末なのに、$MSFTの建玉が+19.2%急増してる。\n\nHyperliquidの株式先物（HIP-3）で07:51時点、建玉は約2,445万ドルに到達。市場が閉まってる間にここまで資金が動いてるのは、水面下で何か織り込みに行ってるのかも。",
+  "template": "現物が休みの週末なのに、${{f11.symbol}}の建玉が{{f11.oi_change_pct}}急増してる。\n\n{{f11.venue}}の{{f11.market}}で{{f11.asof_short}}、建玉は{{f11.oi}}に到達。市場が閉まってる間にここまで資金が動いてるのは、水面下で何か織り込みに行ってるのかも。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:MSFT:oi_change",
+  "angle": "現物市場が止まっている週末に、HIP-3で$MSFTの建玉が+19.2%急増（2,444万ドル）している異変を捉え、休場中の時間外ポジションの動きを示す。",
+  "scores": {
+    "novelty": 18,
+    "interest": 17,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 87,
+  "fact_ids": [
+    "f11"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:MSFT:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+19.2%: MSFT（HIP-3株式等先物） 24時間騰落率+2.00%, 価格496.13, 建玉24448843USD, 24時間出来高9331976USD, 資金調達率(年率)+2.1%",
+      "fields": {
+        "coin": "MSFT",
+        "symbol": "MSFT",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$496.13",
+        "change_pct": "+2.00%",
+        "oi": "約2,445万ドル",
+        "volume": "約933万ドル",
+        "funding_annual": "+2.1%",
+        "asof": "日本時間11/22(日) 07:51時点",
+        "asof_short": "07:51時点",
+        "oi_change_pct": "+19.2%"
+      },
+      "raw": {
+        "mark": 496.13,
+        "change_pct": 2.0,
+        "oi_usd": 24448843,
+        "vol_usd": 9331976,
+        "funding_annual_pct": 2.06,
+        "oi_change_pct": 19.15
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:MSFT",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:MSFT"
+      },
+      "asof": "2026-11-21T22:51:56.529879+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:MSFT"
+    }
+  ],
+  "needs_human": false
+}
