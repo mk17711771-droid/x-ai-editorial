@@ -1844,3 +1844,11 @@ def test_breaking_news_summary_numbers_masked_for_writer():
     rows = json.loads(pipeline._facts_for_llm([{"id": "f1", "key": "news:x", "category": "breaking_news", "confidence": "confirmed",
                                                 "summary": "HYPEの価格は65ドル付近で推移", "fields": {"headline": "h"}}], True))
     assert "65" not in rows[0]["summary"] and "◯ドル" in rows[0]["summary"]
+
+
+def test_render_dedupes_close_asof():
+    """11/21 note: 「NVDAの米国11/20終値が-14.01%（米国11/20終値）」と時点が重なった。"""
+    from aiedit import checks
+    facts = {"f1": {"kind": "stock", "fields": {"symbol": "NVDA", "change_pct": "-14.01%", "asof": "米国11/20終値"}}}
+    out = checks.render("NVDAの{{f1.asof}}が{{f1.change_pct}}（{{f1.asof}}）を記録", facts)
+    assert out.count("米国11/20終値") == 1

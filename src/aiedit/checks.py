@@ -131,6 +131,8 @@ def render(template: str, facts: dict[str, dict]) -> str:
         wrong, _, right = ln.partition("\t")
         if wrong and right:
             text = text.replace(wrong, right)
+    # 時点の重複（「米国11/20終値が-14.01%（米国11/20終値）」）を1つにする（11/21 note記事）
+    text = re.sub(r"(米国\d{1,2}/\d{1,2}(?:\([月火水木金土日]\))?終値)([^。\n]{0,30}?)（\1）", r"\1\2", text)
     # Markdownの記号（`コード`・**太字**）はXではそのまま表示されてしまうので外す
     text = text.replace("`", "").replace("**", "")
     return re.sub(r"\n{3,}", "\n\n", text).strip()
