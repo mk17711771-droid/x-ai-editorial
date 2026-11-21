@@ -1,0 +1,254 @@
+{
+  "id": "20261121-2030w-1",
+  "slot_key": "20261121-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "posted",
+  "created_at": "2026-11-21T12:08:28.700542+00:00",
+  "text": "個別HIP-3銘柄で急変動が相次ぐ中、なぜ$IRENの先物市場だけこれほど強烈なロング過熱を示しているのか\n\n【いま起きてること】\n週末のHyperliquidの株式先物市場において、個別銘柄ごとに値動きや建玉の増減が大きく分かれている。特にセクターごとの資金の偏りが鮮明になっており、デリバティブ側のコスト負担に歪みが生じている。\n\n【数字で見る】（日本時間11/21(土) 21:06時点）\n・IREN 価格$12.24、24時間騰落率-11.09%、建玉約1,431万ドル、資金調達率年率+84.5%（米国株の前日比-17.97%）\n・COST 価格$1,092、24時間騰落率-1.16%、建玉約1,638万ドル、建玉24時間変化+79.3%、資金調達率年率-4.3%\n・EWY 価格$125.16、24時間騰落率-4.44%、建玉約938万ドル、建玉24時間変化+24.5%、資金調達率年率+5.5%\n・SKHX 価格$751.53、24時間騰落率-7.70%、建玉約2.5億ドル、出来高約2.7億ドル、資金調達率年率+5.5%\n\n【なぜ「歪み」なのか】\nIRENの現物が大幅な下落を見せる一方で、先物市場では年率+84.5%という極端なプラスの資金調達率が記録されており、ロング側が重たいコストを支払いながらポジションを維持している。さらにCOSTでは建玉が一日で急増するなど、個別銘柄ごとに投機的な資金の出入りが激しい。現物の調整圧力とデリバティブ側の強気なポジションが噛み合っていないこの状態は、わずかな相場の傾きで一斉の清算を誘発するリスクを孕んでいると見ている。\n\n【次に見るポイント】\n①個別HIP-3銘柄における急変動時の建玉の増減\n②年率+84.5%まで跳ね上がった資金調達率の持続性\n③出来高が集中するセクター間での資金の循環",
+  "template": "個別HIP-3銘柄で急変動が相次ぐ中、なぜ$IRENの先物市場だけこれほど強烈なロング過熱を示しているのか\n\n【いま起きてること】\n週末のHyperliquidの株式先物市場において、個別銘柄ごとに値動きや建玉の増減が大きく分かれている。特にセクターごとの資金の偏りが鮮明になっており、デリバティブ側のコスト負担に歪みが生じている。\n\n【数字で見る】（{{f6.asof}}）\n・${{f6.symbol}} 価格{{f6.price}}、24時間騰落率{{f6.change_pct}}、建玉{{f6.oi}}、資金調達率{{f6.funding_annual}}（米国株の前日比{{f6.us_change_pct}}）\n・${{f16.symbol}} 価格{{f16.price}}、24時間騰落率{{f16.change_pct}}、建玉{{f16.oi}}、建玉24時間変化{{f16.oi_change_pct}}、資金調達率{{f16.funding_annual}}\n・${{f19.symbol}} 価格{{f19.price}}、24時間騰落率{{f19.change_pct}}、建玉{{f19.oi}}、建玉24時間変化{{f19.oi_change_pct}}、資金調達率{{f19.funding_annual}}\n・${{f25.symbol}} 価格{{f25.price}}、24時間騰落率{{f25.change_pct}}、建玉{{f25.oi}}、出来高{{f25.volume}}、資金調達率{{f25.funding_annual}}\n\n【なぜ「歪み」なのか】\n${{f6.symbol}}の現物が大幅な下落を見せる一方で、先物市場では年率{{f6.funding_annual}}という極端なプラスの資金調達率が記録されており、ロング側が重たいコストを支払いながらポジションを維持している。さらに${{f16.symbol}}では建玉が一日で急増するなど、個別銘柄ごとに投機的な資金の出入りが激しい。現物の調整圧力とデリバティブ側の強気なポジションが噛み合っていないこの状態は、わずかな相場の傾きで一斉の清算を誘発するリスクを孕んでいると見ている。\n\n【次に見るポイント】\n①個別HIP-3銘柄における急変動時の建玉の増減\n②年率{{f6.funding_annual}}まで跳ね上がった資金調達率の持続性\n③出来高が集中するセクター間での資金の循環",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:IREN:big_move",
+  "angle": "IRENやCOST、SKHXなど個別HIP-3銘柄で見られる急変動や建玉急増、資金調達率の異常値を横断的に比較し、個別株セクターの資金の偏りを追う。",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f6",
+    "f14",
+    "f16",
+    "f19",
+    "f25"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:IREN:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: IREN（HIP-3株式等先物） 24時間騰落率-11.09%, 価格12.236, 建玉14308421USD, 24時間出来高17539660USD, 資金調達率(年率)+84.5%（照合: 米国株の前日比-17.97%）",
+      "fields": {
+        "coin": "IREN",
+        "symbol": "IREN",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$12.24",
+        "change_pct": "-11.09%",
+        "oi": "約1,431万ドル",
+        "volume": "約1,754万ドル",
+        "funding_annual": "+84.5%",
+        "asof": "日本時間11/21(土) 21:06時点",
+        "asof_short": "21:06時点",
+        "us_change_pct": "-17.97%"
+      },
+      "raw": {
+        "mark": 12.236,
+        "change_pct": -11.095,
+        "oi_usd": 14308421,
+        "vol_usd": 17539660,
+        "funding_annual_pct": 84.51,
+        "us_change_pct": -17.974
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:IREN",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:IREN"
+      },
+      "asof": "2026-11-21T12:06:18.327385+00:00",
+      "confidence": "confirmed",
+      "id": "f6"
+    },
+    {
+      "key": "hl:xyz:IREN:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: IREN（HIP-3株式等先物） 24時間騰落率-11.09%, 価格12.236, 建玉14308421USD, 24時間出来高17539660USD, 資金調達率(年率)+84.5%（照合: 米国株の前日比-17.97%）",
+      "fields": {
+        "coin": "IREN",
+        "symbol": "IREN",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$12.24",
+        "change_pct": "-11.09%",
+        "oi": "約1,431万ドル",
+        "volume": "約1,754万ドル",
+        "funding_annual": "+84.5%",
+        "asof": "日本時間11/21(土) 21:06時点",
+        "asof_short": "21:06時点",
+        "us_change_pct": "-17.97%"
+      },
+      "raw": {
+        "mark": 12.236,
+        "change_pct": -11.095,
+        "oi_usd": 14308421,
+        "vol_usd": 17539660,
+        "funding_annual_pct": 84.51,
+        "us_change_pct": -17.974
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:IREN",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:IREN"
+      },
+      "asof": "2026-11-21T12:06:18.327627+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    },
+    {
+      "key": "hl:xyz:COST:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+79.3%: COST（HIP-3株式等先物） 24時間騰落率-1.16%, 価格1092.0, 建玉16381573USD, 24時間出来高10398603USD, 資金調達率(年率)-4.3%",
+      "fields": {
+        "coin": "COST",
+        "symbol": "COST",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1,092",
+        "change_pct": "-1.16%",
+        "oi": "約1,638万ドル",
+        "volume": "約1,040万ドル",
+        "funding_annual": "-4.3%",
+        "asof": "日本時間11/21(土) 21:06時点",
+        "asof_short": "21:06時点",
+        "oi_change_pct": "+79.3%"
+      },
+      "raw": {
+        "mark": 1092.0,
+        "change_pct": -1.159,
+        "oi_usd": 16381573,
+        "vol_usd": 10398603,
+        "funding_annual_pct": -4.31,
+        "oi_change_pct": 79.27
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:COST",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:COST"
+      },
+      "asof": "2026-11-21T12:06:18.327758+00:00",
+      "confidence": "confirmed",
+      "id": "f16"
+    },
+    {
+      "key": "hl:xyz:EWY:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+24.5%: EWY（HIP-3株式等先物） 24時間騰落率-4.44%, 価格125.16, 建玉9381590USD, 24時間出来高28486003USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "EWY",
+        "symbol": "EWY",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$125.16",
+        "change_pct": "-4.44%",
+        "oi": "約938万ドル",
+        "volume": "約2,849万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/21(土) 21:06時点",
+        "asof_short": "21:06時点",
+        "oi_change_pct": "+24.5%"
+      },
+      "raw": {
+        "mark": 125.16,
+        "change_pct": -4.436,
+        "oi_usd": 9381590,
+        "vol_usd": 28486003,
+        "funding_annual_pct": 5.48,
+        "oi_change_pct": 24.51
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:EWY",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:EWY"
+      },
+      "asof": "2026-11-21T12:06:18.327856+00:00",
+      "confidence": "confirmed",
+      "id": "f19"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率-7.70%, 価格751.53, 建玉250283138USD, 24時間出来高265866708USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$751.53",
+        "change_pct": "-7.70%",
+        "oi": "約2.5億ドル",
+        "volume": "約2.7億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/21(土) 21:06時点",
+        "asof_short": "21:06時点"
+      },
+      "raw": {
+        "mark": 751.53,
+        "change_pct": -7.697,
+        "oi_usd": 250283138,
+        "vol_usd": 265866708,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-21T12:06:18.328035+00:00",
+      "confidence": "confirmed",
+      "id": "f25"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:IREN"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:IREN"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:COST"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:EWY"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2124112724300829143",
+  "posted_at": "2026-11-21T12:08:32.492164+00:00"
+}
