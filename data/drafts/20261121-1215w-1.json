@@ -1,0 +1,168 @@
+{
+  "id": "20261121-1215w-1",
+  "slot_key": "20261121-1215w",
+  "slot_theme": "12:26 週末の昼: Hyperliquidの24時間の異変（建玉・資金調達率・急変動）。大きな名前の銘柄を優先",
+  "status": "posted",
+  "created_at": "2026-11-21T03:45:18.338390+00:00",
+  "text": "$SOXLの資金調達率が年率-390.8%まで深く沈み込む中で、建玉が+59.9%も積み上がっている。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/21(土) 12:44時点、価格は$32.45（-25.87%）を記録しており、売り圧力が一段と強まっている。",
+  "template": "$SOXLの資金調達率が{{f8.funding_annual}}まで深く沈み込む中で、建玉が{{f18.oi_change_pct}}も積み上がっている。\n\nHyperliquidの{{f8.market}}で{{f8.asof}}、価格は{{f8.price}}（{{f8.change_pct}}）を記録しており、売り圧力が一段と強まっている。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:SOXL:big_move",
+  "angle": "$SOXLのHIP-3先物が24時間で-25.87%急落し、資金調達率が年率-390.8%まで沈み込む中で建玉が+59.9%急増している歪みを指摘する",
+  "scores": {
+    "novelty": 18,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 95,
+  "fact_ids": [
+    "f8",
+    "f18",
+    "f26"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SOXL:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: SOXL（HIP-3株式等先物） 24時間騰落率-25.87%, 価格32.446, 建玉70554410USD, 24時間出来高456137574USD, 資金調達率(年率)-390.8%（照合: 米国株の前日比-31.83%）",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$32.45",
+        "change_pct": "-25.87%",
+        "oi": "約7,055万ドル",
+        "volume": "約4.6億ドル",
+        "funding_annual": "-390.8%",
+        "asof": "日本時間11/21(土) 12:44時点",
+        "asof_short": "12:44時点",
+        "us_change_pct": "-31.83%"
+      },
+      "raw": {
+        "mark": 32.446,
+        "change_pct": -25.867,
+        "oi_usd": 70554410,
+        "vol_usd": 456137574,
+        "funding_annual_pct": -390.85,
+        "us_change_pct": -31.832
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-21T03:44:24.228726+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "hl:xyz:SOXL:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+59.9%: SOXL（HIP-3株式等先物） 24時間騰落率-25.87%, 価格32.446, 建玉70554410USD, 24時間出来高456137574USD, 資金調達率(年率)-390.8%（照合: 米国株の前日比-31.83%）",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$32.45",
+        "change_pct": "-25.87%",
+        "oi": "約7,055万ドル",
+        "volume": "約4.6億ドル",
+        "funding_annual": "-390.8%",
+        "asof": "日本時間11/21(土) 12:44時点",
+        "asof_short": "12:44時点",
+        "oi_change_pct": "+59.9%",
+        "us_change_pct": "-31.83%"
+      },
+      "raw": {
+        "mark": 32.446,
+        "change_pct": -25.867,
+        "oi_usd": 70554410,
+        "vol_usd": 456137574,
+        "funding_annual_pct": -390.85,
+        "us_change_pct": -31.832,
+        "oi_change_pct": 59.86
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-21T03:44:24.229114+00:00",
+      "confidence": "confirmed",
+      "id": "f18"
+    },
+    {
+      "key": "hl:xyz:SOXL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SOXL（HIP-3株式等先物） 24時間騰落率-25.87%, 価格32.446, 建玉70554410USD, 24時間出来高456137574USD, 資金調達率(年率)-390.8%（照合: 米国株の前日比-31.83%）",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$32.45",
+        "change_pct": "-25.87%",
+        "oi": "約7,055万ドル",
+        "volume": "約4.6億ドル",
+        "funding_annual": "-390.8%",
+        "asof": "日本時間11/21(土) 12:44時点",
+        "asof_short": "12:44時点",
+        "us_change_pct": "-31.83%"
+      },
+      "raw": {
+        "mark": 32.446,
+        "change_pct": -25.867,
+        "oi_usd": 70554410,
+        "vol_usd": 456137574,
+        "funding_annual_pct": -390.85,
+        "us_change_pct": -31.832
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-21T03:44:24.229393+00:00",
+      "confidence": "confirmed",
+      "id": "f26"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2123986112053964939",
+  "posted_at": "2026-11-21T03:45:25.763691+00:00"
+}

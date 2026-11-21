@@ -1,0 +1,72 @@
+[
+  {
+    "fact_ids": [
+      "f8",
+      "f18",
+      "f26"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "$SOXLのHIP-3先物が24時間で-25.87%急落し、資金調達率が年率-390.8%まで沈み込む中で建玉が+59.9%急増している歪みを指摘する",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 95,
+    "reason": "半導体の急落を背景にSOXLのHIP-3先物で建玉と極端な資金調達率の歪みが発生しており、読者の関心が高い銘柄で数字が揃っているため"
+  },
+  {
+    "fact_ids": [
+      "f25",
+      "f21"
+    ],
+    "topic_key": "hl:xyz:NVDA:hip3_top",
+    "angle": "$NVDAのHIP-3先物が現物の大幅下落に連動して-11.37%下落し、資金調達率が年率-250.7%まで急低下している構造を解説する",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "主要な大きな名前であるNVDAの現物とHIP-3先物の乖離および極端な資金調達率の数字が明確に示されているため"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f12",
+      "f19"
+    ],
+    "topic_key": "hl:xyz:SNXX:big_move",
+    "angle": "$SNXXのHIP-3先物が-29.74%急落し、年率-782.5%という異次元のショート過熱を示しながら建玉が-52.3%減少している局面を追う",
+    "scores": {
+      "novelty": 19,
+      "interest": 16,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "極端な資金調達率と建玉の減少という激しい市場の歪みが数字で示されており、独自性の高い分析ができるため"
+  },
+  {
+    "fact_ids": [
+      "f4",
+      "f22"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "XYZ100のHIP-3先物が24時間で11億ドル超の出来高を記録し、資金調達率が年率-104.5%まで傾いている市場全体の需給を読み解く",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "指数全体の大きな出来高とマイナスの資金調達率というマクロの歪みを的確に捉えているため"
+  }
+]
