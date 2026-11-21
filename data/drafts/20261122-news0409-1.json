@@ -1,0 +1,103 @@
+{
+  "id": "20261122-news0409-1",
+  "slot_key": "20261122-news0409",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "posted",
+  "created_at": "2026-11-21T19:10:09.353665+00:00",
+  "text": "$BTCが$60,334まで回復して出来高約57.9億ドルを記録している裏で、Cyberブリッジを巡る不正流出疑惑が浮上している。\n\nUpbitやBithumbが送金凍結を行う中でも無期限先物の資金調達率は年率+5.2%と落ち着いており、デリバティブ側の反応は意外と冷静だな。",
+  "template": "${{f2.coin}}が{{f2.price}}まで回復して出来高{{f2.volume}}を記録している裏で、Cyberブリッジを巡る不正流出疑惑が浮上している。\n\nUpbitやBithumbが送金凍結を行う中でも無期限先物の資金調達率は{{f2.funding_annual}}と落ち着いており、デリバティブ側の反応は意外と冷静だな。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "news:cyber-bridge-exploit-upbit-bithumb-freeze",
+  "angle": "Cyberブリッジの不正流出と韓国取引所の凍結対応を伝える速報と、60,000ドルを回復したビットコインの市場反応を対比する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f1",
+    "f2"
+  ],
+  "facts": [
+    {
+      "key": "news:cyber-bridge-exploit-upbit-bithumb-freeze",
+      "kind": "hl",
+      "asof": "2026-11-21T19:06:34.186130+00:00",
+      "expires_at": "2026-11-23T07:06:34.186158+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-21T18:47:00Z",
+      "summary": "Cyberトークンのブリッジにおける予期せぬミントと約100万ドルの不正流出の可能性を受け、調査が開始された。これに伴い、韓国の主要取引所であるUpbitとBithumbが対象トークンの送金・入出金を一時凍結している。Cyber側はユーザーに対してブリッジの使用を控えるよう警告を発している。",
+      "fields": {
+        "headline": "Cyberブリッジ疑惑でUpbitとBithumbが送金凍結",
+        "what": "予期せぬミントと約100万ドルの不正流出疑惑を受け、韓国取引所が送金を一時停止",
+        "status": "調査中",
+        "who": "Cyber, Upbit, Bithumb"
+      },
+      "raw": {},
+      "source": {
+        "name": "The Block・Traders Union・The Defiant",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:BTC:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: BTC（無期限先物） 24時間騰落率+3.84%, 価格60334.0, 建玉2293872475USD, 24時間出来高5794454694USD, 資金調達率(年率)+5.2%",
+      "fields": {
+        "coin": "BTC",
+        "symbol": "BTC",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$60,334",
+        "change_pct": "+3.84%",
+        "oi": "約22.9億ドル",
+        "volume": "約57.9億ドル",
+        "funding_annual": "+5.2%",
+        "asof": "日本時間11/22(日) 04:09時点",
+        "asof_short": "04:09時点"
+      },
+      "raw": {
+        "mark": 60334.0,
+        "change_pct": 3.843,
+        "oi_usd": 2293872475,
+        "vol_usd": 5794454694,
+        "funding_annual_pct": 5.17
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BTC",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BTC"
+      },
+      "asof": "2026-11-21T19:09:18.303018+00:00",
+      "confidence": "confirmed",
+      "id": "f2"
+    }
+  ],
+  "sources": [
+    {
+      "name": "The Block・Traders Union・The Defiant",
+      "url": ""
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BTC"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2124218842243297406",
+  "posted_at": "2026-11-21T19:10:12.942646+00:00"
+}
