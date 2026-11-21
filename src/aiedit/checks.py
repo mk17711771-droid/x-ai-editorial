@@ -269,8 +269,9 @@ def topic_cooldown_hours(topic_key: str) -> int:
 
 # ラベルと差し込む値の取り違え（11/3 「安値」の後に高値を差し込んだ）。ラベルの直後の差し込みは、このフィールドでなければならない
 # 取り違えると意味が逆になるラベル（安値に高値を入れる、など）。ラベルの直後の差し込みが反対の値ならはじく
-LABEL_WRONG = {"安値": "high", "高値": "low"}
-LABELED = re.compile(r"(安値|高値)(?:は|が|も|の)?[\s:：]?\{\{(f\d+)\.(\w+)\}\}")
+LABEL_WRONG = {"安値": "high", "高値": "low", "売り比率": "long_ratio", "買い比率": "short_ratio"}
+# 11/21 08:12「上位トレーダーの売り比率が4%」は買い比率（long_ratio）だった（同じ投稿で40人中24人が売り）
+LABELED = re.compile(r"(安値|高値|売り比率|買い比率)(?:は|が|も|の)?[\s:：]?\{\{(f\d+)\.(\w+)\}\}")
 
 
 def drop_unsafe_sentences(template: str, facts: dict[str, dict]) -> tuple[str, list[str]]:

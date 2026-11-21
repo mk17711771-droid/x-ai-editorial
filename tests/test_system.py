@@ -1852,3 +1852,11 @@ def test_render_dedupes_close_asof():
     facts = {"f1": {"kind": "stock", "fields": {"symbol": "NVDA", "change_pct": "-14.01%", "asof": "米国11/20終値"}}}
     out = checks.render("NVDAの{{f1.asof}}が{{f1.change_pct}}（{{f1.asof}}）を記録", facts)
     assert out.count("米国11/20終値") == 1
+
+
+def test_sell_ratio_label_not_long_ratio():
+    """11/21 08:12: 「上位トレーダーの売り比率が4%」と書いたが、値は買い比率（long_ratio）だった。"""
+    from aiedit import checks
+    facts = {"f1": {"kind": "hl", "fields": {"symbol": "BTC", "long_ratio": "4%", "short_n": "24人"}}}
+    assert any("売り比率" in e for e in checks.check_template("上位トレーダーの売り比率が{{f1.long_ratio}}まで傾く", facts))
+    assert not any("売り比率" in e for e in checks.check_template("上位トレーダーの買い比率が{{f1.long_ratio}}まで低下", facts))
