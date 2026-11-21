@@ -1,0 +1,52 @@
+[
+  {
+    "fact_ids": [
+      "f24"
+    ],
+    "topic_key": "hl:xyz:SP500:hip3_top",
+    "angle": "週末のS&P500先物（HIP-3）の動向と資金調達率から、週明けの市場が意識している方向を浮き彫りにする。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "主要な米国株指数であるS&P500のHIP-3先物の数字を用いており、週明けを控えた市場の空気感を的確に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f21"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "XYZ100先物における出来高の大きさと、高水準な資金調達率が示すデリバティブ側の需給の偏りを指摘する。",
+    "scores": {
+      "novelty": 15,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 82,
+    "reason": "市場参加者が注目するXYZ100の出来高と具体的な資金調達率の数字を組み合わせ、現在の需給の歪みを簡潔に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f18",
+      "f23"
+    ],
+    "topic_key": "hl:xyz:NVDA:oi_change",
+    "angle": "エヌビディアのHIP-3先物における建玉の急増と、現物下落に対する先物側の過熱感のギャップを解説する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 17,
+      "utility": 15,
+      "insight": 16
+    },
+    "total": 82,
+    "reason": "大人気の個別銘柄であるNVDAの建玉変化と資金調達率の数字から、市場の緊張感あるポジションの偏りを浮き彫りにしているため。"
+  }
+]
