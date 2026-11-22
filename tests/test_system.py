@@ -1860,3 +1860,15 @@ def test_sell_ratio_label_not_long_ratio():
     facts = {"f1": {"kind": "hl", "fields": {"symbol": "BTC", "long_ratio": "4%", "short_n": "24人"}}}
     assert any("売り比率" in e for e in checks.check_template("上位トレーダーの売り比率が{{f1.long_ratio}}まで傾く", facts))
     assert not any("売り比率" in e for e in checks.check_template("上位トレーダーの買い比率が{{f1.long_ratio}}まで低下", facts))
+
+
+def test_week_change_once_per_week(monkeypatch):
+    """11/22 10:24: 前日（土）とほぼ同じ「1週間の振り返り」長文が日曜にも出た。週の振り返りは銘柄が違っても週1回。"""
+    from datetime import timedelta
+    from aiedit import checks, store
+    from aiedit.common import now_utc
+    posts = [{"text": "先週の振り返り", "topic_key": "hl:xyz:XYZ100:week_change",
+              "posted_at": (now_utc() - timedelta(hours=24.5)).isoformat()}]
+    monkeypatch.setattr(store, "recent_posts", lambda h: [p for p in posts if now_utc() - __import__("datetime").datetime.fromisoformat(p["posted_at"]) < timedelta(hours=h)])
+    assert checks.topic_cooldown_hours("hl:xyz:SP500:week_change") == 120
+    assert any("週1回" in e or "同じ話題" in e for e in checks.check_text("今週はS&P500が大きく下げた1週間だった。\n\n先物の資金調達率はプラスのまま残っている構図。", "hl:xyz:SP500:week_change"))

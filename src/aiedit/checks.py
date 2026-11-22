@@ -262,7 +262,7 @@ def topic_cooldown_hours(topic_key: str) -> int:
     """話題ごとの再投稿までの間隔。定番企画（絞り込みなど）は長めに空ける。"""
     cfg = settings()["limits"]
     for prefix, hours in cfg.get("topic_cooldown_overrides", {}).items():
-        if str(topic_key).startswith(prefix):
+        if str(topic_key).startswith(prefix) or (prefix.startswith(":") and str(topic_key).endswith(prefix)):
             return hours
     return cfg["same_topic_cooldown_hours"]
 
@@ -615,6 +615,10 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
     for p in store.recent_posts(hours):
         if p.get("topic_key") == topic_key or str(p.get("topic_key", "")).startswith(topic_key + ":"):
             errors.append(f"同じ話題を{hours}時間以内に投稿済み")
+            break
+        # 1週間の振り返り（week_change）は、銘柄が違っても週1回（11/22 10:24 前日の振り返りとほぼ同じ長文が出た）
+        if str(topic_key).endswith(":week_change") and str(p.get("topic_key", "")).endswith(":week_change"):
+            errors.append(f"1週間の振り返りは{hours}時間以内に投稿済み（週1回）")
             break
     # 締めの「語尾＋絵文字」（〜な👀 など）が直近の投稿と続くと、自動投稿っぽく単調になる
     end = _ending(text)
