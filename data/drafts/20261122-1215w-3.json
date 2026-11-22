@@ -1,0 +1,71 @@
+{
+  "id": "20261122-1215w-3",
+  "slot_key": "20261122-1215w",
+  "slot_theme": "12:26 週末の昼: Hyperliquidの24時間の異変（建玉・資金調達率・急変動）。大きな名前の銘柄を優先",
+  "status": "superseded",
+  "created_at": "2026-11-22T03:49:38.673351+00:00",
+  "text": "新興IPOの$ANT先物、価格が上昇している裏で資金調達率が年率-96.0%まで深く沈み込んでいる。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/22(日) 12:47時点、価格は$89.20（+2.93%）、建玉は約2.4億ドル。ここまで強いショートの偏りが出ているのはちょっと引っかかるな。",
+  "template": "新興IPOの${{f25.symbol}}先物、価格が上昇している裏で資金調達率が年率{{f25.funding_annual}}まで深く沈み込んでいる。\n\nHyperliquidの{{f25.market}}で{{f25.asof}}、価格は{{f25.price}}（{{f25.change_pct}}）、建玉は{{f25.oi}}。ここまで強いショートの偏りが出ているのはちょっと引っかかるな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:ANT:hip3_top",
+  "angle": "注目の新興IPO銘柄先物における建玉規模と資金調達率のギャップに注目する",
+  "scores": {
+    "novelty": 17,
+    "interest": 17,
+    "evidence": 20,
+    "utility": 15,
+    "insight": 16
+  },
+  "total": 85,
+  "fact_ids": [
+    "f25"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:ANT:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: ANT（HIP-3株式等先物） 24時間騰落率+2.93%, 価格89.199, 建玉241997164USD, 24時間出来高81666552USD, 資金調達率(年率)-96.0%",
+      "fields": {
+        "coin": "ANT",
+        "symbol": "ANT",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$89.20",
+        "change_pct": "+2.93%",
+        "oi": "約2.4億ドル",
+        "volume": "約8,167万ドル",
+        "funding_annual": "-96.0%",
+        "asof": "日本時間11/22(日) 12:47時点",
+        "asof_short": "12:47時点"
+      },
+      "raw": {
+        "mark": 89.199,
+        "change_pct": 2.932,
+        "oi_usd": 241997164,
+        "vol_usd": 81666552,
+        "funding_annual_pct": -96.01
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:ANT",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:ANT"
+      },
+      "asof": "2026-11-22T03:47:14.852350+00:00",
+      "confidence": "confirmed",
+      "id": "f25"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:ANT"
+    }
+  ],
+  "needs_human": false
+}
