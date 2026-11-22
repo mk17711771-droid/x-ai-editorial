@@ -1,0 +1,152 @@
+{
+  "id": "20261122-2030w-1",
+  "slot_key": "20261122-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "posted",
+  "created_at": "2026-11-22T12:06:33.008792+00:00",
+  "text": "週末の市場で$MSTRの先物だけが異常なロング過熱を見せているのはなぜか\n\n【いま起きてること】\nHyperliquidのHIP-3株式先物市場において、主要な指数系先物が落ち着いた値動きを見せる一方で、特定銘柄のデリバティブ側に極端な資金の偏りが生じている。\n\n【数字で見る】（日本時間11/22(日) 21:03時点）\n・MSTR 価格$82.81、24時間騰落率+7.44%、建玉約2,052万ドル、出来高約936万ドル、資金調達率年率+186.5%\n・SP500 価格$7,040、24時間騰落率+0.97%、建玉約5.0億ドル、出来高約9,631万ドル、資金調達率年率+5.5%\n\n【なぜ「歪み」なのか】\nS&P500先物が年率+5.5%という穏やかな資金調達率に留まる一方で、MSTRは年率+186.5%という強烈なロング過熱を記録している。価格がプラス圏で推移しながらもここまで重たいコストをロング側が支払い続けている状態は、投機的な資金が一部の銘柄に過度に集中している構造的な歪みを示していると見ている。広範な市場全体の建玉合計が約105.8億ドル、HIP-3全体の建玉が約43.9億ドル規模に達する中で、こうした特定銘柄のコストの乖離は相場の急変時に思わぬ清算を呼び込むリスクを孕んでいる。\n\n【次に見るポイント】\n①年率+186.5%まで跳ね上がった資金調達率の持続性\n②約2,052万ドル規模まで積み上がった建玉の増減\n③週初めの市場オープンにおける個別銘柄と指数先物の資金循環\n\nこの続きも数字で追っていく。",
+  "template": "週末の市場で$MSTRの先物だけが異常なロング過熱を見せているのはなぜか\n\n【いま起きてること】\nHyperliquidのHIP-3株式先物市場において、主要な指数系先物が落ち着いた値動きを見せる一方で、特定銘柄のデリバティブ側に極端な資金の偏りが生じている。\n\n【数字で見る】（{{f8.asof}}）\n・${{f8.symbol}} 価格{{f8.price}}、24時間騰落率{{f8.change_pct}}、建玉{{f8.oi}}、出来高{{f8.volume}}、資金調達率年率{{f8.funding_annual}}\n・{{f17.coin}} 価格{{f17.price}}、24時間騰落率{{f17.change_pct}}、建玉{{f17.oi}}、出来高{{f17.volume}}、資金調達率年率{{f17.funding_annual}}\n\n【なぜ「歪み」なのか】\nS&P500先物が年率{{f17.funding_annual}}という穏やかな資金調達率に留まる一方で、$MSTRは年率{{f8.funding_annual}}という強烈なロング過熱を記録している。価格がプラス圏で推移しながらもここまで重たいコストをロング側が支払い続けている状態は、投機的な資金が一部の銘柄に過度に集中している構造的な歪みを示していると見ている。広範な市場全体の建玉合計が{{f21.total_oi}}、HIP-3全体の建玉が{{f21.hip3_oi}}規模に達する中で、こうした特定銘柄のコストの乖離は相場の急変時に思わぬ清算を呼び込むリスクを孕んでいる。\n\n【次に見るポイント】\n①年率{{f8.funding_annual}}まで跳ね上がった資金調達率の持続性\n②{{f8.oi}}規模まで積み上がった建玉の増減\n③週初めの市場オープンにおける個別銘柄と指数先物の資金循環\n\nこの続きも数字で追っていく。",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:MSTR:funding_extreme",
+  "angle": "週末の市場全体におけるMSTR先物の異常な資金調達率と、S&P500先物との対比から見えてくるポジションの歪みを構造的に解説する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f8",
+    "f17",
+    "f21"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:MSTR:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: MSTR（HIP-3株式等先物） 24時間騰落率+7.44%, 価格82.813, 建玉20518021USD, 24時間出来高9359077USD, 資金調達率(年率)+186.5%",
+      "fields": {
+        "coin": "MSTR",
+        "symbol": "MSTR",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$82.81",
+        "change_pct": "+7.44%",
+        "oi": "約2,052万ドル",
+        "volume": "約936万ドル",
+        "funding_annual": "+186.5%",
+        "asof": "日本時間11/22(日) 21:03時点",
+        "asof_short": "21:03時点"
+      },
+      "raw": {
+        "mark": 82.813,
+        "change_pct": 7.445,
+        "oi_usd": 20518021,
+        "vol_usd": 9359077,
+        "funding_annual_pct": 186.54
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:MSTR",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:MSTR"
+      },
+      "asof": "2026-11-22T12:03:33.030734+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率+0.97%, 価格7040.1, 建玉496991298USD, 24時間出来高96310705USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,040",
+        "change_pct": "+0.97%",
+        "oi": "約5.0億ドル",
+        "volume": "約9,631万ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/22(日) 21:03時点",
+        "asof_short": "21:03時点"
+      },
+      "raw": {
+        "mark": 7040.1,
+        "change_pct": 0.972,
+        "oi_usd": 496991298,
+        "vol_usd": 96310705,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-22T12:03:33.030929+00:00",
+      "confidence": "confirmed",
+      "id": "f17"
+    },
+    {
+      "key": "hl:market:overview",
+      "kind": "hl",
+      "category": "overview",
+      "summary": "Hyperliquid全体: 建玉合計10580259924USD, 24時間出来高合計5836938476USD, うちHIP-3市場740889214USD, 上場銘柄数349",
+      "fields": {
+        "total_oi": "約105.8億ドル",
+        "total_volume": "約58.4億ドル",
+        "hip3_volume": "約7.4億ドル",
+        "hip3_volume_share": "12.7%",
+        "hip3_oi": "約43.9億ドル",
+        "hip3_oi_change_pct": "+3.9%",
+        "asof": "日本時間11/22(日) 21:03時点"
+      },
+      "raw": {
+        "total_oi": 10580259924,
+        "total_vol": 5836938476,
+        "hip3_vol": 740889214,
+        "hip3_oi": 4387540806,
+        "hip3_oi_change_pct": 3.94
+      },
+      "refresh": null,
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade"
+      },
+      "asof": "2026-11-22T12:03:33.031040+00:00",
+      "confidence": "confirmed",
+      "id": "f21"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:MSTR"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2124475271340265766",
+  "posted_at": "2026-11-22T12:09:10.436379+00:00"
+}

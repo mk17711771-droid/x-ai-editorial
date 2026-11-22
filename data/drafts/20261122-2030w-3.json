@@ -1,0 +1,149 @@
+{
+  "id": "20261122-2030w-3",
+  "slot_key": "20261122-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "superseded",
+  "created_at": "2026-11-22T12:09:07.790172+00:00",
+  "text": "上場直後の$ANT先物で、ここまで強いロングの過熱感と高水準の資金調達率が残っているのはなぜか\n\n【いま起きてること】\nHyperliquidの株式先物（HIP-3）において、新規に上場した注目銘柄の価格が上昇トレンドを描く一方で、デリバティブ側ではロング優位の偏りが一段と強まっている。\n\n【数字で見る】（日本時間11/22(日) 21:03時点）\n・ANT 価格$90.25、24時間騰落率+3.02%、建玉約2.5億ドル、24時間出来高約4,949万ドル、資金調達率年率+85.6%\n\n【なぜ「歪み」なのか】\nANTが24時間で+3.02%の上昇を見せる背後で、資金調達率は年率+85.6%という極端なプラスを記録している。ロング側が重たいコストを支払いながらポジションを維持し続けており、現物の値上がりに対する期待感がデリバティブ側の過熱感をさらに押し上げている状況だ。こうした需給の傾きは、わずかな相場の反転でも一斉の清算を誘発する構造的なリスクを孕んでいると見ている。\n\n【次に見るポイント】\n①上場直後の銘柄における建玉と出来高の急激な増減\n②年率+85.6%まで跳ね上がった資金調達率の持続性\n③HIP-3市場全体における資金の循環と偏り\n\nこの続きも数字で追っていく。",
+  "template": "上場直後の`${{f11.symbol}}`先物で、ここまで強いロングの過熱感と高水準の資金調達率が残っているのはなぜか\n\n【いま起きてること】\nHyperliquidの{{f11.market}}において、新規に上場した注目銘柄の価格が上昇トレンドを描く一方で、デリバティブ側ではロング優位の偏りが一段と強まっている。\n\n【数字で見る】（{{f11.asof}}）\n・${{f11.symbol}} 価格${{f11.price}}、24時間騰落率${{f11.change_pct}}、建玉${{f11.oi}}、24時間出来高${{f11.volume}}、資金調達率年率${{f11.funding_annual}}\n\n【なぜ「歪み」なのか】\n`${{f11.symbol}}`が24時間で${{f11.change_pct}}の上昇を見せる背後で、資金調達率は年率${{f11.funding_annual}}という極端なプラスを記録している。ロング側が重たいコストを支払いながらポジションを維持し続けており、現物の値上がりに対する期待感がデリバティブ側の過熱感をさらに押し上げている状況だ。こうした需給の傾きは、わずかな相場の反転でも一斉の清算を誘発する構造的なリスクを孕んでいると見ている。\n\n【次に見るポイント】\n①上場直後の銘柄における建玉と出来高の急激な増減\n②年率${{f11.funding_annual}}まで跳ね上がった資金調達率の持続性\n③HIP-3市場全体における資金の循環と偏り\n\nこの続きも数字で追っていく。",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:ANT:funding_extreme",
+  "angle": "注目を集めるANT先物の上場後の値動きと高水準の資金調達率から、デリバティブ市場における過熱感の構造を検証する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f11",
+    "f19",
+    "f21"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:ANT:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: ANT（HIP-3株式等先物） 24時間騰落率+3.02%, 価格90.252, 建玉245981377USD, 24時間出来高49488854USD, 資金調達率(年率)+85.6%",
+      "fields": {
+        "coin": "ANT",
+        "symbol": "ANT",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$90.25",
+        "change_pct": "+3.02%",
+        "oi": "約2.5億ドル",
+        "volume": "約4,949万ドル",
+        "funding_annual": "+85.6%",
+        "asof": "日本時間11/22(日) 21:03時点",
+        "asof_short": "21:03時点"
+      },
+      "raw": {
+        "mark": 90.252,
+        "change_pct": 3.018,
+        "oi_usd": 245981377,
+        "vol_usd": 49488854,
+        "funding_annual_pct": 85.61
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:ANT",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:ANT"
+      },
+      "asof": "2026-11-22T12:03:33.030813+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "hl:xyz:ANT:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: ANT（HIP-3株式等先物） 24時間騰落率+3.02%, 価格90.252, 建玉245981377USD, 24時間出来高49488854USD, 資金調達率(年率)+85.6%",
+      "fields": {
+        "coin": "ANT",
+        "symbol": "ANT",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$90.25",
+        "change_pct": "+3.02%",
+        "oi": "約2.5億ドル",
+        "volume": "約4,949万ドル",
+        "funding_annual": "+85.6%",
+        "asof": "日本時間11/22(日) 21:03時点",
+        "asof_short": "21:03時点"
+      },
+      "raw": {
+        "mark": 90.252,
+        "change_pct": 3.018,
+        "oi_usd": 245981377,
+        "vol_usd": 49488854,
+        "funding_annual_pct": 85.61
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:ANT",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:ANT"
+      },
+      "asof": "2026-11-22T12:03:33.030957+00:00",
+      "confidence": "confirmed",
+      "id": "f19"
+    },
+    {
+      "key": "hl:market:overview",
+      "kind": "hl",
+      "category": "overview",
+      "summary": "Hyperliquid全体: 建玉合計10580259924USD, 24時間出来高合計5836938476USD, うちHIP-3市場740889214USD, 上場銘柄数349",
+      "fields": {
+        "total_oi": "約105.8億ドル",
+        "total_volume": "約58.4億ドル",
+        "hip3_volume": "約7.4億ドル",
+        "hip3_volume_share": "12.7%",
+        "hip3_oi": "約43.9億ドル",
+        "hip3_oi_change_pct": "+3.9%",
+        "asof": "日本時間11/22(日) 21:03時点"
+      },
+      "raw": {
+        "total_oi": 10580259924,
+        "total_vol": 5836938476,
+        "hip3_vol": 740889214,
+        "hip3_oi": 4387540806,
+        "hip3_oi_change_pct": 3.94
+      },
+      "refresh": null,
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade"
+      },
+      "asof": "2026-11-22T12:03:33.031040+00:00",
+      "confidence": "confirmed",
+      "id": "f21"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:ANT"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:ANT"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade"
+    }
+  ],
+  "needs_human": false
+}
