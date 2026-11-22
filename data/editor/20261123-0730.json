@@ -1,0 +1,69 @@
+[
+  {
+    "fact_ids": [
+      "f13",
+      "f19"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "半導体レバレッジETFの先物における建玉の急増と資金調達率の歪みから、市場の過熱感とポジションの偏りを読み解く。",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "最優先銘柄であるSOXLの建玉急増と資金調達率のデータを軸に、市場の需給の歪みを深く解説できるため。"
+  },
+  {
+    "fact_ids": [
+      "f4",
+      "f15"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "ナスダック100連動のHIP-3先物における高水準な資金調達率と、現物市場とのコストギャップに焦点を当てる。",
+    "scores": {
+      "novelty": 15,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 85,
+    "reason": "主要指数であるXYZ100の高い資金調達率と出来高のデータを組み合わせ、デリバティブ特有のコスト負担を構造的に解説できるため。"
+  },
+  {
+    "fact_ids": [
+      "f5",
+      "f16"
+    ],
+    "topic_key": "hl:xyz:NVDA:hip3_top",
+    "angle": "エヌビディアのHIP-3先物における建玉の規模とプラス圏で推移する資金調達率から、大口の買い意欲と市場の構造を追う。",
+    "scores": {
+      "novelty": 15,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 85,
+    "reason": "市場の注目度が高いNVDAを主役に据え、豊富な建玉データからオンチェーンと株式市場のつながりを検証できるため。"
+  },
+  {
+    "fact_ids": [
+      "f17"
+    ],
+    "topic_key": "hl:xyz:SP500:hip3_top",
+    "angle": "S&P500のHIP-3先物における出来高とプラスの資金調達率から、伝統金融とデリバティブ間の歪みを浮き彫りにする。",
+    "scores": {
+      "novelty": 14,
+      "interest": 17,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 81,
+    "reason": "主要指数であるSP500先物のデータを基に、市場全体の需給バランスとコストの偏りを論理的に整理できるため。"
+  }
+]

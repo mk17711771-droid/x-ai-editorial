@@ -1,0 +1,117 @@
+{
+  "id": "20261123-0730-1",
+  "slot_key": "20261123-0730",
+  "slot_theme": "07:42 朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い。※米国株は前営業日の終値しかないため、24時間動いているHIP-3の株式先物（大きな名前の銘柄）の今の数字を主役にする",
+  "status": "posted",
+  "created_at": "2026-11-22T23:11:16.331700+00:00",
+  "text": "ナスダック100連動のHIP-3先物で、なぜここまで高い資金調達率が維持されているのか\n\n【いま起きてること】\n週明けのHyperliquidの株式先物市場において、主要な指数系先物が小幅な値動きを見せる中で、デリバティブ側のコスト負担に強い偏りが生じている。\n\n【数字で見る】（日本時間11/23(月) 08:07時点）\n・$XYZ100 価格$25,516、24時間騰落率-0.11%、建玉約4.0億ドル、24時間出来高約2.0億ドル、資金調達率年率+28.3%\n\n【なぜ「歪み」なのか】\n現物市場が小幅な値動きで膠着する一方で、先物側では年率+28.3%という高水準な資金調達率が記録されており、ロング側が重たいコストを支払いながらポジションを維持している。約4.0億ドル規模に達する建玉が積み上がる中で、このデリバティブ側の一方的なコスト負担は、わずかな相場の傾きで強制決済を誘発する引き金になりかねないと見ている。\n\n【次に見るポイント】\n①年率+28.3%まで跳ね上がった資金調達率の持続性\n②約4.0億ドル規模の建玉における増減の傾向\n③週初めの市場オープンに伴う出来高と流動性の変化\n\nこの続きも数字で追っていく。",
+  "template": "ナスダック100連動のHIP-3先物で、なぜここまで高い資金調達率が維持されているのか\n\n【いま起きてること】\n週明けのHyperliquidの株式先物市場において、主要な指数系先物が小幅な値動きを見せる中で、デリバティブ側のコスト負担に強い偏りが生じている。\n\n【数字で見る】（{{f4.asof}}）\n・${{f4.symbol}} 価格{{f4.price}}、24時間騰落率{{f4.change_pct}}、建玉{{f4.oi}}、24時間出来高{{f4.volume}}、資金調達率年率{{f4.funding_annual}}\n\n【なぜ「歪み」なのか】\n現物市場が小幅な値動きで膠着する一方で、先物側では年率{{f4.funding_annual}}という高水準な資金調達率が記録されており、ロング側が重たいコストを支払いながらポジションを維持している。{{f4.oi}}規模に達する建玉が積み上がる中で、このデリバティブ側の一方的なコスト負担は、わずかな相場の傾きで強制決済を誘発する引き金になりかねないと見ている。\n\n【次に見るポイント】\n①年率{{f4.funding_annual}}まで跳ね上がった資金調達率の持続性\n②{{f4.oi}}規模の建玉における増減の傾向\n③週初めの市場オープンに伴う出来高と流動性の変化\n\nこの続きも数字で追っていく。",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:XYZ100:volume_top",
+  "angle": "ナスダック100連動のHIP-3先物における高水準な資金調達率と、現物市場とのコストギャップに焦点を当てる。",
+  "scores": {
+    "novelty": 15,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 85,
+  "fact_ids": [
+    "f4",
+    "f15"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:XYZ100:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-0.11%, 価格25516.0, 建玉395203413USD, 24時間出来高201787084USD, 資金調達率(年率)+28.3%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$25,516",
+        "change_pct": "-0.11%",
+        "oi": "約4.0億ドル",
+        "volume": "約2.0億ドル",
+        "funding_annual": "+28.3%",
+        "asof": "日本時間11/23(月) 08:07時点",
+        "asof_short": "08:07時点"
+      },
+      "raw": {
+        "mark": 25516.0,
+        "change_pct": -0.11,
+        "oi_usd": 395203413,
+        "vol_usd": 201787084,
+        "funding_annual_pct": 28.31
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-22T23:07:33.360023+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "hl:xyz:XYZ100:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-0.11%, 価格25516.0, 建玉395203413USD, 24時間出来高201787084USD, 資金調達率(年率)+28.3%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$25,516",
+        "change_pct": "-0.11%",
+        "oi": "約4.0億ドル",
+        "volume": "約2.0億ドル",
+        "funding_annual": "+28.3%",
+        "asof": "日本時間11/23(月) 08:07時点",
+        "asof_short": "08:07時点"
+      },
+      "raw": {
+        "mark": 25516.0,
+        "change_pct": -0.11,
+        "oi_usd": 395203413,
+        "vol_usd": 201787084,
+        "funding_annual_pct": 28.31
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-22T23:07:33.360450+00:00",
+      "confidence": "confirmed",
+      "id": "f15"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2124641920173674931",
+  "posted_at": "2026-11-22T23:11:22.587121+00:00"
+}
