@@ -1,58 +1,56 @@
 [
   {
     "fact_ids": [
-      "f7",
-      "f17",
       "f4",
-      "f10"
+      "f7",
+      "f11"
     ],
-    "topic_key": "hl:xyz:SKHX:funding_extreme",
-    "angle": "半導体セクターにおけるSKハイニックスの極端なマイナス金利とNVDAの建玉急増の対比から、市場の過熱感と需給の歪みを構造解説する。",
+    "topic_key": "hl:xyz:NVDA:hip3_top",
+    "angle": "半導体株の急落局面におけるNVDAとSKHXのHIP-3先物でのショート過熱と資金調達率の歪みを検証する",
     "scores": {
       "novelty": 18,
       "interest": 19,
-      "evidence": 20,
+      "evidence": 19,
       "utility": 18,
       "insight": 19
     },
-    "total": 94,
-    "reason": "半導体の主要銘柄における資金調達率の異常値と建玉の変化を組み合わせ、市場全体の需給の歪みを論理的に解説しているため。"
+    "total": 93,
+    "reason": "半導体セクターの代表格であるNVDAとSKHXの先物市場でショートが極端に過熱している現状を具体的な数字で浮き彫りにしているため。"
   },
   {
     "fact_ids": [
       "f3",
-      "f5",
-      "f14",
-      "f16"
+      "f10",
+      "f15"
     ],
     "topic_key": "hl:xyz:XYZ100:volume_top",
-    "angle": "主要な株価指数先物における資金調達率のプラス推移と高い出来高の背景から、指数レベルでの資金の流れを読み解く。",
+    "angle": "ナスダック100のHIP-3先物における建玉の急増と価格の動きから、週明けの市場の方向性を探る",
     "scores": {
       "novelty": 17,
       "interest": 18,
-      "evidence": 20,
+      "evidence": 19,
       "utility": 18,
       "insight": 18
     },
-    "total": 91,
-    "reason": "XYZ100やSP500といった主要指数のHIP-3先物データを基に、市場全体の資金の方向性を明確に示しているため。"
+    "total": 90,
+    "reason": "SNDKの建玉急増とXYZ100の出来高を組み合わせ、指数先物の需給変化をロジカルに整理しているため。"
   },
   {
     "fact_ids": [
+      "f5",
       "f6",
-      "f18",
-      "f11"
+      "f17"
     ],
-    "topic_key": "hl:xyz:COST:funding_extreme",
-    "angle": "COSTの極端なマイナス金利とSOXL先物の活発な出来高を切り口に、個別株先物で起きているショート過熱の実態に迫る。",
+    "topic_key": "hl:xyz:SP500:hip3_top",
+    "angle": "S&P500先物とCOSTで見られる異様なマイナス金利の構造を紐解く",
     "scores": {
-      "novelty": 18,
+      "novelty": 17,
       "interest": 17,
-      "evidence": 19,
-      "utility": 17,
+      "evidence": 18,
+      "utility": 18,
       "insight": 18
     },
-    "total": 89,
-    "reason": "COSTの突出した資金調達率の歪みとSOXLの動向を交え、レバレッジ市場でのポジションの偏りを浮き彫りにしているため。"
+    "total": 88,
+    "reason": "S&P500の安定した出来高に対し、特定の銘柄で発生している極端なショート過熱の歪みを対比させているため。"
   }
 ]

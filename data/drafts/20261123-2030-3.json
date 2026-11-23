@@ -1,0 +1,162 @@
+{
+  "id": "20261123-2030-3",
+  "slot_key": "20261123-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点。※米国株は前営業日の終値しかないため、24時間動いているHIP-3の株式先物（大きな名前の銘柄）の今の数字を主役にする",
+  "status": "posted",
+  "created_at": "2026-11-23T12:12:43.633362+00:00",
+  "text": "半導体株が大きく揺らぐ中で、なぜNVDAとSKHXの先物市場でこれほど対照的なコストの歪みが起きているのか\n\n【いま起きてること】\n半導体セクター全体の先物市場において、主要な銘柄の間でデリバティブ側の資金負担に極端な温度差が生じており、ポジションの偏りが顕在化している。\n\n【数字で見る】（日本時間11/23(月) 21:10時点）\n・$NVDA 価格$135.20、24時間騰落率+1.65%、建玉約5.2億ドル、24時間出来高約3.7億ドル、資金調達率年率+14.5%\n・SKHX 価格$808.22、24時間騰落率+2.87%、建玉約2.8億ドル、24時間出来高約2.8億ドル、資金調達率年率-277.8%\n・NVDA 価格$135.38、24時間騰落率+1.71%、建玉約947万ドル、24時間出来高約1,312万ドル、資金調達率年率+49.9%、建玉24時間変化+41.3%\n\n【なぜ「歪み」なのか】\nNVDAの先物がプラス圏の資金調達率を維持しつつ建玉を急増させている一方で、SKHXでは年率-277.8%という異例のショート過熱が発生している。価格がプラスで推移しながらショート側が巨額のコストを支払い続けているこの状態は、下落を狙った投機的な売りが一方的に踏み上げられるリスクを孕んでいると見ている。セクター全体の不確実性が高まる中で、こうしたデリバティブ側の極端なコストの偏りは、わずかな価格変動で強制決済の連鎖を呼び込む引き金になりかねない。\n\n【次に見るポイント】\n①年率-277.8%まで沈み込んだSKHXの資金調達率の推移\n②建玉が急増しているNVDAにおける出来高と流動性の変化\n③半導体関連先物全体におけるショート側のポジションの動向\n\nこの推移も引き続き数字で追っていく。",
+  "template": "半導体株が大きく揺らぐ中で、なぜNVDAとSKHXの先物市場でこれほど対照的なコストの歪みが起きているのか\n\n【いま起きてること】\n半導体セクター全体の先物市場において、主要な銘柄の間でデリバティブ側の資金負担に極端な温度差が生じており、ポジションの偏りが顕在化している。\n\n【数字で見る】（{{f4.asof}}）\n・${{f4.symbol}} 価格{{f4.price}}、24時間騰落率{{f4.change_pct}}、建玉{{f4.oi}}、24時間出来高{{f4.volume}}、資金調達率年率{{f4.funding_annual}}\n・${{f7.symbol}} 価格{{f7.price}}、24時間騰落率{{f7.change_pct}}、建玉{{f7.oi}}、24時間出来高{{f7.volume}}、資金調達率年率{{f7.funding_annual}}\n・${{f11.symbol}} 価格{{f11.price}}、24時間騰落率{{f11.change_pct}}、建玉{{f11.oi}}、24時間出来高{{f11.volume}}、資金調達率年率{{f11.funding_annual}}、建玉24時間変化{{f11.oi_change_pct}}\n\n【なぜ「歪み」なのか】\nNVDAの先物がプラス圏の資金調達率を維持しつつ建玉を急増させている一方で、SKHXでは年率{{f7.funding_annual}}という異例のショート過熱が発生している。価格がプラスで推移しながらショート側が巨額のコストを支払い続けているこの状態は、下落を狙った投機的な売りが一方的に踏み上げられるリスクを孕んでいると見ている。セクター全体の不確実性が高まる中で、こうしたデリバティブ側の極端なコストの偏りは、わずかな価格変動で強制決済の連鎖を呼び込む引き金になりかねない。\n\n【次に見るポイント】\n①年率{{f7.funding_annual}}まで沈み込んだSKHXの資金調達率の推移\n②建玉が急増しているNVDAにおける出来高と流動性の変化\n③半導体関連先物全体におけるショート側のポジションの動向\n\nこの推移も引き続き数字で追っていく。",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:NVDA:hip3_top",
+  "angle": "半導体株の急落局面におけるNVDAとSKHXのHIP-3先物でのショート過熱と資金調達率の歪みを検証する",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 93,
+  "fact_ids": [
+    "f4",
+    "f7",
+    "f11"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:NVDA:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率+1.65%, 価格135.2, 建玉524613460USD, 24時間出来高368130458USD, 資金調達率(年率)+14.5%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$135.20",
+        "change_pct": "+1.65%",
+        "oi": "約5.2億ドル",
+        "volume": "約3.7億ドル",
+        "funding_annual": "+14.5%",
+        "asof": "日本時間11/23(月) 21:10時点",
+        "asof_short": "21:10時点"
+      },
+      "raw": {
+        "mark": 135.2,
+        "change_pct": 1.654,
+        "oi_usd": 524613460,
+        "vol_usd": 368130458,
+        "funding_annual_pct": 14.51
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-23T12:10:43.230886+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "hl:xyz:SKHX:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: SKHX（HIP-3株式等先物） 24時間騰落率+2.87%, 価格808.22, 建玉279384701USD, 24時間出来高281976506USD, 資金調達率(年率)-277.8%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$808.22",
+        "change_pct": "+2.87%",
+        "oi": "約2.8億ドル",
+        "volume": "約2.8億ドル",
+        "funding_annual": "-277.8%",
+        "asof": "日本時間11/23(月) 21:10時点",
+        "asof_short": "21:10時点"
+      },
+      "raw": {
+        "mark": 808.22,
+        "change_pct": 2.866,
+        "oi_usd": 279384701,
+        "vol_usd": 281976506,
+        "funding_annual_pct": -277.79
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-23T12:10:43.230974+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    },
+    {
+      "key": "hl:io:NVDA:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+41.3%: NVDA（HIP-3株式等先物） 24時間騰落率+1.71%, 価格135.38, 建玉9470733USD, 24時間出来高13124558USD, 資金調達率(年率)+49.9%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$135.38",
+        "change_pct": "+1.71%",
+        "oi": "約947万ドル",
+        "volume": "約1,312万ドル",
+        "funding_annual": "+49.9%",
+        "asof": "日本時間11/23(月) 21:10時点",
+        "asof_short": "21:10時点",
+        "oi_change_pct": "+41.3%"
+      },
+      "raw": {
+        "mark": 135.38,
+        "change_pct": 1.705,
+        "oi_usd": 9470733,
+        "vol_usd": 13124558,
+        "funding_annual_pct": 49.92,
+        "oi_change_pct": 41.32
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "io:NVDA",
+        "dex": "io"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/io:NVDA"
+      },
+      "asof": "2026-11-23T12:10:43.231084+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/io:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2124838566748418223",
+  "posted_at": "2026-11-23T12:12:46.806606+00:00"
+}
