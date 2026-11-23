@@ -1,16 +1,36 @@
 {
-  "at": "2026-11-23T12:56:07.903322+00:00",
-  "at_jst": "11/23 21:55",
+  "at": "2026-11-23T14:38:07.946260+00:00",
+  "at_jst": "11/23 23:37",
   "ok": false,
   "issues": [
     {
       "type": "line_quota",
-      "used": 166,
+      "used": 168,
       "limit": 200
     },
     {
+      "type": "error",
+      "command": "generate",
+      "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+      "at": "2026-11-23T14:37:02.083506+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-23T14:26:20Z",
+      "id": 45194202748
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-23T14:15:20Z",
+      "id": 45192213475
+    },
+    {
       "type": "many_rejections",
-      "n": 36,
+      "n": 29,
       "reasons": [
         "1行目に数字がない（大きな名前＋一番強い数字1つで言い切る）",
         "「この続きも数字で追っていく」は最近も使った言い回し。別の言葉で書く",
