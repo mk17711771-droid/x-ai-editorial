@@ -1,12 +1,16 @@
 {
-  "at": "2026-11-23T19:46:34.514508+00:00",
-  "at_jst": "11/24 04:46",
+  "at": "2026-11-23T20:48:37.364522+00:00",
+  "at_jst": "11/24 05:48",
   "ok": false,
   "issues": [
     {
       "type": "line_quota",
       "used": 170,
       "limit": 200
+    },
+    {
+      "type": "x_budget",
+      "reads": 233
     },
     {
       "type": "error",
@@ -27,20 +31,6 @@
       "event": "repository_dispatch",
       "at": "2026-11-23T14:56:56Z",
       "id": 45199699807
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-23T14:26:20Z",
-      "id": 45194202748
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-23T14:15:20Z",
-      "id": 45192213475
     },
     {
       "type": "many_rejections",
