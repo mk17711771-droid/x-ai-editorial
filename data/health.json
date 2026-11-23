@@ -1,8 +1,15 @@
 {
-  "at": "2026-11-23T14:46:41.483831+00:00",
-  "at_jst": "11/23 23:46",
+  "at": "2026-11-23T14:57:02.449881+00:00",
+  "at_jst": "11/23 23:56",
   "ok": false,
   "issues": [
+    {
+      "type": "missed_slot",
+      "slot": "2300",
+      "key": "20261123-2300",
+      "generated": false,
+      "within_grace": true
+    },
     {
       "type": "line_quota",
       "used": 168,
@@ -43,5 +50,7 @@
       ]
     }
   ],
-  "actions": []
+  "actions": [
+    "枠2300の投稿を再起動"
+  ]
 }
