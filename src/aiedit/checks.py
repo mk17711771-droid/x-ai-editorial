@@ -363,6 +363,21 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     used_hl = any((facts.get(fid) or {}).get("kind") == "hl" for fid, _ in PLACEHOLDER.findall(template))
     if used_hl and re.search(r"現物(?:の|が)?(?:取り扱い|取扱|上場|追加|銘柄|ラインナップ)", template):
         errors.append("Hyperliquidの市場は無期限先物。上場・追加を「現物」と書かない")
+    # 同じ銘柄の別の市場（xyz:NVDA と別の運営者の NVDA など）を、説明なしで2行に並べない
+    # （11/23 20:40「NVDA $136.04 建玉5.3億ドル」「NVDA $136.13 建玉949万ドル」が並び、小さい市場の建玉+41.7%をNVDA全体のように書いた）
+    seen_coin: dict[str, str] = {}
+    for ln in template.split("\n"):
+        if not ln.strip().startswith(("・", "-")):
+            continue
+        for fid, _ in PLACEHOLDER.findall(ln):
+            coin = str(((facts.get(fid) or {}).get("fields") or {}).get("coin") or "")
+            if ":" not in coin and not coin:
+                continue
+            sym = coin.split(":")[-1].upper()
+            if sym in seen_coin and seen_coin[sym] != coin:
+                errors.append(f"{sym}の別々の市場（{seen_coin[sym]} と {coin}）を並べている。主な市場の1つだけにする")
+                break
+            seen_coin.setdefault(sym, coin)
     # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
     for ln in template.split("\n"):
         if not ln.strip().startswith(("・", "-")):
