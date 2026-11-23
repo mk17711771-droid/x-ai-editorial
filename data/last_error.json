@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-17T02:37:13.674726+00:00",
-  "command": "health",
-  "error": "UnboundLocalError: cannot access local variable 'health' where it is not associated with a value",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/cli.py\", line 132, in main\n    print(json.dumps(health.run(), ensure_ascii=False, indent=2))\n                     ^^^^^^\nUnboundLocalError: cannot access local variable 'health' where it is not associated with a value\n"
+  "at": "2026-11-23T14:26:17.226153+00:00",
+  "command": "generate",
+  "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/cli.py\", line 71, in main\n    drafts = pipeline.generate(args.slot, args.force)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/pipeline.py\", line 490, in generate\n    all_cands = run_editor(slot, facts)\n                ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/pipeline.py\", line 252, in run_editor\n    out = llm.generate_json(with_playbook(llm.prompt(\"editor\")), user)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/x-ai-editorial/x-ai-editorial/src/aiedit/llm.py\", line 78, in generate_json\n    raise RuntimeError(f\"Gemini APIの呼び出しに失敗しました: {last_err}\")\nRuntimeError: Gemini APIの呼び出しに失敗しました: 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n\n"
 }
