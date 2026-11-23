@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f4",
+      "f37"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "NVDAの前日比+31.48%の大幅急騰に対し、HIP-3先物市場での建玉と金利（資金調達率+5.5%）がどのように推移しているか、現物とデリバティブの乖離を構造解説する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 96,
+    "reason": "市場の注目を集める大型株の記録的な急騰と、それに対するHyperliquid上のオンチェーンデータを組み合わせた実践的な考察。"
+  },
+  {
+    "fact_ids": [
+      "f9",
+      "f3"
+    ],
+    "topic_key": "stock:SOXX:big_move",
+    "angle": "半導体セクター全体が+13.63%と急伸する中で、MUが+19.04%とそれを上回る異変を見せた背景と、セクター全体の需給構造を読み解く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "半導体株の歴史的な急騰局面における個別銘柄の強弱の差を、具体的数値を交えてロジカルに整理しているため。"
+  },
+  {
+    "fact_ids": [
+      "f38",
+      "f2"
+    ],
+    "topic_key": "stock:QQQ:big_move",
+    "angle": "ナスダック100の+7.00%の大幅上昇に対し、HIP-3のXYZ100先物が示す建玉規模と金利の歪みから、指数先物市場のポジションの偏りを検証する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "主要株価指数とオンチェーン先物のデータを直結させ、市場のトレンドとポジションの偏りを俯瞰できる構成。"
+  }
+]
