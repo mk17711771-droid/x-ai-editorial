@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-23T20:49:38.337923+00:00",
-  "at_jst": "11/24 05:49",
+  "at": "2026-11-23T21:50:49.255098+00:00",
+  "at_jst": "11/24 06:50",
   "ok": false,
   "issues": [
     {
@@ -11,26 +11,6 @@
     {
       "type": "x_budget",
       "reads": 233
-    },
-    {
-      "type": "error",
-      "command": "generate",
-      "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
-      "at": "2026-11-23T15:20:05.799923+00:00"
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-23T15:10:29Z",
-      "id": 45202228553
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-23T14:56:56Z",
-      "id": 45199699807
     },
     {
       "type": "many_rejections",
