@@ -1,0 +1,74 @@
+{
+  "id": "20261123-1215-1",
+  "slot_key": "20261123-1215",
+  "slot_theme": "12:26 市場の異変の解説。※米国株は前営業日の終値しかないため、24時間動いているHIP-3の株式先物（大きな名前の銘柄）の今の数字を主役にする",
+  "status": "posted",
+  "created_at": "2026-11-23T03:14:19.419741+00:00",
+  "text": "SP500の資金調達率が年率+22.6%まで跳ね上がっている。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/23(月) 12:13時点、価格は+1.02%の$7,073、建玉は約4.6億ドル。デリバティブ側でロングが一方的にコストを払い続けてる状態は少し引っかかるかも。",
+  "template": "{{f5.coin}}の資金調達率が年率{{f5.funding_annual}}まで跳ね上がっている。\n\nHyperliquidの{{f5.market}}で{{f5.asof}}、価格は{{f5.change_pct}}の{{f5.price}}、建玉は{{f5.oi}}。デリバティブ側でロングが一方的にコストを払い続けてる状態は少し引っかかるかも。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:SP500:hip3_top",
+  "angle": "S&P500のHIP-3先物における資金調達率の急上昇に注目し、株式市場とデリバティブ間のコストの歪みを解説する",
+  "scores": {
+    "novelty": 16,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f5"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SP500:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: SP500（HIP-3株式等先物） 24時間騰落率+1.02%, 価格7073.0, 建玉463882436USD, 24時間出来高264761976USD, 資金調達率(年率)+22.6%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,073",
+        "change_pct": "+1.02%",
+        "oi": "約4.6億ドル",
+        "volume": "約2.6億ドル",
+        "funding_annual": "+22.6%",
+        "asof": "日本時間11/23(月) 12:13時点",
+        "asof_short": "12:13時点"
+      },
+      "raw": {
+        "mark": 7073.0,
+        "change_pct": 1.021,
+        "oi_usd": 463882436,
+        "vol_usd": 264761976,
+        "funding_annual_pct": 22.64
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-23T03:13:52.134027+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2124703100883673576",
+  "posted_at": "2026-11-23T03:14:29.269318+00:00"
+}

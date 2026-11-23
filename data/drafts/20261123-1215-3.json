@@ -1,0 +1,73 @@
+{
+  "id": "20261123-1215-3",
+  "slot_key": "20261123-1215",
+  "slot_theme": "12:26 市場の異変の解説。※米国株は前営業日の終値しかないため、24時間動いているHIP-3の株式先物（大きな名前の銘柄）の今の数字を主役にする",
+  "status": "superseded",
+  "created_at": "2026-11-23T03:14:27.042757+00:00",
+  "text": "$EWYの先物で、24時間の建玉が+25.9%と一気に急増している。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/23(月) 12:13時点、価格は+0.19%の$126.12、建玉は約1,124万ドル、出来高は約3,417万ドル。",
+  "template": "${{f13.symbol}}の先物で、24時間の建玉が{{f13.oi_change_pct}}と一気に急増している。\n\nHyperliquidの{{f13.market}}で{{f13.asof}}、価格は{{f13.change_pct}}の{{f13.price}}、建玉は{{f13.oi}}、出来高は{{f13.volume}}。\n\n資金調達率が年率{{f13.funding_annual}}に留まりながらこれだけの資金が流れ込んでいる背景は、週初めの動きとして追っておきたいポイントかも。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:EWY:oi_change",
+  "angle": "韓国株式関連のHIP-3先物における建玉の急増と資金流入の背景にある実態を追う",
+  "scores": {
+    "novelty": 16,
+    "interest": 16,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 83,
+  "fact_ids": [
+    "f13"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:EWY:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+25.9%: EWY（HIP-3株式等先物） 24時間騰落率+0.19%, 価格126.12, 建玉11241448USD, 24時間出来高34173326USD, 資金調達率(年率)+7.2%",
+      "fields": {
+        "coin": "EWY",
+        "symbol": "EWY",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$126.12",
+        "change_pct": "+0.19%",
+        "oi": "約1,124万ドル",
+        "volume": "約3,417万ドル",
+        "funding_annual": "+7.2%",
+        "asof": "日本時間11/23(月) 12:13時点",
+        "asof_short": "12:13時点",
+        "oi_change_pct": "+25.9%"
+      },
+      "raw": {
+        "mark": 126.12,
+        "change_pct": 0.191,
+        "oi_usd": 11241448,
+        "vol_usd": 34173326,
+        "funding_annual_pct": 7.22,
+        "oi_change_pct": 25.88
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:EWY",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:EWY"
+      },
+      "asof": "2026-11-23T03:13:52.134253+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:EWY"
+    }
+  ],
+  "needs_human": false
+}

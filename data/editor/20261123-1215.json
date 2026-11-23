@@ -1,0 +1,70 @@
+[
+  {
+    "fact_ids": [
+      "f19",
+      "f10"
+    ],
+    "topic_key": "hl:xyz:NVDA:hip3_top",
+    "angle": "半導体株が急落する中で、NVDAのHIP-3先物にどのような資金の偏りと歪みが生じているかを示す",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 94,
+    "reason": "主要な半導体銘柄であるNVDAのHIP-3先物における極端な資金調達率と建玉規模のデータを組み合わせ、市場の歪みを的確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f21",
+      "f11"
+    ],
+    "topic_key": "hl:xyz:SOXL:hip3_top",
+    "angle": "半導体レバレッジETFのHIP-3先物におけるロング過熱と金利の歪みに焦点を当てる",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "市場で注目度の高いSOXLを取り上げ、デリバティブ市場での具体的なコストと需給の偏りを明確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f17"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "指数先物における出来高と資金調達率の推移から、市場全体のポジションの傾きを検証する",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "主要な指数であるXYZ100のリアルタイムの出来高と資金調達率のデータを基に、市場全体の構造を冷静に解説しているため。"
+  },
+  {
+    "fact_ids": [
+      "f23",
+      "f28"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "安定上位トレーダーの圧倒的な売りバイアスと利確の動きから、大口のスタンスの偏りを読み解く",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "看板企画である上位トレーダーの集計データを用いて、実際のポジションの偏りと利確の動向を具体的に示しているため。"
+  }
+]
