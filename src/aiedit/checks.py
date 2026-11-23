@@ -592,6 +592,15 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
         ny = _now().astimezone(ZoneInfo("America/New_York"))
         if ny.weekday() < 5 and (ny.hour, ny.minute) >= (9, 30) and ny.hour < 16:
             errors.append("米国市場はすでに開いている（取引時間中）のに「オープン前」と書いている")
+    # 1行目が資金調達率の投稿は1日2件まで（11/23 朝から3本続けて「資金調達率が年率◯%」で始まった。単調になりフォロワーが減った疑い）
+    first_line = text.strip().split("\n")[0]
+    if "資金調達率" in first_line and not str(topic_key).startswith("news:"):
+        from .common import now_jst as _nj
+        today = _nj().strftime("%Y-%m-%d")
+        same = [p for p in store.recent_posts(24) if str(p.get("posted_at_jst", "")).startswith(today)
+                and "資金調達率" in str(p.get("text", "")).strip().split("\n")[0]]
+        if len(same) >= 2:
+            errors.append("今日はもう2件、1行目が資金調達率の投稿を出している。1行目は値動き・建玉の変化・出来高・上位トレーダーの集計など別の数字にする")
     kd = KANJI_DUP.search(text)
     if kd:
         errors.append(f"同じ語「{kd.group(1)}」がすぐ繰り返されている（「{kd.group(0)}」）")

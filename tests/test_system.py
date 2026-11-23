@@ -1872,3 +1872,18 @@ def test_week_change_once_per_week(monkeypatch):
     monkeypatch.setattr(store, "recent_posts", lambda h: [p for p in posts if now_utc() - __import__("datetime").datetime.fromisoformat(p["posted_at"]) < timedelta(hours=h)])
     assert checks.topic_cooldown_hours("hl:xyz:SP500:week_change") == 120
     assert any("週1回" in e or "同じ話題" in e for e in checks.check_text("今週はS&P500が大きく下げた1週間だった。\n\n先物の資金調達率はプラスのまま残っている構図。", "hl:xyz:SP500:week_change"))
+
+
+def test_funding_first_line_max_two_per_day(monkeypatch):
+    """11/23: 朝から3本続けて1行目が「資金調達率が年率◯%」だった。1日2件まで。"""
+    from aiedit import checks, store, common
+    from datetime import datetime, timezone, timedelta
+    jst = timezone(timedelta(hours=9))
+    monkeypatch.setattr(common, "now_jst", lambda: datetime(2026, 11, 23, 12, 10, tzinfo=jst))
+    posts = [{"text": "$SOXLの資金調達率が年率+172.6%", "posted_at_jst": "2026-11-23 10:01", "topic_key": "a", "posted_at": "2026-11-23T01:01:00+00:00"},
+             {"text": "ナスダック100の資金調達率が高い", "posted_at_jst": "2026-11-23 08:11", "topic_key": "b", "posted_at": "2026-11-22T23:11:00+00:00"}]
+    monkeypatch.setattr(store, "recent_posts", lambda h: posts)
+    t = "S&P500先物の資金調達率が年率+22.6%まで上がっている。\n\n建玉は約4.6億ドルで、ロングのコストが続いている構図。"
+    assert any("資金調達率の投稿" in e for e in checks.check_text(t, "hl:SP500:x"))
+    t2 = "S&P500先物の建玉が約4.6億ドルまで積み上がっている。\n\n資金調達率もプラスのままで、ロングのコストが続いている構図。"
+    assert not any("資金調達率の投稿" in e for e in checks.check_text(t2, "hl:SP500:x"))

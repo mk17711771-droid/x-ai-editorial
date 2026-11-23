@@ -154,3 +154,4 @@
 - 11/21 9:15 note記事で「NVDAの米国11/20終値が-14.01%（米国11/20終値）」と時点が重なった（自動で付けた時点と、原稿の時点が重複）。→ 公開前のコピー用ページを手で直した。checks.render で同じ文の中の重複した時点を1つにする、テスト test_render_dedupes_close_asof。
 - 11/21 08:12 週末の朝の短文「上位トレーダーの売り比率が4%まで一気に傾いている」→ 削除（値は買い比率。同じ投稿で40人中24人が売り）。→ checks.LABELED に「売り比率/買い比率」と別の項目の取り違えを追加、テスト test_sell_ratio_label_not_long_ratio。
 - 11/22 10:24 週末の長文が前日（11/21 09:58）とほぼ同じ「ナスダック100とS&P500の1週間の振り返り」になった（話題の間隔24時間をわずかに超えていた）。削除はせず。→ 1週間の振り返り（:week_change）は銘柄が違っても120時間あける（settings の topic_cooldown_overrides・check_text）。テスト test_week_change_once_per_week。
+- 11/23 12:14 その日3本目の「1行目が資金調達率」の投稿が出た（11/23朝に experiments.md に「1日2件まで」と書いたが、指示だけでは守られなかった）。→ check_text で1行目が資金調達率の投稿を1日2件までに（速報は除く）。テスト test_funding_first_line_max_two_per_day。
