@@ -1,0 +1,71 @@
+{
+  "id": "20261123-1000-3",
+  "slot_key": "20261123-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-23T01:01:24.974830+00:00",
+  "text": "SKHYの先物、資金調達率が年率+462.5%まで急上昇している。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/23(月) 09:59時点、$112.22（+4.20%）を記録する中で、約7,362万ドルの建玉に対してロング側が圧倒的なコストを負担している構造が鮮明になっている。",
+  "template": "SKHYの先物、資金調達率が年率{{f9.funding_annual}}まで急上昇している。\n\nHyperliquidの{{f9.market}}で{{f9.asof}}、{{f9.price}}（{{f9.change_pct}}）を記録する中で、{{f9.oi}}の建玉に対してロング側が圧倒的なコストを負担している構造が鮮明になっている。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:SKHY:funding_extreme",
+  "angle": "半導体関連の個別銘柄先物におけるロングの過熱感とコストの偏りを伝える",
+  "scores": {
+    "novelty": 17,
+    "interest": 17,
+    "evidence": 19,
+    "utility": 16,
+    "insight": 17
+  },
+  "total": 86,
+  "fact_ids": [
+    "f9"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SKHY:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SKHY（HIP-3株式等先物） 24時間騰落率+4.20%, 価格112.22, 建玉73621076USD, 24時間出来高27622101USD, 資金調達率(年率)+462.5%",
+      "fields": {
+        "coin": "SKHY",
+        "symbol": "SKHY",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$112.22",
+        "change_pct": "+4.20%",
+        "oi": "約7,362万ドル",
+        "volume": "約2,762万ドル",
+        "funding_annual": "+462.5%",
+        "asof": "日本時間11/23(月) 09:59時点",
+        "asof_short": "09:59時点"
+      },
+      "raw": {
+        "mark": 112.22,
+        "change_pct": 4.197,
+        "oi_usd": 73621076,
+        "vol_usd": 27622101,
+        "funding_annual_pct": 462.46
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHY",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHY"
+      },
+      "asof": "2026-11-23T00:59:40.976020+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHY"
+    }
+  ],
+  "needs_human": false
+}
