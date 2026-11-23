@@ -195,6 +195,14 @@ def collect() -> list[dict]:
     markets = _verify_hip3_moves(fetch_markets())
     prev_oi = _snapshot_oi(markets)
     liquid = [m for m in markets if m["vol_usd"] >= cfg["min_day_volume_usd"]]
+    # 同じ銘柄の市場が複数の運営者にある（xyz:NVDA と別の運営者の NVDA など）。表示名が同じになるので、建玉が最大の1つだけを材料にする
+    # （11/23 20:40・21:12 NVDAが価格・建玉の違う2行で並び、小さい市場の建玉+41%をNVDA全体のように書いた）
+    best: dict[str, dict] = {}
+    for m in liquid:
+        k = display_name(m).upper()
+        if k not in best or m["oi_usd"] > best[k]["oi_usd"]:
+            best[k] = m
+    liquid = [m for m in liquid if best[display_name(m).upper()] is m]
     n = cfg["top_n"]
     facts: list[dict] = []
     seen: set[tuple[str, str]] = set()

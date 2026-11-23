@@ -370,14 +370,15 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         if not ln.strip().startswith(("・", "-")):
             continue
         for fid, _ in PLACEHOLDER.findall(ln):
-            coin = str(((facts.get(fid) or {}).get("fields") or {}).get("coin") or "")
-            if ":" not in coin and not coin:
+            f_ = (facts.get(fid) or {}).get("fields") or {}
+            coin = str(f_.get("coin") or f_.get("symbol") or "")
+            if not coin or (facts.get(fid) or {}).get("kind") != "hl":
                 continue
             sym = coin.split(":")[-1].upper()
-            if sym in seen_coin and seen_coin[sym] != coin:
-                errors.append(f"{sym}の別々の市場（{seen_coin[sym]} と {coin}）を並べている。主な市場の1つだけにする")
+            if sym in seen_coin and seen_coin[sym] != fid:
+                errors.append(f"{sym}の別々の市場（{seen_coin[sym]} と {fid}）を並べている。主な市場の1つだけにする")
                 break
-            seen_coin.setdefault(sym, coin)
+            seen_coin.setdefault(sym, fid)
     # 1つの箇条書きの行に、別々の銘柄の材料を混ぜない（11/6 21:29「・$SOXX 価格{{f5}}…高値{{f14}}」で高値・安値が別銘柄）
     for ln in template.split("\n"):
         if not ln.strip().startswith(("・", "-")):

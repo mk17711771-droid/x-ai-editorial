@@ -1892,8 +1892,8 @@ def test_funding_first_line_max_two_per_day(monkeypatch):
 def test_same_symbol_two_markets_rejected():
     """11/23 20:40: 「NVDA $136.04 建玉5.3億ドル」と「NVDA $136.13 建玉949万ドル」（別の運営者の市場）を説明なしで並べた。"""
     from aiedit import checks
-    facts = {"f1": {"kind": "hl", "fields": {"coin": "xyz:NVDA", "price": "$136.04"}},
-             "f2": {"kind": "hl", "fields": {"coin": "km:NVDA", "price": "$136.13"}},
+    facts = {"f1": {"kind": "hl", "fields": {"coin": "NVDA", "price": "$136.04"}},
+             "f2": {"kind": "hl", "fields": {"coin": "NVDA", "price": "$136.13"}},
              "f3": {"kind": "hl", "fields": {"coin": "xyz:SKHX", "price": "$813"}}}
     bad = "・$NVDA 価格{{f1.price}}\n・SKHX 価格{{f3.price}}\n・NVDA 価格{{f2.price}}"
     assert any("別々の市場" in e for e in checks.check_template(bad, facts))
