@@ -1,0 +1,163 @@
+{
+  "id": "20261123-2030-2",
+  "slot_key": "20261123-2030",
+  "slot_theme": "20:47 考察（長文）: 米国株・半導体とHIP-3株式先物から見える資金の流れと、今夜〜翌日の注目点。※米国株は前営業日の終値しかないため、24時間動いているHIP-3の株式先物（大きな名前の銘柄）の今の数字を主役にする",
+  "status": "superseded",
+  "created_at": "2026-11-23T11:40:18.828140+00:00",
+  "text": "個別株の先物でここまで急激に建玉が積み上がっているのはなぜか\n\n【いま起きてること】\nHyperliquidのHIP-3株式先物市場において、一部の個別株先物で建玉の急増とポジションの偏りが顕著になっており、デリバティブ側のコスト負担に警戒感が強まっている。\n\n【数字で見る】（日本時間11/23(月) 20:38時点）\n・$SNDK 価格$84.25、24時間騰落率+1.89%、建玉約4,639万ドル、出来高約6,360万ドル、資金調達率年率+16.8%、建玉24時間変化+70.3%\n・INTC 価格$54.25、24時間騰落率+0.55%、建玉約8,707万ドル、出来高約3,355万ドル、資金調達率年率+21.0%、建玉24時間変化+34.3%\n\n【なぜ「歪み」なのか】\n個別株先物において、建玉が急ピッチで増加しながらプラスの資金調達率が維持されている状態は、特定の銘柄に投機的なポジションが急速に集中している証左だと見ている。現物の値動きに対して先物側の建玉だけが急増しているこの急激な変化は、市場のちょっとした方向転換でポジションの強制決済を連鎖的に引き起こすリスクを孕んでいると警戒している。\n\n【次に見るポイント】\n①急激に積み上がった建玉のさらなる増減\n②プラス圏で推移する資金調達率の持続性\n③週初めの市場における個別株先物の流動性の変化\n\nここからの資金の動きもデータを追っていく。",
+  "template": "個別株の先物でここまで急激に建玉が積み上がっているのはなぜか\n\n【いま起きてること】\nHyperliquidのHIP-3株式先物市場において、一部の個別株先物で建玉の急増とポジションの偏りが顕著になっており、デリバティブ側のコスト負担に警戒感が強まっている。\n\n【数字で見る】（{{f9.asof}}）\n・${{f9.symbol}} 価格{{f9.price}}、24時間騰落率{{f9.change_pct}}、建玉{{f9.oi}}、出来高{{f9.volume}}、資金調達率年率{{f9.funding_annual}}、建玉24時間変化{{f9.oi_change_pct}}\n・${{f11.symbol}} 価格{{f11.price}}、24時間騰落率{{f11.change_pct}}、建玉{{f11.oi}}、出来高{{f11.volume}}、資金調達率年率{{f11.funding_annual}}、建玉24時間変化{{f11.oi_change_pct}}\n\n【なぜ「歪み」なのか】\n個別株先物において、建玉が急ピッチで増加しながらプラスの資金調達率が維持されている状態は、特定の銘柄に投機的なポジションが急速に集中している証左だと見ている。現物の値動きに対して先物側の建玉だけが急増しているこの急激な変化は、市場のちょっとした方向転換でポジションの強制決済を連鎖的に引き起こすリスクを孕んでいると警戒している。\n\n【次に見るポイント】\n①急激に積み上がった建玉のさらなる増減\n②プラス圏で推移する資金調達率の持続性\n③週初めの市場における個別株先物の流動性の変化\n\nここからの資金の動きもデータを追っていく。",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:xyz:INTC:oi_change",
+  "angle": "SNDKやINTCなどの個別株先物で見られる急激な建玉の増減に着目し、ポジションの偏りがもたらす次の値動きへの警戒感をデータで示す。",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f9",
+    "f11",
+    "f12"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SNDK:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+70.3%: SNDK（HIP-3株式等先物） 24時間騰落率+1.89%, 価格84.245, 建玉46389083USD, 24時間出来高63597154USD, 資金調達率(年率)+16.8%",
+      "fields": {
+        "coin": "SNDK",
+        "symbol": "SNDK",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$84.25",
+        "change_pct": "+1.89%",
+        "oi": "約4,639万ドル",
+        "volume": "約6,360万ドル",
+        "funding_annual": "+16.8%",
+        "asof": "日本時間11/23(月) 20:38時点",
+        "asof_short": "20:38時点",
+        "oi_change_pct": "+70.3%"
+      },
+      "raw": {
+        "mark": 84.245,
+        "change_pct": 1.894,
+        "oi_usd": 46389083,
+        "vol_usd": 63597154,
+        "funding_annual_pct": 16.75,
+        "oi_change_pct": 70.26
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNDK",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+      },
+      "asof": "2026-11-23T11:38:28.690478+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    },
+    {
+      "key": "hl:xyz:INTC:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+34.3%: INTC（HIP-3株式等先物） 24時間騰落率+0.55%, 価格54.252, 建玉87073028USD, 24時間出来高33550973USD, 資金調達率(年率)+21.0%",
+      "fields": {
+        "coin": "INTC",
+        "symbol": "INTC",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$54.25",
+        "change_pct": "+0.55%",
+        "oi": "約8,707万ドル",
+        "volume": "約3,355万ドル",
+        "funding_annual": "+21.0%",
+        "asof": "日本時間11/23(月) 20:38時点",
+        "asof_short": "20:38時点",
+        "oi_change_pct": "+34.3%"
+      },
+      "raw": {
+        "mark": 54.252,
+        "change_pct": 0.549,
+        "oi_usd": 87073028,
+        "vol_usd": 33550973,
+        "funding_annual_pct": 21.01,
+        "oi_change_pct": 34.3
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:INTC",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+      },
+      "asof": "2026-11-23T11:38:28.690523+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "hl:xyz:SILVER:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化-21.4%: SILVER（HIP-3株式等先物） 24時間騰落率+2.29%, 価格42.539, 建玉135838409USD, 24時間出来高106397990USD, 資金調達率(年率)+11.6%",
+      "fields": {
+        "coin": "SILVER",
+        "symbol": "SILVER",
+        "venue": "Hyperliquid",
+        "market": "商品先物（HIP-3）",
+        "price": "$42.54",
+        "change_pct": "+2.29%",
+        "oi": "約1.4億ドル",
+        "volume": "約1.1億ドル",
+        "funding_annual": "+11.6%",
+        "asof": "日本時間11/23(月) 20:38時点",
+        "asof_short": "20:38時点",
+        "oi_change_pct": "-21.4%"
+      },
+      "raw": {
+        "mark": 42.539,
+        "change_pct": 2.287,
+        "oi_usd": 135838409,
+        "vol_usd": 106397990,
+        "funding_annual_pct": 11.55,
+        "oi_change_pct": -21.37
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SILVER",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SILVER"
+      },
+      "asof": "2026-11-23T11:38:28.690544+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SILVER"
+    }
+  ],
+  "needs_human": false
+}

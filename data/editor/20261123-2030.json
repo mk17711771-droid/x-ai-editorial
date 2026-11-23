@@ -1,0 +1,58 @@
+[
+  {
+    "fact_ids": [
+      "f7",
+      "f17",
+      "f4",
+      "f10"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体セクターにおけるSKハイニックスの極端なマイナス金利とNVDAの建玉急増の対比から、市場の過熱感と需給の歪みを構造解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "半導体の主要銘柄における資金調達率の異常値と建玉の変化を組み合わせ、市場全体の需給の歪みを論理的に解説しているため。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f5",
+      "f14",
+      "f16"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "主要な株価指数先物における資金調達率のプラス推移と高い出来高の背景から、指数レベルでの資金の流れを読み解く。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "XYZ100やSP500といった主要指数のHIP-3先物データを基に、市場全体の資金の方向性を明確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f18",
+      "f11"
+    ],
+    "topic_key": "hl:xyz:COST:funding_extreme",
+    "angle": "COSTの極端なマイナス金利とSOXL先物の活発な出来高を切り口に、個別株先物で起きているショート過熱の実態に迫る。",
+    "scores": {
+      "novelty": 18,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "COSTの突出した資金調達率の歪みとSOXLの動向を交え、レバレッジ市場でのポジションの偏りを浮き彫りにしているため。"
+  }
+]
