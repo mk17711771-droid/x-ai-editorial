@@ -1,0 +1,51 @@
+[
+  {
+    "fact_ids": [
+      "f1",
+      "f8"
+    ],
+    "topic_key": "news:south-korea-draft-crypto-laws-hyperliquid",
+    "angle": "韓国当局による仮想通貨規制強化の動きが報じられる中、SKハイニックスのHIP-3先物では資金調達率が年率-260.4%まで沈み込み、ショート側が過熱している",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "規制の動きという最新のニュースに対し、HIP-3市場での具体的なマイナス金利とショート過熱の数字を組み合わせて市場の歪みを鋭く指摘しているため。"
+  },
+  {
+    "fact_ids": [
+      "f7"
+    ],
+    "topic_key": "hl:xyz:COST:funding_extreme",
+    "angle": "コストコのHIP-3先物で資金調達率が年率-486.0%まで急低下し、極端なショート過熱の歪みが発生している",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 88,
+    "reason": "市場で見過ごされがちな個別銘柄の極端な資金調達率の異常値を具体的な数字で正確に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f11"
+    ],
+    "topic_key": "hl:xyz:SNDK:oi_change",
+    "angle": "サンディスクのHIP-3先物で建玉が24時間で+71.0%と急増し、ポジションの集中が進んでいる",
+    "scores": {
+      "novelty": 17,
+      "interest": 16,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 16
+    },
+    "total": 86,
+    "reason": "建玉の急変という明確な量の異変を数字で示し、市場参加者の関心を引き付けやすいため。"
+  }
+]
