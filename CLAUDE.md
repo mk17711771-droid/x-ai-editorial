@@ -79,6 +79,7 @@ X（@satoshikun_666「カリスマ」）と note（https://note.com/charisma_hl�
   - テスト `test_worker_ticks_match_cron`: Workerの起動条件がCronの刻みで実際に当たるか（10/30の「見張りが一度も動かない」不具合を防ぐ）
   - 見回り `health.worker_checks`: Workerの /watch-debug（各部分が動くか）と、速報の見張りが12時間以上起動していないかを2時間ごとに確認
   - 方針の文書（CLAUDE.md）を書き換えたら、反映されたかを grep で確かめる（置き換え失敗に気づかなかった反省）
+  - 点検で削除・出し直しを起動したら、完了したか（posts.jsonl の deleted・新しい投稿）を必ず確かめる。同じ concurrency（data-writer）で待っている実行は、後から来た実行に押し出されて「cancelled」になる（11/23 22:01 の削除が押し出されて3時間残った）
 - **全体を見る（管理者の指示: 一部のミスだけでなく、全体のミスを放置せず質を上げる）**: 見回りの `system_audit` が2時間ごとに
   学習・リサーチの更新（trends/playbook 30時間以内・learn・watch・同ジャンル調査）／反応の計測の遅れ／フォロワー記録／note記事（水土9時）／
   LINEの無料枠（70%で警告）／X APIの予算（90%で警告）を確かめる。点検では health.json の全項目を見て、止まっている部分をすべて直す。
