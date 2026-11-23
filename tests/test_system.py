@@ -1898,3 +1898,12 @@ def test_same_symbol_two_markets_rejected():
     bad = "・$NVDA 価格{{f1.price}}\n・SKHX 価格{{f3.price}}\n・NVDA 価格{{f2.price}}"
     assert any("別々の市場" in e for e in checks.check_template(bad, facts))
     assert not any("別々の市場" in e for e in checks.check_template("・$NVDA 価格{{f1.price}}\n・SKHX 価格{{f3.price}}", facts))
+
+
+def test_news_post_no_unfounded_causation():
+    """11/23 22:01: 「規制の警戒感からショート側が一気に過熱」（韓国の仮想通貨規制とSKハイニックス株の先物は無関係）。"""
+    from aiedit import checks
+    bad = "韓国の仮想通貨規制の動きが報じられる中、$SKHXの先物は年率-260.4%。\n\n規制の警戒感からショート側が一気に過熱しているのが気になるな。"
+    assert any("因果" in e for e in checks.check_text(bad, "news:south-korea-draft"))
+    ok = "韓国で仮想通貨の草案法制が今週公表の見通し。\n\n同じ時間、$BTCの先物の資金調達率は年率+5.2%と落ち着いている。"
+    assert not any("因果" in e for e in checks.check_text(ok, "news:south-korea-draft"))

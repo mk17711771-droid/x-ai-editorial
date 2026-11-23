@@ -617,6 +617,10 @@ def check_text(text: str, topic_key: str, fmt: str = "short") -> list[str]:
                 and "資金調達率" in str(p.get("text", "")).strip().split("\n")[0]]
         if len(same) >= 2:
             errors.append("今日はもう2件、1行目が資金調達率の投稿を出している。1行目は値動き・建玉の変化・出来高・上位トレーダーの集計など別の数字にする")
+    # 速報の出来事と市場の数字を、根拠なく因果で結ばない（11/23 22:01「韓国の仮想通貨規制の警戒感から $SKHX（SKハイニックス株の先物）のショートが過熱」）
+    if str(topic_key).startswith("news:") and re.search(
+            r"(警戒感|懸念|規制|発表|報道|ニュース|動き)[^。\n]{0,6}(から|を受けて|により|によって|のせいで|が原因で)[^。\n]{0,25}(過熱|急落|急騰|売られ|買われ|偏り|傾い|沈み|跳ね)", text):
+        errors.append("速報の出来事が市場の数字の原因だと書いている（根拠がない）。出来事と数字は並べるだけにし、因果は書かない")
     kd = KANJI_DUP.search(text)
     if kd:
         errors.append(f"同じ語「{kd.group(1)}」がすぐ繰り返されている（「{kd.group(0)}」）")
