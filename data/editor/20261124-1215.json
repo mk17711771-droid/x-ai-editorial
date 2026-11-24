@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f4",
+      "f37"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "NVDAの前日比+31.48%の大幅上昇と、それに連動して動くXYZ100の需給の歪みに焦点を当てる",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "エヌビディアの記録的な急騰と株式先物の需給を数字で結びつけた強力な切り口。"
+  },
+  {
+    "fact_ids": [
+      "f9",
+      "f38"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "マイクロン（MU）の前日比+19.04%の急騰とS&P500先物の連動性に着目する",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "半導体セクターの力強い上昇と広範な市場インデックスの動きを明確に対比させている。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f40"
+    ],
+    "topic_key": "stock:ARM:big_move",
+    "angle": "ARMの前日比+16.08%の急騰と個別株先物の出来高の膨らみを追う",
+    "scores": {
+      "novelty": 17,
+      "interest": 17,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "主要半導体銘柄の大きな値動きとオンチェーンのデリバティブ市場の反応を的確に捉えている。"
+  }
+]

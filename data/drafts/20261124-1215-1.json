@@ -1,0 +1,111 @@
+{
+  "id": "20261124-1215-1",
+  "slot_key": "20261124-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "stale",
+  "created_at": "2026-11-24T03:53:52.283977+00:00",
+  "text": "$ARMの前日比+16.08%（米国11/23終値）の急騰と、連動する個別株先物の出来高の膨らみがすごいことになってるな。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/24(火) 12:53時点、SNDKの価格は$86.91（+4.73%）、24時間出来高は約2.8億ドル規模に到達。",
+  "template": "${{f10.symbol}}の前日比{{f10.change_pct}}（{{f10.asof}}）の急騰と、連動する個別株先物の出来高の膨らみがすごいことになってるな。\n\nHyperliquidの{{f40.market}}で{{f40.asof}}、SNDKの価格は{{f40.price}}（{{f40.change_pct}}）、24時間出来高は{{f40.volume}}規模に到達。個別の値動きがデリバティブ側にどう波及しているか、この流れはしっかり追っておきたい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "stock:ARM:big_move",
+  "angle": "ARMの前日比+16.08%の急騰と個別株先物の出来高の膨らみを追う",
+  "scores": {
+    "novelty": 17,
+    "interest": 17,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f10",
+    "f40"
+  ],
+  "facts": [
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格176.67, 前日比+16.08%, 前日終値152.2, 高値183.58, 安値171.2001",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$176.67",
+        "change_pct": "+16.08%",
+        "prev_close": "$152.20",
+        "high": "$183.58",
+        "low": "$171.20",
+        "asof": "米国11/23終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 176.67,
+        "change_pct": 16.078,
+        "prev_close": 152.2
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-11-24T03:53:14.063014+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "hl:xyz:SNDK:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SNDK（HIP-3株式等先物） 24時間騰落率+4.73%, 価格86.906, 建玉30439163USD, 24時間出来高281899380USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SNDK",
+        "symbol": "SNDK",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$86.91",
+        "change_pct": "+4.73%",
+        "oi": "約3,044万ドル",
+        "volume": "約2.8億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/24(火) 12:53時点",
+        "asof_short": "12:53時点"
+      },
+      "raw": {
+        "mark": 86.906,
+        "change_pct": 4.733,
+        "oi_usd": 30439163,
+        "vol_usd": 281899380,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNDK",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+      },
+      "asof": "2026-11-24T03:53:24.723114+00:00",
+      "confidence": "confirmed",
+      "id": "f40"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+    }
+  ],
+  "needs_human": false,
+  "problems": [
+    "再確認のデータ取得に失敗: 429 Client Error: Too Many Requests for url: https://finnhub.io/api/v1/quote?symbol=ARM&token=dbfnbqpr01qiahua1b00dbfnbqpr01qiahua1b0g"
+  ]
+}
