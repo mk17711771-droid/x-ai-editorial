@@ -1,0 +1,157 @@
+{
+  "id": "20261124-1000-2",
+  "slot_key": "20261124-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-24T01:45:16.620536+00:00",
+  "text": "年率+896.5%はさすがにやりすぎ。\n\nHyperliquidのHIP-3先物で$MINIMAXの資金調達率がとんでもないことになってる。10:42時点で価格$13.84、建玉約171万ドル。ロングが一方的に重いコストを払わされる構造、どこかで崩れないか見ておきたい。",
+  "template": "年率{{f11.funding_annual}}はさすがにやりすぎ。\n\n{{f11.venue}}のHIP-3先物で${{f11.symbol}}の資金調達率がとんでもないことになってる。{{f11.asof_short}}で価格{{f11.price}}、建玉{{f11.oi}}。ロングが一方的に重いコストを払わされる構造、どこかで崩れないか見ておきたい。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:CXMT:funding_extreme",
+  "angle": "AI関連 HIP-3先物の異常な資金調達率に表れているロング過熱の歪みを指摘する",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 17
+  },
+  "total": 91,
+  "fact_ids": [
+    "f11",
+    "f12",
+    "f13"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:MINIMAX:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: MINIMAX（HIP-3株式等先物） 24時間騰落率+4.48%, 価格13.844, 建玉1709780USD, 24時間出来高5085009USD, 資金調達率(年率)+896.5%",
+      "fields": {
+        "coin": "MINIMAX",
+        "symbol": "MINIMAX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$13.84",
+        "change_pct": "+4.48%",
+        "oi": "約171万ドル",
+        "volume": "約509万ドル",
+        "funding_annual": "+896.5%",
+        "asof": "日本時間11/24(火) 10:42時点",
+        "asof_short": "10:42時点"
+      },
+      "raw": {
+        "mark": 13.844,
+        "change_pct": 4.483,
+        "oi_usd": 1709780,
+        "vol_usd": 5085009,
+        "funding_annual_pct": 896.54
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:MINIMAX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:MINIMAX"
+      },
+      "asof": "2026-11-24T01:42:51.684526+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "hl:xyz:ZHIPU:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: ZHIPU（HIP-3株式等先物） 24時間騰落率+0.85%, 価格45.094, 建玉14973409USD, 24時間出来高11948746USD, 資金調達率(年率)+541.9%",
+      "fields": {
+        "coin": "ZHIPU",
+        "symbol": "ZHIPU",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$45.09",
+        "change_pct": "+0.85%",
+        "oi": "約1,497万ドル",
+        "volume": "約1,195万ドル",
+        "funding_annual": "+541.9%",
+        "asof": "日本時間11/24(火) 10:42時点",
+        "asof_short": "10:42時点"
+      },
+      "raw": {
+        "mark": 45.094,
+        "change_pct": 0.85,
+        "oi_usd": 14973409,
+        "vol_usd": 11948746,
+        "funding_annual_pct": 541.91
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:ZHIPU",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:ZHIPU"
+      },
+      "asof": "2026-11-24T01:42:51.684540+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    },
+    {
+      "key": "hl:xyz:CXMT:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: CXMT（HIP-3株式等先物） 24時間騰落率+7.90%, 価格5.6051, 建玉18855896USD, 24時間出来高21266035USD, 資金調達率(年率)+273.3%",
+      "fields": {
+        "coin": "CXMT",
+        "symbol": "CXMT",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$5.61",
+        "change_pct": "+7.90%",
+        "oi": "約1,886万ドル",
+        "volume": "約2,127万ドル",
+        "funding_annual": "+273.3%",
+        "asof": "日本時間11/24(火) 10:42時点",
+        "asof_short": "10:42時点"
+      },
+      "raw": {
+        "mark": 5.6051,
+        "change_pct": 7.898,
+        "oi_usd": 18855896,
+        "vol_usd": 21266035,
+        "funding_annual_pct": 273.32
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:CXMT",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:CXMT"
+      },
+      "asof": "2026-11-24T01:42:51.684555+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:MINIMAX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:ZHIPU"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:CXMT"
+    }
+  ],
+  "needs_human": false
+}
