@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-24T20:56:31.284590+00:00",
-  "at_jst": "11/25 05:56",
+  "at": "2026-11-24T21:50:42.841352+00:00",
+  "at_jst": "11/25 06:50",
   "ok": false,
   "issues": [
     {
@@ -11,12 +11,6 @@
     {
       "type": "x_budget",
       "reads": 237
-    },
-    {
-      "type": "announced_not_posted",
-      "story": "hyperliquid-lists-soxs-perp",
-      "since": "2026-11-24T15:26:25.496342+00:00",
-      "retried": true
     },
     {
       "type": "error",
@@ -44,34 +38,6 @@
       "event": "repository_dispatch",
       "at": "2026-11-24T15:57:32Z",
       "id": 45431501034
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-24T15:38:41Z",
-      "id": 45427904742
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-24T15:26:30Z",
-      "id": 45425540998
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-24T15:09:53Z",
-      "id": 45422285966
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-24T14:57:16Z",
-      "id": 45419859308
     },
     {
       "type": "many_rejections",
