@@ -3,26 +3,26 @@
     "key": "hl:BTC:volume_top",
     "kind": "hl",
     "category": "volume_top",
-    "summary": "出来高上位: BTC（無期限先物） 24時間騰落率-4.97%, 価格60321.0, 建玉2213286274USD, 24時間出来高4433496436USD, 資金調達率(年率)-1.3%",
+    "summary": "出来高上位: BTC（無期限先物） 24時間騰落率-6.00%, 価格60382.7, 建玉2219202179USD, 24時間出来高4139429531USD, 資金調達率(年率)-1.2%",
     "fields": {
       "coin": "BTC",
       "symbol": "BTC",
       "venue": "Hyperliquid",
       "market": "無期限先物",
-      "price": "$60,321",
-      "change_pct": "-4.97%",
-      "oi": "約22.1億ドル",
-      "volume": "約44.3億ドル",
-      "funding_annual": "-1.3%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "price": "$60,383",
+      "change_pct": "-6.00%",
+      "oi": "約22.2億ドル",
+      "volume": "約41.4億ドル",
+      "funding_annual": "-1.2%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 60321.0,
-      "change_pct": -4.972,
-      "oi_usd": 2213286274,
-      "vol_usd": 4433496436,
-      "funding_annual_pct": -1.3
+      "mark": 60382.7,
+      "change_pct": -5.999,
+      "oi_usd": 2219202179,
+      "vol_usd": 4139429531,
+      "funding_annual_pct": -1.23
     },
     "refresh": {
       "type": "hl_coin",
@@ -33,7 +33,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/BTC"
     },
-    "asof": "2026-11-24T14:13:44.223932+00:00",
+    "asof": "2026-11-24T14:26:36.322385+00:00",
     "confidence": "confirmed",
     "id": "f1"
   },
@@ -41,26 +41,26 @@
     "key": "hl:ETH:volume_top",
     "kind": "hl",
     "category": "volume_top",
-    "summary": "出来高上位: ETH（無期限先物） 24時間騰落率-5.93%, 価格1696.8, 建玉1042704601USD, 24時間出来高1465802478USD, 資金調達率(年率)+2.1%",
+    "summary": "出来高上位: ETH（無期限先物） 24時間騰落率-7.40%, 価格1699.0, 建玉1040768632USD, 24時間出来高1378682638USD, 資金調達率(年率)+3.8%",
     "fields": {
       "coin": "ETH",
       "symbol": "ETH",
       "venue": "Hyperliquid",
       "market": "無期限先物",
-      "price": "$1,697",
-      "change_pct": "-5.93%",
+      "price": "$1,699",
+      "change_pct": "-7.40%",
       "oi": "約10.4億ドル",
-      "volume": "約14.7億ドル",
-      "funding_annual": "+2.1%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "volume": "約13.8億ドル",
+      "funding_annual": "+3.8%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 1696.8,
-      "change_pct": -5.932,
-      "oi_usd": 1042704601,
-      "vol_usd": 1465802478,
-      "funding_annual_pct": 2.05
+      "mark": 1699.0,
+      "change_pct": -7.401,
+      "oi_usd": 1040768632,
+      "vol_usd": 1378682638,
+      "funding_annual_pct": 3.85
     },
     "refresh": {
       "type": "hl_coin",
@@ -71,7 +71,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/ETH"
     },
-    "asof": "2026-11-24T14:13:44.224019+00:00",
+    "asof": "2026-11-24T14:26:36.322447+00:00",
     "confidence": "confirmed",
     "id": "f2"
   },
@@ -79,26 +79,26 @@
     "key": "hl:xyz:NVDA:volume_top",
     "kind": "hl",
     "category": "volume_top",
-    "summary": "出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-2.77%, 価格157.52, 建玉315540544USD, 24時間出来高1328639043USD, 資金調達率(年率)+18.6%",
+    "summary": "出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-5.57%, 価格157.7, 建玉317477869USD, 24時間出来高1234240268USD, 資金調達率(年率)+14.0%",
     "fields": {
       "coin": "NVDA",
       "symbol": "NVDA",
       "venue": "Hyperliquid",
       "market": "株式先物（HIP-3）",
-      "price": "$157.52",
-      "change_pct": "-2.77%",
+      "price": "$157.70",
+      "change_pct": "-5.57%",
       "oi": "約3.2億ドル",
-      "volume": "約13.3億ドル",
-      "funding_annual": "+18.6%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "volume": "約12.3億ドル",
+      "funding_annual": "+14.0%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 157.52,
-      "change_pct": -2.765,
-      "oi_usd": 315540544,
-      "vol_usd": 1328639043,
-      "funding_annual_pct": 18.57
+      "mark": 157.7,
+      "change_pct": -5.569,
+      "oi_usd": 317477869,
+      "vol_usd": 1234240268,
+      "funding_annual_pct": 13.98
     },
     "refresh": {
       "type": "hl_coin",
@@ -109,7 +109,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
     },
-    "asof": "2026-11-24T14:13:44.224041+00:00",
+    "asof": "2026-11-24T14:26:36.322483+00:00",
     "confidence": "confirmed",
     "id": "f3"
   },
@@ -117,25 +117,25 @@
     "key": "hl:xyz:XYZ100:volume_top",
     "kind": "hl",
     "category": "volume_top",
-    "summary": "出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-2.03%, 価格26246.0, 建玉293580355USD, 24時間出来高869895199USD, 資金調達率(年率)+5.5%",
+    "summary": "出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-2.55%, 価格26245.0, 建玉292114870USD, 24時間出来高819276302USD, 資金調達率(年率)+5.5%",
     "fields": {
       "coin": "XYZ100",
       "symbol": "XYZ100",
       "venue": "Hyperliquid",
       "market": "株式先物（HIP-3）",
-      "price": "$26,246",
-      "change_pct": "-2.03%",
+      "price": "$26,245",
+      "change_pct": "-2.55%",
       "oi": "約2.9億ドル",
-      "volume": "約8.7億ドル",
+      "volume": "約8.2億ドル",
       "funding_annual": "+5.5%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 26246.0,
-      "change_pct": -2.031,
-      "oi_usd": 293580355,
-      "vol_usd": 869895199,
+      "mark": 26245.0,
+      "change_pct": -2.554,
+      "oi_usd": 292114870,
+      "vol_usd": 819276302,
       "funding_annual_pct": 5.48
     },
     "refresh": {
@@ -147,7 +147,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
     },
-    "asof": "2026-11-24T14:13:44.224059+00:00",
+    "asof": "2026-11-24T14:26:36.322522+00:00",
     "confidence": "confirmed",
     "id": "f4"
   },
@@ -155,26 +155,26 @@
     "key": "hl:xyz:SKHX:volume_top",
     "kind": "hl",
     "category": "volume_top",
-    "summary": "出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率-3.60%, 価格835.53, 建玉326098908USD, 24時間出来高733801912USD, 資金調達率(年率)+140.8%",
+    "summary": "出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率-6.27%, 価格836.9, 建玉328236370USD, 24時間出来高697951373USD, 資金調達率(年率)+190.2%",
     "fields": {
       "coin": "SKHX",
       "symbol": "SKHX",
       "venue": "Hyperliquid",
       "market": "株式先物（HIP-3）",
-      "price": "$835.53",
-      "change_pct": "-3.60%",
+      "price": "$836.90",
+      "change_pct": "-6.27%",
       "oi": "約3.3億ドル",
-      "volume": "約7.3億ドル",
-      "funding_annual": "+140.8%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "volume": "約7.0億ドル",
+      "funding_annual": "+190.2%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 835.53,
-      "change_pct": -3.596,
-      "oi_usd": 326098908,
-      "vol_usd": 733801912,
-      "funding_annual_pct": 140.82
+      "mark": 836.9,
+      "change_pct": -6.269,
+      "oi_usd": 328236370,
+      "vol_usd": 697951373,
+      "funding_annual_pct": 190.2
     },
     "refresh": {
       "type": "hl_coin",
@@ -185,7 +185,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
     },
-    "asof": "2026-11-24T14:13:44.224076+00:00",
+    "asof": "2026-11-24T14:26:36.322579+00:00",
     "confidence": "confirmed",
     "id": "f5"
   },
@@ -193,25 +193,25 @@
     "key": "hl:ZRO:big_move",
     "kind": "hl",
     "category": "big_move",
-    "summary": "24時間の急変動: ZRO（無期限先物） 24時間騰落率-20.64%, 価格1.0152, 建玉29747869USD, 24時間出来高8794561USD, 資金調達率(年率)+11.0%",
+    "summary": "24時間の急変動: ZRO（無期限先物） 24時間騰落率-21.69%, 価格1.0172, 建玉29814894USD, 24時間出来高8259209USD, 資金調達率(年率)+11.0%",
     "fields": {
       "coin": "ZRO",
       "symbol": "ZRO",
       "venue": "Hyperliquid",
       "market": "無期限先物",
       "price": "$1.02",
-      "change_pct": "-20.64%",
-      "oi": "約2,975万ドル",
-      "volume": "約879万ドル",
+      "change_pct": "-21.69%",
+      "oi": "約2,981万ドル",
+      "volume": "約826万ドル",
       "funding_annual": "+11.0%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 1.0152,
-      "change_pct": -20.638,
-      "oi_usd": 29747869,
-      "vol_usd": 8794561,
+      "mark": 1.0172,
+      "change_pct": -21.688,
+      "oi_usd": 29814894,
+      "vol_usd": 8259209,
       "funding_annual_pct": 10.95
     },
     "refresh": {
@@ -223,71 +223,33 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/ZRO"
     },
-    "asof": "2026-11-24T14:13:44.224105+00:00",
+    "asof": "2026-11-24T14:26:36.322625+00:00",
     "confidence": "confirmed",
     "id": "f6"
-  },
-  {
-    "key": "hl:TRUMP:big_move",
-    "kind": "hl",
-    "category": "big_move",
-    "summary": "24時間の急変動: TRUMP（無期限先物） 24時間騰落率-14.34%, 価格0.83252, 建玉8551167USD, 24時間出来高8388956USD, 資金調達率(年率)-79.8%",
-    "fields": {
-      "coin": "TRUMP",
-      "symbol": "TRUMP",
-      "venue": "Hyperliquid",
-      "market": "無期限先物",
-      "price": "$0.8325",
-      "change_pct": "-14.34%",
-      "oi": "約855万ドル",
-      "volume": "約839万ドル",
-      "funding_annual": "-79.8%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
-    },
-    "raw": {
-      "mark": 0.83252,
-      "change_pct": -14.336,
-      "oi_usd": 8551167,
-      "vol_usd": 8388956,
-      "funding_annual_pct": -79.82
-    },
-    "refresh": {
-      "type": "hl_coin",
-      "coin": "TRUMP",
-      "dex": ""
-    },
-    "source": {
-      "name": "Hyperliquid公式API",
-      "url": "https://app.hyperliquid.xyz/trade/TRUMP"
-    },
-    "asof": "2026-11-24T14:13:44.224121+00:00",
-    "confidence": "confirmed",
-    "id": "f7"
   },
   {
     "key": "hl:ZEC:big_move",
     "kind": "hl",
     "category": "big_move",
-    "summary": "24時間の急変動: ZEC（無期限先物） 24時間騰落率-14.03%, 価格735.35, 建玉209068167USD, 24時間出来高397291276USD, 資金調達率(年率)+11.0%",
+    "summary": "24時間の急変動: ZEC（無期限先物） 24時間騰落率-18.68%, 価格731.7, 建玉207366326USD, 24時間出来高378459367USD, 資金調達率(年率)+11.0%",
     "fields": {
       "coin": "ZEC",
       "symbol": "ZEC",
       "venue": "Hyperliquid",
       "market": "無期限先物",
-      "price": "$735.35",
-      "change_pct": "-14.03%",
+      "price": "$731.70",
+      "change_pct": "-18.68%",
       "oi": "約2.1億ドル",
-      "volume": "約4.0億ドル",
+      "volume": "約3.8億ドル",
       "funding_annual": "+11.0%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 735.35,
-      "change_pct": -14.029,
-      "oi_usd": 209068167,
-      "vol_usd": 397291276,
+      "mark": 731.7,
+      "change_pct": -18.685,
+      "oi_usd": 207366326,
+      "vol_usd": 378459367,
       "funding_annual_pct": 10.95
     },
     "refresh": {
@@ -299,34 +261,34 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/ZEC"
     },
-    "asof": "2026-11-24T14:13:44.224137+00:00",
+    "asof": "2026-11-24T14:26:36.322654+00:00",
     "confidence": "confirmed",
-    "id": "f8"
+    "id": "f7"
   },
   {
     "key": "hl:MON:big_move",
     "kind": "hl",
     "category": "big_move",
-    "summary": "24時間の急変動: MON（無期限先物） 24時間騰落率-12.59%, 価格0.011015, 建玉23581133USD, 24時間出来高13067358USD, 資金調達率(年率)+11.0%",
+    "summary": "24時間の急変動: MON（無期限先物） 24時間騰落率-16.50%, 価格0.010841, 建玉26210349USD, 24時間出来高16635432USD, 資金調達率(年率)+37.4%",
     "fields": {
       "coin": "MON",
       "symbol": "MON",
       "venue": "Hyperliquid",
       "market": "無期限先物",
-      "price": "$0.0110",
-      "change_pct": "-12.59%",
-      "oi": "約2,358万ドル",
-      "volume": "約1,307万ドル",
-      "funding_annual": "+11.0%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "price": "$0.0108",
+      "change_pct": "-16.50%",
+      "oi": "約2,621万ドル",
+      "volume": "約1,664万ドル",
+      "funding_annual": "+37.4%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 0.011015,
-      "change_pct": -12.593,
-      "oi_usd": 23581133,
-      "vol_usd": 13067358,
-      "funding_annual_pct": 10.95
+      "mark": 0.010841,
+      "change_pct": -16.498,
+      "oi_usd": 26210349,
+      "vol_usd": 16635432,
+      "funding_annual_pct": 37.44
     },
     "refresh": {
       "type": "hl_coin",
@@ -337,186 +299,34 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/MON"
     },
-    "asof": "2026-11-24T14:13:44.224150+00:00",
+    "asof": "2026-11-24T14:26:36.322716+00:00",
     "confidence": "confirmed",
-    "id": "f9"
+    "id": "f8"
   },
   {
-    "key": "hl:ENA:big_move",
+    "key": "hl:TRUMP:big_move",
     "kind": "hl",
     "category": "big_move",
-    "summary": "24時間の急変動: ENA（無期限先物） 24時間騰落率-11.87%, 価格0.098913, 建玉28460132USD, 24時間出来高14322077USD, 資金調達率(年率)-20.9%",
-    "fields": {
-      "coin": "ENA",
-      "symbol": "ENA",
-      "venue": "Hyperliquid",
-      "market": "無期限先物",
-      "price": "$0.0989",
-      "change_pct": "-11.87%",
-      "oi": "約2,846万ドル",
-      "volume": "約1,432万ドル",
-      "funding_annual": "-20.9%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
-    },
-    "raw": {
-      "mark": 0.098913,
-      "change_pct": -11.874,
-      "oi_usd": 28460132,
-      "vol_usd": 14322077,
-      "funding_annual_pct": -20.91
-    },
-    "refresh": {
-      "type": "hl_coin",
-      "coin": "ENA",
-      "dex": ""
-    },
-    "source": {
-      "name": "Hyperliquid公式API",
-      "url": "https://app.hyperliquid.xyz/trade/ENA"
-    },
-    "asof": "2026-11-24T14:13:44.224164+00:00",
-    "confidence": "confirmed",
-    "id": "f10"
-  },
-  {
-    "key": "hl:xyz:SKHX:funding_extreme",
-    "kind": "hl",
-    "category": "funding_extreme",
-    "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SKHX（HIP-3株式等先物） 24時間騰落率-3.60%, 価格835.53, 建玉326098908USD, 24時間出来高733801912USD, 資金調達率(年率)+140.8%",
-    "fields": {
-      "coin": "SKHX",
-      "symbol": "SKHX",
-      "venue": "Hyperliquid",
-      "market": "株式先物（HIP-3）",
-      "price": "$835.53",
-      "change_pct": "-3.60%",
-      "oi": "約3.3億ドル",
-      "volume": "約7.3億ドル",
-      "funding_annual": "+140.8%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
-    },
-    "raw": {
-      "mark": 835.53,
-      "change_pct": -3.596,
-      "oi_usd": 326098908,
-      "vol_usd": 733801912,
-      "funding_annual_pct": 140.82
-    },
-    "refresh": {
-      "type": "hl_coin",
-      "coin": "xyz:SKHX",
-      "dex": "xyz"
-    },
-    "source": {
-      "name": "Hyperliquid公式API",
-      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
-    },
-    "asof": "2026-11-24T14:13:44.224190+00:00",
-    "confidence": "confirmed",
-    "id": "f11"
-  },
-  {
-    "key": "hl:xyz:SMSN:funding_extreme",
-    "kind": "hl",
-    "category": "funding_extreme",
-    "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SMSN（HIP-3株式等先物） 24時間騰落率-5.73%, 価格136.33, 建玉35007278USD, 24時間出来高119739278USD, 資金調達率(年率)+113.1%",
-    "fields": {
-      "coin": "SMSN",
-      "symbol": "SMSN",
-      "venue": "Hyperliquid",
-      "market": "株式先物（HIP-3）",
-      "price": "$136.33",
-      "change_pct": "-5.73%",
-      "oi": "約3,501万ドル",
-      "volume": "約1.2億ドル",
-      "funding_annual": "+113.1%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
-    },
-    "raw": {
-      "mark": 136.33,
-      "change_pct": -5.726,
-      "oi_usd": 35007278,
-      "vol_usd": 119739278,
-      "funding_annual_pct": 113.1
-    },
-    "refresh": {
-      "type": "hl_coin",
-      "coin": "xyz:SMSN",
-      "dex": "xyz"
-    },
-    "source": {
-      "name": "Hyperliquid公式API",
-      "url": "https://app.hyperliquid.xyz/trade/xyz:SMSN"
-    },
-    "asof": "2026-11-24T14:13:44.224205+00:00",
-    "confidence": "confirmed",
-    "id": "f12"
-  },
-  {
-    "key": "hl:xyz:CXMT:funding_extreme",
-    "kind": "hl",
-    "category": "funding_extreme",
-    "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: CXMT（HIP-3株式等先物） 24時間騰落率-7.78%, 価格5.2544, 建玉17498725USD, 24時間出来高19866703USD, 資金調達率(年率)-90.5%",
-    "fields": {
-      "coin": "CXMT",
-      "symbol": "CXMT",
-      "venue": "Hyperliquid",
-      "market": "株式先物（HIP-3）",
-      "price": "$5.25",
-      "change_pct": "-7.78%",
-      "oi": "約1,750万ドル",
-      "volume": "約1,987万ドル",
-      "funding_annual": "-90.5%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
-    },
-    "raw": {
-      "mark": 5.2544,
-      "change_pct": -7.784,
-      "oi_usd": 17498725,
-      "vol_usd": 19866703,
-      "funding_annual_pct": -90.51
-    },
-    "refresh": {
-      "type": "hl_coin",
-      "coin": "xyz:CXMT",
-      "dex": "xyz"
-    },
-    "source": {
-      "name": "Hyperliquid公式API",
-      "url": "https://app.hyperliquid.xyz/trade/xyz:CXMT"
-    },
-    "asof": "2026-11-24T14:13:44.224219+00:00",
-    "confidence": "confirmed",
-    "id": "f13"
-  },
-  {
-    "key": "hl:TRUMP:funding_extreme",
-    "kind": "hl",
-    "category": "funding_extreme",
-    "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: TRUMP（無期限先物） 24時間騰落率-14.34%, 価格0.83252, 建玉8551167USD, 24時間出来高8388956USD, 資金調達率(年率)-79.8%",
+    "summary": "24時間の急変動: TRUMP（無期限先物） 24時間騰落率-13.21%, 価格0.83686, 建玉8597645USD, 24時間出来高7656103USD, 資金調達率(年率)-92.5%",
     "fields": {
       "coin": "TRUMP",
       "symbol": "TRUMP",
       "venue": "Hyperliquid",
       "market": "無期限先物",
-      "price": "$0.8325",
-      "change_pct": "-14.34%",
-      "oi": "約855万ドル",
-      "volume": "約839万ドル",
-      "funding_annual": "-79.8%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "price": "$0.8369",
+      "change_pct": "-13.21%",
+      "oi": "約860万ドル",
+      "volume": "約766万ドル",
+      "funding_annual": "-92.5%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 0.83252,
-      "change_pct": -14.336,
-      "oi_usd": 8551167,
-      "vol_usd": 8388956,
-      "funding_annual_pct": -79.82
+      "mark": 0.83686,
+      "change_pct": -13.215,
+      "oi_usd": 8597645,
+      "vol_usd": 7656103,
+      "funding_annual_pct": -92.49
     },
     "refresh": {
       "type": "hl_coin",
@@ -527,7 +337,197 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/TRUMP"
     },
-    "asof": "2026-11-24T14:13:44.224235+00:00",
+    "asof": "2026-11-24T14:26:36.322744+00:00",
+    "confidence": "confirmed",
+    "id": "f9"
+  },
+  {
+    "key": "hl:ENA:big_move",
+    "kind": "hl",
+    "category": "big_move",
+    "summary": "24時間の急変動: ENA（無期限先物） 24時間騰落率-13.07%, 価格0.099131, 建玉28410933USD, 24時間出来高10850383USD, 資金調達率(年率)-14.0%",
+    "fields": {
+      "coin": "ENA",
+      "symbol": "ENA",
+      "venue": "Hyperliquid",
+      "market": "無期限先物",
+      "price": "$0.0991",
+      "change_pct": "-13.07%",
+      "oi": "約2,841万ドル",
+      "volume": "約1,085万ドル",
+      "funding_annual": "-14.0%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
+    },
+    "raw": {
+      "mark": 0.099131,
+      "change_pct": -13.073,
+      "oi_usd": 28410933,
+      "vol_usd": 10850383,
+      "funding_annual_pct": -14.01
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "ENA",
+      "dex": ""
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/ENA"
+    },
+    "asof": "2026-11-24T14:26:36.322770+00:00",
+    "confidence": "confirmed",
+    "id": "f10"
+  },
+  {
+    "key": "hl:xyz:SKHX:funding_extreme",
+    "kind": "hl",
+    "category": "funding_extreme",
+    "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SKHX（HIP-3株式等先物） 24時間騰落率-6.27%, 価格836.9, 建玉328236370USD, 24時間出来高697951373USD, 資金調達率(年率)+190.2%",
+    "fields": {
+      "coin": "SKHX",
+      "symbol": "SKHX",
+      "venue": "Hyperliquid",
+      "market": "株式先物（HIP-3）",
+      "price": "$836.90",
+      "change_pct": "-6.27%",
+      "oi": "約3.3億ドル",
+      "volume": "約7.0億ドル",
+      "funding_annual": "+190.2%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
+    },
+    "raw": {
+      "mark": 836.9,
+      "change_pct": -6.269,
+      "oi_usd": 328236370,
+      "vol_usd": 697951373,
+      "funding_annual_pct": 190.2
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "xyz:SKHX",
+      "dex": "xyz"
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    },
+    "asof": "2026-11-24T14:26:36.322809+00:00",
+    "confidence": "confirmed",
+    "id": "f11"
+  },
+  {
+    "key": "hl:xyz:SMSN:funding_extreme",
+    "kind": "hl",
+    "category": "funding_extreme",
+    "summary": "資金調達率が異常値・ロング過熱（ロングがショートに支払い）: SMSN（HIP-3株式等先物） 24時間騰落率-6.99%, 価格136.59, 建玉34569020USD, 24時間出来高113901704USD, 資金調達率(年率)+158.4%",
+    "fields": {
+      "coin": "SMSN",
+      "symbol": "SMSN",
+      "venue": "Hyperliquid",
+      "market": "株式先物（HIP-3）",
+      "price": "$136.59",
+      "change_pct": "-6.99%",
+      "oi": "約3,457万ドル",
+      "volume": "約1.1億ドル",
+      "funding_annual": "+158.4%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
+    },
+    "raw": {
+      "mark": 136.59,
+      "change_pct": -6.993,
+      "oi_usd": 34569020,
+      "vol_usd": 113901704,
+      "funding_annual_pct": 158.43
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "xyz:SMSN",
+      "dex": "xyz"
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SMSN"
+    },
+    "asof": "2026-11-24T14:26:36.322837+00:00",
+    "confidence": "confirmed",
+    "id": "f12"
+  },
+  {
+    "key": "hl:xyz:CXMT:funding_extreme",
+    "kind": "hl",
+    "category": "funding_extreme",
+    "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: CXMT（HIP-3株式等先物） 24時間騰落率-7.26%, 価格5.2493, 建玉17511690USD, 24時間出来高19231242USD, 資金調達率(年率)-96.5%",
+    "fields": {
+      "coin": "CXMT",
+      "symbol": "CXMT",
+      "venue": "Hyperliquid",
+      "market": "株式先物（HIP-3）",
+      "price": "$5.25",
+      "change_pct": "-7.26%",
+      "oi": "約1,751万ドル",
+      "volume": "約1,923万ドル",
+      "funding_annual": "-96.5%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
+    },
+    "raw": {
+      "mark": 5.2493,
+      "change_pct": -7.256,
+      "oi_usd": 17511690,
+      "vol_usd": 19231242,
+      "funding_annual_pct": -96.49
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "xyz:CXMT",
+      "dex": "xyz"
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:CXMT"
+    },
+    "asof": "2026-11-24T14:26:36.322863+00:00",
+    "confidence": "confirmed",
+    "id": "f13"
+  },
+  {
+    "key": "hl:TRUMP:funding_extreme",
+    "kind": "hl",
+    "category": "funding_extreme",
+    "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: TRUMP（無期限先物） 24時間騰落率-13.21%, 価格0.83686, 建玉8597645USD, 24時間出来高7656103USD, 資金調達率(年率)-92.5%",
+    "fields": {
+      "coin": "TRUMP",
+      "symbol": "TRUMP",
+      "venue": "Hyperliquid",
+      "market": "無期限先物",
+      "price": "$0.8369",
+      "change_pct": "-13.21%",
+      "oi": "約860万ドル",
+      "volume": "約766万ドル",
+      "funding_annual": "-92.5%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
+    },
+    "raw": {
+      "mark": 0.83686,
+      "change_pct": -13.215,
+      "oi_usd": 8597645,
+      "vol_usd": 7656103,
+      "funding_annual_pct": -92.49
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "TRUMP",
+      "dex": ""
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/TRUMP"
+    },
+    "asof": "2026-11-24T14:26:36.322887+00:00",
     "confidence": "confirmed",
     "id": "f14"
   },
@@ -535,26 +535,26 @@
     "key": "hl:JUP:funding_extreme",
     "kind": "hl",
     "category": "funding_extreme",
-    "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: JUP（無期限先物） 24時間騰落率-10.16%, 価格0.22504, 建玉6836947USD, 24時間出来高8498254USD, 資金調達率(年率)-77.3%",
+    "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: JUP（無期限先物） 24時間騰落率-9.84%, 価格0.22603, 建玉6869772USD, 24時間出来高8267267USD, 資金調達率(年率)-71.7%",
     "fields": {
       "coin": "JUP",
       "symbol": "JUP",
       "venue": "Hyperliquid",
       "market": "無期限先物",
-      "price": "$0.2250",
-      "change_pct": "-10.16%",
-      "oi": "約684万ドル",
-      "volume": "約850万ドル",
-      "funding_annual": "-77.3%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "price": "$0.2260",
+      "change_pct": "-9.84%",
+      "oi": "約687万ドル",
+      "volume": "約827万ドル",
+      "funding_annual": "-71.7%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 0.22504,
-      "change_pct": -10.164,
-      "oi_usd": 6836947,
-      "vol_usd": 8498254,
-      "funding_annual_pct": -77.26
+      "mark": 0.22603,
+      "change_pct": -9.84,
+      "oi_usd": 6869772,
+      "vol_usd": 8267267,
+      "funding_annual_pct": -71.67
     },
     "refresh": {
       "type": "hl_coin",
@@ -565,7 +565,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/JUP"
     },
-    "asof": "2026-11-24T14:13:44.224248+00:00",
+    "asof": "2026-11-24T14:26:36.322911+00:00",
     "confidence": "confirmed",
     "id": "f15"
   },
@@ -573,28 +573,28 @@
     "key": "hl:xyz:BRENTOIL:oi_change",
     "kind": "hl",
     "category": "oi_change",
-    "summary": "建玉の24時間変化-40.2%: BRENTOIL（HIP-3株式等先物） 24時間騰落率-0.28%, 価格87.827, 建玉172514930USD, 24時間出来高265015893USD, 資金調達率(年率)+5.5%",
+    "summary": "建玉の24時間変化-40.3%: BRENTOIL（HIP-3株式等先物） 24時間騰落率-0.27%, 価格87.993, 建玉172444555USD, 24時間出来高264705747USD, 資金調達率(年率)+5.5%",
     "fields": {
       "coin": "BRENTOIL",
       "symbol": "BRENTOIL",
       "venue": "Hyperliquid",
       "market": "商品先物（HIP-3）",
-      "price": "$87.83",
-      "change_pct": "-0.28%",
+      "price": "$87.99",
+      "change_pct": "-0.27%",
       "oi": "約1.7億ドル",
-      "volume": "約2.7億ドル",
+      "volume": "約2.6億ドル",
       "funding_annual": "+5.5%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点",
-      "oi_change_pct": "-40.2%"
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点",
+      "oi_change_pct": "-40.3%"
     },
     "raw": {
-      "mark": 87.827,
-      "change_pct": -0.283,
-      "oi_usd": 172514930,
-      "vol_usd": 265015893,
+      "mark": 87.993,
+      "change_pct": -0.267,
+      "oi_usd": 172444555,
+      "vol_usd": 264705747,
       "funding_annual_pct": 5.48,
-      "oi_change_pct": -40.16
+      "oi_change_pct": -40.25
     },
     "refresh": {
       "type": "hl_coin",
@@ -605,7 +605,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:BRENTOIL"
     },
-    "asof": "2026-11-24T14:13:44.224291+00:00",
+    "asof": "2026-11-24T14:26:36.322969+00:00",
     "confidence": "confirmed",
     "id": "f16"
   },
@@ -613,28 +613,28 @@
     "key": "hl:xyz:JP225:oi_change",
     "kind": "hl",
     "category": "oi_change",
-    "summary": "建玉の24時間変化-36.9%: JP225（HIP-3株式等先物） 24時間騰落率-0.20%, 価格57711.0, 建玉2064956USD, 24時間出来高6282311USD, 資金調達率(年率)-1.6%",
+    "summary": "建玉の24時間変化-35.9%: JP225（HIP-3株式等先物） 24時間騰落率-1.31%, 価格57725.0, 建玉2060888USD, 24時間出来高5800260USD, 資金調達率(年率)-0.4%",
     "fields": {
       "coin": "JP225",
       "symbol": "JP225",
       "venue": "Hyperliquid",
       "market": "株式先物（HIP-3）",
-      "price": "$57,711",
-      "change_pct": "-0.20%",
+      "price": "$57,725",
+      "change_pct": "-1.31%",
       "oi": "約206万ドル",
-      "volume": "約628万ドル",
-      "funding_annual": "-1.6%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点",
-      "oi_change_pct": "-36.9%"
+      "volume": "約580万ドル",
+      "funding_annual": "-0.4%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点",
+      "oi_change_pct": "-35.9%"
     },
     "raw": {
-      "mark": 57711.0,
-      "change_pct": -0.195,
-      "oi_usd": 2064956,
-      "vol_usd": 6282311,
-      "funding_annual_pct": -1.56,
-      "oi_change_pct": -36.88
+      "mark": 57725.0,
+      "change_pct": -1.315,
+      "oi_usd": 2060888,
+      "vol_usd": 5800260,
+      "funding_annual_pct": -0.42,
+      "oi_change_pct": -35.89
     },
     "refresh": {
       "type": "hl_coin",
@@ -645,76 +645,36 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:JP225"
     },
-    "asof": "2026-11-24T14:13:44.224310+00:00",
+    "asof": "2026-11-24T14:26:36.323004+00:00",
     "confidence": "confirmed",
     "id": "f17"
-  },
-  {
-    "key": "hl:xyz:COST:oi_change",
-    "kind": "hl",
-    "category": "oi_change",
-    "summary": "建玉の24時間変化-23.7%: COST（HIP-3株式等先物） 24時間騰落率-0.88%, 価格1072.8, 建玉12950063USD, 24時間出来高34037471USD, 資金調達率(年率)+1.6%",
-    "fields": {
-      "coin": "COST",
-      "symbol": "COST",
-      "venue": "Hyperliquid",
-      "market": "株式先物（HIP-3）",
-      "price": "$1,073",
-      "change_pct": "-0.88%",
-      "oi": "約1,295万ドル",
-      "volume": "約3,404万ドル",
-      "funding_annual": "+1.6%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点",
-      "oi_change_pct": "-23.7%"
-    },
-    "raw": {
-      "mark": 1072.8,
-      "change_pct": -0.878,
-      "oi_usd": 12950063,
-      "vol_usd": 34037471,
-      "funding_annual_pct": 1.58,
-      "oi_change_pct": -23.71
-    },
-    "refresh": {
-      "type": "hl_coin",
-      "coin": "xyz:COST",
-      "dex": "xyz"
-    },
-    "source": {
-      "name": "Hyperliquid公式API",
-      "url": "https://app.hyperliquid.xyz/trade/xyz:COST"
-    },
-    "asof": "2026-11-24T14:13:44.224326+00:00",
-    "confidence": "confirmed",
-    "id": "f18"
   },
   {
     "key": "hl:xyz:XYZ100:oi_change",
     "kind": "hl",
     "category": "oi_change",
-    "summary": "建玉の24時間変化-23.5%: XYZ100（HIP-3株式等先物） 24時間騰落率-2.03%, 価格26246.0, 建玉293580355USD, 24時間出来高869895199USD, 資金調達率(年率)+5.5%",
+    "summary": "建玉の24時間変化-28.3%: XYZ100（HIP-3株式等先物） 24時間騰落率-2.55%, 価格26245.0, 建玉292114870USD, 24時間出来高819276302USD, 資金調達率(年率)+5.5%",
     "fields": {
       "coin": "XYZ100",
       "symbol": "XYZ100",
       "venue": "Hyperliquid",
       "market": "株式先物（HIP-3）",
-      "price": "$26,246",
-      "change_pct": "-2.03%",
+      "price": "$26,245",
+      "change_pct": "-2.55%",
       "oi": "約2.9億ドル",
-      "volume": "約8.7億ドル",
+      "volume": "約8.2億ドル",
       "funding_annual": "+5.5%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点",
-      "oi_change_pct": "-23.5%"
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点",
+      "oi_change_pct": "-28.3%"
     },
     "raw": {
-      "mark": 26246.0,
-      "change_pct": -2.031,
-      "oi_usd": 293580355,
-      "vol_usd": 869895199,
+      "mark": 26245.0,
+      "change_pct": -2.554,
+      "oi_usd": 292114870,
+      "vol_usd": 819276302,
       "funding_annual_pct": 5.48,
-      "oi_change_pct": -23.49
+      "oi_change_pct": -28.3
     },
     "refresh": {
       "type": "hl_coin",
@@ -725,47 +685,87 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
     },
-    "asof": "2026-11-24T14:13:44.224342+00:00",
+    "asof": "2026-11-24T14:26:36.323036+00:00",
     "confidence": "confirmed",
-    "id": "f19"
+    "id": "f18"
   },
   {
-    "key": "hl:xyz:EWY:oi_change",
+    "key": "hl:xyz:COST:oi_change",
     "kind": "hl",
     "category": "oi_change",
-    "summary": "建玉の24時間変化-23.4%: EWY（HIP-3株式等先物） 24時間騰落率-3.46%, 価格132.44, 建玉6840129USD, 24時間出来高30337724USD, 資金調達率(年率)+9.3%",
+    "summary": "建玉の24時間変化-25.0%: COST（HIP-3株式等先物） 24時間騰落率-0.54%, 価格1071.8, 建玉12995037USD, 24時間出来高33796639USD, 資金調達率(年率)-26.4%",
     "fields": {
-      "coin": "EWY",
-      "symbol": "EWY",
+      "coin": "COST",
+      "symbol": "COST",
       "venue": "Hyperliquid",
       "market": "株式先物（HIP-3）",
-      "price": "$132.44",
-      "change_pct": "-3.46%",
-      "oi": "約684万ドル",
-      "volume": "約3,034万ドル",
-      "funding_annual": "+9.3%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点",
-      "oi_change_pct": "-23.4%"
+      "price": "$1,072",
+      "change_pct": "-0.54%",
+      "oi": "約1,300万ドル",
+      "volume": "約3,380万ドル",
+      "funding_annual": "-26.4%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点",
+      "oi_change_pct": "-25.0%"
     },
     "raw": {
-      "mark": 132.44,
-      "change_pct": -3.462,
-      "oi_usd": 6840129,
-      "vol_usd": 30337724,
-      "funding_annual_pct": 9.27,
-      "oi_change_pct": -23.44
+      "mark": 1071.8,
+      "change_pct": -0.538,
+      "oi_usd": 12995037,
+      "vol_usd": 33796639,
+      "funding_annual_pct": -26.38,
+      "oi_change_pct": -25.01
     },
     "refresh": {
       "type": "hl_coin",
-      "coin": "xyz:EWY",
+      "coin": "xyz:COST",
       "dex": "xyz"
     },
     "source": {
       "name": "Hyperliquid公式API",
-      "url": "https://app.hyperliquid.xyz/trade/xyz:EWY"
+      "url": "https://app.hyperliquid.xyz/trade/xyz:COST"
     },
-    "asof": "2026-11-24T14:13:44.224358+00:00",
+    "asof": "2026-11-24T14:26:36.323065+00:00",
+    "confidence": "confirmed",
+    "id": "f19"
+  },
+  {
+    "key": "hl:ENA:oi_change",
+    "kind": "hl",
+    "category": "oi_change",
+    "summary": "建玉の24時間変化-23.3%: ENA（無期限先物） 24時間騰落率-13.07%, 価格0.099131, 建玉28410933USD, 24時間出来高10850383USD, 資金調達率(年率)-14.0%",
+    "fields": {
+      "coin": "ENA",
+      "symbol": "ENA",
+      "venue": "Hyperliquid",
+      "market": "無期限先物",
+      "price": "$0.0991",
+      "change_pct": "-13.07%",
+      "oi": "約2,841万ドル",
+      "volume": "約1,085万ドル",
+      "funding_annual": "-14.0%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点",
+      "oi_change_pct": "-23.3%"
+    },
+    "raw": {
+      "mark": 0.099131,
+      "change_pct": -13.073,
+      "oi_usd": 28410933,
+      "vol_usd": 10850383,
+      "funding_annual_pct": -14.01,
+      "oi_change_pct": -23.31
+    },
+    "refresh": {
+      "type": "hl_coin",
+      "coin": "ENA",
+      "dex": ""
+    },
+    "source": {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/ENA"
+    },
+    "asof": "2026-11-24T14:26:36.323093+00:00",
     "confidence": "confirmed",
     "id": "f20"
   },
@@ -773,26 +773,26 @@
     "key": "hl:xyz:NVDA:hip3_top",
     "kind": "hl",
     "category": "hip3_top",
-    "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-2.77%, 価格157.52, 建玉315540544USD, 24時間出来高1328639043USD, 資金調達率(年率)+18.6%",
+    "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-5.57%, 価格157.7, 建玉317477869USD, 24時間出来高1234240268USD, 資金調達率(年率)+14.0%",
     "fields": {
       "coin": "NVDA",
       "symbol": "NVDA",
       "venue": "Hyperliquid",
       "market": "株式先物（HIP-3）",
-      "price": "$157.52",
-      "change_pct": "-2.77%",
+      "price": "$157.70",
+      "change_pct": "-5.57%",
       "oi": "約3.2億ドル",
-      "volume": "約13.3億ドル",
-      "funding_annual": "+18.6%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "volume": "約12.3億ドル",
+      "funding_annual": "+14.0%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 157.52,
-      "change_pct": -2.765,
-      "oi_usd": 315540544,
-      "vol_usd": 1328639043,
-      "funding_annual_pct": 18.57
+      "mark": 157.7,
+      "change_pct": -5.569,
+      "oi_usd": 317477869,
+      "vol_usd": 1234240268,
+      "funding_annual_pct": 13.98
     },
     "refresh": {
       "type": "hl_coin",
@@ -803,7 +803,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
     },
-    "asof": "2026-11-24T14:13:44.224379+00:00",
+    "asof": "2026-11-24T14:26:36.323128+00:00",
     "confidence": "confirmed",
     "id": "f21"
   },
@@ -811,25 +811,25 @@
     "key": "hl:xyz:XYZ100:hip3_top",
     "kind": "hl",
     "category": "hip3_top",
-    "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-2.03%, 価格26246.0, 建玉293580355USD, 24時間出来高869895199USD, 資金調達率(年率)+5.5%",
+    "summary": "HIP-3市場（株式先物など）の出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率-2.55%, 価格26245.0, 建玉292114870USD, 24時間出来高819276302USD, 資金調達率(年率)+5.5%",
     "fields": {
       "coin": "XYZ100",
       "symbol": "XYZ100",
       "venue": "Hyperliquid",
       "market": "株式先物（HIP-3）",
-      "price": "$26,246",
-      "change_pct": "-2.03%",
+      "price": "$26,245",
+      "change_pct": "-2.55%",
       "oi": "約2.9億ドル",
-      "volume": "約8.7億ドル",
+      "volume": "約8.2億ドル",
       "funding_annual": "+5.5%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 26246.0,
-      "change_pct": -2.031,
-      "oi_usd": 293580355,
-      "vol_usd": 869895199,
+      "mark": 26245.0,
+      "change_pct": -2.554,
+      "oi_usd": 292114870,
+      "vol_usd": 819276302,
       "funding_annual_pct": 5.48
     },
     "refresh": {
@@ -841,7 +841,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
     },
-    "asof": "2026-11-24T14:13:44.224392+00:00",
+    "asof": "2026-11-24T14:26:36.323154+00:00",
     "confidence": "confirmed",
     "id": "f22"
   },
@@ -849,26 +849,26 @@
     "key": "hl:xyz:SKHX:hip3_top",
     "kind": "hl",
     "category": "hip3_top",
-    "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率-3.60%, 価格835.53, 建玉326098908USD, 24時間出来高733801912USD, 資金調達率(年率)+140.8%",
+    "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率-6.27%, 価格836.9, 建玉328236370USD, 24時間出来高697951373USD, 資金調達率(年率)+190.2%",
     "fields": {
       "coin": "SKHX",
       "symbol": "SKHX",
       "venue": "Hyperliquid",
       "market": "株式先物（HIP-3）",
-      "price": "$835.53",
-      "change_pct": "-3.60%",
+      "price": "$836.90",
+      "change_pct": "-6.27%",
       "oi": "約3.3億ドル",
-      "volume": "約7.3億ドル",
-      "funding_annual": "+140.8%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "volume": "約7.0億ドル",
+      "funding_annual": "+190.2%",
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 835.53,
-      "change_pct": -3.596,
-      "oi_usd": 326098908,
-      "vol_usd": 733801912,
-      "funding_annual_pct": 140.82
+      "mark": 836.9,
+      "change_pct": -6.269,
+      "oi_usd": 328236370,
+      "vol_usd": 697951373,
+      "funding_annual_pct": 190.2
     },
     "refresh": {
       "type": "hl_coin",
@@ -879,7 +879,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
     },
-    "asof": "2026-11-24T14:13:44.224405+00:00",
+    "asof": "2026-11-24T14:26:36.323178+00:00",
     "confidence": "confirmed",
     "id": "f23"
   },
@@ -887,25 +887,25 @@
     "key": "hl:xyz:SP500:hip3_top",
     "kind": "hl",
     "category": "hip3_top",
-    "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率-0.85%, 価格7162.7, 建玉406517892USD, 24時間出来高555818028USD, 資金調達率(年率)+5.5%",
+    "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率-1.43%, 価格7162.5, 建玉405479640USD, 24時間出来高536252463USD, 資金調達率(年率)+5.5%",
     "fields": {
       "coin": "SP500",
       "symbol": "SP500",
       "venue": "Hyperliquid",
       "market": "株式先物（HIP-3）",
-      "price": "$7,163",
-      "change_pct": "-0.85%",
+      "price": "$7,162",
+      "change_pct": "-1.43%",
       "oi": "約4.1億ドル",
-      "volume": "約5.6億ドル",
+      "volume": "約5.4億ドル",
       "funding_annual": "+5.5%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 7162.7,
-      "change_pct": -0.851,
-      "oi_usd": 406517892,
-      "vol_usd": 555818028,
+      "mark": 7162.5,
+      "change_pct": -1.427,
+      "oi_usd": 405479640,
+      "vol_usd": 536252463,
       "funding_annual_pct": 5.48
     },
     "refresh": {
@@ -917,7 +917,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
     },
-    "asof": "2026-11-24T14:13:44.224417+00:00",
+    "asof": "2026-11-24T14:26:36.323202+00:00",
     "confidence": "confirmed",
     "id": "f24"
   },
@@ -925,25 +925,25 @@
     "key": "hl:xyz:BRENTOIL:hip3_top",
     "kind": "hl",
     "category": "hip3_top",
-    "summary": "HIP-3市場（株式先物など）の出来高上位: BRENTOIL（HIP-3株式等先物） 24時間騰落率-0.28%, 価格87.827, 建玉172514930USD, 24時間出来高265015893USD, 資金調達率(年率)+5.5%",
+    "summary": "HIP-3市場（株式先物など）の出来高上位: BRENTOIL（HIP-3株式等先物） 24時間騰落率-0.27%, 価格87.993, 建玉172444555USD, 24時間出来高264705747USD, 資金調達率(年率)+5.5%",
     "fields": {
       "coin": "BRENTOIL",
       "symbol": "BRENTOIL",
       "venue": "Hyperliquid",
       "market": "商品先物（HIP-3）",
-      "price": "$87.83",
-      "change_pct": "-0.28%",
+      "price": "$87.99",
+      "change_pct": "-0.27%",
       "oi": "約1.7億ドル",
-      "volume": "約2.7億ドル",
+      "volume": "約2.6億ドル",
       "funding_annual": "+5.5%",
-      "asof": "日本時間11/24(火) 23:13時点",
-      "asof_short": "23:13時点"
+      "asof": "日本時間11/24(火) 23:26時点",
+      "asof_short": "23:26時点"
     },
     "raw": {
-      "mark": 87.827,
-      "change_pct": -0.283,
-      "oi_usd": 172514930,
-      "vol_usd": 265015893,
+      "mark": 87.993,
+      "change_pct": -0.267,
+      "oi_usd": 172444555,
+      "vol_usd": 264705747,
       "funding_annual_pct": 5.48
     },
     "refresh": {
@@ -955,7 +955,7 @@
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade/xyz:BRENTOIL"
     },
-    "asof": "2026-11-24T14:13:44.224430+00:00",
+    "asof": "2026-11-24T14:26:36.323227+00:00",
     "confidence": "confirmed",
     "id": "f25"
   },
@@ -963,29 +963,29 @@
     "key": "hl:market:overview",
     "kind": "hl",
     "category": "overview",
-    "summary": "Hyperliquid全体: 建玉合計9374003431USD, 24時間出来高合計13513527994USD, うちHIP-3市場5678093068USD, 上場銘柄数334",
+    "summary": "Hyperliquid全体: 建玉合計9305583311USD, 24時間出来高合計12647084691USD, うちHIP-3市場5312889895USD, 上場銘柄数324",
     "fields": {
-      "total_oi": "約93.7億ドル",
-      "total_volume": "約135.1億ドル",
-      "hip3_volume": "約56.8億ドル",
+      "total_oi": "約93.1億ドル",
+      "total_volume": "約126.5億ドル",
+      "hip3_volume": "約53.1億ドル",
       "hip3_volume_share": "42.0%",
-      "hip3_oi": "約33.8億ドル",
-      "hip3_oi_change_pct": "-13.0%",
-      "asof": "日本時間11/24(火) 23:13時点"
+      "hip3_oi": "約33.0億ドル",
+      "hip3_oi_change_pct": "-14.4%",
+      "asof": "日本時間11/24(火) 23:26時点"
     },
     "raw": {
-      "total_oi": 9374003431,
-      "total_vol": 13513527994,
-      "hip3_vol": 5678093068,
-      "hip3_oi": 3384471193,
-      "hip3_oi_change_pct": -12.96
+      "total_oi": 9305583311,
+      "total_vol": 12647084691,
+      "hip3_vol": 5312889895,
+      "hip3_oi": 3303885493,
+      "hip3_oi_change_pct": -14.39
     },
     "refresh": null,
     "source": {
       "name": "Hyperliquid公式API",
       "url": "https://app.hyperliquid.xyz/trade"
     },
-    "asof": "2026-11-24T14:13:44.224507+00:00",
+    "asof": "2026-11-24T14:26:36.323350+00:00",
     "confidence": "confirmed",
     "id": "f26"
   },
