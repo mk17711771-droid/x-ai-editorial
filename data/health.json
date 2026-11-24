@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-24T15:26:44.824974+00:00",
-  "at_jst": "11/25 00:26",
+  "at": "2026-11-24T15:57:27.680088+00:00",
+  "at_jst": "11/25 00:57",
   "ok": false,
   "issues": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "type": "line_quota",
-      "used": 176,
+      "used": 178,
       "limit": 200
     },
     {
@@ -20,10 +20,30 @@
       "reads": 233
     },
     {
+      "type": "announced_not_posted",
+      "story": "hyperliquid-lists-soxs-perp",
+      "since": "2026-11-24T15:26:25.496342+00:00",
+      "retried": false
+    },
+    {
       "type": "error",
       "command": "generate",
       "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
-      "at": "2026-11-24T15:21:05.338168+00:00"
+      "at": "2026-11-24T15:50:18.316009+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-24T15:38:41Z",
+      "id": 45427904742
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-24T15:26:30Z",
+      "id": 45425540998
     },
     {
       "type": "workflow_failed",
@@ -55,7 +75,7 @@
     },
     {
       "type": "many_rejections",
-      "n": 13,
+      "n": 10,
       "reasons": [
         "「この続きも数字で追っていく」は最近も使った言い回し。別の言葉で書く",
         "「記録的・歴史的・過去最高」と書いているが、記録を示す材料がない",
@@ -69,6 +89,7 @@
     }
   ],
   "actions": [
-    "枠2300の投稿を再起動"
+    "枠2300の投稿を再起動",
+    "速報 hyperliquid-lists-soxs-perp が投稿されていなかったため出し直し"
   ]
 }
