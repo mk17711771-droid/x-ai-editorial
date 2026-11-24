@@ -616,7 +616,15 @@ def _recheck(draft: dict) -> list[str]:
             else:
                 latest = collect_hyperliquid.refresh_change_pct(ref)
         except requests.RequestException as e:
-            problems.append(f"再確認のデータ取得に失敗: {e}")
+            # 取り直しに失敗しても、材料が新しい（30分以内）ならそのまま出す（11/24 12時 Finnhubの429で再確認が失敗し、昼の枠を落とした）
+            try:
+                fresh_enough = now_utc() - datetime.fromisoformat(f.get("asof_utc") or draft.get("created_at")) < timedelta(minutes=30)
+            except (TypeError, ValueError):
+                fresh_enough = False
+            if fresh_enough:
+                log.info("再確認のデータ取得に失敗しましたが、材料が新しいため投稿します: %s", store.redact(str(e))[:120])
+                continue
+            problems.append(f"再確認のデータ取得に失敗: {store.redact(str(e))[:200]}")
             continue
         if latest is None:
             problems.append(f"{f['key']} の最新データが取得できない")

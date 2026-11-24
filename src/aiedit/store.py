@@ -65,8 +65,16 @@ def read_json(rel: str, default: Any = None) -> Any:
     return json.loads(text)
 
 
+# URLの中のAPIキー（?token=… や &apikey=…）を伏せる。エラー文にURLがそのまま入り、公開リポジトリのデータに書かれた（11/24 発覚）
+_SECRET_IN_URL = re.compile(r"(?i)\b(token|apikey|api_key|key|access_token|secret)=([A-Za-z0-9_\-.]{8,})")
+
+
+def redact(text: str) -> str:
+    return _SECRET_IN_URL.sub(r"\1=***", text)
+
+
 def write_json(rel: str, obj: Any) -> None:
-    text = json.dumps(obj, ensure_ascii=False, indent=2) + "\n"
+    text = redact(json.dumps(obj, ensure_ascii=False, indent=2)) + "\n"
     if rel.startswith("traders/"):
         text = _protect(text)
     _path(rel).write_text(text, encoding="utf-8")
@@ -74,7 +82,7 @@ def write_json(rel: str, obj: Any) -> None:
 
 def append_jsonl(rel: str, obj: dict) -> None:
     with _path(rel).open("a", encoding="utf-8") as f:
-        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+        f.write(redact(json.dumps(obj, ensure_ascii=False)) + "\n")
 
 
 def read_jsonl(rel: str) -> list[dict]:
@@ -162,7 +170,7 @@ def read_text(rel: str, default: str = "") -> str:
 
 
 def write_text(rel: str, text: str) -> None:
-    _path(rel).write_text(text, encoding="utf-8")
+    _path(rel).write_text(redact(text), encoding="utf-8")
 
 
 def write_bytes(rel: str, data: bytes) -> None:

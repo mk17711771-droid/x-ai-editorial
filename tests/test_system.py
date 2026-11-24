@@ -1907,3 +1907,12 @@ def test_news_post_no_unfounded_causation():
     assert any("因果" in e for e in checks.check_text(bad, "news:south-korea-draft"))
     ok = "韓国で仮想通貨の草案法制が今週公表の見通し。\n\n同じ時間、$BTCの先物の資金調達率は年率+5.2%と落ち着いている。"
     assert not any("因果" in e for e in checks.check_text(ok, "news:south-korea-draft"))
+
+
+def test_store_redacts_api_keys(isolated):
+    """11/24: Finnhubのエラー文（URLにtoken=…）がそのまま下書きの記録に書かれ、公開リポジトリに出ていた。"""
+    store.write_json("x.json", {"problems": ["429 for url: https://finnhub.io/api/v1/quote?symbol=ARM&token=abcdEFGH12345678"]})
+    store.append_jsonl("x.jsonl", {"e": "https://api.example.com/?apikey=ZZZZ1111yyyy"})
+    assert "abcdEFGH" not in (store.DATA_DIR / "x.json").read_text()
+    assert "token=***" in (store.DATA_DIR / "x.json").read_text()
+    assert "ZZZZ1111" not in (store.DATA_DIR / "x.jsonl").read_text()
