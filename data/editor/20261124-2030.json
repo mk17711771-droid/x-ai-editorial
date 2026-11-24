@@ -1,0 +1,59 @@
+[
+  {
+    "fact_ids": [
+      "f4",
+      "f3",
+      "f7",
+      "f38"
+    ],
+    "topic_key": "hl:xyz:NVDA:big_move",
+    "angle": "NVDAのCEO復帰に伴う現物の記録的な急騰（+31.48%）と、HIP-3先物市場（SKHXなど）における資金調達率の極端な偏りの構造を紐解く",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 95,
+    "reason": "NVDAの記録的急騰と半導体セクター全体の動向を主役に据え、Hyperliquidの先物金利の歪みと対比させた説得力のある考察"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f37",
+      "f39",
+      "f40"
+    ],
+    "topic_key": "hl:xyz:XYZ100:hip3_top",
+    "angle": "ナスダック100の+7%超の上昇とHIP-3指数先物の建玉・資金調達率の相関から、大口のポジションの偏りを検証する",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 92,
+    "reason": "指数先物と現物の値動きを軸に、市場全体の資金の流入規模とデリバティブ側の歪みを丁寧に整理しているため"
+  },
+  {
+    "fact_ids": [
+      "f9",
+      "f10",
+      "f11",
+      "f3"
+    ],
+    "topic_key": "hl:xyz:MU:big_move",
+    "angle": "半導体個別株の記録的な急騰（MU +19.04%、ARM +16.08%など）の背景にある現物買いの強さと、セクター全体の資金循環を解説する",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "半導体セクターの主要銘柄の具体的な騰落率をベースに、現物市場での強い買い戻しと資金流入の構造を浮き彫りにしている"
+  }
+]
