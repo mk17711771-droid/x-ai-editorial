@@ -1,15 +1,22 @@
 {
-  "at": "2026-11-24T22:37:05.245806+00:00",
-  "at_jst": "11/25 07:36",
+  "at": "2026-11-24T23:56:05.683212+00:00",
+  "at_jst": "11/25 08:55",
   "ok": false,
   "issues": [
+    {
+      "type": "missed_slot",
+      "slot": "0730",
+      "key": "20261125-0730",
+      "generated": false,
+      "within_grace": true
+    },
     {
       "type": "learn_missing",
       "date": "2026-11-25"
     },
     {
       "type": "line_quota",
-      "used": 180,
+      "used": 181,
       "limit": 200
     },
     {
@@ -44,5 +51,7 @@
       ]
     }
   ],
-  "actions": []
+  "actions": [
+    "枠0730の投稿を再起動"
+  ]
 }
