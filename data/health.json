@@ -1,18 +1,11 @@
 {
-  "at": "2026-11-24T15:57:27.680088+00:00",
-  "at_jst": "11/25 00:57",
+  "at": "2026-11-24T16:27:13.470580+00:00",
+  "at_jst": "11/25 01:26",
   "ok": false,
   "issues": [
     {
-      "type": "missed_slot",
-      "slot": "2300",
-      "key": "20261124-2300",
-      "generated": false,
-      "within_grace": true
-    },
-    {
       "type": "line_quota",
-      "used": 178,
+      "used": 180,
       "limit": 200
     },
     {
@@ -23,13 +16,27 @@
       "type": "announced_not_posted",
       "story": "hyperliquid-lists-soxs-perp",
       "since": "2026-11-24T15:26:25.496342+00:00",
-      "retried": false
+      "retried": true
     },
     {
       "type": "error",
       "command": "generate",
       "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
-      "at": "2026-11-24T15:50:18.316009+00:00"
+      "at": "2026-11-24T16:19:04.969203+00:00"
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-24T16:06:48Z",
+      "id": 45433300798
+    },
+    {
+      "type": "workflow_failed",
+      "name": "generate-drafts",
+      "event": "repository_dispatch",
+      "at": "2026-11-24T15:57:32Z",
+      "id": 45431501034
     },
     {
       "type": "workflow_failed",
@@ -88,8 +95,5 @@
       ]
     }
   ],
-  "actions": [
-    "枠2300の投稿を再起動",
-    "速報 hyperliquid-lists-soxs-perp が投稿されていなかったため出し直し"
-  ]
+  "actions": []
 }
