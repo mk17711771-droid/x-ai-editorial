@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-24T14:43:45.976066+00:00",
-  "at_jst": "11/24 23:43",
+  "at": "2026-11-24T14:57:23.564959+00:00",
+  "at_jst": "11/24 23:57",
   "ok": false,
   "issues": [
     {
@@ -11,16 +11,11 @@
       "within_grace": false
     },
     {
-      "type": "followup_candidates",
-      "items": [
-        {
-          "headline": "HyperliquidのWagyuブリッジが再開、マルチシグ導入",
-          "sources": [
-            "KuCoin",
-            "Blockchain News"
-          ]
-        }
-      ]
+      "type": "missed_slot",
+      "slot": "2300",
+      "key": "20261124-2300",
+      "generated": false,
+      "within_grace": true
     },
     {
       "type": "line_quota",
@@ -66,5 +61,7 @@
       ]
     }
   ],
-  "actions": []
+  "actions": [
+    "枠2300の投稿を再起動"
+  ]
 }
