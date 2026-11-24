@@ -1,0 +1,66 @@
+[
+  {
+    "fact_ids": [
+      "f7"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "$SOXLが-24.75%と大幅下落を記録する中、Hyperliquidの先物市場で資金調達率が年率+28.2%まで上昇している歪みを突く。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "主要なレバレッジ型半導体先物の急落とプラスの資金調達率という明確な乖離を数字で示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f3"
+    ],
+    "topic_key": "hl:xyz:NVDA:volume_top",
+    "angle": "$NVDAのHIP-3先物が-6.89%の下落を記録しつつ、出来高が5.6億ドル規模に達している点に焦点を当てる。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "市場の関心が高い大企業の先物市場における商いと値下がりのバランスを正確に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f12"
+    ],
+    "topic_key": "hl:xyz:SNDK:oi_change",
+    "angle": "$SNDKのHIP-3先物で建玉が24時間で+79.5%急増し、価格が-12.63%下落している局面に注目する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "建玉の記録的な急増と価格の急落が同時に起きている強い市場の異変を捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f20"
+    ],
+    "topic_key": "hl:xyz:SP500:hip3_top",
+    "angle": "S&P500のHIP-3先物が4億ドル規模の建玉を維持しながら小幅な下落にとどまっている粘り強さを検証する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 87,
+    "reason": "主要株価指数の先物市場における巨大な流動性と値動きの落ち着きを対比させているため。"
+  }
+]
