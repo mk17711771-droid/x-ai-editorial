@@ -1916,3 +1916,9 @@ def test_store_redacts_api_keys(isolated):
     assert "abcdEFGH" not in (store.DATA_DIR / "x.json").read_text()
     assert "token=***" in (store.DATA_DIR / "x.json").read_text()
     assert "ZZZZ1111" not in (store.DATA_DIR / "x.jsonl").read_text()
+
+
+def test_note_dangling_this_chart_removed():
+    """11/25 note: 図のない段落で「このチャートから読み取れるように」が残った。"""
+    from aiedit.note_article import drop_dangling_chart_refs
+    assert drop_dangling_chart_refs("前置き\n\nこのチャートから読み取れるように、ショートが過熱している。") == "前置き\n\nショートが過熱している。"

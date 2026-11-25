@@ -153,6 +153,10 @@ def write(theme: str | None = None) -> dict | None:
             errors = ["同じ銘柄に価格が2つあるのに、先物（HIP-3）か米国の終値かを書いていない文がある。"
                       "それぞれ「HIP-3の先物」「米国◯/◯終値」と明記し、タイトルの価格にも先物か終値かを入れる: " + " / ".join(dual[:3])]
             continue
+        # 言い直し・崩れた文（11/25「前日比9人…ではなく-11.01%」が公開された）
+        if checks.RESTATE.search(body) or re.search(r"…\s*ではなく|ではなく[^。\n]{0,3}[-+]?\d", body):
+            errors = ["数字の言い直し（「〜…ではなく〜」）など崩れた文がある。1つの数字を1回だけ、材料の差し込みで書く"]
+            continue
         gap = checks.missing_number(title + body)
         if gap:
             errors = [f"数字が抜けた文がある（「{gap}」）。数字は材料の差し込み記号で書き、材料にない数字の文は書かない"]
@@ -224,7 +228,7 @@ def drop_dangling_chart_refs(text: str) -> str:
         if "▼ここに画像" in para:
             last = len(out)
         elif len(out) - last > 6:
-            para = re.sub(r"(上|下)の(チャート|図|グラフ)(が示す(通り|とおり)|の(通り|とおり)|を見ると|から(わかる|分かる)ように)、?", "", para)
+            para = re.sub(r"(上|下|この)の?(チャート|図|グラフ)(が示す(通り|とおり)|の(通り|とおり)|を見ると|から(わかる|分かる|読み取れる)ように)、?", "", para)
         out.append(para)
     return "\n".join(out)
 
