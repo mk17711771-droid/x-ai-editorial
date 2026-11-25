@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f21",
+      "f3"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "XYZ100の出来高が7億ドル規模に達する中で見えている市場の資金流入出の構造を数字で整理する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "最優先銘柄であるXYZ100の出来高と建玉のデータを軸に、市場全体の動向を的確に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f23",
+      "f21"
+    ],
+    "topic_key": "hl:xyz:SP500:hip3_top",
+    "angle": "SP500のHIP-3先物市場における建玉規模と出来高のバランスから指数先物の需給を読み解く。",
+    "scores": {
+      "novelty": 15,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 17,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "SP500の具体的な建玉と出来高の数字をベースに、インデックス先物の市場構造を明確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f18",
+      "f25"
+    ],
+    "topic_key": "hl:xyz:SOXL:oi_change",
+    "angle": "SOXLの建玉が急増する一方で価格調整が続く背景にあるデリバティブ側のポジションの偏りを追う。",
+    "scores": {
+      "novelty": 16,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 85,
+    "reason": "SOXLの建玉の24時間変化と価格の連動性に焦点を当て、読者の関心が高い半導体関連の歪みを可視化しているため。"
+  }
+]
