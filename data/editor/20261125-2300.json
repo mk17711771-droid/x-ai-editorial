@@ -2,52 +2,52 @@
   {
     "fact_ids": [
       "f7",
-      "f15"
+      "f17"
     ],
     "topic_key": "hl:xyz:SOXL:big_move",
-    "angle": "半導体3倍ベアのSOXL先物が急落する中で見せている極端なロング過熱の歪み",
+    "angle": "半導体3倍ベア・ブル型の先物で起きた急落と、建玉の急増に伴う歪みを指摘する",
     "scores": {
       "novelty": 18,
       "interest": 19,
       "evidence": 20,
-      "utility": 18,
-      "insight": 18
-    },
-    "total": 93,
-    "reason": "主要な半導体レバレッジ銘柄における記録的な下落と、資金調達率の極端な偏りを鋭く捉えているため。"
-  },
-  {
-    "fact_ids": [
-      "f6",
-      "f12"
-    ],
-    "topic_key": "hl:xyz:SKHX:volume_top",
-    "angle": "SKハイニックスの先物市場で起きている記録的なショート過熱の背景",
-    "scores": {
-      "novelty": 18,
-      "interest": 18,
-      "evidence": 20,
       "utility": 17,
       "insight": 18
     },
-    "total": 91,
-    "reason": "半導体関連の個別先物における突出した資金調達率のマイナスと、出来高の急増という明確な歪みを提示しているため。"
+    "total": 92,
+    "reason": "市場の関心が高い半導体関連の急変動と建玉の急増データを組み合わせ、具体的な数値で歪みを捉えているため。"
   },
   {
     "fact_ids": [
-      "f2",
-      "f27"
+      "f13",
+      "f24"
     ],
-    "topic_key": "hl:BTC: volume_top",
-    "angle": "ビットコインの下落局面における上位トレーダーのポジションの圧倒的な偏り",
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "主要半導体銘柄の先物で観測された、極端な資金調達率の歪みに焦点を当てる",
     "scores": {
       "novelty": 17,
       "interest": 18,
-      "evidence": 20,
+      "evidence": 19,
       "utility": 17,
       "insight": 18
     },
-    "total": 90,
-    "reason": "市場全体の価格下落と、安定上位トレーダーの保有状況における極端な構造的偏りを数字で対比できているため。"
+    "total": 89,
+    "reason": "大口のポジション偏りと年率換算の極端な資金調達率が明確に数字で示されており実用性が高いため。"
+  },
+  {
+    "fact_ids": [
+      "f5",
+      "f23"
+    ],
+    "topic_key": "hl:xyz:XYZ100:volume_top",
+    "angle": "広範な指数先物における出来高と資金調達率の対比から、市場全体の需給の偏りを読み解く",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 16,
+      "insight": 17
+    },
+    "total": 86,
+    "reason": "主要指数のHIP-3先物における出来高上位の動向と金利コストの歪みを端的に伝える構成にしているため。"
   }
 ]
