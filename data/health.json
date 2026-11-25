@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-25T21:06:31.054430+00:00",
-  "at_jst": "11/26 06:06",
+  "at": "2026-11-25T21:50:53.617252+00:00",
+  "at_jst": "11/26 06:50",
   "ok": false,
   "issues": [
     {
@@ -11,26 +11,6 @@
     {
       "type": "x_budget",
       "reads": 247
-    },
-    {
-      "type": "error",
-      "command": "generate",
-      "error": "RuntimeError: Gemini APIの呼び出しに失敗しました: 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: h",
-      "at": "2026-11-25T15:39:44.991049+00:00"
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-25T15:29:29Z",
-      "id": 45645734274
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "workflow_dispatch",
-      "at": "2026-11-25T15:13:11Z",
-      "id": 45642663799
     },
     {
       "type": "many_rejections",
