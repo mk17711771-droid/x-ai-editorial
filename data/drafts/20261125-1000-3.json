@@ -1,0 +1,75 @@
+{
+  "id": "20261125-1000-3",
+  "slot_key": "20261125-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-25T01:18:28.516975+00:00",
+  "text": "$SNDKの先物市場で建玉が+88.4%急増している。\n\nHyperliquidの株式先物（HIP-3）で日本時間11/25(水) 10:16時点、価格は$77.45（-13.43%）、建玉は約6,027万ドル。株価が下落する中でこれだけポジションが積み上がるのは、かなり特徴的な動きだな。",
+  "template": "${{f15.symbol}}の先物市場で建玉が{{f15.oi_change_pct}}急増している。\n\nHyperliquidの{{f15.market}}で{{f15.asof}}、価格は{{f15.price}}（{{f15.change_pct}}）、建玉は{{f15.oi}}。株価が下落する中でこれだけポジションが積み上がるのは、かなり特徴的な動きだな。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:SNDK:oi_change",
+  "angle": "$SNDKのHIP-3先物で建玉が24時間で+88.4%と急増。株価が-13.43%と大きく下落する中でポジションが急ピッチで積み上がる背景を追う",
+  "scores": {
+    "novelty": 18,
+    "interest": 17,
+    "evidence": 19,
+    "utility": 18,
+    "insight": 17
+  },
+  "total": 89,
+  "fact_ids": [
+    "f15"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SNDK:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+88.4%: SNDK（HIP-3株式等先物） 24時間騰落率-13.43%, 価格77.45, 建玉60267020USD, 24時間出来高138294855USD, 資金調達率(年率)+19.5%（照合: 米国株の前日比-11.13%）",
+      "fields": {
+        "coin": "SNDK",
+        "symbol": "SNDK",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$77.45",
+        "change_pct": "-13.43%",
+        "oi": "約6,027万ドル",
+        "volume": "約1.4億ドル",
+        "funding_annual": "+19.5%",
+        "asof": "日本時間11/25(水) 10:16時点",
+        "asof_short": "10:16時点",
+        "oi_change_pct": "+88.4%",
+        "us_change_pct": "-11.13%"
+      },
+      "raw": {
+        "mark": 77.45,
+        "change_pct": -13.433,
+        "oi_usd": 60267020,
+        "vol_usd": 138294855,
+        "funding_annual_pct": 19.5,
+        "us_change_pct": -11.128,
+        "oi_change_pct": 88.4
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNDK",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+      },
+      "asof": "2026-11-25T01:16:24.384596+00:00",
+      "confidence": "confirmed",
+      "id": "f15"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+    }
+  ],
+  "needs_human": false
+}
