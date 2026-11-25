@@ -131,7 +131,7 @@ def review(title: str, text: str, n_images: int, published_at: datetime | None, 
 def proofread(title: str, text: str) -> list[str]:
     """AIによる校正。明らかな誤りだけを返す（好みの問題は返さない）。"""
     try:
-        out = llm.generate_json(llm.prompt("note_review"), f"# タイトル\n{title}\n\n# 本文\n{text[:12000]}")
+        out = llm.generate_json(llm.prompt("note_review"), f"# タイトル\n{title}\n\n# 本文\n{text[:12000]}", light=True)
     except Exception as e:  # noqa: BLE001 校正の失敗で確認全体を止めない
         log.warning("AI校正に失敗: %s", e)
         return []

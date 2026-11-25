@@ -348,7 +348,7 @@ def trend_digest() -> str:
         "my_recent_posts": [{k: r.get(k) for k in ("text", "impressions", "likes", "bookmarks", "has_image", "format")}
                             for r in mine][-12:],
     }
-    out = llm.generate_json(llm.prompt("trends"), json.dumps(material, ensure_ascii=False))
+    out = llm.generate_json(llm.prompt("trends"), json.dumps(material, ensure_ascii=False), light=True)
     lines = [f"- {s}" for s in (out.get("patterns", []) + out.get("topics", []))[:10]]
     if lines:
         text = f"（{now_utc().astimezone(JST):%m/%d %H:%M}更新・外部リサーチから）\n" + "\n".join(lines) + "\n"

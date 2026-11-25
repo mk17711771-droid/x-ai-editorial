@@ -32,7 +32,7 @@ def _loads(text: str) -> dict:
     return json.loads(t)
 
 
-def generate_json(system: str, user: str, fast: bool = False) -> dict:
+def generate_json(system: str, user: str, fast: bool = False, light: bool = False) -> dict:
     """fast=True: 待ち時間の短い呼び出し（10分おきに走る速報の見張り用。失敗しても次の回で拾い直す）。
     11/16 GitHub Actionsの無料枠を使い切った。待ち時間も課金されるため、速報の見張りは長く待たない。"""
     cfg = settings()["llm"]
@@ -46,6 +46,11 @@ def generate_json(system: str, user: str, fast: bool = False) -> dict:
     }
     # 混雑（429/503）は一時的なことが多い。モデルを順に試し、全滅したら待ってからもう一巡する
     models = [cfg["model"]] + [m for m in cfg.get("fallback_models", []) if m != cfg["model"]]
+    if fast or light:
+        # 回数の多い・軽い呼び出し（速報の見張り10分おき・note校正・トレンドのまとめ）は軽量モデルから使う。
+        # 主モデルの1日の無料枠を投稿の原稿に残す（11/23〜25 夜には主モデルが429で使えず、深夜の枠が3晩続けて落ちた）
+        lite = [m for m in models if "lite" in m]
+        models = lite + [m for m in models if m not in lite]
     missing: set[str] = set()
     last_err: Exception | None = None
     waits = (0, 20) if fast else (0, 30, 60, 120, 240)  # 11/5 混雑が4分以上続き夜の長文が落ちたので、待つ回数とモデルを増やした

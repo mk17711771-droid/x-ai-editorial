@@ -1933,3 +1933,21 @@ def test_only_claim_requires_largest_move():
     assert any("だけ" in e for e in checks.check_template(bad, facts))
     ok = "なぜ$MUだけがこれほど強烈な下落に見舞われているのか\n・MU {{f1.change_pct}}\n・NVDA {{f2.change_pct}}"
     assert not any("だけ" in e for e in checks.check_template(ok, facts))
+
+
+def test_fast_calls_use_lite_model_first(monkeypatch):
+    """11/23〜25: 速報の見張り（10分おき）が主モデルの1日の無料枠を使い、夜の原稿が429で書けなかった。軽い呼び出しは軽量モデルから。"""
+    from aiedit import llm
+    tried = []
+
+    class R:
+        status_code = 200
+        def json(self):
+            return {"candidates": [{"content": {"parts": [{"text": '{"ok": 1}'}]}}]}
+    def post(url, **k):
+        tried.append(url.split("/models/")[1].split(":")[0]); return R()
+    monkeypatch.setattr(llm.requests, "post", post)
+    monkeypatch.setattr(llm, "settings", lambda: {"llm": {"model": "gemini-flash-latest", "fallback_models": ["gemini-flash-lite-latest"]}})
+    monkeypatch.setattr(llm, "env", lambda *a, **k: "k")
+    assert llm.generate_json("s", "u", fast=True) == {"ok": 1} and tried[-1] == "gemini-flash-lite-latest"
+    assert llm.generate_json("s", "u") == {"ok": 1} and tried[-1] == "gemini-flash-latest"
