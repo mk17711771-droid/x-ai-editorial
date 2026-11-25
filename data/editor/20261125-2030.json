@@ -1,0 +1,36 @@
+[
+  {
+    "fact_ids": [
+      "f4",
+      "f42"
+    ],
+    "topic_key": "stock:SOXX:big_move",
+    "angle": "半導体セクター全体が急落する中で、関連するデリバティブ市場においてどのような歪みや過熱感が起きているのかを構造的に解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "主要な半導体株の急落とHyperliquid上の先物データを組み合わせ、市場の歪みを深く読み解く構成になっているため。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f40"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "個別株の記録的な下落局面において、オンチェーンの先物市場がどのように反応し、ポジションが偏っているかを整理する。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "大きな値動きを見せた個別銘柄とデリバティブの数値を対比させ、市場参加者の動きを浮き彫りにしているため。"
+  }
+]
