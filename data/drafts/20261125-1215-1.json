@@ -1,0 +1,111 @@
+{
+  "id": "20261125-1215-1",
+  "slot_key": "20261125-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-25T03:15:55.668112+00:00",
+  "text": "主要なAI関連銘柄が売り込まれる中で、$ARMが前日比-8.55%と大きく値を下げている。\n\n米国11/24終値時点で価格は$161.56、前日終値の$176.67から下落し、安値は$157.25まで沈んだ。個別銘柄の急落が全体のセンチメントにどう影響するか、もう少しデータを追ってみたい。",
+  "template": "主要なAI関連銘柄が売り込まれる中で、$ARMが前日比{{f11.change_pct}}と大きく値を下げている。\n\n{{f11.asof}}時点で価格は{{f11.price}}、前日終値の{{f11.prev_close}}から下落し、安値は{{f11.low}}まで沈んだ。個別銘柄の急落が全体のセンチメントにどう影響するか、もう少しデータを追ってみたい。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "stock:ARM:big_move",
+  "angle": "主要なAI関連銘柄が売り込まれる中、なぜ$ARMが-8.55%と大きく値を下げたのか",
+  "scores": {
+    "novelty": 17,
+    "interest": 18,
+    "evidence": 18,
+    "utility": 16,
+    "insight": 18
+  },
+  "total": 87,
+  "fact_ids": [
+    "f11",
+    "f38"
+  ],
+  "facts": [
+    {
+      "key": "stock:ARM:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】ARM 価格161.56, 前日比-8.55%, 前日終値176.67, 高値170.34, 安値157.25",
+      "fields": {
+        "symbol": "ARM",
+        "price": "$161.56",
+        "change_pct": "-8.55%",
+        "prev_close": "$176.67",
+        "high": "$170.34",
+        "low": "$157.25",
+        "asof": "米国11/24終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 161.56,
+        "change_pct": -8.553,
+        "prev_close": 176.67
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "ARM"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/ARM"
+      },
+      "asof": "2026-11-25T03:13:57.249675+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "hl:xyz:ANT:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: ANT（HIP-3株式等先物） 24時間騰落率-6.34%, 価格80.064, 建玉246864391USD, 24時間出来高608073179USD, 資金調達率(年率)-10.1%",
+      "fields": {
+        "coin": "ANT",
+        "symbol": "ANT",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$80.06",
+        "change_pct": "-6.34%",
+        "oi": "約2.5億ドル",
+        "volume": "約6.1億ドル",
+        "funding_annual": "-10.1%",
+        "asof": "日本時間11/25(水) 12:14時点",
+        "asof_short": "12:14時点"
+      },
+      "raw": {
+        "mark": 80.064,
+        "change_pct": -6.345,
+        "oi_usd": 246864391,
+        "vol_usd": 608073179,
+        "funding_annual_pct": -10.11
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:ANT",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:ANT"
+      },
+      "asof": "2026-11-25T03:14:02.122701+00:00",
+      "confidence": "confirmed",
+      "id": "f38"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/ARM"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:ANT"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2125428255997964649",
+  "posted_at": "2026-11-25T03:15:59.660542+00:00"
+}
