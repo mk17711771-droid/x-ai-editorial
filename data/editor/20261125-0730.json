@@ -1,0 +1,55 @@
+[
+  {
+    "fact_ids": [
+      "f4",
+      "f10",
+      "f42"
+    ],
+    "topic_key": "stock:SOXX:big_move",
+    "angle": "前夜の半導体セクターの歴史的な急落の中で、なぜSOXXが-8.27%と沈み、HIP-3のSOXL先物が資金調達率年率+49.3%まで歪んでいるのかを構造的に解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "半導体セクター全体の記録的な急落と、それに伴うHIP-3先物の極端な資金調達率の歪みを具体的な数字で鋭く対比させているため。"
+  },
+  {
+    "fact_ids": [
+      "f10",
+      "f6",
+      "f38"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "マイクロン（MU）が-11.01%と二桁下落を記録した背景で、関連するHIP-3先物市場にどのような需給の歪みが生じているのかを読み解く。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "個別銘柄として最大の下げ幅を記録したMUの急落を主役に据え、オンチェーン側の動向と結びつけた実用的な構成になっているため。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f40"
+    ],
+    "topic_key": "stock:QQQ:quote",
+    "angle": "ナスダック100（QQQ）が-1.99%と大きく値を下げる中、HIP-3のXYZ100先物の建玉と資金調達率にどのような変化が現れているのか検証する。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 87,
+    "reason": "指数全体の大きな下落局面におけるデリバティブ市場の構造的変化を、正確な数値を用いて多角的に整理しているため。"
+  }
+]
