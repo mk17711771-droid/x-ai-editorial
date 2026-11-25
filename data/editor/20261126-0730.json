@@ -1,0 +1,56 @@
+[
+  {
+    "fact_ids": [
+      "f10",
+      "f39",
+      "f5"
+    ],
+    "topic_key": "stock:MU:big_move",
+    "angle": "マイクロン・テクノロジー（MU）の-4.53%安をはじめとする半導体セクターの下落に対し、HyperliquidのSKハイキンス（SKHX）先物で資金調達率が年率-58.5%まで逆回転している歪みを構造解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "主要半導体の下落とHIP-3先物における極端なファンディングレートの逆転現象を組み合わせ、市場の需給の歪みを深く解説できるため。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f38",
+      "f40"
+    ],
+    "topic_key": "stock:QQQ:quote",
+    "angle": "ナスダック100（QQQ）が前日比-0.65%と軟調に推移する中、HyperliquidのXYZ100先物が資金調達率年率+7.5%を維持している点に着目し、指数系デリバティブ市場の構造を解き明かす。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "最優先銘柄であるQQQを主役に据え、インデックス先物市場における資金の流れとコストのギャップを的確に捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f5",
+      "f42",
+      "f31"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "エヌビディア（NVDA）が-3.91%の下落を記録した局面で、HyperliquidのNVDA先物が建玉3億3985万ドルを維持しつつ資金調達率が+5.5%で推移している背景の歪みを追う。",
+    "scores": {
+      "novelty": 17,
+      "interest": 19,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 89,
+    "reason": "市場の注目度が高いNVDAの現物下落とHIP-3先物の建玉・ファンディングレートの関係性から、投資家のポジションの偏りを浮き彫りにできるため。"
+  }
+]
