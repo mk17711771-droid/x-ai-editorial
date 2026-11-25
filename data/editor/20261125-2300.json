@@ -1,0 +1,53 @@
+[
+  {
+    "fact_ids": [
+      "f7",
+      "f15"
+    ],
+    "topic_key": "hl:xyz:SOXL:big_move",
+    "angle": "半導体3倍ベアのSOXL先物が急落する中で見せている極端なロング過熱の歪み",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "主要な半導体レバレッジ銘柄における記録的な下落と、資金調達率の極端な偏りを鋭く捉えているため。"
+  },
+  {
+    "fact_ids": [
+      "f6",
+      "f12"
+    ],
+    "topic_key": "hl:xyz:SKHX:volume_top",
+    "angle": "SKハイニックスの先物市場で起きている記録的なショート過熱の背景",
+    "scores": {
+      "novelty": 18,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "半導体関連の個別先物における突出した資金調達率のマイナスと、出来高の急増という明確な歪みを提示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f2",
+      "f27"
+    ],
+    "topic_key": "hl:BTC: volume_top",
+    "angle": "ビットコインの下落局面における上位トレーダーのポジションの圧倒的な偏り",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "市場全体の価格下落と、安定上位トレーダーの保有状況における極端な構造的偏りを数字で対比できているため。"
+  }
+]
