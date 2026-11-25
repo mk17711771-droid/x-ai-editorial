@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-25T19:55:59.769286+00:00",
-  "at_jst": "11/26 04:55",
+  "at": "2026-11-25T20:37:30.194268+00:00",
+  "at_jst": "11/26 05:37",
   "ok": false,
   "issues": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "type": "x_budget",
-      "reads": 237
+      "reads": 247
     },
     {
       "type": "error",
@@ -38,13 +38,6 @@
       "event": "repository_dispatch",
       "at": "2026-11-25T14:49:54Z",
       "id": 45638350952
-    },
-    {
-      "type": "workflow_failed",
-      "name": "generate-drafts",
-      "event": "repository_dispatch",
-      "at": "2026-11-25T14:35:21Z",
-      "id": 45635707151
     },
     {
       "type": "many_rejections",
