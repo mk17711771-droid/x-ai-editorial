@@ -1922,3 +1922,14 @@ def test_note_dangling_this_chart_removed():
     """11/25 note: 図のない段落で「このチャートから読み取れるように」が残った。"""
     from aiedit.note_article import drop_dangling_chart_refs
     assert drop_dangling_chart_refs("前置き\n\nこのチャートから読み取れるように、ショートが過熱している。") == "前置き\n\nショートが過熱している。"
+
+
+def test_only_claim_requires_largest_move():
+    """11/25 20:47: 「なぜ$NVDAだけがこれほど強烈な下落に」と書いたが、MU（-11.01%）のほうが大きく下げていた。"""
+    from aiedit import checks
+    facts = {"f1": {"kind": "stock", "raw": {"change_pct": -11.01}, "fields": {"symbol": "MU", "change_pct": "-11.01%"}},
+             "f2": {"kind": "hl", "raw": {"change_pct": -6.38}, "fields": {"coin": "xyz:NVDA", "change_pct": "-6.38%"}}}
+    bad = "なぜ$NVDAだけがこれほど強烈な下落に見舞われているのか\n・MU {{f1.change_pct}}\n・NVDA {{f2.change_pct}}"
+    assert any("だけ" in e for e in checks.check_template(bad, facts))
+    ok = "なぜ$MUだけがこれほど強烈な下落に見舞われているのか\n・MU {{f1.change_pct}}\n・NVDA {{f2.change_pct}}"
+    assert not any("だけ" in e for e in checks.check_template(ok, facts))

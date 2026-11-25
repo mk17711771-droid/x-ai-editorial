@@ -363,6 +363,22 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     used_hl = any((facts.get(fid) or {}).get("kind") == "hl" for fid, _ in PLACEHOLDER.findall(template))
     if used_hl and re.search(r"現物(?:の|が)?(?:取り扱い|取扱|上場|追加|銘柄|ラインナップ)", template):
         errors.append("Hyperliquidの市場は無期限先物。上場・追加を「現物」と書かない")
+    # 「$Xだけが（急落・急騰）」と書くなら、並べた材料の中でXの値動きが一番大きいこと
+    # （11/25 20:47「なぜ$NVDAだけがこれほど強烈な下落に」と書いたが、同じ投稿のMUは-11.01%でNVDAの-6.38%より大きかった）
+    first_t = template.strip().split("\n")[0]
+    m_only = re.search(r"\$?(?:\{\{(f\d+)\.(?:symbol|coin)\}\}|([A-Z][A-Z0-9]{1,6}))(?:の[^。\n]{0,8})?だけ", first_t)
+    if m_only:
+        def _sym(fid: str) -> str:
+            f_ = (facts.get(fid) or {}).get("fields") or {}
+            return str(f_.get("symbol") or f_.get("coin") or "").split(":")[-1].upper()
+        target = _sym(m_only.group(1)) if m_only.group(1) else m_only.group(2)
+        moves: dict[str, float] = {}
+        for fid in {f for f, _ in PLACEHOLDER.findall(template)}:
+            raw = (facts.get(fid) or {}).get("raw") or {}
+            if isinstance(raw.get("change_pct"), (int, float)):
+                moves[_sym(fid)] = max(moves.get(_sym(fid), 0), abs(raw["change_pct"]))
+        if target in moves and any(v > moves[target] for k, v in moves.items() if k != target):
+            errors.append(f"1行目で「{target}だけ」と書いているが、並べた材料に{target}より大きく動いた銘柄がある")
     # 同じ銘柄の別の市場（xyz:NVDA と別の運営者の NVDA など）を、説明なしで2行に並べない
     # （11/23 20:40「NVDA $136.04 建玉5.3億ドル」「NVDA $136.13 建玉949万ドル」が並び、小さい市場の建玉+41.7%をNVDA全体のように書いた）
     seen_coin: dict[str, str] = {}
