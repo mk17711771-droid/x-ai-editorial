@@ -1,0 +1,100 @@
+{
+  "id": "20261126-2300-2",
+  "slot_key": "20261126-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-11-26T14:26:50.638779+00:00",
+  "text": "【速報】GCEXがSpaceX、テスラ、エヌビディアのPerpを提供開始。\n\nGCEXの参入で、株式のオンチェーン化が本格的に加速しそうだな。\nHyperliquidの$NVDAは23:23時点で資金調達率が年率-46.8%。\n独壇場だった市場に歪みが増えるのは、面白い展開かも。",
+  "template": "【速報】{{f1.headline}}。\n\n{{f1.who}}の参入で、株式のオンチェーン化が本格的に加速しそうだな。\n{{f25.venue}}の${{f25.symbol}}は{{f25.asof_short}}で資金調達率が{{f25.funding_annual}}。\n独壇場だった市場に歪みが増えるのは、面白い展開かも。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "news:gcex-stock-perps-expansion-spacex-tesla-nvidia",
+  "angle": "伝統的な証券会社GCEXが $NVDA などの株式Perp取り扱いを開始。Hyperliquidの独壇場だった「株式のオンチェーン化」に既存金融が参入し始め、プラットフォーム間の価格乖離（歪み）を狙う機会が広がりつつあります。",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 16,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 88,
+  "fact_ids": [
+    "f1",
+    "f25"
+  ],
+  "facts": [
+    {
+      "key": "news:gcex-stock-perps-expansion-spacex-tesla-nvidia",
+      "kind": "hl",
+      "asof": "2026-11-26T11:06:11.563563+00:00",
+      "expires_at": "2026-11-27T23:06:11.563579+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-26T08:55:00Z",
+      "summary": "英国のブローカーであるGCEXは、プロのトレーダーを対象にSpaceX、テスラ、エヌビディアといった主要な株式およびRWAに関連する無期限先物の取り扱いを開始した。伝統的な証券や企業株式を対象としたデリバティブをオンチェーンやオルタナティブプラットフォーム経由で提供する動きが拡大している。",
+      "fields": {
+        "headline": "GCEXがSpaceX、テスラ、エヌビディアのPerpを提供開始",
+        "what": "英国のGCEXがプロ向けに株式関連の無期限先物をオープンした",
+        "status": "確定",
+        "who": "GCEX"
+      },
+      "raw": {},
+      "source": {
+        "name": "Finance Magnates・shattered.io",
+        "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNWEZqcnVtSmNNWFlLQjBYTGI4LU91T1FxQU5NQ05HR2NKdC1YNmxkNzRfZTZ4MVNVb05UU0FjczJjMTd2bVdHZUxQMnh1R0VhVE5jeVpFbkxZclhlekU3QjJCSXl4VkdORFVBVHZfV25fMmNhdWU2NHV3SkZlREpZYzZ5aFc2UU5nZnJ1ZUZJZmM0YVdLek5PaEIyQndROXpsY0VjUXZQZlZwVUhvMnNvZTl1MVhUZC1wR0xwWEpLZkZZekROQm1ldGRPU0VWRUhu?oc=5"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率+4.36%, 価格150.44, 建玉342857293USD, 24時間出来高416504441USD, 資金調達率(年率)-46.8%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$150.44",
+        "change_pct": "+4.36%",
+        "oi": "約3.4億ドル",
+        "volume": "約4.2億ドル",
+        "funding_annual": "-46.8%",
+        "asof": "日本時間11/26(木) 23:23時点",
+        "asof_short": "23:23時点"
+      },
+      "raw": {
+        "mark": 150.44,
+        "change_pct": 4.364,
+        "oi_usd": 342857293,
+        "vol_usd": 416504441,
+        "funding_annual_pct": -46.77
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-26T14:23:18.646004+00:00",
+      "confidence": "confirmed",
+      "id": "f25"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finance Magnates・shattered.io",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNWEZqcnVtSmNNWFlLQjBYTGI4LU91T1FxQU5NQ05HR2NKdC1YNmxkNzRfZTZ4MVNVb05UU0FjczJjMTd2bVdHZUxQMnh1R0VhVE5jeVpFbkxZclhlekU3QjJCSXl4VkdORFVBVHZfV25fMmNhdWU2NHV3SkZlREpZYzZ5aFc2UU5nZnJ1ZUZJZmM0YVdLek5PaEIyQndROXpsY0VjUXZQZlZwVUhvMnNvZTl1MVhUZC1wR0xwWEpLZkZZekROQm1ldGRPU0VWRUhu?oc=5"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false
+}

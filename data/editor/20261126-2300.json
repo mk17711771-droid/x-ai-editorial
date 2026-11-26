@@ -1,0 +1,69 @@
+[
+  {
+    "fact_ids": [
+      "f12",
+      "f18"
+    ],
+    "topic_key": "hl:xyz:AMD:funding_extreme",
+    "angle": "$AMD の資金調達率が年率-174.3%まで急降下し、建玉も24時間で+70.3%と急増。米国市場オープンを前に、ショート側のコストが異常な水準まで積み上がっている「歪み」が鮮明になっています。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 94,
+    "reason": "大きな名前であるAMDで、資金調達率-170%超えと建玉70%増という極めて強い異常値が重なっており、市場オープン前の注目度が最も高い。"
+  },
+  {
+    "fact_ids": [
+      "f28",
+      "f33"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "BTC価格は+4.48%と反発していますが、安定上位トレーダーの買い比率はわずか7%（15人中1人）。さらに8名が利確とみられる決済を行っており、足元の価格上昇に対してプロ勢は「出口」を探っている数字の乖離が起きています。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 94,
+    "reason": "価格上昇と上位勢のポジションの向き・利確の動きが完全な逆相関（歪み）を示しており、読者の関心が高いBTCで実用的な視点を提供できる。"
+  },
+  {
+    "fact_ids": [
+      "f17"
+    ],
+    "topic_key": "hl:xyz:EWY:oi_change",
+    "angle": "韓国株ETFの $EWY 先物で建玉が+185.4%と爆発的に増加。資金調達率も年率-54.0%と売り側に傾いており、米国市場のオープンを前にオンチェーン側で強烈な下押し圧力が先行しています。",
+    "scores": {
+      "novelty": 20,
+      "interest": 17,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 92,
+    "reason": "建玉185%増という圧倒的な数字があり、半導体に関連の深い韓国市場（SKHX等）への波及を予唆する新規性の高い材料。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f25"
+    ],
+    "topic_key": "news:gcex-stock-perps-expansion-spacex-tesla-nvidia",
+    "angle": "伝統的な証券会社GCEXが $NVDA などの株式Perp取り扱いを開始。Hyperliquidの独壇場だった「株式のオンチェーン化」に既存金融が参入し始め、プラットフォーム間の価格乖離（歪み）を狙う機会が広がりつつあります。",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 16,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "既存金融の参入というマクロな変化と、HIP-3の主要銘柄であるNVDAを組み合わせた独自の視点。証拠がニュース見出しのため点数を調整。"
+  }
+]

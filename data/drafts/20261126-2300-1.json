@@ -1,0 +1,103 @@
+{
+  "id": "20261126-2300-1",
+  "slot_key": "20261126-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "posted",
+  "created_at": "2026-11-26T14:25:22.468379+00:00",
+  "text": "$BTCの反発の裏で、プロ勢の買い比率が7%まで落ち込んでる。\n\n15人中、ロングを持ってるのはわずか1人だけ。\nさらに8人が利確で抜けてるのも、今の強気な雰囲気とは対照的だな。\nプロはこの上げを「出口」として使ってる可能性が高そう。",
+  "template": "${{f28.coin}}の反発の裏で、プロ勢の買い比率が{{f28.long_ratio}}まで落ち込んでる。\n\n{{f28.holders}}中、ロングを持ってるのはわずか{{f28.long_n}}だけ。\nさらに{{f33.closed_n}}が利確で抜けてるのも、今の強気な雰囲気とは対照的だな。\nプロはこの上げを「出口」として使ってる可能性が高そう。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "traders:BTC:bias",
+  "angle": "BTC価格は+4.48%と反発していますが、安定上位トレーダーの買い比率はわずか7%（15人中1人）。さらに8名が利確とみられる決済を行っており、足元の価格上昇に対してプロ勢は「出口」を探っている数字の乖離が起きています。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f28",
+    "f33"
+  ],
+  "facts": [
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-26T12:36:18.745564+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:BTC:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー39人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、BTCを持っている15人の内訳: 買い1人・売り14人（買い比率7%）、買い合計547006USD・売り合計65378275USD、平均レバレッジ23.5倍（このほか、現物つきの売り＝ヘッジ・裁定が3人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "BTC",
+        "top_n": "39人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "15人",
+        "long_n": "1人",
+        "short_n": "14人",
+        "long_ratio": "7%",
+        "long_usd": "約55万ドル",
+        "short_usd": "約6,538万ドル",
+        "hedge_n": "3人",
+        "avg_leverage": "23.5倍",
+        "asof": "日本時間11/26(木) 21:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 1,
+        "short_n": 14,
+        "long_usd": 547006,
+        "short_usd": 65378275
+      },
+      "id": "f28"
+    },
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-26T12:36:18.745564+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:BTC:takeprofit",
+      "category": "smart_money_exit",
+      "summary": "安定上位トレーダー39人のうち8人が、約1日前に含み益で持っていたBTCのポジションを閉じた（利確とみられる。前回時点の含み益合計1149774USD）",
+      "fields": {
+        "coin": "BTC",
+        "top_n": "39人",
+        "closed_n": "8人",
+        "upnl": "約115万ドル",
+        "asof": "日本時間11/26(木) 21:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "closed_n": 8,
+        "upnl": 1149774
+      },
+      "id": "f33"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    },
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2125959723291705529",
+  "posted_at": "2026-11-26T14:27:51.369546+00:00"
+}

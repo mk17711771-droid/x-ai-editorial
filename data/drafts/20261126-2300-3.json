@@ -1,0 +1,116 @@
+{
+  "id": "20261126-2300-3",
+  "slot_key": "20261126-2300",
+  "slot_theme": "23:13 米国市場オープン前後のHyperliquid（株式先物・暗号資産）",
+  "status": "superseded",
+  "created_at": "2026-11-26T14:27:47.951122+00:00",
+  "text": "【異常】$AMDの資金調達率が年率-174.3%。\n\n価格が+5.99%と上げてる中で、建玉だけが+70.3%も膨らんでる。\nHyperliquidの株式先物で、ここまでショート過熱が鮮明になるのは珍しい。\n踏み上げの燃料としては十分すぎるな。",
+  "template": "【異常】${{f12.symbol}}の資金調達率が年率{{f12.funding_annual}}。\n\n価格が{{f12.change_pct}}と上げてる中で、建玉だけが{{f18.oi_change_pct}}も膨らんでる。\nHyperliquidの株式先物で、ここまでショート過熱が鮮明になるのは珍しい。\n踏み上げの燃料としては十分すぎるな。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:AMD:funding_extreme",
+  "angle": "$AMD の資金調達率が年率-174.3%まで急降下し、建玉も24時間で+70.3%と急増。米国市場オープンを前に、ショート側のコストが異常な水準まで積み上がっている「歪み」が鮮明になっています。",
+  "scores": {
+    "novelty": 19,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 94,
+  "fact_ids": [
+    "f12",
+    "f18"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:AMD:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: AMD（HIP-3株式等先物） 24時間騰落率+5.99%, 価格406.34, 建玉28975610USD, 24時間出来高43767708USD, 資金調達率(年率)-174.3%",
+      "fields": {
+        "coin": "AMD",
+        "symbol": "AMD",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$406.34",
+        "change_pct": "+5.99%",
+        "oi": "約2,898万ドル",
+        "volume": "約4,377万ドル",
+        "funding_annual": "-174.3%",
+        "asof": "日本時間11/26(木) 23:23時点",
+        "asof_short": "23:23時点"
+      },
+      "raw": {
+        "mark": 406.34,
+        "change_pct": 5.994,
+        "oi_usd": 28975610,
+        "vol_usd": 43767708,
+        "funding_annual_pct": -174.28
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:AMD",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:AMD"
+      },
+      "asof": "2026-11-26T14:23:18.645653+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    },
+    {
+      "key": "hl:xyz:AMD:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+70.3%: AMD（HIP-3株式等先物） 24時間騰落率+5.99%, 価格406.34, 建玉28975610USD, 24時間出来高43767708USD, 資金調達率(年率)-174.3%",
+      "fields": {
+        "coin": "AMD",
+        "symbol": "AMD",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$406.34",
+        "change_pct": "+5.99%",
+        "oi": "約2,898万ドル",
+        "volume": "約4,377万ドル",
+        "funding_annual": "-174.3%",
+        "asof": "日本時間11/26(木) 23:23時点",
+        "asof_short": "23:23時点",
+        "oi_change_pct": "+70.3%"
+      },
+      "raw": {
+        "mark": 406.34,
+        "change_pct": 5.994,
+        "oi_usd": 28975610,
+        "vol_usd": 43767708,
+        "funding_annual_pct": -174.28,
+        "oi_change_pct": 70.3
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:AMD",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:AMD"
+      },
+      "asof": "2026-11-26T14:23:18.645773+00:00",
+      "confidence": "confirmed",
+      "id": "f18"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:AMD"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:AMD"
+    }
+  ],
+  "needs_human": false
+}
