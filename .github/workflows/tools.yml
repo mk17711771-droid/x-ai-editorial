@@ -17,6 +17,7 @@ on:
           - note-trends
           - delete-post
           - notify
+          - llm-check
         default: note-profile
       args_users:
         description: "x-check: 調べるアカウント（カンマ区切り）"

@@ -116,6 +116,8 @@ llm:
     - gemini-2.0-flash
     - gemini-3-flash
     - gemini-2.5-flash
+    # 11/26 深夜に flash=429・lite=503・pro=429 で4晩目の枠落ち。Gemma は別の無料枠（1日の回数が多い）なので最後の予備にする
+    - gemma-3-27b-it
   temperature: 0.7
 
 note:

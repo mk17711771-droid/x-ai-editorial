@@ -20,7 +20,7 @@ import os
 import sys
 import traceback
 
-from . import health, improve, learn, line, note, note_check, pipeline, research, sources, store
+from . import health, improve, learn, line, llm, note, note_check, pipeline, research, sources, store
 from .common import JST, now_utc, setup_logging
 
 
@@ -51,6 +51,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("metrics-now")
     sub.add_parser("news-watch")
     sub.add_parser("records")
+    sub.add_parser("llm-check")
     sub.add_parser("digest")
     sub.add_parser("reply-ideas")
     xc = sub.add_parser("x-check")
@@ -115,6 +116,8 @@ def main(argv: list[str] | None = None) -> int:
         elif args.cmd == "digest":
             from . import digest
             print(digest.run())
+        elif args.cmd == "llm-check":
+            llm.check_models()
         elif args.cmd == "records":
             from . import records
             print(json.dumps(records.rebuild(), ensure_ascii=False))

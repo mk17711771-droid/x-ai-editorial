@@ -32,6 +32,19 @@ def _loads(text: str) -> dict:
     return json.loads(t)
 
 
+def _body_for(model: str, body: dict) -> dict:
+    """Gemma（Geminiとは別の無料枠）は systemInstruction と JSONモード に対応しないので、指示を本文の先頭に入れる。
+    11/23〜26 深夜に Gemini の全モデルが429/503で4晩続けて枠を落としたため、最後の予備として使う。"""
+    if not model.startswith("gemma"):
+        return body
+    system = body["systemInstruction"]["parts"][0]["text"]
+    user = body["contents"][0]["parts"][0]["text"]
+    return {
+        "contents": [{"role": "user", "parts": [{"text": f"{system}\n\n---\n\n{user}\n\n出力はJSONオブジェクトだけにしてください（前置き・```は不要）。"}]}],
+        "generationConfig": {"temperature": body["generationConfig"].get("temperature", 0.7)},
+    }
+
+
 def generate_json(system: str, user: str, fast: bool = False, light: bool = False) -> dict:
     """fast=True: 待ち時間の短い呼び出し（10分おきに走る速報の見張り用。失敗しても次の回で拾い直す）。
     11/16 GitHub Actionsの無料枠を使い切った。待ち時間も課金されるため、速報の見張りは長く待たない。"""
@@ -62,8 +75,8 @@ def generate_json(system: str, user: str, fast: bool = False, light: bool = Fals
             if model in missing:
                 continue
             try:
-                r = requests.post(API.format(model=model), params={"key": env("GEMINI_API_KEY")}, json=body, timeout=45)  # 120秒待ちが積み重なりActionsの時間を使っていた（11/16）
-                if r.status_code == 404:
+                r = requests.post(API.format(model=model), params={"key": env("GEMINI_API_KEY")}, json=_body_for(model, body), timeout=45)  # 120秒待ちが積み重なりActionsの時間を使っていた（11/16）
+                if r.status_code == 404 or (r.status_code == 400 and model.startswith("gemma")):
                     missing.add(model)
                     continue
                 if r.status_code in (429, 500, 503):
@@ -81,3 +94,19 @@ def generate_json(system: str, user: str, fast: bool = False, light: bool = Fals
         if len(missing) == len(models):
             raise RuntimeError(f"利用できるGeminiモデルがありません: {', '.join(models)}")
     raise RuntimeError(f"Gemini APIの呼び出しに失敗しました: {last_err}")
+
+
+def check_models() -> None:
+    """予備も含めた各モデルが実際に使えるかを1回ずつ確かめる（tools の llm-check。無料枠）。"""
+    cfg = settings()["llm"]
+    body = {"systemInstruction": {"parts": [{"text": "JSONで答える"}]},
+            "contents": [{"role": "user", "parts": [{"text": '{"ok": true} だけを返して'}]}],
+            "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
+    for m in dict.fromkeys([cfg["model"]] + cfg.get("fallback_models", [])):
+        try:
+            r = requests.post(API.format(model=m), params={"key": env("GEMINI_API_KEY")}, json=_body_for(m, body), timeout=45)
+            out = r.json()["candidates"][0]["content"]["parts"][0]["text"][:80] if r.status_code == 200 else r.text[:160]
+        except Exception as e:  # noqa: BLE001 確認用なので何があっても次のモデルへ
+            out = str(e)[:160]
+            r = None
+        log.info("llm-check %s: %s %s", m, r.status_code if r is not None else "-", out.replace("\n", " "))
