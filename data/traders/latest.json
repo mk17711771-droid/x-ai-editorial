@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-26T02:36:14.235806+00:00",
+  "at": "2026-11-26T04:36:15.281662+00:00",
   "traders": 40,
   "with_positions": 31,
   "coins": [
@@ -9,11 +9,23 @@
       "short_n": 22,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 70225961.18367,
+      "short_usd": 70332919.63970998,
       "hedge_usd": 0.0,
       "pos_n": 22,
       "avg_leverage": 23.3,
-      "net_usd": -70225961.18367
+      "net_usd": -70332919.63970998
+    },
+    {
+      "coin": "ETH",
+      "long_n": 0,
+      "short_n": 11,
+      "hedge_n": 0,
+      "long_usd": 0.0,
+      "short_usd": 8455179.77647,
+      "hedge_usd": 0.0,
+      "pos_n": 11,
+      "avg_leverage": 19.1,
+      "net_usd": -8455179.77647
     },
     {
       "coin": "HYPE",
@@ -21,23 +33,11 @@
       "short_n": 7,
       "hedge_n": 4,
       "long_usd": 0.0,
-      "short_usd": 882677.7510899999,
-      "hedge_usd": 539959.553782,
+      "short_usd": 887636.04139,
+      "hedge_usd": 542428.75417,
       "pos_n": 7,
       "avg_leverage": 8.4,
-      "net_usd": -882677.7510899999
-    },
-    {
-      "coin": "ETH",
-      "long_n": 0,
-      "short_n": 10,
-      "hedge_n": 0,
-      "long_usd": 0.0,
-      "short_usd": 8342682.930060001,
-      "hedge_usd": 0.0,
-      "pos_n": 10,
-      "avg_leverage": 20.0,
-      "net_usd": -8342682.930060001
+      "net_usd": -887636.04139
     },
     {
       "coin": "SOL",
@@ -45,11 +45,11 @@
       "short_n": 5,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 2239156.4579600003,
+      "short_usd": 2236093.7397,
       "hedge_usd": 0.0,
       "pos_n": 5,
       "avg_leverage": 18.0,
-      "net_usd": -2239156.4579600003
+      "net_usd": -2236093.7397
     },
     {
       "coin": "PURR",
@@ -58,7 +58,7 @@
       "hedge_n": 3,
       "long_usd": 0.0,
       "short_usd": 0.0,
-      "hedge_usd": 41565.803713,
+      "hedge_usd": 41163.200343000004,
       "lev_sum": 0.0,
       "pos_n": 0,
       "avg_leverage": 0,
@@ -71,7 +71,7 @@
       "hedge_n": 3,
       "long_usd": 0.0,
       "short_usd": 0.0,
-      "hedge_usd": 105536.20319999999,
+      "hedge_usd": 104394.1632,
       "lev_sum": 0.0,
       "pos_n": 0,
       "avg_leverage": 0,
@@ -83,11 +83,11 @@
       "short_n": 2,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 191877.25644,
+      "short_usd": 190600.21494,
       "hedge_usd": 0.0,
       "pos_n": 2,
       "avg_leverage": 10.0,
-      "net_usd": -191877.25644
+      "net_usd": -190600.21494
     },
     {
       "coin": "CRV",
@@ -95,11 +95,11 @@
       "short_n": 2,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 119047.33347,
+      "short_usd": 118421.241624,
       "hedge_usd": 0.0,
       "pos_n": 2,
       "avg_leverage": 10.0,
-      "net_usd": -119047.33347
+      "net_usd": -118421.241624
     },
     {
       "coin": "AAVE",
@@ -107,11 +107,11 @@
       "short_n": 2,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 43027.884000000005,
+      "short_usd": 42617.53,
       "hedge_usd": 0.0,
       "pos_n": 2,
       "avg_leverage": 10.0,
-      "net_usd": -43027.884000000005
+      "net_usd": -42617.53
     },
     {
       "coin": "GRASS",
@@ -119,11 +119,11 @@
       "short_n": 2,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 24690.902875,
+      "short_usd": 24539.164829,
       "hedge_usd": 0.0,
       "pos_n": 2,
       "avg_leverage": 3.0,
-      "net_usd": -24690.902875
+      "net_usd": -24539.164829
     },
     {
       "coin": "PUMP",
@@ -131,11 +131,11 @@
       "short_n": 1,
       "hedge_n": 1,
       "long_usd": 0.0,
-      "short_usd": 6605.0,
-      "hedge_usd": 9845.169936,
+      "short_usd": 6552.5,
+      "hedge_usd": 9763.18896,
       "pos_n": 1,
       "avg_leverage": 5.0,
-      "net_usd": -6605.0
+      "net_usd": -6552.5
     },
     {
       "coin": "PENDLE",
@@ -143,11 +143,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 301494.879,
+      "short_usd": 299035.548,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 5.0,
-      "net_usd": -301494.879
+      "net_usd": -299035.548
     },
     {
       "coin": "VVV",
@@ -155,11 +155,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 277737.70486,
+      "short_usd": 255324.40871,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 3.0,
-      "net_usd": -277737.70486
+      "net_usd": -255324.40871
     },
     {
       "coin": "AERO",
@@ -167,11 +167,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 216611.10779,
+      "short_usd": 215031.05683,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 3.0,
-      "net_usd": -216611.10779
+      "net_usd": -215031.05683
     },
     {
       "coin": "PAXG",
@@ -179,11 +179,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 154597.9,
+      "short_usd": 154451.7,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 10.0,
-      "net_usd": -154597.9
+      "net_usd": -154451.7
     },
     {
       "coin": "LIT",
@@ -191,23 +191,23 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 136596.642,
+      "short_usd": 137175.675,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 5.0,
-      "net_usd": -136596.642
+      "net_usd": -137175.675
     },
     {
       "coin": "SUI",
       "long_n": 1,
       "short_n": 0,
       "hedge_n": 0,
-      "long_usd": 94513.49112,
+      "long_usd": 94562.6328,
       "short_usd": 0.0,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 10.0,
-      "net_usd": 94513.49112
+      "net_usd": 94562.6328
     },
     {
       "coin": "UNI",
@@ -215,11 +215,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 70423.29,
+      "short_usd": 70199.85,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 10.0,
-      "net_usd": -70423.29
+      "net_usd": -70199.85
     },
     {
       "coin": "ZRO",
@@ -227,11 +227,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 61960.37055,
+      "short_usd": 62923.0567,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 5.0,
-      "net_usd": -61960.37055
+      "net_usd": -62923.0567
     },
     {
       "coin": "DOGE",
@@ -239,11 +239,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 57462.425,
+      "short_usd": 57697.441,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 10.0,
-      "net_usd": -57462.425
+      "net_usd": -57697.441
     },
     {
       "coin": "TAO",
@@ -251,11 +251,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 48185.54775,
+      "short_usd": 48034.3425,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 5.0,
-      "net_usd": -48185.54775
+      "net_usd": -48034.3425
     },
     {
       "coin": "XRP",
@@ -263,11 +263,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 41660.52822,
+      "short_usd": 41716.28118,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 20.0,
-      "net_usd": -41660.52822
+      "net_usd": -41716.28118
     },
     {
       "coin": "LINK",
@@ -275,11 +275,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 27572.1,
+      "short_usd": 27747.0,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 10.0,
-      "net_usd": -27572.1
+      "net_usd": -27747.0
     },
     {
       "coin": "WLFI",
@@ -287,11 +287,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 19045.662681,
+      "short_usd": 18985.783307,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 5.0,
-      "net_usd": -19045.662681
+      "net_usd": -18985.783307
     },
     {
       "coin": "FARTCOIN",
@@ -299,11 +299,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 16293.969768,
+      "short_usd": 16144.357384,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 10.0,
-      "net_usd": -16293.969768
+      "net_usd": -16144.357384
     },
     {
       "coin": "TRX",
@@ -311,11 +311,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 15189.5,
+      "short_usd": 15210.0,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 10.0,
-      "net_usd": -15189.5
+      "net_usd": -15210.0
     },
     {
       "coin": "ARB",
@@ -323,11 +323,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 11453.0,
+      "short_usd": 11504.0,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 10.0,
-      "net_usd": -11453.0
+      "net_usd": -11504.0
     },
     {
       "coin": "STRK",
@@ -335,11 +335,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 11083.733738,
+      "short_usd": 10973.9938,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 5.0,
-      "net_usd": -11083.733738
+      "net_usd": -10973.9938
     },
     {
       "coin": "STBL",
@@ -347,11 +347,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 8757.51,
+      "short_usd": 8984.05,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 3.0,
-      "net_usd": -8757.51
+      "net_usd": -8984.05
     },
     {
       "coin": "ONDO",
@@ -359,11 +359,11 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 6055.89894,
+      "short_usd": 6075.03988,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 10.0,
-      "net_usd": -6055.89894
+      "net_usd": -6075.03988
     },
     {
       "coin": "LTC",
@@ -371,11 +371,23 @@
       "short_n": 1,
       "hedge_n": 0,
       "long_usd": 0.0,
-      "short_usd": 5489.90537,
+      "short_usd": 5520.81035,
       "hedge_usd": 0.0,
       "pos_n": 1,
       "avg_leverage": 10.0,
-      "net_usd": -5489.90537
+      "net_usd": -5520.81035
+    },
+    {
+      "coin": "MEGA",
+      "long_n": 0,
+      "short_n": 1,
+      "hedge_n": 0,
+      "long_usd": 0.0,
+      "short_usd": 5008.92,
+      "hedge_usd": 0.0,
+      "pos_n": 1,
+      "avg_leverage": 3.0,
+      "net_usd": -5008.92
     }
   ],
   "positions": {
@@ -383,100 +395,100 @@
       [
         "BTC",
         "short",
-        52974288,
-        15220133
+        53056010,
+        15138410
       ],
       [
         "ETH",
         "short",
-        5590474,
-        1660432
+        5596713,
+        1654193
       ]
     ],
     "enc:P9LWh73QX82OUdcoPaLlErf5KtS6SyrlpLM3fsWAibVgQiL4fgy3n81yqcGasdtdTpEASBUSeQ5hhg==": [
       [
         "BTC",
         "short",
-        7880788,
-        1562079
+        7892946,
+        1549922
       ]
     ],
     "enc:WAxtwDzy2Ls2RXwKXJBwLAZTxw8EKzQlkZkkNZj1ua8a6qAdYM3CDO6PcHHCB4LxPzjuZoPVsSPlEg==": [
       [
         "BTC",
         "short",
-        584957,
-        -23098
+        585859,
+        -24000
       ],
       [
         "ETH",
         "short",
-        1714971,
-        322037
+        1717086,
+        319922
       ],
       [
         "SOL",
         "short",
-        267428,
-        444736
+        267116,
+        445048
       ],
       [
         "DOGE",
         "short",
-        57462,
-        37138
+        57697,
+        36903
       ],
       [
         "HYPE",
         "short",
-        122931,
-        -72869
+        123624,
+        -73563
       ]
     ],
     "enc:WTj1DFnOwnZhpiRuWjWWMhTV8e_RWImNa4DiYgiShDa73SZ6xJLzqFDpAr0KxpO7gmz_xKBUGtBCWA==": [
       [
         "BTC",
         "short",
-        1901885,
-        265245
+        1904819,
+        262311
       ],
       [
         "SUI",
         "long",
-        94513,
-        -19051
+        94563,
+        -19002
       ],
       [
         "HYPE",
         "short",
-        62564,
-        -27308
+        62917,
+        -27661
       ]
     ],
     "enc:8RHL8NXVagMdwtw0_fMrZXFQc_E0ozoUqbqNuj-eqilX1B0D6Q0O5uzUMq4S0SdqOLVQYlXb6m12oQ==": [
       [
         "ZRO",
         "short",
-        61960,
-        1929
+        62923,
+        966
       ],
       [
         "NEAR",
         "short",
-        179198,
-        -98114
+        178022,
+        -96938
       ],
       [
         "STRK",
         "short",
-        11084,
-        17030
+        10974,
+        17140
       ],
       [
         "TAO",
         "short",
-        48186,
-        33443
+        48034,
+        33594
       ],
       [
         "ENA",
@@ -487,268 +499,268 @@
       [
         "GRASS",
         "short",
-        5743,
-        2609
+        5712,
+        2640
       ],
       [
         "PURR",
         "short",
-        29161,
-        12008
+        28877,
+        12293
       ],
       [
         "HYPE",
         "short",
-        193385,
-        -26032
+        194472,
+        -27120
       ],
       [
         "VVV",
         "short",
-        277738,
-        -94062
+        255324,
+        -71648
       ],
       [
         "PUMP",
         "short",
-        2925,
-        3370
+        2902,
+        3392
       ],
       [
         "XPL",
         "short",
-        1859,
-        1366
+        1860,
+        1365
       ],
       [
         "ZEC",
         "short",
-        23384,
-        11050
+        23175,
+        11259
       ],
       [
         "LIT",
         "short",
-        136597,
-        -48503
+        137176,
+        -49082
       ],
       [
         "PONS",
         "short",
-        2666,
-        16461
+        2716,
+        16411
       ]
     ],
     "enc:AvQ9CA48-twX845kbDm7hODWim0oqToEO4yDPYP9n2kpm9EIZD5-GY6qhLQp8b54Et2g0RUvsCxxQg==": [
       [
         "BTC",
         "short",
-        243323,
-        34831
+        243674,
+        34480
       ],
       [
         "ETH",
         "short",
-        110953,
-        13070
+        111064,
+        12960
       ],
       [
         "SOL",
         "short",
-        949735,
-        162925
+        948484,
+        164176
       ]
     ],
     "enc:7E23YbpC2TDkS4iJ3IyesXLrPNzYZ2NNgDy_lXuEHuVtW_JKgKEAb4RF1t93BdsU4h5K6_yOgdqbfA==": [
       [
         "BTC",
         "short",
-        1344605,
-        296250
+        1346547,
+        294309
       ],
       [
         "HYPE",
         "short",
-        371802,
-        82104
+        373899,
+        80007
       ]
     ],
     "enc:rxOf-RaZRopgCArTBWbTTURVeEf12PIFZtTZepdmQn1H_bU-n2ub_5HI7AI0jl4i9S_AyFmeXV8MSw==": [
       [
         "BTC",
         "short",
-        274221,
-        110985
+        274617,
+        110589
       ],
       [
         "CRV",
         "short",
-        113793,
-        101223
+        113201,
+        101815
       ],
       [
         "PENDLE",
         "short",
-        301495,
-        70674
+        299036,
+        73133
       ]
     ],
     "enc:yKjMXcuUfw9sPgo7c2CkUMoMQXrf-asjz7RNA_j6LYWUo10bl5dUg7qhI4DfOkDnW5va5uygyew56g==": [
       [
         "BTC",
         "short",
-        138741,
-        83121
+        138941,
+        82921
       ],
       [
         "ETH",
         "short",
-        69981,
-        43967
+        70047,
+        43901
       ],
       [
         "SOL",
         "short",
-        64914,
-        5325
+        64820,
+        5418
       ],
       [
         "AAVE",
         "short",
-        17942,
-        5647
+        17773,
+        5816
       ],
       [
         "UNI",
         "short",
-        70423,
-        30508
+        70200,
+        30731
       ],
       [
         "HYPE",
         "short",
-        80587,
-        -5011
+        81036,
+        -5460
       ],
       [
         "PAXG",
         "short",
-        154598,
-        28101
+        154452,
+        28247
       ],
       [
         "AERO",
         "short",
-        216611,
-        140299
+        215031,
+        141879
       ]
     ],
     "enc:rd6bUqa5UQOAcIcR5qKDb7-xj665im0fpRZHArfzFSZKvxNMLhUZuScybgkFEQqqqxbHxiUowaSsGA==": [
       [
         "SOL",
         "short",
-        671824,
-        140744
+        670854,
+        141714
       ],
       [
         "PYTH",
         "short",
-        293,
-        371
+        295,
+        369
       ],
       [
         "JUP",
         "short",
-        4677,
-        2525
+        4673,
+        2529
       ],
       [
         "JTO",
         "short",
-        1637,
-        6083
+        1667,
+        6053
       ],
       [
         "PUMP",
         "short",
-        6605,
-        11199
+        6552,
+        11252
       ],
       [
         "WLFI",
         "short",
-        2131,
-        8030
+        2124,
+        8036
       ]
     ],
     "enc:CgyOrVXtQvcWc7gbI-6IHqwINOtrNoOUut92oi8ZGkN4BtvhGtinutxKM4AGx8bBCbyQZ80gL1LNAg==": [
       [
         "ETH",
         "short",
-        514374,
-        242646
+        514857,
+        242163
       ]
     ],
     "enc:PlNpSKQMR9yLegZDONsZU5-e4m-iYO8G46ibsi68Zm4ygMC8ajET2ZwE7fq6P9A6t0FkvO8yxsFhRA==": [
       [
         "BTC",
         "short",
-        514926,
-        170633
+        515661,
+        169898
       ],
       [
         "ETH",
         "short",
-        170280,
-        69339
+        170440,
+        69179
       ],
       [
         "SOL",
         "short",
-        4080,
-        -80
+        4074,
+        -74
       ],
       [
         "LTC",
         "short",
-        5490,
-        -491
+        5521,
+        -522
       ],
       [
         "LINK",
         "short",
-        3674,
-        -175
+        3698,
+        -199
       ],
       [
         "STX",
         "short",
         2310,
-        1089
+        1090
       ],
       [
         "XRP",
         "short",
-        41661,
-        8428
+        41716,
+        8372
       ],
       [
         "HBAR",
         "short",
-        882,
-        1098
+        883,
+        1097
       ],
       [
         "RENDER",
         "short",
-        1428,
-        837
+        1417,
+        848
       ],
       [
         "WLFI",
         "short",
-        19046,
-        1842
+        18986,
+        1902
       ]
     ],
     "enc:SEDDyG9Dl-UZ3H2XfUXLCIyTACjKduM6jXVBmwTUkjDWyfnG6ac0_ik853HriPZOygCY0-x1KaLyUA==": [],
@@ -756,98 +768,98 @@
       [
         "BTC",
         "short",
-        498661,
-        209725
+        499381,
+        209005
       ],
       [
         "ETH",
         "short",
-        121928,
-        91611
+        122021,
+        91518
       ],
       [
         "TRX",
         "short",
-        15190,
-        338
+        15210,
+        318
       ],
       [
         "HYPE",
         "short",
-        39066,
-        7898
+        39278,
+        7687
       ]
     ],
     "enc:lvI5P7jcSThYJqkFcum2EkkWDHu95thrb1aYwnbhKKmhGw4OZh4TBVlRoF-66z7J6T5wrPWsmPcwQA==": [
       [
         "BTC",
         "short",
-        365628,
-        108840
+        366156,
+        108312
       ],
       [
         "ETH",
         "short",
-        34058,
-        10706
+        34084,
+        10680
       ],
       [
         "PURR",
         "short",
-        5876,
-        1724
+        5818,
+        1782
       ],
       [
         "HYPE",
         "short",
-        12343,
-        95
+        12410,
+        28
       ],
       [
         "STBL",
         "short",
-        8758,
-        3504
+        8984,
+        3277
       ]
     ],
     "enc:rBe1KqbUWYLmzO0EGsejWfvH_gDphAcdiTL1SJo7o44M-rbsH5cnyzgg-S-_j5qujVQWjnm_CGHCgQ==": [
       [
         "BTC",
         "short",
-        365628,
-        95248
+        366156,
+        94720
       ]
     ],
     "enc:RNWQXgHN6Mlk6UAhPFIHeVoH4UhMxrA2CoORCUz2j9soS6K5UW0KP0cuBULbd3wcfEKpYpvUAYF2_g==": [
       [
         "BTC",
         "short",
-        426573,
-        126351
+        427112,
+        125812
       ]
     ],
     "enc:ohUPeF6--kQHM5BWMTEzNQkBxCVuwW7wyhQTnTxcWFOehdf23wpYZbrRVrTJfZyuajonakBBRUN-XA==": [
       [
         "BTC",
         "short",
-        871812,
-        129050
+        872913,
+        127948
       ]
     ],
     "enc:vdWkzpR9AOYJ_-qZX6HeyDqSzDKoQdvKzP1V0v1eri29m6Bywvd1RhDc5RX2CkTwl1tVn7TvjIa7Xw==": [
       [
         "BTC",
         "short",
-        376165,
-        126886
+        376641,
+        126411
       ]
     ],
     "enc:GYxJllqTIO6_NYdoyygPsUSasLKV8gvwMrLAqsWQOXBpvvSk9pF851lgMJIrPu7ki9fjIqVlE3RIag==": [
       [
         "BTC",
         "short",
-        585069,
-        117063
+        585809,
+        116324
       ]
     ],
     "enc:_X7J9k6YbLZQsOL-y7r1VksIXeD6KHQXelYdedXznxkUeFbVA_fB3c4Rl8kQMCeMPBv-YwNoRYeTjw==": [],
@@ -855,20 +867,20 @@
       [
         "ETH",
         "short",
-        9877,
-        4368
+        9883,
+        4362
       ],
       [
         "CRV",
         "short",
-        5254,
-        4656
+        5220,
+        4690
       ],
       [
         "ONDO",
         "short",
-        6056,
-        2582
+        6075,
+        2563
       ],
       [
         "ENA",
@@ -881,16 +893,22 @@
       [
         "BTC",
         "short",
-        515367,
-        -26178
+        515925,
+        -26736
       ]
     ],
     "enc:VM8odNlHBtfCl1Rzd5aRX6guAWwKszjSZwO6cchXeQb4PQocUhE9K47p8hoSa_9bYQMnTlKvYcCqQQ==": [
       [
         "BTC",
         "short",
-        100198,
-        -197
+        100320,
+        -319
+      ],
+      [
+        "ETH",
+        "short",
+        103194,
+        -345
       ]
     ],
     "enc:v0dofyzaiURvCsINInCTVitk0CBxRK9o7qkNPVcrGIts-muLZt5EUydLKE6deRnJY6xRncbmVyZbig==": [],
@@ -898,38 +916,38 @@
       [
         "ARB",
         "short",
-        11453,
-        10802
+        11504,
+        10751
       ],
       [
         "LINK",
         "short",
-        27572,
-        14563
+        27747,
+        14388
       ],
       [
         "AAVE",
         "short",
-        25086,
-        21932
+        24844,
+        22173
       ],
       [
         "GOAT",
         "short",
-        2179,
-        662
+        2182,
+        658
       ],
       [
         "GRASS",
         "short",
-        18948,
-        10239
+        18827,
+        10360
       ],
       [
         "MEGA",
         "short",
-        4997,
-        385
+        5009,
+        373
       ]
     ],
     "enc:45kLB3R4XlM97c3dSWQOiSRlQjjuH8_68k3PUQO8pKiEzwu5eJhLWf2gFovaqNaqlTHaZudGpuGEYg==": [],
@@ -937,8 +955,8 @@
       [
         "BTC",
         "short",
-        91410,
-        22362
+        91521,
+        22250
       ]
     ],
     "enc:iA8opU7nOCm7sgI0SfZA3NhJg4ARiehQzGvVOUeVHHvyYI_2EOxIFLbT7NV25orpZ-0P80-AnfxsEQ==": [],
@@ -947,8 +965,8 @@
       [
         "BTC",
         "short",
-        121862,
-        20064
+        122004,
+        19922
       ]
     ],
     "enc:hA00IuPMOldOcd4sKBYkRggJX7XexO3cLZb85tCVMGyRuDnOOqFzhOvTLX7SXYXhmKuOVClIaeoVLw==": [],
@@ -956,8 +974,8 @@
       [
         "SOL",
         "short",
-        285256,
-        -3536
+        284820,
+        -3100
       ]
     ],
     "enc:Hx5oFWzZ0MTO3_1wbqGL0G1H-U2Nkj-kaPDBVo5NvUOQNHlTdrlyXuM7NTfV_fh7QGHlaobFse8RDg==": [],
@@ -966,26 +984,26 @@
       [
         "BTC",
         "short",
-        9747,
-        5408
+        9760,
+        5394
       ],
       [
         "ETH",
         "short",
-        5788,
-        4602
+        5791,
+        4599
       ],
       [
         "SOL",
         "short",
-        321,
-        472
+        320,
+        473
       ],
       [
         "DOGE",
         "short",
-        227,
-        1462
+        228,
+        1461
       ],
       [
         "SUI",
@@ -1002,8 +1020,8 @@
       [
         "SEI",
         "short",
-        34,
-        286
+        35,
+        285
       ],
       [
         "KAS",
@@ -1015,7 +1033,7 @@
         "FET",
         "short",
         11,
-        34
+        33
       ],
       [
         "SUSHI",
@@ -1044,14 +1062,14 @@
       [
         "PURR",
         "short",
-        37,
-        140
+        36,
+        141
       ],
       [
         "VIRTUAL",
         "short",
         18,
-        169
+        170
       ],
       [
         "FARTCOIN",
@@ -1070,74 +1088,74 @@
       [
         "HYPE",
         "short",
-        493480,
-        113369
+        495736,
+        111113
       ]
     ],
     "enc:M9PokSxnKlmxdD6IdIVMOZ5duDiq1llVVczmVZHWNI7Req0j-9Ws5X4SYouwTx0QenPs8JB12k_ksQ==": [
       [
         "HYPE",
         "short",
-        21590,
-        2008
+        21688,
+        1909
       ]
     ],
     "enc:TCe7zpysSxAISCv4giHUy-VKkV_yxdvu4RwlZvTnHlgsMFbBcC7lPXnrLgtQZJ4A9i-3RsvayiAj-g==": [
       [
         "PURR",
         "short",
-        6528,
-        1594
+        6468,
+        1654
       ],
       [
         "HYPE",
         "short",
-        18717,
-        -718
+        18803,
+        -804
       ],
       [
         "FARTCOIN",
         "short",
-        16294,
-        7610
+        16144,
+        7760
       ],
       [
         "PUMP",
         "short",
-        9845,
-        5209
+        9763,
+        5291
       ],
       [
         "ZEC",
         "short",
-        13925,
-        188
+        13768,
+        345
       ]
     ],
     "enc:mjMrk0MbDg5UKTszocbuyF7c_B8Zqfmj6S0t8bU5wMGo6bEb_bs6gUn3IBFNLEovdHWSsamTputi0Q==": [
       [
         "BTC",
         "short",
-        40108,
-        4825
+        40148,
+        4785
       ],
       [
         "NEAR",
         "short",
-        12680,
-        7314
+        12579,
+        7415
       ],
       [
         "HYPE",
         "short",
-        6173,
-        1674
+        6202,
+        1645
       ],
       [
         "ZEC",
         "short",
-        68228,
-        24724
+        67451,
+        25501
       ]
     ]
   }
