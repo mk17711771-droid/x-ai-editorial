@@ -822,7 +822,7 @@ def publish(draft_id: str, action: str, decided_by: str = "admin") -> str:
         fresh = None if text_problems else refresh_draft(draft)
         if fresh:
             _close(draft, "stale", problems=problems, refreshed_to=fresh["id"])
-            if decided_by == "auto":
+            if decided_by == "auto" or settings()["mode"] == "auto":  # 全自動では作り直した案も自動で出す（承認依頼のLINEを使わない）
                 return publish(fresh["id"], "approve", decided_by="auto")
             line.send_approval_request(
                 [fresh], cfg["draft_expiry_hours"],

@@ -10,7 +10,8 @@ account:
 #   approval: LINEで承認したものだけ投稿（初期2週間はこちら）
 #   auto:     採点80点以上かつ全チェック通過で自動投稿
 # GitHubのリポジトリ変数 APPROVAL_MODE で上書き可能
-mode: approval
+# 11/26 X は全自動（CLAUDE.md）。ここが approval のままだと generate 以外（decide など）で承認依頼のLINEが出た（点検の手動承認で作り直し案の承認依頼が1通出た）
+mode: auto
 
 # 投稿枠（ちょうどの時刻だと機械的に見えるので半端な時刻にしている。
 #   実際の投稿はGitHubの起動遅れと数分のランダムな待ちで、毎日さらに前後する）

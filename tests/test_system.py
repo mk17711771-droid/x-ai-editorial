@@ -21,6 +21,7 @@ def isolated(tmp_path, monkeypatch):
     monkeypatch.setattr(store, "DATA_DIR", tmp_path)
     monkeypatch.setenv("AIEDIT_NOW", "2026-10-26T01:20:00+00:00")  # 10:20 JST（月曜）
     monkeypatch.delenv("BOT_ENABLED", raising=False)
+    monkeypatch.setenv("APPROVAL_MODE", "approval")  # 承認制の動きを確かめるテストが多いので、既定は承認制で動かす（本番の設定は auto）
     settings.cache_clear()
     sent = []
     monkeypatch.setattr(line, "push", lambda msgs, **k: sent.append(msgs) or True)
