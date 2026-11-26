@@ -46,6 +46,8 @@ scoring:
 
 # 安全装置
 limits:
+  # 11/26〜試み: 1行目が$SOXLの投稿は24時間表示の中央値226（他は82、11/10〜）。top_names は20時間あけていたのを10時間にし、朝と夜に1回ずつ出せるようにする。11/29に判定
+  top_symbol_cooldown_hours: 10
   max_posts_per_day: 8
   max_candidates_per_slot: 3   # LINEに送る候補数
   draft_expiry_hours: 3        # これを過ぎた下書きは承認しても投稿しない
