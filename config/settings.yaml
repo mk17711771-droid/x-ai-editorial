@@ -106,18 +106,16 @@ llm:
   # 混雑時に順に切り替える予備モデル
   # 存在しないモデル名は自動で飛ばす
   fallback_models:
+    # 11/26 llm-check（tools）で実際に呼んで確かめた順。モデルごとに無料枠が別なので、並べるほど1日に使える回数が増える。
+    # 主モデル（flash-latest）は朝から429（1日の枠切れ）のことが多い → 同じ品質帯の別モデルを先に並べる。2.0/2.5系は404で使えない
+    - gemini-3-flash-preview
+    - gemini-3.5-flash
     - gemini-flash-lite-latest
-    - gemini-2.5-flash
-    - gemini-2.5-flash-lite
-    # 11/23〜25 深夜（日本時間23時台）に2つのモデルが同時に混雑（503/429）して3晩続けて枠を落とした。予備を増やす（無料枠・存在しなければ自動で飛ばす）
-    - gemini-2.0-flash
-    - gemini-2.0-flash-lite
+    - gemini-3.5-flash-lite
+    - gemini-3.1-flash-lite
     - gemini-pro-latest
-    - gemini-2.0-flash
-    - gemini-3-flash
-    - gemini-2.5-flash
-    # 11/26 深夜に flash=429・lite=503・pro=429 で4晩目の枠落ち。Gemma は別の無料枠（1日の回数が多い）なので最後の予備にする
-    - gemma-3-27b-it
+    # Gemma（別の無料枠）。systemInstruction/JSONモード非対応なので llm._body_for で形を変える。最後の予備
+    - gemma-4-26b-a4b-it
   temperature: 0.7
 
 note:
