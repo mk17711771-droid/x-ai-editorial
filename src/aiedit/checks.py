@@ -457,7 +457,8 @@ LEVERAGED = {"SOXL": "SOXX", "SOXS": "SOXX", "TQQQ": "QQQ", "SQQQ": "QQQ", "UPRO
 
 
 def _leveraged_vs_underlying(text: str) -> str:
-    if not any(w in text for w in CONTRAST + ("歪み", "さらに大きく", "上回る")):
+    # 11/26 12:20「現物SOXXが-0.50%と重い中で、$SOXL先物だけ+7.74%と火を噴いてる…歪な構造」が通った（「中で」「だけ」「歪」を見ていなかった）
+    if not any(w in text for w in CONTRAST + ("歪", "さらに大きく", "上回る", "中で", "だけ", "なか")):
         return ""
     for lev, base in LEVERAGED.items():
         if lev in text and re.search(rf"(?<![A-Z]){base}(?![A-Z])", text):

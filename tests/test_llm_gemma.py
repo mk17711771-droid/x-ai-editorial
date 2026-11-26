@@ -23,3 +23,9 @@ def test_total_and_ijou_on_placeholder_rejected():
     facts = {f: {"id": f, "fields": {"coin": "BTC", "short_usd": "約7,000万ドル", "holders": "5人"}} for f in ("f28", "f30")}
     errs = checks.check_template("{{f30.coin}}の{{f30.holders}}も。合計{{f28.short_usd}}以上の売り", facts)
     assert any("以上" in e for e in errs) and any("合計" in e for e in errs)
+
+
+def test_soxl_vs_soxx_with_dake_rejected():
+    from aiedit import checks
+    t = "半導体の現物SOXXが-0.50%と重い中で、$SOXL先物だけ+7.74%と火を噴いてる。"
+    assert checks._leveraged_vs_underlying(t)
