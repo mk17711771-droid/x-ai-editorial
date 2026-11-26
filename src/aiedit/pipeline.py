@@ -266,6 +266,13 @@ def run_editor(slot: dict, facts: list[dict], exclude: set[str] | None = None, m
     return sorted(cands, key=lambda c: c["total"], reverse=True)
 
 
+def needs_human(w: dict) -> bool:
+    """未検証の見出し（headline）を本文で実際に使っている案だけ人の承認に回す。
+    材料として渡されただけで本文に出ていない見出しでは止めない（11/13・11/26 7時 CNBCの見出しが材料に入っていただけで承認待ちになり、朝の枠を落とした）。"""
+    used = set(re.findall(r"\{\{(f\d+)\.", w.get("template", "")))
+    return any(f["confidence"] == "headline" and f["id"] in used for f in w["facts"])
+
+
 def rank_candidates(cands: list[dict], facts_by_id: dict[str, dict], slot: dict, repeat: str | None = None) -> list[dict]:
     """書く順番: 直近と同じ切り口は後回し → 米国株の枠は米国株が主役 → 主役の通じやすさ（top_names > big_names > その他）→ 点数。
     11/18: 大きな名前の並べ替えを、このあと点数順で並べ直して消していた（$CXMT・$KIOXIA が主役になった）。
@@ -446,7 +453,7 @@ def _write_drafts(slot: dict, cands: list[dict], key: str, seq: int, facts_by_id
             "fact_ids": cand["fact_ids"],
             "facts": w["facts"],
             "sources": [f["source"] for f in w["facts"]],
-            "needs_human": any(f["confidence"] == "headline" for f in w["facts"]),
+            "needs_human": needs_human(w),
         }
         store.save_draft(draft)
         drafts.append(draft)
