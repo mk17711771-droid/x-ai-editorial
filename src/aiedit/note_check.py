@@ -195,13 +195,35 @@ def run() -> list[dict]:
     return results
 
 
+def split_sentences(line: str) -> list[str]:
+    """「。」で文に分ける。括弧（（）・()・「」）の中の「。」では分けない。"""
+    out, buf, depth = [], "", 0
+    for ch in line:
+        buf += ch
+        if ch in "（(「":
+            depth += 1
+        elif ch in "）)」":
+            depth = max(0, depth - 1)
+        elif ch == "。" and depth == 0:
+            if buf.strip("。 　"):
+                out.append(buf.strip())
+            buf = ""
+    if buf.strip():
+        out.append(buf.strip() + "。")
+    return out
+
+
 def promote_text(meta: dict, url: str) -> str:
     """公開したnote記事をXで知らせる文（数字はタイトル・リード文＝実データから作った原稿のものだけ）。"""
     md_path = store.DATA_DIR / f"note_articles/{meta['id']}/article.md"
     body = md_path.read_text(encoding="utf-8") if md_path.exists() else ""
     lines = [re.sub(r"\*\*", "", ln.strip()) for ln in body.splitlines()[1:]
              if ln.strip() and not ln.startswith(("#", "!", "<", "|", "※"))]
-    sentences = [x.strip() + "。" for ln in lines for x in ln.split("。") if x.strip()]
+    # 括弧の中の「。」では区切らない（11/25 19:36「資金調達率（…手数料。買いが多いとプラスになる）は…」が括弧の途中から始まる1行目になった）
+    sentences = [x for ln in lines for x in split_sentences(ln)
+                 if x.count("（") == x.count("）") and x.count("(") == x.count(")") and x.count("「") == x.count("」")]
+    # 用語の説明の括弧（長いもの）はXの1行目には要らない。外して短くする
+    sentences = [re.sub(r"（[^（）]{16,}）", "", x) for x in sentences]
     # 1行目は記事の中で一番強い「数字の入った一文」（Xで伸びる型＝大きな名前＋数字1つ。11/7 定型の書き出しの紹介は22表示）
     numeric = [x for x in sentences if re.search(r"\d[\d.,]*\s*(%|％|ドル|倍|億|万)", x) and 15 <= len(x) <= 70]
     # 銘柄名（NVDA・HYPEなど）が入った文を優先する（11/13 「価格は$168.89となり…」と主語のない1行目になった）
