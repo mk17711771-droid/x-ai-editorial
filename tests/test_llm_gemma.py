@@ -29,3 +29,10 @@ def test_soxl_vs_soxx_with_dake_rejected():
     from aiedit import checks
     t = "半導体の現物SOXXが-0.50%と重い中で、$SOXL先物だけ+7.74%と火を噴いてる。"
     assert checks._leveraged_vs_underlying(t)
+
+
+def test_news_post_must_use_headline():
+    from aiedit import checks
+    facts = {"f1": {"fields": {"headline": "GCEXがPerpを提供開始", "what": "x"}}, "f25": {"fields": {"volume": "約4.5億ドル"}}}
+    assert checks.news_fact_missing("GCEXの動きを見るに…{{f25.volume}}", facts)
+    assert not checks.news_fact_missing("{{f1.headline}}。{{f25.volume}}", facts)

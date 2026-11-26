@@ -729,3 +729,14 @@ def max_similarity(text: str) -> tuple[float, str]:
         if s > best:
             best, best_text = s, prev
     return best, best_text
+
+
+def news_fact_missing(template: str, facts: dict[str, dict]) -> list[str]:
+    """速報の投稿は、ニュースの材料（見出し・内容）を本文で必ず使う。
+    11/26 20:09 GCEXの株式Perp開始の速報で、ニュースの中身を書かずに「GCEXの動きを見るに…HyperliquidのNVDAの出来高はプロの資金の証拠かも」と
+    別の会社の出来事とHyperliquidの数字を結びつけた。"""
+    news_ids = {fid for fid, f in facts.items() if "headline" in f.get("fields", {}) or "what" in f.get("fields", {})}
+    if not news_ids:
+        return []
+    used = {fid for fid, field in PLACEHOLDER.findall(template) if fid in news_ids and field in ("headline", "what")}
+    return [] if used else ["速報なのに、ニュースの見出し・内容（{{fN.headline}} か {{fN.what}}）を本文で使っていない"]

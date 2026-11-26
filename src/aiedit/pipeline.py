@@ -391,6 +391,8 @@ def _write_once(slot: dict, system: str, user: str, used: list[dict], facts_by_i
         tmpl = checks.relink(v.get("template", ""), usable)
         v["template"] = tmpl
         errors = checks.check_template(tmpl, usable)
+        if not errors and str(topic_key).startswith("news:"):
+            errors = checks.news_fact_missing(tmpl, usable)
         text = checks.render(tmpl, usable) if not errors else tmpl
         if not errors:
             before = text
