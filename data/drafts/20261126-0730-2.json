@@ -1,0 +1,134 @@
+{
+  "id": "20261126-0730-2",
+  "slot_key": "20261126-0730",
+  "slot_theme": "07:42 朝の考察（長文）: 前夜の米国株でいちばんの“違和感”（決算での急落・急騰、明暗の分かれた銘柄）を主役に、HIP-3株式先物の建玉・資金調達率の歪みで読み解く。1行目は銘柄名と値動きの問い",
+  "status": "pending",
+  "created_at": "2026-11-26T00:11:59.612616+00:00",
+  "text": "半導体セクターが売りに押される中で、なぜ$NVDAだけがこれほど大きな下落を記録しながらも先物市場では独自のバランスを保っているのか\n\n【いま起きてること】\n前夜の米国株市場において主要なAI関連銘柄が軒並み売り込まれる中、個別銘柄の下落局面とデリバティブ市場におけるポジションの維持に特有の偏りが生じている。\n\n【数字で見る】\n・NVDA 価格$149.30, 前日比-3.91%, 前日終値$155.38, 高値$150.37, 安値$141.17（米国11/25終値）\n・NVDA 価格$150.93, 24時間騰落率-0.72%, 建玉約3.4億ドル, 24時間出来高約4.5億ドル, 資金調達率年率+17.0%（日本時間11/26(木) 09:11時点）\n\n【なぜ「歪み」なのか】\nNVDAが前日比-3.91%と大きく値を下げる一方で、Hyperliquidの株式先物市場では約3.4億ドル規模の建玉が維持され、資金調達率は年率+17.0%というプラス圏に留まっている。現物が弱含む中でもロング側が一定のコストを払いながらポジションを維持している構造は、下落トレンドの中におけるデリバティブ側のポジション調整圧力を慎重に追う必要があると見ている。\n\n【次に見るポイント】\n①約3.4億ドル規模に達する建玉の増減傾向\n②年率+17.0%で推移する資金調達率の変化\n③現物市場の下落がデリバティブ側の需給に与える影響",
+  "template": "半導体セクターが売りに押される中で、なぜ`${{f5.symbol}}`だけがこれほど大きな下落を記録しながらも先物市場では独自のバランスを保っているのか\n\n【いま起きてること】\n前夜の米国株市場において主要なAI関連銘柄が軒並み売り込まれる中、個別銘柄の下落局面とデリバティブ市場におけるポジションの維持に特有の偏りが生じている。\n\n【数字で見る】\n・`${{f5.symbol}}` 価格{{f5.price}}, 前日比{{f5.change_pct}}, 前日終値{{f5.prev_close}}, 高値{{f5.high}}, 安値{{f5.low}}（{{f5.asof}}）\n・`${{f42.symbol}}` 価格{{f42.price}}, 24時間騰落率{{f42.change_pct}}, 建玉{{f42.oi}}, 24時間出来高{{f42.volume}}, 資金調達率{{f42.funding_annual}}（{{f42.asof}}）\n\n【なぜ「歪み」なのか】\n`${{f5.symbol}}`が前日比{{f5.change_pct}}と大きく値を下げる一方で、Hyperliquidの株式先物市場では{{f42.oi}}規模の建玉が維持され、資金調達率は年率{{f42.funding_annual}}というプラス圏に留まっている。現物が弱含む中でもロング側が一定のコストを払いながらポジションを維持している構造は、下落トレンドの中におけるデリバティブ側のポジション調整圧力を慎重に追う必要があると見ている。\n\n【次に見るポイント】\n①{{f42.oi}}規模に達する建玉の増減傾向\n②年率{{f42.funding_annual}}で推移する資金調達率の変化\n③現物市場の下落がデリバティブ側の需給に与える影響",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:NVDA:big_move",
+  "angle": "エヌビディア（NVDA）が-3.91%の下落を記録した局面で、HyperliquidのNVDA先物が建玉3億3985万ドルを維持しつつ資金調達率が+5.5%で推移している背景の歪みを追う。",
+  "scores": {
+    "novelty": 17,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 17,
+    "insight": 18
+  },
+  "total": 89,
+  "fact_ids": [
+    "f5",
+    "f42",
+    "f31"
+  ],
+  "facts": [
+    {
+      "key": "stock:NVDA:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】NVDA 価格149.3, 前日比-3.91%, 前日終値155.38, 高値150.37, 安値141.17",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$149.30",
+        "change_pct": "-3.91%",
+        "prev_close": "$155.38",
+        "high": "$150.37",
+        "low": "$141.17",
+        "asof": "米国11/25終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 149.3,
+        "change_pct": -3.913,
+        "prev_close": 155.38
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-11-26T00:11:58.967218+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-3.46%, 価格148.63, 建玉339854340USD, 24時間出来高467920579USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$150.93",
+        "change_pct": "-0.72%",
+        "oi": "約3.4億ドル",
+        "volume": "約4.5億ドル",
+        "funding_annual": "+17.0%",
+        "asof": "日本時間11/26(木) 09:11時点",
+        "asof_short": "09:11時点"
+      },
+      "raw": {
+        "mark": 150.93,
+        "change_pct": -0.724,
+        "oi_usd": 344246080,
+        "vol_usd": 453136160,
+        "funding_annual_pct": 17.01
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-26T00:11:59.586925+00:00",
+      "confidence": "confirmed",
+      "id": "f42"
+    },
+    {
+      "key": "news:8809182",
+      "kind": "stock",
+      "category": "news_headline",
+      "summary": "ニュース見出し（未検証・CNBC・11/26 02:10）: Nvidia leads tech sell-off as Huang comeback rally fizzles and AI concerns return",
+      "fields": {
+        "source": "CNBC",
+        "time": "11/26(木) 02:10"
+      },
+      "raw": {},
+      "refresh": null,
+      "source": {
+        "name": "CNBC",
+        "url": "https://www.cnbc.com/2026/11/25/nvidia-ai-stock-tech-selloff.html"
+      },
+      "asof": "2026-11-25T17:10:17+00:00",
+      "confidence": "headline",
+      "id": "f31"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    },
+    {
+      "name": "CNBC",
+      "url": "https://www.cnbc.com/2026/11/25/nvidia-ai-stock-tech-selloff.html"
+    }
+  ],
+  "needs_human": true,
+  "refreshed_from": "20261126-0730-1",
+  "refresh_count": 1
+}
