@@ -36,3 +36,10 @@ def test_news_post_must_use_headline():
     facts = {"f1": {"fields": {"headline": "GCEXがPerpを提供開始", "what": "x"}}, "f25": {"fields": {"volume": "約4.5億ドル"}}}
     assert checks.news_fact_missing("GCEXの動きを見るに…{{f25.volume}}", facts)
     assert not checks.news_fact_missing("{{f1.headline}}。{{f25.volume}}", facts)
+
+
+def test_ratio_drop_and_move_need_data():
+    from aiedit import checks
+    facts = {"f28": {"id": "f28", "fields": {"coin": "BTC", "long_ratio": "7%"}}}
+    errs = checks.check_template("${{f28.coin}}の反発の裏で、買い比率が{{f28.long_ratio}}まで落ち込んでる。", facts)
+    assert any("比率が" in e for e in errs) and any("値動き" in e for e in errs)

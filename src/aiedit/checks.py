@@ -345,6 +345,15 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         errors.append("速報の見出し・説明を文の途中に助詞でつないで埋め込んでいる（文として置くか「」で囲む）")
     if re.search(r"\{\{\s*f\d+\.what\s*\}\}\s*(が|を|は)", template):
         errors.append("速報の説明文（what）を名詞のように「〜が・〜を」で埋め込んでいる（文として使う）")
+    # 比率が「落ち込んだ・上昇した」は、変化の材料があるときだけ（11/26 23:27「買い比率が7%まで落ち込んでる」: 朝は0%で、実際は上がっていた）
+    # 値動き（反発・急落など）は、価格か騰落率の材料を使うときだけ（同じ投稿の「$BTCの反発の裏で」に価格の材料がなかった）
+    fields_all = {f for _, f in PLACEHOLDER.findall(template)}
+    plain0 = PLACEHOLDER.sub("◯", template)
+    if re.search(r"(比率|割合)[^。\n]{0,15}(落ち込|低下|下が|減っ|上昇|高ま|跳ね上が|急増|急減)", plain0) and \
+            not any("change" in f or f.startswith("prev") for f in fields_all):
+        errors.append("比率が「落ち込んだ・上がった」と書いているが、変化を示す材料（前回との比較）を使っていない")
+    if re.search(r"反発|反落|急騰|急落|続落|続伸", plain0) and not (fields_all & {"price", "change_pct", "close", "prev_close", "week_change_pct", "high", "low"}):
+        errors.append("値動き（反発・急落など）を書いているが、価格・騰落率の材料を使っていない")
     # 「建玉が拡大・増加・膨らんでいる」は、変化率の材料（*_change_pct）を使うときだけ（11/14 07:52 建玉合計123.8億ドルを
     # 「規模が一段と拡大」と書いたが、11/8の約146億ドルから減っていた）
     plain = PLACEHOLDER.sub("", template)
