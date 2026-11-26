@@ -300,6 +300,13 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     for m in re.finditer(r"\{\{\s*(f\d+)\.(\w+)\s*\}\}\s*から[^。\n]{0,12}?\{\{\s*(f\d+)\.(\w+)\s*\}\}\s*(へ|に|まで)", template):
         if m.group(1) != m.group(3) and m.group(2) == m.group(4):
             errors.append(f"別々の材料（{m.group(1)}・{m.group(3)}）の値を「から〜へ」で1つの変化のように書いている")
+    # 差し込んだ数字に「以上」「超」を付けて大きく見せない／1つの材料の値を「合計」と書かない
+    # （11/26 10:46「ETHの10人もSOLの5人も…合計{{BTCの売り額}}以上の売り」: BTCだけの額を3銘柄の合計のように書き、「以上」も付けた）
+    if re.search(r"\{\{\s*f\d+\.\w+\s*\}\}\s*(以上|超え|超)", template):
+        errors.append("差し込んだ数字に「以上・超」を付けている（材料の値そのままで書く）")
+    for m in re.finditer(r"合計\s*\{\{\s*(f\d+)\.(\w+)\s*\}\}", template):
+        if not m.group(2).startswith(("total", "sum", "hip3")) and len({f for f, _ in PLACEHOLDER.findall(template)}) > 1:
+            errors.append(f"1つの材料（{m.group(1)}）の値を、複数の銘柄の「合計」のように書いている")
     # 「記録的」「歴史的」「過去最高」は、記録の材料（過去最高値・速報の記録）があるときだけ（11/8 SNDKの1週間-28.80%を「記録的な急落」と書いた）
     if re.search(r"記録的|歴史的|過去最高|史上最高|史上最大|過去最大", PLACEHOLDER.sub("", template)):
         used = [facts[f] for f, _ in PLACEHOLDER.findall(template) if f in facts]

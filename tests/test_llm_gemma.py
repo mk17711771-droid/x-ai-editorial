@@ -16,3 +16,10 @@ def test_settings_file_is_auto_mode():
     import yaml
     from aiedit.common import CONFIG_DIR
     assert yaml.safe_load((CONFIG_DIR / "settings.yaml").read_text(encoding="utf-8"))["mode"] == "auto"
+
+
+def test_total_and_ijou_on_placeholder_rejected():
+    from aiedit import checks
+    facts = {f: {"id": f, "fields": {"coin": "BTC", "short_usd": "約7,000万ドル", "holders": "5人"}} for f in ("f28", "f30")}
+    errs = checks.check_template("{{f30.coin}}の{{f30.holders}}も。合計{{f28.short_usd}}以上の売り", facts)
+    assert any("以上" in e for e in errs) and any("合計" in e for e in errs)
