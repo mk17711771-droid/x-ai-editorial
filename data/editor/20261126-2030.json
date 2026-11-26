@@ -1,0 +1,58 @@
+[
+  {
+    "fact_ids": [
+      "f10",
+      "f5",
+      "f39"
+    ],
+    "topic_key": "hl:xyz:SKHX:hip3_top",
+    "angle": "半導体株がMU -4.53%やNVDA -3.91%と崩れる中、HyperliquidのSKHX（SKハイニックス先物）で発生した年率-320.6%という異常な資金調達率に注目。現物の売りに対してデリバティブ側で過剰なヘッジや売りが集中し、ショートコストが爆発している市場の歪みを数字で解説します。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 19,
+      "insight": 20
+    },
+    "total": 97,
+    "reason": "米国株の急落と、それに対するオンチェーン側での極端なヘッジ需要（異常なFR）を対比させる、アカウントの軸に最も合致した切り口のため。"
+  },
+  {
+    "fact_ids": [
+      "f3",
+      "f2",
+      "f38",
+      "f40"
+    ],
+    "topic_key": "hl:xyz:XYZ100:hip3_top",
+    "angle": "ナスダック100（QQQ -0.65%）やS&P500（SPY -0.29%）の現物終値に対し、Hyperliquidの指数先物（XYZ100 +2.62%、SP500 +2.00%）が時間外で力強い反発を見せている点に注目。現物クローズ後の買い戻しフローと、HIP-3市場が先行して織り込み始めている翌日の期待値を数字で追います。",
+    "scores": {
+      "novelty": 17,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "読者の関心が最も高い指数（QQQ/SPY）を主役にしつつ、現物と先物の価格乖離という「歪み」を明確に示せるため。"
+  },
+  {
+    "fact_ids": [
+      "f19",
+      "f5",
+      "f1",
+      "f38"
+    ],
+    "topic_key": "news:gcex-stock-perps-expansion-spacex-tesla-nvidia",
+    "angle": "英国GCEXによるSpaceXやテスラの株式Perp提供開始という速報と、HyperliquidのXYZ100における24時間出来高7.5億ドル突破を掛け合わせ。伝統的な証券会社がオンチェーンPerpに参入し始めた背景と、先行するHLの流動性がいかに市場のインフラとして機能し始めているかを構造解説します。",
+    "scores": {
+      "novelty": 20,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 19,
+      "insight": 18
+    },
+    "total": 93,
+    "reason": "最新の海外ニュースとHLの実データを組み合わせ、株式Perpという新しい市場の広がりを実利的な視点で解説できるため。"
+  }
+]
