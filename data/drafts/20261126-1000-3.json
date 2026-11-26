@@ -1,0 +1,102 @@
+{
+  "id": "20261126-1000-3",
+  "slot_key": "20261126-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-26T01:46:40.234192+00:00",
+  "text": "建玉+235.8%。上場直後の$SOXSに資金が殺到してる。\n\nHyperliquidの株式先物（HIP-3）で10:44時点、建玉は約1,038万ドルまで膨らんだ。\n半導体セクターの調整局面でベア型への需要がこれだけ露骨に出るのは面白いな。\n資金調達率年率+8.0%でまだ過熱感はないし、面白い歪みかも。",
+  "template": "建玉{{f17.oi_change_pct}}。上場直後の${{f17.symbol}}に資金が殺到してる。\n\nHyperliquidの{{f17.market}}で{{f17.asof_short}}、建玉は{{f17.oi}}まで膨らんだ。\n半導体セクターの調整局面でベア型への需要がこれだけ露骨に出るのは面白いな。\n資金調達率{{f17.funding_annual}}でまだ過熱感はないし、面白い歪みかも。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:SOXS:oi_change",
+  "angle": "半導体ベア3倍の $SOXS がHyperliquidに新規上場し、建玉が24時間で+235.8%と爆発的に増加。米国株の半導体売り（MUやNVDAの下落）と連動し、オンチェーン側でも下落へのヘッジ需要が急速に吸い寄せられている。",
+  "scores": {
+    "novelty": 20,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 20,
+    "insight": 20
+  },
+  "total": 100,
+  "fact_ids": [
+    "f1",
+    "f17"
+  ],
+  "facts": [
+    {
+      "key": "news:hyperliquid-lists-soxs-perp",
+      "kind": "hl",
+      "asof": "2026-11-24T15:26:25.091181+00:00",
+      "expires_at": "2026-11-26T03:26:25.091211+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-24T15:25:14Z",
+      "summary": "Hyperliquidのオンチェーン上で、新たに半導体ベア型市場「xyz:SOXS」が取引可能となった。株式Perpやトークン化サービスのラインナップがさらに拡充されている。",
+      "fields": {
+        "headline": "Hyperliquid、半導体ベア型「xyz:SOXS」を上場",
+        "what": "Hyperliquid上で新しい市場「xyz:SOXS」が取引開始された",
+        "status": "確定",
+        "who": "Hyperliquid"
+      },
+      "raw": {},
+      "source": {
+        "name": "Hyperliquid（オンチェーン）",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:xyz:SOXS:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+235.8%: SOXS（HIP-3株式等先物） 24時間騰落率-4.24%, 価格60.014, 建玉10379349USD, 24時間出来高34231034USD, 資金調達率(年率)+8.0%",
+      "fields": {
+        "coin": "SOXS",
+        "symbol": "SOXS",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$60.01",
+        "change_pct": "-4.24%",
+        "oi": "約1,038万ドル",
+        "volume": "約3,423万ドル",
+        "funding_annual": "+8.0%",
+        "asof": "日本時間11/26(木) 10:44時点",
+        "asof_short": "10:44時点",
+        "oi_change_pct": "+235.8%"
+      },
+      "raw": {
+        "mark": 60.014,
+        "change_pct": -4.238,
+        "oi_usd": 10379349,
+        "vol_usd": 34231034,
+        "funding_annual_pct": 8.0,
+        "oi_change_pct": 235.79
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXS",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXS"
+      },
+      "asof": "2026-11-26T01:44:43.450078+00:00",
+      "confidence": "confirmed",
+      "id": "f17"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid（オンチェーン）",
+      "url": ""
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXS"
+    }
+  ],
+  "needs_human": false
+}
