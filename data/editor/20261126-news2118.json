@@ -1,0 +1,71 @@
+[
+  {
+    "fact_ids": [
+      "f27",
+      "f28",
+      "f29",
+      "f32"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "市場が反発する中で、安定上位トレーダーの14/15人がBTCを売り越している「逆行」の歪みを突く。ETHやHYPEも同様に売り一色である事実を添える。",
+    "scores": {
+      "novelty": 20,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 20,
+      "insight": 20
+    },
+    "total": 100,
+    "reason": "アカウントの看板企画であり、価格の反発と上位勢のポジションの乖離という「歪み」が数字で鮮明に出ているため。"
+  },
+  {
+    "fact_ids": [
+      "f16",
+      "f17"
+    ],
+    "topic_key": "hl:xyz:EWY:oi_change",
+    "angle": "韓国株ETF（$EWY）の建玉が+154.5%という異常な増え方を見せている点に注目。SKハイニックス先物（$SKHY）の建玉急増と合わせ、韓国市場への資金流入の異変を伝える。",
+    "scores": {
+      "novelty": 20,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 20,
+      "insight": 20
+    },
+    "total": 100,
+    "reason": "「量の異変」は表示が伸びやすく、154.5%という数字のインパクトが強いため。直近の韓国規制ニュースとも親和性が高い。"
+  },
+  {
+    "fact_ids": [
+      "f9"
+    ],
+    "topic_key": "hl:xyz:MSTR:big_move",
+    "angle": "$MSTR の先物価格が+9.85%と現物（+3.11%）を大幅に上回って推移。資金調達率も年率+125.7%と極端なロング過熱状態にある「ねじれ」を指摘する。",
+    "scores": {
+      "novelty": 20,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 20,
+      "insight": 20
+    },
+    "total": 100,
+    "reason": "注目度の高いMSTRにおいて、現物と先物の値動きの乖離および異常なコストが発生している点は実用性が高い。"
+  },
+  {
+    "fact_ids": [
+      "f19",
+      "f14"
+    ],
+    "topic_key": "hl:xyz:AMD:oi_change",
+    "angle": "$AMD が+6.19%と急伸し建玉も+36.5%増加。$INTC も含め、半導体セクターに再び強いロング圧力がかかり、資金調達率が140%前後まで跳ね上がっている現状を追う。",
+    "scores": {
+      "novelty": 20,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 20,
+      "insight": 20
+    },
+    "total": 100,
+    "reason": "直近で主役にしていないAMDを軸に、半導体株のデリバティブ側でのコスト増大という「歪み」を提示できるため。"
+  }
+]
