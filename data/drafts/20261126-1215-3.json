@@ -1,0 +1,57 @@
+{
+  "id": "20261126-1215-3",
+  "slot_key": "20261126-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "superseded",
+  "created_at": "2026-11-26T03:20:32.860300+00:00",
+  "text": "Hyperliquidに新しい市場SOXSが上場。下落局面でのヘッジ手段が拡充され、オンチェーンでの株式Perpのラインナップがさらに強化されている。\n\nこれ、相場の見方が結構変わりそう。",
+  "template": "Hyperliquidに新しい市場「xyz:SOXS」が上場。下落局面でのヘッジ手段が拡充され、オンチェーンでの株式Perpのラインナップがさらに強化されている。\n\nこれ、相場の見方が結構変わりそう。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "news:hyperliquid-lists-soxs-perp",
+  "angle": "【速報】Hyperliquidに半導体ベア3倍の「$SOXS」が新規上場。下落局面でのヘッジ手段が拡充され、オンチェーンでの株式Perpのラインナップがさらに強化されています。",
+  "scores": {
+    "novelty": 20,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 19,
+    "insight": 14
+  },
+  "total": 91,
+  "fact_ids": [
+    "f1"
+  ],
+  "facts": [
+    {
+      "key": "news:hyperliquid-lists-soxs-perp",
+      "kind": "hl",
+      "asof": "2026-11-24T15:26:25.091181+00:00",
+      "expires_at": "2026-11-26T03:26:25.091211+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-24T15:25:14Z",
+      "summary": "Hyperliquidのオンチェーン上で、新たに半導体ベア型市場「xyz:SOXS」が取引可能となった。株式Perpやトークン化サービスのラインナップがさらに拡充されている。",
+      "fields": {
+        "headline": "Hyperliquid、半導体ベア型「xyz:SOXS」を上場",
+        "what": "Hyperliquid上で新しい市場「xyz:SOXS」が取引開始された",
+        "status": "確定",
+        "who": "Hyperliquid"
+      },
+      "raw": {},
+      "source": {
+        "name": "Hyperliquid（オンチェーン）",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid（オンチェーン）",
+      "url": ""
+    }
+  ],
+  "needs_human": false
+}

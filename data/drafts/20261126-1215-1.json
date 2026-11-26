@@ -1,0 +1,111 @@
+{
+  "id": "20261126-1215-1",
+  "slot_key": "20261126-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-26T03:18:41.874076+00:00",
+  "text": "半導体セクターの現物SOXXが-0.50%（米国11/25終値）と重い中で、Hyperliquidの$SOXL先物だけ+7.74%と火を噴いてる。\n\n12:17時点の資金調達率は年率-313.1%。\nショート側が強烈なコストを払い続けてる歪な構造だな。\nデリバティブ主導の踏み上げ局面に入ってる可能性が高そう。",
+  "template": "半導体セクターの現物{{f4.symbol}}が{{f4.change_pct}}（{{f4.asof}}）と重い中で、Hyperliquidの${{f41.symbol}}先物だけ{{f41.change_pct}}と火を噴いてる。\n\n{{f41.asof_short}}の資金調達率は年率{{f41.funding_annual}}。\nショート側が強烈なコストを払い続けてる歪な構造だな。\nデリバティブ主導の踏み上げ局面に入ってる可能性が高そう。",
+  "style": "つぶやき解説型",
+  "format": "short",
+  "topic_key": "hl:xyz:SOXL:hip3_top",
+  "angle": "現物SOXXが-0.50%と軟調な中、HyperliquidのSOXL先物は+7.74%と逆行。資金調達率も年率-313.1%と極端なマイナス圏にあり、デリバティブ側で強烈なショートカバーの圧力がかかっています。",
+  "scores": {
+    "novelty": 12,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 88,
+  "fact_ids": [
+    "f41",
+    "f4"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SOXL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SOXL（HIP-3株式等先物） 24時間騰落率+7.74%, 価格33.12, 建玉73440362USD, 24時間出来高473921380USD, 資金調達率(年率)-313.1%",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$33.12",
+        "change_pct": "+7.74%",
+        "oi": "約7,344万ドル",
+        "volume": "約4.7億ドル",
+        "funding_annual": "-313.1%",
+        "asof": "日本時間11/26(木) 12:17時点",
+        "asof_short": "12:17時点"
+      },
+      "raw": {
+        "mark": 33.12,
+        "change_pct": 7.739,
+        "oi_usd": 73440362,
+        "vol_usd": 473921380,
+        "funding_annual_pct": -313.13
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-26T03:17:22.469980+00:00",
+      "confidence": "confirmed",
+      "id": "f41"
+    },
+    {
+      "key": "stock:SOXX:quote",
+      "kind": "stock",
+      "category": "quote",
+      "summary": "SOXX 価格127.98, 前日比-0.50%, 前日終値128.62, 高値128.09, 安値118.18",
+      "fields": {
+        "symbol": "SOXX",
+        "price": "$127.98",
+        "change_pct": "-0.50%",
+        "prev_close": "$128.62",
+        "high": "$128.09",
+        "low": "$118.18",
+        "asof": "米国11/25終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 127.98,
+        "change_pct": -0.498,
+        "prev_close": 128.62
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "SOXX"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/SOXX"
+      },
+      "asof": "2026-11-26T03:17:16.423205+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/SOXX"
+    }
+  ],
+  "needs_human": false,
+  "has_image": true,
+  "tweet_id": "2125791801080758716",
+  "posted_at": "2026-11-26T03:20:35.592338+00:00"
+}

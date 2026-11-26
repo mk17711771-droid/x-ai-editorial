@@ -1,0 +1,68 @@
+[
+  {
+    "fact_ids": [
+      "f1"
+    ],
+    "topic_key": "news:hyperliquid-lists-soxs-perp",
+    "angle": "【速報】Hyperliquidに半導体ベア3倍の「$SOXS」が新規上場。下落局面でのヘッジ手段が拡充され、オンチェーンでの株式Perpのラインナップがさらに強化されています。",
+    "scores": {
+      "novelty": 20,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 19,
+      "insight": 14
+    },
+    "total": 91,
+    "reason": "新規上場という即時性と、下落局面での実用性が非常に高い材料であるため。"
+  },
+  {
+    "fact_ids": [
+      "f39"
+    ],
+    "topic_key": "hl:xyz:SKHX:hip3_top",
+    "angle": "半導体セクターの調整が続く中、SKHX（SKハイニックス先物）の資金調達率が年率-463.1%まで沈下。ショート側の維持コストが異常に高まっており、需給の歪みが極限に達しています。",
+    "scores": {
+      "novelty": 16,
+      "interest": 17,
+      "evidence": 20,
+      "utility": 17,
+      "insight": 18
+    },
+    "total": 88,
+    "reason": "年率-460%超という極端な数字が、市場のショート過熱という歪みを明確に示しているため。"
+  },
+  {
+    "fact_ids": [
+      "f41",
+      "f4"
+    ],
+    "topic_key": "hl:xyz:SOXL:hip3_top",
+    "angle": "現物SOXXが-0.50%と軟調な中、HyperliquidのSOXL先物は+7.74%と逆行。資金調達率も年率-313.1%と極端なマイナス圏にあり、デリバティブ側で強烈なショートカバーの圧力がかかっています。",
+    "scores": {
+      "novelty": 12,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 19
+    },
+    "total": 88,
+    "reason": "現物との逆行と極端な資金調達率は「歪み」の典型例だが、直近の投稿トピックと重複するため新規性を調整。"
+  },
+  {
+    "fact_ids": [
+      "f5",
+      "f23"
+    ],
+    "topic_key": "stock:NVDA:big_move",
+    "angle": "NVDAが-3.91%と下落。S&Pがガバナンスリスクを理由に格下げを警告したとの報道もあり、市場の牽引役だった銘柄の信用リスクに異変が生じています。",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 8,
+      "utility": 15,
+      "insight": 15
+    },
+    "total": 76,
+    "reason": "格下げ警告という衝撃的なニュースだが、未検証の見出しが主材料であるため証拠性を低く評価。"
+  }
+]
