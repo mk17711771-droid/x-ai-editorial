@@ -1,0 +1,70 @@
+[
+  {
+    "fact_ids": [
+      "f5",
+      "f14",
+      "f23"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "SKハイニックス（SKHX）が+3.42%と反発する中で、資金調達率が年率-631.3%という異常なショート過熱を記録。現物の戻りに対してデリバティブ側で強烈な売り圧力が「歪み」として蓄積している。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 94,
+    "reason": "半導体セクターの重要銘柄で年率-600%超えという極端な数字が出ており、現物と先物の需給の乖離が明確。"
+  },
+  {
+    "fact_ids": [
+      "f1",
+      "f25"
+    ],
+    "topic_key": "news:gcex-stock-perps-expansion-spacex-tesla-nvidia",
+    "angle": "英GCEXがSpaceXやNVDAの株式先物提供を開始。伝統金融のオンチェーン化が加速する中、HyperliquidのHIP-3市場でもNVDAが4.5億ドルの出来高を記録し、米株時間外の受け皿として機能している。",
+    "scores": {
+      "novelty": 20,
+      "interest": 18,
+      "evidence": 18,
+      "utility": 17,
+      "insight": 19
+    },
+    "total": 92,
+    "reason": "速報ニュースとHIP-3のリアルタイムデータを結びつけ、市場の構造変化（株式のトークン化・デリバティブ化）を捉えている。"
+  },
+  {
+    "fact_ids": [
+      "f15"
+    ],
+    "topic_key": "hl:xyz:MSTR:funding_extreme",
+    "angle": "マイクロストラテジー（MSTR）の現物が+3.11%の上昇を見せる一方、HIP-3先物の資金調達率は年率-192.8%とショート過熱。BTCの調整を警戒したヘッジ売りが先物側に集中し、価格とコストの逆行が起きている。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 19,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 90,
+    "reason": "注目度の高いMSTRにおいて、現物価格の上昇と先物のマイナス金利という典型的な「歪み」を数字で示せている。"
+  },
+  {
+    "fact_ids": [
+      "f28",
+      "f33"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "安定上位トレーダーのBTC保有比率が「買い1：売り14」と極端に売りに傾斜。さらに24時間で9名がポジションを閉じて利確しており、ランキング上位の「スマートマネー」は上値を追うことに極めて慎重な姿勢。",
+    "scores": {
+      "novelty": 16,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 89,
+    "reason": "アカウントの看板企画。上位勢の具体的な人数と利確の動きを数字で示しており、読者の市場判断に直接的な実用性がある。"
+  }
+]
