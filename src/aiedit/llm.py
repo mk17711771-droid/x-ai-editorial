@@ -102,7 +102,15 @@ def check_models() -> None:
     body = {"systemInstruction": {"parts": [{"text": "JSONで答える"}]},
             "contents": [{"role": "user", "parts": [{"text": '{"ok": true} だけを返して'}]}],
             "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
-    for m in dict.fromkeys([cfg["model"]] + cfg.get("fallback_models", [])):
+    names = []
+    try:
+        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models", params={"key": env("GEMINI_API_KEY"), "pageSize": 200}, timeout=30)
+        names = [m["name"].split("/")[-1] for m in r.json().get("models", []) if "generateContent" in m.get("supportedGenerationMethods", [])]
+        log.info("llm-check 使えるモデル一覧: %s", ", ".join(names))
+    except Exception as e:  # noqa: BLE001
+        log.info("llm-check 一覧の取得に失敗: %s", str(e)[:160])
+    extra = [n for n in names if ("flash" in n or n.startswith("gemma")) and "image" not in n and "tts" not in n and "live" not in n]
+    for m in dict.fromkeys([cfg["model"]] + cfg.get("fallback_models", []) + extra):
         try:
             r = requests.post(API.format(model=m), params={"key": env("GEMINI_API_KEY")}, json=_body_for(m, body), timeout=45)
             out = r.json()["candidates"][0]["content"]["parts"][0]["text"][:80] if r.status_code == 200 else r.text[:160]
