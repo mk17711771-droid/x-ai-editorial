@@ -359,8 +359,11 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     plain = PLACEHOLDER.sub("", template)
     if re.search(r"(建玉|オープンインタレスト|規模|出来高)[^。\n]{0,25}(拡大|増加|膨らん|急増|伸び|積み上が|膨張)", plain) or \
             re.search(r"(拡大|増加|膨らん|急増|積み上が)[^。\n]{0,10}(建玉|オープンインタレスト)", plain):
-        fields_used = {f for _, f in PLACEHOLDER.findall(template)}
-        if not any(f.endswith("change_pct") or f in ("oi_change", "volume_change") for f in fields_used):
+        # 変化の材料は、建玉・出来高を出している材料と同じもの（11/27 07:55 SKHXの建玉を「積み上がっている」と書き、MUの騰落率で通っていた）
+        pairs = PLACEHOLDER.findall(template)
+        oi_ids = {fid for fid, f in pairs if f in ("oi", "volume", "hip3_oi", "total_oi", "total_volume")} or {fid for fid, _ in pairs}
+        fields_used = {f for fid, f in pairs if fid in oi_ids}
+        if not any(f.endswith("change_pct") and f != "change_pct" or f in ("oi_change", "volume_change") for f in fields_used):
             errors.append("建玉・出来高が「拡大・増加・膨らんだ」と書いているが、変化を示す材料（〜の24時間変化など）を使っていない")
     # 箇条書きで同じ数字を繰り返さない（11/14 12:14 SOXLの行が2本、同じ値を並べた）
     bullet_sets = [frozenset(f"{a}.{b}" for a, b in PLACEHOLDER.findall(ln)) for ln in template.split("\n")

@@ -43,3 +43,11 @@ def test_ratio_drop_and_move_need_data():
     facts = {"f28": {"id": "f28", "fields": {"coin": "BTC", "long_ratio": "7%"}}}
     errs = checks.check_template("${{f28.coin}}の反発の裏で、買い比率が{{f28.long_ratio}}まで落ち込んでる。", facts)
     assert any("比率が" in e for e in errs) and any("値動き" in e for e in errs)
+
+
+def test_oi_growth_needs_change_of_same_fact():
+    from aiedit import checks
+    facts = {"f2": {"id": "f2", "fields": {"symbol": "MU", "change_pct": "-4.53%"}},
+             "f9": {"id": "f9", "fields": {"symbol": "SKHX", "oi": "約3.8億ドル"}}}
+    errs = checks.check_template("MUが{{f2.change_pct}}。建玉が{{f9.oi}}まで積み上がっている。", facts)
+    assert any("建玉・出来高" in e for e in errs)
