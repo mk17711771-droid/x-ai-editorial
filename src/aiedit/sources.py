@@ -345,9 +345,10 @@ def trend_digest() -> str:
         # 管理者が選んだ参考アカウント（@yozawape など）の伸びた投稿。型だけを抜き出す
         "reference_account_top_posts": [{k: x.get(k) for k in ("author", "text", "has_media", "likes", "reposts", "bookmarks")}
                                         for x in reference_posts()],
-        "my_recent_posts": [{k: r.get(k) for k in ("text", "impressions", "likes", "bookmarks", "has_image", "format")}
-                            for r in mine][-12:],
     }
+    # 自分の投稿は入れない（11/27 Xの検索が予算で止まっている間、trends.md が自分の投稿の型（【なぜ「歪み」なのか】など）の
+    # 言い換えになり、同じ型を強める堂々巡りになっていた。自分の数字は毎日の分析で別に見る）
+    del mine
     out = llm.generate_json(llm.prompt("trends"), json.dumps(material, ensure_ascii=False), light=True)
     lines = [f"- {s}" for s in (out.get("patterns", []) + out.get("topics", []))[:10]]
     if lines:
