@@ -1,0 +1,77 @@
+{
+  "id": "20261128-0730w-1",
+  "slot_key": "20261128-0730w",
+  "slot_theme": "07:42 週末の朝: 米国市場が閉まっている間に動いたHIP-3株式先物・HYPE・BTCの数字1つ（大きな名前＋極端な数字を1行目で言い切る）",
+  "status": "posted",
+  "created_at": "2026-11-27T22:35:12.151220+00:00",
+  "text": "$SNDKが+12.84%の急騰。なのに資金調達率は年率-153.0%。\n\n日本時間11/28(土) 07:34時点のHIP-3市場でSNDKが跳ねてる。\n現物の+15.96%上昇を追う展開だけど、デリバティブ側はショートが完全に焼き尽くされてるっぽいな。\n\n建玉も約4,600万ドルまで膨らんでるし、この踏み上げはまだ続きそう。",
+  "template": "$SNDKが{{f9.change_pct}}の急騰。なのに資金調達率は年率{{f9.funding_annual}}。\n\n{{f9.asof}}のHIP-3市場で{{f9.symbol}}が跳ねてる。\n現物の{{f9.us_change_pct}}上昇を追う展開だけど、デリバティブ側はショートが完全に焼き尽くされてるっぽいな。\n\n建玉も{{f9.oi}}まで膨らんでるし、この踏み上げはまだ続きそう。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:SNDK:big_move",
+  "angle": "メモリー半導体セクターの反発を主導するサンディスク（$SNDK）がHIP-3先物で12.84%の急騰。現物の15.96%上昇を追う形で、資金調達率も年率-153.0%とショートが焼き尽くされる展開を報じる。",
+  "scores": {
+    "novelty": 18,
+    "interest": 17,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 17
+  },
+  "total": 90,
+  "fact_ids": [
+    "f9"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SNDK:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: SNDK（HIP-3株式等先物） 24時間騰落率+12.84%, 価格85.105, 建玉46004714USD, 24時間出来高139838395USD, 資金調達率(年率)-153.0%（照合: 米国株の前日比+15.96%）",
+      "fields": {
+        "coin": "SNDK",
+        "symbol": "SNDK",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$85.11",
+        "change_pct": "+12.84%",
+        "oi": "約4,600万ドル",
+        "volume": "約1.4億ドル",
+        "funding_annual": "-153.0%",
+        "asof": "日本時間11/28(土) 07:34時点",
+        "asof_short": "07:34時点",
+        "us_change_pct": "+15.96%"
+      },
+      "raw": {
+        "mark": 85.105,
+        "change_pct": 12.841,
+        "oi_usd": 46004714,
+        "vol_usd": 139838395,
+        "funding_annual_pct": -153.04,
+        "us_change_pct": 15.963
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNDK",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+      },
+      "asof": "2026-11-27T22:34:04.122343+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNDK"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview",
+  "has_image": true,
+  "tweet_id": "2126445272607682874",
+  "posted_at": "2026-11-27T22:37:15.351396+00:00"
+}

@@ -1,0 +1,166 @@
+{
+  "id": "20261128-0730w-2",
+  "slot_key": "20261128-0730w",
+  "slot_theme": "07:42 週末の朝: 米国市場が閉まっている間に動いたHIP-3株式先物・HYPE・BTCの数字1つ（大きな名前＋極端な数字を1行目で言い切る）",
+  "status": "superseded",
+  "created_at": "2026-11-27T22:36:15.543886+00:00",
+  "text": "$SNXXの資金調達率が年率-322.3%。これ、えぐいな。\n\n07:34時点で価格が+25.62%跳ねる中、建玉も+30.0%急増。\n週末で現物が動かない分、デリバティブ側の歪みが極端に出てる感じだな。\nショート勢の踏み上げが加速してるっぽい👀",
+  "template": "${{f7.symbol}}の資金調達率が年率{{f7.funding_annual}}。これ、えぐいな。\n\n{{f7.asof_short}}で価格が{{f7.change_pct}}跳ねる中、建玉も{{f20.oi_change_pct}}急増。\n週末で現物が動かない分、デリバティブ側の歪みが極端に出てる感じだな。\nショート勢の踏み上げが加速してるっぽい👀",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:SNXX:big_move",
+  "angle": "24時間で25.62%という驚異的な爆騰を見せた$SNXX。建玉が30%急増する中で資金調達率は年率-322.3%に達しており、週末の薄商いの中で起きた極端なショートスクイーズの可能性を提示する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 16,
+    "evidence": 20,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 89,
+  "fact_ids": [
+    "f7",
+    "f14",
+    "f20"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SNXX:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: SNXX（HIP-3株式等先物） 24時間騰落率+25.62%, 価格1.9065, 建玉3025877USD, 24時間出来高12700239USD, 資金調達率(年率)-322.3%（照合: 米国株の前日比+30.14%）",
+      "fields": {
+        "coin": "SNXX",
+        "symbol": "SNXX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1.91",
+        "change_pct": "+25.62%",
+        "oi": "約303万ドル",
+        "volume": "約1,270万ドル",
+        "funding_annual": "-322.3%",
+        "asof": "日本時間11/28(土) 07:34時点",
+        "asof_short": "07:34時点",
+        "us_change_pct": "+30.14%"
+      },
+      "raw": {
+        "mark": 1.9065,
+        "change_pct": 25.618,
+        "oi_usd": 3025877,
+        "vol_usd": 12700239,
+        "funding_annual_pct": -322.32,
+        "us_change_pct": 30.137
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNXX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNXX"
+      },
+      "asof": "2026-11-27T22:34:04.122312+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    },
+    {
+      "key": "hl:xyz:SNXX:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: SNXX（HIP-3株式等先物） 24時間騰落率+25.62%, 価格1.9065, 建玉3025877USD, 24時間出来高12700239USD, 資金調達率(年率)-322.3%（照合: 米国株の前日比+30.14%）",
+      "fields": {
+        "coin": "SNXX",
+        "symbol": "SNXX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1.91",
+        "change_pct": "+25.62%",
+        "oi": "約303万ドル",
+        "volume": "約1,270万ドル",
+        "funding_annual": "-322.3%",
+        "asof": "日本時間11/28(土) 07:34時点",
+        "asof_short": "07:34時点",
+        "us_change_pct": "+30.14%"
+      },
+      "raw": {
+        "mark": 1.9065,
+        "change_pct": 25.618,
+        "oi_usd": 3025877,
+        "vol_usd": 12700239,
+        "funding_annual_pct": -322.32,
+        "us_change_pct": 30.137
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNXX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNXX"
+      },
+      "asof": "2026-11-27T22:34:04.122427+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    },
+    {
+      "key": "hl:xyz:SNXX:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化+30.0%: SNXX（HIP-3株式等先物） 24時間騰落率+25.62%, 価格1.9065, 建玉3025877USD, 24時間出来高12700239USD, 資金調達率(年率)-322.3%（照合: 米国株の前日比+30.14%）",
+      "fields": {
+        "coin": "SNXX",
+        "symbol": "SNXX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$1.91",
+        "change_pct": "+25.62%",
+        "oi": "約303万ドル",
+        "volume": "約1,270万ドル",
+        "funding_annual": "-322.3%",
+        "asof": "日本時間11/28(土) 07:34時点",
+        "asof_short": "07:34時点",
+        "oi_change_pct": "+30.0%",
+        "us_change_pct": "+30.14%"
+      },
+      "raw": {
+        "mark": 1.9065,
+        "change_pct": 25.618,
+        "oi_usd": 3025877,
+        "vol_usd": 12700239,
+        "funding_annual_pct": -322.32,
+        "us_change_pct": 30.137,
+        "oi_change_pct": 29.98
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SNXX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SNXX"
+      },
+      "asof": "2026-11-27T22:34:04.122567+00:00",
+      "confidence": "confirmed",
+      "id": "f20"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNXX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNXX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SNXX"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview"
+}
