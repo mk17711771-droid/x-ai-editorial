@@ -317,9 +317,17 @@ def us_close_stale(now: datetime | None = None) -> bool:
     days = [d for by_day in closes.values() for d in by_day]
     if not days:
         return False
+    ny = ZoneInfo("America/New_York")
     last = datetime.strptime(max(days), "%Y-%m-%d").date()
-    today_ny = (now or now_utc()).astimezone(ZoneInfo("America/New_York")).date()
-    return (today_ny - last).days >= 2
+    today_ny = (now or now_utc()).astimezone(ny).date()
+    if (today_ny - last).days >= 2:
+        return True
+    # 祝日（11/26 感謝祭）の翌日は日付の差が1日でも、終値から24時間以上たっていて「今の24時間の動き」と期間が重ならない。
+    # 通常の取引日は終値から次の取引開始まで約17.5時間なので、20時間を超えたら古い終値として扱う（11/27 期間の違う対比で10案が破棄）
+    close_at = datetime(last.year, last.month, last.day, 16, 0, tzinfo=ny)
+    now_ny = (now or now_utc()).astimezone(ny)
+    in_session = now_ny.weekday() < 5 and (9, 30) <= (now_ny.hour, now_ny.minute) < (16, 0)  # 取引中は終値がまだ更新されないだけ
+    return not in_session and (now or now_utc()) - close_at >= timedelta(hours=20)
 
 
 def focus_note(now: datetime | None = None) -> str:

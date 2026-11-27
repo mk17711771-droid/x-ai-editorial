@@ -58,3 +58,13 @@ def test_hl_change_not_called_spot():
     facts = {"f16": {"id": "f16", "kind": "hl", "fields": {"venue": "Hyperliquid", "change_pct": "+0.40%", "oi_change_pct": "+58.2%"}}}
     errs = checks.check_template("建玉が{{f16.oi_change_pct}}。現物価格は{{f16.change_pct}}の小動き", facts)
     assert any("現物" in e for e in errs)
+
+
+def test_us_close_stale_after_holiday(monkeypatch):
+    from datetime import datetime, timezone
+    from aiedit import pipeline, store
+    monkeypatch.setattr(store, "read_json", lambda *a, **k: {"MU": {"2026-11-25": 1}})
+    assert pipeline.us_close_stale(datetime(2026, 11, 27, 3, 15, tzinfo=timezone.utc))      # 感謝祭明け 11/27 12:15 JST
+    assert not pipeline.us_close_stale(datetime(2026, 11, 26, 13, 0, tzinfo=timezone.utc))  # 11/25終値の15時間後
+    monkeypatch.setattr(store, "read_json", lambda *a, **k: {"MU": {"2026-11-23": 1}})
+    assert not pipeline.us_close_stale(datetime(2026, 11, 24, 17, 0, tzinfo=timezone.utc))  # 火曜の取引中（NY 12:00）
