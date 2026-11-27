@@ -167,9 +167,45 @@ def _facts_for_llm(facts: list[dict], with_fields: bool) -> str:
     return json.dumps(rows, ensure_ascii=False)
 
 
+def scoreboard_text() -> str:
+    """昨日の数字と、表示が取れた型・取れなかった型（24時間後の表示）。編集長・執筆AIが毎回読み、「昨日を超える」を目標にする。
+    11/27 管理者の指示: 毎日、昨日の数字を超える投稿の仕方をする。ここの数字は投稿文には書かない（投稿の数字は材料からだけ）。"""
+    import statistics
+    metrics = store.read_json("metrics.json", {}) or {}
+    rows = []
+    for p in store.posts():
+        h = (metrics.get(p.get("tweet_id")) or {}).get("24h")
+        if h and not p.get("deleted"):
+            rows.append((p["posted_at_jst"], h.get("impressions") or 0, p["text"].split("\n")[0][:60], p.get("format", "short")))
+    if not rows:
+        return ""
+    days = sorted({r[0][:10] for r in rows})
+    last = days[-1]
+    today = [r for r in rows if r[0][:10] == last]
+    prev = [r for r in rows if len(days) > 1 and r[0][:10] == days[-2]]
+    recent = [r for r in rows if r[0][:10] >= days[max(0, len(days) - 14)]]
+    med = statistics.median([r[1] for r in recent])
+    top = sorted(recent, key=lambda r: -r[1])[:5]
+    low = sorted(recent, key=lambda r: r[1])[:3]
+    out = [f"- 直近の確定した日（{last[5:]}）: {len(today)}件・合計{sum(r[1] for r in today)}表示"
+           + (f"（前の日 {sum(r[1] for r in prev)}表示）" if prev else "") + "。今日はこの合計を超えるのが目標。",
+           f"- 直近2週間の1件あたりの中央値: {med:.0f}表示。これを下回りそうな地味な切り口は選ばない。",
+           "- 表示が取れた1行目（この型・主役・数字の強さに寄せる。文は真似しない）:"]
+    out += [f"  ・{r[1]}表示（{r[0][5:16]}・{r[3]}）「{r[2]}」" for r in top]
+    out += ["- 表示が取れなかった1行目（この型は避ける）:"] + [f"  ・{r[1]}表示「{r[2]}」" for r in low]
+    return "\n".join(out)
+
+
 def with_playbook(prompt: str) -> str:
     """改善AIが成果データから作った運用ノートを、毎回プロンプトに添える。"""
     notes = learn.playbook_text()
+    try:
+        board = scoreboard_text()
+    except Exception as e:  # noqa: BLE001 数字の表が作れなくても投稿は止めない
+        log.warning("数字の表を作れませんでした: %s", e)
+        board = ""
+    if board:
+        prompt += "\n\n# 数字の目標（24時間後の表示。昨日を超える。ここの数字は投稿文に書かない）\n" + board
     if not notes:
         return prompt
     return (prompt + "\n\n# 運用ノート（実際の投稿の反応から学んだこと。上のルールと矛盾する場合は上のルールを優先）\n"
