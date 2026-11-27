@@ -356,6 +356,20 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     if fields_all_small := {f for _, f in PLACEHOLDER.findall(template)} & {"strict_n", "low_leverage_n"}:
         if re.search(r"(人|残った|絞り込まれた)[^。\n]{0,8}(ポジション|建玉|売買|移動|動向|動き)", PLACEHOLDER.sub("◯人", template)):
             errors.append("数人に絞り込んだ上位トレーダーのポジション・売買を追っている（個人の特定につながる。集計だけ扱う）")
+    # 複数の銘柄を並べたあとに、1つの銘柄だけの値（平均レバレッジ・比率など）を銘柄名なしで書かない
+    # （11/27 23:38 BTC・ETH・HYPEを並べたあと「平均レバレッジ{{BTCの値}}で売ってる」: ETH 20.9倍・HYPE 9.0倍なのにBTCの26.6倍だけを全体のように書いた）
+    lines = template.split("\n")
+    listed = {fid for ln in lines if ln.lstrip().startswith(("・", "-", "①", "②", "③")) for fid, _ in PLACEHOLDER.findall(ln)}
+    if len(listed) >= 2:
+        for ln in lines:
+            if ln.lstrip().startswith(("・", "-", "①", "②", "③")):
+                continue
+            for fid, field in PLACEHOLDER.findall(ln):
+                if fid in listed and field in ("avg_leverage", "long_ratio", "short_ratio", "short_usd", "long_usd") \
+                        and not re.search(rf"\{{\{{\s*{fid}\.(coin|symbol)\s*\}}\}}", ln):
+                    sym = (facts.get(fid, {}).get("fields", {}) or {})
+                    if not any(v and str(v) in ln for v in (sym.get("coin"), sym.get("symbol"))):
+                        errors.append(f"複数の銘柄を並べたあと、{fid} だけの値（{field}）を銘柄名なしで全体のように書いている")
     # 比率が「落ち込んだ・上昇した」は、変化の材料があるときだけ（11/26 23:27「買い比率が7%まで落ち込んでる」: 朝は0%で、実際は上がっていた）
     # 値動き（反発・急落など）は、価格か騰落率の材料を使うときだけ（同じ投稿の「$BTCの反発の裏で」に価格の材料がなかった）
     fields_all = {f for _, f in PLACEHOLDER.findall(template)}
@@ -763,3 +777,12 @@ def news_fact_missing(template: str, facts: dict[str, dict]) -> list[str]:
         return []
     used = {fid for fid, field in PLACEHOLDER.findall(template) if fid in news_ids and field in ("headline", "what")}
     return [] if used else ["速報なのに、ニュースの見出し・内容（{{fN.headline}} か {{fN.what}}）を本文で使っていない"]
+
+
+def trader_asof_missing(template: str, facts: dict[str, dict]) -> list[str]:
+    """Xの投稿で上位トレーダーの集計を使うときは時点を書く（11/27 23:38 時点のない集計の投稿）。noteは記事の見出しに時点があるので対象外。"""
+    pairs = PLACEHOLDER.findall(template)
+    if any("cohort" in (facts.get(fid, {}).get("fields", {}) or {}) for fid, _ in pairs) and \
+            not any(f in ("asof", "asof_short") for _, f in pairs) and "時点" not in template:
+        return ["上位トレーダーの集計なのに時点（asof）を書いていない"]
+    return []

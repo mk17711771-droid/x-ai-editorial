@@ -437,6 +437,8 @@ def _write_once(slot: dict, system: str, user: str, used: list[dict], facts_by_i
         errors = checks.check_template(tmpl, usable)
         if not errors and str(topic_key).startswith("news:"):
             errors = checks.news_fact_missing(tmpl, usable)
+        if not errors:
+            errors = checks.trader_asof_missing(tmpl, usable)
         text = checks.render(tmpl, usable) if not errors else tmpl
         if not errors:
             before = text

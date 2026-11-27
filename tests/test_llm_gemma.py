@@ -75,3 +75,12 @@ def test_tiny_trader_cohort_tracking_rejected():
     facts = {"f33": {"id": "f33", "fields": {"strict_n": "2人", "candidates": "300人"}}}
     errs = checks.check_template("上位{{f33.candidates}}のうち{{f33.strict_n}}。③絞り込まれた{{f33.strict_n}}のポジション移動", facts)
     assert any("個人の特定" in e for e in errs)
+
+
+def test_single_coin_value_after_list_rejected():
+    from aiedit import checks
+    mk = lambda c, lev: {"fields": {"coin": c, "cohort": "安定上位トレーダー", "short_n": "5人", "avg_leverage": lev, "asof": "x"}}
+    facts = {"f27": mk("BTC", "26.6倍"), "f28": mk("ETH", "20.9倍")}
+    t = "・$BTC：{{f27.short_n}}\n・{{f28.coin}}：{{f28.short_n}}\n平均レバレッジ{{f27.avg_leverage}}で売ってる。"
+    errs = checks.check_template(t, facts)
+    assert any("銘柄名なし" in e for e in errs) and checks.trader_asof_missing(t, facts)
