@@ -131,7 +131,9 @@ def news_facts(pending_only: bool = False, weekly: bool = False) -> list[dict]:
 
 
 def collect(kind: str, weekly: bool = False, pending_news: bool = False) -> list[dict]:
-    raw = collect_stocks.collect() if kind == "stock" else collect_hyperliquid.collect() + traders.facts()
+    # 11/27〜 Xの投稿では上位トレーダーの集計を材料にしない（11/1〜の7件中6件が誤りで削除・残った1件も94表示で他と同じ。
+    # 「合計…以上」「落ち込んだ」「利確」「2人のポジション」「1銘柄の平均レバレッジを全体のように」）。noteの記事では引き続き使う
+    raw = collect_stocks.collect() if kind == "stock" else collect_hyperliquid.collect() + (traders.facts() if settings().get("x_use_traders", False) else [])
     raw = news_facts(pending_only=pending_news, weekly=weekly) + raw  # 確認済みの速報（あれば最優先の材料）
     if weekly:
         # 週の振り返り: 1週間の値動き（Hyperliquidの主要銘柄・HIP-3と、記録した米国株の終値）
