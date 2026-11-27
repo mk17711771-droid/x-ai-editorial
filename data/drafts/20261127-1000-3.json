@@ -1,0 +1,70 @@
+{
+  "id": "20261127-1000-3",
+  "slot_key": "20261127-1000",
+  "slot_theme": "10:17 Hyperliquidの24時間の異変（建玉・資金調達率・急変動）",
+  "status": "superseded",
+  "created_at": "2026-11-27T01:30:39.592746+00:00",
+  "text": "これ気づいてる人少なそう。$HYPEを持つ安定上位勢5人が全員売りポジションだな。\n\n日本時間11/27(金) 09:36時点で買いは0人に対し売りは5人。ただ4人が現物ヘッジの裁定。単純な弱気じゃなく、構造で抜くプロの動きっぽい。",
+  "template": "これ気づいてる人少なそう。${{f29.coin}}を持つ安定上位勢{{f29.holders}}が全員売りポジションだな。\n\n{{f29.asof}}で買いは{{f29.long_n}}に対し売りは{{f29.short_n}}。ただ{{f29.hedge_n}}が現物ヘッジの裁定。単純な弱気じゃなく、構造で抜くプロの動きっぽい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "traders:HYPE:bias",
+  "angle": "$HYPEを保有する安定上位勢5人全員が売りポジションという事実と、その裏で4人が現物ヘッジ（裁定）を行っている「稼ぎ方の構造」を解説する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 16
+  },
+  "total": 91,
+  "fact_ids": [
+    "f29"
+  ],
+  "facts": [
+    {
+      "kind": "hl",
+      "refresh": null,
+      "confidence": "confirmed",
+      "asof": "2026-11-27T00:36:08.483668+00:00",
+      "source": {
+        "name": "Hyperliquid公開ランキング・ポジション",
+        "url": "https://app.hyperliquid.xyz/leaderboard"
+      },
+      "key": "traders:HYPE:bias",
+      "category": "smart_money",
+      "summary": "安定上位トレーダー39人（60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり）のうち、HYPEを持っている5人の内訳: 買い0人・売り5人（買い比率0%）、買い合計0USD・売り合計295804USD、平均レバレッジ9.0倍（このほか、現物つきの売り＝ヘッジ・裁定が4人。これは方向の偏りに数えていない）",
+      "fields": {
+        "coin": "HYPE",
+        "top_n": "39人",
+        "cohort": "安定上位トレーダー",
+        "cohort_rule": "60日以上プラス・売買が多すぎない・1回の大勝ちに頼らない・直近1週間に売買あり",
+        "holders": "5人",
+        "long_n": "0人",
+        "short_n": "5人",
+        "long_ratio": "0%",
+        "long_usd": "約0ドル",
+        "short_usd": "約30万ドル",
+        "hedge_n": "4人",
+        "avg_leverage": "9.0倍",
+        "asof": "日本時間11/27(金) 09:36時点",
+        "venue": "Hyperliquid"
+      },
+      "raw": {
+        "long_n": 0,
+        "short_n": 5,
+        "long_usd": 0,
+        "short_usd": 295804
+      },
+      "id": "f29"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公開ランキング・ポジション",
+      "url": "https://app.hyperliquid.xyz/leaderboard"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview"
+}

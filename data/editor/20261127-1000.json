@@ -1,0 +1,84 @@
+[
+  {
+    "fact_ids": [
+      "f16"
+    ],
+    "topic_key": "hl:xyz:AMD:oi_change",
+    "angle": "$AMDの現物価格が+0.40%と小動きな一方で、デリバティブの建玉が24時間で58.2%も急増している「嵐の前の静けさ」のような歪みを指摘する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 16
+    },
+    "total": 93,
+    "reason": "大きな名前であるAMDで建玉が5割以上増えるという「量の異変」は非常に注目度が高く、現物との乖離も興味深い。"
+  },
+  {
+    "fact_ids": [
+      "f27",
+      "f32"
+    ],
+    "topic_key": "traders:BTC:bias",
+    "angle": "安定上位トレーダーの15人中14人が売りという極端な偏りと、7人が利確で抜けたという需給の転換点を数字で示す。",
+    "scores": {
+      "novelty": 18,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 93,
+    "reason": "アカウントの看板企画であり、BTCオプション満期を控えたタイミングでの上位勢の「売りへの一致」は読者の関心が極めて高い。"
+  },
+  {
+    "fact_ids": [
+      "f29"
+    ],
+    "topic_key": "traders:HYPE:bias",
+    "angle": "$HYPEを保有する安定上位勢5人全員が売りポジションという事実と、その裏で4人が現物ヘッジ（裁定）を行っている「稼ぎ方の構造」を解説する。",
+    "scores": {
+      "novelty": 18,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 16
+    },
+    "total": 91,
+    "reason": "プラットフォーム銘柄において、単なる方向性ではなく「裁定」で稼ぐプロの動きを可視化している点が実用的。"
+  },
+  {
+    "fact_ids": [
+      "f15",
+      "f21"
+    ],
+    "topic_key": "hl:xyz:SKHX:funding_extreme",
+    "angle": "半導体セクターの$SKHX（SKハイニックス先物）で、ロング側のコストが年率+135.5%まで跳ね上がっている需給の逼迫を伝える。",
+    "scores": {
+      "novelty": 17,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 15
+    },
+    "total": 86,
+    "reason": "半導体関連かつHIP-3の具体的な金利の歪みを示しており、軸に合致した材料。"
+  },
+  {
+    "fact_ids": [
+      "f11"
+    ],
+    "topic_key": "hl:INIT:funding_extreme",
+    "angle": "$INITの+59.14%という急騰の裏で、資金調達率が年率-425.9%という異常なショート過熱（踏み上げ）が起きていることを数字で言い切る。",
+    "scores": {
+      "novelty": 20,
+      "interest": 14,
+      "evidence": 20,
+      "utility": 15,
+      "insight": 15
+    },
+    "total": 84,
+    "reason": "数字のインパクトは最大級だが、銘柄の知名度が低いため、大きな名前に比べると関心度はやや下がる。"
+  }
+]
