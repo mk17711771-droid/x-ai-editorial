@@ -345,6 +345,12 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         errors.append("速報の見出し・説明を文の途中に助詞でつないで埋め込んでいる（文として置くか「」で囲む）")
     if re.search(r"\{\{\s*f\d+\.what\s*\}\}\s*(が|を|は)", template):
         errors.append("速報の説明文（what）を名詞のように「〜が・〜を」で埋め込んでいる（文として使う）")
+    # 「現物」の値動きは、米国株の材料（kind=stock）を使うときだけ。Hyperliquidの先物の騰落率を「現物価格」と書かない
+    # （11/27 10:30「現物価格は{{AMD先物のchange_pct}}の小動きなのに、デリバティブ側だけ」: 両方とも先物の数字だった）
+    for m in re.finditer(r"現物[^。\n]{0,12}\{\{\s*(f\d+)\.change_pct\s*\}\}", template):
+        f = facts.get(m.group(1), {})
+        if f.get("kind") == "hl" or f.get("fields", {}).get("venue") == "Hyperliquid":
+            errors.append(f"Hyperliquidの先物の騰落率（{m.group(1)}）を「現物」の値動きとして書いている")
     # 比率が「落ち込んだ・上昇した」は、変化の材料があるときだけ（11/26 23:27「買い比率が7%まで落ち込んでる」: 朝は0%で、実際は上がっていた）
     # 値動き（反発・急落など）は、価格か騰落率の材料を使うときだけ（同じ投稿の「$BTCの反発の裏で」に価格の材料がなかった）
     fields_all = {f for _, f in PLACEHOLDER.findall(template)}

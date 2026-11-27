@@ -51,3 +51,10 @@ def test_oi_growth_needs_change_of_same_fact():
              "f9": {"id": "f9", "fields": {"symbol": "SKHX", "oi": "約3.8億ドル"}}}
     errs = checks.check_template("MUが{{f2.change_pct}}。建玉が{{f9.oi}}まで積み上がっている。", facts)
     assert any("建玉・出来高" in e for e in errs)
+
+
+def test_hl_change_not_called_spot():
+    from aiedit import checks
+    facts = {"f16": {"id": "f16", "kind": "hl", "fields": {"venue": "Hyperliquid", "change_pct": "+0.40%", "oi_change_pct": "+58.2%"}}}
+    errs = checks.check_template("建玉が{{f16.oi_change_pct}}。現物価格は{{f16.change_pct}}の小動き", facts)
+    assert any("現物" in e for e in errs)
