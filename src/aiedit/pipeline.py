@@ -456,6 +456,7 @@ def _write_drafts(slot: dict, cands: list[dict], key: str, seq: int, facts_by_id
             "facts": w["facts"],
             "sources": [f["source"] for f in w["facts"]],
             "needs_human": needs_human(w),
+            "model": llm.LAST_MODEL,
         }
         store.save_draft(draft)
         drafts.append(draft)

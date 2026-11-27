@@ -9,6 +9,7 @@ import requests
 
 from .common import PROMPTS_DIR, env, log, settings
 
+LAST_MODEL = ""
 API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
 
@@ -85,7 +86,12 @@ def generate_json(system: str, user: str, fast: bool = False, light: bool = Fals
                     # キーの誤りなど、再試行しても直らないエラー
                     raise RuntimeError(f"Gemini APIエラー {r.status_code}（モデル: {model}）: {r.text[:500]}")
                 text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-                return _loads(text)
+                out = _loads(text)
+                global LAST_MODEL
+                LAST_MODEL = model  # どのモデルが書いたかを下書きに残し、モデルごとの質（削除・破棄の多さ）を比べる（11/26 削除が続いた）
+                if model != models[0]:
+                    log.info("Gemini: 予備のモデル %s で応答を得ました", model)
+                return out
             except (requests.RequestException, KeyError, IndexError, json.JSONDecodeError) as e:
                 last_err = e
                 log.warning("Gemini（%s）呼び出し失敗: %s", model, str(e)[:200])
