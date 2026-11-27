@@ -1,0 +1,109 @@
+{
+  "id": "20261127-1215-2",
+  "slot_key": "20261127-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "superseded",
+  "created_at": "2026-11-27T03:44:28.362265+00:00",
+  "text": "$SKHXの資金調達率が年率+64.6%まで跳ね上がってる。\n\n現物のMUが米国11/25終値で-4.53%と沈んだ裏で、HyperliquidのHIP-3株式先物ではメモリ関連へ資金が偏ってるっぽい。\n\nロングの支払いコスト高がどこまで耐えられるか注目だな。",
+  "template": "${{f37.symbol}}の資金調達率が年率{{f37.funding_annual}}まで跳ね上がってる。\n\n現物のMUが{{f9.asof}}で{{f9.change_pct}}と沈んだ裏で、HyperliquidのHIP-3株式先物ではメモリ関連へ資金が偏ってるっぽい。\n\nロングの支払いコスト高がどこまで耐えられるか注目だな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:SKHX:hip3_top",
+  "angle": "$MU（マイクロン）が現物で-4.53%と半導体株の足を引っ張る中、同じメモリ勢の$SKHX（SKハイニックス先物）は+3.97%と独歩高。資金調達率も年率+64.6%と異常な高水準に跳ね上がっており、特定の銘柄に資金が集中する「歪み」が起きています。",
+  "scores": {
+    "novelty": 19,
+    "interest": 17,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 92,
+  "fact_ids": [
+    "f37",
+    "f9"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+3.97%, 価格818.75, 建玉330244692USD, 24時間出来高391158273USD, 資金調達率(年率)+64.6%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$818.75",
+        "change_pct": "+3.97%",
+        "oi": "約3.3億ドル",
+        "volume": "約3.9億ドル",
+        "funding_annual": "+64.6%",
+        "asof": "日本時間11/27(金) 12:40時点",
+        "asof_short": "12:40時点"
+      },
+      "raw": {
+        "mark": 818.75,
+        "change_pct": 3.968,
+        "oi_usd": 330244692,
+        "vol_usd": 391158273,
+        "funding_annual_pct": 64.64
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-27T03:40:59.338968+00:00",
+      "confidence": "confirmed",
+      "id": "f37"
+    },
+    {
+      "key": "stock:MU:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】MU 価格601.25, 前日比-4.53%, 前日終値629.79, 高値604.945, 安値548.13",
+      "fields": {
+        "symbol": "MU",
+        "price": "$601.25",
+        "change_pct": "-4.53%",
+        "prev_close": "$629.79",
+        "high": "$604.95",
+        "low": "$548.13",
+        "asof": "米国11/25終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 601.25,
+        "change_pct": -4.532,
+        "prev_close": 629.79
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "MU"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/MU"
+      },
+      "asof": "2026-11-27T03:40:55.071428+00:00",
+      "confidence": "confirmed",
+      "id": "f9"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/MU"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3.5-flash"
+}

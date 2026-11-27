@@ -1,0 +1,112 @@
+{
+  "id": "20261127-1215-1",
+  "slot_key": "20261127-1215",
+  "slot_theme": "12:26 市場の異変の解説",
+  "status": "posted",
+  "created_at": "2026-11-27T03:42:10.024384+00:00",
+  "text": "$NVDAの現物終値$149.30に対し、先物が$154.86までリバウンドしてる。\n\n米国11/25終値で-3.91%と売られた裏で、Hyperliquidでは12:40時点に+1.40%の逆行高。\n\n建玉約3.6億ドルに対して資金調達率も年率+19.1%。ショートが踏まれてる可能性もありそうだな。",
+  "template": "$NVDAの現物終値{{f4.price}}に対し、先物が{{f39.price}}までリバウンドしてる。\n\n{{f4.asof}}で{{f4.change_pct}}と売られた裏で、{{f39.venue}}では{{f39.asof_short}}に{{f39.change_pct}}の逆行高。\n\n建玉{{f39.oi}}に対して資金調達率も{{f39.funding_annual}}。ショートが踏まれてる可能性もありそうだな。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:NVDA:hip3_top",
+  "angle": "$NVDA 現物が-3.91%と急落して引けた一方で、Hyperliquidの先物市場では+1.40%と明確なリバウンド。現物終値149.3ドルに対し先物は154.86ドルまで買われており、時間外での需給の「ねじれ」が鮮明になっています。",
+  "scores": {
+    "novelty": 18,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 95,
+  "fact_ids": [
+    "f4",
+    "f39"
+  ],
+  "facts": [
+    {
+      "key": "stock:NVDA:big_move",
+      "kind": "stock",
+      "category": "big_move",
+      "summary": "【大きな値動き】NVDA 価格149.3, 前日比-3.91%, 前日終値155.38, 高値150.37, 安値141.17",
+      "fields": {
+        "symbol": "NVDA",
+        "price": "$149.30",
+        "change_pct": "-3.91%",
+        "prev_close": "$155.38",
+        "high": "$150.37",
+        "low": "$141.17",
+        "asof": "米国11/25終値",
+        "basis": "前日終値比"
+      },
+      "raw": {
+        "price": 149.3,
+        "change_pct": -3.913,
+        "prev_close": 155.38
+      },
+      "refresh": {
+        "type": "stock",
+        "symbol": "NVDA"
+      },
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-11-27T03:40:54.663321+00:00",
+      "confidence": "confirmed",
+      "id": "f4"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率+1.40%, 価格154.86, 建玉363103897USD, 24時間出来高179812708USD, 資金調達率(年率)+19.1%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$154.86",
+        "change_pct": "+1.40%",
+        "oi": "約3.6億ドル",
+        "volume": "約1.8億ドル",
+        "funding_annual": "+19.1%",
+        "asof": "日本時間11/27(金) 12:40時点",
+        "asof_short": "12:40時点"
+      },
+      "raw": {
+        "mark": 154.86,
+        "change_pct": 1.401,
+        "oi_usd": 363103897,
+        "vol_usd": 179812708,
+        "funding_annual_pct": 19.05
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-27T03:40:59.339018+00:00",
+      "confidence": "confirmed",
+      "id": "f39"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview",
+  "has_image": true,
+  "tweet_id": "2126160211547193534",
+  "posted_at": "2026-11-27T03:44:31.490907+00:00"
+}
