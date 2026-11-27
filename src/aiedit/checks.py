@@ -351,6 +351,11 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         f = facts.get(m.group(1), {})
         if f.get("kind") == "hl" or f.get("fields", {}).get("venue") == "Hyperliquid":
             errors.append(f"Hyperliquidの先物の騰落率（{m.group(1)}）を「現物」の値動きとして書いている")
+    # 絞り込みで数人だけ残った上位トレーダー（strict_n など）の売買・ポジションを追わない（個人の特定につながる。集計だけ扱う）
+    # （11/27 21:15「絞り込まれた2人のポジション移動」）
+    if fields_all_small := {f for _, f in PLACEHOLDER.findall(template)} & {"strict_n", "low_leverage_n"}:
+        if re.search(r"(人|残った|絞り込まれた)[^。\n]{0,8}(ポジション|建玉|売買|移動|動向|動き)", PLACEHOLDER.sub("◯人", template)):
+            errors.append("数人に絞り込んだ上位トレーダーのポジション・売買を追っている（個人の特定につながる。集計だけ扱う）")
     # 比率が「落ち込んだ・上昇した」は、変化の材料があるときだけ（11/26 23:27「買い比率が7%まで落ち込んでる」: 朝は0%で、実際は上がっていた）
     # 値動き（反発・急落など）は、価格か騰落率の材料を使うときだけ（同じ投稿の「$BTCの反発の裏で」に価格の材料がなかった）
     fields_all = {f for _, f in PLACEHOLDER.findall(template)}

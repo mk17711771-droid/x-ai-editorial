@@ -68,3 +68,10 @@ def test_us_close_stale_after_holiday(monkeypatch):
     assert not pipeline.us_close_stale(datetime(2026, 11, 26, 13, 0, tzinfo=timezone.utc))  # 11/25終値の15時間後
     monkeypatch.setattr(store, "read_json", lambda *a, **k: {"MU": {"2026-11-23": 1}})
     assert not pipeline.us_close_stale(datetime(2026, 11, 24, 17, 0, tzinfo=timezone.utc))  # 火曜の取引中（NY 12:00）
+
+
+def test_tiny_trader_cohort_tracking_rejected():
+    from aiedit import checks
+    facts = {"f33": {"id": "f33", "fields": {"strict_n": "2人", "candidates": "300人"}}}
+    errs = checks.check_template("上位{{f33.candidates}}のうち{{f33.strict_n}}。③絞り込まれた{{f33.strict_n}}のポジション移動", facts)
+    assert any("個人の特定" in e for e in errs)
