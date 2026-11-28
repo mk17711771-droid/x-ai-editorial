@@ -302,7 +302,7 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
             errors.append(f"別々の材料（{m.group(1)}・{m.group(3)}）の値を「から〜へ」で1つの変化のように書いている")
     # 差し込んだ数字に「以上」「超」を付けて大きく見せない／1つの材料の値を「合計」と書かない
     # （11/26 10:46「ETHの10人もSOLの5人も…合計{{BTCの売り額}}以上の売り」: BTCだけの額を3銘柄の合計のように書き、「以上」も付けた）
-    if re.search(r"\{\{\s*f\d+\.\w+\s*\}\}\s*(以上|超え|超)", template):
+    if re.search(r"\{\{\s*f\d+\.\w+\s*\}\}\s*(を)?\s*(以上|超え|超)", template):  # 11/28「+4.52%を超える上昇」
         errors.append("差し込んだ数字に「以上・超」を付けている（材料の値そのままで書く）")
     for m in re.finditer(r"合計\s*\{\{\s*(f\d+)\.(\w+)\s*\}\}", template):
         if not m.group(2).startswith(("total", "sum", "hip3")) and len({f for f, _ in PLACEHOLDER.findall(template)}) > 1:
@@ -347,7 +347,8 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         errors.append("速報の説明文（what）を名詞のように「〜が・〜を」で埋め込んでいる（文として使う）")
     # 「現物」の値動きは、米国株の材料（kind=stock）を使うときだけ。Hyperliquidの先物の騰落率を「現物価格」と書かない
     # （11/27 10:30「現物価格は{{AMD先物のchange_pct}}の小動きなのに、デリバティブ側だけ」: 両方とも先物の数字だった）
-    for m in re.finditer(r"現物[^。\n]{0,12}\{\{\s*(f\d+)\.change_pct\s*\}\}", template):
+    for m in list(re.finditer(r"現物[^。\n]{0,12}\{\{\s*(f\d+)\.(?:week_)?change_pct\s*\}\}", template)) + \
+            list(re.finditer(r"\{\{\s*(f\d+)\.(?:week_)?change_pct\s*\}\}[^。\n]{0,15}現物", template)):
         f = facts.get(m.group(1), {})
         if f.get("kind") == "hl" or f.get("fields", {}).get("venue") == "Hyperliquid":
             errors.append(f"Hyperliquidの先物の騰落率（{m.group(1)}）を「現物」の値動きとして書いている")
@@ -385,7 +386,7 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     # 「建玉が拡大・増加・膨らんでいる」は、変化率の材料（*_change_pct）を使うときだけ（11/14 07:52 建玉合計123.8億ドルを
     # 「規模が一段と拡大」と書いたが、11/8の約146億ドルから減っていた）
     plain = PLACEHOLDER.sub("", template)
-    if re.search(r"(建玉|オープンインタレスト|規模|出来高)[^。\n]{0,25}(拡大|増加|膨らん|急増|伸び|積み上が|膨張)", plain) or \
+    if re.search(r"(建玉|オープンインタレスト|規模|出来高|ポジション)[^。\n]{0,25}(拡大|増加|膨らん|急増|伸び|積み上が|膨張)", plain) or \
             re.search(r"(拡大|増加|膨らん|急増|積み上が)[^。\n]{0,10}(建玉|オープンインタレスト)", plain):
         # 変化の材料は、建玉・出来高を出している材料と同じもの（11/27 07:55 SKHXの建玉を「積み上がっている」と書き、MUの騰落率で通っていた）
         pairs = PLACEHOLDER.findall(template)

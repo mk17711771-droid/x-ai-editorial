@@ -90,3 +90,10 @@ def test_oi_growth_not_supported_by_us_change():
     from aiedit import checks
     facts = {"f9": {"id": "f9", "fields": {"symbol": "SNDK", "oi": "約4,600万ドル", "us_change_pct": "+15.96%"}}}
     assert any("建玉・出来高" in e for e in checks.check_template("現物{{f9.us_change_pct}}。建玉も{{f9.oi}}まで膨らんでる", facts))
+
+
+def test_weekend_long_loopholes():
+    from aiedit import checks
+    facts = {"f6": {"id": "f6", "kind": "hl", "fields": {"venue": "Hyperliquid", "week_change_pct": "+3.90%", "funding_annual": "-9.9%"}}}
+    errs = checks.check_template("指数が週間で{{f6.week_change_pct}}を超える上昇。ショートポジションが積み上がる。②週間{{f6.week_change_pct}}を記録したSP500の現物買い", facts)
+    assert any("以上・超" in e for e in errs) and any("建玉・出来高" in e for e in errs) and any("現物" in e for e in errs)
