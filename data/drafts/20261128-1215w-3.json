@@ -1,0 +1,117 @@
+{
+  "id": "20261128-1215w-3",
+  "slot_key": "20261128-1215w",
+  "slot_theme": "12:26 週末の昼: Hyperliquidの24時間の異変（建玉・資金調達率・急変動）。大きな名前の銘柄を優先",
+  "status": "superseded",
+  "created_at": "2026-11-28T03:07:33.910871+00:00",
+  "text": "SKHXの建玉が-28.3%も急減。価格は+2.99%と堅調なのに、この引き方は異変だな。\n\n12:06時点で出来高約2.7億ドルと活況な中での解消。\n資金調達率が年率+22.8%だし、重いロングの利確が一気に進んだっぽい。\n$SKHX",
+  "template": "{{f17.coin}}の建玉が{{f17.oi_change_pct}}も急減。価格は{{f17.change_pct}}と堅調なのに、この引き方は異変だな。\n\n{{f17.asof_short}}で出来高{{f17.volume}}と活況な中での解消。\n資金調達率が年率{{f17.funding_annual}}だし、重いロングの利確が一気に進んだっぽい。\n${{f17.symbol}}",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:SKHX:oi_change",
+  "angle": "出来高2.7億ドル超と活況なSKハイニックス先物で、建玉が24時間で28.3%急減した利食い・巻き戻しの異変を追う。",
+  "scores": {
+    "novelty": 16,
+    "interest": 16,
+    "evidence": 19,
+    "utility": 16,
+    "insight": 16
+  },
+  "total": 83,
+  "fact_ids": [
+    "f17",
+    "f23"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:SKHX:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化-28.3%: SKHX（HIP-3株式等先物） 24時間騰落率+2.99%, 価格836.21, 建玉236667613USD, 24時間出来高272813582USD, 資金調達率(年率)+22.8%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$836.21",
+        "change_pct": "+2.99%",
+        "oi": "約2.4億ドル",
+        "volume": "約2.7億ドル",
+        "funding_annual": "+22.8%",
+        "asof": "日本時間11/28(土) 12:06時点",
+        "asof_short": "12:06時点",
+        "oi_change_pct": "-28.3%"
+      },
+      "raw": {
+        "mark": 836.21,
+        "change_pct": 2.992,
+        "oi_usd": 236667613,
+        "vol_usd": 272813582,
+        "funding_annual_pct": 22.85,
+        "oi_change_pct": -28.34
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-28T03:06:32.827826+00:00",
+      "confidence": "confirmed",
+      "id": "f17"
+    },
+    {
+      "key": "hl:xyz:SKHX:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SKHX（HIP-3株式等先物） 24時間騰落率+2.99%, 価格836.21, 建玉236667613USD, 24時間出来高272813582USD, 資金調達率(年率)+22.8%",
+      "fields": {
+        "coin": "SKHX",
+        "symbol": "SKHX",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$836.21",
+        "change_pct": "+2.99%",
+        "oi": "約2.4億ドル",
+        "volume": "約2.7億ドル",
+        "funding_annual": "+22.8%",
+        "asof": "日本時間11/28(土) 12:06時点",
+        "asof_short": "12:06時点"
+      },
+      "raw": {
+        "mark": 836.21,
+        "change_pct": 2.992,
+        "oi_usd": 236667613,
+        "vol_usd": 272813582,
+        "funding_annual_pct": 22.85
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SKHX",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+      },
+      "asof": "2026-11-28T03:06:32.827917+00:00",
+      "confidence": "confirmed",
+      "id": "f23"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SKHX"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview"
+}

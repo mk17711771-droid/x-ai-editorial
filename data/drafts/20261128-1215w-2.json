@@ -1,0 +1,74 @@
+{
+  "id": "20261128-1215w-2",
+  "slot_key": "20261128-1215w",
+  "slot_theme": "12:26 週末の昼: Hyperliquidの24時間の異変（建玉・資金調達率・急変動）。大きな名前の銘柄を優先",
+  "status": "superseded",
+  "created_at": "2026-11-28T03:07:22.038564+00:00",
+  "text": "建玉-27.4%の急減。$AMDの先物で異変が起きてる。\n\n日本時間11/28(土) 12:06時点で株式先物（HIP-3）の建玉は約1,959万ドルまで縮小。資金調達率は年率+7.0%だな。\n\n価格が-0.16%と横ばいな中でこれだけ解消されるのは、需給が大きく入れ替わった証拠かも。次の一手に備えてるっぽいな。",
+  "template": "建玉{{f18.oi_change_pct}}の急減。$AMDの先物で異変が起きてる。\n\n{{f18.asof}}で{{f18.market}}の建玉は{{f18.oi}}まで縮小。資金調達率は年率{{f18.funding_annual}}だな。\n\n価格が{{f18.change_pct}}と横ばいな中でこれだけ解消されるのは、需給が大きく入れ替わった証拠かも。次の一手に備えてるっぽいな。",
+  "style": "数字ドン型",
+  "format": "short",
+  "topic_key": "hl:xyz:AMD:oi_change",
+  "angle": "大手半導体株AMDのHIP-3先物において、建玉が24時間で27.4%急減したポジション解消の動きを一言で指摘する。",
+  "scores": {
+    "novelty": 18,
+    "interest": 18,
+    "evidence": 19,
+    "utility": 17,
+    "insight": 17
+  },
+  "total": 89,
+  "fact_ids": [
+    "f18"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:AMD:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化-27.4%: AMD（HIP-3株式等先物） 24時間騰落率-0.16%, 価格424.21, 建玉19586187USD, 24時間出来高29124826USD, 資金調達率(年率)+7.0%",
+      "fields": {
+        "coin": "AMD",
+        "symbol": "AMD",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$424.21",
+        "change_pct": "-0.16%",
+        "oi": "約1,959万ドル",
+        "volume": "約2,912万ドル",
+        "funding_annual": "+7.0%",
+        "asof": "日本時間11/28(土) 12:06時点",
+        "asof_short": "12:06時点",
+        "oi_change_pct": "-27.4%"
+      },
+      "raw": {
+        "mark": 424.21,
+        "change_pct": -0.162,
+        "oi_usd": 19586187,
+        "vol_usd": 29124826,
+        "funding_annual_pct": 6.99,
+        "oi_change_pct": -27.45
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:AMD",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:AMD"
+      },
+      "asof": "2026-11-28T03:06:32.827842+00:00",
+      "confidence": "confirmed",
+      "id": "f18"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:AMD"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview"
+}
