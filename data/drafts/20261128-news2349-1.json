@@ -1,0 +1,150 @@
+{
+  "id": "20261128-news2349-1",
+  "slot_key": "20261128-news2349",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "stale",
+  "created_at": "2026-11-28T14:51:21.301286+00:00",
+  "text": "【速報】Bybit、14.6億ドルのハッキングに関する詳細な事後報告書の公表を拒否。\n\nこの不透明なニュースの裏で、$BLURが-33.80%の急落。\n23:49時点に資金調達率は年率-1546.5%まで沈んだ。\n\n透明なオンチェーン市場に、売り圧力が波及してるっぽいな。",
+  "template": "【速報】{{f1.headline}}。\n\nこの不透明なニュースの裏で、$BLURが{{f11.change_pct}}の急落。\n{{f11.asof_short}}に資金調達率は年率{{f11.funding_annual}}まで沈んだ。\n\n透明なオンチェーン市場に、売り圧力が波及してるっぽいな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "news:bybit-hack-postmortem-refusal",
+  "angle": "Bybitのハッキング報告拒否という不透明なニュースに対し、透明なオンチェーン市場の$BLURで年率-1546.5%という異常なショート過熱（歪み）が発生している状況を突く。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f1",
+    "f11",
+    "f17"
+  ],
+  "facts": [
+    {
+      "key": "news:bybit-hack-postmortem-refusal",
+      "kind": "hl",
+      "asof": "2026-11-28T14:45:52.841446+00:00",
+      "expires_at": "2026-11-30T02:45:52.841458+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-28T14:00:00Z",
+      "summary": "暗号資産取引所のBybitは、過去に発生した14.6億ドル規模のハッキングインシデントに関する完全な事後検証報告書（ポストモーテム）の公表を拒否する姿勢を示した。セキュリティ上の懸念や透明性を巡る議論が再び業界内外で波紋を呼んでいる。",
+      "fields": {
+        "headline": "Bybit、14.6億ドルのハッキングに関する詳細な事後報告書の公表を拒否",
+        "what": "Bybitが大規模ハッキングの完全な事後報告書を出さない方針を表明。",
+        "status": "確定",
+        "who": "Bybit"
+      },
+      "raw": {},
+      "source": {
+        "name": "MLQ.ai・Wisevoter・CoinDesk",
+        "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNTVYwN3NsUFZXV1h5MlctN1FUSUZFUTlydnJlaGNzUlhnNzFwZC1Sb1VkWEJ3MEh5Sk10WFNlU1Y0S0daUUVaeXUzbkhzcWxFaUpETlBMSmd4Z0xFNmExbjhYREU0WkdIMHZsc3ZMcFJqYklXMkgxc2RGLUlMOTZBVzdpYUZ1ZE9tNi1wMnprRUJlUkVQX1JYa00wNzNNQ0d1Ty1FZXJERlpRRFA2dlNjYWo1UDQ2MU1jYnJv?oc=5"
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:BLUR:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: BLUR（無期限先物） 24時間騰落率-33.80%, 価格0.005895, 建玉1023441USD, 24時間出来高7784265USD, 資金調達率(年率)-1546.5%",
+      "fields": {
+        "coin": "BLUR",
+        "symbol": "BLUR",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$0.005895",
+        "change_pct": "-33.80%",
+        "oi": "約102万ドル",
+        "volume": "約778万ドル",
+        "funding_annual": "-1546.5%",
+        "asof": "日本時間11/28(土) 23:49時点",
+        "asof_short": "23:49時点"
+      },
+      "raw": {
+        "mark": 0.005895,
+        "change_pct": -33.801,
+        "oi_usd": 1023441,
+        "vol_usd": 7784265,
+        "funding_annual_pct": -1546.46
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BLUR",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BLUR"
+      },
+      "asof": "2026-11-28T14:49:20.018947+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "hl:BLUR:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化-25.0%: BLUR（無期限先物） 24時間騰落率-33.80%, 価格0.005895, 建玉1023441USD, 24時間出来高7784265USD, 資金調達率(年率)-1546.5%",
+      "fields": {
+        "coin": "BLUR",
+        "symbol": "BLUR",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$0.005895",
+        "change_pct": "-33.80%",
+        "oi": "約102万ドル",
+        "volume": "約778万ドル",
+        "funding_annual": "-1546.5%",
+        "asof": "日本時間11/28(土) 23:49時点",
+        "asof_short": "23:49時点",
+        "oi_change_pct": "-25.0%"
+      },
+      "raw": {
+        "mark": 0.005895,
+        "change_pct": -33.801,
+        "oi_usd": 1023441,
+        "vol_usd": 7784265,
+        "funding_annual_pct": -1546.46,
+        "oi_change_pct": -25.0
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BLUR",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BLUR"
+      },
+      "asof": "2026-11-28T14:49:20.019138+00:00",
+      "confidence": "confirmed",
+      "id": "f17"
+    }
+  ],
+  "sources": [
+    {
+      "name": "MLQ.ai・Wisevoter・CoinDesk",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNTVYwN3NsUFZXV1h5MlctN1FUSUZFUTlydnJlaGNzUlhnNzFwZC1Sb1VkWEJ3MEh5Sk10WFNlU1Y0S0daUUVaeXUzbkhzcWxFaUpETlBMSmd4Z0xFNmExbjhYREU0WkdIMHZsc3ZMcFJqYklXMkgxc2RGLUlMOTZBVzdpYUZ1ZE9tNi1wMnprRUJlUkVQX1JYa00wNzNNQ0d1Ty1FZXJERlpRRFA2dlNjYWo1UDQ2MU1jYnJv?oc=5"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BLUR"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BLUR"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview",
+  "problems": [
+    "BLUR の騰落率が変化（-33.80% → -30.75%）",
+    "BLUR の騰落率が変化（-33.80% → -30.75%）"
+  ]
+}
