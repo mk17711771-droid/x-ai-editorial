@@ -106,3 +106,11 @@ def test_same_market_different_angle_allowed():
     t = "・{{f12.funding_annual}}\n・{{f22.oi}}"
     assert not any("別々の市場" in e for e in checks.check_template(t, facts))
     assert any("別々の市場" in e for e in checks.check_template("・{{f12.funding_annual}}\n・{{f30.oi}}", facts))
+
+
+def test_note_enumeration_count_fixed():
+    from aiedit import note_article
+    t = "注目すべきポイントを3点にまとめます。\n①建玉\n②資金調達率\n\n## 次"
+    assert "2点" in note_article.fix_enumeration_counts(t)
+    ok = "3つの理由。\n①a\n②b\n③c"
+    assert note_article.fix_enumeration_counts(ok) == ok

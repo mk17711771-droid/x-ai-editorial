@@ -156,6 +156,7 @@ def write(theme: str | None = None) -> dict | None:
                 lines_b[k] = re.sub(r"^(\s*)(しかし|また|さらに|一方で|一方|そして|なお|ただし|それでも)、", r"\1", ln)
                 break
         body_t = "\n".join(lines_b)
+        body_t = fix_enumeration_counts(body_t)
         errors = checks.check_template(title_t + "\n" + body_t, by_id)
         if errors:
             continue
@@ -236,6 +237,30 @@ def write(theme: str | None = None) -> dict | None:
     store.write_json(f"note_articles/{article_id}/meta.json", meta)
     notify(meta)
     return meta
+
+
+CIRCLED = "①②③④⑤⑥⑦⑧⑨"
+KANJI_N = {"二": 2, "三": 3, "四": 4, "五": 5}
+
+
+def fix_enumeration_counts(text: str) -> str:
+    """「3点にまとめます」のあとの①②③の数が、文を外したことで減ったら、数を実際に合わせる
+    （11/28 公開した記事で「3点」とあるのに①②だけ。③の文がデータ以外の数字で外されていた）。"""
+    lines = text.split("\n")
+    for i, ln in enumerate(lines):
+        m = re.search(r"([2-9二三四五])(つ|点|個)(に|の|を|で)", ln)
+        if not m:
+            continue
+        stated = int(m.group(1)) if m.group(1).isdigit() else KANJI_N[m.group(1)]
+        found = set()
+        for nxt in [ln] + lines[i + 1:i + 15]:
+            if nxt.startswith("#") and nxt is not ln:
+                break
+            found |= {c for c in CIRCLED if c in nxt}
+        n = len(found)
+        if 0 < n < stated:
+            lines[i] = ln[:m.start(1)] + str(n) + ln[m.end(1):]
+    return "\n".join(lines)
 
 
 def drop_dangling_chart_refs(text: str) -> str:
