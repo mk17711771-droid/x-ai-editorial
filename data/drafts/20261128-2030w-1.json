@@ -1,0 +1,204 @@
+{
+  "id": "20261128-2030w-1",
+  "slot_key": "20261128-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "posted",
+  "created_at": "2026-11-28T12:15:41.182426+00:00",
+  "text": "米国株の休場中に、$INTCとMETAの先物でショートが限界まで積み上がっている\n\n【市場のねじれ】\n現物の流動性が途絶える週末、24時間動くHyperliquidの株式先物（HIP-3）が先行指標として機能し、特定のセクターで深刻な需給の不均衡を露呈させている。\n\n【数字で見る】（日本時間11/28(土) 21:14時点）\n・INTC 先物価格$56.69, 24時間騰落率-0.01%, 建玉約6,233万ドル, 資金調達率(年率)-148.8%\n・META 先物価格$623.01, 24時間騰落率-1.11%, 建玉約4,652万ドル, 資金調達率(年率)-170.1%\n・NVDA 先物価格$147.42, 24時間騰落率-3.28%, 建玉約3.6億ドル, 資金調達率(年率)-0.1%\n\n【なぜ「歪み」なのか】\n通常、週末の先物市場は静かだが、今回はINTCで年率-148.8%、METAで年率-170.1%という、常軌を逸したショートの過熱が見られる。一方で、同じ半導体セクターでもNVDAの資金調達率は年率-0.1%とほぼフラットであり、売り圧力が特定の銘柄にだけ選別的に突き刺さっている構造が浮き彫りになっている。現物が閉まっているため、この「歪み」を解消する裁定取引が働かず、オンチェーン上だけで需給が煮詰まっている状態だ。週明けの米国市場オープン時に、これらのショートがどう巻き戻されるかが焦点になると個人的には見ている。\n\n【次に見るポイント】\n①年率-148.8%という異常なコスト負担状態の持続性\n②セクター内で唯一フラットな年率-0.1%を維持するNVDAの相対的な強さ\n③月曜朝の気配値に対するこれら先物価格の影響度",
+  "template": "米国株の休場中に、$INTCと$METAの先物でショートが限界まで積み上がっている\n\n【市場のねじれ】\n現物の流動性が途絶える週末、24時間動くHyperliquidの{{f13.market}}が先行指標として機能し、特定のセクターで深刻な需給の不均衡を露呈させている。\n\n【数字で見る】（{{f14.asof}}）\n・$INTC 先物価格{{f14.price}}, 24時間騰落率{{f14.change_pct}}, 建玉{{f14.oi}}, 資金調達率(年率){{f14.funding_annual}}\n・$META 先物価格{{f13.price}}, 24時間騰落率{{f13.change_pct}}, 建玉{{f13.oi}}, 資金調達率(年率){{f13.funding_annual}}\n・$NVDA 先物価格{{f23.price}}, 24時間騰落率{{f23.change_pct}}, 建玉{{f23.oi}}, 資金調達率(年率){{f23.funding_annual}}\n\n【なぜ「歪み」なのか】\n通常、週末の先物市場は静かだが、今回はINTCで年率{{f14.funding_annual}}、METAで年率{{f13.funding_annual}}という、常軌を逸したショートの過熱が見られる。一方で、同じ半導体セクターでもNVDAの資金調達率は年率{{f23.funding_annual}}とほぼフラットであり、売り圧力が特定の銘柄にだけ選別的に突き刺さっている構造が浮き彫りになっている。現物が閉まっているため、この「歪み」を解消する裁定取引が働かず、オンチェーン上だけで需給が煮詰まっている状態だ。週明けの米国市場オープン時に、これらのショートがどう巻き戻されるかが焦点になると個人的には見ている。\n\n【次に見るポイント】\n①年率{{f14.funding_annual}}という異常なコスト負担状態の持続性\n②セクター内で唯一フラットな{{f23.funding_annual}}を維持するNVDAの相対的な強さ\n③月曜朝の気配値に対するこれら先物価格の影響度",
+  "style": "構造解説型",
+  "format": "long",
+  "topic_key": "hl:xyz:META:funding_extreme",
+  "angle": "米国市場が休場・閉場している週末に、HyperliquidのHIP-3株式先物でMETA（年率-170.1%）やINTC（-148.8%）に極端なショートの偏りが発生。現物の動きが止まっている間に、なぜこれほどの「歪み」が生まれているのか。週明けの米国株オープンに向けた需給の先行指標として分析する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 19,
+    "insight": 19
+  },
+  "total": 97,
+  "fact_ids": [
+    "f13",
+    "f14",
+    "f22",
+    "f23"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:META:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: META（HIP-3株式等先物） 24時間騰落率-1.11%, 価格623.01, 建玉46522292USD, 24時間出来高15536875USD, 資金調達率(年率)-170.1%",
+      "fields": {
+        "coin": "META",
+        "symbol": "META",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$623.01",
+        "change_pct": "-1.11%",
+        "oi": "約4,652万ドル",
+        "volume": "約1,554万ドル",
+        "funding_annual": "-170.1%",
+        "asof": "日本時間11/28(土) 21:14時点",
+        "asof_short": "21:14時点"
+      },
+      "raw": {
+        "mark": 623.01,
+        "change_pct": -1.114,
+        "oi_usd": 46522292,
+        "vol_usd": 15536875,
+        "funding_annual_pct": -170.12
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:META",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:META"
+      },
+      "asof": "2026-11-28T12:14:17.517020+00:00",
+      "confidence": "confirmed",
+      "id": "f13"
+    },
+    {
+      "key": "hl:xyz:INTC:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: INTC（HIP-3株式等先物） 24時間騰落率-0.01%, 価格56.686, 建玉62327522USD, 24時間出来高13758633USD, 資金調達率(年率)-148.8%",
+      "fields": {
+        "coin": "INTC",
+        "symbol": "INTC",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$56.69",
+        "change_pct": "-0.01%",
+        "oi": "約6,233万ドル",
+        "volume": "約1,376万ドル",
+        "funding_annual": "-148.8%",
+        "asof": "日本時間11/28(土) 21:14時点",
+        "asof_short": "21:14時点"
+      },
+      "raw": {
+        "mark": 56.686,
+        "change_pct": -0.011,
+        "oi_usd": 62327522,
+        "vol_usd": 13758633,
+        "funding_annual_pct": -148.77
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:INTC",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+      },
+      "asof": "2026-11-28T12:14:17.517046+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    },
+    {
+      "key": "hl:xyz:SOXL:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SOXL（HIP-3株式等先物） 24時間騰落率+0.66%, 価格36.036, 建玉113437747USD, 24時間出来高204799915USD, 資金調達率(年率)-29.5%",
+      "fields": {
+        "coin": "SOXL",
+        "symbol": "SOXL",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$36.04",
+        "change_pct": "+0.66%",
+        "oi": "約1.1億ドル",
+        "volume": "約2.0億ドル",
+        "funding_annual": "-29.5%",
+        "asof": "日本時間11/28(土) 21:14時点",
+        "asof_short": "21:14時点"
+      },
+      "raw": {
+        "mark": 36.036,
+        "change_pct": 0.662,
+        "oi_usd": 113437747,
+        "vol_usd": 204799915,
+        "funding_annual_pct": -29.52
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SOXL",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+      },
+      "asof": "2026-11-28T12:14:17.517299+00:00",
+      "confidence": "confirmed",
+      "id": "f22"
+    },
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-3.28%, 価格147.42, 建玉357809109USD, 24時間出来高173615605USD, 資金調達率(年率)-0.1%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$147.42",
+        "change_pct": "-3.28%",
+        "oi": "約3.6億ドル",
+        "volume": "約1.7億ドル",
+        "funding_annual": "-0.1%",
+        "asof": "日本時間11/28(土) 21:14時点",
+        "asof_short": "21:14時点"
+      },
+      "raw": {
+        "mark": 147.42,
+        "change_pct": -3.28,
+        "oi_usd": 357809109,
+        "vol_usd": 173615605,
+        "funding_annual_pct": -0.11
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-28T12:14:17.517322+00:00",
+      "confidence": "confirmed",
+      "id": "f23"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:META"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:INTC"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SOXL"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview",
+  "has_image": true,
+  "tweet_id": "2126651628178555243",
+  "posted_at": "2026-11-28T12:17:14.332929+00:00"
+}

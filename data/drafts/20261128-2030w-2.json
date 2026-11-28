@@ -1,0 +1,248 @@
+{
+  "id": "20261128-2030w-2",
+  "slot_key": "20261128-2030w",
+  "slot_theme": "20:47 週末考察（長文）: Hyperliquidの資金の流れと、来週見るべきポイント",
+  "status": "superseded",
+  "created_at": "2026-11-28T12:17:09.789798+00:00",
+  "text": "アルトコインが全面安の週末に、なぜ$WLFIだけが-52.28%という急落を見せているのか\n\n【いま起きてること】\nHyperliquidの無期限先物市場において、WLFIが-52.28%の下落を記録する一方で、BLURでは資金調達率が年率-406.9%まで沈み込むなど、特定の銘柄で需給の極端な崩壊が起きている。\n\n【数字で見る】（日本時間11/28(土) 21:14時点）\n・WLFI 価格$0.0195, 24時間騰落率-52.28%\n・WLFI 建玉変化-41.9%\n・BLUR 資金調達率(年率)-406.9%\n・BLUR 建玉変化-25.9%\n\n【なぜ「歪み」なのか】\nWLFIの建玉が-41.9%と急減している点は、価格の下落に伴ってロングポジションが強制清算で剥がれ落ちた可能性が高い。一方でBLURは価格が-30.88%下落する中で、資金調達率が年率-406.9%という異常な水準まで低下している。これは売り圧力が過熱しすぎており、ショート側が維持コストを払いきれなくなる限界に近い状態だと個人的には見ている。清算による建玉の消滅と、コストによるショートの過熱が同時に現れているのが今の歪みだ。\n\n【次に見るポイント】\n①WLFIの建玉減少が止まり、出来高約5,966万ドルが落ち着く水準\n②BLURの年率-406.9%に達したショートコストの反転\n③週末の流動性が薄い時間帯における価格の自律反発",
+  "template": "アルトコインが全面安の週末に、なぜ${{f7.symbol}}だけが{{f7.change_pct}}という急落を見せているのか\n\n【いま起きてること】\nHyperliquidの無期限先物市場において、WLFIが{{f7.change_pct}}の下落を記録する一方で、BLURでは資金調達率が年率{{f12.funding_annual}}まで沈み込むなど、特定の銘柄で需給の極端な崩壊が起きている。\n\n【数字で見る】（{{f7.asof}}）\n・${{f7.symbol}} 価格{{f7.price}}, 24時間騰落率{{f7.change_pct}}\n・${{f7.symbol}} 建玉変化{{f16.oi_change_pct}}\n・${{f8.symbol}} 資金調達率(年率){{f12.funding_annual}}\n・${{f8.symbol}} 建玉変化{{f17.oi_change_pct}}\n\n【なぜ「歪み」なのか】\nWLFIの建玉が{{f16.oi_change_pct}}と急減している点は、価格の下落に伴ってロングポジションが強制清算で剥がれ落ちた可能性が高い。一方でBLURは価格が{{f8.change_pct}}下落する中で、資金調達率が年率{{f12.funding_annual}}という異常な水準まで低下している。これは売り圧力が過熱しすぎており、ショート側が維持コストを払いきれなくなる限界に近い状態だと個人的には見ている。清算による建玉の消滅と、コストによるショートの過熱が同時に現れているのが今の歪みだ。\n\n【次に見るポイント】\n①WLFIの建玉減少が止まり、出来高{{f7.volume}}が落ち着く水準\n②BLURの年率{{f12.funding_annual}}に達したショートコストの反転\n③週末の流動性が薄い時間帯における価格の自律反発",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "hl:WLFI:big_move",
+  "angle": "WLFIの-52.28%急落と建玉の4割減少、さらにBLURの年率-400.9%という異常な資金調達率。特定銘柄で起きている「強制清算の連鎖」と「ショート過熱」の現状を数字で解剖し、アルトコイン市場全体のセンチメント悪化と、来週の底打ちの条件を考察する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 93,
+  "fact_ids": [
+    "f7",
+    "f8",
+    "f12",
+    "f16",
+    "f17"
+  ],
+  "facts": [
+    {
+      "key": "hl:WLFI:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: WLFI（無期限先物） 24時間騰落率-52.28%, 価格0.019536, 建玉6330653USD, 24時間出来高59662809USD, 資金調達率(年率)-34.6%",
+      "fields": {
+        "coin": "WLFI",
+        "symbol": "WLFI",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$0.0195",
+        "change_pct": "-52.28%",
+        "oi": "約633万ドル",
+        "volume": "約5,966万ドル",
+        "funding_annual": "-34.6%",
+        "asof": "日本時間11/28(土) 21:14時点",
+        "asof_short": "21:14時点"
+      },
+      "raw": {
+        "mark": 0.019536,
+        "change_pct": -52.283,
+        "oi_usd": 6330653,
+        "vol_usd": 59662809,
+        "funding_annual_pct": -34.64
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "WLFI",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/WLFI"
+      },
+      "asof": "2026-11-28T12:14:17.516857+00:00",
+      "confidence": "confirmed",
+      "id": "f7"
+    },
+    {
+      "key": "hl:BLUR:big_move",
+      "kind": "hl",
+      "category": "big_move",
+      "summary": "24時間の急変動: BLUR（無期限先物） 24時間騰落率-30.88%, 価格0.005997, 建玉1051723USD, 24時間出来高7763802USD, 資金調達率(年率)-406.9%",
+      "fields": {
+        "coin": "BLUR",
+        "symbol": "BLUR",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$0.005997",
+        "change_pct": "-30.88%",
+        "oi": "約105万ドル",
+        "volume": "約776万ドル",
+        "funding_annual": "-406.9%",
+        "asof": "日本時間11/28(土) 21:14時点",
+        "asof_short": "21:14時点"
+      },
+      "raw": {
+        "mark": 0.005997,
+        "change_pct": -30.878,
+        "oi_usd": 1051723,
+        "vol_usd": 7763802,
+        "funding_annual_pct": -406.85
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BLUR",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BLUR"
+      },
+      "asof": "2026-11-28T12:14:17.516885+00:00",
+      "confidence": "confirmed",
+      "id": "f8"
+    },
+    {
+      "key": "hl:BLUR:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: BLUR（無期限先物） 24時間騰落率-30.88%, 価格0.005997, 建玉1051723USD, 24時間出来高7763802USD, 資金調達率(年率)-406.9%",
+      "fields": {
+        "coin": "BLUR",
+        "symbol": "BLUR",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$0.005997",
+        "change_pct": "-30.88%",
+        "oi": "約105万ドル",
+        "volume": "約776万ドル",
+        "funding_annual": "-406.9%",
+        "asof": "日本時間11/28(土) 21:14時点",
+        "asof_short": "21:14時点"
+      },
+      "raw": {
+        "mark": 0.005997,
+        "change_pct": -30.878,
+        "oi_usd": 1051723,
+        "vol_usd": 7763802,
+        "funding_annual_pct": -406.85
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BLUR",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BLUR"
+      },
+      "asof": "2026-11-28T12:14:17.516996+00:00",
+      "confidence": "confirmed",
+      "id": "f12"
+    },
+    {
+      "key": "hl:WLFI:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化-41.9%: WLFI（無期限先物） 24時間騰落率-52.28%, 価格0.019536, 建玉6330653USD, 24時間出来高59662809USD, 資金調達率(年率)-34.6%",
+      "fields": {
+        "coin": "WLFI",
+        "symbol": "WLFI",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$0.0195",
+        "change_pct": "-52.28%",
+        "oi": "約633万ドル",
+        "volume": "約5,966万ドル",
+        "funding_annual": "-34.6%",
+        "asof": "日本時間11/28(土) 21:14時点",
+        "asof_short": "21:14時点",
+        "oi_change_pct": "-41.9%"
+      },
+      "raw": {
+        "mark": 0.019536,
+        "change_pct": -52.283,
+        "oi_usd": 6330653,
+        "vol_usd": 59662809,
+        "funding_annual_pct": -34.64,
+        "oi_change_pct": -41.94
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "WLFI",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/WLFI"
+      },
+      "asof": "2026-11-28T12:14:17.517130+00:00",
+      "confidence": "confirmed",
+      "id": "f16"
+    },
+    {
+      "key": "hl:BLUR:oi_change",
+      "kind": "hl",
+      "category": "oi_change",
+      "summary": "建玉の24時間変化-25.9%: BLUR（無期限先物） 24時間騰落率-30.88%, 価格0.005997, 建玉1051723USD, 24時間出来高7763802USD, 資金調達率(年率)-406.9%",
+      "fields": {
+        "coin": "BLUR",
+        "symbol": "BLUR",
+        "venue": "Hyperliquid",
+        "market": "無期限先物",
+        "price": "$0.005997",
+        "change_pct": "-30.88%",
+        "oi": "約105万ドル",
+        "volume": "約776万ドル",
+        "funding_annual": "-406.9%",
+        "asof": "日本時間11/28(土) 21:14時点",
+        "asof_short": "21:14時点",
+        "oi_change_pct": "-25.9%"
+      },
+      "raw": {
+        "mark": 0.005997,
+        "change_pct": -30.878,
+        "oi_usd": 1051723,
+        "vol_usd": 7763802,
+        "funding_annual_pct": -406.85,
+        "oi_change_pct": -25.88
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "BLUR",
+        "dex": ""
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/BLUR"
+      },
+      "asof": "2026-11-28T12:14:17.517160+00:00",
+      "confidence": "confirmed",
+      "id": "f17"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/WLFI"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BLUR"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BLUR"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/WLFI"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/BLUR"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview"
+}
