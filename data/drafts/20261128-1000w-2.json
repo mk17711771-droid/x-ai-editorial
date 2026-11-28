@@ -1,0 +1,207 @@
+{
+  "id": "20261128-1000w-2",
+  "slot_key": "20261128-1000w",
+  "slot_theme": "10:17 今週の振り返り（長文）: 1週間でいちばんの“違和感”（大きく上げた・下げた銘柄、明暗）を「なぜ〜？」の問いで主役にし、HIP-3株式先物と米国株の数字で読み解く",
+  "status": "superseded",
+  "created_at": "2026-11-28T01:06:26.492509+00:00",
+  "text": "AI銘柄の明暗が鮮明になった1週間。なぜ$AVGOが-9.90%と売られる中で、PLTRは+12.03%の独歩高を維持できたのか。\n\n【いま起きてること】\nAIセクター内で資金の選別が加速している。主力半導体が調整局面に入る一方で、ソフトウェア銘柄や新規上場案件に資金が逃避する構造的な動きが見られる。\n\n【数字で見る】\n・PLTR 1週間の値動き+12.03%（米国11/27(金)終値）\n・AVGO 1週間の値動き-9.90%（米国11/27(金)終値）\n・NVDA 1週間の値動き+3.09%（米国11/27(金)終値）\n・ANT 24時間騰落率+9.53%（日本時間11/28(土) 10:02時点）\n・NVDA 資金調達率（年率）-50.7%（日本時間11/28(土) 10:02時点）\n\n【なぜ「歪み」なのか】\nAVGOが-9.90%と大きく値を下げる中で、PLTRが+12.03%の上昇を見せているのは、AIの収益化期待がハードウェアからソフトウェアへ移りつつある予兆かもしれない。特にNVDAの先物で資金調達率が年率-50.7%まで沈み込んでいる点は見逃せない。現物は+3.09%のプラスを維持しているが、デリバティブ側では強烈なヘッジ売りが先行している。一方でIPO直後のANTには年率+42.3%という高いコストを払ってでもロングが群がる過熱感があり、セクター内の資金の逃げ場が極端に偏っていると見ている。\n\n【次に見るポイント】\n①NVDAの異常なマイナス金利が解消されるタイミング\n②PLTRの価格$172.17水準での利確売りの有無\n③ANTの建玉約2.5億ドル規模に対する清算リスクの有無",
+  "template": "AI銘柄の明暗が鮮明になった1週間。なぜ${{f11.symbol}}が{{f11.week_change_pct}}と売られる中で、${{f10.symbol}}は{{f10.week_change_pct}}の独歩高を維持できたのか。\n\n【いま起きてること】\nAIセクター内で資金の選別が加速している。主力半導体が調整局面に入る一方で、ソフトウェア銘柄や新規上場案件に資金が逃避する構造的な動きが見られる。\n\n【数字で見る】\n・${{f10.symbol}} 1週間の値動き{{f10.week_change_pct}}（{{f10.asof}}）\n・${{f11.symbol}} 1週間の値動き{{f11.week_change_pct}}（{{f11.asof}}）\n・${{f16.symbol}} 1週間の値動き{{f16.week_change_pct}}（{{f16.asof}}）\n・${{f38.symbol}} 24時間騰落率{{f38.change_pct}}（{{f38.asof}}）\n・${{f29.symbol}} 資金調達率（年率）{{f29.funding_annual}}（{{f29.asof}}）\n\n【なぜ「歪み」なのか】\nAVGOが{{f11.week_change_pct}}と大きく値を下げる中で、PLTRが{{f10.week_change_pct}}の上昇を見せているのは、AIの収益化期待がハードウェアからソフトウェアへ移りつつある予兆かもしれない。特にNVDAの先物で資金調達率が{{f29.funding_annual}}まで沈み込んでいる点は見逃せない。現物は{{f16.week_change_pct}}のプラスを維持しているが、デリバティブ側では強烈なヘッジ売りが先行している。一方でIPO直後のANTには年率{{f38.funding_annual}}という高いコストを払ってでもロングが群がる過熱感があり、セクター内の資金の逃げ場が極端に偏っていると見ている。\n\n【次に見るポイント】\n①NVDAの異常なマイナス金利が解消されるタイミング\n②PLTRの価格{{f10.price}}水準での利確売りの有無\n③ANTの建玉{{f38.oi}}規模に対する清算リスクの有無",
+  "style": "考察型",
+  "format": "long",
+  "topic_key": "stock:PLTR:week_change",
+  "angle": "AI銘柄の明暗が鮮明になった1週間。なぜAVGOが-9.90%と売られる中で、PLTRは+12.03%の独歩高を維持できたのか。IPO直後のANTの過熱感や、NVDAに積み上がる年率-50%超のショート（ヘッジ）から、AIセクター内の資金の逃避先を考察する。",
+  "scores": {
+    "novelty": 17,
+    "interest": 19,
+    "evidence": 18,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 90,
+  "fact_ids": [
+    "f10",
+    "f11",
+    "f16",
+    "f38",
+    "f29"
+  ],
+  "facts": [
+    {
+      "key": "stock:PLTR:week_change",
+      "kind": "stock",
+      "category": "week_change",
+      "summary": "PLTR 1週間の値動き+12.03%（11/19(木)→11/27(金)の終値）",
+      "fields": {
+        "symbol": "PLTR",
+        "week_change_pct": "+12.03%",
+        "price": "$172.17",
+        "basis": "5取引日前の終値比",
+        "period": "11/19(木)〜11/27(金)の終値",
+        "asof": "米国11/27(金)終値"
+      },
+      "raw": {
+        "week_change_pct": 12.031
+      },
+      "refresh": null,
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/PLTR"
+      },
+      "asof": "2026-11-28T01:02:41.349365+00:00",
+      "confidence": "confirmed",
+      "id": "f10"
+    },
+    {
+      "key": "stock:AVGO:week_change",
+      "kind": "stock",
+      "category": "week_change",
+      "summary": "AVGO 1週間の値動き-9.90%（11/19(木)→11/27(金)の終値）",
+      "fields": {
+        "symbol": "AVGO",
+        "week_change_pct": "-9.90%",
+        "price": "$312.34",
+        "basis": "5取引日前の終値比",
+        "period": "11/19(木)〜11/27(金)の終値",
+        "asof": "米国11/27(金)終値"
+      },
+      "raw": {
+        "week_change_pct": -9.898
+      },
+      "refresh": null,
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/AVGO"
+      },
+      "asof": "2026-11-28T01:02:41.348718+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    },
+    {
+      "key": "stock:NVDA:week_change",
+      "kind": "stock",
+      "category": "week_change",
+      "summary": "NVDA 1週間の値動き+3.09%（11/19(木)→11/27(金)の終値）",
+      "fields": {
+        "symbol": "NVDA",
+        "week_change_pct": "+3.09%",
+        "price": "$150.49",
+        "basis": "5取引日前の終値比",
+        "period": "11/19(木)〜11/27(金)の終値",
+        "asof": "米国11/27(金)終値"
+      },
+      "raw": {
+        "week_change_pct": 3.089
+      },
+      "refresh": null,
+      "source": {
+        "name": "Finnhub",
+        "url": "https://finance.yahoo.com/quote/NVDA"
+      },
+      "asof": "2026-11-28T01:02:41.348615+00:00",
+      "confidence": "confirmed",
+      "id": "f16"
+    },
+    {
+      "key": "hl:xyz:ANT:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: ANT（HIP-3株式等先物） 24時間騰落率+9.53%, 価格91.283, 建玉253520864USD, 24時間出来高345135996USD, 資金調達率(年率)+42.3%（照合: 米国株の前日比+10.98%）",
+      "fields": {
+        "coin": "ANT",
+        "symbol": "ANT",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$91.28",
+        "change_pct": "+9.53%",
+        "oi": "約2.5億ドル",
+        "volume": "約3.5億ドル",
+        "funding_annual": "+42.3%",
+        "asof": "日本時間11/28(土) 10:02時点",
+        "asof_short": "10:02時点",
+        "us_change_pct": "+10.98%"
+      },
+      "raw": {
+        "mark": 91.283,
+        "change_pct": 9.528,
+        "oi_usd": 253520864,
+        "vol_usd": 345135996,
+        "funding_annual_pct": 42.34,
+        "us_change_pct": 10.98
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:ANT",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:ANT"
+      },
+      "asof": "2026-11-28T01:02:36.566687+00:00",
+      "confidence": "confirmed",
+      "id": "f38"
+    },
+    {
+      "key": "hl:xyz:NVDA:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: NVDA（HIP-3株式等先物） 24時間騰落率-1.72%, 価格148.59, 建玉365167241USD, 24時間出来高273624246USD, 資金調達率(年率)-50.7%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$148.59",
+        "change_pct": "-1.72%",
+        "oi": "約3.7億ドル",
+        "volume": "約2.7億ドル",
+        "funding_annual": "-50.7%",
+        "asof": "日本時間11/28(土) 10:02時点",
+        "asof_short": "10:02時点"
+      },
+      "raw": {
+        "mark": 148.59,
+        "change_pct": -1.72,
+        "oi_usd": 365167241,
+        "vol_usd": 273624246,
+        "funding_annual_pct": -50.66
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-28T01:02:36.566393+00:00",
+      "confidence": "confirmed",
+      "id": "f29"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/PLTR"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/AVGO"
+    },
+    {
+      "name": "Finnhub",
+      "url": "https://finance.yahoo.com/quote/NVDA"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:ANT"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview"
+}
