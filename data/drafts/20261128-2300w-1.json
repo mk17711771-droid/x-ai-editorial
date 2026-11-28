@@ -1,0 +1,76 @@
+{
+  "id": "20261128-2300w-1",
+  "slot_key": "20261128-2300w",
+  "slot_theme": "23:13 週末の夜: 週明けの米国市場の前に、HIP-3株式先物が示している方向（金曜終値との差・資金調達率の偏り）",
+  "status": "stale",
+  "created_at": "2026-11-28T14:34:21.127352+00:00",
+  "text": "$AMDのHIP-3先物、建玉が約1,938万ドルに達してる。\n\n23:32時点、価格は$420.07で値動きは+0.01%と無風。\nなのに年率コストは-98.4%まで沈んでる。\n\n週明けの現物再開を前に、これだけのコストを払うショートの過熱は歪みだな。",
+  "template": "$AMDのHIP-3先物、建玉が{{f14.oi}}に達してる。\n\n{{f14.asof_short}}、価格は{{f14.price}}で値動きは{{f14.change_pct}}と無風。\nなのに年率コストは{{f14.funding_annual}}まで沈んでる。\n\n週明けの現物再開を前に、これだけのコストを払うショートの過熱は歪みだな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:AMD:funding_extreme",
+  "angle": "週明けの米国市場再開を前に、AMDのHIP-3先物で年率-98.4%という極端なショート過熱（売り手から買い手への支払い）が発生している歪みを突く。",
+  "scores": {
+    "novelty": 19,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 17
+  },
+  "total": 93,
+  "fact_ids": [
+    "f14"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:AMD:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: AMD（HIP-3株式等先物） 24時間騰落率+0.01%, 価格420.07, 建玉19380896USD, 24時間出来高16652623USD, 資金調達率(年率)-98.4%",
+      "fields": {
+        "coin": "AMD",
+        "symbol": "AMD",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$420.07",
+        "change_pct": "+0.01%",
+        "oi": "約1,938万ドル",
+        "volume": "約1,665万ドル",
+        "funding_annual": "-98.4%",
+        "asof": "日本時間11/28(土) 23:32時点",
+        "asof_short": "23:32時点"
+      },
+      "raw": {
+        "mark": 420.07,
+        "change_pct": 0.014,
+        "oi_usd": 19380896,
+        "vol_usd": 16652623,
+        "funding_annual_pct": -98.39
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:AMD",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:AMD"
+      },
+      "asof": "2026-11-28T14:32:50.947960+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:AMD"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview",
+  "problems": [
+    "AMD の騰落率が変化（+0.01% → +2.87%）"
+  ],
+  "refreshed_to": "20261128-2300w-4"
+}

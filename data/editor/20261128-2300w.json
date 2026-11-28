@@ -1,0 +1,67 @@
+[
+  {
+    "fact_ids": [
+      "f14"
+    ],
+    "topic_key": "hl:xyz:AMD:funding_extreme",
+    "angle": "週明けの米国市場再開を前に、AMDのHIP-3先物で年率-98.4%という極端なショート過熱（売り手から買い手への支払い）が発生している歪みを突く。",
+    "scores": {
+      "novelty": 19,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 93,
+    "reason": "AMDという主要銘柄で発生している約100%のマイナス金利は、週明けの需給を占う上で極めて重要な数字であるため。"
+  },
+  {
+    "fact_ids": [
+      "f11"
+    ],
+    "topic_key": "hl:xyz:IREN:funding_extreme",
+    "angle": "BTCが調整する中で、マイニング関連株のIRENに対して年率-462.9%という異常なショートが積み上がっている現状を、市場の「歪み」として紹介する。",
+    "scores": {
+      "novelty": 19,
+      "interest": 18,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 17
+    },
+    "total": 92,
+    "reason": "400%を超える異常な資金調達率は、ショートスクイーズの可能性も含め、読者の知的好奇心を刺激する強い数字であるため。"
+  },
+  {
+    "fact_ids": [
+      "f7",
+      "f15"
+    ],
+    "topic_key": "hl:WLFI:big_move",
+    "angle": "ニュースでも報じられているトランプ関連銘柄WLFIの暴落（-52.18%）を、建玉の急減（-37.2%）というオンチェーンデータと組み合わせて、投げ売りの実態を可視化する。",
+    "scores": {
+      "novelty": 20,
+      "interest": 19,
+      "evidence": 20,
+      "utility": 16,
+      "insight": 16
+    },
+    "total": 91,
+    "reason": "旬のトランプ関連の話題を、Hyperliquidの具体的な暴落率と建玉の変化で裏付けることで、情報の信頼性を高められるため。"
+  },
+  {
+    "fact_ids": [
+      "f23"
+    ],
+    "topic_key": "hl:xyz:NVDA:hip3_top",
+    "angle": "半導体指数が小幅高の中で、NVDAだけが-2.97%と逆行安しており、かつ資金調達率が+23.7%とロング過熱気味である危うさを指摘する。",
+    "scores": {
+      "novelty": 15,
+      "interest": 20,
+      "evidence": 20,
+      "utility": 18,
+      "insight": 18
+    },
+    "total": 91,
+    "reason": "直近にNVDAの投稿があるため新規性は下がるが、指数との逆行とロング過熱の組み合わせは週明けの警戒材料として価値が高い。"
+  }
+]

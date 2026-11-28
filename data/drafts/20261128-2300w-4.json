@@ -1,0 +1,77 @@
+{
+  "id": "20261128-2300w-4",
+  "slot_key": "20261128-2300w",
+  "slot_theme": "23:13 週末の夜: 週明けの米国市場の前に、HIP-3株式先物が示している方向（金曜終値との差・資金調達率の偏り）",
+  "status": "posted",
+  "created_at": "2026-11-28T14:35:45.910616+00:00",
+  "text": "$AMDのHIP-3先物、建玉が約1,938万ドルに達してる。\n\n23:35時点、価格は$419.99で値動きは+2.87%と無風。\nなのに年率コストは-93.2%まで沈んでる。\n\n週明けの現物再開を前に、これだけのコストを払うショートの過熱は歪みだな。",
+  "template": "$AMDのHIP-3先物、建玉が{{f14.oi}}に達してる。\n\n{{f14.asof_short}}、価格は{{f14.price}}で値動きは{{f14.change_pct}}と無風。\nなのに年率コストは{{f14.funding_annual}}まで沈んでる。\n\n週明けの現物再開を前に、これだけのコストを払うショートの過熱は歪みだな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:AMD:funding_extreme",
+  "angle": "週明けの米国市場再開を前に、AMDのHIP-3先物で年率-98.4%という極端なショート過熱（売り手から買い手への支払い）が発生している歪みを突く。",
+  "scores": {
+    "novelty": 19,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 17
+  },
+  "total": 93,
+  "fact_ids": [
+    "f14"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:AMD:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: AMD（HIP-3株式等先物） 24時間騰落率+0.01%, 価格420.07, 建玉19380896USD, 24時間出来高16652623USD, 資金調達率(年率)-98.4%",
+      "fields": {
+        "coin": "AMD",
+        "symbol": "AMD",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$419.99",
+        "change_pct": "+2.87%",
+        "oi": "約1,938万ドル",
+        "volume": "約1,355万ドル",
+        "funding_annual": "-93.2%",
+        "asof": "日本時間11/28(土) 23:35時点",
+        "asof_short": "23:35時点"
+      },
+      "raw": {
+        "mark": 419.99,
+        "change_pct": 2.871,
+        "oi_usd": 19375903,
+        "vol_usd": 13549232,
+        "funding_annual_pct": -93.16
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:AMD",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:AMD"
+      },
+      "asof": "2026-11-28T14:35:45.894653+00:00",
+      "confidence": "confirmed",
+      "id": "f14"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:AMD"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview",
+  "refreshed_from": "20261128-2300w-1",
+  "refresh_count": 1,
+  "has_image": true,
+  "tweet_id": "2126686498250539204",
+  "posted_at": "2026-11-28T14:35:48.031158+00:00"
+}

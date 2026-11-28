@@ -1,0 +1,72 @@
+{
+  "id": "20261128-2300w-2",
+  "slot_key": "20261128-2300w",
+  "slot_theme": "23:13 週末の夜: 週明けの米国市場の前に、HIP-3株式先物が示している方向（金曜終値との差・資金調達率の偏り）",
+  "status": "superseded",
+  "created_at": "2026-11-28T14:35:09.063424+00:00",
+  "text": "$NVDAの先物が23:32時点に-2.97%と逆行安してる。\n\n指数が耐えてる中でこれだけ売られてるのに、資金調達率は年率+23.7%とプラス。\n建玉も約3.6億ドルあるし、ロングが捕まってる感じがして危うい。\nこのコストをいつまで許容できるかが焦点だな。",
+  "template": "$NVDAの先物が{{f23.asof_short}}に{{f23.change_pct}}と逆行安してる。\n\n指数が耐えてる中でこれだけ売られてるのに、資金調達率は{{f23.funding_annual}}とプラス。\n建玉も{{f23.oi}}あるし、ロングが捕まってる感じがして危うい。\nこのコストをいつまで許容できるかが焦点だな。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "hl:xyz:NVDA:hip3_top",
+  "angle": "半導体指数が小幅高の中で、NVDAだけが-2.97%と逆行安しており、かつ資金調達率が+23.7%とロング過熱気味である危うさを指摘する。",
+  "scores": {
+    "novelty": 15,
+    "interest": 20,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 18
+  },
+  "total": 91,
+  "fact_ids": [
+    "f23"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:NVDA:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: NVDA（HIP-3株式等先物） 24時間騰落率-2.97%, 価格147.47, 建玉357333193USD, 24時間出来高161138359USD, 資金調達率(年率)+23.7%",
+      "fields": {
+        "coin": "NVDA",
+        "symbol": "NVDA",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$147.47",
+        "change_pct": "-2.97%",
+        "oi": "約3.6億ドル",
+        "volume": "約1.6億ドル",
+        "funding_annual": "+23.7%",
+        "asof": "日本時間11/28(土) 23:32時点",
+        "asof_short": "23:32時点"
+      },
+      "raw": {
+        "mark": 147.47,
+        "change_pct": -2.967,
+        "oi_usd": 357333193,
+        "vol_usd": 161138359,
+        "funding_annual_pct": 23.7
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:NVDA",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+      },
+      "asof": "2026-11-28T14:32:50.948129+00:00",
+      "confidence": "confirmed",
+      "id": "f23"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:NVDA"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview"
+}

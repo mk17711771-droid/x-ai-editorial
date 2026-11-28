@@ -1,0 +1,72 @@
+{
+  "id": "20261128-2300w-3",
+  "slot_key": "20261128-2300w",
+  "slot_theme": "23:13 週末の夜: 週明けの米国市場の前に、HIP-3株式先物が示している方向（金曜終値との差・資金調達率の偏り）",
+  "status": "superseded",
+  "created_at": "2026-11-28T14:35:45.296610+00:00",
+  "text": "$IREN の先物市場で約1,288万ドルの建玉を巻き込んだ需給のねじれが起きてる。\n\n【数字】（日本時間11/28(土) 23:32時点）\n・価格$13.45\n・騰落率-1.64%\n・資金調達率(年率) -462.9%\n\n【歪み】\n価格は-1.64%の下落なのに、資金調達率が年率-462.9%まで沈み込んでる。",
+  "template": "$IREN の先物市場で {{f11.oi}} の建玉を巻き込んだ需給のねじれが起きてる。\n\n【数字】（{{f11.asof}}）\n・価格 {{f11.price}}\n・騰落率 {{f11.change_pct}}\n・資金調達率(年率) {{f11.funding_annual}}\n\n【歪み】\n価格は {{f11.change_pct}} の下落なのに、資金調達率が年率 {{f11.funding_annual}} まで沈み込んでる。ショート側が巨額のコストを払って売りを維持してるのは、週明けの下落を確信してる層がいるのかも。月曜の寄付きが気になる。",
+  "style": "構造解説型",
+  "format": "short",
+  "topic_key": "hl:xyz:IREN:funding_extreme",
+  "angle": "BTCが調整する中で、マイニング関連株のIRENに対して年率-462.9%という異常なショートが積み上がっている現状を、市場の「歪み」として紹介する。",
+  "scores": {
+    "novelty": 19,
+    "interest": 18,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 17
+  },
+  "total": 92,
+  "fact_ids": [
+    "f11"
+  ],
+  "facts": [
+    {
+      "key": "hl:xyz:IREN:funding_extreme",
+      "kind": "hl",
+      "category": "funding_extreme",
+      "summary": "資金調達率が異常値・ショート過熱（ショートがロングに支払い）: IREN（HIP-3株式等先物） 24時間騰落率-1.64%, 価格13.45, 建玉12882149USD, 24時間出来高7405016USD, 資金調達率(年率)-462.9%",
+      "fields": {
+        "coin": "IREN",
+        "symbol": "IREN",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$13.45",
+        "change_pct": "-1.64%",
+        "oi": "約1,288万ドル",
+        "volume": "約741万ドル",
+        "funding_annual": "-462.9%",
+        "asof": "日本時間11/28(土) 23:32時点",
+        "asof_short": "23:32時点"
+      },
+      "raw": {
+        "mark": 13.45,
+        "change_pct": -1.638,
+        "oi_usd": 12882149,
+        "vol_usd": 7405016,
+        "funding_annual_pct": -462.93
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:IREN",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:IREN"
+      },
+      "asof": "2026-11-28T14:32:50.947914+00:00",
+      "confidence": "confirmed",
+      "id": "f11"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:IREN"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview"
+}
