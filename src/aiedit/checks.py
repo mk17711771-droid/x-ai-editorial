@@ -391,6 +391,14 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         others = [x for x in (_pct(i) for i in {i for i, _ in PLACEHOLDER.findall(template)} if i != fid) if x is not None]
         if mine is not None and mine < 0 and others and mine <= min(others):
             errors.append(f"いちばん大きく下げた銘柄（{fid}）を「強さ・底堅さ」と書いている")
+    # 「無風・小動き・横ばい」と書けるのは騰落率が±1.5%以内のときだけ（11/28 23:35 +2.87%を「無風」）
+    for m in re.finditer(r"\{\{\s*(f\d+)\.change_pct\s*\}\}[^。\n]{0,8}(無風|小動き|横ばい|動いていない|静か)", template):
+        try:
+            v = float(str((facts.get(m.group(1), {}).get("fields") or {}).get("change_pct", "")).replace("%", "").replace("+", ""))
+        except ValueError:
+            continue
+        if abs(v) > 1.5:
+            errors.append(f"{v:+.2f}%の値動きを「{m.group(2)}」と書いている（±1.5%を超える動きは小さくない）")
     # 比率が「落ち込んだ・上昇した」は、変化の材料があるときだけ（11/26 23:27「買い比率が7%まで落ち込んでる」: 朝は0%で、実際は上がっていた）
     # 値動き（反発・急落など）は、価格か騰落率の材料を使うときだけ（同じ投稿の「$BTCの反発の裏で」に価格の材料がなかった）
     fields_all = {f for _, f in PLACEHOLDER.findall(template)}

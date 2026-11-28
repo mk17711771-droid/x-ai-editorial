@@ -122,3 +122,10 @@ def test_weakest_called_strong_and_short_pileup():
     facts = {"f1": mk("INTC", "-0.01%"), "f2": mk("NVDA", "-3.28%")}
     errs = checks.check_template("{{f1.symbol}}でショートが限界まで積み上がっている。{{f1.change_pct}}。NVDAは{{f2.change_pct}}。NVDAの相対的な強さ", facts)
     assert any("強さ" in e for e in errs) and any("建玉・出来高" in e for e in errs)
+
+
+def test_big_move_called_calm():
+    from aiedit import checks
+    facts = {"f1": {"kind": "hl", "fields": {"change_pct": "+2.87%"}}, "f2": {"kind": "hl", "fields": {"change_pct": "+0.40%"}}}
+    assert any("無風" in e for e in checks.check_template("値動きは{{f1.change_pct}}と無風", facts))
+    assert not any("小動き" in e for e in checks.check_template("値動きは{{f2.change_pct}}の小動き", facts))
