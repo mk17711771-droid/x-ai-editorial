@@ -149,6 +149,13 @@ def write(theme: str | None = None) -> dict | None:
         if kept != body_t.split("\n"):
             log.info("数人に絞った上位トレーダーを追う文を外しました")
         body_t = "\n".join(kept)
+        # 文を外したあと、最初の段落が「しかし、」「また、」などで始まると前の文が無いのに話が続く（11/28 記事の冒頭が「しかし、その裏側に…」）
+        lines_b = body_t.split("\n")
+        for k, ln in enumerate(lines_b):
+            if ln.strip() and not ln.lstrip().startswith(("#", "!", "<", "**", "|")):
+                lines_b[k] = re.sub(r"^(\s*)(しかし|また|さらに|一方で|一方|そして|なお|ただし|それでも)、", r"\1", ln)
+                break
+        body_t = "\n".join(lines_b)
         errors = checks.check_template(title_t + "\n" + body_t, by_id)
         if errors:
             continue
