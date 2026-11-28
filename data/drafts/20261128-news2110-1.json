@@ -1,0 +1,147 @@
+{
+  "id": "20261128-news2110-1",
+  "slot_key": "20261128-news2110",
+  "slot_theme": "00:00 速報（確認済みのニュース）と、Hyperliquidの実データで見る市場の反応",
+  "status": "posted",
+  "created_at": "2026-11-28T12:12:55.972371+00:00",
+  "text": "これ気づいてる人少なそう。\n\n「バイナンス、ブータンでのアジア拠点設立に向け原則承認を取得」が出たのに市場は静かだな。\n\n$XYZ100は21:10時点で+0.13%と、ほぼ無反応。\n\n建玉約3.6億ドルで資金調達率は年率+5.5%。\n\n今は材料より指数の重さが意識されてるっぽい。",
+  "template": "これ気づいてる人少なそう。\n\n「{{f1.headline}}」が出たのに市場は静かだな。\n\n${{f5.symbol}}は{{f5.asof_short}}で{{f5.change_pct}}と、ほぼ無反応。\n\n建玉{{f5.oi}}で資金調達率は{{f5.funding_annual}}。\n\n今は材料より指数の重さが意識されてるっぽい。",
+  "style": "気づき型",
+  "format": "short",
+  "topic_key": "news:binance-bhutan-asia-hub",
+  "angle": "バイナンスのアジア拠点拡大という暗号資産市場のポジティブな速報に対し、HIP-3のナスダック100（XYZ100）先物が+0.13%とほぼ無反応な「温度差」を数字で示します。",
+  "scores": {
+    "novelty": 18,
+    "interest": 19,
+    "evidence": 20,
+    "utility": 18,
+    "insight": 19
+  },
+  "total": 94,
+  "fact_ids": [
+    "f1",
+    "f5",
+    "f20"
+  ],
+  "facts": [
+    {
+      "key": "news:binance-bhutan-asia-hub",
+      "kind": "hl",
+      "asof": "2026-11-28T12:05:58.752032+00:00",
+      "expires_at": "2026-11-30T00:05:58.752040+00:00",
+      "status": "pending",
+      "first_reported_at": "2026-11-28T11:44:12Z",
+      "summary": "バイナンスがアジアにおける新たなハブをブータンに設立するため、関係当局から原則承認（予備承認）を獲得したことが報じられた。あわせてブラジルでのフォックスライセンス取得による送金制限の引き上げなど、グローバルでの規制対応と拠点展開の動きが進んでいる。",
+      "fields": {
+        "headline": "バイナンス、ブータンでのアジア拠点設立に向け原則承認を取得",
+        "what": "バイナンスがブータンにアジアハブを設立するための予備承認を獲得し、ブラジルでもライセンスを取得した。",
+        "status": "承認待ち",
+        "who": "Binance"
+      },
+      "raw": {},
+      "source": {
+        "name": "Business Times Bangladesh・Moneycontrol.com・Altcoin Buzz",
+        "url": ""
+      },
+      "category": "breaking_news",
+      "refresh": null,
+      "confidence": "confirmed",
+      "id": "f1"
+    },
+    {
+      "key": "hl:xyz:XYZ100:volume_top",
+      "kind": "hl",
+      "category": "volume_top",
+      "summary": "出来高上位: XYZ100（HIP-3株式等先物） 24時間騰落率+0.13%, 価格26626.0, 建玉360593293USD, 24時間出来高310583446USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "XYZ100",
+        "symbol": "XYZ100",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$26,626",
+        "change_pct": "+0.13%",
+        "oi": "約3.6億ドル",
+        "volume": "約3.1億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/28(土) 21:10時点",
+        "asof_short": "21:10時点"
+      },
+      "raw": {
+        "mark": 26626.0,
+        "change_pct": 0.132,
+        "oi_usd": 360593293,
+        "vol_usd": 310583446,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:XYZ100",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+      },
+      "asof": "2026-11-28T12:10:18.873678+00:00",
+      "confidence": "confirmed",
+      "id": "f5"
+    },
+    {
+      "key": "hl:xyz:SP500:hip3_top",
+      "kind": "hl",
+      "category": "hip3_top",
+      "summary": "HIP-3市場（株式先物など）の出来高上位: SP500（HIP-3株式等先物） 24時間騰落率-0.06%, 価格7285.5, 建玉436138604USD, 24時間出来高237862223USD, 資金調達率(年率)+5.5%",
+      "fields": {
+        "coin": "SP500",
+        "symbol": "SP500",
+        "venue": "Hyperliquid",
+        "market": "株式先物（HIP-3）",
+        "price": "$7,286",
+        "change_pct": "-0.06%",
+        "oi": "約4.4億ドル",
+        "volume": "約2.4億ドル",
+        "funding_annual": "+5.5%",
+        "asof": "日本時間11/28(土) 21:10時点",
+        "asof_short": "21:10時点"
+      },
+      "raw": {
+        "mark": 7285.5,
+        "change_pct": -0.056,
+        "oi_usd": 436138604,
+        "vol_usd": 237862223,
+        "funding_annual_pct": 5.48
+      },
+      "refresh": {
+        "type": "hl_coin",
+        "coin": "xyz:SP500",
+        "dex": "xyz"
+      },
+      "source": {
+        "name": "Hyperliquid公式API",
+        "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+      },
+      "asof": "2026-11-28T12:10:18.873995+00:00",
+      "confidence": "confirmed",
+      "id": "f20"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Business Times Bangladesh・Moneycontrol.com・Altcoin Buzz",
+      "url": ""
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:XYZ100"
+    },
+    {
+      "name": "Hyperliquid公式API",
+      "url": "https://app.hyperliquid.xyz/trade/xyz:SP500"
+    }
+  ],
+  "needs_human": false,
+  "model": "gemini-3-flash-preview",
+  "has_image": true,
+  "tweet_id": "2126650560690397657",
+  "posted_at": "2026-11-28T12:12:59.839827+00:00"
+}
