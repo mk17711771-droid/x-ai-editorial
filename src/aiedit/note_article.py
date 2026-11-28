@@ -139,6 +139,16 @@ def write(theme: str | None = None) -> dict | None:
             continue
         # 文を外したあとに、米国の終値の時点（米国◯/◯終値）をもう一度付ける（11/21 外した文に付いていた時点が消え、全案破棄）
         body_t = checks.add_close_asof(body_t, by_id)
+        # 数人に絞った上位トレーダーのポジションを追う文だけを外す（記事全体は捨てない。11/28 この1文で土曜の記事が作れなかった）
+        kept = []
+        for para in body_t.split("\n"):
+            sents = re.split(r"(?<=。)", para)
+            sents = [x for x in sents if not x or not checks.check_template(x, by_id) or
+                     not any("個人の特定" in e for e in checks.check_template(x, by_id))]
+            kept.append("".join(sents))
+        if kept != body_t.split("\n"):
+            log.info("数人に絞った上位トレーダーを追う文を外しました")
+        body_t = "\n".join(kept)
         errors = checks.check_template(title_t + "\n" + body_t, by_id)
         if errors:
             continue

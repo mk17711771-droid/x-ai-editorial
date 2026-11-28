@@ -353,9 +353,12 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
             errors.append(f"Hyperliquidの先物の騰落率（{m.group(1)}）を「現物」の値動きとして書いている")
     # 絞り込みで数人だけ残った上位トレーダー（strict_n など）の売買・ポジションを追わない（個人の特定につながる。集計だけ扱う）
     # （11/27 21:15「絞り込まれた2人のポジション移動」）
-    if fields_all_small := {f for _, f in PLACEHOLDER.findall(template)} & {"strict_n", "low_leverage_n"}:
-        if re.search(r"(人|残った|絞り込まれた)[^。\n]{0,8}(ポジション|建玉|売買|移動|動向|動き)", PLACEHOLDER.sub("◯人", template)):
+    for sent in re.split(r"(?<=[。\n])", template):
+        if {f for _, f in PLACEHOLDER.findall(sent)} & {"strict_n", "low_leverage_n"} and \
+                re.search(r"(人|残った|絞り込まれた)[^。\n]{0,8}(ポジション|建玉|売買|移動|動向|動き)",
+                          re.sub(r"\{\{\s*f\d+\.(strict_n|low_leverage_n)\s*\}\}", "◯人", sent)):
             errors.append("数人に絞り込んだ上位トレーダーのポジション・売買を追っている（個人の特定につながる。集計だけ扱う）")
+            break
     # 複数の銘柄を並べたあとに、1つの銘柄だけの値（平均レバレッジ・比率など）を銘柄名なしで書かない
     # （11/27 23:38 BTC・ETH・HYPEを並べたあと「平均レバレッジ{{BTCの値}}で売ってる」: ETH 20.9倍・HYPE 9.0倍なのにBTCの26.6倍だけを全体のように書いた）
     lines = template.split("\n")
@@ -388,7 +391,9 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
         pairs = PLACEHOLDER.findall(template)
         oi_ids = {fid for fid, f in pairs if f in ("oi", "volume", "hip3_oi", "total_oi", "total_volume")} or {fid for fid, _ in pairs}
         fields_used = {f for fid, f in pairs if fid in oi_ids}
-        if not any(f.endswith("change_pct") and f != "change_pct" or f in ("oi_change", "volume_change") for f in fields_used):
+        # 価格の騰落率（change_pct・us_change_pct など）は建玉・出来高の増加の根拠にならない（11/28 07:37 us_change_pct で通った）
+        if not any(f in ("oi_change_pct", "volume_change_pct", "hip3_oi_change_pct", "total_oi_change_pct", "oi_change", "volume_change")
+                   for f in fields_used):
             errors.append("建玉・出来高が「拡大・増加・膨らんだ」と書いているが、変化を示す材料（〜の24時間変化など）を使っていない")
     # 箇条書きで同じ数字を繰り返さない（11/14 12:14 SOXLの行が2本、同じ値を並べた）
     bullet_sets = [frozenset(f"{a}.{b}" for a, b in PLACEHOLDER.findall(ln)) for ln in template.split("\n")

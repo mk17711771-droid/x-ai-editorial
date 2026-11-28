@@ -84,3 +84,9 @@ def test_single_coin_value_after_list_rejected():
     t = "・$BTC：{{f27.short_n}}\n・{{f28.coin}}：{{f28.short_n}}\n平均レバレッジ{{f27.avg_leverage}}で売ってる。"
     errs = checks.check_template(t, facts)
     assert any("銘柄名なし" in e for e in errs) and checks.trader_asof_missing(t, facts)
+
+
+def test_oi_growth_not_supported_by_us_change():
+    from aiedit import checks
+    facts = {"f9": {"id": "f9", "fields": {"symbol": "SNDK", "oi": "約4,600万ドル", "us_change_pct": "+15.96%"}}}
+    assert any("建玉・出来高" in e for e in checks.check_template("現物{{f9.us_change_pct}}。建玉も{{f9.oi}}まで膨らんでる", facts))
