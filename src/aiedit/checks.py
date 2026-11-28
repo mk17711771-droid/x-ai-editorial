@@ -441,7 +441,12 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
             if not coin or (facts.get(fid) or {}).get("kind") != "hl":
                 continue
             sym = coin.split(":")[-1].upper()
-            if sym in seen_coin and seen_coin[sym] != fid:
+            # 同じ市場（キーの「hl:xyz:SOXL」部分が同じ）の別の切り口の材料は同じ市場なので並べてよい
+            # （11/28 xyz:SOXL の funding_extreme と hip3_top が「別々の市場」と判定され、案が何度も破棄された）
+            def _mkt(i):
+                k = (facts.get(i) or {}).get("key")
+                return ":".join(str(k).split(":")[:-1]) if k else i  # キーがなければ別の市場として扱う
+            if sym in seen_coin and seen_coin[sym] != fid and _mkt(seen_coin[sym]) != _mkt(fid):
                 errors.append(f"{sym}の別々の市場（{seen_coin[sym]} と {fid}）を並べている。主な市場の1つだけにする")
                 break
             seen_coin.setdefault(sym, fid)

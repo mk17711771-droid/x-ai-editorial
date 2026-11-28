@@ -97,3 +97,12 @@ def test_weekend_long_loopholes():
     facts = {"f6": {"id": "f6", "kind": "hl", "fields": {"venue": "Hyperliquid", "week_change_pct": "+3.90%", "funding_annual": "-9.9%"}}}
     errs = checks.check_template("指数が週間で{{f6.week_change_pct}}を超える上昇。ショートポジションが積み上がる。②週間{{f6.week_change_pct}}を記録したSP500の現物買い", facts)
     assert any("以上・超" in e for e in errs) and any("建玉・出来高" in e for e in errs) and any("現物" in e for e in errs)
+
+
+def test_same_market_different_angle_allowed():
+    from aiedit import checks
+    mk = lambda k: {"kind": "hl", "key": k, "fields": {"coin": "SOXL", "symbol": "SOXL", "oi": "約1.1億ドル", "funding_annual": "+100%"}}
+    facts = {"f12": mk("hl:xyz:SOXL:funding_extreme"), "f22": mk("hl:xyz:SOXL:hip3_top"), "f30": mk("hl:abc:SOXL:hip3_top")}
+    t = "・{{f12.funding_annual}}\n・{{f22.oi}}"
+    assert not any("別々の市場" in e for e in checks.check_template(t, facts))
+    assert any("別々の市場" in e for e in checks.check_template("・{{f12.funding_annual}}\n・{{f30.oi}}", facts))
