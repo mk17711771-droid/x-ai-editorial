@@ -374,6 +374,23 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
                     sym = (facts.get(fid, {}).get("fields", {}) or {})
                     if not any(v and str(v) in ln for v in (sym.get("coin"), sym.get("symbol"))):
                         errors.append(f"複数の銘柄を並べたあと、{fid} だけの値（{field}）を銘柄名なしで全体のように書いている")
+    # 「強さ・底堅さ」と書いた銘柄が、並べた材料の中でいちばん大きく下げていないか（11/28 21:17 -3.28%で一番下げたNVDAを「相対的な強さ」）
+    for m in re.finditer(r"\{\{\s*(f\d+)\.(symbol|coin)\s*\}\}[^。\n]{0,25}(強さ|底堅|堅調|強い)|(?<![A-Z])([A-Z]{2,6})(?![A-Z])[^。\n]{0,25}(相対的な強さ|底堅|堅調)", template):
+        fid = m.group(1)
+        if not fid:
+            sym = m.group(4)
+            fid = next((i for i, f in facts.items() if str((f.get("fields") or {}).get("symbol") or (f.get("fields") or {}).get("coin")) == sym), None)
+        if not fid:
+            continue
+        def _pct(i):
+            try:
+                return float(str((facts[i].get("fields") or {}).get("change_pct", "")).replace("%", "").replace("+", ""))
+            except (KeyError, ValueError):
+                return None
+        mine = _pct(fid)
+        others = [x for x in (_pct(i) for i in {i for i, _ in PLACEHOLDER.findall(template)} if i != fid) if x is not None]
+        if mine is not None and mine < 0 and others and mine <= min(others):
+            errors.append(f"いちばん大きく下げた銘柄（{fid}）を「強さ・底堅さ」と書いている")
     # 比率が「落ち込んだ・上昇した」は、変化の材料があるときだけ（11/26 23:27「買い比率が7%まで落ち込んでる」: 朝は0%で、実際は上がっていた）
     # 値動き（反発・急落など）は、価格か騰落率の材料を使うときだけ（同じ投稿の「$BTCの反発の裏で」に価格の材料がなかった）
     fields_all = {f for _, f in PLACEHOLDER.findall(template)}
@@ -386,7 +403,7 @@ def check_template(template: str, facts: dict[str, dict]) -> list[str]:
     # 「建玉が拡大・増加・膨らんでいる」は、変化率の材料（*_change_pct）を使うときだけ（11/14 07:52 建玉合計123.8億ドルを
     # 「規模が一段と拡大」と書いたが、11/8の約146億ドルから減っていた）
     plain = PLACEHOLDER.sub("", template)
-    if re.search(r"(建玉|オープンインタレスト|規模|出来高|ポジション)[^。\n]{0,25}(拡大|増加|膨らん|急増|伸び|積み上が|膨張)", plain) or \
+    if re.search(r"(建玉|オープンインタレスト|規模|出来高|ポジション|ショート|ロング|売り|買い)[^。\n]{0,25}(拡大|増加|膨らん|急増|伸び|積み上が|膨張)", plain) or \
             re.search(r"(拡大|増加|膨らん|急増|積み上が)[^。\n]{0,10}(建玉|オープンインタレスト)", plain):
         # 変化の材料は、建玉・出来高を出している材料と同じもの（11/27 07:55 SKHXの建玉を「積み上がっている」と書き、MUの騰落率で通っていた）
         pairs = PLACEHOLDER.findall(template)

@@ -114,3 +114,11 @@ def test_note_enumeration_count_fixed():
     assert "2点" in note_article.fix_enumeration_counts(t)
     ok = "3つの理由。\n①a\n②b\n③c"
     assert note_article.fix_enumeration_counts(ok) == ok
+
+
+def test_weakest_called_strong_and_short_pileup():
+    from aiedit import checks
+    mk = lambda sym, c: {"kind": "hl", "fields": {"symbol": sym, "change_pct": c, "funding_annual": "-148.8%"}}
+    facts = {"f1": mk("INTC", "-0.01%"), "f2": mk("NVDA", "-3.28%")}
+    errs = checks.check_template("{{f1.symbol}}でショートが限界まで積み上がっている。{{f1.change_pct}}。NVDAは{{f2.change_pct}}。NVDAの相対的な強さ", facts)
+    assert any("強さ" in e for e in errs) and any("建玉・出来高" in e for e in errs)
